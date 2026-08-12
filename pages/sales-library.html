@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sales Library | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+ --shadow-hover:0 12px 26px rgba(20,10,40,.12);
+ --tint: rgba(69,32,104,.03);
+ --divider: rgba(69,32,104,.10);
+ --ring: 0 0 0 3px rgba(255,16,144,.14);
+
+ --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.section{ margin-top:20px; }
+
+.hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:var(--shadow);
+ position:relative;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:-1px;
+ background:
+ radial-gradient(360px 220px at 18% 15%, rgba(255,16,144,.26), transparent 60%),
+ radial-gradient(420px 260px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+ pointer-events:none;
+}
+.hero-inner{position:relative}
+.hero-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.14);
+ padding:6px 12px;
+ border-radius:999px;
+ font-size:14px;
+ font-weight:900;
+ letter-spacing:.4px;
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 8px;font-size:30px;}
+.hero p{margin:0;opacity:.92;font-size:14px;line-height:1.55;max-width:90ch;}
+
+.section{
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:18px;
+ box-shadow:var(--shadow-soft);
+ padding:16px;
+}
+.section h2{margin:0 0 6px;font-size:18px;}
+.section p{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.55;}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:12px;
+}
+@media(max-width:980px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:14px;
+ background:var(--card);
+ display:flex;
+ flex-direction:row;align-items:center;justify-content:space-between;
+ gap:10px;
+ min-height:170px;
+ transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover{
+ transform:translateY(-2px);
+ box-shadow:var(--shadow-hover);
+ border-color:rgba(69,32,104,.14);
+}
+.card h3{margin:0;font-size:15px;}
+.meta{margin:0;color:var(--muted);font-size:14px;line-height:1.5;}
+
+.pills{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{
+ font-size:14px;
+ font-weight:900;
+ padding:6px 10px;
+ border-radius:999px;
+ border:1px solid rgba(69,32,104,.25);
+ color:var(--primary);
+ background:rgba(69,32,104,.04);
+}
+.pill.hot{
+ border-color:rgba(255,16,144,.35);
+ color:#7a0c44;
+ background:rgba(255,16,144,.08);
+}
+
+.actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+ text-decoration:none;
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ font-size:14px;
+ display:inline-block;
+ border:1px solid transparent;
+ transition:filter .12s ease, transform .12s ease;
+}
+.btn.primary{background:var(--primary);color:#fff;}
+.btn.accent{background:var(--accent);color:#fff;}
+.btn.outline{background:#fff;color:var(--primary);border-color:rgba(69,32,104,.45);}
+.btn:hover{filter:brightness(1.05); transform:translateY(-1px);}
+.btn:active{transform:translateY(0);}
+
+.small{font-size:14px;color:var(--muted);margin-top:10px;}
+
+.searchbar{
+ margin-top:16px;
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:18px;
+ box-shadow:var(--shadow-soft);
+ padding:12px;
+ display:flex;
+ gap:10px;
+ align-items:center;
+}
+.searchbar .icon{
+ width:38px;height:38px;border-radius:14px;
+ display:grid;place-items:center;
+ border:1px solid rgba(69,32,104,.14);
+ background:linear-gradient(180deg, rgba(69,32,104,.04), #fff);
+ color:var(--primary);
+ flex:0 0 auto;
+}
+.searchbar input{
+ width:100%;
+ border:none;
+ outline:none;
+ font-size:15px;
+ padding:10px 8px;
+ background:transparent;
+ color:var(--text);
+}
+.searchbar input::placeholder{color:rgba(110,104,124,.75);}
+.searchbar .clear{
+ border:1px solid rgba(69,32,104,.18);
+ background:#fff;
+ color:var(--primary);
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ cursor:pointer;
+}
+.searchbar .clear:hover{filter:brightness(1.03);}
+
+.results-note{
+ margin:10px 2px 0;
+ font-size:13px;
+ color:var(--muted);
+}
+.hidden{display:none !important;}
+
+.accordion{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;}
+.acc{
+ border:1px solid rgba(69,32,104,.12);
+ border-radius:18px;
+ background:linear-gradient(180deg, rgba(69,32,104,.035), #fff 65%);
+ box-shadow:var(--shadow-soft);
+ overflow:hidden;
+ transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+}
+.acc:hover{
+ transform:translateY(-1px);
+ box-shadow:0 10px 22px rgba(20,10,40,.10);
+}
+.acc summary{
+ list-style:none;
+ cursor:pointer;
+ padding:16px 18px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ position:relative;
+ background:linear-gradient(180deg, rgba(69,32,104,.045), rgba(255,255,255,.0));
+}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary::before{
+ content:"";
+ position:absolute;
+ left:0;
+ top:12px;
+ bottom:12px;
+ width:4px;
+ border-radius:999px;
+ background: rgba(69,32,104,.35);
+ opacity:.55;
+}
+.acc-title{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:2px;}
+.acc-title strong{color:var(--primary);font-size:16px;font-weight:1000;}
+.acc-title span{color:var(--muted);font-size:14px;}
+.acc-right{display:flex;align-items:center;gap:8px;}
+.acc-count{
+ font-size:14px;font-weight:900;
+ padding:6px 10px;border-radius:999px;
+ border:1px solid rgba(69,32,104,.20);
+ color:var(--primary);
+ background:rgba(69,32,104,.035);
+}
+.acc-chevron{
+ width:34px;height:34px;border-radius:12px;
+ display:grid;place-items:center;
+ border:1px solid rgba(69,32,104,.20);
+ color:var(--primary);
+ background:rgba(69,32,104,.03);
+ transition:transform .18s ease, background .18s ease, border-color .18s ease;
+}
+details[open] .acc-chevron{transform:rotate(180deg);}
+details[open] summary{border-bottom:1px solid var(--divider);}
+.acc summary:focus-visible{
+ outline:none;
+ box-shadow:var(--ring);
+ border-radius:14px;
+}
+.acc-body{
+ padding:14px 16px 16px;
+ background: rgba(69,32,104,.015);
+}
+.acc-body .grid{margin-top:10px;}
+.acc-body .card{border-color: rgba(69,32,104,.10); box-shadow:none;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+ <section class="hero">
+ <div class="hero-inner">
+ <div class="hero-badge">Broker University</div>
+ <h1>Sales Library</h1>
+ <p>Presentations, scripts, and client handouts to help you sell with confidence.</p>
+ </div>
+ </section>
+
+ <!-- SEARCH -->
+ <div class="searchbar" role="search" aria-label="Search Sales Library">
+ <div class="icon" aria-hidden="true">🔎</div>
+ <input id="searchInput" type="search" placeholder="Search presentations, scripts, handouts, tags (e.g., IRMAA, Part D, High Impact)..." />
+ <button id="clearBtn" class="clear" type="button">Clear</button>
+ </div>
+ <div id="resultsNote" class="results-note"></div>
+
+ <!-- 1) PRESENTATIONS -->
+ <section class="section" data-section>
+ <h2>Presentations (PPTs)</h2>
+
+ <div class="grid">
+ <div class="card" data-search="medicare in 2026 aep deck ppt inflation reduction act one big beautiful bill presentation">
+ <h3>Medicare in 2026</h3>
+ <div class="pills">
+ <span class="pill hot">AEP Deck</span>
+ <span class="pill">PPT</span>
+ </div>
+ <p class="meta">
+ Medicare changed significantly in 2026 due to the Inflation Reduction Act and the One Big Beautiful Bill.
+ This presentation explains what changed — and why it matters for your clients.
+ </p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://docs.google.com/presentation/d/1U_rSUlUCkmonmIWtLa1MtBM9OJlFMy7A/edit?rtpof=true&sd=true"
+ target="_blank" rel="noopener">
+ Open Presentation
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="medicare employer coverage training gamma active retired 20+ rule sep timing">
+ <h3>Medicare & Employer Coverage</h3>
+ <div class="pills">
+ <span class="pill">Training</span>
+ <span class="pill">Gamma</span>
+ </div>
+ <p class="meta">
+ Explains how Medicare coordinates with employer coverage (active vs retired, 20+ rule, and SEP timing).
+ </p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://gamma.app/docs/hazgszb9yzwtvhr"
+ target="_blank" rel="noopener">
+ Open Presentation
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="irmaa late enrollment penalties training high impact ssa-44 appeals part b part d presentation">
+ <h3>IRMAA & Late Enrollment Penalties</h3>
+ <div class="pills">
+ <span class="pill">Training</span>
+ <span class="pill hot">High Impact</span>
+ </div>
+ <p class="meta">
+ Clear explanation of IRMAA, SSA-44 appeals, and how to prevent late enrollment penalties.
+ </p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://gamma.app/docs/IRMAA-Late-Enrollment-Penalties-Made-Simple-g2psbd0nis6etpe"
+ target="_blank" rel="noopener">
+ Open Presentation
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 2) SCRIPTS -->
+ <section class="section" data-section>
+ <h2>Scripts & Talking Points</h2>
+ <p>Short scripts you can read verbatim when explaining Medicare concepts.</p>
+
+ <div class="grid">
+ <div class="card" data-search="medicare 101 script google doc part a part b coverage options guide clients">
+ <h3>Medicare 101 Script</h3>
+ <div class="pills">
+ <span class="pill">Script</span>
+ <span class="pill">Google Doc</span>
+ </div>
+ <p class="meta">
+ Simple, word-for-word explanation of Part A, Part B, coverage options, and how to guide clients.
+ </p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1sMOPPTI3HozoZz1bljqUXNgC6dn22B-fdMKurD_K2-w/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Script
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="working past 65 employer coverage script google doc 20-employee rule part b timing avoid penalties">
+ <h3>Working Past 65 (Employer Coverage Script)</h3>
+ <div class="pills">
+ <span class="pill">Script</span>
+ <span class="pill">Google Doc</span>
+ </div>
+ <p class="meta">
+ Explains the 20-employee rule, Part B timing, and how to avoid penalties when clients are still working.
+ </p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1WBy9DT8nedpgg2WAMhtU-4cpO4hCcRDe-Z9rP3RzBm4/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Script
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="irmaa late enrollment script high impact google doc ssa-44 appeals part b part d penalties">
+ <h3>IRMAA & Late Enrollment Script</h3>
+ <div class="pills">
+ <span class="pill">Script</span>
+ <span class="pill hot">High Impact</span>
+ </div>
+ <p class="meta">
+ How to explain IRMAA, SSA-44 appeals, and prevent Part B and Part D penalties.
+ </p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://docs.google.com/document/d/1MwCwC9FiNIx2nP6H_ecQRMgnKNowCgsA3efZiEMaL0s/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Script
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 3) HANDOUTS & AGENT TOOLS -->
+ <section class="section" data-section>
+ <h2>Handouts & Agent Tools</h2>
+ <p>Client-ready PDFs and internal tools to help you run confident appointments.</p>
+
+ <div class="accordion">
+
+ <details class="acc" open data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>Client-Facing Tools</strong>
+ <span>Send these PDFs to clients after appointments</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">4</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="enrollment periods quick guide client pdf iep aep oep sep handout">
+ <h3>Enrollment Periods Quick Guide</h3>
+ <div class="pills">
+ <span class="pill">Client</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">One-page guide explaining IEP, AEP, OEP, and common SEPs.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/191Sj_wQCEWdNwM4xWqMrb2tgf-4RSjfX/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Handout
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="irmaa penalties one-pager client pdf high impact ssa-44 reduce irmaa handout">
+ <h3>IRMAA & Penalties One-Pager</h3>
+ <div class="pills">
+ <span class="pill">Client</span>
+ <span class="pill hot">High Impact</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">Simple IRMAA explanation + how to reduce it (SSA-44).</p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://drive.google.com/file/d/1B_3ZwnyA8AMJbaFSNMZPOTw5auWaIfDw/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Handout
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="med supp vs mapd client worksheet client pdf comparison decision checklist">
+ <h3>Med Supp vs MAPD (Client Worksheet)</h3>
+ <div class="pills">
+ <span class="pill">Client</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">Side-by-side comparison + decision checklist.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/1gyQMeG_QHWTZc6CGbqNWjCCEckvebZsv/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Handout
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="medicare enrollment decision tree client pdf handout enrollment pathway decision guide">
+ <h3>Medicare Enrollment Decision Tree</h3>
+ <div class="pills">
+ <span class="pill">Client</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">Decision-tree style handout to help clients understand their Medicare enrollment path.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/1kEJ6EsTEj-QeAFytzu2M0G6U8kzoSI1y/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Handout
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+</details>
+
+<details class="acc" data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>Agent Tools</strong>
+ <span>Internal checklists and field guides</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">2</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="new agent field checklist agent only pdf medicare appointments tool">
+ <h3>New Agent Field Checklist</h3>
+ <div class="pills">
+ <span class="pill hot">Agent Only</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">Step-by-step checklist for Medicare appointments.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/1PenIV4biHMYXr-o5t18QEXhAbwvYTC3g/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Tool
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="part d changes 2026 drug costs cheat sheet agent only pdf tool">
+ <h3>Part D Changes</h3>
+ <div class="pills">
+ <span class="pill hot">Agent Only</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">This document provides a 2026 Drug Costs Cheat Sheet (Part D).</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/1RaY3A-jARei1moeWQHvx8Fu-PuOKdU2L/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Tool
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </div>
+</details>
+
+</div>
+</section>
+
+</div>
+
+<script>
+(function(){
+ const input = document.getElementById('searchInput');
+ const clearBtn = document.getElementById('clearBtn');
+ const note = document.getElementById('resultsNote');
+
+ const sections = Array.from(document.querySelectorAll('[data-section]'));
+ const cards = Array.from(document.querySelectorAll('.card'));
+
+ function normalize(s){
+ return (s || "")
+ .toLowerCase()
+ .replace(/\s+/g,' ')
+ .trim();
+ }
+
+ function update(){
+ const q = normalize(input.value);
+ let visibleCards = 0;
+
+ if(!q){
+ cards.forEach(c => c.classList.remove('hidden'));
+ sections.forEach(s => s.classList.remove('hidden'));
+ note.textContent = "";
+ return;
+ }
+
+ cards.forEach(card => {
+ const hay = normalize(card.getAttribute('data-search')) + " " + normalize(card.innerText);
+ const match = hay.includes(q);
+ card.classList.toggle('hidden', !match);
+ if(match) visibleCards++;
+ });
+
+ sections.forEach(section => {
+ const hasVisible = section.querySelector('.card:not(.hidden)');
+ section.classList.toggle('hidden', !hasVisible);
+ });
+
+ document.querySelectorAll('details[data-accordion]').forEach(det => {
+ const hasVisible = det.querySelector('.card:not(.hidden)');
+ if(hasVisible) det.open = true;
+ });
+
+ note.textContent = visibleCards
+ ? `Showing ${visibleCards} item${visibleCards === 1 ? "" : "s"} for "${input.value.trim()}".`
+ : `No results for "${input.value.trim()}". Try "IRMAA", "Part D", "AEP", or "Worksheet".`;
+ }
+
+ input.addEventListener('input', update);
+ clearBtn.addEventListener('click', () => {
+ input.value = "";
+ input.focus();
+ update();
+ });
+
+ update();
+})();
+</script>
+
+</body>
+</html>

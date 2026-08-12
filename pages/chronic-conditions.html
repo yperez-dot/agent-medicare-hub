@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chronic Condition Eligibility | THEI Agent Hub</title>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) { localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.hero{background:linear-gradient(135deg,#452068,#341751);padding:36px 32px;text-align:center;}
+.hero .badge{display:inline-block;padding:5px 14px;border-radius:999px;background:#FF1090;color:#fff;font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
+.hero h1{font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;}
+.hero p{font-size:14px;color:rgba(255,255,255,.8);}
+.wrap{max-width:860px;margin:0 auto;padding:36px 24px 64px;}
+.search-box{background:#fff;border:2px solid #E7E4ED;border-radius:12px;padding:14px 18px;width:100%;font:400 15px/1 Arial,sans-serif;color:#241C2E;outline:none;margin-bottom:24px;transition:border-color .15s;}
+.search-box:focus{border-color:#452068;}
+.search-box::placeholder{color:#9A94A8;}
+.carrier-block{background:#fff;border:1px solid #E7E4ED;border-radius:14px;margin-bottom:12px;overflow:hidden;}
+.carrier-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;user-select:none;}
+.carrier-header:hover{background:#FAFAFA;}
+.carrier-name{font:700 16px/1 Arial,sans-serif;color:#241C2E;}
+.carrier-count{font:600 12px/1 Arial,sans-serif;color:#452068;background:#F1ECF6;padding:3px 10px;border-radius:999px;}
+.carrier-chevron{color:#9A94A8;font-size:18px;transition:transform .2s;}
+.carrier-chevron.open{transform:rotate(180deg);}
+.carrier-body{display:none;padding:0 22px 20px;}
+.carrier-body.open{display:block;}
+
+/* Agent Process Banner */
+.process-banner{background:#F1ECF6;border-left:3px solid #FF1090;border-radius:8px;padding:14px 16px;margin-bottom:16px;}
+.process-banner .proc-label{font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.8px;color:#9A94A8;margin-bottom:6px;}
+.process-banner .proc-text{font:400 13.5px/1.5 Arial,sans-serif;color:#241C2E;}
+.process-banner.warning .proc-text{font-weight:600;color:#6B2D6B;}
+
+.conditions-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0;}
+.condition-item{padding:8px 0;border-bottom:1px solid #F1ECF6;font:400 13.5px/1.4 Arial,sans-serif;color:#241C2E;display:flex;align-items:flex-start;gap:8px;}
+.condition-item:last-child{border-bottom:none;}
+.condition-item .dot{flex:none;width:6px;height:6px;border-radius:50%;background:#FF1090;margin-top:5px;}
+.match{background:#FFF3A3;}
+.no-results{text-align:center;padding:48px 24px;color:#9A94A8;font-size:14px;}
+@media(max-width:600px){.pill-nav a{font-size:11px;padding:7px 12px;}.wrap{padding:20px 16px 48px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a class='active' href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="badge">SSBCI Reference</div>
+  <h1>Chronic Condition Eligibility</h1>
+  <p>Search by condition to find which carriers qualify a member for Special Supplemental Benefits (food card, OTC, etc.)</p>
+</div>
+
+<div class="wrap">
+  <input class="search-box" type="text" id="search" placeholder="Search a condition — e.g. diabetes, COPD, dementia, cancer…" oninput="doSearch(this.value)"/>
+  <div id="carriers-container"></div>
+</div>
+
+<script>
+const DATA = [
+  {
+    carrier: "CarePlus",
+    process: { text: "Must complete HRA on Humana's Sunfire.", warning: false },
+    conditions: ["Autoimmune disorders","Cancer","Cardiovascular disorders","Chronic alcohol use and other substance use disorders","Chronic and disabling mental health conditions","Chronic gastrointestinal disease","Chronic heart failure","Chronic hyperlipidemia","Chronic hypertension","Chronic kidney disease","Chronic lung disorders","Conditions associated with cognitive impairment","Conditions with functional challenges","Dementia","Diabetes mellitus","HIV/AIDS","Neurologic disorders","Post-organ transplant","Severe hematologic disorders","Stroke"]
+  },
+  {
+    carrier: "Devoted",
+    process: { text: "Agent must enter condition during enrollment process. Nothing else is needed on broker's part.", warning: false },
+    conditions: ["Arthritis, including rheumatoid arthritis or osteoarthritis","Osteoporosis","Asthma","Emphysema","COPD (Chronic obstructive pulmonary disease)","Chronic bronchitis","Pulmonary fibrosis","Pulmonary hypertension","Cardiac arrhythmias","Coronary artery disease","Chronic heart failure (CHF)","Atrial fibrillation (A-Fib)","Valvular Heart Disease","High blood pressure (hypertension)","Varicose veins with ulcers","Peripheral vascular disease","Carotid artery disease","Aortic aneurysm","History of blood clots / deep vein thrombosis","History of stroke","Cancer (any form, not including pre-cancer)","Severe obesity (BMI 40+)","Hepatitis C","Hepatitis B","Lyme disease","Diabetes","Thyroid problems","Addison's Disease","Cushing's Syndrome","End-stage liver disease","Chronic kidney disease (CKD)","End-stage kidney disease (ESRD)","Crohn's disease","Colitis","Inflammatory polyps","High cholesterol","Aplastic anemia","Hemophilia","Sickle-cell disease","Lupus","HIV/AIDS","Alzheimer's disease or dementia","ALS (Lou Gehrig's disease)","Autism spectrum disorder","Epilepsy or seizure disorder","Paralysis","Huntington's disease","Multiple sclerosis (MS)","Parkinson's disease","Polyneuropathy","Spinal stenosis","Bipolar disorder","Major depressive disorder","Schizophrenia or schizoaffective disorder","Alcohol or drug dependence"]
+  },
+  {
+    carrier: "Doctors Healthcare",
+    process: { text: "Agent must enter condition during enrollment process. Nothing else is needed on broker's part.", warning: false },
+    conditions: ["Autoimmune disease","Cancer","Cardiovascular disease","Chronic alcohol and other substance use disorders","Chronic and disabling mental health conditions","Chronic gastrointestinal disorders","Chronic heart failure","Chronic hyperlipidemia","Chronic hypertension","Chronic kidney disease","Chronic lung disorders","Cognitive impairment","Dementia","Diabetes","Functional impairment","HIV/AIDS","Neurological disorders","Post-transplant","Severe hematologic disorders","Stroke"]
+  },
+  {
+    carrier: "Humana",
+    process: { text: "Must complete HRA on Humana's Sunfire. ⚠️ Member must have TWO qualifying conditions to be eligible.", warning: true },
+    conditions: ["Autoimmune disorders","Cancer","Cardiovascular disorders","Chronic alcohol use and other substance use disorders","Chronic and disabling mental health conditions","Chronic gastrointestinal disease","Chronic heart failure","Chronic hyperlipidemia","Chronic hypertension","Chronic kidney disease","Chronic lung disorders","Cognitive impairment","Conditions with functional challenges","Dementia","Diabetes mellitus","HIV/AIDS","Neurologic disorders","Post-organ transplant","Severe hematologic disorders","Stroke"]
+  },
+  {
+    carrier: "Solis",
+    process: { text: "Agent must enter condition during enrollment process. Nothing else is needed on broker's part.", warning: false },
+    conditions: ["ALS (Amyotrophic lateral sclerosis)","Alzheimer's disease","Autism spectrum disorder","Cancer","Cardiovascular disease","Chronic alcohol and substance use disorders","Chronic and disabling mental health conditions","Chronic gastrointestinal disorders","Chronic heart failure","Chronic hyperlipidemia","Chronic hypertension","Chronic kidney disease","Chronic lung disorders","Cognitive impairment","Dementia","Diabetes","Epilepsy","HIV/AIDS","Multiple sclerosis","Neurological disorders","Parkinson's disease","Post-organ transplant","Severe hematologic disorders","Stroke"]
+  },
+  {
+    carrier: "UnitedHealthCare",
+    process: { text: "Agent must enter condition during enrollment process. Nothing else is needed on broker's part.", warning: false },
+    conditions: ["Cancer","Cardiovascular disease","Chronic alcohol and other substance use disorders","Chronic and disabling mental health conditions","Chronic gastrointestinal disorders","Chronic heart failure","Chronic hyperlipidemia","Chronic hypertension","Chronic kidney disease","Chronic lung disorders","Cognitive impairment","Dementia","Diabetes","HIV/AIDS","Neurological disorders","Post-organ transplant","Severe hematologic disorders","Stroke"]
+  }
+];
+
+let openStates = {};
+
+function highlight(text, q) {
+  if (!q) return text;
+  const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+  return text.replace(re, '<span class="match">$1</span>');
+}
+
+function doSearch(q) {
+  q = q.trim().toLowerCase();
+  const container = document.getElementById('carriers-container');
+  container.innerHTML = '';
+  let anyResults = false;
+
+  DATA.forEach(carrier => {
+    const matchedConditions = carrier.conditions.filter(c => !q || c.toLowerCase().includes(q));
+    if (q && matchedConditions.length === 0) return;
+    anyResults = true;
+
+    const isOpen = q ? true : (openStates[carrier.carrier] || false);
+    const block = document.createElement('div');
+    block.className = 'carrier-block';
+
+    const conditionsHTML = (q ? matchedConditions : carrier.conditions).map(c =>
+      `<div class="condition-item"><span class="dot"></span><span>${highlight(c, q)}</span></div>`
+    ).join('');
+
+    const processHTML = carrier.process ? `
+      <div class="process-banner${carrier.process.warning ? ' warning' : ''}">
+        <div class="proc-label">Agent Process</div>
+        <div class="proc-text">${highlight(carrier.process.text, q)}</div>
+      </div>` : '';
+
+    block.innerHTML = `
+      <div class="carrier-header" onclick="toggleCarrier('${carrier.carrier}', this)">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="carrier-name">${carrier.carrier}</span>
+          <span class="carrier-count">${q ? matchedConditions.length + ' match' + (matchedConditions.length !== 1 ? 'es' : '') : carrier.conditions.length + ' conditions'}</span>
+        </div>
+        <span class="carrier-chevron ${isOpen ? 'open' : ''}">▾</span>
+      </div>
+      <div class="carrier-body ${isOpen ? 'open' : ''}">
+        ${processHTML}
+        <div class="conditions-list">${conditionsHTML}</div>
+      </div>
+    `;
+    container.appendChild(block);
+  });
+
+  if (!anyResults) {
+    container.innerHTML = '<div class="no-results">No conditions found. Try a different search term.</div>';
+  }
+}
+
+function toggleCarrier(name, headerEl) {
+  const body = headerEl.nextElementSibling;
+  const chevron = headerEl.querySelector('.carrier-chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+  openStates[name] = !isOpen;
+}
+
+doSearch('');
+</script>
+</body>
+</html>

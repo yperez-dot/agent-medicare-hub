@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  // Preview bypass — ?preview=THEI allows viewing without login
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Tools & Perks | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;--success:#1E8A5C;--success-tint:#E3F5EC;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.nav-link{font:600 13px/1 Arial,sans-serif;color:#6E687C;text-decoration:none;white-space:nowrap;}
+.nav-link:hover{color:#452068;}
+.nav-link.active{color:#452068;border-bottom:2px solid #FF1090;}
+.wrap{max-width:1200px;margin:0 auto;padding:32px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:0 1px 3px rgba(36,28,46,0.06);}
+h2.section-h2{font-size:20px;font-weight:700;margin-bottom:16px;margin-top:28px;}
+/* Business Card Generator */
+.generator-card{background:#fff;border:1px solid var(--border);border-radius:20px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;margin-bottom:24px;box-shadow:0 2px 8px rgba(36,28,46,0.08);}
+.gen-left{padding:32px;display:flex;align-items:center;justify-content:center;background:var(--purple-tint);}
+.gen-right{padding:32px;display:flex;flex-direction:column;justify-content:center;gap:12px;color:var(--text);}
+.gen-right h3{font-size:22px;font-weight:700;color:var(--purple);}
+.gen-right p{font-size:14px;color:var(--text-soft);}
+.btn{display:inline-block;padding:10px 20px;border-radius:999px;font:600 13px/1 Arial,sans-serif;text-decoration:none;border:none;cursor:pointer;}
+.btn-white{background:#fff;color:var(--purple);}
+.btn-white:hover{opacity:0.9;}
+.btn-purple{background:var(--purple);color:#fff;}
+.btn-purple:hover{opacity:0.9;}
+.btn-outline-purple{background:#fff;border:1.5px solid var(--purple);color:var(--purple);}
+.btn-outline-purple:hover{background:var(--purple-tint);}
+/* Platform grid */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px;}
+.platform-card{padding:18px;display:flex;flex-direction:column;gap:8px;}
+.platform-card .plat-icon{font-size:22px;margin-bottom:4px;}
+.platform-card h3{font-size:15px;font-weight:700;}
+.platform-card p{font-size:12.5px;color:var(--text-soft);flex:1;}
+.platform-card .ext-note{font-size:11px;color:var(--text-faint);}
+/* Benefits */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px;}
+.benefit-card{padding:18px;display:flex;gap:14px;align-items:flex-start;}
+.benefit-icon{width:40px;height:40px;border-radius:12px;background:var(--purple-tint);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.benefit-info{flex:1;}
+.benefit-info h3{font-size:14.5px;font-weight:700;margin-bottom:4px;}
+.benefit-info p{font-size:12.5px;color:var(--text-soft);margin-bottom:8px;}
+.badge-pink{font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.4px;padding:3px 8px;border-radius:999px;background:var(--pink-tint);color:var(--pink-dark);display:inline-block;margin-bottom:8px;}
+/* Calendar */
+.cal-item{display:flex;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--border);}
+.cal-item:last-child{border-bottom:none;}
+.cal-date{width:52px;height:52px;border-radius:12px;background:var(--purple-tint);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;}
+.cal-date .month{font:600 9.5px/1 Arial,sans-serif;text-transform:uppercase;color:var(--purple);letter-spacing:0.4px;}
+.cal-date .day{font:700 20px/1 Arial,sans-serif;color:var(--purple);}
+.cal-info{flex:1;}
+.cal-info h3{font-size:14px;font-weight:700;margin-bottom:3px;}
+.cal-info p{font-size:12px;color:var(--text-soft);}
+.cal-cta{font:700 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;white-space:nowrap;}
+.cal-cta:hover{text-decoration:underline;}
+.cal-note{font-size:12.5px;color:var(--text-faint);margin-top:12px;}
+.tag-carrier{font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.4px;padding:3px 8px;border-radius:999px;background:#E8F1FA;color:#1B4F8A;display:inline-block;}
+.tag-thei{font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.4px;padding:3px 8px;border-radius:999px;background:var(--pink-tint);color:var(--pink-dark);display:inline-block;}
+@media(max-width:768px){.generator-card{grid-template-columns:1fr;}.grid-3,.grid-2{grid-template-columns:1fr;}}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a class='active' href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- Business Card Generator -->
+  <div class="generator-card">
+    <div class="gen-left">
+      <img src="/files/bc-card-preview.png" alt="Business Card Preview" style="width:300px;max-width:100%;border-radius:12px;box-shadow:0 8px 28px rgba(36,28,46,0.18);">
+    </div>
+    <div class="gen-right">
+      <h3>Business Card Generator</h3>
+      <p>Generate your THEI-branded digital business card in seconds. Share via link, text, or download as an image.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-purple" href="https://moonlit-douhua-e20b2a.netlify.app/" target="_blank" rel="noopener">Open Generator (EN) →</a>
+        <a class="btn btn-outline-purple" href="https://boisterous-truffle-d00468.netlify.app/" target="_blank" rel="noopener">Open Generator (ES) →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Platform Links -->
+  <h2 class="section-h2">Platforms &amp; Tools</h2>
+  <div class="grid-3">
+
+    <div class="card platform-card">
+      <div class="plat-icon">🔗</div>
+      <h3>AgentSync</h3>
+      <p>Carrier onboarding &amp; contracting tool. Upload docs, complete requirements, track status.</p>
+      <span class="ext-note">Opens in a new tab ↗</span>
+      <a class="btn btn-purple" href="https://login.agentsync.io/" target="_blank" rel="noopener">Open AgentSync →</a>
+    </div>
+
+    <div class="card platform-card">
+      <div class="plat-icon">📋</div>
+      <h3>Nextere</h3>
+      <p>Contracting submission and status for: Doctors Health, Solis, Gold Kidney, HealthSun.</p>
+      <span class="ext-note">Opens in a new tab ↗</span>
+      <a class="btn btn-purple" href="https://auth.nextere.com/Account/Login?returnUrl=https%3A%2F%2Fapp.nextere.com" target="_blank" rel="noopener">Open Nextere →</a>
+    </div>
+
+    <div class="card platform-card">
+      <div class="plat-icon">✍️</div>
+      <h3>Sunfire</h3>
+      <p>SOA &amp; enrollments. Send via text/email or collect in-person signature.</p>
+      <span class="ext-note">Opens in a new tab ↗</span>
+      <a class="btn btn-purple" href="https://www.sunfirematrix.com/app/agent/yourmedicare" target="_blank" rel="noopener">Open Sunfire →</a>
+    </div>
+
+    <div class="card platform-card">
+      <div class="plat-icon">👥</div>
+      <h3>XCLUSIVE CRM</h3>
+      <p>Client management and lead tracking. Contact Yahoska for access.</p>
+      <span class="ext-note">Opens in a new tab ↗</span>
+      <a class="btn btn-outline-purple" href="https://app.xclusivecrm.ai/" target="_blank" rel="noopener">Open XCLUSIVE CRM →</a>
+    </div>
+
+    <div class="card platform-card">
+      <div class="plat-icon">📊</div>
+      <h3>MedicarePRO CRM</h3>
+      <p>Production tracking and commission reporting platform.</p>
+      <span class="ext-note">Opens in a new tab ↗</span>
+      <a class="btn btn-outline-purple" href="https://www.medicareproapp.com/user/userController/login/notlogged" target="_blank" rel="noopener">Open MedicarePRO →</a>
+    </div>
+
+  </div>
+
+  <!-- Agent Benefits -->
+  <h2 class="section-h2">Agent Benefits</h2>
+  <div class="grid-2">
+
+    <div class="card benefit-card">
+      <div class="benefit-icon">🎓</div>
+      <div class="benefit-info">
+        <span class="badge-pink">Agency Discount</span>
+        <h3>AHIP Medicare Training</h3>
+        <p>Required annual certification for Medicare Advantage and PDP plans. Use this link — do NOT register directly through Google; the discount is applied through this portal.</p>
+        <a class="btn btn-purple" href="https://www.ahipmedicaretraining.com/page/login" target="_blank" rel="noopener">Access AHIP (Discounted) →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Licensing & Compliance -->
+  <h2 class="section-h2">Licensing &amp; Compliance</h2>
+  <div class="grid-2">
+
+    <div class="card benefit-card">
+      <div class="benefit-icon">🛡️</div>
+      <div class="benefit-info">
+        <span class="badge-pink">Preferred Pricing</span>
+        <h3>E&amp;O Insurance</h3>
+        <p>Required for Medicare contracting. Access our agency-negotiated pricing — must meet carrier E&amp;O requirements.</p>
+        <a class="btn btn-purple" href="https://opsfarm.calsurance.com/CONA/ProductPage/1611/3591/Landing.aspx" target="_blank" rel="noopener">View E&amp;O Options →</a>
+      </div>
+    </div>
+
+    <div class="card benefit-card">
+      <div class="benefit-icon">🪪</div>
+      <div class="benefit-info">
+        <h3>Florida DFS (MyProfile)</h3>
+        <p>Manage your Florida insurance license, CE compliance, and appointment records.</p>
+        <a class="btn btn-outline-purple" href="https://dice.fldfs.com/public/pb_index.aspx" target="_blank" rel="noopener">Open Florida DFS →</a>
+      </div>
+    </div>
+
+    <div class="card benefit-card">
+      <div class="benefit-icon">📚</div>
+      <div class="benefit-info">
+        <h3>WebCE Continuing Education</h3>
+        <p>Complete required CE hours to maintain your insurance license and appointments.</p>
+        <a class="btn btn-outline-purple" href="https://www.webce.com/" target="_blank" rel="noopener">Access WebCE →</a>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<script>
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+</body>
+</html>

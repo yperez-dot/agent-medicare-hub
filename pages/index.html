@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Health Experts | Medicare Agent Hub</title>
+<script>
+(function(){
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (s && s.token && s.expires > Date.now()) {
+      window.location.replace('/home.html');
+    } else {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+<style>
+body{margin:0;font-family:'Inter',Arial,sans-serif;background:#452068;display:flex;align-items:center;justify-content:center;min-height:100vh;}
+.dot{width:10px;height:10px;border-radius:50%;background:#FF1090;display:inline-block;animation:pulse 1s infinite alternate;}
+@keyframes pulse{from{opacity:.3}to{opacity:1}}
+</style>
+</head>
+<body>
+<span class="dot"></span>
+</body>
+</html>

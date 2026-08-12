@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>2027 Contracting Blackout Dates | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.wrap{max-width:1100px;margin:0 auto;padding:36px 24px 64px;}
+
+.hero{background:linear-gradient(135deg,var(--purple-dark),var(--purple));border-radius:20px;padding:28px 32px;margin-bottom:32px;color:#fff;}
+.hero h1{font:700 28px/1.2 Arial,sans-serif;margin-bottom:6px;}
+.hero p{font:400 14px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:70ch;}
+
+.notice{background:#FEF3C7;border:1.5px solid #F59E0B;border-radius:12px;padding:14px 20px;margin-bottom:28px;font:400 13px/1.55 Arial,sans-serif;color:#92400E;}
+.notice strong{font-weight:700;}
+
+.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-bottom:24px;}
+.card h2{font:700 18px/1.2 Arial,sans-serif;color:var(--purple);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+thead th{background:var(--purple);color:#fff;font:700 13px/1.4 Arial,sans-serif;padding:11px 16px;text-align:left;}
+thead th:first-child{border-radius:8px 0 0 0;}
+thead th:last-child{border-radius:0 8px 0 0;}
+tbody tr:nth-child(even){background:#FAFAF9;}
+tbody tr:hover{background:var(--purple-tint);}
+tbody td{padding:11px 16px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+tbody td:first-child{font-weight:700;color:var(--text);}
+.tbd{color:var(--text-faint);font-style:italic;}
+.na{color:var(--text-faint);}
+.active-now{display:inline-block;font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:999px;background:#FEE2E2;color:#DC2626;margin-left:6px;vertical-align:middle;}
+.coming{display:inline-block;font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:999px;background:#FEF3C7;color:#92400E;margin-left:6px;vertical-align:middle;}
+.no-blackout{display:inline-block;font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:999px;background:#E3F5EC;color:#1E8A5C;margin-left:6px;vertical-align:middle;}
+
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:flex;gap:20px;padding:14px 0;border-bottom:1px solid var(--border);}
+.tl-item:last-child{border-bottom:none;}
+.tl-date{min-width:130px;font:700 13px/1.4 Arial,sans-serif;color:var(--purple);flex-shrink:0;}
+.tl-body{font:400 13px/1.55 Arial,sans-serif;color:var(--text);}
+.tl-body strong{font-weight:700;}
+.tl-past .tl-date{color:#DC2626;}
+.tl-past .tl-body{color:var(--text);}
+
+.note-box{background:var(--purple-tint);border-radius:12px;padding:16px 20px;margin-top:24px;font:400 13px/1.6 Arial,sans-serif;color:var(--purple-dark);}
+.note-box strong{font-weight:700;}
+
+@media(max-width:700px){
+  table,thead,tbody,tr,th,td{display:block;}
+  thead{display:none;}
+  tbody td{padding:8px 16px;}
+  tbody td:first-child{background:var(--purple-tint);border-radius:8px 8px 0 0;padding-top:12px;}
+  tbody td::before{content:attr(data-label);display:block;font:700 11px/1 Arial,sans-serif;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px;}
+  .tl-item{flex-direction:column;gap:4px;}
+  .tl-date{min-width:unset;}
+  .top-bar{padding:10px 16px;}
+  .pill-nav{gap:6px;}
+  .pill-nav a{padding:7px 13px;font-size:12px;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href="/home">Agent Dashboard</a>
+    <a href="/learn">Broker University</a>
+    <a class="active" href="/carrier-info">Carrier Info</a>
+    <a href="/events">Events</a>
+    <a href="/tools-perks">Agent Tools Hub</a>
+    <a href="/retention-toolkit">Retention Toolkit</a>
+    <a href="/sep-tracker">SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:middle;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>2027 MA Contracting Blackout Dates</h1>
+    <p>New agent contracting and agent/agency transfer windows by carrier. Includes all internal transfers and hierarchy changes. Confirm final dates with each carrier — some are still TBD.</p>
+  </div>
+
+  <div class="notice">
+    <strong>Already in effect:</strong> Humana (Jul 15) and Elevance (Jul 1) transfer blackouts are active now. UHC starts Sep 1 — submit any pending transfers immediately.
+  </div>
+
+  <div class="card">
+    <h2>Full Blackout Schedule by Carrier</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Carrier</th>
+          <th>New Agent Contracting Blackout</th>
+          <th>Transfer / Release Blackout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Carrier">Aetna</td>
+          <td data-label="New Agent Contracting">—</td>
+          <td data-label="Transfer / Release Blackout">Oct 1 – Dec 31</td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Clover Health</td>
+          <td data-label="New Agent Contracting">May 1 – mid-July 2026 <span class="active-now">Active</span></td>
+          <td data-label="Transfer / Release Blackout">Oct 1 – Dec 31<br><span style="font-size:12px;color:var(--text-soft);">Hierarchy changes during blackout execute on/after Jan 1, 2027</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Devoted Health</td>
+          <td data-label="New Agent Contracting"><span class="na">N/A</span></td>
+          <td data-label="Transfer / Release Blackout">Aug 15 onward — delayed releases not effective until Dec 8 <span class="coming">Coming Soon</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Elevance (Anthem)</td>
+          <td data-label="New Agent Contracting"><span class="na">N/A</span></td>
+          <td data-label="Transfer / Release Blackout">Jul 1 – Sep 30 <span class="active-now">Active Now</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Florida Blue</td>
+          <td data-label="New Agent Contracting"><span class="tbd">TBD</span></td>
+          <td data-label="Transfer / Release Blackout"><span class="tbd">TBD</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">HCSC</td>
+          <td data-label="New Agent Contracting"><span class="na">N/A</span></td>
+          <td data-label="Transfer / Release Blackout">No transfers currently allowed</td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">HealthSpring (Cigna)</td>
+          <td data-label="New Agent Contracting">—</td>
+          <td data-label="Transfer / Release Blackout">Sep 15 – Dec 31 <span class="coming">Coming Soon</span><br><span style="font-size:12px;color:var(--text-soft);">Submit requests 90+ days before Sep 15 — deadline was Jun 17</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Humana</td>
+          <td data-label="New Agent Contracting">—</td>
+          <td data-label="Transfer / Release Blackout">Jul 15 – Dec 31 <span class="active-now">Active Now</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Kaiser Permanente</td>
+          <td data-label="New Agent Contracting"><span class="na">N/A</span></td>
+          <td data-label="Transfer / Release Blackout"><span class="no-blackout">No blackout dates</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Molina</td>
+          <td data-label="New Agent Contracting">Jun 26 – Jul 7</td>
+          <td data-label="Transfer / Release Blackout">Oct 1 – Dec 15</td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">SCAN</td>
+          <td data-label="New Agent Contracting"><span class="na">N/A</span></td>
+          <td data-label="Transfer / Release Blackout">Oct 1 – Feb 1 (following year)</td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">UnitedHealthcare</td>
+          <td data-label="New Agent Contracting"><span class="na">N/A</span></td>
+          <td data-label="Transfer / Release Blackout">Sep 1 – Dec 31 <span class="coming">Coming Soon</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">WellCare</td>
+          <td data-label="New Agent Contracting"><span class="tbd">TBD</span></td>
+          <td data-label="Transfer / Release Blackout"><span class="tbd">TBD</span></td>
+        </tr>
+        <tr>
+          <td data-label="Carrier">Zing Health</td>
+          <td data-label="New Agent Contracting">Jun 15 – Jun 23</td>
+          <td data-label="Transfer / Release Blackout">Jan 1–Sep 30: processed within 5 business days<br>Oct 1–Dec 31: processed Jan 15 of the following year</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <strong>Notes:</strong> Humana dates marked "as of now" — confirm for any updates. Florida Blue and WellCare dates still TBD — update when confirmed. HCSC currently has a full transfer freeze with no end date. HealthSpring 90-day submission window has already closed (deadline was Jun 17).
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Timeline View — Transfer Blackouts</h2>
+    <div class="timeline">
+      <div class="tl-item tl-past">
+        <div class="tl-date">Jul 1, 2026</div>
+        <div class="tl-body"><strong>Elevance</strong> transfer blackout begins (ends Sep 30)</div>
+      </div>
+      <div class="tl-item tl-past">
+        <div class="tl-date">Jul 15, 2026</div>
+        <div class="tl-body"><strong>Humana</strong> transfer blackout begins (ends Dec 31)</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Aug 15, 2026</div>
+        <div class="tl-body"><strong>Devoted Health</strong> — delayed releases will not take effect until Dec 8</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sep 1, 2026</div>
+        <div class="tl-body"><strong>UHC</strong> transfer blackout begins (ends Dec 31) — submit requests now</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sep 15, 2026</div>
+        <div class="tl-body"><strong>HealthSpring/Cigna</strong> transfer blackout begins (ends Dec 31)</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Oct 1, 2026</div>
+        <div class="tl-body"><strong>Aetna, Clover Health, Molina, SCAN</strong> transfer blackouts begin</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Dec 15, 2026</div>
+        <div class="tl-body"><strong>Molina</strong> blackout ends</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Dec 31, 2026</div>
+        <div class="tl-body"><strong>Aetna, Clover, Elevance, Humana, HealthSpring, UHC</strong> blackouts end</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Feb 1, 2027</div>
+        <div class="tl-body"><strong>SCAN</strong> blackout ends</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;margin-top:8px;">
+    <div>
+      <div style="font:700 15px/1 Arial,sans-serif;color:var(--text);margin-bottom:6px;">Back to Carrier Info</div>
+      <div style="font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);">Contacts, certifications, non-commissionable plans, and more.</div>
+    </div>
+    <a href="/carrier-info" style="display:inline-block;padding:10px 22px;background:var(--purple);color:#fff;border-radius:999px;font:700 13px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0;margin-left:20px;">Carrier Info &rarr;</a>
+  </div>
+
+</div>
+
+<script>
+function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+</script>
+</body>
+</html>

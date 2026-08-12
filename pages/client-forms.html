@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Client Forms & PDFs | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+ --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:var(--shadow);
+ position:relative;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:-1px;
+ background:
+ radial-gradient(360px 220px at 18% 15%, rgba(255,16,144,.26), transparent 60%),
+ radial-gradient(420px 260px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+ pointer-events:none;
+}
+.hero-inner{position:relative}
+.hero-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.14);
+ padding:6px 12px;
+ border-radius:999px;
+ font-size:14px;
+ font-weight:900;
+ letter-spacing:.4px;
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 8px;font-size:30px;}
+.hero p{margin:0;opacity:.92;font-size:14px;line-height:1.55;max-width:90ch;}
+
+.grid{
+ margin-top:14px;
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:14px;
+}
+@media(max-width:900px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ box-shadow:var(--shadow-soft);
+ padding:16px;
+ display:flex;
+ flex-direction:row;align-items:center;justify-content:space-between;
+ gap:10px;
+ min-height:200px;
+}
+.card h2{margin:0;font-size:16px;}
+.meta{font-size:14px;color:var(--muted);line-height:1.5;}
+.pills{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{
+ font-size:14px;
+ font-weight:900;
+ padding:6px 10px;
+ border-radius:999px;
+ border:1px solid rgba(69,32,104,.25);
+ color:var(--primary);
+ background:rgba(69,32,104,.04);
+}
+.pill.hot{
+ border-color:rgba(255,16,144,.35);
+ color:#7a0c44;
+ background:rgba(255,16,144,.08);
+}
+
+.actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+ text-decoration:none;
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ font-size:14px;
+ display:inline-block;
+ border:1px solid transparent;
+}
+.btn.primary{background:var(--primary);color:#fff;}
+.btn.accent{background:var(--accent);color:#fff;}
+.btn.outline{background:#fff;color:var(--primary);border-color:rgba(69,32,104,.45);}
+.btn:hover{filter:brightness(1.05);}
+
+.note{
+ margin-top:14px;
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:14px;
+ box-shadow:var(--shadow-soft);
+}
+.note h3{margin:0 0 6px;font-size:16px;}
+.note ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.6;}
+.note li{margin:6px 0;}
+.small{font-size:14px;color:var(--muted);margin-top:8px;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a class='active' href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+ <section class="hero">
+ <div class="hero-inner">
+ <div class="hero-badge">Client Forms</div>
+ <h1>Client Forms & PDFs</h1>
+ <p>Official SSA/CMS forms you can share with clients for enrollment, employer verification, and IRMAA appeals.</p>
+ </div>
+ </section>
+
+ <section class="grid">
+
+ <article class="card">
+ <h2>SSA-44 — IRMAA Appeal (Life-Changing Event)</h2>
+ <div class="pills">
+ <span class="pill hot">Most Used</span>
+ <span class="pill">SSA</span>
+ </div>
+ <p class="meta">
+ Use when a client has a qualifying life-changing event (e.g., retirement, reduced work hours, loss of pension)
+ and wants Social Security to reconsider IRMAA.
+ </p>
+ <div class="actions">
+ <a class="btn accent" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener">Open PDF</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <h2>CMS-40B — Application for Medicare Part B</h2>
+ <div class="pills">
+ <span class="pill">CMS</span>
+ <span class="pill hot">Enrollment</span>
+ </div>
+ <p class="meta">
+ Use when a client needs to enroll in Part B (medical insurance).
+ Often paired with the employer verification form when using a Special Enrollment Period.
+ </p>
+ <div class="actions">
+ <a class="btn accent" href="https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms40b-e.pdf" target="_blank" rel="noopener">Open PDF</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <h2>CMS-L564 — Employer Verification (Group Health Plan)</h2>
+ <div class="pills">
+ <span class="pill">CMS</span>
+ <span class="pill hot">Most Requested</span>
+ </div>
+ <p class="meta">
+ Employer completes this to verify group coverage. Commonly used with CMS-40B
+ to request Part B under a Special Enrollment Period.
+ </p>
+ <div class="actions">
+ <a class="btn accent" href="https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/Downloads/CMSL564-E.PDF" target="_blank" rel="noopener">Open PDF</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <h2>Part A & Part B — Special Enrollment (Exceptional Conditions)</h2>
+ <div class="pills">
+ <span class="pill">CMS</span>
+ <span class="pill">Special Circumstances</span>
+ </div>
+ <p class="meta">
+ Use when a client needs enrollment due to special circumstances/exceptional conditions.
+ Helpful when standard SEP rules don't apply cleanly.
+ </p>
+ <div class="actions">
+ <a class="btn accent" href="https://www.cms.gov/files/document/application-medicare-part-part-b-special-enrollment-period-exceptional-conditions.pdf" target="_blank" rel="noopener">Open PDF</a>
+ </div>
+ </article>
+
+ </section>
+
+ <section class="note">
+ <h3>Quick Guidance</h3>
+ <ul>
+ <li><strong>Enrolling into Part B?</strong> Start with <strong>CMS-40B</strong>. If client had employer coverage, also use <strong>CMS-L564</strong>.</li>
+ <li><strong>Client paying higher Part B premium (IRMAA)?</strong> Use <strong>SSA-44</strong> if a life-changing event applies.</li>
+ <li><strong>Complex situation / unusual timing?</strong> Use the <strong>Special Enrollment (Exceptional Conditions)</strong> form.</li>
+ </ul>
+ <div class="small">Note: These are official SSA/CMS documents. Always confirm the form is signed where required before submission.</div>
+ </section>
+
+</div>
+</body>
+</html>

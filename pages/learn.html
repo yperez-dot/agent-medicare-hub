@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  // Preview bypass — ?preview=THEI allows viewing without login
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Learn | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;--success:#1E8A5C;--success-tint:#E3F5EC;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.nav-link{font:600 13px/1 Arial,sans-serif;color:#6E687C;text-decoration:none;white-space:nowrap;}
+.nav-link:hover{color:#452068;}
+.nav-link.active{color:#452068;border-bottom:2px solid #FF1090;}
+.wrap{max-width:1200px;margin:0 auto;padding:32px;}
+.page-header{margin-bottom:20px;}
+.page-header h1{font-size:34px;font-weight:700;margin-bottom:6px;}
+.page-header p{font-size:15px;color:var(--text-soft);max-width:80ch;}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.pill{font:600 13px/1 Arial,sans-serif;padding:8px 16px;border-radius:999px;cursor:pointer;border:none;background:var(--purple-tint);color:var(--purple);transition:background .15s,color .15s;}
+.pill.active{background:var(--purple);color:#fff;}
+.pill:hover{background:var(--purple);color:#fff;}
+.section-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-faint);margin-bottom:12px;display:block;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+.resource-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:0 1px 3px rgba(36,28,46,0.06);padding:18px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--text);transition:box-shadow .15s;}
+.resource-card:hover{box-shadow:0 4px 12px rgba(36,28,46,0.1);}
+.resource-card.featured{border-top:3px solid var(--pink);}
+.resource-card h3{font-size:14.5px;font-weight:700;}
+.resource-card p{font-size:12.5px;color:var(--text-soft);flex:1;}
+.resource-card .pill-row{display:flex;gap:6px;flex-wrap:wrap;}
+.type-badge{font:600 10.5px/1 Arial,sans-serif;padding:3px 8px;border-radius:999px;background:var(--purple-tint);color:var(--purple);text-transform:uppercase;letter-spacing:0.3px;}
+.type-badge.pdf{background:#FBE3ED;color:#8B1A3A;}
+.type-badge.sheet{background:#E3F5EC;color:#1E8A5C;}
+.type-badge.gamma{background:#E8F1FA;color:#1B4F8A;}
+.cta-link{font:700 12.5px/1 Arial,sans-serif;color:var(--purple);margin-top:4px;}
+.section-block{margin-bottom:28px;}
+.hidden{display:none!important;}
+h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text);}
+@media(max-width:768px){.grid-3{grid-template-columns:1fr;}}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.hero{background:linear-gradient(135deg,#452068 0%,#341751 100%);border-radius:16px;padding:28px 32px;margin:20px auto 0;max-width:1200px;color:#fff;}
+.hero h1{font:700 26px/1.2 Arial,sans-serif;margin-bottom:8px;}
+.hero p{font:400 14px/1.6 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:60ch;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="hero">
+  <h1>🎓 Broker University</h1>
+  <p>Training resources, Medicare basics, sales scripts, compliance guidance, and carrier resources — everything you need to sell confidently and stay compliant.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="pills">
+    <button class="pill active" data-filter="all">All</button>
+    <button class="pill" data-filter="medicare">Medicare Basics</button>
+    <button class="pill" data-filter="carriers">Carrier Resources</button>
+    <button class="pill" data-filter="forms">Client Forms &amp; Appeals</button>
+    <button class="pill" data-filter="medicaid">Medicaid &amp; LIS</button>
+    <button class="pill" data-filter="sales">Sales &amp; Training</button>
+    <button class="pill" data-filter="leadgen">Lead Generation</button>
+  </div>
+
+  <div class="section-block" id="block-featured">
+    <h2 class="section-h2">⭐ Most Opened This Month</h2>
+    <div class="grid-3">
+      <a class="resource-card featured" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit" target="_blank" rel="noopener">
+        <h3>Medicaid Levels Cheat Sheet</h3>
+        <p>Quick reference for Medicaid eligibility levels and how to classify members fast.</p>
+        <span class="cta-link">Open Google Doc →</span>
+      </a>
+      <a class="resource-card featured" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener">
+        <h3>SSA-44 — IRMAA Appeal Form</h3>
+        <p>Use when a client has a life-changing event and wants Social Security to reconsider IRMAA.</p>
+        <span class="cta-link">Open PDF →</span>
+      </a>
+      <a class="resource-card featured" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
+        <h3>2026 MAPD Plan Comparison</h3>
+        <p>Side-by-side plan comparison used daily for client calls.</p>
+        <span class="cta-link">Open Google Sheet →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-block" data-section="medicare">
+    <h2 class="section-h2">Medicare Basics</h2>
+    <div class="grid-3">
+      <a class="resource-card" href="https://gamma.app/docs/Medicare-Election-Periods-Made-Simple-27r9r29ndrof3eh" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge gamma">Gamma</span></div>
+        <h3>Election Periods Guide</h3>
+        <p>IEP, AEP, OEP, and SEP — when clients can enroll or change plans and what triggers each window.</p>
+        <span class="cta-link">Open Training →</span>
+      </a>
+      <a class="resource-card" href="https://gamma.app/docs/hazgszb9yzwtvhr" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge gamma">Gamma</span></div>
+        <h3>Medicare &amp; Employer Coverage</h3>
+        <p>Working past 65? How employer plans affect timing, SEPs, and when Part B should start.</p>
+        <span class="cta-link">Open Training →</span>
+      </a>
+      <a class="resource-card" href="https://gamma.app/docs/IRMAA-Late-Enrollment-Penalties-Made-Simple-i4g2sa24oepj2ge" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge gamma">Gamma</span></div>
+        <h3>IRMAA &amp; Late Enrollment Penalties</h3>
+        <p>IRMAA surcharges and common late enrollment penalties agents need to prevent.</p>
+        <span class="cta-link">Open Training →</span>
+      </a>
+      <a class="resource-card" href="https://gamma.app/docs/Basics-2026-Costs-u0t827urdu6kcjc" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge gamma">Gamma</span></div>
+        <h3>Medicare 101 (With 2026 Costs)</h3>
+        <p>Parts A, B, C, D explained with 2026 premiums and cost-sharing figures.</p>
+        <span class="cta-link">Open Training →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Client Forms -->
+
+  <!-- Carrier Resources -->
+  <div class="section-block" data-section="carriers">
+    <h2 class="section-h2">🏥 Carrier Resources</h2>
+    <div class="grid-3">
+      <a class="resource-card featured" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge sheet">Sheet</span></div>
+        <h3>📊 2026 MAPD Plan Grid</h3>
+        <p>Side-by-side comparison of all 2026 Medicare Advantage plans. Benefits, copays, OTC, dental, vision, and more.</p>
+        <span class="cta-link">Open Grid →</span>
+      </a>
+      <a class='resource-card' href='/carrier-info'>
+        <div class="pill-row"><span class="type-badge">Hub Page</span></div>
+        <h3>📞 Carrier Contact Guide</h3>
+        <p>Direct lines, auth numbers, member services, and key contacts for every carrier — Humana, UHC, Aetna, Solis, Devoted, and more.</p>
+        <span class="cta-link">Open Guide →</span>
+      </a>
+      <a class='resource-card' href='/certs'>
+        <div class="pill-row"><span class="type-badge pdf">Compliance</span></div>
+        <h3>✅ Certs &amp; Compliance</h3>
+        <p>Annual certification deadlines, AHIP, carrier-specific training links, and CMS compliance rules all in one place.</p>
+        <span class="cta-link">Open Page →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-block" data-section="forms">
+    <h2 class="section-h2">Client Forms &amp; Appeals</h2>
+    <div class="grid-3">
+      <a class="resource-card" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">SSA</span></div>
+        <h3>SSA-44 — IRMAA Appeal</h3>
+        <p>Life-changing event appeal to reduce IRMAA surcharge. Most requested form.</p>
+        <span class="cta-link">Open PDF →</span>
+      </a>
+      <a class="resource-card" href="https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms40b-e.pdf" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
+        <h3>CMS-40B — Part B Application</h3>
+        <p>Application for enrollment in Medicare Part B. Often paired with CMS-L564 for SEP.</p>
+        <span class="cta-link">Open PDF →</span>
+      </a>
+      <a class="resource-card" href="https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/Downloads/CMSL564-E.PDF" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
+        <h3>CMS-L564 — Employer Verification</h3>
+        <p>Employer completes this to verify group coverage for Part B Special Enrollment Period.</p>
+        <span class="cta-link">Open PDF →</span>
+      </a>
+      <a class="resource-card" href="https://www.cms.gov/files/document/application-medicare-part-part-b-special-enrollment-period-exceptional-conditions.pdf" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
+        <h3>Special Enrollment — Exceptional Conditions</h3>
+        <p>Use when standard SEP rules don't apply cleanly. For complex enrollment timing situations.</p>
+        <span class="cta-link">Open PDF →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Medicaid & LIS -->
+
+  <div class="section-block" data-section="medicaid">
+    <h2 class="section-h2">Medicaid &amp; LIS</h2>
+    <div class="grid-3">
+      <a class="resource-card" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge">Google Doc</span></div>
+        <h3>Medicaid Levels Cheat Sheet</h3>
+        <p>Quick reference for Medicaid eligibility levels and how to classify members fast. Most used resource.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1pzfYr4ZSZrej2hx2VqDA4ijodb12wfzq8e-lBtwCAl8/edit" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge sheet">Google Sheet</span></div>
+        <h3>Chronic Conditions List</h3>
+        <p>Reference list for plan fit, DSNP/HRA considerations, and client notes.</p>
+        <span class="cta-link">Open Sheet →</span>
+      </a>
+      <a class="resource-card" href="https://www.healthexps.com/medicare/medicare-costs" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge">Live Reference</span><span class="type-badge" style="background:#E3F5EC;color:#1E8A5C;">2026 ✓</span></div>
+        <h3>2026 Medicare Cost Quick Reference</h3>
+        <p>Part B: $202.90/mo · Deductible: $283 · Part A deductible: $1,736 · IRMAA from $284.10. Full breakdown with IRMAA tiers.</p>
+        <span class="cta-link">View full breakdown →</span>
+      </a>
+      <a class="resource-card" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener" download>
+        <div class="pill-row"><span class="type-badge">PDF · April 2026</span></div>
+        <h3>2026 Updated Income Limits</h3>
+        <p>SSI-related programs & coverage groups — QMB, SLMB, QI1, LIS, MEDS-AD financial eligibility standards. Updated April 2026.</p>
+        <span class="cta-link">Download PDF →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sales & Training -->
+
+  <div class="section-block" data-section="sales">
+    <h2 class="section-h2">Sales &amp; Training</h2>
+    <div class="grid-3">
+      <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge sheet">Google Sheet</span></div>
+        <h3>2026 MAPD Plan Comparison Grid</h3>
+        <p>Side-by-side comparison used daily for client calls. Updated for 2026 plan year.</p>
+        <span class="cta-link">Open Sheet →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/presentation/d/1KIAU8uobrnghsPI5TbblgPWcGLaz0bRTeXMzMQIfOss/edit" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge">Presentation</span></div>
+        <h3>Contracting &amp; Onboarding Deck</h3>
+        <p>Agent contracting help, transfer rules, and appointment guidance.</p>
+        <span class="cta-link">Open Slides →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit" target="_blank" rel="noopener">
+        <div class="pill-row"><span class="type-badge">Reference</span></div>
+        <h3>Medicaid Cheat Sheet for Sales</h3>
+        <p>Helps identify plan fit and Extra Help eligibility during appointments.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Lead Generation -->
+
+  <div class="section-block" data-section="leadgen">
+    <h2 class="section-h2">Lead Generation</h2>
+
+    <span class="section-label">Community Events Playbook</span>
+    <div class="grid-3" style="margin-bottom:20px;">
+      <a class="resource-card" href="https://docs.google.com/document/d/1dyBtL2W3RZOnkGaTsU8h5gngohK4Yn0W/edit" target="_blank" rel="noopener">
+        <h3>Community Events — Phase 1: Getting In</h3>
+        <p>Find venues, send first outreach, follow up. 4 scripts + outreach tracker.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1v-8gTDkRhRhDpMhPyLIRL3MthY2EKDa7/edit" target="_blank" rel="noopener">
+        <h3>Community Events — Phase 2: Showing Up Right</h3>
+        <p>Pre-event checklist, first visit script, 10-minute talk, one-on-one scripts.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1nUigracs0daW_SwkzdyIKPoZKwcFUq1C/edit" target="_blank" rel="noopener">
+        <h3>Community Events — Phase 3: Converting</h3>
+        <p>Lead capture, same-day follow-up, 7-day sequence, objection handling.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1poxDqEcA9dkG756Z9PAI3JL2DRByYRtB/edit" target="_blank" rel="noopener">
+        <h3>Community Events — Phase 4: Building the Partnership</h3>
+        <p>Quarterly check-ins, sponsorship frameworks, 10 long-term relationship rules.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+    </div>
+
+    <span class="section-label">Provider Office Playbook</span>
+    <div class="grid-3" style="margin-bottom:20px;">
+      <a class="resource-card" href="https://docs.google.com/document/d/1GJiN2PuAALpxA5n0pOJZVWO1adWtwPWc/edit" target="_blank" rel="noopener">
+        <h3>Provider Offices — Phase 1: Mapping the Office</h3>
+        <p>Identify worthwhile offices, staff org chart, 5-minute first visit script.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1P6ty8XsM0BGgSb3oc-di7DPR8oe-AfI6/edit" target="_blank" rel="noopener">
+        <h3>Provider Offices — Phase 2: Bi-Weekly Drop-By</h3>
+        <p>Every 2–3 week rhythm, 6-visit treat rotation, role-by-role scripts.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1ouCYzdvdzDsnV3yjDkAcT-hyAZZ3kHyd/edit" target="_blank" rel="noopener">
+        <h3>Provider Offices — Phase 3: Carrier In-Service</h3>
+        <p>Get a carrier to sponsor lunch, propose the presentation, follow up. Highest ROI.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1_bEL2If1vJBek8P9eT9_jXyY4jDd26fd/edit" target="_blank" rel="noopener">
+        <h3>Provider Offices — Phase 4: Becoming THE Agent</h3>
+        <p>AEP-prep in-service, frictionless referral systems, defending against competitor agents.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+    </div>
+
+    <span class="section-label">Social Media</span>
+    <div class="grid-3">
+      <a class="resource-card" href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit" target="_blank" rel="noopener">
+        <h3>Caption Library — Volume 1</h3>
+        <p>15 ready-to-post captions: Educational, Mythbusters, Seasonal, Personal/Brand. EN+ES.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+      <a class="resource-card" href="https://docs.google.com/document/d/1CIPIu7ZcYn6ZALItNiVF92o_E30ua3d7/edit" target="_blank" rel="noopener">
+        <h3>Caption Library — Volume 2</h3>
+        <p>15 more captions including 4-caption AEP Reviews series timed to the AEP calendar. EN+ES.</p>
+        <span class="cta-link">Open Doc →</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const pills = document.querySelectorAll('.pill[data-filter]');
+  const sections = document.querySelectorAll('[data-section]');
+  const featured = document.getElementById('block-featured');
+
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      const filter = this.dataset.filter;
+      pills.forEach(function(p){p.classList.remove('active');});
+      this.classList.add('active');
+
+      if(filter === 'all'){
+        featured.classList.remove('hidden');
+        sections.forEach(function(s){s.classList.remove('hidden');});
+      } else {
+        featured.classList.add('hidden');
+        sections.forEach(function(s){
+          s.classList.toggle('hidden', s.dataset.section !== filter);
+        });
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+</body>
+</html>

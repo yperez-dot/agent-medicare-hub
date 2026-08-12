@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nextere Guide | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+ --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+ font-size:18px;
+ line-height:1.6;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:28px;
+ border-radius:22px;
+ box-shadow:var(--shadow);
+ position:relative;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:-1px;
+ background:
+ radial-gradient(360px 220px at 18% 15%, rgba(255,16,144,.26), transparent 60%),
+ radial-gradient(420px 260px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+ pointer-events:none;
+}
+.hero-inner{position:relative}
+.hero-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.14);
+ padding:6px 12px;
+ border-radius:999px;
+ font-size:12px;
+ font-weight:900;
+ letter-spacing:.4px;
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 6px;font-size:28px;}
+.hero p{margin:0;opacity:.92;font-size:16px;line-height:1.55;max-width:85ch;}
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ box-shadow:var(--shadow-soft);
+ padding:16px;
+}
+.card h2{margin:0 0 8px;font-size:18px;}
+.card p{margin:0;color:var(--muted);font-size:16px;line-height:1.6;}
+
+.actions{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:10px;
+ margin-top:12px;
+}
+@media(max-width:900px){ .actions{grid-template-columns:1fr;} }
+
+.btn{
+ border-radius:14px;
+ padding:12px 14px;
+ font-weight:900;
+ font-size:14px;
+ text-decoration:none;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border:1px solid transparent;
+ text-align:center;
+}
+.btn.primary{background:var(--primary);color:#fff;}
+.btn.accent{background:var(--accent);color:#fff;}
+.btn.outline{background:#fff;color:var(--primary);border-color:rgba(69,32,104,.40);}
+.btn.primary:hover,.btn.accent:hover{filter:brightness(1.05);}
+.btn.outline:hover{background:rgba(69,32,104,.05);border-color:rgba(69,32,104,.55);}
+
+.row{
+ margin-top:14px;
+ display:grid;
+ grid-template-columns:1.35fr .65fr;
+ gap:14px;
+}
+@media(max-width:900px){ .row{grid-template-columns:1fr;} }
+
+.list{
+ margin:10px 0 0;
+ padding-left:18px;
+ color:var(--muted);
+ font-size:16px;
+ line-height:1.55;
+}
+.list li{margin:6px 0;}
+
+.callout{
+ margin-top:12px;
+ padding:12px 14px;
+ border-radius:14px;
+ border:1px solid rgba(255,16,144,.25);
+ background:rgba(255,16,144,.06);
+ color:var(--text);
+ font-size:16px;
+ line-height:1.55;
+}
+.callout strong{color:var(--primary);}
+
+.divider{
+ margin:14px 0;
+ height:1px;
+ background:linear-gradient(90deg, transparent, rgba(69,32,104,.22), transparent);
+ border:none;
+}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a class='active' href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+ <section class="hero">
+ <div class="hero-inner">
+ <div class="hero-badge">Contracting Platform</div>
+ <h1>Nextere</h1>
+ <p>Nextere is used for certain carrier contracting processes. Follow the steps below before submitting applications.</p>
+ </div>
+ </section>
+
+ <section class="card" style="margin-top:14px;">
+ <h2>When Should I Use Nextere?</h2>
+ <div class="callout" style="margin-top:8px;">
+ <strong>Nextere is only used for specific carriers.</strong><br>
+ It is not required for all contracting processes.
+ </div>
+ <ul class="list" style="margin-top:10px;">
+ <li><strong>Doctors Health</strong></li>
+ <li><strong>Solis Health Plans</strong></li>
+ <li><strong>HealthSun</strong></li>
+ </ul>
+ <div class="callout" style="margin-top:12px;">
+ If you are contracting with other carriers, use AgentSync or the appropriate platform.
+ </div>
+ </section>
+
+ <section class="card" style="margin-top:14px;">
+ <h2>Quick Actions</h2>
+ <p>Most agents only need the two actions below.</p>
+ <div class="actions">
+ <a class="btn outline"
+ href="https://docs.google.com/videos/d/1XxLRCFLYBKZzBm3MCXs4W8QDtSoDv7dC-oxcZhg7qOs/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Watch Tutorial
+ </a>
+ <a class="btn accent"
+ href="https://docs.google.com/presentation/d/1A7-JLirO_FqAN_2ND-A_uL2wFpZxhbWg/edit?usp=sharing&ouid=116896511753479322728&rtpof=true&sd=true"
+ target="_blank" rel="noopener">
+ Download Guide (PPT)
+ </a>
+ </div>
+ <div class="callout">
+ <strong>Reminder:</strong> Transfers often require a release letter. Have it ready to upload when prompted.
+ </div>
+ </section>
+
+ <div class="row">
+ <section class="card">
+ <h2>Before Submitting (Checklist)</h2>
+ <ul class="list">
+ <li>Have your <strong>license number</strong> and <strong>NPN</strong> ready.</li>
+ <li>Upload your <strong>active E&amp;O policy</strong> (not expired).</li>
+ <li>If transferring, upload the <strong>release letter</strong> (carrier requirement).</li>
+ <li>Monitor your email — approvals and requests are time-sensitive.</li>
+ </ul>
+ <hr class="divider" />
+ <h2>What Happens Next?</h2>
+ <ul class="list">
+ <li>Carriers typically review within <strong>3–10 business days</strong>.</li>
+ <li>You will receive approval emails directly from the carriers (check spam).</li>
+ <li>Transfers may take longer depending on release requirements.</li>
+ </ul>
+ </section>
+
+ <aside class="card">
+ <h2>Common Issues</h2>
+ <ul class="list">
+ <li>Expired E&amp;O policy</li>
+ <li>Transfer submitted without release letter</li>
+ <li>Carrier emails going to spam</li>
+ <li>Not allowing enough time for review</li>
+ </ul>
+ <div class="callout" style="margin-top:12px;">
+ <strong>Tip:</strong> If you're waiting for an update, allow up to 10 business days before requesting a status update.
+ </div>
+ </aside>
+ </div>
+
+ <section class="card" style="margin-top:14px;">
+ <h2>Still Need Help?</h2>
+ <ul class="list">
+ <li>Active E&amp;O uploaded</li>
+ <li>Release letter uploaded (if transfer)</li>
+ <li>Waited 3–10 business days</li>
+ <li>Checked spam folder for carrier emails</li>
+ </ul>
+ </section>
+
+</div>
+</body>
+</html>

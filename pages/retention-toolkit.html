@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  // Preview bypass — ?preview=THEI allows viewing without login
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Retention Toolkit | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;--success:#1E8A5C;--success-tint:#E3F5EC;--warning:#B8720A;--warning-tint:#FDF0D8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.nav-link{font:600 13px/1 Arial,sans-serif;color:#6E687C;text-decoration:none;white-space:nowrap;}
+.nav-link:hover{color:#452068;}
+.nav-link.active{color:#452068;border-bottom:2px solid #FF1090;}
+.wrap{max-width:1200px;margin:0 auto;padding:32px;}
+.hero{background:linear-gradient(135deg,#FFE8F3 0%,#F9F0FD 100%);border-radius:20px;padding:32px;margin-bottom:24px;}
+.hero-badge{display:inline-block;font:700 10.5px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.5px;background:var(--pink);color:#fff;padding:5px 12px;border-radius:999px;margin-bottom:12px;}
+.hero h1{font-size:34px;font-weight:700;color:var(--purple-dark);margin-bottom:8px;}
+.hero .tagline{font-size:16px;color:var(--text-soft);margin-bottom:20px;max-width:65ch;}
+.stat-row{display:flex;gap:28px;flex-wrap:wrap;}
+.hero-stat{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:3px;}
+.hero-stat .val{font-size:22px;font-weight:700;color:var(--purple);}
+.hero-stat .lbl{font-size:12px;color:var(--text-soft);}
+.timeline-wrap{margin-bottom:24px;}
+.timeline-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.timeline-head h2{font-size:20px;font-weight:700;}
+.timeline-head a{font-size:13px;color:var(--purple);text-decoration:none;font-weight:600;}
+.timeline{display:flex;gap:0;overflow-x:auto;}
+.timeline-stop{flex:0 0 120px;text-align:center;position:relative;padding:0 8px;}
+.timeline-stop::before{content:'';position:absolute;top:16px;left:0;right:0;height:2px;background:var(--border);}
+.timeline-stop:first-child::before{left:50%;}
+.timeline-stop:last-child::before{right:50%;}
+.timeline-stop.highlight .ts-dot{background:var(--pink);border-color:var(--pink);}
+.timeline-stop.highlight .ts-label{color:var(--pink);font-weight:700;}
+.ts-dot{width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--purple);margin:0 auto 8px;position:relative;z-index:1;}
+.ts-month{font-size:11px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px;}
+.ts-label{font-size:12px;font-weight:600;color:var(--purple);}
+.ts-note{font-size:11px;color:var(--text-soft);margin-top:3px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+.tmpl-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:0 1px 3px rgba(36,28,46,0.06);padding:16px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:8px;}
+.tmpl-card.preaep{border-color:var(--pink);border-width:2px;}
+.tmpl-card.bundle{background:var(--purple);border-color:var(--purple);}
+.tmpl-card.bundle h3{color:#fff;}
+.tmpl-card.bundle p{color:rgba(255,255,255,0.8);}
+.tmpl-card h3{font-size:14px;font-weight:700;}
+.tmpl-card p{font-size:12.5px;color:var(--text-soft);flex:1;}
+.lang-pills{display:flex;gap:5px;}
+.lang-pill{font:600 10px/1 Arial,sans-serif;padding:3px 7px;border-radius:999px;background:var(--purple-tint);color:var(--purple);}
+.btn{display:inline-block;padding:8px 14px;border-radius:999px;font:600 12.5px/1 Arial,sans-serif;text-decoration:none;margin-top:auto;}
+.btn-purple{background:var(--purple);color:#fff;}
+.btn-purple:hover{opacity:0.9;}
+.btn-white{background:#fff;color:var(--purple);border:1.5px solid rgba(255,255,255,0.4);}
+.btn-outline{background:#fff;color:var(--purple);border:1.5px solid var(--purple);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:0 1px 3px rgba(36,28,46,0.06);padding:20px;}
+.income-card{background:var(--purple);border-radius:16px;padding:20px;color:#fff;}
+.income-card h3{font-size:17px;font-weight:700;margin-bottom:12px;}
+.bar-chart{display:flex;align-items:flex-end;gap:10px;height:80px;margin:16px 0;}
+.bar{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:4px;flex:1;}
+.bar-fill{border-radius:6px 6px 0 0;width:100%;}
+.bar-lbl{font-size:10px;color:rgba(255,255,255,0.7);}
+.bar-val{font-size:11px;font-weight:700;color:#fff;}
+.coming-soon-card{border:2px dashed var(--warning);border-radius:16px;padding:20px;background:#fff;}
+.coming-soon-card h3{font-size:17px;font-weight:700;margin-bottom:8px;}
+.cs-badge{font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.4px;padding:4px 9px;border-radius:999px;background:var(--warning-tint);color:var(--warning);display:inline-block;margin-bottom:10px;}
+.cs-progress{height:5px;border-radius:999px;background:var(--border);margin:10px 0 6px;}
+.cs-progress-fill{height:5px;border-radius:999px;background:var(--warning);width:67%;}
+.math-block{margin-bottom:24px;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.math-block p{font-size:16px;line-height:1.7;color:var(--text-soft);max-width:75ch;}
+.math-block strong{color:var(--text);}
+.accord-wrap{}
+.accord-item{border-bottom:1px solid var(--border);}
+.accord-item summary{padding:13px 4px;cursor:pointer;font-weight:700;font-size:14px;display:flex;justify-content:space-between;}
+.accord-item summary::after{content:"▾";color:var(--purple);}
+details[open] summary::after{content:"▴";}
+.accord-body{padding:4px 4px 14px;font-size:13.5px;color:var(--text-soft);}
+@media(max-width:768px){.grid-4{grid-template-columns:1fr 1fr;}.two-col{grid-template-columns:1fr;}.stat-row{gap:16px;}}
+@media(max-width:480px){.grid-4{grid-template-columns:1fr;}}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a class='active' href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="hero-badge">FLAGSHIP</span>
+    <h1>Retention Toolkit</h1>
+    <p class="tagline">Keep every client you've earned. The complete system for Year-2 renewals and beyond.</p>
+
+  </div>
+
+  <!-- Annual Retention Rhythm -->
+  <div class="timeline-wrap">
+    <div class="timeline-head">
+      <h2>Annual Retention Rhythm</h2>
+      <a href="https://thei-agent-hub.netlify.app/files/THEI_Retention_Email_Templates.docx" target="_blank" rel="noopener">Download the full calendar →</a>
+    </div>
+    <div class="timeline">
+      <div class="timeline-stop">
+        <div class="ts-dot"></div>
+        <div class="ts-month">Month 1</div>
+        <div class="ts-label">Welcome</div>
+        <div class="ts-note">Set the tone</div>
+      </div>
+      <div class="timeline-stop">
+        <div class="ts-dot"></div>
+        <div class="ts-month">Month 3+</div>
+        <div class="ts-label">Birthday</div>
+        <div class="ts-note">Personal touch</div>
+      </div>
+      <div class="timeline-stop">
+        <div class="ts-dot"></div>
+        <div class="ts-month">June</div>
+        <div class="ts-label">Mid-Year</div>
+        <div class="ts-note">Summer check-in</div>
+      </div>
+      <div class="timeline-stop">
+        <div class="ts-dot"></div>
+        <div class="ts-month">August</div>
+        <div class="ts-label">August Update</div>
+        <div class="ts-note">Pre-AEP warm-up</div>
+      </div>
+      <div class="timeline-stop highlight">
+        <div class="ts-dot"></div>
+        <div class="ts-month">September</div>
+        <div class="ts-label">Pre-AEP</div>
+        <div class="ts-note">⭐ Highest Stakes</div>
+      </div>
+      <div class="timeline-stop">
+        <div class="ts-dot"></div>
+        <div class="ts-month">December</div>
+        <div class="ts-label">Post-AEP</div>
+        <div class="ts-note">Lock in renewal</div>
+      </div>
+      <div class="timeline-stop">
+        <div class="ts-dot"></div>
+        <div class="ts-month">Year-end</div>
+        <div class="ts-label">Annual Review</div>
+        <div class="ts-note">Renewal confirm</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template Grid -->
+  <h2 style="font-size:20px;font-weight:700;margin-bottom:16px;">Email Templates</h2>
+  <div class="grid-4">
+
+    <div class="tmpl-card">
+      <div class="lang-pills"><span class="lang-pill">EN</span><span class="lang-pill">ES</span></div>
+      <h3>Welcome (Month 1)</h3>
+      <p>Set the tone. First impression after enrollment.</p>
+      <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/welcome-onboarding.docx" target="_blank" rel="noopener" download>Download ↓</a>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="lang-pills"><span class="lang-pill">EN</span><span class="lang-pill">ES</span></div>
+      <h3>Birthday</h3>
+      <p>Personal touchpoint that drives loyalty.</p>
+      <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/birthday-email.docx" target="_blank" rel="noopener" download>Download ↓</a>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="lang-pills"><span class="lang-pill">EN</span><span class="lang-pill">ES</span></div>
+      <h3>Mid-Year (June)</h3>
+      <p>Check-in before the summer lull.</p>
+      <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/mid-year-check-in.docx" target="_blank" rel="noopener" download>Download ↓</a>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="lang-pills"><span class="lang-pill">EN</span><span class="lang-pill">ES</span></div>
+      <h3>August Update</h3>
+      <p>Pre-AEP warm-up. Gets clients thinking about their plan.</p>
+      <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/august-info-update.docx" target="_blank" rel="noopener" download>Download ↓</a>
+    </div>
+
+    <div class="tmpl-card preaep">
+      <div class="lang-pills"><span class="lang-pill">EN</span><span class="lang-pill">ES</span></div>
+      <h3>⭐ Pre-AEP (September)</h3>
+      <p>Highest stakes email of the year. Do not skip this one.</p>
+      <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/pre-aep-review-request.docx" target="_blank" rel="noopener" download>Download ↓</a>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="lang-pills"><span class="lang-pill">EN</span><span class="lang-pill">ES</span></div>
+      <h3>Post-AEP (December)</h3>
+      <p>Lock in the renewal. Thank them and confirm coverage.</p>
+      <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/post-aep-thank-you.docx" target="_blank" rel="noopener" download>Download ↓</a>
+    </div>
+
+    <div class="tmpl-card">
+      <div class="lang-pills"><span class="lang-pill">EN</span><span class="lang-pill">ES</span></div>
+      <h3>Annual Review</h3>
+      <p>Full-year wrap-up and renewal confirmation.</p>
+      <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/annual-review-reminder.docx" target="_blank" rel="noopener" download>Download ↓</a>
+    </div>
+
+    <div class="tmpl-card bundle">
+      <h3>Download Full Bundle</h3>
+      <p>All 7 templates as one ZIP — EN + ES versions included.</p>
+      <a class="btn btn-white" href="https://thei-agent-hub.netlify.app/files/THEI_Retention_Email_Templates.docx" target="_blank" rel="noopener" download>Download Bundle ↓</a>
+    </div>
+
+  </div>
+
+  <!-- The Retention Math -->
+  <div class="math-block">
+    <h2 style="font-size:18px;font-weight:700;margin-bottom:10px;">The Retention Math</h2>
+    <p>Keeping a client costs <strong>5x less</strong> than acquiring a new one. Each retained client represents <strong>$200–$600</strong> in annual renewal commissions. A consistent touchpoint system — <strong>7 emails per year</strong> — is the single highest-ROI activity in your book. Agents who send all 7 touchpoints see 78% Year-1 renewal rates vs. 54% for those who don't.</p>
+  </div>
+
+  <!-- How to Personalize Accordion -->
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:14px;">How to Personalize Each Template</h2>
+  <div class="card" style="padding:0 20px;">
+    <div class="accord-wrap">
+      <details class="accord-item" open>
+        <summary>Welcome (Month 1)</summary>
+        <div class="accord-body">Personalize with the client's first name, their plan name, and their effective date. Add a sentence about what you love about their plan choice to make it feel personal, not automated.</div>
+      </details>
+      <details class="accord-item">
+        <summary>Birthday</summary>
+        <div class="accord-body">Just use their name and birthday month. Keep it short — a genuine "Happy Birthday" from their agent stands out. Don't pitch anything. Just check in.</div>
+      </details>
+      <details class="accord-item">
+        <summary>Mid-Year (June)</summary>
+        <div class="accord-body">Reference any plan changes or new benefits you've noticed. Remind them of their OTC allowance if applicable. Ask how the plan has been working — invite a reply.</div>
+      </details>
+      <details class="accord-item">
+        <summary>August Update</summary>
+        <div class="accord-body">Let them know AEP is coming in October. Reassure them you'll be in touch. Mention any carrier news relevant to their area. Keep the tone calm — no urgency yet.</div>
+      </details>
+      <details class="accord-item">
+        <summary>Pre-AEP (September)</summary>
+        <div class="accord-body">This is the most important email. Tell them you've done a plan review and will call them before October 15. If their plan has major benefit changes, mention it here. Schedule the call in this email.</div>
+      </details>
+      <details class="accord-item">
+        <summary>Post-AEP (December)</summary>
+        <div class="accord-body">Confirm their coverage for the new year. If they didn't change, tell them why staying was the right call. If they switched, remind them of the key benefits they'll gain on January 1.</div>
+      </details>
+      <details class="accord-item">
+        <summary>Annual Review</summary>
+        <div class="accord-body">Look back at the year: any claims, hospitalizations, medications that changed? Confirm their doctors are still in-network. Position yourself as their year-round advocate.</div>
+      </details>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+</body>
+</html>

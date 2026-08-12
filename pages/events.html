@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Events | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.wrap{max-width:1100px;margin:0 auto;padding:36px 24px 64px;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--purple-dark),var(--purple));border-radius:20px;padding:28px 32px;margin-bottom:32px;color:#fff;}
+.hero h1{font:700 28px/1.2 Arial,sans-serif;margin-bottom:6px;}
+.hero p{font:400 14px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:60ch;}
+
+/* Filter pills */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-pill{padding:7px 16px;border:1.5px solid var(--border);border-radius:999px;font:600 12px/1 Arial,sans-serif;color:var(--text-soft);cursor:pointer;background:#fff;transition:all .15s;}
+.filter-pill:hover,.filter-pill.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.filter-pill.active-green{background:#1E8A5C;border-color:#1E8A5C;color:#fff;}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:10px;margin:32px 0 14px;}
+.section-header h2{font:700 19px/1 Arial,sans-serif;color:var(--text);}
+.section-tag{font:700 10px/1 Arial,sans-serif;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.4px;}
+.tag-carrier{background:var(--purple-tint);color:var(--purple);}
+.tag-thei{background:var(--pink-tint);color:var(--pink-dark);}
+
+/* Event cards */
+.events-list{display:flex;flex-direction:column;gap:12px;}
+.event-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px;transition:box-shadow .15s;}
+.event-card:hover{box-shadow:0 4px 16px rgba(69,32,104,.1);}
+.event-card.past{opacity:.6;}
+.event-card.past:hover{opacity:.8;}
+.event-icon{flex-shrink:0;font-size:24px;margin-top:1px;}
+.event-body{flex:1;}
+.event-title-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap;}
+.event-title{font:700 14.5px/1.2 Arial,sans-serif;color:var(--text);}
+.event-badge{font:700 10px/1 Arial,sans-serif;padding:2px 9px;border-radius:999px;text-transform:uppercase;white-space:nowrap;}
+.badge-upcoming{background:#E3F5EC;color:#1E8A5C;}
+.badge-date{background:#FEF3E2;color:#D97706;}
+.badge-past{background:#F6F5F8;color:#9A94A8;}
+.badge-thei{background:var(--pink-tint);color:var(--pink-dark);}
+.event-desc{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);margin-bottom:7px;}
+.event-meta{font:600 11px/1 Arial,sans-serif;color:var(--text-faint);}
+
+/* Add event CTA */
+.add-event{background:#fff;border:2px dashed var(--border);border-radius:14px;padding:22px 20px;display:flex;align-items:center;gap:14px;color:var(--text-soft);cursor:pointer;transition:all .15s;}
+.add-event:hover{border-color:var(--purple);color:var(--purple);}
+.add-event span{font:600 14px/1 Arial,sans-serif;}
+
+/* Two-column layout */
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+.column-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.column-header h2{font:700 17px/1 Arial,sans-serif;color:var(--text);}
+
+@media(max-width:780px){.columns{grid-template-columns:1fr;}}
+@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}.pill-nav{gap:6px;}.hero{padding:20px 18px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a class='active' href='/events'>Events</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Events</h1>
+    <p>Carrier-led webinars, AEP prep sessions, and THEI team trainings — all in one place. Stay current, stay ready for AEP.</p>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-bar">
+    <button class="filter-pill active" onclick="filterEvents('all', this)">All</button>
+    <button class="filter-pill active-green" onclick="filterEvents('upcoming', this)" style="">Upcoming</button>
+    <button class="filter-pill" onclick="filterEvents('carrier', this)">Carrier-Led</button>
+    <button class="filter-pill" onclick="filterEvents('thei', this)">THEI-Led</button>
+    <button class="filter-pill" onclick="filterEvents('past', this)">Past</button>
+  </div>
+
+  <div class="columns">
+
+  <!-- CARRIER-LED -->
+  <div>
+    <div class="column-header">
+      <h2>Carrier-Led</h2>
+      <span class="section-tag tag-carrier">Carrier</span>
+    </div>
+    <div class="events-list" id="events-list">
+
+    <!-- Aetna Academy - Jul 30 -->
+    <div class="event-card" data-type="carrier" data-status="upcoming">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">Aetna Academy — National Medicare Training Webinar</span>
+          <span class="event-badge badge-date">Jul 30</span>
+        </div>
+        <div class="event-desc">National Medicare training webinar with actionable strategies for the upcoming AEP. Register your agents now — 8 days away.</div>
+        <div class="event-meta">Source: Aetna Academy &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Check your email from Aetna to register</span></div>
+      </div>
+    </div>
+
+    <!-- Solis AEP 2027 Kickoff -->
+    <div class="event-card" data-type="carrier" data-status="upcoming">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">Solis Health Plans — AEP 2027 Kickoff South Florida</span>
+          <span class="event-badge badge-date">Aug 28</span>
+        </div>
+        <div class="event-desc">Be the first to discover Solis 2027 benefits. Jungle Island, 1111 Parrot Jungle Trail, Miami FL 33132. 11:00 AM. RSVP to secure your seat.</div>
+        <div class="event-meta">Source: Solis Health Plans &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">RSVP via evite (check your email)</span></div>
+      </div>
+    </div>
+
+    <!-- Devoted AEP Summer Training -->
+    <div class="event-card" data-type="carrier" data-status="upcoming">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">Devoted — AEP Summer Training (Medicaid/LIS + Portal Nav)</span>
+          <span class="event-badge badge-upcoming">Upcoming</span>
+        </div>
+        <div class="event-desc">Live walkthroughs covering Medicaid/LIS Deep Dive and Portal Navigation for AEP prep. Reply to Jean-Luc Batista to schedule your session.</div>
+        <div class="event-meta">Source: jean-luc.batista@devoted.com &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Reply to that email to schedule your session</span></div>
+      </div>
+    </div>
+
+    <!-- Devoted PY27 Playbook -->
+    <div class="event-card" data-type="carrier" data-status="upcoming">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">Devoted Health — PY27 Playbook & Live Training Events</span>
+          <span class="event-badge badge-upcoming">Upcoming</span>
+        </div>
+        <div class="event-desc">Jean-Luc Batista shared PY2027 plan previews and upcoming live training events. Check your email for registration links.</div>
+        <div class="event-meta">Source: jean-luc.batista@devoted.com &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Check your email from Jean-Luc for registration links</span></div>
+      </div>
+    </div>
+
+    <!-- HealthSpring August Training -->
+    <div class="event-card" data-type="carrier" data-status="upcoming">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">HealthSpring — August Broker Training Schedule Released</span>
+          <span class="event-badge badge-upcoming">Upcoming</span>
+        </div>
+        <div class="event-desc">HealthSpring has released their full August broker training schedule. Check theiagentpulse@gmail.com for dates and registration links.</div>
+        <div class="event-meta">Source: HealthSpring &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Check theiagentpulse@gmail.com for dates &amp; registration</span></div>
+      </div>
+    </div>
+
+    <!-- UHC Need to Know 2027 (past) -->
+    <div class="event-card past" data-type="carrier" data-status="past">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">UHC — "Need to Know 2027" Virtual Event</span>
+          <span class="event-badge badge-past">Past — Jun 25</span>
+        </div>
+        <div class="event-desc">Key CMS changes for 2027 and what they mean for upcoming sales and compliance. Lazaro sends these regularly — watch for the next one.</div>
+        <div class="event-meta">Source: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Watch for the next one from Lazaro</div>
+      </div>
+    </div>
+
+    <!-- UHC Cert Readiness (past) -->
+    <div class="event-card past" data-type="carrier" data-status="past">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">UHC — Certification Readiness Training</span>
+          <span class="event-badge badge-past">Past — Jul 13</span>
+        </div>
+        <div class="event-desc">UHC certification readiness session hosted by Lazaro Aragon. Covers 2027 certification requirements.</div>
+        <div class="event-meta">Source: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Watch for the next one from Lazaro</div>
+      </div>
+    </div>
+
+    <!-- UHC Product Portal (past) -->
+    <div class="event-card past" data-type="carrier" data-status="past">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">UHC — Medicare Product Portal Training</span>
+          <span class="event-badge badge-past">Past — Jul 6</span>
+        </div>
+        <div class="event-desc">Training on the UHC Medicare Product Portal. Lazaro sends these regularly — watch your email for the next one.</div>
+        <div class="event-meta">Source: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Watch for the next one from Lazaro</div>
+      </div>
+    </div>
+
+    </div>
+  </div><!-- end carrier column -->
+
+  <!-- THEI-LED -->
+  <div>
+    <div class="column-header">
+      <h2>THEI-Led</h2>
+      <span class="section-tag tag-thei">Internal</span>
+    </div>
+    <div class="events-list" id="thei-list">
+
+    <div class="event-card" data-type="thei" data-status="upcoming" style="border-left:4px solid var(--pink);">
+      <div class="event-body">
+        <div class="event-title-row">
+          <span class="event-title">MSO Project Meeting</span>
+          <span class="event-badge badge-thei">THEI</span>
+          <span class="event-badge badge-date">Jul 24</span>
+        </div>
+        <div class="event-desc">Friday, July 24 &middot; 10:30 &ndash; 11:30 AM &middot; Level Up Insurance, 1695 NW 110th Ave Ste 224, Doral, FL 33172<br>Join via Google Meet: <a href="https://meet.google.com/iho-fsow-ybg" target="_blank" style="color:var(--purple);">meet.google.com/iho-fsow-ybg</a> &nbsp;&middot;&nbsp; Phone: +1 720-580-1353 PIN: 439 856 873#</div>
+        <div class="event-meta">The Health Experts Insurance &middot; 19 guests</div>
+      </div>
+    </div>
+
+  </div>
+
+    </div>
+  </div><!-- end thei column -->
+
+  </div><!-- end columns -->
+
+  <!-- Add Event CTA -->
+  <div class="add-event" style="margin-top:24px;" onclick="alert('To add a training, message Igor with the details and he will add it here.')">
+    <span>+ Add a THEI-Led Training or Event</span>
+  </div>
+
+</div>
+
+<script>
+function logout() {
+  localStorage.removeItem('hub_session');
+  window.location.replace('/login.html');
+}
+
+function filterEvents(type, btn) {
+  // Update active pill
+  document.querySelectorAll('.filter-pill').forEach(p => {
+    p.classList.remove('active');
+    p.style.background = '';
+    p.style.borderColor = '';
+    p.style.color = '';
+  });
+  btn.classList.add('active');
+
+  // Filter cards
+  document.querySelectorAll('.event-card').forEach(card => {
+    const cardType = card.dataset.type;
+    const cardStatus = card.dataset.status;
+    let show = false;
+    if (type === 'all') show = true;
+    else if (type === 'upcoming') show = cardStatus === 'upcoming';
+    else if (type === 'past') show = cardStatus === 'past';
+    else if (type === 'carrier') show = cardType === 'carrier';
+    else if (type === 'thei') show = cardType === 'thei';
+    card.style.display = show ? '' : 'none';
+  });
+
+  // Show/hide section headers
+  const carrierHeader = document.querySelector('.section-header:first-of-type');
+  if (type === 'thei') {
+    document.getElementById('events-list').style.display = 'none';
+  } else {
+    document.getElementById('events-list').style.display = '';
+  }
+  if (type === 'carrier') {
+    document.getElementById('thei-list').style.display = 'none';
+  } else {
+    document.getElementById('thei-list').style.display = '';
+  }
+}
+</script>
+</body>
+</html>

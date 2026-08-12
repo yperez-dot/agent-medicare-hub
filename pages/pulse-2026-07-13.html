@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>THEI Agent Pulse — Week of July 13, 2026</title>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) { localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.back-bar{background:#452068;padding:10px 24px;display:flex;align-items:center;gap:16px;}
+.back-bar a{color:#fff;text-decoration:none;font:600 13px/1 Arial,sans-serif;opacity:.85;}
+.back-bar a:hover{opacity:1;}
+.back-bar .sep{color:rgba(255,255,255,.3);}
+.email-wrap{max-width:680px;margin:24px auto 48px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+@media(max-width:600px){.email-wrap{margin:0;border-radius:0;}.pill-nav a{font-size:11px;padding:7px 12px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+<div class="back-bar">
+  <a href='/pulse-library'>← Pulse Library</a>
+  <span class="sep">|</span>
+  <a href='/home'>Agent Dashboard</a>
+</div>
+<div class="email-wrap">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE Health Experts Insider</title>
+</head>
+<body style="margin:0;padding:0;background:#EDE8F0;">
+  <span style="display:none !important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">
+    The agent insider for Florida Medicare brokers.
+  </span>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+         style="background:#EDE8F0;padding:24px 0;">
+    <tr><td align="center">
+
+      <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0"
+             style="max-width:640px;width:100%;background:#FFFFFF;border-radius:8px;overflow:hidden;">
+
+        <!-- HEADER -->
+        <tr>
+          <td style="padding:28px 36px 22px 36px;border-bottom:2px solid #D6006C;text-align:left;">
+            <img src="cid:thei-logo" alt="The Health Experts Insurance" width="360" style="display:block;width:360px;max-width:100%;height:auto;border:0;outline:none;">
+          </td>
+        </tr>
+
+        <!-- FIRST-TIME STRIP -->
+        <tr>
+          <td style="background:#FBEFC8;padding:14px 36px;font-family:Georgia,'Times New Roman',serif;
+                     font-size:14px;color:#3D1560;line-height:1.5;">
+            📬 Reading THE Health Experts Insider? If a colleague would benefit, please forward it on!
+          </td>
+        </tr>
+
+        <!-- HERO -->
+        <tr>
+          <td style="background:#2A0E45;padding:48px 36px 48px 36px;text-align:center;">
+            <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#FFFFFF;
+                      letter-spacing:3px;font-weight:700;opacity:0.85;">Week of July 13, 2026 &nbsp;·&nbsp; ISSUE #4</p>
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;
+                      font-size:30px;color:#FFFFFF;line-height:1;">The Week in</p>
+            <p style="margin:6px 0 0 0;font-family:Helvetica,Arial,sans-serif;font-weight:900;
+                      font-size:56px;color:#E6007E;line-height:1;letter-spacing:-1px;">Medicare</p>
+            <div style="width:60px;height:3px;background:#E6007E;margin:18px auto 0 auto;"></div>
+          </td>
+        </tr>
+
+        <!-- INTRO -->
+        <tr>
+          <td style="padding:32px 36px 8px 36px;font-family:Georgia,'Times New Roman',serif;font-size:16px;
+                     color:#2A2A2A;line-height:1.6;">
+            <p>Hey Team! 👋</p><p>Two words: GLP-1 Bridge. Medicare's new $50/month weight-loss drug coverage launched July 1 — and your clients are already calling. Short answer for every rep is in item 1; read it before you pick up the phone this week.</p><p>On the cert front: Humana went live Tuesday. Wellcare opens July 21. AEP is 95 days away. If you haven't started AHIP, today is the day.</p><p>— Yahoska &amp; Katy</p>
+          </td>
+        </tr>
+
+        <!-- SECTION DIVIDER -->
+        <tr>
+          <td style="padding:8px 36px 24px 36px;text-align:center;">
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;
+                      letter-spacing:3px;font-weight:700;">— THE WEEK IN MEDICARE —</p>
+          </td>
+        </tr>
+
+        <!-- ITEMS -->
+        <tr>
+  <td style="padding:28px 36px 28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;
+              font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · CARRIER
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;
+               color:#3D1560;font-weight:700;">Medicare GLP-1 Bridge is live — $50/month for eligible Part D enrollees as of July 1</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;
+              font-style:italic;">4-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;">
+      <p>CMS launched the <b>Medicare GLP-1 Bridge</b> on July 1, 2026 — a demonstration program giving eligible Medicare Part D enrollees access to three GLP-1 weight-loss medications at a flat <b>$50/month copayment</b>: Wegovy® (injection or tablet), Zepbound® (KwikPen only — not single-dose vials or pens), and Foundayo® (tablet). The $50 payment does <em>not</em> count toward the Part D deductible or annual out-of-pocket cap, and Low-Income Subsidy (LIS/Extra Help) cost-sharing does not apply. CMS — not the plan — manages prior authorization, claims adjudication, and pharmacy payments through a central processor; Part D sponsors don't need to opt in and don't carry risk for these drugs. The program runs through <b>December 31, 2027</b>. KFF estimates nearly <b>4 million Medicare beneficiaries</b> could meet the eligibility criteria. The planned follow-on program (the BALANCE Model) has been delayed indefinitely, making the Bridge the operative coverage vehicle through the end of next year.</p>
+    </div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Client calls are coming — here's your talking points. Eligible beneficiaries must: (1) have Part D coverage, (2) have a BMI ≥30 or ≥27 with a qualifying weight-related comorbidity, (3) not have previously received a GLP-1 under Part D for weight loss, and (4) get prior authorization through CMS (not their plan). Clients using GLP-1s for type 2 diabetes or cardiovascular risk management continue to access those through their standard Part D benefit — the Bridge is only for weight-management indications. Scan your Part D-enrolled book for clients who have asked about weight-loss drugs; this is a high-value retention touchpoint. Direct eligible clients to Medicare.gov/coverage/weight-loss-drugs for the eligibility wizard and to call 1-800-MEDICARE for prior auth questions.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: <a href="https://www.cms.gov/medicare/coverage/prescription-drug-coverage/medicare-glp-1-bridge" style="color:#D6006C;text-decoration:underline;">CMS / Medicare Rights Center / KFF</a></p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px 28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;
+              font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · AGENT
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;
+               color:#3D1560;font-weight:700;">2027 cert wave fully open — Humana live July 8, Wellcare opens July 21, AEP is 95 days out</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;
+              font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;">
+      <p>The 2027 carrier certification season hit its midpoint this week. <b>Humana and Molina</b> portals went live <b>Tuesday, July 8</b>, joining Aetna (live since June 23), Anthem, and a growing list of carriers. <b>Wellcare's</b> 2027 certification portal opens <b>July 21</b>. UHC is expected before the end of the month. <b>AHIP Medicare Training</b> has been open since June 22 — agents who haven't started are three weeks behind. Caution: Wellcare's system is unavailable July 8–22 for the 2026→2027 platform transition; access resumes July 22. AEP runs October 15–December 7 — that's <b>95 days from today</b>. Carriers release plan materials and marketing tools only to certified, ready-to-sell agents; late certifiers spend October in training queues instead of in front of clients. Every day of delay now is a day of client-facing time lost in October.</p>
+    </div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Run a THEI cert audit this week. Every agent should have AHIP completed or actively in progress. Priority order: AHIP first, then Humana (live now), then Aetna (live), then Wellcare (July 21), then UHC (expected late July). Set a team deadline: all AHIP and Humana certs completed by <b>July 25</b>. That protects 80+ days of client outreach time before AEP opens. AHIP link: <b>ahipmedicaretraining.com</b>. Do not wait for Wellcare or UHC to open before completing the others.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: <a href="https://ritterim.com/blog/2027-medicare-advantage-and-part-d-certification-info" style="color:#D6006C;text-decoration:underline;">Ritter Insurance Marketing / Agent Link</a></p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px 28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;
+              font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · LEGAL
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;
+               color:#3D1560;font-weight:700;">Elevance sues CMS for $115M over star ratings inequality — enrollment suspension remains in force</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;
+              font-style:italic;">3-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;">
+      <p>Two separate Elevance Health issues are active simultaneously. First: Elevance filed a lawsuit July 1 in Georgia federal court alleging CMS violated the Administrative Procedure Act by giving Clover Health a more favorable 2026 MA star ratings recalculation — excluding 20 measures a court found legally improper — while refusing to apply the same methodology to Elevance's plans. At stake: <b>$115 million in lost 2027 quality bonus payments</b> across five Elevance contracts. CMS recalculated stars for select MA insurers in a June 17 memo but dropped additional measures that Elevance performed well on — a distinction Elevance is now litigating. Second: Elevance's <b>enrollment suspension</b>, imposed March 31 for repeated failures to submit risk-adjustment data through required CMS electronic systems, <b>remains in force as of July 13</b>. CMS has issued no public statement lifting it. Current Elevance/Anthem members are unaffected, but no new enrollments are permitted. 2026 marks the third consecutive year CMS has been forced to recalculate MA star ratings following legal challenges; over $13 billion in bonus payments industry-wide are caught in the litigation wave.</p>
+    </div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> On the enrollment suspension: continue redirecting any Elevance/Anthem MA prospects to other carriers — the suspension is still active and there is no CMS signal of restoration. On the star ratings lawsuit: this is a financial dispute that does not affect current Elevance members and will not trigger a Special Enrollment Period. Track the Georgia court's docket; a preliminary injunction ruling — if granted — would force CMS to recalculate, which could reshape 2027 bonus payments for multiple carriers beyond Elevance. Also watch for UHC's 2027 certification portal to open this month.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: <a href="https://www.healthcarefinancenews.com/news/elevance-sues-cms-over-115m-medicare-advantage-star-ratings-dispute" style="color:#D6006C;text-decoration:underline;">Healthcare Finance News / Healthcare Dive / STAT</a></p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px 28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;
+              font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · POLICY
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;
+               color:#3D1560;font-weight:700;">OIG: MA plans deny 65% of LTCH prior auth requests; House subcommittee advances H.R. 3514</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;
+              font-style:italic;">3-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;">
+      <p>KFF published a July 6 analysis of two HHS Office of Inspector General reports (released June 11) documenting extraordinary prior authorization denial rates in Medicare Advantage for post-acute care: <b>65% of long-term care hospital (LTCH) requests denied</b>, 54% of inpatient rehabilitation (IRF) requests denied, and 12% of skilled nursing facility (SNF) requests denied. The most striking finding: <b>95% of SNF denials were overturned on appeal</b> — confirming the care was medically necessary when initially denied. UHC's NaviHealth subsidiary processed over one-third of all LTCH and IRF prior auth requests and denied them at above-average rates; AHIP pushed back, citing documentation errors and post-acute overutilization as drivers. Separately, the House Energy &amp; Commerce Subcommittee on Health <b>advanced H.R. 3514 (Improving Seniors' Timely Access to Care Act) on June 30, 2026</b> — bipartisan legislation that would codify 2024 CMS prior auth rules into law and require MA plans to publicly report denial rates by item and service, enabling plan-to-plan comparisons for the first time.</p>
+    </div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> This data is the factual backbone behind frustrated client calls about denied SNF or rehab coverage. You cannot cite OIG reports in marketing materials (CMS rules), but in consultative conversations about plan selection — especially for clients with chronic conditions, recent hospitalizations, or family members in post-acute settings — carrier-level prior auth denial variation is a legitimate planning factor. If H.R. 3514 passes, annual denial data becomes publicly comparable: expect prior auth performance to become a differentiator in plan conversations at AEP. Track committee floor votes; the bill has bipartisan momentum and the OIG data is fresh political fuel.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: <a href="https://www.kff.org/medicare/medicare-advantage-insurers-deny-prior-authorization-requests-for-post-acute-care-at-substantially-higher-rates-than-the-overall-denial-rate" style="color:#D6006C;text-decoration:underline;">KFF / OIG HHS / Healthcare Dive / ASNC</a></p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px 28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;
+              font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📰</span>&nbsp;&nbsp;FYI · CARRIER
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;
+               color:#3D1560;font-weight:700;">UnitedHealth Q1 beat signals MA cost stabilization; Humana Q2 earnings due July 29</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;
+              font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;">
+      <p>UnitedHealth's Q1 2026 results beat estimates ($7.23 adjusted EPS vs. $6.61 expected), with medical cost ratio improving 90 basis points to 83.9% and full-year EPS guidance raised above $18.25. The numbers — reported earlier this spring — sent UNH stock up 9% and lifted Humana 5%, as investors read them as early evidence that the MA repricing cycle is gaining traction across the sector. <b>Humana's Q2 2026 earnings are due July 29</b> — a more revealing test: Humana added approximately 1 million individual MA members in 2026, and the market is watching whether medical costs on that expanded book are tracking to projections. Humana's Q2 call will also be the first public look at whether the Moffitt Cancer Center network exit (effective July 1) generated any member service volume spikes or continuity-of-care activation costs. Humana's 2026 EPS forecast remains at approximately $9 — well below pre-2024 levels — but Q2 results will determine whether the recovery trajectory is on track for the projected 2027 rebound.</p>
+    </div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Carrier financial health directly affects network breadth, AEP benefit design, and commission stability heading into 2027. Humana's July 29 call is the one to watch — if medical costs surprise to the upside, expect signals of further benefit tightening or network adjustments at AEP 2027 plan design time. If costs track as guided, Humana's Florida commitment looks stable. The call transcript and investor presentation will be available at humana.com/investors by 6 AM ET on July 29.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: <a href="https://policy.humana.com/news-and-resources/news-press/2026/humana-inc--to-release-second-quarter-2026-results-on-july-29-" style="color:#D6006C;text-decoration:underline;">Yahoo Finance / Humana Investor Relations</a></p>
+  </td>
+</tr>
+
+        <!-- WATCH LIST -->
+        <tr>
+  <td style="padding:28px 36px 28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;
+              font-weight:700;letter-spacing:2px;">— WHAT TO WATCH THIS WEEK —</p>
+    <ul style="margin:0;padding:0 0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:15px;
+               color:#2A2A2A;line-height:1.6;">
+      <li style="margin:0 0 8px 0;"><b>Humana Q2 2026 earnings — July 29:</b> The call will confirm or challenge the MA cost-recovery story. Medical cost ratio and updated full-year guidance are the two key numbers. Humana is THEI's highest-volume carrier — any benefit redesign signal for AEP 2027 could come from this call. Available at humana.com/investors by 6 AM ET.</li>
+<li style="margin:0 0 8px 0;"><b>Wellcare 2027 certification portal — opens July 21:</b> The system is locked July 8–22 for the platform transition. Confirm every THEI agent completing Wellcare certification is queued and ready to log in on July 21. UHC's 2027 portal is also expected to open before month-end.</li>
+<li style="margin:0 0 8px 0;"><b>Elevance enrollment suspension and star ratings lawsuit:</b> Watch for a Georgia court preliminary ruling and any CMS announcement restoring Elevance enrollment. Until CMS issues a public statement, the enrollment suspension stands. Clients currently enrolled in Elevance/Anthem MA are unaffected; new enrollments remain blocked.</li>
+    </ul>
+  </td>
+</tr>
+
+        <!-- SOURCES -->
+        <tr>
+  <td style="padding:24px 36px 32px 36px;">
+    <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#8A8A8A;
+              letter-spacing:1.5px;">SOURCES REVIEWED</p>
+    <p style="margin:8px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;
+              line-height:1.55;">CMS Newsroom, Medicare.gov, Florida DFS / MyFloridaCFO (search — no fresh items this week), Florida SHINE (unreachable today), Humana, UnitedHealthcare, Aetna / CVS Health, Wellcare / Centene, KFF, OIG / HHS, AHIP, Medicare Rights Center, Healthcare Dive, Healthcare Finance News, Fierce Healthcare, STAT, MedCity News, Ritter Insurance Marketing, Agent Link, ASNC (subcommittee advance June 30), Miami Herald (no fresh Medicare items this week), Florida Politics (no fresh Medicare items this week)</p>
+  </td>
+</tr>
+
+        <!-- FOOTER -->
+        <tr>
+          <td style="background:#2A0E45;padding:32px 36px;text-align:center;">
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#FFFFFF;
+                      line-height:1.6;">
+              You're receiving this because you're a contracted agent with The Health Experts Insurance.<br><br><b>Questions? Tips? Carrier intel to share?</b> Reply to this email.
+            </p>
+            <p style="margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;
+                      font-size:14px;color:#E6007E;">Making Healthcare Easy</p>
+          </td>
+        </tr>
+
+      </table>
+
+    </td></tr>
+  </table>
+</body>
+</html>
+
+
+</div>
+</body>
+</html>

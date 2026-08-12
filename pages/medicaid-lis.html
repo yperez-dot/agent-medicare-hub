@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Medicaid &amp; LIS | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+ --shadow-hover:0 12px 26px rgba(20,10,40,.12);
+ --tint: rgba(69,32,104,.03);
+ --divider: rgba(69,32,104,.10);
+ --ring: 0 0 0 3px rgba(255,16,144,.14);
+
+ --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.section{ margin-top:20px; }
+
+.hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:var(--shadow);
+ position:relative;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:-1px;
+ background:
+ radial-gradient(360px 220px at 18% 15%, rgba(255,16,144,.26), transparent 60%),
+ radial-gradient(420px 260px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+ pointer-events:none;
+}
+.hero-inner{position:relative}
+.hero-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.14);
+ padding:6px 12px;
+ border-radius:999px;
+ font-size:14px;
+ font-weight:900;
+ letter-spacing:.4px;
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 8px;font-size:30px;}
+.hero p{margin:0;opacity:.92;font-size:14px;line-height:1.55;max-width:90ch;}
+
+.section{
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:18px;
+ box-shadow:var(--shadow-soft);
+ padding:16px;
+}
+.section h2{margin:0 0 6px;font-size:18px;}
+.section p{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.55;}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:12px;
+}
+@media(max-width:980px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:14px;
+ background:var(--card);
+ display:flex;
+ flex-direction:row;align-items:center;justify-content:space-between;
+ gap:10px;
+ min-height:170px;
+ transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover{
+ transform:translateY(-2px);
+ box-shadow:var(--shadow-hover);
+ border-color:rgba(69,32,104,.14);
+}
+.card h3{margin:0;font-size:15px;}
+.meta{margin:0;color:var(--muted);font-size:14px;line-height:1.5;}
+
+.pills{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{
+ font-size:14px;
+ font-weight:900;
+ padding:6px 10px;
+ border-radius:999px;
+ border:1px solid rgba(69,32,104,.25);
+ color:var(--primary);
+ background:rgba(69,32,104,.04);
+}
+.pill.hot{
+ border-color:rgba(255,16,144,.35);
+ color:#7a0c44;
+ background:rgba(255,16,144,.08);
+}
+
+.actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+ text-decoration:none;
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ font-size:14px;
+ display:inline-block;
+ border:1px solid transparent;
+ transition:filter .12s ease, transform .12s ease;
+}
+.btn.primary{background:var(--primary);color:#fff;}
+.btn.accent{background:var(--accent);color:#fff;}
+.btn.outline{background:#fff;color:var(--primary);border-color:rgba(69,32,104,.45);}
+.btn:hover{filter:brightness(1.05); transform:translateY(-1px);}
+.btn:active{transform:translateY(0);}
+
+.small{font-size:14px;color:var(--muted);margin-top:10px;}
+
+/* ===== Search ===== */
+.searchbar{
+ margin-top:16px;
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:18px;
+ box-shadow:var(--shadow-soft);
+ padding:12px;
+ display:flex;
+ gap:10px;
+ align-items:center;
+}
+.searchbar .icon{
+ width:38px;height:38px;border-radius:14px;
+ display:grid;place-items:center;
+ border:1px solid rgba(69,32,104,.14);
+ background:linear-gradient(180deg, rgba(69,32,104,.04), #fff);
+ color:var(--primary);
+ flex:0 0 auto;
+}
+.searchbar input{
+ width:100%;
+ border:none;
+ outline:none;
+ font-size:15px;
+ padding:10px 8px;
+ background:transparent;
+ color:var(--text);
+}
+.searchbar input::placeholder{color:rgba(110,104,124,.75);}
+.searchbar .clear{
+ border:1px solid rgba(69,32,104,.18);
+ background:#fff;
+ color:var(--primary);
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ cursor:pointer;
+}
+.searchbar .clear:hover{filter:brightness(1.03);}
+
+.results-note{
+ margin:10px 2px 0;
+ font-size:13px;
+ color:var(--muted);
+}
+.hidden{display:none !important;}
+
+/* ===== Accordion ===== */
+.accordion{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;}
+.acc{
+ border:1px solid rgba(69,32,104,.12);
+ border-radius:18px;
+ background:linear-gradient(180deg, rgba(69,32,104,.035), #fff 65%);
+ box-shadow:var(--shadow-soft);
+ overflow:hidden;
+ transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+}
+.acc:hover{
+ transform:translateY(-1px);
+ box-shadow:0 10px 22px rgba(20,10,40,.10);
+}
+.acc summary{
+ list-style:none;
+ cursor:pointer;
+ padding:16px 18px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ position:relative;
+ background:linear-gradient(180deg, rgba(69,32,104,.045), rgba(255,255,255,.0));
+}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary::before{
+ content:"";
+ position:absolute;
+ left:0;
+ top:12px;
+ bottom:12px;
+ width:4px;
+ border-radius:999px;
+ background: rgba(69,32,104,.35);
+ opacity:.55;
+}
+.acc-title{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:2px;}
+.acc-title strong{color:var(--primary);font-size:16px;font-weight:1000;}
+.acc-title span{color:var(--muted);font-size:14px;}
+.acc-right{display:flex;align-items:center;gap:8px;}
+.acc-count{
+ font-size:14px;font-weight:900;
+ padding:6px 10px;border-radius:999px;
+ border:1px solid rgba(69,32,104,.20);
+ color:var(--primary);
+ background:rgba(69,32,104,.035);
+}
+.acc-chevron{
+ width:34px;height:34px;border-radius:12px;
+ display:grid;place-items:center;
+ border:1px solid rgba(69,32,104,.20);
+ color:var(--primary);
+ background:rgba(69,32,104,.03);
+ transition:transform .18s ease, background .18s ease, border-color .18s ease;
+}
+details[open] .acc-chevron{transform:rotate(180deg);}
+details[open] summary{border-bottom:1px solid var(--divider);}
+.acc summary:focus-visible{
+ outline:none;
+ box-shadow:var(--ring);
+ border-radius:14px;
+}
+.acc-body{
+ padding:14px 16px 16px;
+ background: rgba(69,32,104,.015);
+}
+.acc-body .grid{margin-top:10px;}
+.acc-body .card{border-color: rgba(69,32,104,.10); box-shadow:none;}
+
+/* ===== Golden Years referral panel ===== */
+.gy-panel{
+ margin-top:20px;
+ background:linear-gradient(135deg,#5a2d86 0%, #452068 55%, #2f1348 100%);
+ color:#fff;
+ border-radius:22px;
+ padding:28px;
+ box-shadow:var(--shadow);
+ position:relative;
+ overflow:hidden;
+}
+.gy-panel:before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:
+ radial-gradient(420px 240px at 80% 20%, rgba(255,16,144,.22), transparent 60%);
+ pointer-events:none;
+}
+.gy-panel-inner{position:relative}
+.gy-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.14);
+ padding:6px 12px;
+ border-radius:999px;
+ font-size:13px;
+ font-weight:900;
+ letter-spacing:.4px;
+ margin-bottom:12px;
+ text-transform:uppercase;
+}
+.gy-panel h2{margin:0 0 8px;font-size:24px;color:#fff;}
+.gy-panel p{margin:0 0 20px;color:rgba(255,255,255,.92);font-size:15px;line-height:1.6;max-width:80ch;}
+.gy-actions{display:flex;flex-wrap:wrap;gap:12px;}
+.gy-btn{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ text-decoration:none;
+ padding:14px 20px;
+ border-radius:14px;
+ font-weight:900;
+ font-size:15px;
+ background:#fff;
+ color:var(--primary);
+ box-shadow:0 10px 20px rgba(0,0,0,.15);
+ transition:filter .12s ease, transform .12s ease;
+}
+.gy-btn.accent{
+ background:var(--accent);
+ color:#fff;
+}
+.gy-btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
+.gy-meta{
+ margin-top:14px;
+ font-size:13px;
+ color:rgba(255,255,255,.84);
+ font-weight:600;
+}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+ <section class="hero">
+ <div class="hero-inner">
+ <div class="hero-badge">Broker University</div>
+ <h1>Medicaid &amp; LIS</h1>
+ <p>Eligibility screeners, program references, and the full landscape of Medicaid Savings Programs and dual-eligible plans — plus the referral path for application help.</p>
+ </div>
+ </section>
+
+ <!-- SEARCH -->
+ <div class="searchbar" role="search" aria-label="Search Medicaid &amp; LIS">
+ <div class="icon" aria-hidden="true">🔎</div>
+ <input id="searchInput" type="search" placeholder="Search screeners, programs, or topics (e.g., LTC, QMB, FBDE, dual SEP, D-SNP)..." />
+ <button id="clearBtn" class="clear" type="button">Clear</button>
+ </div>
+ <div id="resultsNote" class="results-note"></div>
+
+ <!-- 1) ELIGIBILITY SCREENERS -->
+ <section class="section" data-section>
+ <h2>Eligibility Screeners</h2>
+ <p>Use these on every dual-eligible prospect to identify additional benefits they may qualify for. Created in partnership with The Golden Years.</p>
+
+ <div class="grid">
+
+ <div class="card" data-search="ltc screener long term care medicaid eligibility golden years assess">
+ <h3>LTC Screener</h3>
+ <div class="pills">
+ <span class="pill hot">Use First</span>
+ <span class="pill">Golden Years</span>
+ </div>
+ <p class="meta">Determine if a client may qualify for Long-Term Care Medicaid. Walk through the screener during your appointment.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/1KKp8ObtntT-Ibql9JlkMUipAzGryTl-0/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open LTC Screener
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="msp screener medicare savings program qmb slmb qi golden years assess">
+ <h3>MSP Screener</h3>
+ <div class="pills">
+ <span class="pill hot">Use First</span>
+ <span class="pill">Golden Years</span>
+ </div>
+ <p class="meta">Determine if a client may qualify for a Medicare Savings Program (QMB, SLMB, QI). Identifies which level applies.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/11KLuo2vIBI4j8c0-Zh4sBFgyBqNTkIZA/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open MSP Screener
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 2) GOLDEN YEARS REFERRAL PANEL -->
+ <div class="gy-panel" data-search="golden years referral application help phone typeform medicaid msp ltc lis dcf community partner">
+ <div class="gy-panel-inner">
+ <div class="gy-badge">If a Client Qualifies</div>
+ <h2>Refer to The Golden Years</h2>
+ <p>Once a screener identifies a client as a likely candidate for Medicaid, MSP, LIS, or LTC, refer them to The Golden Years for application help. The Golden Years is a DCF-designated Community Partner that handles the full application process — at no cost to the client.</p>
+
+ <div class="gy-actions">
+ <a class="gy-btn"
+ href="tel:13058321104"
+ target="_top">
+ 📞 Call: 305-832-1104
+ </a>
+ <a class="gy-btn accent"
+ href="https://form.typeform.com/to/RAOpVEJi"
+ target="_blank" rel="noopener">
+ Submit Referral Form →
+ </a>
+ </div>
+ <p class="gy-meta">Bilingual (English &amp; Spanish) · Serving Miami-Dade County · DCF Community Partner</p>
+ </div>
+ </div>
+
+ <!-- 3) PROGRAM REFERENCES -->
+ <section class="section" data-section>
+ <h2>Program References</h2>
+ <p>What each program is, who qualifies, and current eligibility standards.</p>
+
+ <div class="grid">
+
+ <div class="card" data-search="2026 medicaid lis programs explainer extra help low income subsidy qmb slmb qi fbde medicare savings program levels">
+ <h3>2026 Medicaid &amp; LIS Programs</h3>
+ <div class="pills">
+ <span class="pill">Explainer</span>
+ <span class="pill">Google Doc</span>
+ </div>
+ <p class="meta">Plain-English explanation of LIS levels, QMB, QMB+, SLMB, SLMB+, QI, and FBDE — including what each program covers.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Programs Guide
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="2026 eligibility standards income asset limits ssi lis msp icp medically needy quick reference numbers">
+ <h3>2026 Eligibility Standards</h3>
+ <div class="pills">
+ <span class="pill hot">Quick Reference</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">Income and asset limits for SSI, LIS, MSP, ICP, and Medically Needy — at a glance. Print and keep at your desk.</p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://drive.google.com/file/d/1pJfs5pdl2z6gHXQXnctTETfkxSViIwRo/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Standards Sheet
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="2026 dsnp landscape dual special needs plan carriers counties florida medicare advantage">
+ <h3>2026 D-SNP Landscape</h3>
+ <div class="pills">
+ <span class="pill">Carriers</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">D-SNP plan landscape for 2026 — which carriers offer D-SNP plans, in which counties, and at what level (FBDE vs partial dual).</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://drive.google.com/file/d/1RngalcpY_1qvz17S87Rwc4KmC8n8rhFA/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open D-SNP Landscape
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="2026 dual sep guide special enrollment period integrated care monthly fbde fide hide aligned d snp rules changed 2025">
+ <h3>2026 Dual SEP Guide</h3>
+ <div class="pills">
+ <span class="pill hot">Often Misunderstood</span>
+ <span class="pill">PDF</span>
+ </div>
+ <p class="meta">When duals can change plans under the new Integrated Care SEP rules. The old quarterly Dual SEP was replaced in 2025.</p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://drive.google.com/file/d/15rB6jQLrO_Nh-toGNPFMuYvhVWVHjwMm/view?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Dual SEP Guide
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 4) HOW TO USE -->
+ <section class="section" data-section>
+ <h2>How to Use This Page</h2>
+ <p>The 4-step workflow when you suspect a client may qualify for Medicaid, MSP, or LTC.</p>
+
+ <div class="accordion">
+
+ <details class="acc" open data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>The 4-Step Dual-Eligible Workflow</strong>
+ <span>From identifying a candidate to enrolling them in the right plan</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">4</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="step 1 screen client ltc msp screener qualify dual eligible">
+ <h3>1. Screen the Client</h3>
+ <div class="pills"><span class="pill">Step 1</span></div>
+ <p class="meta">Use the LTC Screener and/or MSP Screener during your conversation. They take just a few minutes and identify if the client is likely to qualify.</p>
+ </div>
+
+ <div class="card" data-search="step 2 refer golden years application phone typeform community partner">
+ <h3>2. Refer to Golden Years</h3>
+ <div class="pills"><span class="pill">Step 2</span></div>
+ <p class="meta">Submit the Typeform referral or have the client call 305-832-1104. Golden Years handles the actual application process.</p>
+ </div>
+
+ <div class="card" data-search="step 3 verify medicaid status qmb slmb fbde myaccess sunfire blazesync">
+ <h3>3. Verify Status</h3>
+ <div class="pills"><span class="pill">Step 3</span></div>
+ <p class="meta">Once the client is approved, verify their Medicaid level (QMB, SLMB, FBDE, etc.). The level determines which D-SNP plans they qualify for.</p>
+ </div>
+
+ <div class="card" data-search="step 4 enroll dsnp plan dual eligible aligned hide fide care extra benefits">
+ <h3>4. Enroll in Right Plan</h3>
+ <div class="pills"><span class="pill hot">Step 4</span></div>
+ <p class="meta">Use the D-SNP Landscape doc to find the right plan for the client's level and county. Apply Dual SEP rules for timing.</p>
+ </div>
+
+ </div>
+ </div>
+ </details>
+
+ <details class="acc" data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>Common Scenarios</strong>
+ <span>Quick lookups for the situations that come up most</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">4</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="scenario client medicare medicaid dual eligible has both already enrolled">
+ <h3>Client has Medicare AND Medicaid</h3>
+ <p class="meta">Verify their level (QMB+, FBDE, SLMB+). Most likely candidate for an aligned D-SNP. Use the D-SNP Landscape to find local options.</p>
+ </div>
+
+ <div class="card" data-search="scenario client qualifies medicaid not enrolled apply golden years">
+ <h3>Client qualifies but isn't enrolled</h3>
+ <p class="meta">Use the LTC or MSP screener to confirm likely eligibility. Refer to Golden Years for application help. Don't enroll them in a D-SNP yet — wait for Medicaid approval.</p>
+ </div>
+
+ <div class="card" data-search="scenario client losing medicaid coverage redetermination renewal sep">
+ <h3>Client losing Medicaid (redetermination)</h3>
+ <p class="meta">If a client loses Medicaid, they qualify for a SEP to switch to a non-D-SNP plan. Refer to Golden Years to attempt to restore coverage if appropriate.</p>
+ </div>
+
+ <div class="card" data-search="scenario client lis extra help low income subsidy prescription drugs">
+ <h3>Client may qualify for Extra Help / LIS</h3>
+ <p class="meta">Apply through SSA directly (online or 1-800-772-1213). LIS approval can dramatically reduce drug costs. Always check this for low-income clients.</p>
+ </div>
+
+ </div>
+ </div>
+ </details>
+
+ <details class="acc" data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>Why This Matters for Your Book</strong>
+ <span>The strategic case for screening every prospect</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">3</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="dsnp dual eligible higher commission better benefits client retention">
+ <h3>Better Benefits for Clients</h3>
+ <div class="pills"><span class="pill">Client Win</span></div>
+ <p class="meta">Duals on the right plan get OTC cards, transportation, dental, vision, and grocery allowances most other Medicare clients don't.</p>
+ </div>
+
+ <div class="card" data-search="dsnp commission rate higher than mapd financial impact agent">
+ <h3>Higher Retention</h3>
+ <div class="pills"><span class="pill">Agent Win</span></div>
+ <p class="meta">D-SNP clients tend to stay longer because the benefits feel meaningfully better. Better retention = stronger renewal income.</p>
+ </div>
+
+ <div class="card" data-search="referrals dual eligible clients refer family members friends community word of mouth">
+ <h3>Referrals Compound</h3>
+ <div class="pills"><span class="pill">Compounds</span></div>
+ <p class="meta">Duals tend to be in tight community networks. One happy dual client often refers 2-3 others. The trust effect is real.</p>
+ </div>
+
+ </div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+</div>
+
+<script>
+(function(){
+ const input = document.getElementById('searchInput');
+ const clearBtn = document.getElementById('clearBtn');
+ const note = document.getElementById('resultsNote');
+
+ const sections = Array.from(document.querySelectorAll('[data-section]'));
+ const cards = Array.from(document.querySelectorAll('.card'));
+
+ function normalize(s){
+ return (s || "")
+ .toLowerCase()
+ .replace(/\s+/g,' ')
+ .trim();
+ }
+
+ function update(){
+ const q = normalize(input.value);
+ let visibleCards = 0;
+
+ if(!q){
+ cards.forEach(c => c.classList.remove('hidden'));
+ sections.forEach(s => s.classList.remove('hidden'));
+ note.textContent = "";
+ return;
+ }
+
+ cards.forEach(card => {
+ const hay = normalize(card.getAttribute('data-search')) + " " + normalize(card.innerText);
+ const match = hay.includes(q);
+ card.classList.toggle('hidden', !match);
+ if(match) visibleCards++;
+ });
+
+ sections.forEach(section => {
+ const hasVisible = section.querySelector('.card:not(.hidden)');
+ section.classList.toggle('hidden', !hasVisible);
+ });
+
+ document.querySelectorAll('details[data-accordion]').forEach(det => {
+ const hasVisible = det.querySelector('.card:not(.hidden)');
+ if(hasVisible) det.open = true;
+ });
+
+ note.textContent = visibleCards
+ ? `Showing ${visibleCards} item${visibleCards === 1 ? "" : "s"} for "${input.value.trim()}".`
+ : `No results for "${input.value.trim()}". Try "QMB", "LTC", "SEP", or "D-SNP".`;
+ }
+
+ input.addEventListener('input', update);
+ clearBtn.addEventListener('click', () => {
+ input.value = "";
+ input.focus();
+ update();
+ });
+
+ update();
+})();
+</script>
+
+</body>
+</html>

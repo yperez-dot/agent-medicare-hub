@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carrier Resources | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 18px 40px rgba(20,10,40,.14);
+ --shadow-soft:0 10px 22px rgba(20,10,40,.09);
+ --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.hero{
+ background:radial-gradient(900px 380px at 22% 0%, rgba(255,16,144,.25), transparent 60%),
+ linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ border-radius:26px;
+ padding:28px;
+ box-shadow:var(--shadow);
+}
+.badge{
+ display:inline-block;
+ font-size:14px;
+ font-weight:900;
+ letter-spacing:.4px;
+ padding:6px 12px;
+ border-radius:999px;
+ background:rgba(255,255,255,.14);
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 8px;font-size:34px;line-height:1.12;}
+.hero p{margin:0;color:rgba(255,255,255,.9);font-size:14px;max-width:80ch;line-height:1.55;}
+
+.grid{
+ margin-top:18px;
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:14px;
+}
+@media(max-width:960px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:22px;
+ box-shadow:var(--shadow-soft);
+ padding:18px;
+ display:flex;
+ flex-direction:column;
+ min-height:190px;
+}
+
+.tag{
+ display:inline-flex;
+ align-items:center;
+ font-size:14px;
+ font-weight:900;
+ padding:6px 10px;
+ border-radius:999px;
+ border:1px solid rgba(69,32,104,.25);
+ background:rgba(69,32,104,.04);
+ color:var(--primary);
+ width:max-content;
+ margin-bottom:10px;
+}
+.tag.pink{
+ background:rgba(255,16,144,.10);
+ border-color:rgba(255,16,144,.28);
+ color:#7a0c44;
+}
+
+.card h2{margin:0 0 6px;font-size:18px;}
+.card p{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.55;}
+
+.btn{
+ margin-top:auto;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ text-decoration:none;
+ font-weight:900;
+ font-size:14px;
+ border-radius:16px;
+ padding:12px 14px;
+ border:1px solid rgba(69,32,104,.30);
+ color:var(--primary);
+ background:#fff;
+ margin-bottom:8px;
+}
+.btn:hover{background:rgba(69,32,104,.05);border-color:rgba(69,32,104,.50);}
+
+.btn.primary{
+ background:var(--primary);
+ border-color:transparent;
+ color:#fff;
+}
+.btn.primary:hover{filter:brightness(1.05);}
+
+.btn.accent{
+ background:var(--accent);
+ border-color:transparent;
+ color:#fff;
+}
+.btn.accent:hover{filter:brightness(1.05);}
+
+.section-title{
+ margin-top:28px;
+}
+.section-title h2{
+ margin:0 0 6px;
+ font-size:20px;
+}
+.section-title p{
+ margin:0;
+ font-size:14px;
+ color:var(--muted);
+}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a class='active' href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+<section class="hero">
+ <span class="badge">Carriers</span>
+ <h1>Carrier Resources</h1>
+ <p>Carrier-specific references, comparison tools, support contacts, and certification portals — all in one place.</p>
+</section>
+
+<section class="grid">
+
+ <article class="card">
+ <span class="tag">Reference</span>
+ <h2>Carrier Grid</h2>
+ <p>Plan comparison spreadsheet for fast quoting and consistent conversations.</p>
+ <a class="btn primary"
+ href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit?gid=1542348007#gid=1542348007"
+ target="_blank">Open Grid <span>→</span></a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Reference</span>
+ <h2>Chronic Conditions List</h2>
+ <p>Quick reference list of chronic conditions for eligibility and plan conversations.</p>
+ <a class="btn primary"
+ href="https://docs.google.com/spreadsheets/d/1pzfYr4ZSZrej2hx2VqDA4ijodb12wfzq8e-lBtwCAl8/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open List <span>→</span>
+ </a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Support</span>
+ <h2>Carrier Contact Guide</h2>
+ <p>Broker support numbers, escalations, and operational contacts.</p>
+ <a class="btn primary"
+ href="https://www.agentmedicarehub.com/carrier-contact-list"
+ target="_blank">Open Contact Guide <span>→</span></a>
+ </article>
+
+ <article class="card">
+ <span class="tag pink">Marketing</span>
+ <h2>Media & Logo Approval Rules</h2>
+ <p>Guidelines for using carrier logos and marketing materials correctly.</p>
+ <a class="btn accent"
+ href="https://gamma.app/docs/Carrier-Media-Logo-Approval-Rules-bbwetimi7ofdpvr"
+ target="_blank">Open Rules <span>→</span></a>
+ </article>
+
+</section>
+
+<div class="section-title">
+ <h2>Carrier Certifications (2026)</h2>
+ <p>Certification login portals and step-by-step guides.</p>
+</div>
+
+<section class="grid">
+
+ <article class="card">
+ <span class="tag">Portal</span>
+ <h2>Aetna</h2>
+ <p>Certification login portal.</p>
+ <a class="btn primary" href="https://aetna.cmpsystem.com/page/login" target="_blank">
+ Certification Login <span>→</span>
+ </a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Portal + Guides</span>
+ <h2>Anthem / Elevance</h2>
+ <p>Certification login plus FAQ and guide.</p>
+ <a class="btn primary" href="https://getcertified.elevancehealth.com/medicare/certify?brand=ELV" target="_blank">Login</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/Elevance-Health-Easy-Guide-External.pdf" target="_blank">FAQ</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/2026_WCW_User_Guide.pdf" target="_blank">Guide</a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Portal + Guide</span>
+ <h2>Devoted</h2>
+ <p>Agent portal login and onboarding guide.</p>
+ <a class="btn primary" href="https://agent.devoted.com/#/" target="_blank">Login</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/DH-Agent-Onboarding-Quick-Start-Guide.pdf" target="_blank">Guide</a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Portal + Guide</span>
+ <h2>Florida Blue</h2>
+ <p>Broker portal and job aid.</p>
+ <a class="btn primary" href="https://www.floridablue.com/agents" target="_blank">Login</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/Registering-for-2026-AHIP-FBM-Sales-Product-Training-for-Brokers-Job-Aid.pdf" target="_blank">Guide</a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Portal + Guide</span>
+ <h2>Freedom / Optum</h2>
+ <p>VIP Agent Support login and guide.</p>
+ <a class="btn primary" href="https://vipagentsupport.com/Account/Login" target="_blank">Login</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/Elevance-Health-Easy-Guide-External.pdf" target="_blank">Guide</a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Portal + Guide</span>
+ <h2>HealthSpring</h2>
+ <p>Certification portal and roadmap guide.</p>
+ <a class="btn primary" href="https://university.healthspringforbrokers.com/Portal/Login" target="_blank">Login</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/2026_Roadmap-to-Certification.pdf" target="_blank">Guide</a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Portal + Guide</span>
+ <h2>Humana / CarePlus</h2>
+ <p>Humana certification instructions.</p>
+ <a class="btn primary" href="https://account.humana.com/" target="_blank">Login</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/How-to-Complete-Humana-MAPD-Certification-and-Recertification.pdf" target="_blank">Guide</a>
+ </article>
+
+ <article class="card">
+ <span class="tag">Portal + Guide</span>
+ <h2>UnitedHealthcare (UHC)</h2>
+ <p>Jarvis login and certification guide.</p>
+ <a class="btn primary" href="https://www.uhcjarvis.com/content/jarvis/en/sign_in.html#/sign_in" target="_blank">Login</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/2026-Certification-User-Guide-06252025-v2.pdf" target="_blank">Guide</a>
+ </article>
+
+ <article class="card">
+ <span class="tag">2 Steps</span>
+ <h2>WellCare (Centene)</h2>
+ <p>Broker resources and training center instructions.</p>
+ <a class="btn primary" href="https://www.wellcare.com/en/broker-resources/broker-resources" target="_blank">Step 1</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2025/08/2026-CWB-Training-Center-Access-Instructions_All-Users_Final_07162025.pdf" target="_blank">Cert Guide</a>
+ <a class="btn" href="https://yourfmo.com/wp-content/uploads/2022/08/WC_Contract_Recertification_HowtoGuide.pdf" target="_blank">Step 2 Guide</a>
+ </article>
+
+</section>
+
+</div>
+</body>
+</html>

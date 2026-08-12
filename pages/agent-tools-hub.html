@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agent Tools Hub | Medicare Agent Hub</title>
+<style>
+.agent-tools-hub{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+ font-family:'Inter',system-ui,sans-serif;
+ color:var(--text);
+}
+
+body{
+ margin:0;
+ background:#f7f5fb;
+}
+
+.agent-tools-hub *{box-sizing:border-box}
+
+.agent-tools-hub .wrap{
+ max-width:1100px;
+ margin:0 auto;
+ padding:22px;
+}
+
+.agent-tools-hub .hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:var(--shadow);
+}
+.agent-tools-hub .hero h1{margin:0 0 8px;font-size:28px;}
+.agent-tools-hub .hero p{margin:0;font-size:14px;opacity:.92;max-width:95ch;line-height:1.55}
+
+.agent-tools-hub .section{margin-top:24px;}
+.agent-tools-hub .section-head{margin:16px 0 10px;}
+.agent-tools-hub .section-head h2{margin:0 0 6px;font-size:20px;}
+.agent-tools-hub .section-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.45;max-width:72ch}
+
+.agent-tools-hub .grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:14px;
+ margin-top:14px;
+}
+
+.agent-tools-hub .card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ box-shadow:var(--shadow-soft);
+ padding:16px;
+ display:flex;
+ flex-direction:row;align-items:center;justify-content:space-between;
+ min-height:160px;
+ transition:.15s ease;
+}
+.agent-tools-hub .card:hover{
+ transform:translateY(-2px);
+ box-shadow:var(--shadow);
+ border-color:rgba(69,32,104,.22);
+}
+
+.agent-tools-hub .row-top{
+ display:flex;
+ justify-content:space-between;
+ align-items:flex-start;
+ gap:10px;
+}
+
+.agent-tools-hub .title{margin:0;font-size:17px;}
+.agent-tools-hub .tag{
+ font-size:12px;
+ font-weight:800;
+ padding:5px 8px;
+ border-radius:999px;
+ background:rgba(69,32,104,.10);
+ color:var(--primary);
+ white-space:nowrap;
+}
+.agent-tools-hub .tag.accent{
+ background:rgba(255,16,144,.12);
+ color:var(--accent);
+}
+
+.agent-tools-hub .desc{
+ font-size:14px;
+ color:var(--muted);
+ margin:10px 0 16px;
+ line-height:1.55;
+ flex:1;
+}
+
+.agent-tools-hub .actions{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ margin-top:auto;
+}
+
+.agent-tools-hub .btn{
+ padding:9px 12px;
+ border-radius:12px;
+ font-weight:900;
+ text-decoration:none;
+ font-size:13px;
+ display:inline-flex;
+ align-items:center;
+ 
+ border:1px solid transparent;
+}
+
+.agent-tools-hub .btn.primary{background:var(--primary);color:#fff;}
+.agent-tools-hub .btn.accent{background:var(--accent);color:#fff;}
+.agent-tools-hub .btn.outline{
+ background:#fff;
+ border-color:rgba(69,32,104,.35);
+ color:var(--primary);
+}
+.agent-tools-hub .btn.outline:hover{
+ background:rgba(69,32,104,.06);
+ border-color:rgba(69,32,104,.55);
+}
+
+@media(max-width:900px){
+ .agent-tools-hub .grid{grid-template-columns:1fr;}
+}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a class='active' href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="agent-tools-hub">
+ <div class="wrap">
+
+ <section class="hero">
+ <h1>Agent Tools Hub</h1>
+ <p>Your central access point for platforms, CRM tools, and enrollment resources.</p>
+ </section>
+
+ <!-- BRANDING TOOLS -->
+ <section class="section" id="branding">
+ <div class="section-head">
+ <h2>Branding Tools</h2>
+ <p>Personal branding resources to help you look professional and stay on-brand with THEI.</p>
+ </div>
+ <div class="grid">
+ <article class="card">
+ <div class="row-top">
+ <h3 class="title">Digital Business Card Generator</h3>
+ <span class="tag accent">Agent Tool</span>
+ </div>
+ <p class="desc">Create your own branded THEI business card. Upload your photo, add your contact info, and download a WhatsApp-ready card in seconds.</p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://www.agentmedicarehub.com/business-card-generator"
+ target="_blank">Open Generator</a>
+ </div>
+ </article>
+ </div>
+ </section>
+
+ <!-- PLATFORMS & TOOLS -->
+ <section class="section" id="platforms">
+ <div class="section-head">
+ <h2>Platforms &amp; Tools</h2>
+ <p>Use these portals to request contracts, upload documents, manage clients, and quote/enroll.</p>
+ </div>
+ <div class="grid">
+
+ <article class="card">
+ <div class="row-top">
+ <h3 class="title">AgentSync Guide</h3>
+ <span class="tag">Contracting</span>
+ </div>
+ <p class="desc">Request contracts, upload required documents, and track appointment status.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://www.agentmedicarehub.com/agentsync-guide"
+ target="_blank">Open Guide</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <div class="row-top">
+ <h3 class="title">Nextere Guide</h3>
+ <span class="tag">Contracting</span>
+ </div>
+ <p class="desc">Used for certain carriers and contracting workflows.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://www.agentmedicarehub.com/nextere-guide"
+ target="_blank">Open Guide</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <div class="row-top">
+ <h3 class="title">Agent Xcelerator</h3>
+ <span class="tag">Contracting</span>
+ </div>
+ <p class="desc">Contracting and appointment platform used for specific carriers.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://www.agentmedicarehub.com/agent-xcelerator-1"
+ target="_blank">Open Instructions</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <div class="row-top">
+ <h3 class="title">Sunfire</h3>
+ <span class="tag">Sales Tool</span>
+ </div>
+ <p class="desc">Quoting, enrollments, and plan comparisons.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://www.sunfirematrix.com/app/agent/yourmedicare"
+ target="_blank">Open Sunfire</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <div class="row-top">
+ <h3 class="title">XCLUSIVE CRM</h3>
+ <span class="tag">Included</span>
+ </div>
+ <p class="desc">Agency CRM to manage clients and automate follow-ups.</p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://app.xclusivecrm.ai/"
+ target="_blank">Login</a>
+ </div>
+ </article>
+
+ <article class="card">
+ <div class="row-top">
+ <h3 class="title">MedicarePRO CRM</h3>
+ <span class="tag">Optional</span>
+ </div>
+ <p class="desc">Advanced CRM for tracking clients, commissions, and automation.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://www.medicareproapp.com/user/userController/login/notlogged"
+ target="_blank">Login</a>
+ <a class="btn outline"
+ href="https://help.medicareproapp.com/en"
+ target="_blank">Help Center</a>
+ <a class="btn outline"
+ href="https://help.medicareproapp.com/en"
+ target="_blank">Knowledge Base</a>
+ </div>
+ </article>
+
+ </div>
+ </section>
+
+ </div>
+</div>
+</body>
+</html>

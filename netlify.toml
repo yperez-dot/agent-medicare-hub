@@ -1,0 +1,8 @@
+# Agent Hub — Netlify config
+# Deploy script must use pages/ as root and files/ as /files/
+# See: workspace/hub-migration deploy pattern
+
+[[headers]]
+  for = "/files/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

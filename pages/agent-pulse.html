@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>THEI Agent Pulse | Medicare Agent Hub</title>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.hero{background:linear-gradient(135deg,#452068,#341751);padding:36px 32px;text-align:center;}
+.hero .badge{display:inline-block;padding:5px 14px;border-radius:999px;background:#FF1090;color:#fff;font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
+.hero h1{font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;}
+.hero p{font-size:14px;color:rgba(255,255,255,.8);}
+.updated-badge{display:inline-block;margin-top:10px;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.15);color:rgba(255,255,255,.8);font:600 11px/1 Arial,sans-serif;}
+.wrap{max-width:860px;margin:0 auto;padding:36px 24px 64px;}
+.section-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.6px;color:#9A94A8;margin-bottom:16px;}
+.alert-card{background:#fff;border:1px solid #E7E4ED;border-radius:14px;padding:20px 24px;margin-bottom:12px;display:flex;gap:16px;align-items:flex-start;box-shadow:0 1px 3px rgba(36,28,46,.05);}
+.alert-card.urgent{border-left:4px solid #D6336C;background:#FFF5F7;}
+.alert-card.watch{border-left:4px solid #B8720A;background:#FDF8EE;}
+.alert-card.update{border-left:4px solid #1E8A5C;background:#F2FBF6;}
+.alert-emoji{font-size:22px;flex:none;margin-top:2px;}
+.alert-body{}
+.alert-date{font:600 11px/1 Arial,sans-serif;color:#9A94A8;margin-bottom:6px;}
+.alert-title{font:700 15px/1.3 Arial,sans-serif;color:#241C2E;margin-bottom:6px;}
+.alert-text{font:400 13.5px/1.6 Arial,sans-serif;color:#6E687C;}
+.alert-link{display:inline-block;margin-top:8px;font:700 12px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
+.alert-link:hover{text-decoration:underline;}
+.pulse-archive{background:#fff;border:1px solid #E7E4ED;border-radius:14px;padding:20px 24px;margin-top:8px;}
+.pulse-archive-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #E7E4ED;}
+.pulse-archive-item:last-child{border-bottom:none;}
+.pulse-week{font:700 13px/1 Arial,sans-serif;color:#241C2E;}
+.pulse-headline{font:400 12.5px/1.4 Arial,sans-serif;color:#9A94A8;margin-top:3px;}
+.loading{text-align:center;padding:40px;color:#9A94A8;}
+@media(max-width:600px){.pill-nav a{font-size:11px;padding:7px 12px;}.wrap{padding:20px 16px 48px;}.alert-card{padding:16px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="wrap">
+  <p class="section-label">Latest Alerts &amp; Updates</p>
+  <div id="alerts-container"><div class="loading">Loading updates...</div></div>
+
+  <p class="section-label" style="margin-top:36px;">Weekly Digest Archive</p>
+  <div class="pulse-archive" id="archive-container"><div class="loading">Loading...</div></div>
+</div>
+
+<script>
+async function loadFeed() {
+  try {
+    const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
+    const data = await res.json();
+
+    // Updated badge
+    const badge = document.getElementById('updated-badge');
+    if (badge) badge.textContent = 'Last updated: ' + data.updated;
+
+    // Alerts
+    const container = document.getElementById('alerts-container');
+    if (data.alerts && data.alerts.length) {
+      container.innerHTML = data.alerts.map(a => `
+        <div class="alert-card ${a.type}">
+          <div class="alert-emoji">${a.emoji}</div>
+          <div class="alert-body">
+            <div class="alert-date">${a.date}</div>
+            <div class="alert-title">${a.title}</div>
+            <div class="alert-text">${a.body}</div>
+            ${a.source ? `<a class="alert-link" href="${a.source}" ${a.source.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>Read more →</a>` : ''}
+          </div>
+        </div>
+      `).join('');
+    } else {
+      container.innerHTML = '<div class="loading">No current alerts.</div>';
+    }
+
+    // Archive
+    const archive = document.getElementById('archive-container');
+    if (data.weekly_pulses && data.weekly_pulses.length) {
+      archive.innerHTML = data.weekly_pulses.map(p => `
+        <div class="pulse-archive-item">
+          <div>
+            <div class="pulse-week">${p.week}</div>
+            <div class="pulse-headline">${p.headline}</div>
+          </div>
+          ${p.link ? `<a href="${p.link}" style="font:700 12px/1 Arial,sans-serif;color:#452068;text-decoration:none;white-space:nowrap;margin-left:16px;">View →</a>` : '<span style="font:400 12px/1 Arial,sans-serif;color:#C8C4D0;">Email only</span>'}
+        </div>
+      `).join('');
+    } else {
+      archive.innerHTML = '<div class="loading">No archived pulses yet.</div>';
+    }
+  } catch(e) {
+    document.getElementById('alerts-container').innerHTML = '<div class="loading">Could not load updates.</div>';
+  }
+}
+loadFeed();
+</script>
+</body>
+</html>

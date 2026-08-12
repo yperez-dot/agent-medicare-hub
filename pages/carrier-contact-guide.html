@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  // Preview bypass — ?preview=THEI allows viewing without login
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Carrier Contact Guide | Medicare Agent Hub</title>
+ <style>
+ :root{
+ --text:#1f2937;--muted:#6b7280;--border:#e5e7eb;--brand:#452068;--soft:#f5f3ff;
+ --blue:#2563eb;--softBlue:#eff6ff;--radius:16px;--shadow:0 8px 24px rgba(0,0,0,.08);
+ --primary:#452068;--primary-dark:#2f1348;--accent:#ff1090;--bg:#f7f5fb;
+ --shadowHero:0 18px 40px rgba(20,10,40,.14);
+ font-family:'Inter',Arial,sans-serif;font-weight:400;
+ }
+ *{box-sizing:border-box;}
+ #carrierBar{display:none!important;}.badge{display:none!important;}
+ body{margin:0;background:var(--bg);color:var(--text);}
+ /* Hub Nav */
+ .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+ .logo-wrap img{height:52px;width:auto;display:block;}
+ .pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+ .pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+ .pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+ .wrap{max-width:1020px;margin:0 auto;padding:20px 16px 64px;}
+ .hero{background:radial-gradient(900px 380px at 22% 0%,rgba(255,16,144,.25),transparent 60%),linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border-radius:26px;padding:28px;box-shadow:var(--shadowHero);margin-bottom:18px;}
+ .hero h1{margin:0 0 8px;font-size:34px;line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;}
+ .hero p{margin:0;color:rgba(255,255,255,.9);font-size:14px;max-width:80ch;line-height:1.55;}
+ .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 14px;}
+ .search{flex:1 1 300px;min-width:240px;}
+ .search input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:12px;outline:none;font-size:14px;background:#fff;}
+ .carrierBar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;}
+ .carrierBtn{border:1px solid var(--border);background:#fff;color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:500;}
+ .carrierBtn:hover{background:var(--soft);border-color:#ddd6fe;}
+ .panel{border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;background:#fff;margin-top:14px;}
+ .panel summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;user-select:none;background:#fff;}
+ .panel summary::-webkit-details-marker{display:none;}
+ .panelTitle{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;}
+ .chev{color:var(--muted);transition:transform .15s ease;}
+ details[open] .chev{transform:rotate(180deg);}
+ .inner{padding:0 16px 16px;}
+ .start{border-left:6px solid var(--blue);background:var(--softBlue);border-radius:14px;padding:14px;margin:6px 0 14px;}
+ .start h2{margin:0 0 8px;font-size:15px;font-weight:600;}
+ .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:14px;background:#fff;margin:6px 8px 0 0;font-size:14px;}
+ .pill .k{color:var(--muted);font-weight:500;}
+ a{color:var(--brand);text-decoration:none;font-weight:500;}
+ a:hover{text-decoration:underline;}
+ .common{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(0,0,0,.15);}
+ .common h3{margin:0 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+ .common ul{margin:0;padding-left:18px;font-size:14px;}
+ .common li{margin:4px 0;}
+ .section details{border-top:1px solid var(--border);background:#fff;}
+ .section details:first-of-type{border-top:none;}
+ .section summary{padding:12px 0;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:600;}
+ .secLeft{display:flex;align-items:center;gap:10px;}
+ .icon{width:28px;height:28px;border-radius:10px;display:grid;place-items:center;background:var(--soft);color:var(--brand);font-size:12px;font-weight:600;border:1px solid #ede9fe;flex:0 0 auto;}
+ .grid{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:6px;}
+ .item{flex:1 1 280px;min-width:260px;border:1px solid var(--border);border-radius:14px;padding:10px 12px;background:#fff;}
+ .label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px;}
+ .value{font-size:14px;font-weight:400;line-height:1.35;}
+ .note{margin-top:10px;padding:10px 12px;border:1px dashed var(--border);border-radius:14px;background:#fafafa;color:var(--muted);font-size:13px;}
+ .hidden{display:none!important;}
+ @media(max-width:600px){.pill-nav a{padding:7px 14px;font-size:12px;}}
+ .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a class='active' href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="wrap">
+ <div class="hero">
+ <h1>Carrier Contact Guide</h1>
+ <p>Click a carrier to see broker contacts, enrollment portals, HRA details, pharmacy, OTC, transportation, and more.</p>
+ </div>
+ <div class="toolbar">
+ <div class="search"><input id="carrierSearch" type="text" placeholder="Search carriers (Aetna, Humana, Solis...)"></div>
+ </div>
+
+
+ <!-- ===================== AETNA ===================== -->
+ <details class="panel carrierPanel" id="aetna" data-carrier="aetna">
+ <summary><div class="panelTitle">Aetna</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 866-714-9301</span>
+ <span class="pill"><span class="k">Gov't Unit:</span> 800-297-6217</span>
+ <span class="pill"><span class="k">Member Services:</span> 1-833-570-6670</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://app.thinkagent.com/sign-in" target="_blank" rel="noopener">Think Agent</a></span>
+ </div>
+ <div class="common"><h3>Common situations</h3><ul><li>Application/portal issue → Broker Support</li><li>Benefits / ID cards / PCP / OTC → Member Services</li><li>Escalation after support → Broker Manager</li></ul></div>
+ </div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Sergio Scantlebury (Miami)</div><div class="value">786-423-7713 · <a href="mailto:scantleburys@aetna.com">scantleburys@aetna.com</a></div></div>
+ <div class="item"><div class="label">Rose Vazquez (Miami & Broward)</div><div class="value">305-282-8422 · <a href="mailto:vazquezr@aetna.com">vazquezr@aetna.com</a></div></div>
+ <div class="item"><div class="label">Dave Petersen</div><div class="value">954-224-8520 · <a href="mailto:petersend@aetna.com">petersend@aetna.com</a></div></div>
+ </div><div class="note">Use Broker Managers for escalations only (after calling Broker Support).</div></details>
+ <details><summary><div class="secLeft"><div class="icon">EN</div>Enrollment & HRA</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Enrollment Portal</div><div class="value"><a href="https://app.thinkagent.com/sign-in" target="_blank" rel="noopener">Think Agent</a></div></div>
+ <div class="item"><div class="label">HRA Payment</div><div class="value">$55 × DSNP & CSNP</div></div>
+ <div class="item"><div class="label">Timeframe</div><div class="value">2 days (must complete on ThinkAgent)</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Preferred Pharmacy</div><div class="value">CVS, Walmart, Navarro, Publix, Costco</div></div>
+ <div class="item"><div class="label">Mail Order</div><div class="value">CVS Caremark</div></div>
+ <div class="item"><div class="label">OTC</div><div class="value">OTC Health Solutions · 1-833-331-1573 · <a href="https://www.cvs.com/otchs/myorder" target="_blank" rel="noopener">cvs.com/otchs/myorder</a></div></div>
+ 
+ <div class="item"><div class="label">Lab</div><div class="value">Quest Diagnostics, LabCorp</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">iCare</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">Liberty Dental (HMO), Aetna Dental (PPOs)</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">OneTouch / LifeScan</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">Access2Care · 1-855-814-1699</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">NationsHearing · 1-877-255-0137 · <a href="https://www.nationshearing.com/aetna" target="_blank" rel="noopener">nationshearing.com/aetna</a></div></div>
+ <div class="item"><div class="label">DME</div><div class="value"><a href="https://www.aetna.com/dsepublicContent/assets/pdf/en/DME_National_Provider_Listing.pdf" target="_blank" rel="noopener">DME National Provider Listing (PDF)</a></div></div>
+ <div class="item"><div class="label">Utilities Card</div><div class="value">Debit card administered by Aetna</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- CAREPLUS -->
+ <details class="panel carrierPanel" id="careplus" data-carrier="careplus">
+ <summary><div class="panelTitle">CarePlus</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 844-630-0695</span>
+ <span class="pill"><span class="k">Access Support:</span> 844-722-2347</span>
+ <span class="pill"><span class="k">Member Services:</span> 1-800-633-4227</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://account.humana.com/" target="_blank" rel="noopener">Vantage</a></span>
+ </div>
+ <div class="common"><h3>Common situations</h3><ul><li>Enrollment help → Broker Support</li><li>Member benefits / ID cards → Member Services</li><li>Escalations → Broker Manager</li></ul></div>
+ </div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Ana Garcia</div><div class="value">786-393-2739 · <a href="mailto:agarcia24@humana.com">agarcia24@humana.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Preferred Pharmacy</div><div class="value">Humana Pharmacy, CVS, Sam's Club, Walgreens, Publix, Costco, Walmart</div></div>
+ <div class="item"><div class="label">Mail Order</div><div class="value">CenterWell</div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">LabCorp</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Dental</div><div class="value">Florida Gold Plus Dental (admin by Humana)</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Roche / Entrevideia</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">OTC</div><div class="value">PrescribeIT Rx · 1-800-526-1490</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">HearUSA · 800-323-3277</div></div>
+ <div class="item"><div class="label">Healthy Food / Card</div><div class="value">CareEssentials Allowance</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- DEVOTED -->
+ <details class="panel carrierPanel" id="devoted" data-carrier="devoted">
+ <summary><div class="panelTitle">Devoted</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 877-764-9446</span>
+ <span class="pill"><span class="k">Member Services:</span> 1-800-338-6833</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://agent.devoted.com/" target="_blank" rel="noopener">Devoted Portal</a></span>
+ <span class="pill"><span class="k">HRA:</span> $50 (all plans) · 5 days</span>
+ </div>
+ <div class="common"><h3>Common situations</h3><ul><li>Enrollment questions → Broker Support</li><li>OTC ordering → Pharmacy & Lab</li><li>Home care → Transportation & Extras</li></ul></div>
+ </div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Jean-Luc Batista</div><div class="value">786-495-1258 · <a href="mailto:jean-luc.batista@devoted.com">jean-luc.batista@devoted.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">EN</div>Enrollment & HRA</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">HRA</div><div class="value">$50 (all plans)</div></div>
+ <div class="item"><div class="label">Timeframe</div><div class="value">5 days (Sunfire / Devoted portal)</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">OTC</div><div class="value">CVS OTCHS · <a href="https://devoted.otchs.com" target="_blank" rel="noopener">devoted.otchs.com</a> · 1-888-628-2770</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">LifeScan/OneTouch · Freestyle Libre (CGM)</div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">LabCorp</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">Alivi</div></div>
+ <div class="item"><div class="label">DME</div><div class="value">Integrated Home Care Services · 844-215-4264</div></div>
+ <div class="item"><div class="label">Healthy Food / Utilities</div><div class="value">Solutran</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- DOCTORS -->
+ <details class="panel carrierPanel" id="doctors" data-carrier="doctors">
+ <summary><div class="panelTitle">Doctors</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 786-866-3980</span>
+ <span class="pill"><span class="k">Member Services:</span> 786-460-3427</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://agentportal.doctorshcp.com/" target="_blank" rel="noopener">Doctors Broker Portal</a></span>
+ <span class="pill"><span class="k">HRA:</span> $50 (all plans) · 4 days</span>
+ </div>
+ <div class="common"><h3>Common situations</h3><ul><li>Enrollment / portal → Broker Support</li><li>Benefits / member questions → Member Services</li></ul></div>
+ </div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Ivette Almanza (Miami Dade)</div><div class="value">305-742-8699 · <a href="mailto:i.alma01@doctorshcp.com">i.alma01@doctorshcp.com</a></div></div>
+ <div class="item"><div class="label">Howard Sanchez (Broward)</div><div class="value">305-842-6343 · <a href="mailto:hsanc22@doctorshcp.com">hsanc22@doctorshcp.com</a></div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Mail Order</div><div class="value">MedImpact Direct Mail</div></div>
+ <div class="item"><div class="label">OTC</div><div class="value">OTCHS · <a href="https://www.cvs.com/otchs/doctorshcp" target="_blank" rel="noopener">cvs.com/otchs/doctorshcp</a></div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">Quest</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Freestyle Libre 2/3 · Dexcom G6/G7</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">iCare (VSP)</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">Florida Dental Benefits · 866-449-7731 · <a href="https://fdbenefits.com/our-providers/" target="_blank" rel="noopener">fdbenefits.com</a></div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Hearing</div><div class="value">HearUSA · 1-800-442-8231</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- FLORIDA BLUE -->
+ <details class="panel carrierPanel" id="floridablue" data-carrier="florida blue">
+ <summary><div class="panelTitle">Florida Blue</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 800-267-3156</span>
+ <span class="pill"><span class="k">Access Verification:</span> 833-823-5454</span>
+ <span class="pill"><span class="k">Member Services:</span> 1-800-926-6565</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://www.floridablue.com/agents" target="_blank" rel="noopener">FL Blue Agent Portal</a></span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Alexandra Nyugen</div><div class="value">305-978-7799 · <a href="mailto:alexandra.nyugen@bcbsfl.com">alexandra.nyugen@bcbsfl.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Preferred Pharmacy</div><div class="value">Walgreens, Walmart, Winn-Dixie, Publix, Sam's Club</div></div>
+ 
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Freestyle Lite, Dexcom, Contour</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">MotivaCare</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">NationsHearing · 1-877-232-7013</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- GOLD KIDNEY -->
+ <details class="panel carrierPanel" id="goldkidney" data-carrier="gold kidney">
+ <summary><div class="panelTitle">Gold Kidney</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Member Services:</span> 1-844-294-6535</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://account.evolvenxt.com/" target="_blank" rel="noopener">Gold Kidney Broker Portal</a></span>
+ <span class="pill"><span class="k">HRA:</span> $25 (CSNP)</span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">EN</div>Enrollment & HRA</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">HRA</div><div class="value">$25 (CSNP)</div></div>
+ 
+ </div></details>
+ </div></div></details>
+
+ <!-- HEALTHSPRING -->
+ <details class="panel carrierPanel" id="healthspring" data-carrier="healthspring">
+ <summary><div class="panelTitle">HealthSpring</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 1-866-442-7516</span>
+ <span class="pill"><span class="k">Member Services:</span> 1-800-668-3813</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://university.healthspringforbrokers.com/Portal/Login" target="_blank" rel="noopener">Cigna Broker Portal</a></span>
+ <span class="pill"><span class="k">HRA:</span> $50 Non-SNP / $100 SNP · 10 days</span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Michelle Lainez (Miami)</div><div class="value">954-408-5259 · <a href="mailto:michelle.lainez@cignahealthcare.com">michelle.lainez@cignahealthcare.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">EN</div>Enrollment & HRA</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">HRA</div><div class="value">$50 Non-SNP / $100 SNP</div></div>
+ <div class="item"><div class="label">Timeframe</div><div class="value">10 days (Sunfire / portal)</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Preferred Pharmacy</div><div class="value">Walgreens, CVS, Navarro, Publix</div></div>
+ <div class="item"><div class="label">OTC</div><div class="value"><a href="https://www.healthspringflex.com" target="_blank" rel="noopener">healthspringflex.com</a> or Walgreens in person</div></div>
+ <div class="item"><div class="label">Vision / Lab</div><div class="value">Silver & Fit · EyeMed</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Freestyle Libre 3</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">Modivcare · <a href="https://mymodivcare.com/modivcare-app" target="_blank" rel="noopener">mymodivcare.com</a> · 1-866-214-5126</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">TruHearing · 866-872-1001</div></div>
+ <div class="item"><div class="label">Healthy Food / Utilities</div><div class="value">Cigna Healthy Today card</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- HEALTHSUN -->
+ <details class="panel carrierPanel" id="healthsun" data-carrier="healthsun">
+ <summary><div class="panelTitle">HealthSun</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> <a href="mailto:dl-shp-sflbroker@elevancehealth.com">dl-shp-sflbroker@elevancehealth.com</a></span>
+ <span class="pill"><span class="k">Member Services:</span> 877-336-2069</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://www.healthsunhealth.com" target="_blank" rel="noopener">OneFlorida</a></span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Tiffany Rodriguez</div><div class="value">954-253-8432 · <a href="mailto:tiffany.rodriguez2@elevancehealth.com">tiffany.rodriguez2@elevancehealth.com</a></div></div>
+ <div class="item"><div class="label">Katherine Zuniga</div><div class="value">786-575-1790 · <a href="mailto:kzuniga@elevancehealth.com">kzuniga@elevancehealth.com</a></div></div>
+ <div class="item"><div class="label">Dukell Extra</div><div class="value">786-682-0758 · <a href="mailto:dukell.extra@elevancehealth.com">dukell.extra@elevancehealth.com</a></div></div>
+ <div class="item"><div class="label">Luis Gonzalez</div><div class="value">954-242-4377 · <a href="mailto:luis.gonzalez@elevancehealth.com">luis.gonzalez@elevancehealth.com</a></div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Preferred Pharmacy</div><div class="value">CVS, Navarro, Sam's Club, Walmart</div></div>
+ <div class="item"><div class="label">M3P</div><div class="value">SimplicityRx · <a href="https://active.rxpayments.com" target="_blank" rel="noopener">Active.RxPayments.com</a> · 833-696-2087</div></div>
+ <div class="item"><div class="label">OTC</div><div class="value">EasyScripts · 1-855-963-0400</div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">LabCorp</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Freestyle Libre</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Dental</div><div class="value">Florida Dental Benefits · <a href="https://fdbenefits.com/our-providers/" target="_blank" rel="noopener">fdbenefits.com</a> · (305) 674-7900 x998</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Freestyle Libre</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">Ride2MD · 855-631-7433 / 305-265-3315</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">HearUSA</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- HUMANA -->
+ <details class="panel carrierPanel" id="humana" data-carrier="humana">
+ <summary><div class="panelTitle">Humana</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 800-309-3163</span>
+ <span class="pill"><span class="k">Member Services:</span> 800-457-4708</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://account.humana.com/" target="_blank" rel="noopener">Vantage</a></span>
+ <span class="pill"><span class="k">HRA:</span> $35 DSNP & CSNP (new members) · 10 days</span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Kayla Robles</div><div class="value">954-258-1192 · <a href="mailto:krobles6@humana.com">krobles6@humana.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">EN</div>Enrollment & HRA</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Enrollment</div><div class="value">Sunfire</div></div>
+ <div class="item"><div class="label">HRA</div><div class="value">$35 DSNP & CSNP (new members only)</div></div>
+ <div class="item"><div class="label">Timeframe</div><div class="value">10 days</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Preferred Pharmacy</div><div class="value">Humana Pharmacy, CVS, Sam's Club, Walgreens, Publix, Costco, Walmart</div></div>
+ <div class="item"><div class="label">Mail Order</div><div class="value">CenterWell</div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">LabCorp</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Dexcom & Freestyle Libre</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">EyeMed</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">Florida Gold Plus Dental (admin by Humana)</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">Alivi · 833-203-0043</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- PREFERRED CARE NETWORK -->
+ <details class="panel carrierPanel" id="preferredcarenetwork" data-carrier="preferred care network">
+ <summary><div class="panelTitle">Preferred Care Network</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 888-381-8581</span>
+ <span class="pill"><span class="k">Member Services:</span> 800-407-9069</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://www.uhcjarvis.com/" target="_blank" rel="noopener">Jarvis</a></span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Dade: Lazaro Aragon</div><div class="value">305-525-5692 · <a href="mailto:lazaro_aragon@uhc.com">lazaro_aragon@uhc.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <!-- MOVE_TO_EXTRAS_FITNESS:Renew Active · 1-866-231-7201 -->
+ <div class="item"><div class="label">Lab / Pharmacy</div><div class="value">LabCorp, Quest · Walgreens Preferred</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Accu-Chek and OneTouch</div></div>
+ <div class="item"><div class="label">OTC</div><div class="value">Navarro / CVS</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">iCare</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">Solstice Dental</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">LogistiCare · 877-774-772</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">HearX</div></div>
+ <div class="item"><div class="label">Healthy Food / Utilities</div><div class="value">Solutran · 1-888-774-7772</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- PREFERRED CARE PARTNERS -->
+ <details class="panel carrierPanel" id="preferredcarepartners" data-carrier="preferred care partners">
+ <summary><div class="panelTitle">Preferred Care Partners</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 888-381-8581</span>
+ <span class="pill"><span class="k">Member Services:</span> 866-231-7201</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://www.uhcjarvis.com/" target="_blank" rel="noopener">Jarvis</a></span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Dade: Lazaro Aragon</div><div class="value">305-525-5692 · <a href="mailto:lazaro_aragon@uhc.com">lazaro_aragon@uhc.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Lab</div><div class="value">LabCorp, Quest</div></div>
+ <div class="item"><div class="label">OTC</div><div class="value">CVS / OTCHS</div></div>
+ <div class="item"><div class="label">Diabetic Supplies</div><div class="value">Accu-Chek and OneTouch</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">iCare</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">Solstice Dental</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Healthy Food</div><div class="value"><a href="https://www.healthybenefitsplus.com/HWPCard/Stores/StoreFinder" target="_blank" rel="noopener">HealthyBenefitsPlus Store Finder</a></div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">HearX</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- SIMPLY -->
+ <details class="panel carrierPanel" id="simply" data-carrier="simply">
+ <summary><div class="panelTitle">Simply</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 855-277-6067</span>
+ <span class="pill"><span class="k">Member Services:</span> 1-877-577-0115</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://mproducer.anthem.com/mproducer/" target="_blank" rel="noopener">MProducer</a></span>
+ <span class="pill"><span class="k">HRA:</span> $125 DSNP & CSNP (new members) · 7 days</span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Tiffany Rodriguez</div><div class="value">954-253-8432 · <a href="mailto:tiffany.rodriguez2@elevancehealth.com">tiffany.rodriguez2@elevancehealth.com</a></div></div>
+ <div class="item"><div class="label">Katherine Zuniga</div><div class="value">786-575-1790 · <a href="mailto:kzuniga@elevancehealth.com">kzuniga@elevancehealth.com</a></div></div>
+ <div class="item"><div class="label">Dukell Extra</div><div class="value">786-682-0758 · <a href="mailto:dukell.extra@elevancehealth.com">dukell.extra@elevancehealth.com</a></div></div>
+ <div class="item"><div class="label">Luis Gonzalez</div><div class="value">954-242-4377 · <a href="mailto:luis.gonzalez@elevancehealth.com">luis.gonzalez@elevancehealth.com</a></div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EN</div>Enrollment & HRA</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Enrollment</div><div class="value">Sunfire</div></div>
+ <div class="item"><div class="label">HRA</div><div class="value">$125 DSNP & CSNP (new members only)</div></div>
+ <div class="item"><div class="label">Timeframe</div><div class="value">7 days</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Preferred Pharmacy</div><div class="value">Costco, CVS, Publix, Walmart, Winn-Dixie</div></div>
+ <div class="item"><div class="label">Mail Order</div><div class="value">CarelonRx · 1-833-396-0309 · <a href="https://www.wellpoint.com" target="_blank" rel="noopener">wellpoint.com</a></div></div>
+ <div class="item"><div class="label">M3P</div><div class="value">SimplicityRx · <a href="https://active.rxpayments.com" target="_blank" rel="noopener">Active.RxPayments.com</a> · 833-696-2087</div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">LabCorp</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">iCare</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">Liberty</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">Ride2MD · 833-628-0388 / 305-653-0553</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">Hearing Care Solutions</div></div>
+ <div class="item"><div class="label">Healthy Food</div><div class="value">Publix, Sedano's, Presidente, Winn-Dixie, Fresco y Más</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- SOLIS -->
+ <details class="panel carrierPanel" id="solis" data-carrier="solis">
+ <summary><div class="panelTitle">Solis</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 305-509-8527</span>
+ <span class="pill"><span class="k">Broker Email:</span> <a href="mailto:sales@solishealthplans.com">sales@solishealthplans.com</a></span>
+ <span class="pill"><span class="k">Member Services:</span> 844-447-6547</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://salesportal.solishealthplans.com/" target="_blank" rel="noopener">Solis Portal</a></span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Liettys Rodriguez</div><div class="value">305-420-3055 ext 171 · <a href="mailto:Liglesias@solishealthplans.com">Liglesias@solishealthplans.com</a></div></div>
+ <div class="item"><div class="label">Belissa Rodriguez</div><div class="value">786-439-7071 · <a href="mailto:brodriguez@solishealthplans.com">brodriguez@solishealthplans.com</a></div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EN</div>Enrollment</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Access Verification</div><div class="value">833-264-9152 or 305-420-3082</div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">Quest</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">OTC</div><div class="value">Sun-Scripts (phone order) · 833-898-7046</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">Premier Eye Care</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">First Continental Life · <a href="https://search.fcldental.com/" target="_blank" rel="noopener">search.fcldental.com</a></div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">Alivi</div></div>
+ <div class="item"><div class="label">Healthy Food</div><div class="value">Walmart, CVS, Walgreens, Navarro, Family Dollar, Publix, Presidente, Sedanos, Fresco y más</div></div>
+ </div></details>
+ </div></div></details>
+
+ <!-- WELLCARE -->
+ <details class="panel carrierPanel" id="wellcare" data-carrier="wellcare">
+ <summary><div class="panelTitle">WellCare</div><div class="chev">⌄</div></summary>
+ <div class="inner">
+ <div class="start"><h2>Start Here</h2>
+ <div>
+ <span class="pill"><span class="k">Broker Support:</span> 866-822-1339</span>
+ <span class="pill"><span class="k">Member Services:</span> 1-833-444-9088</span>
+ <span class="pill"><span class="k">Enrollment Portal:</span> <a href="https://www.wellcare.com/en/broker-resources/broker-resources" target="_blank" rel="noopener">Ascend Enrollment Platform</a></span>
+ </div></div>
+ <div class="section">
+ <details><summary><div class="secLeft"><div class="icon">BC</div>Broker Contacts</div><div class="chev">⌄</div></summary>
+ <div class="grid"><div class="item"><div class="label">Joey Anselmo</div><div class="value">407-267-0269 · <a href="mailto:joey.anselmo@wellcare.com">joey.anselmo@wellcare.com</a></div></div></div></details>
+ <details><summary><div class="secLeft"><div class="icon">RX</div>Pharmacy &amp; Lab</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Mail Order</div><div class="value">Express Scripts</div></div>
+ <div class="item"><div class="label">Lab</div><div class="value">LabCorp</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">VD</div>Vision & Dental</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Vision</div><div class="value">Premier Vision</div></div>
+ <div class="item"><div class="label">Dental</div><div class="value">Liberty Dental · 888-352-0225</div></div>
+ </div></details>
+ <details><summary><div class="secLeft"><div class="icon">EX</div>Transportation & Extras</div><div class="chev">⌄</div></summary>
+ <div class="grid">
+ <div class="item"><div class="label">Transportation</div><div class="value">LogistiCare · 877-682-9026</div></div>
+ <div class="item"><div class="label">Hearing</div><div class="value">HearUSA · 800-333-3389</div></div>
+ </div></details>
+ </div></div></details>
+
+</div>
+
+
+<script>
+ const search = document.getElementById('carrierSearch');
+ const panels = Array.from(document.querySelectorAll('.carrierPanel'));
+ search.addEventListener('input', () => {
+ const q = search.value.trim().toLowerCase();
+ panels.forEach(p => {
+ const name = (p.getAttribute('data-carrier') || '').toLowerCase();
+ const show = (!q || name.includes(q));
+ p.classList.toggle('hidden', !show);
+ if (!show) p.open = false;
+ });
+ });
+</script>
+
+<script>
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>HRA Guide | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;--green:#1E8A5C;--green-tint:#E3F5EC;--amber:#B45309;--amber-tint:#FEF3C7;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.wrap{max-width:1000px;margin:0 auto;padding:32px 24px;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--purple-dark),var(--purple));border-radius:20px;padding:32px;margin-bottom:28px;color:#fff;}
+.hero h1{font-size:28px;font-weight:700;margin-bottom:8px;}
+.hero p{font-size:14px;color:rgba(255,255,255,0.82);max-width:60ch;}
+.hero .badge{display:inline-block;margin-top:12px;padding:5px 12px;background:rgba(255,255,255,0.15);border-radius:999px;font:600 11px/1 Arial,sans-serif;color:#fff;letter-spacing:0.4px;text-transform:uppercase;}
+
+/* Search */
+.search-row{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.search-row input{flex:1;min-width:200px;padding:11px 16px;border:1.5px solid var(--border);border-radius:12px;font:400 14px/1 Arial,sans-serif;outline:none;}
+.search-row input:focus{border-color:var(--purple);}
+
+/* Carrier pills */
+.carrier-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.c-pill{padding:8px 16px;border-radius:999px;border:1.5px solid var(--border);background:#fff;font:600 12px/1 Arial,sans-serif;color:var(--text-soft);cursor:pointer;transition:all .15s;}
+.c-pill:hover{border-color:var(--purple);color:var(--purple);}
+.c-pill.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.c-pill.no-data{border-style:dashed;opacity:0.6;}
+
+/* Cards grid */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.hra-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(36,28,46,0.06);}
+.hra-card.has-hra{border-top:3px solid var(--pink);}
+.hra-card.no-hra{border-top:3px solid var(--border);opacity:0.75;}
+.card-header{padding:16px 18px 12px;border-bottom:1px solid var(--bg);}
+.carrier-name{font:700 16px/1 Arial,sans-serif;color:var(--text);margin-bottom:4px;}
+.carrier-sub{font:400 12px/1 Arial,sans-serif;color:var(--text-faint);}
+.card-body{padding:14px 18px;}
+.hra-amount{font:800 32px/1 Arial,sans-serif;color:var(--purple);margin-bottom:2px;}
+.hra-amount span{font-size:16px;font-weight:600;}
+.hra-label{font:400 12px/1.2 Arial,sans-serif;color:var(--text-soft);margin-bottom:14px;}
+.detail-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;font-size:13px;}
+.detail-row .ico{flex-shrink:0;width:18px;text-align:center;}
+.detail-row .val{color:var(--text-soft);line-height:1.4;}
+.detail-row .val strong{color:var(--text);font-weight:600;}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font:600 10px/1 Arial,sans-serif;margin:2px 2px 0 0;}
+.tag.dsnp{background:#E8F1FA;color:#1B4F8A;}
+.tag.csnp{background:#F3E8FA;color:#5B2D8A;}
+.tag.all{background:var(--green-tint);color:var(--green);}
+.tag.new{background:var(--amber-tint);color:var(--amber);}
+.tag.confirm{background:#FEF3C7;color:#92400E;}
+.divider{height:1px;background:var(--bg);margin:12px 0;}
+.otc-row{font-size:12.5px;color:var(--text-soft);padding-top:4px;}
+.otc-row strong{color:var(--text);font-size:12.5px;}
+.no-hra-msg{font:400 13px/1.4 Arial,sans-serif;color:var(--text-faint);font-style:italic;padding:8px 0;}
+.confirm-flag{display:flex;align-items:center;gap:6px;margin-top:10px;padding:7px 10px;background:var(--amber-tint);border-radius:8px;font:600 11px/1.3 Arial,sans-serif;color:var(--amber);}
+.hidden{display:none!important;}
+
+/* Footer note */
+.footnote{margin-top:28px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;font:400 12.5px/1.5 Arial,sans-serif;color:var(--text-soft);}
+
+@media(max-width:600px){.cards-grid{grid-template-columns:1fr;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a class='active' href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>💳 HRA Quick Reference</h1>
+    <p>Health Risk Assessment (HRA) amounts, eligible plan types, completion timeframes, and OTC info — all in one place. Confirm amounts with the carrier before quoting.</p>
+    <span class="badge">2026 · Florida Medicare Advantage</span>
+  </div>
+
+  <div class="search-row">
+    <input type="search" id="hraSearch" placeholder="Search carrier, plan type, amount…" autocomplete="off">
+  </div>
+
+  <div class="carrier-pills" id="filterPills">
+    <button class="c-pill active" data-filter="all">All Carriers</button>
+    <button class="c-pill" data-filter="has-hra">Has HRA</button>
+    <button class="c-pill" data-filter="dsnp">D-SNP</button>
+    <button class="c-pill" data-filter="csnp">C-SNP</button>
+    <button class="c-pill" data-filter="confirm">⚠️ Needs Confirm</button>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid"></div>
+
+  <div class="footnote">
+    ⚠️ <strong>Agent use only.</strong> HRA amounts and timeframes change by plan year and county. Always verify with the carrier portal or your broker manager before quoting to a client. Cards marked <strong>⚠️ Needs Confirm</strong> are based on prior year data or unavailable — please verify directly.
+  </div>
+
+</div>
+
+<script>
+const CARRIERS = [
+  {
+    id: 'humana', name: 'Humana', sub: 'DSNP & CSNP · Vantage / Sunfire',
+    hasHra: true, amount: 35, amountLabel: 'DSNP & CSNP — new members only',
+    tags: ['dsnp','csnp','new'],
+    timeframe: '10 business days after enrollment',
+    portal: 'Sunfire (Vantage)',
+    howTo: 'Complete HRA through Sunfire or Humana Vantage portal at time of enrollment.',
+    otc: 'Humana Pharmacy, CVS, Sam\'s Club, Walgreens, Publix, Costco',
+    otcNetwork: 'Humana OTC Network',
+    needsConfirm: false
+  },
+  {
+    id: 'aetna', name: 'Aetna', sub: 'DSNP & CSNP · ThinkAgent',
+    hasHra: true, amount: 55, amountLabel: 'DSNP & CSNP',
+    tags: ['dsnp','csnp'],
+    timeframe: '2 business days after enrollment',
+    portal: 'ThinkAgent',
+    howTo: 'Complete HRA on ThinkAgent at time of enrollment. Do NOT complete on Sunfire — must be done directly in ThinkAgent.',
+    otc: 'CVS, Walmart, Navarro, Publix, Costco',
+    otcNetwork: 'OTC Health Solutions · 1-833-331-1573 · cvs.com/otchs/myorder',
+    needsConfirm: false
+  },
+  {
+    id: 'devoted', name: 'Devoted Health', sub: 'All plans · Devoted portal',
+    hasHra: true, amount: 50, amountLabel: 'All plans',
+    tags: ['all'],
+    timeframe: '5 business days after enrollment',
+    portal: 'Sunfire / Devoted portal',
+    howTo: 'HRA completed through Sunfire or Devoted enrollment portal. Available on all plans.',
+    otc: 'CVS, Walgreens',
+    otcNetwork: 'CVS OTCHS · devoted.otchs.com · 1-888-628-2770',
+    needsConfirm: false
+  },
+  {
+    id: 'doctors', name: 'Doctors Healthcare', sub: 'All plans · Doctors portal',
+    hasHra: true, amount: 50, amountLabel: 'All plans',
+    tags: ['all'],
+    timeframe: '4 business days after enrollment',
+    portal: 'Doctors Broker Portal',
+    howTo: 'Complete HRA through the Doctors Healthcare broker portal at enrollment.',
+    otc: 'CVS stores',
+    otcNetwork: 'OTCHS · cvs.com/otchs/doctorshcp',
+    needsConfirm: false
+  },
+  {
+    id: 'simply', name: 'Simply Healthcare (Elevance)', sub: 'DSNP & CSNP · MProducer',
+    hasHra: true, amount: 125, amountLabel: 'DSNP & CSNP — new members only',
+    tags: ['dsnp','csnp','new'],
+    timeframe: '7 business days after enrollment',
+    portal: 'Sunfire / MProducer',
+    howTo: 'Complete HRA through Sunfire or MProducer. New members only — renewals do not receive HRA.',
+    otc: 'Costco, CVS, Publix, Walmart, Winn-Dixie',
+    otcNetwork: 'Carelon Rx OTC',
+    needsConfirm: false
+  },
+  {
+    id: 'cigna', name: 'Cigna / Healthspring', sub: 'All plans · Cigna portal',
+    hasHra: true, amount: null, amountLabel: '$50 Non-SNP · $100 SNP',
+    amountDisplay: '$50–$100',
+    tags: ['all','dsnp','csnp'],
+    timeframe: '10 business days after enrollment',
+    portal: 'Sunfire / Cigna Broker Portal',
+    howTo: 'Non-SNP plans receive $50 HRA. SNP plans (DSNP/CSNP) receive $100 HRA.',
+    otc: 'Walgreens, CVS, Navarro, Publix',
+    otcNetwork: 'healthspringflex.com',
+    needsConfirm: false
+  },
+  {
+    id: 'goldkidney', name: 'Gold Kidney', sub: 'CSNP only',
+    hasHra: true, amount: 25, amountLabel: 'CSNP only',
+    tags: ['csnp'],
+    timeframe: 'Confirm with carrier',
+    portal: 'Gold Kidney Broker Portal',
+    howTo: 'HRA available for CSNP plans only. Confirm process with Gold Kidney broker support.',
+    otc: 'Silver & Fit',
+    otcNetwork: 'Silver & Fit',
+    needsConfirm: false
+  },
+  {
+    id: 'solis', name: 'Solis Health Plans', sub: 'Confirm with carrier',
+    hasHra: false, amount: null, amountLabel: null,
+    tags: [],
+    timeframe: null, portal: null, howTo: null,
+    otc: 'Sun-Scripts (phone order) · 833-898-7046',
+    otcNetwork: 'Sun-Scripts',
+    needsConfirm: true
+  },
+  {
+    id: 'careplus', name: 'CarePlus (Humana)', sub: 'Confirm with carrier',
+    hasHra: false, amount: null, amountLabel: null,
+    tags: [],
+    timeframe: null, portal: null, howTo: null,
+    otc: 'PrescribeIT Rx · 1-800-526-1490',
+    otcNetwork: 'PrescribeIT Rx',
+    needsConfirm: true
+  },
+  {
+    id: 'uhc', name: 'UnitedHealthcare (PCN/PCP)', sub: 'Confirm with carrier',
+    hasHra: false, amount: null, amountLabel: null,
+    tags: [],
+    timeframe: null, portal: null, howTo: null,
+    otc: 'Navarro, CVS',
+    otcNetwork: 'CVS OTCHS / Navarro',
+    needsConfirm: true
+  },
+  {
+    id: 'healthsun', name: 'HealthSun (Elevance)', sub: 'Confirm with carrier',
+    hasHra: false, amount: null, amountLabel: null,
+    tags: [],
+    timeframe: null, portal: null, howTo: null,
+    otc: 'EasyScripts · 1-855-963-0400',
+    otcNetwork: 'EasyScripts',
+    needsConfirm: true
+  },
+  {
+    id: 'wellcare', name: 'WellCare', sub: 'Confirm with carrier',
+    hasHra: false, amount: null, amountLabel: null,
+    tags: [],
+    timeframe: null, portal: null, howTo: null,
+    otc: 'CVS / Express Scripts',
+    otcNetwork: 'CVS',
+    needsConfirm: true
+  },
+];
+
+function tagHTML(tags, needsConfirm){
+  let out = '';
+  if(tags.includes('all')) out += '<span class="tag all">All Plans</span>';
+  if(tags.includes('dsnp')) out += '<span class="tag dsnp">D-SNP</span>';
+  if(tags.includes('csnp')) out += '<span class="tag csnp">C-SNP</span>';
+  if(tags.includes('new')) out += '<span class="tag new">New Members Only</span>';
+  if(needsConfirm) out += '<span class="tag confirm">⚠️ Verify</span>';
+  return out;
+}
+
+function cardHTML(c){
+  const amtDisplay = c.amountDisplay || (c.amount != null ? `$${c.amount}` : null);
+  return `
+  <div class="hra-card ${c.hasHra ? 'has-hra' : 'no-hra'}" data-carrier="${c.id}" data-tags="${c.tags.join(',')}" data-confirm="${c.needsConfirm}">
+    <div class="card-header">
+      <div class="carrier-name">${c.name}</div>
+      <div class="carrier-sub">${c.sub}</div>
+    </div>
+    <div class="card-body">
+      ${c.hasHra && amtDisplay ? `
+        <div class="hra-amount">${amtDisplay}<span> HRA</span></div>
+        <div class="hra-label">${c.amountLabel}</div>
+        <div>${tagHTML(c.tags, false)}</div>
+        <div class="divider"></div>
+        <div class="detail-row"><span class="ico">⏱</span><span class="val"><strong>Timeframe:</strong> ${c.timeframe}</span></div>
+        <div class="detail-row"><span class="ico">🖥</span><span class="val"><strong>Portal:</strong> ${c.portal}</span></div>
+        <div class="detail-row"><span class="ico">📋</span><span class="val">${c.howTo}</span></div>
+      ` : `
+        <div class="no-hra-msg">HRA data not confirmed for this carrier.</div>
+        ${c.needsConfirm ? '<div class="confirm-flag">⚠️ Verify amount & eligibility with carrier before quoting</div>' : ''}
+      `}
+      <div class="divider"></div>
+      <div class="otc-row"><strong>OTC Network:</strong> ${c.otcNetwork}</div>
+      ${c.needsConfirm && c.hasHra === false ? '' : ''}
+    </div>
+  </div>`;
+}
+
+function render(filter, search){
+  const q = (search||'').toLowerCase().trim();
+  const filtered = CARRIERS.filter(c => {
+    if(filter === 'has-hra' && !c.hasHra) return false;
+    if(filter === 'dsnp' && !c.tags.includes('dsnp')) return false;
+    if(filter === 'csnp' && !c.tags.includes('csnp')) return false;
+    if(filter === 'confirm' && !c.needsConfirm) return false;
+    if(q){
+      const hay = [c.name, c.sub, c.amountLabel||'', c.tags.join(' '), c.otcNetwork||''].join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  const grid = document.getElementById('cardsGrid');
+  if(!filtered.length){
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-faint);">No carriers match your search.</div>';
+  } else {
+    grid.innerHTML = filtered.map(cardHTML).join('');
+  }
+}
+
+let activeFilter = 'all';
+document.querySelectorAll('.c-pill').forEach(btn => {
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.c-pill').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    activeFilter = this.dataset.filter;
+    render(activeFilter, document.getElementById('hraSearch').value);
+  });
+});
+
+document.getElementById('hraSearch').addEventListener('input', function(){
+  render(activeFilter, this.value);
+});
+
+render('all', '');
+</script>
+
+<script>
+function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+</script>
+</body>
+</html>

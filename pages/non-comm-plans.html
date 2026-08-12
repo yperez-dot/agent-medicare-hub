@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Non-Commissionable Plans 2026 | The Health Experts Insurance</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
+
+/* Top nav — matches hub-dashboard.html */
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.tour-link{width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;text-decoration:none;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#452068 0%,#341751 100%);padding:44px 32px;text-align:center;}
+.hero-tag{display:inline-block;background:#DC2626;color:#fff;font:800 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.6px;padding:6px 14px;border-radius:999px;margin-bottom:14px;}
+.hero h1{font-size:30px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2;}
+.hero p{font-size:14.5px;color:rgba(255,255,255,0.85);max-width:640px;margin:0 auto 18px;}
+.hero-meta{display:inline-block;background:rgba(255,255,255,.14);color:#fff;font:600 12px/1 Arial,sans-serif;padding:7px 16px;border-radius:999px;}
+
+.wrap{max-width:900px;margin:0 auto;padding:32px 24px 64px;}
+
+/* Search */
+.search-bar{width:100%;padding:14px 20px;border-radius:999px;border:1.5px solid #E7E4ED;font:400 14px/1 Arial,sans-serif;color:#241C2E;outline:none;background:#fff;box-shadow:0 1px 3px rgba(36,28,46,.06);margin-bottom:16px;}
+.search-bar:focus{border-color:#452068;}
+
+/* Filters */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:24px;}
+.filter-pill{background:#fff;border:1.5px solid #E7E4ED;border-radius:999px;padding:8px 16px;font:600 12.5px/1 Arial,sans-serif;color:#452068;cursor:pointer;transition:all .12s;}
+.filter-pill:hover{border-color:#452068;}
+.filter-pill.active{background:#452068;border-color:#452068;color:#fff;}
+.state-select{padding:8px 14px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 12.5px/1 Arial,sans-serif;color:#452068;background:#fff;outline:none;cursor:pointer;}
+.state-select:focus{border-color:#452068;}
+.result-count{font:600 12px/1 Arial,sans-serif;color:#9A94A8;margin-left:auto;}
+
+/* Accordion */
+.carrier-acc{background:#fff;border:1.5px solid #E7E4ED;border-radius:14px;overflow:hidden;margin-bottom:12px;}
+.carrier-acc.match-none{display:none;}
+.acc-header{width:100%;background:none;border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;text-align:left;}
+.acc-header:hover{background:#FAFAFC;}
+.acc-left{display:flex;align-items:center;gap:12px;}
+.acc-icon{width:38px;height:38px;border-radius:10px;background:#FEF2F2;color:#DC2626;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.acc-title{font:700 15px/1.3 Arial,sans-serif;color:#241C2E;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.acc-sub{font:400 12px/1.4 Arial,sans-serif;color:#9A94A8;margin-top:2px;}
+.acc-pending{font:600 9px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:999px;padding:3px 8px;text-transform:uppercase;letter-spacing:.3px;}
+.acc-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.acc-count{font:700 11px/1 Arial,sans-serif;background:#FEE2E2;color:#991B1B;padding:4px 10px;border-radius:999px;}
+.acc-chevron{color:#9A94A8;font-size:13px;transition:transform .18s;}
+.carrier-acc.open .acc-chevron{transform:rotate(180deg);}
+.acc-body{display:none;padding:0 20px 20px;border-top:1px solid #F1ECF6;}
+.carrier-acc.open .acc-body{display:block;}
+.acc-state-block{margin-top:16px;}
+.acc-state-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:#452068;margin-bottom:8px;}
+.plan-chip{display:inline-block;margin:3px 5px 3px 0;padding:5px 12px;background:#FEF2F2;border:1px solid #FECACA;border-radius:7px;font:600 12px/1.4 Arial,sans-serif;color:#991B1B;}
+.plan-chip.dim{opacity:.35;}
+.acc-note{margin-top:16px;padding-top:14px;border-top:1px solid #F1ECF6;font:400 11.5px/1.5 Arial,sans-serif;color:#9A94A8;}
+
+.no-results{text-align:center;padding:48px 20px;color:#9A94A8;}
+.no-results .nr-icon{font-size:34px;margin-bottom:10px;}
+.no-results p{font:400 13.5px/1.5 Arial,sans-serif;}
+
+.page-note{background:#fff;border:1px solid #E7E4ED;border-radius:14px;padding:18px 22px;margin-top:28px;font:400 12.5px/1.6 Arial,sans-serif;color:#6E687C;}
+.page-note strong{color:#241C2E;}
+
+@media(max-width:600px){
+  .hero h1{font-size:23px;}
+  .hero{padding:32px 20px;}
+  .acc-header{padding:14px 16px;}
+  .acc-body{padding:0 16px 16px;}
+  .result-count{margin-left:0;width:100%;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Top Nav -->
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="startTour ? startTour() : null" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <span class="hero-tag">⚠️ Important — Verify Before Enrolling</span>
+  <h1>Non-Commissionable Plans — 2026</h1>
+  <p>Full searchable list of 2026 non-commissionable plans by carrier and state. New sales only — renewals still receive FMV commission. Source: CMS National Landscape Extract + carrier docs.</p>
+  <span class="hero-meta">552 plans · All States · CMS National Landscape Extract</span>
+</div>
+
+<div class="wrap">
+
+  <input type="text" class="search-bar" id="ncSearch" placeholder="Search by carrier, plan ID, or state…" autocomplete="off">
+
+  <div class="filter-row">
+    <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">All Carriers</button>
+    <button class="filter-pill" data-filter="pending" onclick="setFilter('pending')">⏳ Needs Verification</button>
+    <select class="state-select" id="ncStateSelect" onchange="renderList()">
+      <option value="">All States</option>
+    </select>
+    <span class="result-count" id="ncResultCount"></span>
+  </div>
+
+  <div id="ncAccordionList"></div>
+
+  <div class="no-results" id="ncNoResults" style="display:none;">
+    <div class="nr-icon">🔍</div>
+    <p>No plans match your search. Try a different carrier, plan ID, or state.</p>
+  </div>
+
+  <div class="page-note">
+    <strong>How to read this list:</strong> Plans shown here are non-commissionable for <strong>new sales only</strong> — existing member renewals continue to receive Fair Market Value (FMV) commission. Carriers marked "Needs Verification" have pending confirmation from THEI compliance — always confirm current status directly with the carrier before enrolling a client. This list is sourced from the CMS National Landscape Extract and carrier bulletins, and is updated as new information comes in.
+  </div>
+
+</div>
+
+<script>
+function logout() {
+  localStorage.removeItem('hub_session');
+  window.location.replace('/login.html');
+}
+
+// ── Non-Commissionable Plans data ───────────────────────────────────────────
+// ⚠️ Mirrors NC_DATA in hub-dashboard.html. Keep both in sync until this is
+// centralized into a shared JSON file Igor can update from one place.
+// States default to FL (THEI market) — update per-plan when the full CMS
+// multi-state breakdown is available.
+const NC_DATA = [
+ { carrier: 'Humana', pending: false, plans: [
+ { id: 'H0028-014', states: ['IL','MO'] },
+ { id: 'H0028-019', states: ['NM'] },
+ { id: 'H0028-062', states: ['AZ'] },
+ { id: 'H0028-065', states: ['IL','MO'] },
+ { id: 'H0028-066', states: ['KS'] },
+ { id: 'H0028-074', states: ['AZ'] },
+ { id: 'H1036-167', states: ['NC'] },
+ { id: 'H1036-321', states: ['WA'] },
+ { id: 'H1036-322', states: ['WA'] },
+ { id: 'H1036-333', states: ['VA'] },
+ { id: 'H1036-334', states: ['VA'] },
+ { id: 'H1036-335', states: ['NC'] },
+ { id: 'H2463-001', states: ['AZ'] },
+ { id: 'H3533-027', states: ['NY'] },
+ { id: 'H3533-033', states: ['NY'] },
+ { id: 'H3533-035', states: ['NY'] },
+ { id: 'H4141-017', states: ['GA'] },
+ { id: 'H4461-045', states: ['MO'] },
+ { id: 'H4461-046', states: ['MO'] },
+ { id: 'H4461-047', states: ['KS','MO'] },
+ { id: 'H4461-048', states: ['MO'] },
+ { id: 'H4461-049', states: ['TX'] },
+ { id: 'H4461-050', states: ['TX'] },
+ { id: 'H4461-051', states: ['TX'] },
+ { id: 'H4461-052', states: ['TX'] },
+ { id: 'H4461-053', states: ['TX'] },
+ { id: 'H4461-054', states: ['TX'] },
+ { id: 'H4461-055', states: ['TX'] },
+ { id: 'H4461-056', states: ['AZ'] },
+ { id: 'H4461-057', states: ['TX'] },
+ { id: 'H4461-058', states: ['TX'] },
+ { id: 'H4461-059', states: ['AZ'] },
+ { id: 'H4461-060', states: ['TX'] },
+ { id: 'H4461-061', states: ['TX'] },
+ { id: 'H4461-062', states: ['TX'] },
+ { id: 'H4461-064', states: ['NM'] },
+ { id: 'H4461-066', states: ['TX'] },
+ { id: 'H4461-067', states: ['TX'] },
+ { id: 'H4461-069', states: ['TX'] },
+ { id: 'H4461-071', states: ['TX'] },
+ { id: 'H4623-001', states: ['MO'] },
+ { id: 'H5216-017', states: ['NC'] },
+ { id: 'H5216-023', states: ['OH','PA'] },
+ { id: 'H5216-039', states: ['NV'] },
+ { id: 'H5216-048', states: ['ID','MT','OR'] },
+ { id: 'H5216-053', states: ['IN'] },
+ { id: 'H5216-062', states: ['FL'] },
+ { id: 'H5216-063', states: ['MN'] },
+ { id: 'H5216-064', states: ['LA'] },
+ { id: 'H5216-068', states: ['FL'] },
+ { id: 'H5216-070', states: ['FL'] },
+ { id: 'H5216-072', states: ['FL'] },
+ { id: 'H5216-073', states: ['GA'] },
+ { id: 'H5216-074', states: ['FL'] },
+ { id: 'H5216-078', states: ['CO','NM'] },
+ { id: 'H5216-081', states: ['OK'] },
+ { id: 'H5216-089', states: ['MT'] },
+ { id: 'H5216-092', states: ['MN'] },
+ { id: 'H5216-097', states: ['AR','IN','MS'] },
+ { id: 'H5216-106', states: ['OH'] },
+ { id: 'H5216-114', states: ['IN'] },
+ { id: 'H5216-120', states: ['PA'] },
+ { id: 'H5216-132', states: ['ID','OR'] },
+ { id: 'H5216-136', states: ['MS'] },
+ { id: 'H5216-138', states: ['MA','ME','NH'] },
+ { id: 'H5216-154', states: ['GA'] },
+ { id: 'H5216-160', states: ['MS'] },
+ { id: 'H5216-161', states: ['LA'] },
+ { id: 'H5216-175', states: ['ME'] },
+ { id: 'H5216-179', states: ['AL'] },
+ { id: 'H5216-188', states: ['IN','KY'] },
+ { id: 'H5216-190', states: ['MI'] },
+ { id: 'H5216-194', states: ['NV'] },
+ { id: 'H5216-195', states: ['CO'] },
+ { id: 'H5216-196', states: ['NM'] },
+ { id: 'H5216-203', states: ['GA'] },
+ { id: 'H5216-205', states: ['GA'] },
+ { id: 'H5216-206', states: ['GA'] },
+ { id: 'H5216-207', states: ['GA'] },
+ { id: 'H5216-211', states: ['NC'] },
+ { id: 'H5216-223', states: ['CO','NM'] },
+ { id: 'H5216-224', states: ['AZ'] },
+ { id: 'H5216-226', states: ['IN','KY'] },
+ { id: 'H5216-229', states: ['IN','KY'] },
+ { id: 'H5216-231', states: ['AR'] },
+ { id: 'H5216-234', states: ['HI'] },
+ { id: 'H5216-242', states: ['GA'] },
+ { id: 'H5216-246', states: ['GA'] },
+ { id: 'H5216-251', states: ['IL'] },
+ { id: 'H5216-257', states: ['FL'] },
+ { id: 'H5216-261', states: ['CO'] },
+ { id: 'H5216-263', states: ['AZ'] },
+ { id: 'H5216-264', states: ['AR','OK'] },
+ { id: 'H5216-265', states: ['AZ'] },
+ { id: 'H5216-267', states: ['CO'] },
+ { id: 'H5216-269', states: ['AL'] },
+ { id: 'H5216-275', states: ['MN'] },
+ { id: 'H5216-278', states: ['AR','IL','KS','MN'] },
+ { id: 'H5216-280', states: ['GA'] },
+ { id: 'H5216-281', states: ['NV'] },
+ { id: 'H5216-283', states: ['IL'] },
+ { id: 'H5216-284', states: ['GA'] },
+ { id: 'H5216-285', states: ['KY'] },
+ { id: 'H5216-286', states: ['GA'] },
+ { id: 'H5216-287', states: ['MI'] },
+ { id: 'H5216-288', states: ['CT'] },
+ { id: 'H5216-289', states: ['CT'] },
+ { id: 'H5216-291', states: ['ME'] },
+ { id: 'H5216-292', states: ['MS'] },
+ { id: 'H5216-298', states: ['MS'] },
+ { id: 'H5216-300', states: ['MS'] },
+ { id: 'H5216-304', states: ['FL'] },
+ { id: 'H5216-305', states: ['MI'] },
+ { id: 'H5216-306', states: ['MI'] },
+ { id: 'H5216-307', states: ['IN'] },
+ { id: 'H5216-308', states: ['DE'] },
+ { id: 'H5216-309', states: ['IN','KY','OH'] },
+ { id: 'H5216-311', states: ['FL'] },
+ { id: 'H5216-313', states: ['HI'] },
+ { id: 'H5216-314', states: ['HI'] },
+ { id: 'H5216-316', states: ['OK'] },
+ { id: 'H5216-317', states: ['IN','KY'] },
+ { id: 'H5216-318', states: ['IL','KS'] },
+ { id: 'H5216-319', states: ['NJ'] },
+ { id: 'H5216-322', states: ['IN','KY'] },
+ { id: 'H5216-325', states: ['LA'] },
+ { id: 'H5216-326', states: ['LA'] },
+ { id: 'H5216-337', states: ['AR','OK'] },
+ { id: 'H5216-339', states: ['NM'] },
+ { id: 'H5216-340', states: ['IA','NE'] },
+ { id: 'H5216-345', states: ['GA'] },
+ { id: 'H5216-347', states: ['GA'] },
+ { id: 'H5216-355', states: ['IL'] },
+ { id: 'H5216-359', states: ['MN'] },
+ { id: 'H5216-361', states: ['AR'] },
+ { id: 'H5216-366', states: ['AR'] },
+ { id: 'H5216-367', states: ['MS'] },
+ { id: 'H5216-368', states: ['AL'] },
+ { id: 'H5216-370', states: ['AL'] },
+ { id: 'H5216-371', states: ['AZ'] },
+ { id: 'H5216-375', states: ['MI'] },
+ { id: 'H5216-376', states: ['MD'] },
+ { id: 'H5216-377', states: ['MD'] },
+ { id: 'H5216-379', states: ['MD'] },
+ { id: 'H5216-384', states: ['MI'] },
+ { id: 'H5216-386', states: ['DC','MD'] },
+ { id: 'H5216-387', states: ['MD'] },
+ { id: 'H5216-389', states: ['DC'] },
+ { id: 'H5216-390', states: ['DE'] },
+ { id: 'H5216-393', states: ['FL'] },
+ { id: 'H5216-394', states: ['FL'] },
+ { id: 'H5216-399', states: ['IL'] },
+ { id: 'H5216-400', states: ['IN'] },
+ { id: 'H5216-403', states: ['IL'] },
+ { id: 'H5216-404', states: ['MO'] },
+ { id: 'H5216-405', states: ['KS','MO'] },
+ { id: 'H5216-407', states: ['IL','MO'] },
+ { id: 'H5216-409', states: ['KS'] },
+ { id: 'H5216-411', states: ['IA','NE'] },
+ { id: 'H5216-412', states: ['IL'] },
+ { id: 'H5216-413', states: ['IA'] },
+ { id: 'H5216-417', states: ['LA'] },
+ { id: 'H5216-421', states: ['GA'] },
+ { id: 'H5216-424', states: ['MA'] },
+ { id: 'H5216-428', states: ['OR'] },
+ { id: 'H5216-435', states: ['AZ','CO'] },
+ { id: 'H5216-441', states: ['IN'] },
+ { id: 'H5216-446', states: ['KY'] },
+ { id: 'H5216-452', states: ['FL'] },
+ { id: 'H5216-453', states: ['IA','KY'] },
+ { id: 'H5216-457', states: ['MT'] },
+ { id: 'H5216-459', states: ['MD'] },
+ { id: 'H5216-461', states: ['NJ'] },
+ { id: 'H5216-463', states: ['IN'] },
+ { id: 'H5216-464', states: ['HI'] },
+ { id: 'H5216-465', states: ['HI'] },
+ { id: 'H5216-466', states: ['AL','GA'] },
+ { id: 'H5216-467', states: ['FL'] },
+ { id: 'H5216-468', states: ['CO'] },
+ { id: 'H5216-469', states: ['OK'] },
+ { id: 'H5216-470', states: ['AR'] },
+ { id: 'H5525-008', states: ['IN','KY'] },
+ { id: 'H5525-030', states: ['KY','OH'] },
+ { id: 'H5525-034', states: ['NC'] },
+ { id: 'H5525-035', states: ['NC'] },
+ { id: 'H5525-041', states: ['OH'] },
+ { id: 'H5525-042', states: ['OH'] },
+ { id: 'H5525-049', states: ['GA','NC'] },
+ { id: 'H5525-050', states: ['NC'] },
+ { id: 'H5525-054', states: ['ID','MT','OR'] },
+ { id: 'H5525-056', states: ['CA'] },
+ { id: 'H5525-057', states: ['CA'] },
+ { id: 'H5525-070', states: ['NC'] },
+ { id: 'H5525-072', states: ['NC'] },
+ { id: 'H5525-074', states: ['CA'] },
+ { id: 'H5525-075', states: ['CA'] },
+ { id: 'H5525-077', states: ['CA'] },
+ { id: 'H5525-080', states: ['CA'] },
+ { id: 'H5525-083', states: ['NC'] },
+ { id: 'H5525-084', states: ['CA'] },
+ { id: 'H5525-085', states: ['PA'] },
+ { id: 'H5525-087', states: ['CA'] },
+ { id: 'H5619-051', states: ['IN'] },
+ { id: 'H5619-071', states: ['KY'] },
+ { id: 'H5619-089', states: ['AL'] },
+ { id: 'H5619-093', states: ['AL'] },
+ { id: 'H5619-123', states: ['AR'] },
+ { id: 'H5619-137', states: ['NH'] },
+ { id: 'H5619-147', states: ['CA'] },
+ { id: 'H5619-148', states: ['CA'] },
+ { id: 'H5619-173', states: ['KY'] },
+ { id: 'H5619-180', states: ['NH'] },
+ { id: 'H6622-007', states: ['MT'] },
+ { id: 'H6622-008', states: ['MT'] },
+ { id: 'H6622-013', states: ['OH'] },
+ { id: 'H6622-014', states: ['OH'] },
+ { id: 'H6622-021', states: ['OH'] },
+ { id: 'H6622-022', states: ['OH'] },
+ { id: 'H6622-027', states: ['NC'] },
+ { id: 'H6622-037', states: ['PA'] },
+ { id: 'H6622-047', states: ['MS'] },
+ { id: 'H6622-048', states: ['MS'] },
+ { id: 'H6622-055', states: ['OH'] },
+ { id: 'H6622-060', states: ['NC'] },
+ { id: 'H6622-061', states: ['NC'] },
+ { id: 'H6622-099', states: ['NJ'] },
+ { id: 'H6622-100', states: ['NJ'] },
+ { id: 'H7284-001', states: ['FL'] },
+ { id: 'H7284-008', states: ['FL'] },
+ { id: 'H7284-009', states: ['FL'] },
+ { id: 'H7617-003', states: ['IN','KY','OH'] },
+ { id: 'H7617-004', states: ['KY','OH'] },
+ { id: 'H7617-005', states: ['KY'] },
+ { id: 'H7617-007', states: ['AR','MO','OK'] },
+ { id: 'H7617-008', states: ['IL','MO'] },
+ { id: 'H7617-009', states: ['IL'] },
+ { id: 'H7617-010', states: ['KS','MO'] },
+ { id: 'H7617-012', states: ['AR','IL','KS','MO','OK'] },
+ { id: 'H7617-013', states: ['IL'] },
+ { id: 'H7617-014', states: ['MO'] },
+ { id: 'H7617-015', states: ['KS'] },
+ { id: 'H7617-017', states: ['KS','MO'] },
+ { id: 'H7617-018', states: ['IL'] },
+ { id: 'H7617-019', states: ['WA'] },
+ { id: 'H7617-020', states: ['WI'] },
+ { id: 'H7617-021', states: ['UT','WA'] },
+ { id: 'H7617-022', states: ['IL','WI'] },
+ { id: 'H7617-023', states: ['IL','MO'] },
+ { id: 'H7617-026', states: ['MT'] },
+ { id: 'H7617-029', states: ['TX'] },
+ { id: 'H7617-030', states: ['MT'] },
+ { id: 'H7617-031', states: ['ID','OR'] },
+ { id: 'H7617-032', states: ['UT'] },
+ { id: 'H7617-035', states: ['TX'] },
+ { id: 'H7617-040', states: ['TX'] },
+ { id: 'H7617-041', states: ['TX'] },
+ { id: 'H7617-042', states: ['TX'] },
+ { id: 'H7617-043', states: ['TX'] },
+ { id: 'H7617-044', states: ['MD'] },
+ { id: 'H7617-045', states: ['NJ'] },
+ { id: 'H7617-046', states: ['MA','ME','NH','VT'] },
+ { id: 'H7617-049', states: ['IN','KY'] },
+ { id: 'H7617-050', states: ['IN','KY'] },
+ { id: 'H7617-051', states: ['AZ'] },
+ { id: 'H7617-052', states: ['MI'] },
+ { id: 'H7617-053', states: ['OK'] },
+ { id: 'H7617-054', states: ['MI'] },
+ { id: 'H7617-055', states: ['MI'] },
+ { id: 'H7617-056', states: ['AR','OK'] },
+ { id: 'H7617-057', states: ['TX'] },
+ { id: 'H7617-058', states: ['MI'] },
+ { id: 'H7617-059', states: ['TX'] },
+ { id: 'H7617-060', states: ['IN','OH'] },
+ { id: 'H7617-061', states: ['CO'] },
+ { id: 'H7617-062', states: ['TX'] },
+ { id: 'H7617-063', states: ['TX'] },
+ { id: 'H7617-064', states: ['CO'] },
+ { id: 'H7617-065', states: ['WV'] },
+ { id: 'H7617-066', states: ['AR'] },
+ { id: 'H7617-067', states: ['CO'] },
+ { id: 'H7617-070', states: ['NV'] },
+ { id: 'H7617-071', states: ['MI'] },
+ { id: 'H7617-072', states: ['WV'] },
+ { id: 'H7617-073', states: ['IN','OH'] },
+ { id: 'H7617-074', states: ['AR'] },
+ { id: 'H7617-075', states: ['AR'] },
+ { id: 'H7617-076', states: ['OK'] },
+ { id: 'H7617-077', states: ['AR'] },
+ { id: 'H7617-078', states: ['OK'] },
+ { id: 'H7617-079', states: ['LA'] },
+ { id: 'H7617-080', states: ['LA'] },
+ { id: 'H7617-081', states: ['LA'] },
+ { id: 'H7617-082', states: ['MS'] },
+ { id: 'H7617-083', states: ['MS'] },
+ { id: 'H7617-084', states: ['MS'] },
+ { id: 'H7617-085', states: ['MS'] },
+ { id: 'H7617-086', states: ['MS'] },
+ { id: 'H7617-087', states: ['MS'] },
+ { id: 'H7617-088', states: ['TN'] },
+ { id: 'H7617-089', states: ['AL'] },
+ { id: 'H7617-090', states: ['AL'] },
+ { id: 'H7617-091', states: ['AL'] },
+ { id: 'H7617-092', states: ['GA'] },
+ { id: 'H7617-093', states: ['GA'] },
+ { id: 'H7617-094', states: ['GA','SC'] },
+ { id: 'H7617-095', states: ['GA','SC'] },
+ { id: 'H7617-096', states: ['GA','SC'] },
+ { id: 'H7617-098', states: ['VA'] },
+ { id: 'H7617-100', states: ['DE','VA'] },
+ { id: 'H7617-101', states: ['VA'] },
+ { id: 'H7617-107', states: ['FL'] },
+ { id: 'H7617-108', states: ['FL'] },
+ { id: 'H7617-109', states: ['FL'] },
+ { id: 'H7617-110', states: ['FL'] },
+ { id: 'H7617-111', states: ['FL'] },
+ { id: 'H7617-112', states: ['FL'] },
+ { id: 'H8145-004', states: ['NC'] },
+ { id: 'H8145-006', states: ['MN','MO','MT','OK'] },
+ { id: 'H8145-032', states: ['OH'] },
+ { id: 'H8145-052', states: ['PA'] },
+ { id: 'H8145-069', states: ['GA'] },
+ { id: 'H8145-163', states: ['PA'] },
+ { id: 'R0110-003', states: ['LA','MS'] },
+ { id: 'R0110-005', states: ['NC'] },
+ { id: 'R0110-016', states: ['OH'] },
+ { id: 'R0110-018', states: ['AL'] },
+ { id: 'R0110-020', states: ['GA'] },
+ { id: 'R1532-002', states: ['AR','MO'] },
+ { id: 'R5826-005', states: ['FL'] },
+ { id: 'R5826-074', states: ['FL'] },
+ { id: 'H5970-028', states: ['NY'] },
+ { id: 'H5970-029', states: ['NY'] },
+ { id: 'H5970-030', states: ['NY'] },
+ { id: 'Humana Direct Choice Giveback', states: ['FL','NY'] },
+ { id: 'Humana USAA Honor Giveback', states: ['AR','CA','MN','MO','MS','NY','OH','OK','OR','PA'] },
+ { id: 'Humana USAA Honor Giveback with Rx', states: ['OH','PA'] },
+ { id: 'HumanaChoice - Diabetes and Heart', states: ['AR','MS','OK'] },
+ ]},
+ { carrier: 'Aetna', pending: false, plans: [
+ { id: 'Aetna Medicare Elite', states: ['AZ','CT'] },
+ { id: 'Aetna Medicare Enhanced', states: ['CA'] },
+ { id: 'Aetna Medicare Prime', states: ['CA'] },
+ { id: 'Aetna Medicare Signature', states: ['CA','KY','LA','MA'] },
+ { id: 'Aetna Medicare Signature Extra', states: ['CA'] },
+ { id: 'Aetna Medicare Select Extra', states: ['CO','FL'] },
+ { id: 'Aetna Dual Extra Care', states: ['CO'] },
+ { id: 'Aetna Value Care', states: ['CO'] },
+ { id: 'Aetna Elite', states: ['CT','GA'] },
+ { id: 'Aetna Elite Care', states: ['GA'] },
+ { id: 'Aetna Elite Giveback', states: ['GA'] },
+ { id: 'Aetna Eagle Giveback', states: ['DC','MD'] },
+ { id: 'Aetna Premier', states: ['DE'] },
+ { id: 'Erickson Advantage Guardian', states: ['CO','CT','MA','MD','MI'] },
+ ]},
+ { carrier: 'WellCare', pending: false, plans: [
+ { id: 'Wellcare Dual Access Harmony', states: ['AR'] },
+ { id: 'Wellcare Dual Liberty Nurture', states: ['AR'] },
+ { id: 'Wellcare Dual Reserve', states: ['AR','MI'] },
+ { id: 'Wellcare Giveback', states: ['AR','AZ','CA','CT','GA','IL','MI'] },
+ { id: 'Wellcare Patriot Giveback Preferred', states: ['AR'] },
+ { id: 'Wellcare Patriot Giveback', states: ['KS','LA','MI'] },
+ { id: 'Wellcare Patriot Giveback Open', states: ['CT','GA','IN','KS','KY','MI','MN'] },
+ { id: 'Wellcare Simple', states: ['AR','AZ','CA','CT','IL','KS','MI','MN'] },
+ { id: 'Wellcare Simple Open', states: ['AR','CT','KS','WI'] },
+ { id: 'Wellcare Simple Essential', states: ['IL'] },
+ { id: 'Wellcare Simple Essential Value', states: ['IL'] },
+ { id: 'Wellcare Simple Value', states: ['AZ'] },
+ { id: 'Wellcare Specialty Simple', states: ['AZ'] },
+ { id: 'Wellcare Low Premium', states: ['CA'] },
+ { id: 'Wellcare Giveback Open', states: ['CT'] },
+ { id: 'Wellcare Dual Access', states: ['IA'] },
+ { id: 'Wellcare Dual Access Sync', states: ['FL','IA','KS'] },
+ { id: 'Wellcare Dual Access Sync Open', states: ['KS'] },
+ { id: 'Wellcare Dual Liberty Sync', states: ['IA','KS'] },
+ { id: 'Wellcare Dual Reserve', states: ['IA','KY'] },
+ { id: 'Wellcare Assist', states: ['IN','MI'] },
+ { id: 'Wellcare Assist Open', states: ['IN'] },
+ { id: 'Wellcare Giveback Open', states: ['KY','MI'] },
+ { id: 'Wellcare Low Premium Open', states: ['ME'] },
+ { id: "Wellcare 'Ohana Dual Align", states: ['HI'] },
+ { id: 'Wellcare Sunshine Health Dual Align', states: ['FL'] },
+ ]},
+ { carrier: 'Devoted Health', pending: false, plans: [
+ { id: 'DEVOTED CHOICE 001', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 002', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 003', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 005', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 006', states: ['AZ'] },
+ ]},
+ { carrier: 'SCAN', pending: false, plans: [
+ { id: 'SCAN Embrace', states: ['AZ','CA'] },
+ { id: 'SCAN Embrace Together', states: ['AZ','CA'] },
+ { id: 'SCAN MyChoice', states: ['AZ','CA'] },
+ { id: 'SCAN Connections at Home', states: ['CA'] },
+ ]},
+ { carrier: 'Alignment Health', pending: false, plans: [
+ { id: 'Alignment Health My Choice', states: ['CA'] },
+ ]},
+ { carrier: 'Anthem', pending: false, plans: [
+ { id: 'Anthem Dual Advantage', states: ['CA','CT','IN'] },
+ { id: 'Anthem Dual Advantage 2', states: ['CA'] },
+ { id: 'Anthem Extra Help', states: ['CT','GA','IN'] },
+ { id: 'Anthem Full Dual Advantage', states: ['CT'] },
+ { id: 'Anthem Kidney Care', states: ['CT','GA'] },
+ { id: 'Anthem Medicare Advantage', states: ['CT','GA','IN','KY'] },
+ { id: 'Anthem Medicare Advantage 2', states: ['GA','IN'] },
+ { id: 'Anthem Medicare Advantage 3', states: ['IN','KY'] },
+ { id: 'Anthem Medicare Advantage 4', states: ['IN'] },
+ { id: 'Anthem Medicare Advantage Regional PPO', states: ['IN','KY'] },
+ { id: 'Anthem Veteran', states: ['CT','GA','IN','KY','ME'] },
+ { id: 'Anthem I MaineHealth Advantage Choice', states: ['ME'] },
+ { id: 'Anthem I MaineHealth Advantage Plus', states: ['ME'] },
+ { id: 'Anthem I MaineHealth Advantage Veteran', states: ['ME'] },
+ ]},
+ { carrier: 'HealthSpring / Cigna', pending: false, plans: [
+ { id: 'HealthSpring True Choice', states: ['AL','AR','AZ','CO','CT','DC','DE','FL','IL','IN','KY','MD','MI','MN','NC','NJ','OH','OK','OR','PA','SC','TN','TX','UT','VA','WI'] },
+ { id: 'HealthSpring Preferred', states: ['DC','GA','KS'] },
+ { id: 'HealthSpring Preferred Savings', states: ['KS'] },
+ { id: 'HealthSpring TotalCare', states: ['FL'] },
+ { id: 'HealthSpring TotalCare Plus', states: ['CT','FL'] },
+ { id: 'HealthSpring Courage', states: ['DC'] },
+ { id: 'HealthSpring True Choice Plus', states: ['DC'] },
+ ]},
+ { carrier: 'UHC / AARP', pending: false, plans: [
+ { id: 'AL-0001', states: ['AL'] },
+ { id: 'AL-0004', states: ['AL'] },
+ { id: 'AZ-15', states: ['AZ'] },
+ { id: 'AZ-17', states: ['AZ'] },
+ { id: 'AZ-5', states: ['AZ'] },
+ { id: 'AZ-0008', states: ['AZ'] },
+ { id: 'AZ-0010', states: ['AZ'] },
+ { id: 'AZ-0011', states: ['AZ'] },
+ { id: 'AZ-0013', states: ['AZ'] },
+ { id: 'AZ-0014', states: ['AZ'] },
+ { id: 'AZ-MA01', states: ['AZ'] },
+ { id: 'CA-0010', states: ['CA'] },
+ { id: 'CA-37', states: ['CA'] },
+ { id: 'CO-4', states: ['CO'] },
+ { id: 'CO-0011', states: ['CO'] },
+ { id: 'CO-0013', states: ['CO'] },
+ { id: 'CO-0017', states: ['CO'] },
+ { id: 'CO-F001', states: ['CO'] },
+ { id: 'CT-0001', states: ['CT'] },
+ { id: 'CT-0002', states: ['CT'] },
+ { id: 'CT-0003', states: ['CT'] },
+ { id: 'EX-F001', states: ['AL','AZ','CT'] },
+ { id: 'EX-F002', states: ['DE'] },
+ { id: 'EX-F003', states: ['CT','ME'] },
+ { id: 'EX-F004', states: ['DC','MD'] },
+ { id: 'FL-0031', states: ['FL'] },
+ { id: 'FL-MA01', states: ['FL'] },
+ { id: 'FL-D005', states: ['FL'] },
+ { id: 'FL-F001', states: ['FL'] },
+ { id: 'FL-F002', states: ['FL'] },
+ { id: 'GA-5', states: ['GA'] },
+ { id: 'GA-F001', states: ['GA'] },
+ { id: 'HI-0004', states: ['HI'] },
+ { id: 'HI-S001', states: ['HI'] },
+ { id: 'ID-0001', states: ['ID'] },
+ { id: 'ID-0003', states: ['ID'] },
+ { id: 'ID-0005', states: ['ID'] },
+ { id: 'ID-0006', states: ['ID'] },
+ { id: 'ID-0007', states: ['ID'] },
+ { id: 'ID-0008', states: ['ID'] },
+ { id: 'ID-0009', states: ['ID'] },
+ { id: 'ID-0010', states: ['ID'] },
+ { id: 'ID-0011', states: ['ID'] },
+ { id: 'ID-MA01', states: ['ID'] },
+ { id: 'ID-12', states: ['ID'] },
+ { id: 'ID-13', states: ['ID'] },
+ { id: 'ID-1A', states: ['ID'] },
+ { id: 'IA-0002', states: ['IA','IL'] },
+ { id: 'IA-0003', states: ['IA','IL'] },
+ { id: 'IA-5', states: ['IA','IL'] },
+ { id: 'IL-0004', states: ['IL'] },
+ { id: 'IL-F001', states: ['IL'] },
+ { id: 'IN-10', states: ['IN'] },
+ { id: 'IN-17', states: ['IN'] },
+ { id: 'IN-0001', states: ['IN'] },
+ { id: 'IN-0002', states: ['IN'] },
+ { id: 'IN-0004', states: ['IN'] },
+ { id: 'IN-0007', states: ['IN'] },
+ { id: 'IN-F001', states: ['IN'] },
+ { id: 'KY-4', states: ['KY'] },
+ { id: 'KY-5', states: ['KY'] },
+ { id: 'KY-0003', states: ['KY'] },
+ { id: 'ME-0001', states: ['ME'] },
+ { id: 'ME-0002', states: ['ME'] },
+ { id: 'ME-0003', states: ['ME'] },
+ { id: 'ME-0005', states: ['ME'] },
+ { id: 'ME-6', states: ['ME'] },
+ { id: 'MA-9', states: ['MA'] },
+ { id: 'MA-0006', states: ['MA'] },
+ { id: 'MA-MA01', states: ['MA'] },
+ { id: 'MN-0001', states: ['MN'] },
+ { id: 'MN-0002', states: ['MN'] },
+ { id: 'MN-0005', states: ['MN'] },
+ { id: 'NE-3', states: ['NE'] },
+ { id: 'NE-5', states: ['NE'] },
+ { id: 'NE-0002', states: ['NE'] },
+ { id: 'NE-MA01', states: ['NE'] },
+ { id: 'ST-0001', states: ['IL'] },
+ { id: 'ST-2', states: ['IL'] },
+ { id: 'AARP Medicare Advantage Essentials', states: ['CO','IN','NE'] },
+ { id: 'AARP Medicare Advantage Extras', states: ['AZ','IN'] },
+ { id: 'AARP Medicare Advantage CareFlex', states: ['AZ'] },
+ { id: 'AARP Medicare Advantage Access', states: ['AZ'] },
+ { id: 'AARP Medicare Advantage Patriot No Rx', states: ['AZ','ID','IA','MA','NE'] },
+ { id: 'UHC Complete Care', states: ['ID','IL','IA','ME'] },
+ { id: 'UHC Complete Care Support', states: ['ID'] },
+ { id: 'UHC MedicareDirect Patriot No Rx', states: ['KS'] },
+ { id: 'UHC MedicareDirect', states: ['KS'] },
+ { id: 'R0759-001', states: ['FL'] },
+ ]},
+ { carrier: 'Simply Healthcare', pending: false, plans: [
+ { id: 'Simply Level', states: ['FL'] },
+ { id: 'Simply More', states: ['FL'] },
+ { id: 'Simply Preferred', states: ['FL'] },
+ ]},
+ { carrier: 'Central Health', pending: false, plans: [
+ { id: 'Central Health Classic Care Plan I', states: ['CA'] },
+ { id: 'Central Health Classic Care Plan II', states: ['CA'] },
+ { id: 'Central Health Classic Care Plan III', states: ['CA'] },
+ { id: 'Central Health Classic Care Plan IV', states: ['CA'] },
+ { id: 'Central Health Embrace Care Plan', states: ['CA'] },
+ { id: 'Central Health Embrace Choice Plan', states: ['CA'] },
+ { id: 'Central Health Jade Plan', states: ['CA'] },
+ { id: 'Central Health Medicare Plan', states: ['CA'] },
+ { id: 'Central Health Part B Savings Plan', states: ['CA'] },
+ { id: 'Central Health Valor Care Plan', states: ['CA'] },
+ ]},
+ { carrier: 'Other Regional Carriers', pending: false, plans: [
+ { id: 'Blue Cross (IL) Medicare Advantage Basic', states: ['IL'] },
+ { id: 'Blue Cross (IL) Choice Plus', states: ['IL'] },
+ { id: 'Blue Cross (IL) Choice Premier', states: ['IL'] },
+ { id: 'Blue Cross (IL) Classic', states: ['IL'] },
+ { id: 'Blue Cross (IL) Dental Premier', states: ['IL'] },
+ { id: 'Blue Cross (IL) Essential', states: ['IL'] },
+ { id: 'Blue Cross (IL) Health Choice', states: ['IL'] },
+ { id: 'Blue Cross (IL) Protect', states: ['IL'] },
+ { id: 'Blue Cross (IL) Secure', states: ['IL'] },
+ { id: 'Blue Cross (IL) Value', states: ['IL'] },
+ { id: 'Align ChoiceElite', states: ['IA'] },
+ { id: 'Align ChoicePlus', states: ['IA'] },
+ { id: 'Blue (IA) Blue Medicare Advantage PPO', states: ['IA'] },
+ { id: 'Blue (IA) Blue Medicare Advantage Valor PPO', states: ['IA'] },
+ { id: 'Clover Health LiveHealthy', states: ['GA'] },
+ { id: 'Clover Health LiveHealthy Giveback', states: ['GA'] },
+ { id: 'Clover Health LiveHealthy Value', states: ['GA'] },
+ { id: 'Clover Health Valor', states: ['GA'] },
+ { id: 'Saint Alphonsus Health Plan Choice', states: ['ID'] },
+ { id: 'BCN/Blue (MI) BCN Advantage Prime Value', states: ['MI'] },
+ { id: 'BCN/Blue (MI) Medicare Plus Blue Essential', states: ['MI'] },
+ { id: 'HAP Medicare Connect', states: ['MI'] },
+ { id: 'HAP Medicare Explore', states: ['MI'] },
+ { id: 'Priority PriorityMedicare Vital', states: ['MI'] },
+ { id: 'Mass General Brigham Advantage', states: ['MA'] },
+ { id: 'Mass General Brigham Advantage Premier', states: ['MA'] },
+ { id: 'Mass General Brigham Advantage Secure', states: ['MA'] },
+ { id: 'Mass General Brigham Advantage Signature', states: ['MA'] },
+ { id: 'Tufts Medicare Preferred HMO Smart Saver Rx', states: ['MA'] },
+ { id: 'Tufts Medicare Preferred PPO RX', states: ['MA'] },
+ { id: 'CarePartners Access', states: ['CT'] },
+ { id: 'CarePartners of CT CareAdvantage Preferred', states: ['CT'] },
+ { id: 'ConnectiCare Choice Plan 1', states: ['CT'] },
+ { id: 'ConnectiCare Choice Plan 2', states: ['CT'] },
+ { id: 'ConnectiCare Choice Plan 3', states: ['CT'] },
+ { id: 'ConnectiCare Flex Plan 2', states: ['CT'] },
+ { id: 'ConnectiCare Flex Plan 3', states: ['CT'] },
+ { id: 'ConnectiCare Passage Plan 1', states: ['CT'] },
+ { id: 'VillageHealth', states: ['CA'] },
+ ]},
+ { carrier: 'WellPoint', pending: false, plans: [
+ { id: 'Wellpoint Lung Care 2', states: ['AZ'] },
+ { id: 'Wellpoint Medicare Advantage 2', states: ['AZ'] },
+ { id: 'Wellpoint Premium Savings', states: ['AZ'] },
+ ]},
+];
+
+let _activeFilter = 'all';
+const _openState = {}; // carrier idx -> bool, remembers expand state across re-renders
+
+// Populate state dropdown from all data
+(function populateStates(){
+  const states = [...new Set(NC_DATA.flatMap(c => c.plans.flatMap(p => p.states)))].sort();
+  const sel = document.getElementById('ncStateSelect');
+  states.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    sel.appendChild(opt);
+  });
+})();
+
+function setFilter(f) {
+  _activeFilter = f;
+  document.querySelectorAll('.filter-pill').forEach(el =>
+    el.classList.toggle('active', el.dataset.filter === f)
+  );
+  renderList();
+}
+
+function renderList() {
+  const q = document.getElementById('ncSearch').value.trim().toLowerCase();
+  const stateFilter = document.getElementById('ncStateSelect').value;
+  const listEl = document.getElementById('ncAccordionList');
+  const noResults = document.getElementById('ncNoResults');
+
+  let visibleCarriers = 0;
+  let visiblePlans = 0;
+
+  const html = NC_DATA.map((c, idx) => {
+    if (_activeFilter === 'pending' && !c.pending) return '';
+
+    // Filter plans within this carrier by search + state
+    const matchedPlans = c.plans.filter(p => {
+      const matchesQ = !q ||
+        c.carrier.toLowerCase().includes(q) ||
+        p.id.toLowerCase().includes(q) ||
+        p.states.some(s => s.toLowerCase().includes(q));
+      const matchesState = !stateFilter || p.states.includes(stateFilter);
+      return matchesQ && matchesState;
+    });
+
+    if (!matchedPlans.length) return '';
+    visibleCarriers++;
+    visiblePlans += matchedPlans.length;
+
+    // Group matched plans by state
+    const byState = {};
+    matchedPlans.forEach(p => p.states.forEach(st => {
+      if (stateFilter && st !== stateFilter) return;
+      (byState[st] = byState[st] || []).push(p.id);
+    }));
+    const stateKeys = Object.keys(byState).sort();
+
+    const isOpen = !!_openState[idx] || !!q || !!stateFilter;
+
+    return `<div class="carrier-acc${isOpen ? ' open' : ''}" data-idx="${idx}">
+      <button class="acc-header" onclick="toggleAcc(${idx})">
+        <div class="acc-left">
+          <div class="acc-icon">🚫</div>
+          <div>
+            <div class="acc-title">${c.carrier}${c.pending ? ' <span class="acc-pending">⏳ Needs Verification</span>' : ''}</div>
+            <div class="acc-sub">${matchedPlans.length} plan${matchedPlans.length !== 1 ? 's' : ''} · ${stateKeys.join(', ')}</div>
+          </div>
+        </div>
+        <div class="acc-right">
+          <span class="acc-count">${matchedPlans.length}</span>
+          <span class="acc-chevron">▼</span>
+        </div>
+      </button>
+      <div class="acc-body">
+        ${stateKeys.map(st => `
+          <div class="acc-state-block">
+            <div class="acc-state-label">${st}</div>
+            ${byState[st].map(id => `<span class="plan-chip">${id}</span>`).join('')}
+          </div>`).join('')}
+        <div class="acc-note">${c.carrier === 'Humana' ? '<strong>Modified commission $165.00</strong> (prorated by eff. date) for Like Plan Type Changes from Humana plans. Source: Humana PPP GCHMRX7EN 01/2026. Always verify before enrolling.' : 'New sales only — renewals receive FMV. Always verify with ' + c.carrier + ' before enrolling.'}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  listEl.innerHTML = html;
+  noResults.style.display = visibleCarriers ? 'none' : 'block';
+  document.getElementById('ncResultCount').textContent =
+    visibleCarriers ? `${visiblePlans} plan${visiblePlans !== 1 ? 's' : ''} across ${visibleCarriers} carrier${visibleCarriers !== 1 ? 's' : ''}` : '';
+}
+
+function toggleAcc(idx) {
+  _openState[idx] = !_openState[idx];
+  renderList();
+}
+
+document.getElementById('ncSearch').addEventListener('input', renderList);
+renderList();
+</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Carrier Info | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.wrap{max-width:1100px;margin:0 auto;padding:36px 24px 64px;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--purple-dark),var(--purple));border-radius:20px;padding:28px 32px;margin-bottom:32px;color:#fff;}
+.hero h1{font:700 28px/1.2 Arial,sans-serif;margin-bottom:6px;}
+.hero p{font:400 14px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:60ch;}
+
+/* Cards grid */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--text);transition:box-shadow .15s,transform .15s;position:relative;overflow:hidden;}
+.info-card:hover{box-shadow:0 6px 20px rgba(69,32,104,.12);transform:translateY(-2px);}
+.info-card.featured{border-top:3px solid var(--pink);}
+.card-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.card-title{font:700 16px/1.2 Arial,sans-serif;color:var(--text);}
+.card-desc{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);flex:1;}
+.card-link{font:700 13px/1 Arial,sans-serif;color:var(--purple);margin-top:4px;}
+.card-badge{position:absolute;top:14px;right:14px;font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.4px;padding:3px 8px;border-radius:999px;}
+.badge-red{background:#FEE2E2;color:#DC2626;}
+.badge-purple{background:var(--purple-tint);color:var(--purple);}
+.badge-green{background:#E3F5EC;color:#1E8A5C;}
+
+@media(max-width:900px){.cards-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.cards-grid{grid-template-columns:1fr;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a class='active' href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>🏥 Carrier Info</h1>
+    <p>Everything you need for every carrier — contacts, certifications, non-commissionable plans, HRA details, plan comparison, and chronic condition eligibility. All in one place.</p>
+  </div>
+
+  <div class="cards-grid">
+
+    <a class='info-card featured' href='/carrier-contact-guide'>
+      <span class="card-badge badge-purple">Full Guide</span>
+      <div class="card-icon" style="background:#F1ECF6;">📞</div>
+      <div class="card-title">Carrier Contact Guide</div>
+      <div class="card-desc">Direct lines, auth numbers, member services, OTC, HRA, pharmacy — all 14 carriers. Humana, UHC, Aetna, Solis, Devoted, and more.</div>
+      <span class="card-link">Open Guide →</span>
+    </a>
+
+    <a class='info-card featured' href='/certs'>
+      <span class="card-badge badge-purple">2026 Certs</span>
+      <div class="card-icon" style="background:#FEF3C7;">📋</div>
+      <div class="card-title">Carrier Certifications</div>
+      <div class="card-desc">AHIP, carrier-specific certification portals, deadlines, and training requirements for all carriers you're contracted with.</div>
+      <span class="card-link">Open Certs Page →</span>
+    </a>
+
+    <a class='info-card featured' href='/non-comm-plans'>
+      <span class="card-badge badge-red">Important</span>
+      <div class="card-icon" style="background:#FEE2E2;">🚫</div>
+      <div class="card-title">Non-Commissionable Plans</div>
+      <div class="card-desc">Full searchable list of 2026 non-commissionable plans by carrier and state. Source: CMS SAR Landscape File + carrier docs. Always verify before enrolling.</div>
+      <span class="card-link">View Plans →</span>
+    </a>
+
+    <a class="info-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
+      <span class="card-badge badge-green">2026</span>
+      <div class="card-icon" style="background:#E3F5EC;">📊</div>
+      <div class="card-title">2026 MAPD Plan Grid</div>
+      <div class="card-desc">Side-by-side comparison of all 2026 Medicare Advantage plans. Benefits, copays, OTC, dental, vision, transportation, and more.</div>
+      <span class="card-link">Open Grid →</span>
+    </a>
+
+    <a class='info-card' href='/hra-guide'>
+      <div class="card-icon" style="background:#FFE8F3;">💳</div>
+      <div class="card-title">HRA Quick Reference</div>
+      <div class="card-desc">Health Risk Assessment amounts, eligible plan types, completion timeframes, portals, and OTC networks for every carrier.</div>
+      <span class="card-link">Open HRA Guide →</span>
+    </a>
+
+    <a class='info-card' href='/chronic-conditions'>
+      <div class="card-icon" style="background:#F1ECF6;">🩺</div>
+      <div class="card-title">Chronic Condition Eligibility</div>
+      <div class="card-desc">Check which carriers cover each chronic condition — C-SNP, D-SNP, and standard MA. Quickly identify the right plan for complex clients.</div>
+      <span class="card-link">Open Tool →</span>
+    </a>
+
+  </div>
+
+
+    <a class='info-card featured' href='/contracting-blackout'>
+      <span class="card-badge badge-red">AEP Prep</span>
+      <div class="card-icon" style="background:#FEE2E2;">📅</div>
+      <div class="card-title">2027 Contracting Blackout Dates</div>
+      <div class="card-desc">New contracting and transfer/release blackout windows for all carriers. Humana and Elevance already active. UHC starts Sep 1.</div>
+      <span class="card-link">View Blackout Schedule &rarr;</span>
+    </a>
+
+  </div>
+
+  <!-- Events link card -->
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;margin-top:32px;">
+    <div>
+      <div style="font:700 15px/1 Arial,sans-serif;color:var(--text);margin-bottom:6px;">Carrier Events &amp; Trainings</div>
+      <div style="font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);">Upcoming webinars, AEP prep sessions, and broker trainings from all carriers.</div>
+    </div>
+    <a href="/events" style="display:inline-block;padding:10px 22px;background:var(--purple);color:#fff;border-radius:999px;font:700 13px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0;margin-left:20px;">View Events &rarr;</a>
+  </div>
+
+</div>
+
+<script>
+function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+</script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Broker University | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 18px 40px rgba(20,10,40,.14);
+ --shadow-soft:0 10px 22px rgba(20,10,40,.09);
+ --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.hero{
+ background:radial-gradient(900px 380px at 22% 0%, rgba(255,16,144,.25), transparent 60%),
+ linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ border-radius:26px;
+ padding:28px;
+ box-shadow:var(--shadow);
+}
+.badge{
+ display:inline-block;
+ font-size:14px;
+ font-weight:900;
+ letter-spacing:.4px;
+ padding:6px 12px;
+ border-radius:999px;
+ background:rgba(255,255,255,.14);
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 8px;font-size:34px;line-height:1.12;}
+.hero p{margin:0;color:rgba(255,255,255,.9);font-size:14px;max-width:80ch;line-height:1.55;}
+
+.grid{
+ margin-top:14px;
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:14px;
+}
+@media(max-width:960px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:22px;
+ box-shadow:var(--shadow-soft);
+ padding:18px;
+ display:flex;
+ flex-direction:row;align-items:center;justify-content:space-between;
+ min-height:190px;
+}
+.tag{
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ font-size:14px;
+ font-weight:900;
+ padding:6px 10px;
+ border-radius:999px;
+ border:1px solid rgba(69,32,104,.25);
+ background:rgba(69,32,104,.04);
+ color:var(--primary);
+ width:max-content;
+ margin-bottom:10px;
+}
+.tag.dark{
+ background:rgba(255,255,255,.10);
+ border-color:rgba(255,255,255,.18);
+ color:#fff;
+}
+.tag.pink{
+ background:rgba(255,16,144,.10);
+ border-color:rgba(255,16,144,.28);
+ color:#7a0c44;
+}
+.card h2{margin:0 0 6px;font-size:18px;}
+.card p{margin:0 0 14px;color:var(--muted);font-size:14px;line-height:1.55;}
+
+.btn{
+ margin-top:auto;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+ text-decoration:none;
+ font-weight:900;
+ font-size:14px;
+ border-radius:16px;
+ padding:12px 14px;
+ border:1px solid rgba(69,32,104,.30);
+ color:var(--primary);
+ background:#fff;
+}
+.btn:hover{background:rgba(69,32,104,.05);border-color:rgba(69,32,104,.50);}
+.btn.primary{
+ background:var(--primary);
+ border-color:transparent;
+ color:#fff;
+}
+.btn.primary:hover{filter:brightness(1.05);}
+.btn.accent{
+ background:var(--accent);
+ border-color:transparent;
+ color:#fff;
+}
+.btn.accent:hover{filter:brightness(1.05);}
+
+.protip{
+ margin-top:14px;
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:18px;
+ padding:12px 14px;
+ box-shadow:var(--shadow-soft);
+ font-size:14px;
+ color:var(--muted);
+}
+.protip strong{color:var(--primary);}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+ <section class="hero">
+ <span class="badge">Start Here</span>
+ <h1>Broker University</h1>
+ <p>Everything agents need to learn, reference, and self-serve — so you can move faster with fewer support calls.</p>
+ </section>
+
+ <section class="grid">
+ <!-- Medicare Basics -->
+ <article class="card">
+ <span class="tag">Learn</span>
+ <h2>Medicare Basics</h2>
+ <p>Foundations, election periods, and key concepts to build confidence.</p>
+ <a class="btn primary" href="https://www.agentmedicarehub.com/medicare-basics">Open Medicare Basics <span>→</span></a>
+ </article>
+
+ <!-- Medicaid & LIS -->
+ <article class="card">
+ <span class="tag">Reference</span>
+ <h2>Medicaid &amp; LIS</h2>
+ <p>Eligibility basics, LIS/Extra Help guidance, and state Medicaid references.</p>
+ <a class="btn primary"
+ href="www.agentmedicarehub.com/medicaid"
+ target="_blank" rel="noopener">
+ Open Medicaid &amp; LIS <span>→</span>
+ </a>
+ </article>
+
+ <!-- Client Forms -->
+ <article class="card">
+ <span class="tag">Client PDFs</span>
+ <h2>Client Forms &amp; Appeals</h2>
+ <p>Client-facing forms like employer verification, Part B enrollment, and IRMAA appeals.</p>
+ <a class="btn primary" href="https://www.agentmedicarehub.com/client-forms-pdfs">Open Client Forms <span>→</span></a>
+ </article>
+
+ <!-- Compliance -->
+ <article class="card">
+ <span class="tag">Required</span>
+ <h2>Compliance &amp; Policies</h2>
+ <p>Rules, guidance, and must-know compliance topics for Medicare sales.</p>
+ <a class="btn primary" href="https://www.agentmedicarehub.com/compliance-policies">Open Compliance <span>→</span></a>
+ </article>
+
+ <!-- Carrier Resources -->
+ <article class="card">
+ <span class="tag">Carriers</span>
+ <h2>Carrier Resources</h2>
+ <p>Carrier-specific references, training notes, and quick access links.</p>
+ <a class="btn outline" href="https://www.agentmedicarehub.com/carrier-resources">Open Carrier Resources <span>→</span></a>
+ </article>
+
+ <!-- Sales Library -->
+ <article class="card">
+ <span class="tag pink">Sales</span>
+ <h2>Sales Presentations &amp; Training</h2>
+ <p>Ready-to-use decks, scripts, and client handouts to support your appointments.</p>
+ <a class="btn outline" href="https://www.agentmedicarehub.com/sales-presentations-training">Open Sales Library <span>→</span></a>
+ </article>
+
+ <!-- Lead Generation Library -->
+ <article class="card">
+ <span class="tag pink">Lead Gen</span>
+ <h2>Lead Generation Library</h2>
+ <p>How to find new clients — community events, provider offices, and social media playbooks. Bilingual.</p>
+ <a class="btn outline" href="https://www.agentmedicarehub.com/lead-generation-library">Open Lead Gen Library <span>→</span></a>
+ </article>
+
+ <!-- Retention Library -->
+ <article class="card">
+ <span class="tag pink">Retention</span>
+ <h2>Retention Library</h2>
+ <p>Email templates, touchpoint calendar, and retention systems to keep your existing book and grow renewal income.</p>
+ <a class="btn outline" href="https://www.agentmedicarehub.com/retention-library">Open Retention Library <span>→</span></a>
+ </article>
+
+ <!-- Tools & Platforms -->
+ <article class="card">
+ <span class="tag pink">Do the Work</span>
+ <h2>Tools &amp; Platforms</h2>
+ <p>AgentSync, Nextere, Agent Xcelerator, and certification portals — all in one place.</p>
+ <a class="btn accent" href="https://www.agentmedicarehub.com/agent-tools-hub">Open Tools &amp; Platforms <span>→</span></a>
+ </article>
+
+ <!-- Contracting Resources -->
+ <article class="card">
+ <span class="tag">Contracting</span>
+ <h2>Contracting Resources</h2>
+ <p>New agent contracting help, transfer rules, and appointment guidance.</p>
+ <a class="btn outline" href="https://docs.google.com/presentation/d/1KIAU8uobrnghsPI5TbblgPWcGLaz0bRTeXMzMQIfOss/edit?usp=sharing">Open Contracting Resources <span>→</span></a>
+ </article>
+ </section>
+
+</div>
+</body>
+</html>

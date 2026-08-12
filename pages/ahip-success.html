@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Certificate Submitted | Agent Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
+.card{background:#fff;border-radius:20px;padding:48px 40px;text-align:center;max-width:420px;box-shadow:0 8px 32px rgba(69,32,104,.10);}
+.icon{font-size:48px;margin-bottom:16px;}
+h1{font-size:22px;font-weight:700;color:#241C2E;margin-bottom:10px;}
+p{font:400 14px/1.6 'Inter',Arial,sans-serif;color:#6E687C;margin-bottom:28px;}
+.btn{display:inline-block;padding:12px 28px;background:#452068;color:#fff;border-radius:999px;font:700 14px/1 'Inter',Arial,sans-serif;text-decoration:none;}
+.btn:hover{background:#341751;}
+</style>
+<script>
+// Mark AHIP as submitted in localStorage so the certs page shows the confirmed state
+(function(){
+  try {
+    var prev = JSON.parse(localStorage.getItem('ahip_status') || 'null');
+    if (!prev || !prev.submitted) {
+      localStorage.setItem('ahip_status', JSON.stringify({
+        submitted: true, filename: 'uploaded', submittedAt: new Date().toISOString()
+      }));
+    }
+  } catch(e) {}
+})();
+</script>
+</head>
+<body>
+<div class="card">
+  <div class="icon">✅</div>
+  <h1>Certificate Submitted!</h1>
+  <p>Your AHIP certificate has been received. You can now complete your carrier certifications below.</p>
+  <a href="/certs" class="btn">Back to Certifications →</a>
+</div>
+</body>
+</html>

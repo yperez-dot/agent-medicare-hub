@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Agent Hub | The Health Experts Insurance</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
+
+/* Top nav — compact utility bar */
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:8px 18px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 12.5px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;white-space:nowrap;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+
+/* Hero — split layout with AEP + SEP cards */
+.hero{background:linear-gradient(120deg,#452068 0%,#341751 100%);padding:44px 32px;}
+.hero-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:36px;flex-wrap:wrap;}
+.hero-text{flex:1 1 380px;max-width:520px;}
+.hero-eyebrow{font:700 12px/1 Arial,sans-serif;color:#FF9FD3;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;min-height:14px;}
+.hero h1{font-size:28px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.25;}
+.hero h1 span{color:#FF1090;}
+.hero p{font-size:13.5px;color:rgba(255,255,255,0.78);margin-bottom:20px;max-width:420px;}
+.search-wrap{max-width:440px;position:relative;}
+.search-wrap input{width:100%;padding:13px 20px;border-radius:999px;border:none;font:400 14px/1 Arial,sans-serif;color:#241C2E;outline:none;box-shadow:0 4px 16px rgba(0,0,0,0.12);}
+.search-wrap input::placeholder{color:#9A94A8;}
+
+/* Hero stat cards — AEP countdown + Active SEPs (bold treatment) */
+.hero-stats{display:flex;gap:14px;flex-shrink:0;}
+.hero-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:20px 26px;text-align:center;min-width:190px;text-decoration:none;display:block;}
+.hero-stat.accent{border-color:rgba(255,16,144,.35);background:rgba(255,16,144,.07);}
+.hero-stat .stat-eyebrow{font:700 10px/1.3 Arial,sans-serif;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;}
+.hero-stat .num{font:800 44px/1 Arial,sans-serif;color:#fff;letter-spacing:-1px;}
+.hero-stat .num span{font-size:15px;font-weight:700;color:#FF9FD3;margin-left:4px;}
+.hero-stat .stat-sub{font:600 11.5px/1.4 Arial,sans-serif;color:rgba(255,255,255,.7);margin-top:8px;}
+.hero-stat .stat-dates{font:400 10.5px/1.4 Arial,sans-serif;color:rgba(255,255,255,.45);margin-top:4px;}
+.hero-stat .lbl-link{font:700 10.5px/1 Arial,sans-serif;color:#FF9FD3;margin-top:8px;text-decoration:none;display:inline-block;}
+.hero-stat .lbl-link:hover{text-decoration:underline;}
+@media(max-width:768px){
+  .hero{padding:32px 20px;}
+  .hero-inner{flex-direction:column;align-items:stretch;gap:20px;}
+  .hero-text{min-width:0;max-width:none;}
+  .hero-stats{width:100%;flex-direction:column;}
+  .hero-stat{flex:1;min-width:0;}
+  .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+}
+.search-dropdown{position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(36,28,46,0.16);overflow:hidden;z-index:999;display:none;}
+.search-dropdown.open{display:block;}
+.search-result{display:flex;align-items:center;gap:12px;padding:12px 18px;cursor:pointer;text-decoration:none;color:#241C2E;border-bottom:1px solid #F1ECF6;transition:background .1s;}
+.search-result:last-child{border-bottom:none;}
+.search-result:hover,.search-result.focused{background:#F6F5F8;}
+.sr-icon{font-size:18px;flex-shrink:0;}
+.sr-text{flex:1;}
+.sr-title{font:600 13.5px/1.2 Arial,sans-serif;color:#241C2E;margin-bottom:3px;}
+.sr-desc{font:400 11.5px/1.3 Arial,sans-serif;color:#6E687C;}
+.search-no-results{padding:16px 18px;font:400 13px/1 Arial,sans-serif;color:#9A94A8;text-align:center;}
+
+/* Sections */
+.wrap{max-width:1400px;margin:0 auto;padding:40px 32px 64px;}
+.section-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.8px;color:#9A94A8;margin-bottom:16px;}
+.section-label span{color:#FF1090;}
+
+/* Category cards */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+.cat-card{background:#fff;border:1px solid #E7E4ED;border-radius:16px;padding:22px;text-decoration:none;color:#241C2E;transition:box-shadow .15s,transform .15s;display:block;}
+.cat-card:hover{box-shadow:0 8px 24px rgba(69,32,104,.12);transform:translateY(-2px);}
+.cat-card .cat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.cat-card h3{font-size:16px;font-weight:700;color:#241C2E;margin-bottom:6px;}
+.cat-card p{font-size:13px;color:#6E687C;margin-bottom:10px;line-height:1.5;}
+.cat-card .best-for{font:600 11px/1 Arial,sans-serif;color:#452068;text-transform:uppercase;letter-spacing:.4px;}
+
+/* Two-col resources */
+.two-col{display:grid;grid-template-columns:1.3fr 1fr 0.95fr;gap:20px;}
+.res-card{background:#fff;border:1px solid #E7E4ED;border-radius:16px;padding:24px;}
+.res-card h3{font-size:16px;font-weight:700;margin-bottom:16px;color:#241C2E;}
+.res-item{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid #E7E4ED;text-decoration:none;color:#241C2E;}
+.res-item:last-child{border-bottom:none;}
+.res-item:hover .res-name{color:#452068;}
+.res-name{font:600 13.5px/1 Arial,sans-serif;}
+.res-tag{font:700 10px/1 Arial,sans-serif;text-transform:uppercase;padding:3px 9px;border-radius:999px;letter-spacing:.3px;}
+.tag-pink{background:#FFE8F3;color:#D10E78;}
+.tag-purple{background:#F1ECF6;color:#452068;}
+.tag-green{background:#E3F5EC;color:#1E8A5C;}
+.ql-item{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #E7E4ED;text-decoration:none;color:#241C2E;}
+.ql-item:last-child{border-bottom:none;}
+.ql-item:hover .ql-name{color:#452068;}
+.ql-left{display:flex;flex-direction:column;gap:3px;}
+.ql-name{font:700 13.5px/1 Arial,sans-serif;}
+.ql-desc{font:400 11.5px/1 Arial,sans-serif;color:#9A94A8;}
+.ql-arrow{color:#452068;font-size:16px;}
+
+
+/* Non-comm card (bottom row) */
+.nc-card{background:#fff;border:2px solid #DC2626;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;}
+#ncCarrierList{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.nc-card-head{background:#DC2626;padding:14px 18px;}
+.nc-card-head strong{font:800 12px/1.35 Arial,sans-serif;color:#fff;text-transform:uppercase;letter-spacing:.6px;display:block;}
+.nc-card-head small{font:400 10.5px/1.4 Arial,sans-serif;color:rgba(255,255,255,.85);display:block;margin-top:3px;}
+.nc-carrier-btn{width:100%;background:none;border:none;border-bottom:1px solid #FEE2E2;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;text-align:left;transition:background .12s;}
+.nc-carrier-btn:hover{background:#FEF2F2;}
+.nc-carrier-name{font:700 15px/1 Arial,sans-serif;color:#241C2E;display:inline-flex;align-items:center;gap:6px;}
+.nc-badge{font:700 10px/1 Arial,sans-serif;background:#FEE2E2;color:#991B1B;padding:3px 8px;border-radius:999px;flex-shrink:0;}
+.nc-card-foot{padding:10px 16px;font:400 10.5px/1.5 Arial,sans-serif;color:#9A94A8;border-top:1px solid #FEE2E2;}
+.nc-card-foot a{color:#DC2626;font-weight:700;}
+/* Modal */
+.nc-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:9000;align-items:center;justify-content:center;padding:20px;}
+.nc-modal-backdrop.open{display:flex;}
+.nc-modal{background:#fff;border-radius:20px;width:100%;max-width:680px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.25);overflow:hidden;}
+.nc-modal-head{padding:20px 24px;border-bottom:1px solid #F1ECF6;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0;}
+.nc-modal-head h2{font:700 18px/1 Arial,sans-serif;color:#241C2E;}
+.nc-modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:#9A94A8;line-height:1;}
+.nc-modal-close:hover{color:#241C2E;}
+.nc-modal-filters{padding:14px 24px;border-bottom:1px solid #F1ECF6;flex-shrink:0;}
+.nc-modal-filters select,.nc-modal-filters input{padding:8px 12px;border:1.5px solid #E7E4ED;border-radius:10px;font:400 13px/1 Arial,sans-serif;outline:none;margin-right:8px;}
+.nc-modal-filters select:focus,.nc-modal-filters input:focus{border-color:#452068;}
+.nc-modal-body{overflow-y:auto;padding:16px 24px 24px;flex:1;}
+.nc-state-section{margin-bottom:16px;}
+.nc-state-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.5px;color:#452068;margin-bottom:8px;}
+.nc-plan-chip{display:inline-block;margin:3px 4px 3px 0;padding:4px 10px;background:#FEF2F2;border:1px solid #FECACA;border-radius:6px;font:400 12px/1.4 Arial,sans-serif;color:#991B1B;}
+
+/* Coach-mark tour */
+.tour-overlay{display:none;position:fixed;inset:0;z-index:8000;pointer-events:none;}
+.tour-overlay.active{display:block;}
+.tour-dim{position:fixed;inset:0;background:rgba(27,18,48,.65);z-index:8001;pointer-events:all;}
+.tour-spotlight{position:fixed;z-index:8002;border-radius:16px;box-shadow:0 0 0 4px #fff,0 0 0 9999px rgba(27,18,48,.65);pointer-events:none;transition:all .3s ease;}
+.tour-bubble{position:fixed;z-index:8003;background:#fff;border-radius:14px;padding:18px 20px;width:300px;box-shadow:0 16px 40px rgba(27,18,48,.28);pointer-events:all;}
+.tour-bubble::before{content:'';position:absolute;width:12px;height:12px;background:#fff;transform:rotate(45deg);}
+.tour-bubble.arrow-top::before{top:-6px;left:36px;}
+.tour-bubble.arrow-bottom::before{bottom:-6px;left:36px;}
+.tour-bubble.arrow-right::before{top:14px;right:-6px;}
+.tour-step-label{font:700 11.5px/1 Arial,sans-serif;color:#D10E78;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.tour-bubble h4{font:700 16px/1.4 Arial,sans-serif;color:#241C2E;margin:0 0 10px;}
+.tour-bubble p{font:400 14.5px/1.55 Arial,sans-serif;color:#6E687C;margin:0 0 14px;}
+.tour-dots{display:flex;gap:5px;align-items:center;}
+.tour-dot{width:6px;height:6px;border-radius:50%;background:#E7E4ED;}
+.tour-dot.active{background:#FF1090;}
+.tour-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px;}
+.tour-skip{font:600 13px/1 Arial,sans-serif;color:#9A94A8;background:none;border:none;cursor:pointer;padding:0;}
+.tour-skip:hover{color:#452068;}
+.tour-next{font:700 13.5px/1 Arial,sans-serif;color:#D10E78;background:none;border:none;cursor:pointer;padding:0;}
+.tour-next:hover{opacity:.75;}
+
+
+.nc-pending-tag{font:600 8.5px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:6px;padding:2px 6px;}
+.nc-note{font-size:11.5px;color:#9A94A8;margin-top:14px;padding-top:12px;border-top:1px solid #F1ECF6;}
+
+@media(max-width:768px){
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  .two-col{grid-template-columns:1fr;}
+  .pill-nav a{font-size:12px;padding:8px 14px;}
+  .hero h1{font-size:24px;}
+  .hero{padding:32px 20px;}
+}
+@media(max-width:480px){.cat-grid{grid-template-columns:1fr;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Top Nav -->
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="The Health Experts Insurance" style="height:52px;width:auto;display:block;"></div>
+  <nav class="pill-nav">
+    <a class='active' href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button id="tourBtn" onclick="startTour()" title="Replay hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+  <div class="hero-text">
+    <div id="hub-greeting" class="hero-eyebrow" style="color:rgba(255,255,255,0.75);"></div>
+    <h1><span style="color:#fff;">The Health Experts</span> Medicare Agent Hub</h1>
+    <p>Start contracting, transfer your book, or access your most-used resources.</p>
+    <div class="search-wrap">
+      <input type="text" id="hubSearch" placeholder="Search the hub — try HRA, Sunfire, AHIP, SEP, Medicaid…" autocomplete="off">
+      <div class="search-dropdown" id="searchDropdown"></div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="stat-eyebrow">Annual Enrollment Period</div>
+      <div class="num" id="aepDays">–<span>days</span></div>
+      <div class="stat-sub" id="aepLabel">until AEP begins</div>
+      <div class="stat-dates" id="aepDates"></div>
+    </div>
+    <a class="hero-stat accent" href="/certs" style="border-color:rgba(255,16,144,.45);background:rgba(255,16,144,.1);">
+ <div class="stat-eyebrow" style="color:rgba(255,255,255,.75);">🎓 Now Open</div>
+ <div class="num" style="font-size:26px;letter-spacing:0;line-height:1.2;">2027<span style="font-size:20px;font-weight:800;color:#fff;margin-left:6px;">Certs</span></div>
+ <div class="stat-sub" style="color:rgba(255,255,255,.85);">Carrier certifications open — get certified before AEP</div>
+ <span class="lbl-link" style="color:#FF9FD3;font-weight:800;font-size:14px;">Start Certifications →</span>
+ </a>
+  </div>
+  </div>
+</div>
+
+
+<!-- News Ticker -->
+<div id="news-ticker" style="display:none;background:#fff;overflow:hidden;width:100%;position:relative;border-bottom:2px solid #FF1090;border-top:2px solid #FF1090;">
+  <div style="display:flex;align-items:stretch;">
+    <a href='/agent-pulse' style='flex:none;display:flex;align-items:center;gap:8px;padding:0 18px;background:#FF1090;text-decoration:none;z-index:2;white-space:nowrap;'>
+      <span style="font:800 11px/1 Arial,sans-serif;color:#fff;text-transform:uppercase;letter-spacing:.8px;">Live</span>
+    </a>
+    <div style="flex:1;overflow:hidden;padding:10px 0;">
+      <div id="ticker-track" style="display:inline-flex;gap:0;white-space:nowrap;animation:ticker-scroll 150s linear infinite;">
+        <span id="ticker-items"></span>
+        <span id="ticker-items-clone"></span>
+      </div>
+    </div>
+    <a href='/agent-pulse' style='flex:none;display:flex;align-items:center;padding:0 16px;color:rgba(255,255,255,0.9);font:600 11px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap;border-left:1px solid #F1ECF6;'>View all →</a>
+  </div>
+</div>
+<style>
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+#news-ticker:hover #ticker-track{animation-play-state:paused}
+</style>
+
+<!-- Content -->
+<div class="wrap">
+
+<!-- AEP 2027 Carrier Trainings -->
+  <div style="background:linear-gradient(135deg,#452068,#341751);border-radius:16px;padding:22px 24px;margin-bottom:28px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+      <div>
+        <div style="font:700 11px/1 'Inter',Arial,sans-serif;text-transform:uppercase;letter-spacing:.6px;color:#FF9FD3;margin-bottom:6px;">🎓 AEP 2027 — Carrier Certifications Open</div>
+        <div style="font:700 17px/1.2 'Inter',Arial,sans-serif;color:#fff;">Complete your certs now — portals are live</div>
+      </div>
+      <a href="/certs" style="display:inline-block;padding:9px 18px;background:#FF1090;border-radius:999px;font:700 13px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;white-space:nowrap;">View All Certs →</a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="https://account.humana.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 Humana</a>
+      <a href="https://www.uhcjarvis.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 UnitedHealthcare</a>
+      <a href="https://www.aetnaacademy.com/ui/home" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 Aetna</a>
+      <a href="https://agent.devoted.com/#/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 Devoted</a>
+      <a href="https://getcertified.anthem.com/medicare/certify" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 Anthem</a>
+      <a href="https://www.wellcare.com/en/broker-resources/broker-resources" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 WellCare</a>
+      <a href="https://healthspringforbrokers.zilverton.com/public/login" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 HealthSpring</a>
+      <a href="https://vipagentsupport.com/Account/Login" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 Freedom/Optum</a>
+      <a href="https://AgentPortal.DoctorsHCP.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 Doctors HCP</a>
+      <a href="https://sos.solishealthplans.com/home" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;font:600 12.5px/1 'Inter',Arial,sans-serif;color:#fff;text-decoration:none;">🟢 Solis</a>
+    </div>
+  </div>
+
+<!-- Category cards -->
+  <p class="section-label">Resources &amp; Tools</p>
+  <div class="cat-grid">
+    <a class='cat-card' href='/learn'>
+      <div class="cat-icon" style="background:#F1ECF6;">🎓</div>
+      <h3>Broker University</h3>
+      <p>Training, Medicare basics, sales scripts, compliance guidance.</p>
+      <div class="best-for">Best for: Learning &amp; skill-building</div>
+    </a>
+    <a class='cat-card' href='/tools-perks'>
+      <div class="cat-icon" style="background:#FFE8F3;">🛠️</div>
+      <h3>Agent Tools Hub</h3>
+      <p>Quoting platforms, plan comparison grid, HRA rates, vendor contacts.</p>
+      <div class="best-for">Best for: Working active clients</div>
+    </a>
+    <a class='cat-card' href='/tools-perks'>
+      <div class="cat-icon" style="background:#E3F5EC;">🎁</div>
+      <h3>Agent Benefits</h3>
+      <p>Discounts, AHIP access, E&amp;O insurance, CE courses.</p>
+      <div class="best-for">Best for: Licensing &amp; compliance support</div>
+    </a>
+    <a class='cat-card' href='/certs'>
+      <div class="cat-icon" style="background:#F1ECF6;">📋</div>
+      <h3>Certs &amp; Compliance</h3>
+      <p>Carrier certifications, CMS guidelines, YourFMO compliance portal.</p>
+      <div class="best-for">Best for: Annual certification tracking</div>
+    </a>
+    <a class='cat-card' href='/retention-toolkit'>
+      <div class="cat-icon" style="background:#FFE8F3;">📧</div>
+      <h3>Retention Toolkit</h3>
+      <p>Email templates, Year 2 income calculator, AEP retention scripts.</p>
+      <div class="best-for">Best for: Keeping your book of business</div>
+    </a>
+    <a class='cat-card' href='/carrier-contact-guide'>
+      <div class="cat-icon" style="background:#E8F1FA;">📞</div>
+      <h3>Carrier Contact Guide</h3>
+      <p>Broker contacts, member services, OTC, pharmacy, HRA details for all carriers.</p>
+      <div class="best-for">Best for: Client support &amp; escalations</div>
+    </a>
+    <div class="cat-card" style="cursor:default;position:relative;">
+      <div class="cat-icon" style="background:#FFE8F3;">📰</div>
+      <h3>THEI Agent Pulse</h3>
+      <p>Weekly Medicare industry news, regulatory updates &amp; carrier changes — curated for THEI agents.</p>
+      <div class="best-for">Best for: Staying current &amp; informed</div>
+      <div style="display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #E7E4ED;">
+        <a href='/agent-pulse' style='flex:1;display:inline-block;padding:8px 12px;background:#452068;color:#fff;border-radius:6px;font:600 12px/1 Arial,sans-serif;text-align:center;text-decoration:none;'>Live Updates</a>
+        <a href='/pulse-library' style='flex:1;display:inline-block;padding:8px 12px;background:#F1ECF6;color:#452068;border-radius:6px;font:600 12px/1 Arial,sans-serif;text-align:center;text-decoration:none;'>View Library</a>
+      </div>
+    </div>
+    <a class='cat-card' href='/sep-tracker'>
+      <div class="cat-icon" style="background:#E3F5EC;">📅</div>
+      <h3>SEP Tracker</h3>
+      <p>Active Special Enrollment Periods in Florida — always up to date.</p>
+      <div class="best-for">Best for: Mid-year enrollment opportunities</div>
+    </a>
+    <a class='cat-card' href='/chronic-conditions'>
+      <div class="cat-icon" style="background:#FFF3E0;">🏥</div>
+      <h3>Chronic Conditions</h3>
+      <p>Search which carriers qualify a member's condition for SSBCI benefits — food card, OTC &amp; more.</p>
+      <div class="best-for">Best for: Benefit eligibility during enrollment</div>
+    </a>
+
+  </div>
+
+  <!-- Resources + Quick Links -->
+  <div class="two-col">
+    <div class="res-card">
+      <h3>Most-Needed Resources</h3>
+      <a class="res-item" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit" target="_blank" rel="noopener">
+        <span class="res-name">Medicaid Levels Cheat Sheet</span>
+        <span class="res-tag tag-pink">Google Doc</span>
+      </a>
+      <a class="res-item" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
+        <span class="res-name">2026 MAPD Plan Comparison</span>
+        <span class="res-tag tag-purple">Top Used</span>
+      </a>
+      <a class="res-item" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener">
+        <span class="res-name">2026 Income Limits (SSI Chart)</span>
+        <span class="res-tag tag-green">PDF · Apr 2026</span>
+      </a>
+      <a class="res-item" href="https://www.sunfirematrix.com/app/agent/yourmedicare" target="_blank" rel="noopener">
+        <span class="res-name">Sunfire Quoting Tool</span>
+        <span class="res-tag tag-purple">Quoting</span>
+      </a>
+      <a class="res-item" href="https://login.agentsync.io/" target="_blank" rel="noopener">
+        <span class="res-name">AgentSync (Contracting)</span>
+        <span class="res-tag tag-purple">Platform</span>
+      </a>
+      <a class="res-item" href="https://www.ahipmedicaretraining.com/page/login" target="_blank" rel="noopener">
+        <span class="res-name">AHIP Medicare Training</span>
+        <span class="res-tag tag-pink">Discounted</span>
+      </a>
+    </div>
+
+    <div class="res-card">
+      <h3>Quick Links</h3>
+      <a class='ql-item' href='/retention-toolkit'>
+        <div class="ql-left">
+          <span class="ql-name">Retention Toolkit</span>
+          <span class="ql-desc">Email templates &amp; AEP calendar</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
+      <a class='ql-item' href='/sep-tracker'>
+        <div class="ql-left">
+          <span class="ql-name">SEP Tracker</span>
+          <span class="ql-desc">Florida disaster SEPs — live data</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
+      <a class='ql-item' href='/carrier-contact-guide'>
+        <div class="ql-left">
+          <span class="ql-name">Carrier Contact Guide</span>
+          <span class="ql-desc">All 14 carriers — phones &amp; contacts</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
+      <a class='ql-item' href='/certs'>
+        <div class="ql-left">
+          <span class="ql-name">Carrier Certifications</span>
+          <span class="ql-desc">Portals, deadlines &amp; guides</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
+      <a class='ql-item' href='/agent-pulse'>
+        <div class="ql-left">
+          <span class="ql-name">📰 THEI Agent Pulse</span>
+          <span class="ql-desc">This week's Medicare industry news</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
+      <a class="ql-item" href="https://www.medicare.gov" target="_blank" rel="noopener">
+        <div class="ql-left">
+          <span class="ql-name">Medicare.gov</span>
+          <span class="ql-desc">Official plan finder &amp; enrollment</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="nc-card">
+      <div class="nc-card-head">
+        <strong>🚫 Non-Commissionable Plans — 2026</strong>
+        <small>New sales only · Renewals get FMV · Tap a carrier for plans by state</small>
+      </div>
+      <div style="padding:14px 16px 6px;font:400 11.5px/1.5 Arial,sans-serif;color:#6E687C;">These plans pay reduced or zero commission on new enrollments. Tap any carrier to see which plans are affected in your state — and always verify before submitting an application.</div>
+      <div id="ncCarrierList"></div>
+      <div class="nc-card-foot">
+        Source: CMS National Landscape Extract · <a href='/non-comm-plans'>Full list →</a><br>
+        ⚠️ Always verify with carrier before enrolling.
+      </div>
+    </div>
+    </div>
+</div>
+<script>
+// Personalize with agent name from session
+  // greeting falls back to generic if name is missing.
+(function(){
+  const greeting = document.getElementById('hub-greeting');
+  if (!greeting) return;
+  try {
+    const s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (s && s.name) {
+      const firstName = s.name.split(' ')[0];
+      greeting.textContent = 'Welcome back, ' + firstName + '.';
+    } else {
+      greeting.textContent = 'Welcome back.';
+    }
+  } catch(e){
+    greeting.textContent = 'Welcome back.';
+  }
+})();
+
+const SEARCH_INDEX = [
+  {icon:'✍️',title:'Sunfire — SOA & Enrollments',desc:'Send Scope of Appointment, enroll clients, collect signatures.',tags:['sunfire','soa','enroll','quote','enrollment','scope'],url:'/tools-perks.html'},
+  {icon:'🗓',title:'SEP Tracker',desc:'Live disaster Special Enrollment Periods — Florida + all states.',tags:['sep','disaster','special enrollment','hurricane','flood','storm','milton'],url:'/sep-tracker.html'},
+  {icon:'🎓',title:'AHIP Medicare Training',desc:'Required annual certification — use the discounted THEI portal.',tags:['ahip','certification','annual','cert','training'],url:'/certs.html'},
+  {icon:'📚',title:'WebCE Continuing Education',desc:'Complete CE hours to maintain your insurance license.',tags:['webce','ce','continuing education','license','hours'],url:'/tools-perks.html'},
+  {icon:'🛡️',title:'E&O Insurance',desc:'Agency-negotiated pricing — required for Medicare contracting.',tags:['e&o','errors','omissions','eo','insurance'],url:'/tools-perks.html'},
+  {icon:'🪪',title:'Florida DFS (MyProfile)',desc:'Manage your FL license, CE compliance, and appointments.',tags:['dfs','license','florida','myprofile','appointment'],url:'/tools-perks.html'},
+  {icon:'📊',title:'2026 MAPD Plan Comparison Grid',desc:'Side-by-side benefits, copays, OTC, dental, vision for all 2026 plans.',tags:['plan','mapd','grid','comparison','2026','benefits','plan grid'],url:'/learn.html'},
+  {icon:'🩺',title:'Chronic Condition Eligibility',desc:'C-SNP, D-SNP, and MA coverage by condition — all carriers.',tags:['chronic','condition','snp','csnp','dsnp','eligibility'],url:'/chronic-conditions.html'},
+  {icon:'📞',title:'Carrier Contact Guide',desc:'Auth lines, member services, OTC, HRA, pharmacy — all carriers.',tags:['carrier','contact','humana','aetna','solis','devoted','uhc','united','careplus','hra','otc','auth','member services','pharmacy','oscar','wellcare'],url:'/carrier-contact-guide.html'},
+  {icon:'📋',title:'AgentSync — Contracting',desc:'Carrier onboarding, contracting docs, appointment tracking.',tags:['agentsync','contracting','onboarding','contract','appointment'],url:'/tools-perks.html'},
+  {icon:'📋',title:'Nextere — Contracting',desc:'Contracting for Doctors Health, Solis, Gold Kidney, HealthSun.',tags:['nextere','doctors health','solis','gold kidney','healthsun','contracting'],url:'/tools-perks.html'},
+  {icon:'💊',title:'Medicaid & LIS / Extra Help',desc:'QMB, SLMB, income limits and eligibility rules.',tags:['medicaid','lis','extra help','qmb','slmb','income','low income'],url:'/learn.html'},
+  {icon:'📧',title:'Retention Email Templates',desc:'7 client email templates — birthday, AEP, mid-year, annual review.',tags:['retention','email','template','birthday','aep','annual review','client'],url:'/retention-toolkit.html'},
+  {icon:'📅',title:'Retention Calendar',desc:'Year-round client touchpoint calendar for renewals.',tags:['retention','calendar','renewal','touchpoint'],url:'/retention-toolkit.html'},
+  {icon:'🎓',title:'Broker University',desc:'Medicare basics, sales scripts, training guides, lead gen resources.',tags:['training','university','learn','medicare basics','sales','script','education','basics'],url:'/learn.html'},
+  {icon:'📇',title:'Business Card Generator (EN)',desc:'Generate your THEI-branded digital business card instantly.',tags:['business card','card','generator','digital','brand','tarjeta'],url:'https://moonlit-douhua-e20b2a.netlify.app/'},
+  {icon:'📇',title:'Business Card Generator (ES)',desc:'Genera tu tarjeta digital de THEI en segundos.',tags:['tarjeta','business card','spanish','espanol','generator'],url:'https://boisterous-truffle-d00468.netlify.app/'},
+  {icon:'📰',title:'Agent Pulse — Live Updates',desc:'Latest Medicare regulatory changes, carrier alerts, and industry news.',tags:['pulse','news','alerts','regulatory','update','industry','cms'],url:'/agent-pulse.html'},
+  {icon:'🔗',title:'MedicarePRO CRM',desc:'CRM for managing leads and client pipeline.',tags:['medicaRepro','crm','leads','pipeline','pro'],url:'/tools-perks.html'},
+  {icon:'🔗',title:'XCLUSIVE CRM',desc:'CRM platform access for agents.',tags:['xclusive','crm','platform'],url:'/tools-perks.html'},
+  {icon:'✅',title:'Certs & Compliance',desc:'Carrier certifications, CMS guidelines, certification deadlines.',tags:['certs','compliance','carrier cert','cms','certify','deadline'],url:'/certs.html'},
+];
+
+function hubSearch(q){}
+
+// ── AEP Countdown ────────────────────────────────────────────────────────
+// AEP runs Oct 15 – Dec 7 every year. Auto-rolls to next year once this
+// year's window closes, so nobody has to remember to update it each fall.
+function renderAepCountdown() {
+  const now = new Date();
+  const year = now.getFullYear();
+  let aepStart = new Date(year, 9, 15); // Oct 15 (month is 0-indexed)
+  let aepEnd = new Date(year, 11, 7);   // Dec 7
+  if (now > aepEnd) {
+    aepStart = new Date(year + 1, 9, 15);
+    aepEnd = new Date(year + 1, 11, 7);
+  }
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const inWindow = now >= aepStart && now <= aepEnd;
+  const days = inWindow
+    ? Math.ceil((aepEnd - now) / msPerDay)
+    : Math.ceil((aepStart - now) / msPerDay);
+  const fmt = d => d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+  document.getElementById('aepDays').innerHTML = days + '<span>days</span>';
+  document.getElementById('aepLabel').textContent = inWindow ? 'until AEP ends — go time' : 'until AEP begins';
+  document.getElementById('aepDates').textContent = fmt(aepStart) + ' – ' + fmt(aepEnd);
+}
+renderAepCountdown();
+
+// Load news bulletin + Active FL SEPs count from pulse-feed.json
+async function loadNewsBulletin() {
+  const sepEl = document.getElementById('sepCount');
+  try {
+    const res = await fetch('/files/pulse-feed.json');
+ const data = await res.json();
+
+    // Active FL SEPs — additive field on pulse-feed.json. Falls back to
+    // "–" (not zero) if Igor hasn't added it yet, so we don't show a false 0.
+    if (sepEl) sepEl.textContent = (typeof data.activeSeps === 'number') ? data.activeSeps : '–';
+
+    if (!data.alerts || !data.alerts.length) return;
+    const now = Date.now();
+    const cutoff = now - (60 * 24 * 60 * 60 * 1000); // 60 days
+    const recent = data.alerts.filter(a => {
+      const d = new Date(a.date);
+      return !isNaN(d) && d.getTime() >= cutoff;
+    });
+    if (!recent.length) return;
+    const items = recent.map(a => {
+      const url = a.source || '/agent-pulse.html';
+      const external = a.source && a.source.startsWith('http');
+      return `<a href="${url}" ${external ? 'target="_blank" rel="noopener"' : ''} style="display:inline-flex;align-items:center;gap:8px;padding:0 28px;border-right:1px solid #F1ECF6;text-decoration:none;">
+        <span style="font:600 12.5px/1 Arial,sans-serif;color:#452068;">${a.title}</span>
+        <span style="font:400 11px/1 Arial,sans-serif;color:#C9B8DF;">${a.date}</span>
+      </a>`;
+    }).join('');
+    const track = document.getElementById('ticker-track');
+    const itemsEl = document.getElementById('ticker-items');
+    const cloneEl = document.getElementById('ticker-items-clone');
+    itemsEl.innerHTML = items;
+    cloneEl.innerHTML = '';
+    document.getElementById('news-ticker').style.display = 'block';
+    // Only clone + animate if content actually overflows the strip —
+    // otherwise short feeds show visible duplicates.
+    requestAnimationFrame(() => {
+      const container = track.parentElement;
+      // Always clone + animate — don't gate on overflow
+      cloneEl.innerHTML = items;
+      track.style.animation = 'ticker-scroll 150s linear infinite';
+    });
+  } catch(e) {
+    if (sepEl) sepEl.textContent = '–';
+  }
+}
+loadNewsBulletin();
+
+
+// ── Non-Commissionable Plans — carrier list + modal ─────────────────────────
+// Data structure: carrier → plans, each plan lists the states it applies to.
+// ⚠️ States below default to FL (THEI market). Update from the CMS National
+// Landscape Extract when Igor loads the full multi-state list.
+const NC_DATA = [
+ { carrier: 'Humana', pending: false, plans: [
+ { id: 'H1036-321', states: ['WA'] },
+ { id: 'H1036-322', states: ['WA'] },
+ { id: 'H1036-333', states: ['VA'] },
+ { id: 'H1036-334', states: ['VA'] },
+ { id: 'H4461-045', states: ['MO'] },
+ { id: 'H4461-046', states: ['MO'] },
+ { id: 'H4461-047', states: ['KS','MO'] },
+ { id: 'H4461-048', states: ['MO'] },
+ { id: 'H4461-049', states: ['TX'] },
+ { id: 'H4461-050', states: ['TX'] },
+ { id: 'H4461-051', states: ['TX'] },
+ { id: 'H4461-052', states: ['TX'] },
+ { id: 'H4461-053', states: ['TX'] },
+ { id: 'H4461-054', states: ['TX'] },
+ { id: 'H4461-055', states: ['TX'] },
+ { id: 'H4461-056', states: ['AZ'] },
+ { id: 'H4461-057', states: ['TX'] },
+ { id: 'H4461-058', states: ['TX'] },
+ { id: 'H4461-059', states: ['AZ'] },
+ { id: 'H4461-060', states: ['TX'] },
+ { id: 'H4461-061', states: ['TX'] },
+ { id: 'H4461-062', states: ['TX'] },
+ { id: 'H4461-064', states: ['NM'] },
+ { id: 'H4461-066', states: ['TX'] },
+ { id: 'H4461-067', states: ['TX'] },
+ { id: 'H4461-069', states: ['TX'] },
+ { id: 'H4461-071', states: ['TX'] },
+ { id: 'H7617-003', states: ['IN','KY','OH'] },
+ { id: 'H7617-004', states: ['KY','OH'] },
+ { id: 'H7617-005', states: ['KY'] },
+ { id: 'H7617-008', states: ['IL','MO'] },
+ { id: 'H7617-010', states: ['KS','MO'] },
+ { id: 'H7617-012', states: ['AR','IL','KS','MO','OK'] },
+ { id: 'H7617-014', states: ['MO'] },
+ { id: 'H7617-015', states: ['KS'] },
+ { id: 'H7617-017', states: ['KS','MO'] },
+ { id: 'H7617-018', states: ['IL'] },
+ { id: 'H7617-019', states: ['WA'] },
+ { id: 'H7617-020', states: ['WI'] },
+ { id: 'H7617-021', states: ['UT','WA'] },
+ { id: 'H7617-022', states: ['IL','WI'] },
+ { id: 'H7617-023', states: ['IL','MO'] },
+ { id: 'H7617-029', states: ['TX'] },
+ { id: 'H7617-030', states: ['MT'] },
+ { id: 'H7617-031', states: ['ID','OR'] },
+ { id: 'H7617-032', states: ['UT'] },
+ { id: 'H7617-035', states: ['TX'] },
+ { id: 'H7617-040', states: ['TX'] },
+ { id: 'H7617-041', states: ['TX'] },
+ { id: 'H7617-042', states: ['TX'] },
+ { id: 'H7617-043', states: ['TX'] },
+ { id: 'H7617-044', states: ['MD'] },
+ { id: 'H7617-045', states: ['NJ'] },
+ { id: 'H7617-046', states: ['MA','ME','NH','VT'] },
+ { id: 'H7617-049', states: ['IN','KY'] },
+ { id: 'H7617-050', states: ['IN','KY'] },
+ { id: 'H7617-051', states: ['AZ'] },
+ { id: 'H7617-052', states: ['MI'] },
+ { id: 'H7617-053', states: ['OK'] },
+ { id: 'H7617-054', states: ['MI'] },
+ { id: 'H7617-055', states: ['MI'] },
+ { id: 'H7617-056', states: ['AR','OK'] },
+ { id: 'H7617-057', states: ['TX'] },
+ { id: 'H7617-058', states: ['MI'] },
+ { id: 'H7617-059', states: ['TX'] },
+ { id: 'H7617-060', states: ['IN','OH'] },
+ { id: 'H7617-061', states: ['CO'] },
+ { id: 'H7617-062', states: ['TX'] },
+ { id: 'H7617-063', states: ['TX'] },
+ { id: 'H7617-064', states: ['CO'] },
+ { id: 'H7617-065', states: ['WV'] },
+ { id: 'H7617-066', states: ['AR'] },
+ { id: 'H7617-067', states: ['CO'] },
+ { id: 'H7617-070', states: ['NV'] },
+ { id: 'H7617-071', states: ['MI'] },
+ { id: 'H7617-072', states: ['WV'] },
+ { id: 'H7617-073', states: ['IN','OH'] },
+ { id: 'H7617-074', states: ['AR'] },
+ { id: 'H7617-075', states: ['AR'] },
+ { id: 'H7617-076', states: ['OK'] },
+ { id: 'H7617-077', states: ['AR'] },
+ { id: 'H7617-078', states: ['OK'] },
+ { id: 'H7617-080', states: ['LA'] },
+ { id: 'H7617-081', states: ['LA'] },
+ { id: 'H7617-082', states: ['MS'] },
+ { id: 'H7617-083', states: ['MS'] },
+ { id: 'H7617-084', states: ['MS'] },
+ { id: 'H7617-085', states: ['MS'] },
+ { id: 'H7617-086', states: ['MS'] },
+ { id: 'H7617-087', states: ['MS'] },
+ { id: 'H7617-088', states: ['TN'] },
+ { id: 'H7617-089', states: ['AL'] },
+ { id: 'H7617-091', states: ['AL'] },
+ { id: 'H7617-093', states: ['GA'] },
+ { id: 'H7617-094', states: ['GA','SC'] },
+ { id: 'H7617-095', states: ['GA','SC'] },
+ { id: 'H7617-096', states: ['GA','SC'] },
+ { id: 'H7617-098', states: ['VA'] },
+ { id: 'H7617-100', states: ['DE','VA'] },
+ { id: 'H7617-101', states: ['VA'] },
+ { id: 'H7617-107', states: ['FL'] },
+ { id: 'H7617-108', states: ['FL'] },
+ { id: 'H7617-109', states: ['FL'] },
+ { id: 'H7617-110', states: ['FL'] },
+ { id: 'H7617-111', states: ['FL'] },
+ ]},
+ { carrier: 'FL Blue', pending: false, plans: [
+ { id: 'H1035-017', states: ['FL'] },
+ { id: 'H1035-019', states: ['FL'] },
+ { id: 'H1035-025', states: ['FL'] },
+ { id: 'H5434-002', states: ['FL'] },
+ { id: 'H5434-026', states: ['FL'] },
+ ]},
+ { carrier: 'UHC / AARP', pending: false, plans: [
+ { id: 'R0759-001', states: ['FL'] },
+ { id: 'AL-0001', states: ['AL'] },
+ { id: 'AL-0004', states: ['AL'] },
+ { id: 'AZ-0008', states: ['AZ'] },
+ { id: 'AZ-0010', states: ['AZ'] },
+ { id: 'AZ-0011', states: ['AZ'] },
+ { id: 'AZ-0013', states: ['AZ'] },
+ { id: 'AZ-0014', states: ['AZ'] },
+ { id: 'CA-0010', states: ['CA'] },
+ { id: 'FL-0031', states: ['FL'] },
+ ]},
+ { carrier: 'Simply', pending: false, plans: [
+ { id: 'H5471-077', states: ['FL'] },
+ { id: 'H5471-080', states: ['FL'] },
+ ]},
+ { carrier: 'HealthSpring', pending: false, plans: [
+ { id: 'H5410-056', states: ['FL'] },
+ { id: 'HealthSpring True Choice (PPO)', states: ['AL','AR','AZ','CO','CT','DC','FL','IL','IN','KY','MD','MI','MN','NC','NJ','OH','OK','OR','PA','SC','TN','TX','UT','VA','WI'] },
+ ]},
+]
+
+let _ncActiveCarrier = null;
+
+// Render compact carrier-only rows in the sidebar
+(function renderNcCarriers(){
+  const wrap = document.getElementById('ncCarrierList');
+  if (!wrap) return;
+  wrap.innerHTML = NC_DATA.map((c, i) =>
+    `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
+      <span class="nc-carrier-name">${c.carrier}${c.pending ? ' <span class="nc-pending-tag">⏳ pending</span>' : ''}</span>
+      <span class="nc-badge">${c.plans.length}</span>
+    </button>`
+  ).join('');
+})();
+
+function openNcModal(idx) {
+  _ncActiveCarrier = NC_DATA[idx];
+  document.getElementById('ncModalTitle').textContent =
+    _ncActiveCarrier.carrier + ' — Non-Commissionable Plans 2026' + (_ncActiveCarrier.pending ? ' (pending verification)' : '');
+  // Populate state filter from this carrier's data
+  const states = [...new Set(_ncActiveCarrier.plans.flatMap(p => p.states))].sort();
+  const sel = document.getElementById('ncStateFilter');
+  sel.innerHTML = '<option value="">All states</option>' +
+    states.map(s => `<option value="${s}">${s}</option>`).join('');
+  document.getElementById('ncPlanSearch').value = '';
+  renderNcPlans();
+  document.getElementById('ncModalBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderNcPlans() {
+  if (!_ncActiveCarrier) return;
+  const stateFilter = document.getElementById('ncStateFilter').value;
+  const q = document.getElementById('ncPlanSearch').value.trim().toLowerCase();
+  const body = document.getElementById('ncModalBody');
+
+  // Group plans by state
+  const byState = {};
+  _ncActiveCarrier.plans.forEach(p => {
+    p.states.forEach(st => {
+      if (stateFilter && st !== stateFilter) return;
+      if (q && !p.id.toLowerCase().includes(q)) return;
+      (byState[st] = byState[st] || []).push(p.id);
+    });
+  });
+
+  const stateKeys = Object.keys(byState).sort();
+  if (!stateKeys.length) {
+    body.innerHTML = '<div style="padding:24px;text-align:center;color:#9A94A8;font:400 13px/1 Arial,sans-serif;">No plans match your filter.</div>';
+    return;
+  }
+  body.innerHTML = stateKeys.map(st =>
+    `<div class="nc-state-section">
+      <div class="nc-state-label">${st}</div>
+      ${byState[st].map(id => `<span class="nc-plan-chip">${id}</span>`).join('')}
+    </div>`
+  ).join('') +
+  (_ncActiveCarrier && _ncActiveCarrier.carrier === 'Humana'
+    ? '<div class="nc-note"><strong>Modified commission \$165.00</strong> (prorated by eff. date) for Like Plan Type Changes from Humana plans. Source: Humana PPP GCHMRX7EN 01/2026. Always verify before enrolling.</div>'
+    : '<div class="nc-note">Non-commissionable for <strong>new sales only</strong> — renewals receive FMV. Source: CMS National Landscape Extract. Always verify with the carrier before enrolling.</div>');
+}
+
+function closeNcModal() {
+  document.getElementById('ncModalBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+  _ncActiveCarrier = null;
+}
+
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape' && document.getElementById('ncModalBackdrop').classList.contains('open')) closeNcModal();
+});
+
+
+// ── Coach-mark tour ─────────────────────────────────────────────────────────
+const TOUR_STEPS = [
+  {
+    targetId: null, // hero/welcome area — no spotlight
+    title: "Welcome to your Agent Hub 👋",
+    desc: "Everything you need as a licensed THEI agent — certs, tools, retention, and live SEP data — one click away. This quick tour shows you around.",
+    arrow: "arrow-top",
+    bubblePos: {top: "140px", left: "50%", transform: "translateX(-50%)"}
+  },
+  {
+    targetSelector: ".cat-card[href='/retention-toolkit']",
+    title: "Retention Toolkit",
+    desc: "Your flagship retention resource — bilingual email templates for every client touchpoint all year. This is the #1 tool for protecting your renewal commissions.",
+    arrow: "arrow-top",
+    offset: {x: 0, y: 14}
+  },
+  {
+    targetSelector: ".cat-card[href='/sep-tracker']",
+    title: "SEP Tracker — Your Sales Edge 🗓",
+    desc: "Disaster Special Enrollment Periods open enrollment windows outside AEP. When a disaster hits, your clients can switch plans. This tracker keeps you ahead of every opportunity.",
+    arrow: "arrow-top",
+    offset: {x: 0, y: 14}
+  },
+  {
+    targetSelector: ".nc-card",
+    title: "Non-Commissionable Plans — 2026 🚫",
+    desc: "These plans pay reduced or zero commission on new enrollments — renewals still get FMV. Tap any carrier to see which plans are affected in your state, and always verify before submitting an application.",
+    arrow: "arrow-top",
+    offset: {x: 0, y: 14}
+  },
+  {
+    targetSelector: ".pill-nav",
+    title: "One-click navigation",
+    desc: "Everything is one click from anywhere — Broker University, SEP Tracker, Certs, Carrier Guide, HRA Guide. Use the nav anytime to jump between sections.",
+    arrow: "arrow-top",
+    offset: {x: 0, y: 14}
+  },
+  {
+    targetId: "tourBtn",
+    title: "Replay this tour anytime",
+    desc: "Need a refresher? Click the ? icon in the nav anytime to restart the tour from the beginning.",
+    arrow: "arrow-top",
+    offset: {x: 0, y: 10}
+  }
+];
+
+let _tourStep = 0;
+
+function startTour() {
+  _tourStep = 0;
+  showTourStep();
+}
+
+function showTourStep() {
+  const step = TOUR_STEPS[_tourStep];
+  const overlay = document.getElementById('tourOverlay');
+  const spotlight = document.getElementById('tourSpotlight');
+  const bubble = document.getElementById('tourBubble');
+  const label = document.getElementById('tourStepLabel');
+  const title = document.getElementById('tourTitle');
+  const desc = document.getElementById('tourDesc');
+  const dots = document.getElementById('tourDots');
+  const nextBtn = document.getElementById('tourNextBtn');
+
+  overlay.classList.add('active');
+
+  // Content
+  label.textContent = 'Step ' + (_tourStep + 1) + ' of ' + TOUR_STEPS.length;
+  title.textContent = step.title;
+  desc.textContent = step.desc;
+  nextBtn.textContent = _tourStep === TOUR_STEPS.length - 1 ? 'Got it ✓' : 'Next →';
+
+  // Dots
+  dots.innerHTML = TOUR_STEPS.map((_, i) =>
+    '<span class="tour-dot' + (i === _tourStep ? ' active' : '') + '"></span>'
+  ).join('');
+
+  // Spotlight target
+  let el = null;
+  if (step.targetId) el = document.getElementById(step.targetId);
+  else if (step.targetSelector) el = document.querySelector(step.targetSelector);
+
+  // Reset bubble classes
+  bubble.className = 'tour-bubble ' + (step.arrow || '');
+
+  if (el) {
+    // Scroll target into view FIRST, synchronously (instant, not smooth) —
+    // smooth scrolling is async and leaves getBoundingClientRect() reading
+    // stale pre-scroll coordinates, which pushes the bubble off-screen.
+    el.scrollIntoView({behavior: 'instant', block: 'center', inline: 'nearest'});
+    const r = el.getBoundingClientRect();
+    const pad = 8;
+    spotlight.style.cssText = [
+      'left:' + (r.left - pad) + 'px',
+      'top:' + (r.top - pad) + 'px',
+      'width:' + (r.width + pad*2) + 'px',
+      'height:' + (r.height + pad*2) + 'px',
+      'display:block'
+    ].join(';');
+
+    // Position bubble using real rendered dimensions + viewport clamping (Claude fix)
+    const off = step.offset || {x:0, y:14};
+    const bw = bubble.offsetWidth || 300;
+    const bh = bubble.offsetHeight || 220;
+    const margin = 12;
+    let top = r.bottom + pad + off.y;
+    let left = r.left - 10 + off.x;
+    top = Math.min(Math.max(top, margin), window.innerHeight - bh - margin);
+    left = Math.min(Math.max(left, margin), window.innerWidth - bw - margin);
+    bubble.style.cssText = 'top:' + top + 'px;left:' + left + 'px;';
+  } else {
+    spotlight.style.display = 'none';
+    const pos = step.bubblePos || {top:'40%', left:'50%', transform:'translateX(-50%)'};
+    let css = '';
+    for (const [k,v] of Object.entries(pos)) css += k + ':' + v + ';';
+    bubble.style.cssText = css;
+  }
+}
+
+function tourNext() {
+  if (_tourStep >= TOUR_STEPS.length - 1) { endTour(); return; }
+  _tourStep++;
+  showTourStep();
+}
+
+function endTour() {
+  document.getElementById('tourOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+  localStorage.setItem('hub_tour_done', '1');
+  document.cookie = 'hub_tour_done=1; max-age=31536000; path=/; SameSite=Lax';
+}
+
+function _tourDone() {
+  return localStorage.getItem('hub_tour_done') ||
+         document.cookie.split(';').some(function(c){ return c.trim().startsWith('hub_tour_done='); });
+}
+
+// Auto-start on first visit only
+document.addEventListener('DOMContentLoaded', function() {
+  if (!_tourDone()) {
+    setTimeout(startTour, 800);
+  }
+});
+
+function logout() {
+  localStorage.removeItem('hub_session');
+  window.location.replace('/login.html');
+}
+
+(function(){
+  const input = document.getElementById('hubSearch');
+  const dropdown = document.getElementById('searchDropdown');
+  let focusIdx = -1;
+
+  function getResults(q){
+    if(!q || q.length < 2) return [];
+    return SEARCH_INDEX.filter(item =>
+      item.tags.some(t => t.includes(q)) ||
+      item.title.toLowerCase().includes(q) ||
+      item.desc.toLowerCase().includes(q)
+    ).slice(0, 7);
+  }
+
+  function renderDropdown(results){
+    focusIdx = -1;
+    if(!results.length){
+      dropdown.innerHTML = '<div class="search-no-results">No results — try a different term</div>';
+    } else {
+      dropdown.innerHTML = results.map((r,i) =>
+        `<a class="search-result" href="${r.url}" data-idx="${i}">
+          <span class="sr-icon">${r.icon}</span>
+          <span class="sr-text"><div class="sr-title">${r.title}</div><div class="sr-desc">${r.desc}</div></span>
+        </a>`
+      ).join('');
+    }
+    dropdown.classList.add('open');
+  }
+
+  function closeDropdown(){ dropdown.classList.remove('open'); dropdown.innerHTML=''; focusIdx=-1; }
+
+  input.addEventListener('input', function(){
+    const q = this.value.toLowerCase().trim();
+    if(!q){ closeDropdown(); return; }
+    renderDropdown(getResults(q));
+  });
+
+  input.addEventListener('keydown', function(e){
+    const items = dropdown.querySelectorAll('.search-result');
+    if(e.key==='ArrowDown'){ e.preventDefault(); focusIdx=Math.min(focusIdx+1,items.length-1); items.forEach((el,i)=>el.classList.toggle('focused',i===focusIdx)); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); focusIdx=Math.max(focusIdx-1,0); items.forEach((el,i)=>el.classList.toggle('focused',i===focusIdx)); }
+    else if(e.key==='Enter'){ if(focusIdx>=0 && items[focusIdx]){ window.location.href=items[focusIdx].href; } else if(items.length===1){ window.location.href=items[0].href; } }
+    else if(e.key==='Escape'){ closeDropdown(); this.value=''; }
+  });
+
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search-wrap')) closeDropdown();
+  });
+})();
+</script>
+<!-- Non-Comm Modal -->
+<div class="nc-modal-backdrop" id="ncModalBackdrop" onclick="if(event.target===this)closeNcModal()">
+  <div class="nc-modal">
+    <div class="nc-modal-head">
+      <h2 id="ncModalTitle">Plans</h2>
+      <button class="nc-modal-close" onclick="closeNcModal()">✕</button>
+    </div>
+    <div class="nc-modal-filters">
+      <select id="ncStateFilter" onchange="renderNcPlans()"><option value="">All states</option></select>
+      <input type="search" id="ncPlanSearch" placeholder="Search plans…" oninput="renderNcPlans()">
+    </div>
+    <div class="nc-modal-body" id="ncModalBody"></div>
+  </div>
+</div>
+<!-- Coach-mark tour -->
+<div class="tour-overlay" id="tourOverlay">
+  <div class="tour-dim" onclick="endTour()"></div>
+  <div class="tour-spotlight" id="tourSpotlight"></div>
+  <div class="tour-bubble" id="tourBubble" style="pointer-events:all;">
+    <div class="tour-step-label" id="tourStepLabel">Step 1 of 5</div>
+    <h4 id="tourTitle"></h4>
+    <p id="tourDesc"></p>
+    <div class="tour-actions">
+      <button class="tour-skip" onclick="endTour()">Skip tour</button>
+      <div class="tour-dots" id="tourDots"></div>
+      <button class="tour-next" id="tourNextBtn" onclick="tourNext()">Next →</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

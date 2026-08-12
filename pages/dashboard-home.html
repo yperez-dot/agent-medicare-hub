@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<base target="_top">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Health Experts | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:18px;line-height:1.6;}
+.container{max-width:1400px;margin:auto;padding:24px 28px;}
+.hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:28px;border-radius:22px;box-shadow:var(--shadow);}
+.hero h1{margin:0 0 8px;font-size:32px;line-height:1.2;}
+.hero strong{color:var(--accent);}
+.hero p{margin:0;opacity:.9;font-size:18px;}
+.searchbar{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.searchbar input{flex:1 1 520px;min-width:260px;padding:14px 16px;border-radius:16px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.14);color:#fff;outline:none;font-size:16px;}
+.searchbar input::placeholder{color:rgba(255,255,255,.85);}
+.searchbar .hint{font-size:13px;opacity:.9;}
+.search-empty{display:none;margin-top:18px;padding:16px 18px;border:1px dashed rgba(69,32,104,.25);border-radius:16px;color:var(--muted);background:linear-gradient(180deg,#fff,#fbfaff);}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-soft);overflow:hidden;}
+.card-header{padding:16px 18px;border-bottom:1px solid var(--border);}
+.card-header h2{margin:0;font-size:16px;text-transform:uppercase;letter-spacing:.6px;font-weight:800;color:var(--primary);}
+.section{margin-top:18px;}
+.start-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;padding:20px;}
+.start-link{text-decoration:none;color:inherit;display:block;height:100%;}
+.start-item{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;transition:.15s ease;height:100%;}
+.start-link:hover .start-item{box-shadow:var(--shadow-soft);transform:translateY(-2px);border-color:rgba(69,32,104,.35);}
+.start-item h3{margin:0 0 8px;font-size:17px;color:var(--primary);}
+.start-item p{margin:0;font-size:15px;color:var(--muted);}
+.start-item strong{display:block;margin-top:8px;font-size:14px;color:var(--text);}
+.grid-2{margin-top:18px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:start;}
+.update{padding:20px;border-top:1px solid var(--border);transition:.12s ease;}
+.update:first-child{border-top:none;}
+.update:hover{background:rgba(69,32,104,.06);}
+.update a{display:block;text-decoration:none;color:inherit;}
+.update h4{margin:0 0 8px;font-size:20px;font-weight:800;color:var(--primary);}
+.update p{margin:0;font-size:16px;color:var(--muted);}
+.sep-feature{position:relative;overflow:hidden;background:linear-gradient(135deg,#5a2d86 0%,#452068 55%,#2f1348 100%);color:#fff;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:inset 0 -1px 0 rgba(255,255,255,.06);}
+.sep-feature::before{content:"MOST USED";position:absolute;top:14px;right:14px;font-size:11px;font-weight:900;letter-spacing:.08em;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;}
+.sep-feature a{display:block;text-decoration:none;color:inherit;padding:28px 22px 22px;}
+.sep-feature h3{margin:0 0 8px;font-size:30px;line-height:1.15;font-weight:900;color:#fff;max-width:700px;}
+.sep-feature p{margin:0 0 18px;font-size:17px;color:rgba(255,255,255,.92);max-width:760px;}
+.sep-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.sep-button{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;background:#fff;color:var(--primary);font-size:16px;font-weight:900;text-decoration:none;box-shadow:0 10px 20px rgba(0,0,0,.15);}
+.sep-note{font-size:14px;color:rgba(255,255,255,.84);font-weight:600;}
+.update-muted{opacity:.96;}
+.links{padding:16px;display:grid;gap:14px;}
+.link{padding:18px;border:2px solid rgba(69,32,104,.15);border-radius:16px;text-decoration:none;color:var(--text);background:#fff;font-size:18px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:.12s ease;}
+.link:hover{background:rgba(69,32,104,.06);border-color:rgba(69,32,104,.45);box-shadow:var(--shadow-soft);transform:translateY(-1px);}
+.link .txt{display:block;}
+.link span{display:block;font-size:15px;font-weight:500;color:var(--muted);margin-top:6px;}
+.chev{font-weight:900;font-size:22px;color:var(--primary);flex:0 0 auto;}
+.resource-list{padding:16px;display:grid;gap:14px;}
+.resource{padding:18px;border:2px solid rgba(69,32,104,.15);border-radius:16px;text-decoration:none;color:var(--text);background:#fff;transition:.12s ease;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;}
+.resource:hover{background:rgba(69,32,104,.06);border-color:rgba(69,32,104,.45);box-shadow:var(--shadow-soft);transform:translateY(-1px);}
+.resource .meta{min-width:0;}
+.resource h3{margin:0 0 6px;font-size:18px;font-weight:900;color:var(--primary);}
+.resource p{margin:0;font-size:15px;color:var(--muted);}
+.pill{font-size:12px;font-weight:900;padding:6px 10px;border-radius:999px;background:rgba(255,16,144,.10);color:#7a0c44;white-space:nowrap;flex:0 0 auto;}
+@media(max-width:1100px){.start-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:980px){.grid-2{grid-template-columns:1fr;}}
+@media(max-width:600px){.start-grid{grid-template-columns:1fr;}.sep-feature h3{font-size:24px;}}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a class='active' href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="container">
+
+ <div class="hero">
+ <h1>Welcome to <strong>The Health Experts</strong> Medicare Agent Hub</h1>
+ <p>Start contracting, transfer your book, or access your most-used resources.</p>
+ <div class="searchbar">
+ <input id="hubSearch" type="search" placeholder="Search the hub (ex: SOA, Sunfire, MAPD, Medicaid, AHIP, training…)" aria-label="Search the hub">
+ <div class="hint"></div>
+ </div>
+ </div>
+
+ <div id="searchEmpty" class="search-empty">
+ No matches found. Try a different keyword (example: "SOA", "AHIP", "MAPD", "Medicaid").
+ </div>
+
+ <div class="card section">
+ <div class="card-header"><h2>New Here? Start Here</h2></div>
+ <div class="start-grid">
+ <a class="start-link" href="https://www.agentmedicarehub.com/getting-started" data-search="getting started contracting onboarding new agent">
+ <div class="start-item"><h3>Getting Started</h3><p>Start contracting and onboarding.</p><strong>Best for: New agents</strong></div>
+ </a>
+ <a class="start-link" href="https://www.agentmedicarehub.com/broker-university" data-search="broker university training medicare basics sales scripts compliance guidance">
+ <div class="start-item"><h3>Broker University</h3><p>Training, Medicare basics, sales scripts, compliance guidance.</p><strong>Best for: Learning & skill-building</strong></div>
+ </a>
+ <a class="start-link" href="https://www.agentmedicarehub.com/agent-tools-hub" data-search="agent tools hub quoting platforms plan comparison grid hra rates vendor contacts">
+ <div class="start-item"><h3>Agent Tools Hub</h3><p>Quoting platforms, plan comparison grid, HRA rates, vendor contacts.</p><strong>Best for: Working active clients</strong></div>
+ </a>
+ <a class="start-link" href="https://www.agentmedicarehub.com/agent-benefits" data-search="agent benefits discounts ahip access e&o insurance ce courses licensing compliance">
+ <div class="start-item"><h3>Agent Benefits</h3><p>Discounts, AHIP access, E&O insurance, CE courses.</p><strong>Best for: Licensing & compliance support</strong></div>
+ </a>
+ <a class="start-link" href="https://www.agentmedicarehub.com/calendar" data-search="calendar live trainings onboarding sessions events classes">
+ <div class="start-item"><h3>Calendar</h3><p>Live trainings and onboarding sessions.</p><strong>Best for: Upcoming events & classes</strong></div>
+ </a>
+ </div>
+ </div>
+
+ <div class="grid-2">
+ <div style="display:grid; gap:18px;">
+ <div class="card">
+ <div class="card-header"><h2>Most-Needed Resources</h2></div>
+ <div class="resource-list">
+ <a class="resource" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit?usp=sharing" target="_blank" rel="noopener" data-search="medicaid levels cheat sheet medicaid eligibility classify members">
+ <div class="meta"><h3>Medicaid Levels Cheat Sheet</h3><p>Quick reference for Medicaid eligibility levels and how to classify members fast.</p></div>
+ <span class="pill">Google Doc</span>
+ </a>
+ <a class="resource" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit?usp=sharing" target="_blank" rel="noopener" data-search="2026 mapd plan comparison side by side plan comparison daily client calls">
+ <div class="meta"><h3>2026 MAPD Plan Comparison</h3><p>Side-by-side plan comparison used daily for client calls.</p></div>
+ <span class="pill">Top Used</span>
+ </a>
+ <a class="resource" href="https://docs.google.com/spreadsheets/d/1pzfYr4ZSZrej2hx2VqDA4ijodb12wfzq8e-lBtwCAl8/edit?usp=sharing" target="_blank" rel="noopener" data-search="chronic conditions list dsnp hra plan fit considerations notes">
+ <div class="meta"><h3>Chronic Conditions List</h3><p>Reference list used for plan fit, DSNP/HRA considerations, and notes.</p></div>
+ <span class="pill">Google Sheet</span>
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="important updates announcements changes 2027 certifications certs open ahip carrier training sessions">
+ <div class="card-header"><h2>Important Updates</h2></div>
+ <div class="sep-feature" style="background:linear-gradient(135deg,#1a7a4a 0%,#145c38 55%,#0d3f27 100%);" data-search="2027 carrier certifications certs open ahip uhc humana aetna annual enrollment period aep">
+ <a href="https://www.agentmedicarehub.com/certs">
+ <h3>🎓 2027 Carrier Certifications Are Open</h3>
+ <p>Get certified now before AEP. Complete your carrier certs early — AHIP, Humana, UHC, Aetna, Solis, and more all require annual certification to sell.</p>
+ <div class="sep-actions">
+ <span class="sep-button" style="color:#145c38;">Start Certifications →</span>
+ <span class="sep-note">Don't wait — early certification = more selling time.</span>
+ </div>
+ </a>
+ </div>
+ <div class="update update-muted" data-search="new training sessions added calendar upcoming session dates">
+ <a href="#">
+ <h4>New Training Sessions Added</h4>
+ <p>Visit the training calendar for upcoming session dates.</p>
+ </a>
+ </div>
+ </div>
+ </div>
+
+ <div class="card">
+ <div class="card-header"><h2>Quick Links</h2></div>
+ <div class="links">
+ <a class="link" href="https://www.agentmedicarehub.com/calendar" data-search="training calendar classes onboarding sessions">
+ <span class="txt">Training Calendar<span>Classes & onboarding sessions</span></span>
+ <span class="chev">→</span>
+ </a>
+ <a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLScCplDAssCcSw3y_Pn3h9EDq7NRNF66kGfEkkiP0APjGwQaAA/viewform?usp=header" target="_blank" rel="noopener" data-search="event request form marketing event needs">
+ <span class="txt">Event Request Form<span>Submit marketing/event needs</span></span>
+ <span class="chev">→</span>
+ </a>
+ <a class="link" href="https://www.agentmedicarehub.com/broker-university" data-search="broker university courses certifications training">
+ <span class="txt">Broker University<span>Courses & certifications</span></span>
+ <span class="chev">→</span>
+ </a>
+ <a class="link" href="https://www.agentmedicarehub.com/carrier-contact-list" data-search="carrier resources plan comparisons commission schedules contacts">
+ <span class="txt">Carrier Resources<span>Plan comparisons, commission schedules & contacts</span></span>
+ <span class="chev">→</span>
+ </a>
+ </div>
+ </div>
+ </div>
+
+ <div class="card section">
+ <div class="card-header"><h2>Agent Tools Quick Access</h2></div>
+ <div class="resource-list">
+ <a class="resource" href="https://auth.sunfirematrix.com/u/login?state=hKFo2SB1OGJCckoxTktTczJ3VmtsSVA5SlA3eGNWdHZDWDFrSqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDlhbExmYTExZkFsSFhMOF9VWmhrVkVHeDR4cFpNUjBuo2NpZNkgSWtla3loVnlRT1FORWtIT3FZeVdiblgzTGo3cDJsVTY" target="_blank" rel="noopener" data-search="sunfire soa scope of appointment enrollment applications text email in person signature">
+ <div class="meta"><h3>Sunfire</h3><p>SOA & enrollments (send via text/email or collect in-person signature).</p></div>
+ <span class="pill">Login</span>
+ </a>
+ <a class="resource" href="https://www.medicare.gov" target="_blank" rel="noopener" data-search="medicare.gov medicare plan lookup beneficiary resources official medicare">
+ <div class="meta"><h3>Medicare.gov</h3><p>Plan lookup, beneficiary resources, and official Medicare information.</p></div>
+ <span class="pill">Website</span>
+ </a>
+ <a class="resource" href="https://www.ahipmedicaretraining.com/page/login" target="_blank" rel="noopener" data-search="ahip medicare training certification login">
+ <div class="meta"><h3>AHIP</h3><p>Medicare training & certification login.</p></div>
+ <span class="pill">Login</span>
+ </a>
+ <a class="resource" href="https://login.agentsync.io/oauth2/aus4pj0u4437tB5yD697/v1/authorize?client_id=0oa21wyu605blY234697&response_type=code&scope=openid%20offline_access%20profile%20email&redirect_uri=https://rino.agentsync.io/callback&code_challenge=32ahF0Xp2UX6pPvr-fxsrecQ8hEVrar60bwelRa1KqA&code_challenge_method=S256&state=nothing" target="_blank" rel="noopener" data-search="agentsync onboarding contracting carrier docs upload requirements">
+ <div class="meta"><h3>AgentSync</h3><p>Carrier onboarding & contracting tool (upload docs, complete requirements).</p></div>
+ <span class="pill">Login</span>
+ </a>
+ </div>
+ <div class="card-header" style="border-top:1px solid var(--border); border-bottom:none;">
+ <h2 style="text-transform:none; letter-spacing:0; font-size:14px; color:var(--muted);">If a portal is unavailable, refer to carrier portals for the official CMS-approved SOA and enrollment applications.</h2>
+ </div>
+ </div>
+
+</div>
+<script>
+(function(){
+ const input = document.getElementById('hubSearch');
+ const empty = document.getElementById('searchEmpty');
+ const items = Array.from(document.querySelectorAll('[data-search]'));
+ function norm(s){ return (s||'').toLowerCase().replace(/\s+/g,' ').trim(); }
+ function applyFilter(){
+ const q = norm(input.value);
+ let shown = 0;
+ items.forEach(el=>{
+ const hay = norm(el.getAttribute('data-search'))+' '+norm(el.textContent);
+ const match = !q || hay.includes(q);
+ el.style.display = match ? '' : 'none';
+ if(match) shown++;
+ });
+ empty.style.display = (q && shown===0) ? 'block' : 'none';
+ }
+ input.addEventListener('input', applyFilter);
+})();
+</script>
+</body>
+</html>

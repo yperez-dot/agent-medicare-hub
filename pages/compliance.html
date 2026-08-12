@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compliance | The Health Experts</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+ font-size:18px;
+ line-height:1.6;
+}
+
+.wrap{
+ max-width:980px;
+ margin:0 auto;
+ padding:22px;
+}
+
+.hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:28px;
+ border-radius:22px;
+}
+.hero h1{margin:0 0 8px;font-size:28px;}
+.hero strong{color:var(--accent);}
+.hero p{margin:0;font-size:14px;opacity:.92;max-width:95ch;}
+
+.hero-nav{
+ margin-top:12px;
+ display:flex;
+ gap:14px;
+ flex-wrap:wrap;
+ align-items:center;
+}
+.hero-nav a{
+ color:#fff;
+ font-weight:800;
+ font-size:13px;
+ text-decoration:none;
+ opacity:.9;
+ border-bottom:1px solid rgba(255,255,255,.25);
+}
+.hero-nav a:hover{opacity:1;border-bottom-color:rgba(255,255,255,.55);}
+
+.section{
+ margin-top:16px;
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ padding:20px;
+}
+
+.section h2{margin:0 0 12px;font-size:18px;}
+.section p{font-size:14px;color:var(--muted);}
+
+.list{padding-left:18px;color:var(--muted);font-size:14px;}
+.list li{margin:6px 0;}
+
+.cta-row{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-top:12px;
+}
+
+.btn{
+ padding:12px 16px;
+ border-radius:14px;
+ font-weight:900;
+ text-decoration:none;
+ display:inline-block;
+ font-size:14px;
+}
+.btn.primary{background:var(--primary);color:#fff;}
+.btn.accent{background:var(--accent);color:#fff;}
+.btn.outline{border:1px solid var(--primary);color:var(--primary);background:#fff;}
+
+.grid-3{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
+ margin-top:12px;
+}
+
+.card{
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:14px;
+ background:#fff;
+}
+.card h3{margin:0 0 6px;font-size:14px;}
+.card p{margin:0;font-size:14px;color:var(--muted);}
+
+.badge{
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ font-size:12px;
+ font-weight:900;
+ padding:8px 10px;
+ border-radius:999px;
+ background:rgba(255,16,144,.10);
+ color:var(--accent);
+ border:1px solid rgba(255,16,144,.22);
+}
+
+.kicker{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-bottom:10px;
+}
+
+.faq-item{
+ border-top:1px solid var(--border);
+ padding:12px 0;
+}
+.faq-item:first-child{border-top:none;}
+.faq-item summary{
+ font-weight:900;
+ cursor:pointer;
+}
+.faq-item p{
+ margin-top:8px;
+ font-size:14px;
+ color:var(--muted);
+}
+
+.note{
+ border:1px dashed rgba(69,32,104,.35);
+ background:rgba(69,32,104,.04);
+ border-radius:16px;
+ padding:14px;
+ margin-top:12px;
+}
+.note strong{display:block;font-size:14px;margin-bottom:4px;}
+.note p{margin:0;font-size:14px;color:var(--muted);}
+
+@media(max-width:800px){
+ .grid-3{grid-template-columns:1fr;}
+}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+ <section class="hero">
+ <h1>Compliance <strong>&</strong> Regulatory Resources</h1>
+ <p>
+ Medicare marketing and enrollment must follow CMS and carrier requirements.
+ Use the official compliance portal for the most up-to-date guidance, approved scripts, bulletins, and policies.
+ </p>
+
+ <div class="cta-row">
+ <a class="btn accent" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
+ Access YourFMO Compliance Portal
+ </a>
+ <a class="btn outline" href="/aep-2027-training" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5);color:#fff;">Take AEP 2027 Training</a>
+ </div>
+
+ <div class="hero-nav" aria-label="Jump links">
+ <a href="#soa-2027">SOA Update 2027</a>
+ <a href="#official-portal">Official Portal</a>
+ <a href="#quick-checklist">Quick Checklist</a>
+ <a href="#aep">AEP/OEP Reminder</a>
+ <a href="#faq">FAQs</a>
+ </div>
+ </section>
+
+ <section class="section" id="soa-2027" style="border:2px solid #DC2626;">
+ <div class="kicker">
+ <h2 style="color:#DC2626;">NEW — SOA Rule Change · Effective October 1, 2026</h2>
+ <span class="badge" style="background:rgba(220,38,38,.1);color:#DC2626;border-color:rgba(220,38,38,.3);">CY2027 Final Rule</span>
+ </div>
+
+ <p style="font-weight:700;font-size:15px;color:#1f1b2a;">The mandatory 48-hour waiting period between obtaining a Scope of Appointment (SOA) and conducting a personal marketing appointment has been eliminated.</p>
+
+ <p>Beginning <strong>October 1, 2026</strong> for Plan Year 2027 enrollments, appointments may occur the same day an SOA is completed. All other SOA requirements remain in effect.</p>
+
+ <div class="grid-3" style="margin-top:16px;">
+ <div class="card" style="border-color:#FCA5A5;background:#FEF2F2;">
+ <h3 style="color:#DC2626;">What Changed</h3>
+ <p>48-hour waiting period eliminated. Same-day appointments permitted starting Oct 1, 2026 for PY27 enrollments.</p>
+ </div>
+ <div class="card">
+ <h3>What Stayed the Same</h3>
+ <p>SOA still required before every personal marketing appointment. New SOA needed when product scope changes.</p>
+ </div>
+ <div class="card">
+ <h3>Electronic Signatures</h3>
+ <p>CMS explicitly confirms electronic signatures and audio/video recordings satisfy the written requirement.</p>
+ </div>
+ <div class="card">
+ <h3>SOA Validity</h3>
+ <p>SOAs remain valid for 12 months. If product scope does not change, a new SOA is not required solely because the plan year changes.</p>
+ </div>
+ </div>
+
+ <div style="margin-top:16px;background:#fff8f8;border:1px solid #FCA5A5;border-radius:14px;padding:14px;">
+ <strong style="font-size:13px;display:block;margin-bottom:8px;">Agent Action Items</strong>
+ <ul class="list">
+ <li>Obtain and document an SOA before every personal marketing appointment</li>
+ <li>Only discuss products identified within the documented SOA</li>
+ <li>Obtain a new SOA before expanding discussions to additional product lines</li>
+ <li>Retain SOA documentation per CMS record retention requirements</li>
+ </ul>
+ </div>
+
+ <div class="note" style="margin-top:12px;">
+ <strong>Source</strong>
+ <p>CMS CY2027 Final Rule — 42 CFR §§ 422.2264(c)(3) and 423.2264(c)(3). Bulletin issued via YourFMO. For licensed agent use only — do not distribute to clients.</p>
+ </div>
+
+ <div class="cta-row" style="margin-top:12px;">
+ <a class="btn primary" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">View Full Bulletin on YourFMO</a>
+ </div>
+ </section>
+
+ <section class="section" id="official-portal">
+ <div class="kicker">
+ <h2>Official Compliance Portal</h2>
+ <span class="badge">Always Current</span>
+ </div>
+
+ <p>
+ To ensure you are using the most current CMS and carrier-approved materials,
+ reference the official YourFMO Compliance Center.
+ </p>
+
+ <ul class="list">
+ <li>AEP Compliance Guidance</li>
+ <li>CMS-approved scripts</li>
+ <li>Compliance bulletins</li>
+ <li>Carrier compliance policies</li>
+ <li>FWA awareness resources</li>
+ </ul>
+
+ <div class="note">
+ <strong>Best Practice</strong>
+ <p>Bookmark the Compliance Center and review updates regularly, especially before and during AEP/OEP.</p>
+ </div>
+
+ <div class="cta-row">
+ <a class="btn primary" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
+ Access the Compliance Portal
+ </a>
+ </div>
+ </section>
+
+ <section class="section" id="quick-checklist">
+ <h2>Quick Compliance Checklist</h2>
+ <p>
+ These reminders help reduce risk and maintain CMS compliance. Always verify against current guidance.
+ </p>
+
+ <div class="grid-3">
+
+ <div class="card">
+ <h3>CMS Marketing Guidelines</h3>
+ <p>Use approved marketing materials and avoid misleading or unapproved plan representations.</p>
+ </div>
+
+ <div class="card" style="border-color:#FCA5A5;">
+ <h3>Scope of Appointment (SOA)</h3>
+ <p>Obtain and document SOA before every appointment. <strong style="color:#DC2626;">NEW Oct 1, 2026:</strong> 48-hour wait eliminated — same-day appointments now permitted for PY2027.</p>
+ </div>
+
+ <div class="card">
+ <h3>Sunfire: SOA & Applications</h3>
+ <p>
+ In Sunfire, generate CMS-approved SOA forms and enrollment applications. Send via text/email or complete in person.
+ </p>
+ <p style="margin-top:8px;">
+ If Sunfire is unavailable, use the carrier portal to obtain the official CMS-approved SOA and enrollment application.
+ </p>
+ </div>
+
+ <div class="card">
+ <h3>Documentation & Retention</h3>
+ <p>Maintain required enrollment and communication records per CMS and carrier retention policies.</p>
+ </div>
+
+ </div>
+ </section>
+
+ <section class="section" id="aep">
+ <div class="kicker">
+ <h2>AEP / OEP Reminder</h2>
+ <span class="badge">High Priority</span>
+ </div>
+
+ <p>
+ Before marketing or enrolling during AEP/OEP, review current seasonal compliance guidance
+ to ensure all communications and enrollments meet CMS standards.
+ </p>
+ </section>
+
+ <section class="section" id="faq">
+ <h2>FAQs</h2>
+
+ <details class="faq-item">
+ <summary>Do I need to host my own compliance documents?</summary>
+ <p>No. The official compliance portal ensures you are accessing the most current CMS and carrier-approved materials.</p>
+ </details>
+
+ <details class="faq-item">
+ <summary>What if I'm unsure whether something is compliant?</summary>
+ <p>Default to approved scripts and materials. When in doubt, verify against the official compliance portal before use.</p>
+ </details>
+
+ <details class="faq-item">
+ <summary>Where should I obtain SOAs and enrollment applications?</summary>
+ <p>Use Sunfire when available. If unavailable, access the official carrier portal for CMS-approved forms.</p>
+ </details>
+
+ </section>
+
+</div>
+</body>
+</html>

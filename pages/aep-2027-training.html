@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AEP 2027 Compliance Training | THEI Agent Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --purple: #452068;
+    --purple-dark: #2e1547;
+    --purple-light: #5a2d82;
+    --pink: #FF1090;
+    --pink-light: #ff4aad;
+    --white: #fff;
+    --gray-50: #f9f8fb;
+    --gray-100: #f0edf5;
+    --gray-200: #e0d9ec;
+    --gray-400: #9c8fb0;
+    --gray-600: #5c5070;
+    --gray-800: #2d2540;
+    --success: #22c55e;
+    --error: #ef4444;
+    --warning: #f59e0b;
+    --sidebar-w: 280px;
+    --header-h: 64px;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-800);
+  }
+
+  /* ── LAYOUT ── */
+  #app { display: flex; flex-direction: column; min-height: 100vh; }
+
+  /* ── HEADER ── */
+  .course-header {
+    height: var(--header-h);
+    background: var(--purple-dark);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    flex-shrink: 0;
+  }
+  .course-header .logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+  }
+  .header-divider { width: 1px; height: 28px; background: rgba(255,255,255,.2); }
+  .header-title {
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .01em;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .header-badge {
+    background: var(--pink);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: .04em;
+    white-space: nowrap;
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-track {
+    height: 4px;
+    background: rgba(255,255,255,.15);
+    flex-shrink: 0;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--pink);
+    transition: width .5s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ── BODY SPLIT ── */
+  .course-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: var(--sidebar-w);
+    background: var(--white);
+    border-right: 1px solid var(--gray-200);
+    overflow-y: auto;
+    flex-shrink: 0;
+    padding: 16px 0 24px;
+  }
+  .sidebar-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    padding: 8px 20px 6px;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    transition: background .15s, color .15s;
+    border-left: 3px solid transparent;
+    position: relative;
+  }
+  .sidebar-item:hover { background: var(--gray-100); color: var(--purple); }
+  .sidebar-item.active {
+    background: var(--gray-100);
+    color: var(--purple);
+    border-left-color: var(--pink);
+    font-weight: 600;
+  }
+  .sidebar-item.completed { color: var(--gray-600); }
+  .sidebar-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-400);
+    flex-shrink: 0;
+    transition: all .2s;
+  }
+  .sidebar-item.active .sidebar-icon {
+    border-color: var(--pink);
+    background: var(--pink);
+    color: var(--white);
+  }
+  .sidebar-item.completed .sidebar-icon {
+    border-color: var(--success);
+    background: var(--success);
+    color: var(--white);
+  }
+  .sidebar-item.completed .sidebar-icon::before { content: '✓'; }
+  .sidebar-item:not(.completed):not(.active) .sidebar-num { display: block; }
+  .sidebar-item.completed .sidebar-num { display: none; }
+  .sidebar-item.active .sidebar-num { display: block; }
+
+  /* ── MAIN CONTENT ── */
+  .course-main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 48px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── SLIDE CARD ── */
+  .slide-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(69,32,104,.08);
+    width: 100%;
+    max-width: 820px;
+    overflow: hidden;
+    animation: fadeSlide .35s ease;
+    display: none;
+  }
+  .slide-card.active { display: flex; flex-direction: column; }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-header {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
+    padding: 36px 44px 32px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,.04);
+    border-radius: 50%;
+  }
+  .slide-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--pink-light);
+    margin-bottom: 10px;
+  }
+  .slide-title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .slide-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,.75);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .slide-body { padding: 36px 44px; flex: 1; }
+
+  /* ── WELCOME SLIDE ── */
+  .welcome-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 0 8px;
+    gap: 20px;
+  }
+  .welcome-logo { height: 56px; width: auto; object-fit: contain; }
+  .welcome-title-main {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--purple-dark);
+    line-height: 1.2;
+  }
+  .welcome-subtitle {
+    font-size: 17px;
+    color: var(--gray-600);
+    font-weight: 400;
+  }
+  .welcome-meta {
+    font-size: 13px;
+    color: var(--gray-400);
+    font-weight: 500;
+    border-top: 1px solid var(--gray-200);
+    padding-top: 16px;
+    width: 100%;
+    text-align: center;
+  }
+  .welcome-time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gray-100);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple);
+  }
+  .name-field-group {
+    width: 100%;
+    max-width: 380px;
+    text-align: left;
+  }
+  .name-field-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+  }
+  .name-field-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-800);
+    outline: none;
+    transition: border-color .2s;
+    background: var(--white);
+  }
+  .name-field-group input:focus { border-color: var(--purple); }
+  .name-field-group input::placeholder { color: var(--gray-400); }
+
+  /* ── CONTENT ELEMENTS ── */
+  .content-grid { display: grid; gap: 16px; }
+  .content-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+
+  .info-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .info-card.highlight {
+    background: linear-gradient(135deg, #fdf0f8 0%, #f5effe 100%);
+    border-color: rgba(255,16,144,.2);
+  }
+  .info-card.alert {
+    background: linear-gradient(135deg, #fff9ed 0%, #fff3f3 100%);
+    border-color: rgba(245,158,11,.3);
+  }
+  .info-card.success {
+    background: linear-gradient(135deg, #f0fdf4 0%, #f0f9ff 100%);
+    border-color: rgba(34,197,94,.25);
+  }
+  .info-card.danger {
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0f8 100%);
+    border-color: rgba(239,68,68,.25);
+  }
+  .info-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-bottom: 10px;
+  }
+
+  .rule-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .rule-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--gray-800);
+  }
+  .rule-list li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--pink);
+    margin-top: 6px;
+  }
+  .rule-list.check li::before {
+    content: '✓';
+    background: var(--success);
+    color: var(--white);
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    font-size: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    border-radius: 50%;
+  }
+  .rule-list.cross li::before {
+    content: '✕';
+    background: var(--error);
+    color: var(--white);
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    font-size: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    border-radius: 50%;
+  }
+
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: var(--purple);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .step-content { flex: 1; }
+  .step-content strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+  }
+  .step-content span {
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
+  .deadline-list { display: flex; flex-direction: column; gap: 0; }
+  .deadline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 14px 0;
+  }
+  .deadline-item:last-child { border-bottom: none; }
+  .deadline-date {
+    min-width: 180px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple);
+  }
+  .deadline-desc {
+    font-size: 14px;
+    color: var(--gray-800);
+    line-height: 1.5;
+  }
+  .deadline-item.key-date .deadline-date { color: var(--pink); }
+
+  .callout-box {
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+    color: var(--white);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .callout-box .label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--pink-light); margin-bottom: 6px; }
+  .callout-box .text { font-size: 14px; line-height: 1.6; }
+
+  .big-change-banner {
+    background: linear-gradient(135deg, #ff1090 0%, #c20070 100%);
+    color: var(--white);
+    border-radius: 14px;
+    padding: 28px 32px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .big-change-banner .eliminated-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    opacity: .85;
+    margin-bottom: 8px;
+  }
+  .big-change-banner h3 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .big-change-banner p {
+    font-size: 14px;
+    opacity: .9;
+    line-height: 1.5;
+  }
+
+  .source-cite {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-200);
+    font-style: italic;
+  }
+
+  /* ── SLIDE FOOTER / NAV ── */
+  .slide-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 44px;
+    border-top: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    gap: 12px;
+  }
+  .slide-counter {
+    font-size: 13px;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+  .nav-btns { display: flex; gap: 10px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: none;
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--purple);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--purple-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(69,32,104,.3); }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--purple);
+    border: 2px solid var(--gray-200);
+  }
+  .btn-secondary:hover { border-color: var(--purple); }
+  .btn-pink {
+    background: var(--pink);
+    color: var(--white);
+  }
+  .btn-pink:hover { background: var(--pink-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,16,144,.3); }
+  .btn-large { padding: 14px 32px; font-size: 16px; border-radius: 12px; }
+  .btn:disabled { opacity: .45; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+
+  /* ── QUIZ ── */
+  .quiz-question-block { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .quiz-q-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 2px;
+  }
+  .quiz-q-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+  .quiz-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s;
+    background: var(--white);
+  }
+  .quiz-option:hover:not(.locked) { border-color: var(--purple); background: var(--gray-50); }
+  .quiz-option.selected { border-color: var(--purple); background: rgba(69,32,104,.05); }
+  .quiz-option.correct { border-color: var(--success); background: #f0fdf4; }
+  .quiz-option.incorrect { border-color: var(--error); background: #fff5f5; }
+  .quiz-option-marker {
+    width: 22px; height: 22px; min-width: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--gray-200);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    color: var(--gray-400);
+    margin-top: 1px;
+    transition: all .2s;
+  }
+  .quiz-option.selected .quiz-option-marker { border-color: var(--purple); background: var(--purple); color: var(--white); }
+  .quiz-option.correct .quiz-option-marker { border-color: var(--success); background: var(--success); color: var(--white); }
+  .quiz-option.incorrect .quiz-option-marker { border-color: var(--error); background: var(--error); color: var(--white); }
+  .quiz-option-text { font-size: 14px; color: var(--gray-800); line-height: 1.5; flex: 1; }
+  .quiz-explanation {
+    font-size: 13px;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 4px;
+    line-height: 1.5;
+    display: none;
+  }
+  .quiz-question-block.revealed .quiz-explanation { display: block; }
+  .quiz-submit-row { display: flex; justify-content: center; margin-top: 8px; }
+
+  /* ── SCORE RESULT ── */
+  .score-display {
+    text-align: center;
+    padding: 24px 0;
+  }
+  .score-circle {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: 800;
+    border: 5px solid var(--gray-200);
+  }
+  .score-circle.pass { border-color: var(--success); background: #f0fdf4; color: var(--success); }
+  .score-circle.fail { border-color: var(--error); background: #fff5f5; color: var(--error); }
+  .score-num { font-size: 36px; line-height: 1; }
+  .score-denom { font-size: 14px; font-weight: 500; opacity: .7; }
+  .score-label { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+  .score-sub { font-size: 14px; color: var(--gray-600); }
+
+  /* ── CERTIFICATE ── */
+  .certificate-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+  }
+  .certificate-doc {
+    width: 100%;
+    max-width: 680px;
+    border: 6px solid var(--purple);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 8px 40px rgba(69,32,104,.15);
+  }
+  .cert-header {
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+    padding: 28px 36px;
+    text-align: center;
+    color: var(--white);
+  }
+  .cert-logo { height: 40px; width: auto; margin-bottom: 10px; }
+  .cert-org { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
+  .cert-body {
+    padding: 36px 44px;
+    text-align: center;
+  }
+  .cert-presents {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 8px;
+  }
+  .cert-of { font-size: 28px; font-weight: 800; color: var(--purple-dark); margin-bottom: 24px; }
+  .cert-certifies {
+    font-size: 14px;
+    color: var(--gray-600);
+    margin-bottom: 8px;
+  }
+  .cert-name {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--purple);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--gray-200);
+  }
+  .cert-course {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+  .cert-date {
+    font-size: 14px;
+    color: var(--gray-400);
+    margin-bottom: 24px;
+  }
+  .cert-footer {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    padding: 16px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cert-footer-label { font-size: 12px; color: var(--gray-400); }
+  .cert-seal {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-size: 9px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: .04em;
+    line-height: 1.3;
+    border: 3px solid var(--purple-dark);
+  }
+
+  /* ── SIDEBAR TOGGLE (mobile) ── */
+  .sidebar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--white);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    .course-header, .sidebar, .slide-footer, .nav-btns, .btn,
+    .progress-track, .certificate-wrapper > .btn { display: none !important; }
+    .course-main { padding: 0; }
+    .slide-card { box-shadow: none; border: none; }
+    .certificate-doc { box-shadow: none; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .sidebar { display: none; }
+    .sidebar.open { display: block; position: fixed; top: var(--header-h); left: 0; bottom: 0; z-index: 90; box-shadow: 4px 0 20px rgba(0,0,0,.15); }
+    .sidebar-toggle { display: flex; }
+    .course-main { padding: 24px 20px 48px; }
+    .slide-header { padding: 28px 24px 24px; }
+    .slide-body { padding: 24px 24px; }
+    .slide-footer { padding: 16px 24px; }
+    .slide-title { font-size: 22px; }
+    .content-grid.cols-2 { grid-template-columns: 1fr; }
+    .deadline-date { min-width: 130px; font-size: 12px; }
+    .cert-body { padding: 24px 20px; }
+    .cert-footer { flex-direction: column; gap: 10px; }
+  }
+
+  /* Helpers */
+  .mt-0 { margin-top: 0; }
+  .mt-16 { margin-top: 16px; }
+  .mt-20 { margin-top: 20px; }
+  .mb-0 { margin-bottom: 0; }
+  .text-sm { font-size: 13px; }
+  .text-muted { color: var(--gray-600); }
+  .gap-16 { gap: 16px; }
+  .section-divider { height: 1px; background: var(--gray-200); margin: 20px 0; }
+
+  /* Slide-body heading */
+  .body-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--purple-dark);
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }
+  .body-heading:first-child { margin-top: 0; }
+
+  /* Name warning */
+  .name-warning {
+    color: var(--error);
+    font-size: 12px;
+    font-weight: 500;
+    display: none;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HEADER -->
+  <header class="course-header">
+    <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <img src="/files/thei-logo.png" alt="THEI" class="logo" onerror="this.style.display='none'" />
+    <div class="header-divider"></div>
+    <span class="header-title">AEP 2027 Compliance Training</span>
+    <span class="header-badge" id="headerBadge">Slide 1 of 12</span>
+  </header>
+
+  <!-- PROGRESS -->
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+
+  <!-- BODY -->
+  <div class="course-body">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-section-label">Course Modules</div>
+      <div id="sidebarItems"></div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="course-main" id="courseMain">
+
+      <!-- SLIDE 1: WELCOME -->
+      <div class="slide-card active" id="slide-0">
+        <div class="slide-body" style="padding:44px;">
+          <div class="welcome-center">
+            <img src="/files/thei-logo.png" alt="The Health Experts Insurance" class="welcome-logo"
+                 onerror="this.style.display='none'" />
+            <div>
+              <div class="welcome-title-main">AEP 2027 Compliance Training</div>
+              <div class="welcome-subtitle" style="margin-top:8px;">Annual Enrollment Period — Plan Year 2027</div>
+            </div>
+            <div class="welcome-time-badge">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Estimated time: ~10 minutes
+            </div>
+            <div class="name-field-group">
+              <label for="agentNameInput">Your Full Name (for certificate)</label>
+              <input type="text" id="agentNameInput" placeholder="First Name Last Name" autocomplete="name" />
+              <div class="name-warning" id="nameWarning">Please enter your name to continue.</div>
+            </div>
+            <div class="welcome-meta">
+              For licensed agents only &nbsp;|&nbsp; The Health Experts Insurance &nbsp;|&nbsp; Confidential
+            </div>
+            <button class="btn btn-pink btn-large" onclick="startCourse()">
+              Start Course
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: WHAT IS AEP? -->
+      <div class="slide-card" id="slide-1">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 1</div>
+          <div class="slide-title">What is AEP?</div>
+          <div class="slide-subtitle">Understanding the Annual Enrollment Period</div>
+        </div>
+        <div class="slide-body">
+          <div class="big-change-banner" style="background:linear-gradient(135deg,#452068 0%,#5a2d82 100%);margin-bottom:20px;">
+            <div class="eliminated-label">Key Dates</div>
+            <h3 style="font-size:20px;">October 15 – December 7, 2026</h3>
+            <p>Coverage begins January 1, 2027</p>
+          </div>
+          <div class="body-heading">What Beneficiaries Can Do During AEP</div>
+          <ul class="rule-list">
+            <li>Switch from one Medicare Advantage (MA) plan to another</li>
+            <li>Switch from Original Medicare to a Medicare Advantage plan</li>
+            <li>Drop MA and return to Original Medicare (with or without Part D)</li>
+            <li>Join, switch, or drop a Medicare Part D prescription drug plan</li>
+          </ul>
+          <div class="callout-box mt-16">
+            <div class="label">Important Rule</div>
+            <div class="text">Beneficiaries can only make <strong>ONE election</strong> during AEP. The <strong>last enrollment submitted</strong> is the one that takes effect — "last one wins."</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 2 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(0)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(2)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: WHO CAN ENROLL? -->
+      <div class="slide-card" id="slide-2">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 2</div>
+          <div class="slide-title">Who Can Enroll?</div>
+          <div class="slide-subtitle">Eligibility requirements for AEP enrollment</div>
+        </div>
+        <div class="slide-body">
+          <div class="body-heading">Basic Eligibility Requirements</div>
+          <ul class="rule-list check">
+            <li>Must be enrolled in both Medicare Part A and Part B</li>
+            <li>Must live within the plan's geographic service area</li>
+            <li>Must not be currently enrolled in end-stage renal disease (ESRD) — with certain exceptions under ESRD rules effective 2021</li>
+          </ul>
+          <div class="section-divider"></div>
+          <div class="content-grid cols-2 mt-0">
+            <div class="info-card highlight">
+              <div class="info-card-title">SEPs — Outside AEP</div>
+              <p class="text-sm text-muted" style="line-height:1.6;">Special Enrollment Periods (SEPs) allow qualified beneficiaries to make changes outside the standard AEP window. Always verify SEP eligibility before enrolling outside Oct 15 – Dec 7.</p>
+            </div>
+            <div class="info-card alert">
+              <div class="info-card-title">Verify Before You Enroll</div>
+              <p class="text-sm text-muted" style="line-height:1.6;">Always confirm the beneficiary's Medicare Part A &amp; B status and service area before completing an enrollment. Submitting ineligible enrollments can result in compliance violations.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 3 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(1)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(3)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: SOA REQUIREMENTS -->
+      <div class="slide-card" id="slide-3">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 3 — NEW for 2027</div>
+          <div class="slide-title">SOA Requirements</div>
+          <div class="slide-subtitle">Scope of Appointment — Critical compliance update</div>
+        </div>
+        <div class="slide-body">
+          <div class="big-change-banner">
+            <div class="eliminated-label">Major Change for PY2027</div>
+            <h3>48-Hour Waiting Period ELIMINATED</h3>
+            <p>Same-day appointments are now permitted after the SOA is obtained — effective October 1, 2026</p>
+          </div>
+          <div class="content-grid cols-2">
+            <div>
+              <div class="body-heading">What Changed</div>
+              <ul class="rule-list check">
+                <li>Same-day appointments now permitted after SOA is obtained</li>
+                <li>Electronic signatures accepted</li>
+                <li>Effective October 1, 2026 for PY2027 enrollments</li>
+              </ul>
+            </div>
+            <div>
+              <div class="body-heading">What Stayed the Same</div>
+              <ul class="rule-list">
+                <li>SOA is STILL required before every personal marketing appointment</li>
+                <li>SOA valid 12 months if product scope unchanged</li>
+                <li>New SOA required when adding products outside original scope</li>
+              </ul>
+            </div>
+          </div>
+          <div class="source-cite">Source: CMS Final Rule 42 CFR §§ 422.2264(c)(3) and 423.2264(c)(3)</div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 4 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(2)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(4)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: CMS MARKETING RULES -->
+      <div class="slide-card" id="slide-4">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 4</div>
+          <div class="slide-title">CMS Marketing Rules</div>
+          <div class="slide-subtitle">Required standards for all marketing activities</div>
+        </div>
+        <div class="slide-body">
+          <ul class="rule-list">
+            <li>Only use CMS-approved and carrier-approved materials</li>
+            <li>No door-to-door solicitation unless the beneficiary initiates the contact</li>
+            <li>No cold calling unless the prospect has given prior expressed permission</li>
+            <li>No marketing in healthcare settings (exam rooms, pharmacy counter, etc.)</li>
+            <li>No providing meals as inducements to enroll</li>
+            <li>Events must be educational in nature — not sales appointments</li>
+            <li>All marketing materials must include required CMS disclaimers</li>
+          </ul>
+          <div class="callout-box mt-16">
+            <div class="label">Approved Materials</div>
+            <div class="text">Access all approved materials through your carrier portals and YourFMO. Never modify or alter approved materials. Using unapproved materials is a CMS violation.</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 5 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(3)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(5)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: WHAT YOU CAN DO -->
+      <div class="slide-card" id="slide-5">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 5</div>
+          <div class="slide-title">What You CAN Do</div>
+          <div class="slide-subtitle">Permitted activities during AEP 2027</div>
+        </div>
+        <div class="slide-body">
+          <div class="info-card success">
+            <div class="info-card-title">Permitted Activities</div>
+            <ul class="rule-list check">
+              <li>Conduct appointments after SOA is obtained — same-day is now OK for PY2027</li>
+              <li>Discuss only the products listed on the signed SOA</li>
+              <li>Use approved marketing materials from carrier portals</li>
+              <li>Hold educational events following CMS event rules</li>
+              <li>Follow up with leads who have provided expressed interest / permission</li>
+              <li>Use Sunfire or carrier portals to complete enrollments</li>
+            </ul>
+          </div>
+          <div class="callout-box mt-16">
+            <div class="label">Reminder — Certifications Must Be Current</div>
+            <div class="text">AHIP certification and all required carrier certifications must be completed and approved BEFORE you begin any marketing or sales activities for PY2027.</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 6 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(4)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(6)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: WHAT YOU CANNOT DO -->
+      <div class="slide-card" id="slide-6">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 6</div>
+          <div class="slide-title">What You CANNOT Do</div>
+          <div class="slide-subtitle">Prohibited activities — violations carry serious consequences</div>
+        </div>
+        <div class="slide-body">
+          <div class="info-card danger">
+            <div class="info-card-title">Prohibited Activities</div>
+            <ul class="rule-list cross">
+              <li>Market or sell products outside the documented SOA scope</li>
+              <li>Promise or guarantee benefits not confirmed by the carrier</li>
+              <li>Use misleading, altered, or unapproved marketing materials</li>
+              <li>Contact prospects by phone without prior expressed interest/permission</li>
+              <li>Conduct marketing in prohibited settings (healthcare facilities, pharmacies)</li>
+              <li>Offer gifts, meals, or other inducements to influence enrollment decisions</li>
+            </ul>
+          </div>
+          <div class="callout-box mt-16" style="background:linear-gradient(135deg,#b91c1c,#ef4444);">
+            <div class="label">Consequences of Violations</div>
+            <div class="text">CMS violations can result in agent contract termination, civil monetary penalties, and CMS sanctions. Protect your license — always follow the rules.</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 7 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(5)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(7)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 8: ENROLLMENT PROCESS -->
+      <div class="slide-card" id="slide-7">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 7</div>
+          <div class="slide-title">Enrollment Process</div>
+          <div class="slide-subtitle">Step-by-step guide to compliant AEP enrollments</div>
+        </div>
+        <div class="slide-body">
+          <ol class="step-list">
+            <li class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>Obtain SOA Before the Appointment</strong>
+                <span>Get a signed Scope of Appointment from the beneficiary before any marketing meeting. Electronic signatures accepted.</span>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>Conduct the Compliant Marketing Appointment</strong>
+                <span>Same-day meetings now permitted for PY2027. Follow all CMS marketing guidelines.</span>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>Present Only Approved Plan Materials</strong>
+                <span>Use only carrier-approved materials. Discuss only products listed on the SOA.</span>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <strong>Complete Enrollment via Sunfire or Carrier Portal</strong>
+                <span>Submit the enrollment accurately through Sunfire or the appropriate carrier portal.</span>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <strong>Confirm Enrollment Confirmation Sent to Beneficiary</strong>
+                <span>Verify the beneficiary receives their enrollment confirmation from the carrier.</span>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">6</div>
+              <div class="step-content">
+                <strong>Retain All Documentation</strong>
+                <span>Keep SOAs, appointment notes, and materials used per CMS retention requirements.</span>
+              </div>
+            </li>
+          </ol>
+          <div class="callout-box mt-16">
+            <div class="label">Coverage Effective Date</div>
+            <div class="text">Enrollments submitted by December 7, 2026 take effect January 1, 2027.</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 8 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(6)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(8)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 9: KEY DEADLINES -->
+      <div class="slide-card" id="slide-8">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 8</div>
+          <div class="slide-title">Key Deadlines</div>
+          <div class="slide-subtitle">Critical dates for AEP 2027 — mark your calendar</div>
+        </div>
+        <div class="slide-body">
+          <div class="deadline-list">
+            <div class="deadline-item key-date">
+              <div class="deadline-date">October 1, 2026</div>
+              <div class="deadline-desc"><strong>New SOA Rules Take Effect</strong> — 48-hour waiting period eliminated. Same-day appointments now permitted after SOA is obtained.</div>
+            </div>
+            <div class="deadline-item key-date">
+              <div class="deadline-date">October 15, 2026</div>
+              <div class="deadline-desc"><strong>AEP Opens</strong> — Annual Enrollment Period begins. Agents may begin submitting PY2027 enrollments.</div>
+            </div>
+            <div class="deadline-item key-date">
+              <div class="deadline-date">December 7, 2026</div>
+              <div class="deadline-desc"><strong>AEP Closes</strong> — Last day to enroll for January 1, 2027 coverage. No late exceptions.</div>
+            </div>
+            <div class="deadline-item key-date">
+              <div class="deadline-date">January 1, 2027</div>
+              <div class="deadline-desc"><strong>Coverage Effective Date</strong> — PY2027 plans begin for all AEP enrollees.</div>
+            </div>
+          </div>
+          <div class="info-card alert mt-16">
+            <div class="info-card-title">Before You Market — Certifications Required</div>
+            <p class="text-sm text-muted" style="line-height:1.6;">AHIP certification and all required carrier certifications must be completed and approved BEFORE conducting any marketing or sales activities for Plan Year 2027. Do not begin marketing without confirmed certification status.</p>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 9 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(7)">Previous</button>
+            <button class="btn btn-primary" onclick="goSlide(9)">Next <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 10: COMPLIANCE REMINDERS -->
+      <div class="slide-card" id="slide-9">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Module 9</div>
+          <div class="slide-title">Compliance Reminders</div>
+          <div class="slide-subtitle">Final guidance before your knowledge check</div>
+        </div>
+        <div class="slide-body">
+          <div class="content-grid cols-2">
+            <div class="info-card">
+              <div class="info-card-title">Golden Rule</div>
+              <p class="text-sm text-muted" style="line-height:1.7;"><strong>When in doubt, don't.</strong> Check the YourFMO compliance portal before taking any action you're uncertain about. It's always better to pause and verify.</p>
+            </div>
+            <div class="info-card">
+              <div class="info-card-title">Document Everything</div>
+              <p class="text-sm text-muted" style="line-height:1.7;">Retain SOAs, appointment notes, and records of all materials used. CMS retention requirements apply. No documentation = no proof of compliance.</p>
+            </div>
+          </div>
+          <div class="body-heading mt-20">Compliance Resources</div>
+          <ul class="rule-list">
+            <li>CMS Helpline: <strong>1-800-MEDICARE</strong></li>
+            <li>THEI Compliance Support: <strong>compliance@healthexps.com</strong></li>
+            <li>YourFMO Compliance Portal — available in your agent dashboard</li>
+          </ul>
+          <div class="callout-box mt-16" style="background:linear-gradient(135deg,#b91c1c,#7f1d1d);">
+            <div class="label">Violations Have Consequences</div>
+            <div class="text">Non-compliance can result in agent contract termination, civil monetary penalties, and CMS sanctions. Your license is your livelihood — protect it by following every rule, every time.</div>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 10 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(8)">Previous</button>
+            <button class="btn btn-pink" onclick="goSlide(10)">Take the Quiz <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 11: QUIZ -->
+      <div class="slide-card" id="slide-10">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Knowledge Check</div>
+          <div class="slide-title">AEP 2027 Quiz</div>
+          <div class="slide-subtitle">Answer all 6 questions. You need 5 or more correct to pass.</div>
+        </div>
+        <div class="slide-body">
+
+          <!-- Q1 -->
+          <div class="quiz-question-block" id="qb-0">
+            <div class="quiz-q-label">Question 1 of 6</div>
+            <div class="quiz-q-text">When does AEP 2027 open for enrollments?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="selectOption(0,0)" id="q0o0"><div class="quiz-option-marker"><span class="sidebar-num">A</span></div><div class="quiz-option-text">September 15, 2026</div></div>
+              <div class="quiz-option" onclick="selectOption(0,1)" id="q0o1"><div class="quiz-option-marker"><span class="sidebar-num">B</span></div><div class="quiz-option-text">October 15, 2026</div></div>
+              <div class="quiz-option" onclick="selectOption(0,2)" id="q0o2"><div class="quiz-option-marker"><span class="sidebar-num">C</span></div><div class="quiz-option-text">November 1, 2026</div></div>
+              <div class="quiz-option" onclick="selectOption(0,3)" id="q0o3"><div class="quiz-option-marker"><span class="sidebar-num">D</span></div><div class="quiz-option-text">October 1, 2026</div></div>
+            </div>
+            <div class="quiz-explanation">AEP opens on October 15, 2026. Note: October 1 is when the new SOA rules take effect — different from when AEP opens.</div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="quiz-question-block" id="qb-1">
+            <div class="quiz-q-label">Question 2 of 6</div>
+            <div class="quiz-q-text">The 48-hour SOA waiting period for PY2027:</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="selectOption(1,0)" id="q1o0"><div class="quiz-option-marker"><span class="sidebar-num">A</span></div><div class="quiz-option-text">Is still required for all appointments</div></div>
+              <div class="quiz-option" onclick="selectOption(1,1)" id="q1o1"><div class="quiz-option-marker"><span class="sidebar-num">B</span></div><div class="quiz-option-text">Has been extended to 72 hours</div></div>
+              <div class="quiz-option" onclick="selectOption(1,2)" id="q1o2"><div class="quiz-option-marker"><span class="sidebar-num">C</span></div><div class="quiz-option-text">Has been eliminated starting October 1, 2026</div></div>
+              <div class="quiz-option" onclick="selectOption(1,3)" id="q1o3"><div class="quiz-option-marker"><span class="sidebar-num">D</span></div><div class="quiz-option-text">Only applies to phone appointments</div></div>
+            </div>
+            <div class="quiz-explanation">Correct! CMS Final Rule eliminated the 48-hour waiting period effective October 1, 2026. Same-day appointments are now permitted once the SOA is obtained.</div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="quiz-question-block" id="qb-2">
+            <div class="quiz-q-label">Question 3 of 6</div>
+            <div class="quiz-q-text">Do you still need an SOA before conducting a personal marketing appointment?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="selectOption(2,0)" id="q2o0"><div class="quiz-option-marker"><span class="sidebar-num">A</span></div><div class="quiz-option-text">No — the SOA requirement was eliminated along with the waiting period</div></div>
+              <div class="quiz-option" onclick="selectOption(2,1)" id="q2o1"><div class="quiz-option-marker"><span class="sidebar-num">B</span></div><div class="quiz-option-text">Only if the client is new to Medicare</div></div>
+              <div class="quiz-option" onclick="selectOption(2,2)" id="q2o2"><div class="quiz-option-marker"><span class="sidebar-num">C</span></div><div class="quiz-option-text">Yes — SOA is still required before every personal marketing appointment</div></div>
+              <div class="quiz-option" onclick="selectOption(2,3)" id="q2o3"><div class="quiz-option-marker"><span class="sidebar-num">D</span></div><div class="quiz-option-text">Only for MA plans, not PDP</div></div>
+            </div>
+            <div class="quiz-explanation">The SOA requirement is still in effect. Only the 48-hour waiting period was eliminated — not the SOA itself. You must obtain an SOA before every personal marketing appointment.</div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="quiz-question-block" id="qb-3">
+            <div class="quiz-q-label">Question 4 of 6</div>
+            <div class="quiz-q-text">How long is an SOA valid?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="selectOption(3,0)" id="q3o0"><div class="quiz-option-marker"><span class="sidebar-num">A</span></div><div class="quiz-option-text">30 days</div></div>
+              <div class="quiz-option" onclick="selectOption(3,1)" id="q3o1"><div class="quiz-option-marker"><span class="sidebar-num">B</span></div><div class="quiz-option-text">6 months</div></div>
+              <div class="quiz-option" onclick="selectOption(3,2)" id="q3o2"><div class="quiz-option-marker"><span class="sidebar-num">C</span></div><div class="quiz-option-text">Until the end of AEP</div></div>
+              <div class="quiz-option" onclick="selectOption(3,3)" id="q3o3"><div class="quiz-option-marker"><span class="sidebar-num">D</span></div><div class="quiz-option-text">12 months, as long as the product scope does not change</div></div>
+            </div>
+            <div class="quiz-explanation">An SOA is valid for 12 months, provided the product scope documented in the SOA remains unchanged. A new SOA is required if you need to discuss products not listed on the original SOA.</div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="quiz-question-block" id="qb-4">
+            <div class="quiz-q-label">Question 5 of 6</div>
+            <div class="quiz-q-text">Which of the following is NOT allowed during AEP?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="selectOption(4,0)" id="q4o0"><div class="quiz-option-marker"><span class="sidebar-num">A</span></div><div class="quiz-option-text">Conducting a same-day appointment after the SOA is obtained</div></div>
+              <div class="quiz-option" onclick="selectOption(4,1)" id="q4o1"><div class="quiz-option-marker"><span class="sidebar-num">B</span></div><div class="quiz-option-text">Using carrier-approved marketing materials</div></div>
+              <div class="quiz-option" onclick="selectOption(4,2)" id="q4o2"><div class="quiz-option-marker"><span class="sidebar-num">C</span></div><div class="quiz-option-text">Offering a free meal to a prospect to encourage enrollment</div></div>
+              <div class="quiz-option" onclick="selectOption(4,3)" id="q4o3"><div class="quiz-option-marker"><span class="sidebar-num">D</span></div><div class="quiz-option-text">Following up with a lead who expressed interest</div></div>
+            </div>
+            <div class="quiz-explanation">Providing meals or gifts as inducements to influence enrollment decisions is explicitly prohibited by CMS. This is a common compliance mistake. Options A, B, and D are all permitted activities.</div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="quiz-question-block" id="qb-5">
+            <div class="quiz-q-label">Question 6 of 6</div>
+            <div class="quiz-q-text">When does AEP 2027 coverage take effect for beneficiaries who enroll during AEP?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" onclick="selectOption(5,0)" id="q5o0"><div class="quiz-option-marker"><span class="sidebar-num">A</span></div><div class="quiz-option-text">December 7, 2026</div></div>
+              <div class="quiz-option" onclick="selectOption(5,1)" id="q5o1"><div class="quiz-option-marker"><span class="sidebar-num">B</span></div><div class="quiz-option-text">January 1, 2027</div></div>
+              <div class="quiz-option" onclick="selectOption(5,2)" id="q5o2"><div class="quiz-option-marker"><span class="sidebar-num">C</span></div><div class="quiz-option-text">October 15, 2026</div></div>
+              <div class="quiz-option" onclick="selectOption(5,3)" id="q5o3"><div class="quiz-option-marker"><span class="sidebar-num">D</span></div><div class="quiz-option-text">February 1, 2027</div></div>
+            </div>
+            <div class="quiz-explanation">Coverage for all AEP 2027 enrollments takes effect January 1, 2027 — regardless of when during Oct 15 – Dec 7 the enrollment was submitted.</div>
+          </div>
+
+          <div class="quiz-submit-row">
+            <button class="btn btn-pink btn-large" id="quizSubmitBtn" onclick="submitQuiz()">Submit Answers</button>
+          </div>
+
+          <!-- SCORE RESULT -->
+          <div id="quizResult" style="display:none;">
+            <div class="section-divider"></div>
+            <div class="score-display">
+              <div class="score-circle" id="scoreCircle">
+                <div class="score-num" id="scoreNum">0</div>
+                <div class="score-denom">out of 6</div>
+              </div>
+              <div class="score-label" id="scoreLabel"></div>
+              <div class="score-sub" id="scoreSub"></div>
+            </div>
+            <div style="display:flex;justify-content:center;gap:12px;margin-top:20px;" id="quizActions"></div>
+          </div>
+
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 11 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(9)">Previous</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 12: CERTIFICATE -->
+      <div class="slide-card" id="slide-11">
+        <div class="slide-header">
+          <div class="slide-eyebrow">Congratulations</div>
+          <div class="slide-title">Course Complete</div>
+          <div class="slide-subtitle">You have successfully completed AEP 2027 Compliance Training</div>
+        </div>
+        <div class="slide-body">
+          <div class="certificate-wrapper">
+            <div class="certificate-doc" id="certificateDoc">
+              <div class="cert-header">
+                <img src="/files/thei-logo.png" alt="THEI" class="cert-logo" onerror="this.style.display='none'" />
+                <div class="cert-org">The Health Experts Insurance</div>
+              </div>
+              <div class="cert-body">
+                <div class="cert-presents">Presents a</div>
+                <div class="cert-of">Certificate of Completion</div>
+                <div class="cert-certifies">This certifies that</div>
+                <div class="cert-name" id="certAgentName">Agent Name</div>
+                <div class="cert-course">AEP 2027 Compliance Training</div>
+                <div class="cert-course" style="font-size:14px;font-weight:400;color:var(--gray-600);margin-top:4px;">Annual Enrollment Period — Plan Year 2027</div>
+                <div class="cert-date" id="certDate">Completed: —</div>
+              </div>
+              <div class="cert-footer">
+                <div>
+                  <div class="cert-footer-label">Issued by</div>
+                  <div style="font-size:13px;font-weight:700;color:var(--purple);">The Health Experts Insurance</div>
+                  <div class="cert-footer-label">compliance@healthexps.com</div>
+                </div>
+                <div class="cert-seal">THEI<br>CERT<br>2027</div>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="window.print()">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Print Certificate
+            </button>
+          </div>
+        </div>
+        <div class="slide-footer">
+          <span class="slide-counter">Slide 12 of 12</span>
+          <div class="nav-btns">
+            <button class="btn btn-secondary" onclick="goSlide(10)">Back to Quiz</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+// ── STATE ──
+const TOTAL_SLIDES = 12;
+const SLIDE_LABELS = [
+  'Welcome',
+  'What is AEP?',
+  'Who Can Enroll?',
+  'SOA Requirements (New)',
+  'CMS Marketing Rules',
+  'What You CAN Do',
+  'What You CANNOT Do',
+  'Enrollment Process',
+  'Key Deadlines',
+  'Compliance Reminders',
+  'Knowledge Quiz',
+  'Certificate'
+];
+
+// Quiz correct answers (0-indexed options)
+const CORRECT = [1, 2, 2, 3, 2, 1];
+let userAnswers = new Array(6).fill(-1);
+let quizLocked = false;
+let quizPassed = false;
+
+// Load state from localStorage
+let state = {
+  currentSlide: 0,
+  completed: [],
+  agentName: '',
+  quizPassed: false,
+  quizAnswers: new Array(6).fill(-1)
+};
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('thei_aep2027_state');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      state = { ...state, ...parsed };
+      userAnswers = state.quizAnswers || new Array(6).fill(-1);
+      quizPassed = state.quizPassed || false;
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try {
+    state.quizAnswers = userAnswers;
+    state.quizPassed = quizPassed;
+    localStorage.setItem('thei_aep2027_state', JSON.stringify(state));
+  } catch(e) {}
+}
+
+// ── SIDEBAR ──
+function buildSidebar() {
+  const container = document.getElementById('sidebarItems');
+  container.innerHTML = '';
+  SLIDE_LABELS.forEach((label, i) => {
+    const item = document.createElement('div');
+    item.className = 'sidebar-item' +
+      (i === state.currentSlide ? ' active' : '') +
+      (state.completed.includes(i) ? ' completed' : '');
+    item.id = 'sidebar-item-' + i;
+    item.onclick = () => { if(i > 0 || state.agentName) goSlide(i); };
+
+    const icon = document.createElement('div');
+    icon.className = 'sidebar-icon';
+    if (state.completed.includes(i) && i !== state.currentSlide) {
+      icon.innerHTML = '';
+    } else {
+      icon.innerHTML = '<span class="sidebar-num">' + (i + 1) + '</span>';
+    }
+
+    const text = document.createElement('span');
+    text.textContent = label;
+    text.style.flex = '1';
+
+    item.appendChild(icon);
+    item.appendChild(text);
+    container.appendChild(item);
+  });
+}
+
+function updateSidebar() {
+  document.querySelectorAll('.sidebar-item').forEach((el, i) => {
+    el.className = 'sidebar-item' +
+      (i === state.currentSlide ? ' active' : '') +
+      (state.completed.includes(i) && i !== state.currentSlide ? ' completed' : '');
+    const icon = el.querySelector('.sidebar-icon');
+    if (icon) {
+      if (state.completed.includes(i) && i !== state.currentSlide) {
+        icon.innerHTML = '';
+      } else {
+        icon.innerHTML = '<span class="sidebar-num">' + (i + 1) + '</span>';
+      }
+    }
+  });
+}
+
+// ── NAVIGATION ──
+function goSlide(idx) {
+  if (idx < 0 || idx >= TOTAL_SLIDES) return;
+  // Mark current as completed
+  if (!state.completed.includes(state.currentSlide)) {
+    state.completed.push(state.currentSlide);
+  }
+  state.currentSlide = idx;
+  saveState();
+
+  // Update DOM
+  document.querySelectorAll('.slide-card').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+  });
+  updateSidebar();
+  updateHeader();
+  document.getElementById('courseMain').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateHeader() {
+  const idx = state.currentSlide;
+  const label = SLIDE_LABELS[idx];
+  const pct = ((idx) / (TOTAL_SLIDES - 1)) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('headerBadge').textContent = 'Slide ' + (idx + 1) + ' of ' + TOTAL_SLIDES;
+}
+
+// ── WELCOME / START ──
+function startCourse() {
+  const nameInput = document.getElementById('agentNameInput');
+  const name = nameInput.value.trim();
+  if (!name) {
+    document.getElementById('nameWarning').style.display = 'block';
+    nameInput.focus();
+    return;
+  }
+  document.getElementById('nameWarning').style.display = 'none';
+  state.agentName = name;
+  saveState();
+  // Pre-fill cert
+  document.getElementById('certAgentName').textContent = name;
+  goSlide(1);
+}
+
+// ── QUIZ ──
+function selectOption(qIdx, oIdx) {
+  if (quizLocked) return;
+  userAnswers[qIdx] = oIdx;
+  const letters = ['A','B','C','D'];
+  for (let o = 0; o < 4; o++) {
+    const el = document.getElementById('q' + qIdx + 'o' + o);
+    el.classList.toggle('selected', o === oIdx);
+    el.querySelector('.sidebar-num').textContent = letters[o];
+  }
+}
+
+function submitQuiz() {
+  // Check all answered
+  for (let i = 0; i < 6; i++) {
+    if (userAnswers[i] === -1) {
+      alert('Please answer all 6 questions before submitting.');
+      return;
+    }
+  }
+  quizLocked = true;
+  let score = 0;
+
+  for (let q = 0; q < 6; q++) {
+    const block = document.getElementById('qb-' + q);
+    block.classList.add('revealed');
+    for (let o = 0; o < 4; o++) {
+      const el = document.getElementById('q' + q + 'o' + o);
+      el.classList.add('locked');
+      el.style.cursor = 'default';
+      if (o === CORRECT[q]) {
+        el.classList.add('correct');
+      } else if (o === userAnswers[q] && userAnswers[q] !== CORRECT[q]) {
+        el.classList.add('incorrect');
+      }
+    }
+    if (userAnswers[q] === CORRECT[q]) score++;
+  }
+
+  // Show result
+  const passed = score >= 5;
+  quizPassed = passed;
+  state.quizPassed = passed;
+  saveState();
+
+  const circle = document.getElementById('scoreCircle');
+  document.getElementById('scoreNum').textContent = score;
+  circle.className = 'score-circle ' + (passed ? 'pass' : 'fail');
+  document.getElementById('scoreLabel').textContent = passed ? 'You Passed!' : 'Not Quite';
+  document.getElementById('scoreSub').textContent = passed
+    ? 'Congratulations — you\'ve demonstrated AEP 2027 compliance knowledge.'
+    : 'You need 5 out of 6 correct. Review the material and try again.';
+
+  document.getElementById('quizSubmitBtn').style.display = 'none';
+  document.getElementById('quizResult').style.display = 'block';
+
+  const actionsDiv = document.getElementById('quizActions');
+  if (passed) {
+    // Set cert date
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('certDate').textContent = 'Completed: ' + dateStr;
+    document.getElementById('certAgentName').textContent = state.agentName || 'Agent';
+    actionsDiv.innerHTML = '<button class="btn btn-pink btn-large" onclick="goSlide(11)">View Certificate <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+  } else {
+    actionsDiv.innerHTML = '<button class="btn btn-secondary btn-large" onclick="retryQuiz()">Retry Quiz</button>';
+  }
+
+  document.getElementById('courseMain').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function retryQuiz() {
+  quizLocked = false;
+  quizPassed = false;
+  userAnswers = new Array(6).fill(-1);
+
+  const letters = ['A','B','C','D'];
+  for (let q = 0; q < 6; q++) {
+    const block = document.getElementById('qb-' + q);
+    block.classList.remove('revealed');
+    for (let o = 0; o < 4; o++) {
+      const el = document.getElementById('q' + q + 'o' + o);
+      el.className = 'quiz-option';
+      el.style.cursor = '';
+      el.querySelector('.sidebar-num').textContent = letters[o];
+    }
+  }
+
+  document.getElementById('quizSubmitBtn').style.display = '';
+  document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('courseMain').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── SIDEBAR TOGGLE (mobile) ──
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ── INIT ──
+function init() {
+  loadState();
+  buildSidebar();
+  updateHeader();
+
+  // Restore name
+  if (state.agentName) {
+    document.getElementById('agentNameInput').value = state.agentName;
+    document.getElementById('certAgentName').textContent = state.agentName;
+  }
+
+  // Show saved slide
+  if (state.currentSlide > 0 && state.agentName) {
+    document.querySelectorAll('.slide-card').forEach((el, i) => {
+      el.classList.toggle('active', i === state.currentSlide);
+    });
+    updateSidebar();
+    updateHeader();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

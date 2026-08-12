@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Agent Login | The Health Experts Insurance</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,Helvetica,sans-serif;background:#F6F5F8;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;}
+.card{background:#fff;border:1px solid #E7E4ED;border-radius:20px;box-shadow:0 4px 24px rgba(69,32,104,.08);padding:40px 36px;width:100%;max-width:420px;text-align:center;}
+.logo{margin-bottom:24px;}
+.logo img{height:72px;width:auto;}
+.hero-bar{background:linear-gradient(135deg,#452068,#341751);border-radius:12px;padding:16px 20px;margin-bottom:28px;}
+.hero-bar h1{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;}
+.hero-bar p{font-size:12px;color:rgba(255,255,255,.8);}
+.step{display:none;}
+.step.active{display:block;}
+label{display:block;text-align:left;font:600 12px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:#6E687C;margin-bottom:6px;}
+input[type=text],input[type=password]{width:100%;padding:13px 16px;border:1.5px solid #E7E4ED;border-radius:999px;font:400 14px/1 Arial,sans-serif;color:#241C2E;outline:none;transition:border-color .15s;margin-bottom:16px;}
+input:focus{border-color:#452068;}
+input::placeholder{color:#9A94A8;}
+.btn{width:100%;padding:14px;border-radius:999px;border:none;background:linear-gradient(135deg,#452068,#341751);color:#fff;font:700 15px/1 Arial,sans-serif;cursor:pointer;transition:opacity .15s;margin-bottom:8px;}
+.btn:hover{opacity:.9;}
+.btn:disabled{opacity:.6;cursor:default;}
+.btn-back{width:100%;padding:10px;border-radius:999px;border:1.5px solid #E7E4ED;background:#fff;color:#6E687C;font:600 13px/1 Arial,sans-serif;cursor:pointer;}
+.btn-back:hover{border-color:#452068;color:#452068;}
+.msg{margin-top:12px;font-size:13px;min-height:18px;text-align:left;}
+.msg.error{color:#D6336C;}
+.msg.success{color:#1E8A5C;}
+.welcome-name{font:700 16px/1 Arial,sans-serif;color:#452068;margin-bottom:4px;}
+.welcome-sub{font:400 13px/1 Arial,sans-serif;color:#6E687C;margin-bottom:20px;}
+.footer-note{margin-top:24px;font-size:12px;color:#9A94A8;}
+.footer-note a{color:#452068;font-weight:700;text-decoration:none;}
+.footer-note a:hover{text-decoration:underline;}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hint{font-size:12px;color:#9A94A8;text-align:left;margin-top:-10px;margin-bottom:14px;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo"><img src="/files/thei-logo.png" alt="The Health Experts Insurance"></div>
+  <div class="hero-bar">
+    <h1>Medicare Agent Hub</h1>
+    <p id="heroSub">Sign in with your NPN to access your resources</p>
+  </div>
+
+  <!-- Step 1: Enter NPN -->
+  <div class="step active" id="step1">
+    <div style="text-align:left;">
+      <label for="npn">National Producer Number (NPN)</label>
+      <input type="text" id="npn" placeholder="e.g. 12345678" autocomplete="off" inputmode="numeric">
+      <button class="btn" onclick="checkNPN()">Continue →</button>
+      <div class="msg" id="msg1"></div>
+    </div>
+
+  </div>
+
+  <!-- Step 2a: Create password (first time) -->
+  <div class="step" id="step2a">
+    <div class="welcome-name" id="welcomeName"></div>
+    <div class="welcome-sub">Create your password to access the Hub</div>
+    <div style="text-align:left;">
+      <label for="newPass">Create Password</label>
+      <input type="password" id="newPass" placeholder="At least 6 characters">
+      <label for="confirmPass">Confirm Password</label>
+      <input type="password" id="confirmPass" placeholder="Repeat your password">
+      <p class="hint">Choose something you'll remember — you'll use this every time.</p>
+      <button class="btn" onclick="createPassword()">Create Password & Sign In →</button>
+      <button class="btn-back" onclick="goBack()">← Back</button>
+      <div class="msg" id="msg2a"></div>
+    </div>
+  </div>
+
+  <!-- Step 2b: Enter existing password -->
+  <div class="step" id="step2b">
+    <div class="welcome-name" id="welcomeName2"></div>
+    <div class="welcome-sub" style="margin-bottom:20px;">Enter your password to sign in</div>
+    <div style="text-align:left;">
+      <label for="existPass">Password</label>
+      <input type="password" id="existPass" placeholder="Your password">
+      <button class="btn" onclick="submitPassword()">Sign In →</button>
+      <button class="btn-back" onclick="goBack()">← Back</button>
+      <div class="msg" id="msg2b"></div>
+      <div style="margin-top:16px;text-align:center;font-size:12px;color:#9A94A8;">
+        Forgot your password? <span style="color:#452068;font-weight:700;cursor:pointer;" onclick="resetPassword()">Reset it</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = 'https://max-onboarding-production.up.railway.app';
+let agentName = '';
+let agentPageId = '';
+let agentNPN = '';
+
+// Already logged in? Redirect home
+(function(){
+  try {
+    const s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (s && s.token && s.expires > Date.now()) window.location.replace('/home.html');
+  } catch(e){}
+})();
+
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function goBack() { showStep('step1'); }
+
+function setBtn(id, loading, text) {
+  const b = document.getElementById(id) || document.querySelector(`#${id.replace('btn','')}`);
+}
+
+async function checkNPN() {
+  const npn = document.getElementById('npn').value.trim().replace(/\D/g,'');
+  const msg = document.getElementById('msg1');
+  msg.className = 'msg'; msg.textContent = '';
+
+  if (!npn || npn.length < 4) {
+    msg.className = 'msg error';
+    msg.textContent = 'Please enter your NPN.';
+    return;
+  }
+
+  // Find the continue button
+  const btn = document.querySelector('#step1 .btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Checking…';
+
+  agentNPN = npn;
+
+  try {
+    const res = await fetch(`${API}/hub/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ npn })
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      msg.className = 'msg error';
+      msg.textContent = data.error || 'NPN not found. Are you registered with THEI?';
+      btn.disabled = false; btn.textContent = 'Continue →';
+      return;
+    }
+
+    agentName = data.name || 'Agent';
+    agentPageId = data.pageId || '';
+
+    if (data.needsPassword) {
+      // First time — create password
+      document.getElementById('welcomeName').textContent = `Welcome, ${agentName}`;
+      document.getElementById('heroSub').textContent = 'Create your Hub password';
+      showStep('step2a');
+      document.getElementById('newPass').focus();
+    } else {
+      // Has password — enter it
+      document.getElementById('welcomeName2').textContent = `Welcome back, ${agentName}`;
+      document.getElementById('heroSub').textContent = 'Enter your password to continue';
+      showStep('step2b');
+      document.getElementById('existPass').focus();
+    }
+  } catch(err) {
+    msg.className = 'msg error';
+    msg.textContent = 'Connection error — please try again.';
+  } finally {
+    btn.disabled = false; btn.textContent = 'Continue →';
+  }
+}
+
+async function createPassword() {
+  const pass = document.getElementById('newPass').value;
+  const confirm = document.getElementById('confirmPass').value;
+  const msg = document.getElementById('msg2a');
+  msg.className = 'msg'; msg.textContent = '';
+
+  if (pass.length < 6) { msg.className='msg error'; msg.textContent='Password must be at least 6 characters.'; return; }
+  if (pass !== confirm) { msg.className='msg error'; msg.textContent='Passwords do not match.'; return; }
+
+  const btn = document.querySelector('#step2a .btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Creating…';
+
+  try {
+    const res = await fetch(`${API}/hub/set-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ npn: agentNPN, password: pass })
+    });
+    const data = await res.json();
+
+    if (res.ok && data.token) {
+      saveSession(data.token, agentName);
+    } else {
+      msg.className = 'msg error';
+      msg.textContent = data.error || 'Could not save password — try again.';
+      btn.disabled = false; btn.textContent = 'Create Password & Sign In →';
+    }
+  } catch(err) {
+    msg.className = 'msg error'; msg.textContent = 'Connection error — please try again.';
+    btn.disabled = false; btn.textContent = 'Create Password & Sign In →';
+  }
+}
+
+async function submitPassword() {
+  const pass = document.getElementById('existPass').value;
+  const msg = document.getElementById('msg2b');
+  msg.className = 'msg'; msg.textContent = '';
+
+  if (!pass) { msg.className='msg error'; msg.textContent='Please enter your password.'; return; }
+
+  const btn = document.querySelector('#step2b .btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Signing in…';
+
+  try {
+    const res = await fetch(`${API}/hub/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ npn: agentNPN, password: pass })
+    });
+    const data = await res.json();
+
+    if (res.ok && data.token) {
+      saveSession(data.token, agentName);
+    } else {
+      msg.className = 'msg error';
+      msg.textContent = data.error || 'Incorrect password. Please try again.';
+      btn.disabled = false; btn.textContent = 'Sign In →';
+    }
+  } catch(err) {
+    msg.className = 'msg error'; msg.textContent = 'Connection error — please try again.';
+    btn.disabled = false; btn.textContent = 'Sign In →';
+  }
+}
+
+function saveSession(token, name) {
+  localStorage.setItem('hub_session', JSON.stringify({
+    token, name, npn: agentNPN,
+    expires: Date.now() + (7 * 24 * 60 * 60 * 1000)
+  }));
+  window.location.replace('/home.html');
+}
+
+// Enter key support
+async function resetPassword() {
+  if (!agentNPN) { showStep('step1'); return; }
+  const msg = document.getElementById('msg2b');
+  msg.className = 'msg'; msg.textContent = 'Resetting...';
+  try {
+    const res = await fetch(`${API}/hub/reset-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ npn: agentNPN })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      msg.className = 'msg success';
+      msg.textContent = 'Password cleared. You can now create a new one.';
+      setTimeout(() => {
+        document.getElementById('newPass').value = '';
+        document.getElementById('confirmPass').value = '';
+        document.getElementById('welcomeName').textContent = `Welcome back, ${agentName}`;
+        showStep('step2a');
+      }, 1200);
+    } else {
+      msg.className = 'msg error';
+      msg.textContent = data.error || 'Reset failed. Try again.';
+    }
+  } catch(e) {
+    msg.className = 'msg error';
+    msg.textContent = 'Connection error. Try again.';
+  }
+}
+
+document.getElementById('npn').addEventListener('keydown', e => { if(e.key==='Enter') checkNPN(); });
+document.addEventListener('keydown', e => {
+  if(e.key==='Enter'){
+    if(document.getElementById('step2a').classList.contains('active')) createPassword();
+    if(document.getElementById('step2b').classList.contains('active')) submitPassword();
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reset Session | Agent Hub</title>
+<style>
+body{margin:0;font-family:'Inter',Arial,sans-serif;background:#F6F5F8;display:flex;align-items:center;justify-content:center;min-height:100vh;color:#241C2E;}
+.card{background:#fff;border-radius:18px;padding:40px 36px;text-align:center;box-shadow:0 8px 32px rgba(69,32,104,.12);max-width:360px;}
+.card h2{font-size:20px;color:#452068;margin:0 0 10px;}
+.card p{font-size:14px;color:#6E687C;margin:0 0 24px;}
+.btn{display:inline-block;padding:12px 28px;background:#452068;color:#fff;border-radius:999px;font:700 14px/1 Arial,sans-serif;text-decoration:none;cursor:pointer;border:none;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="card">
+  <h2>🔄 Resetting your session…</h2>
+  <p>Clearing login + tour state so you can experience the Hub as a first-time user.</p>
+  <div id="status" style="font:600 13px/1 Arial,sans-serif;color:#1E8A5C;"></div>
+</div>
+<script>
+(function(){
+  const keys = ['hub_session','hub_tour_done','rts_status','ahip_status'];
+  keys.forEach(k => localStorage.removeItem(k));
+  document.getElementById('status').textContent = '✅ Done — redirecting to login…';
+  setTimeout(() => window.location.replace('/login.html'), 1200);
+})();
+</script>
+</body>
+</html>

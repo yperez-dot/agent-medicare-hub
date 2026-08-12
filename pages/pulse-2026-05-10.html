@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>THEI Agent Pulse — Week of May 10, 2026</title>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.hero{background:linear-gradient(135deg,#452068,#341751);padding:36px 32px;text-align:center;}
+.hero .badge{display:inline-block;padding:5px 14px;border-radius:999px;background:#FF1090;color:#fff;font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
+.hero h1{font-size:28px;font-weight:700;color:#fff;margin-bottom:6px;}
+.hero .date{font:400 14px/1 Arial,sans-serif;color:rgba(255,255,255,.8);margin-top:8px;}
+.wrap{max-width:860px;margin:0 auto;padding:36px 24px 64px;}
+.back-link{display:inline-block;margin-bottom:24px;font:600 12px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.pulse-card{background:#fff;border:1px solid #E7E4ED;border-radius:16px;padding:32px;box-shadow:0 1px 3px rgba(36,28,46,.06);margin-bottom:24px;}
+.pulse-item{border-top:1px solid #E7E4ED;padding:18px 0;}
+.pulse-item:first-of-type{border-top:none;padding-top:0;}
+.pulse-item .item-emoji{font-size:20px;margin-bottom:8px;}
+.pulse-item .item-title{font:700 15px/1.3 Arial,sans-serif;color:#241C2E;margin-bottom:8px;}
+.pulse-item .item-body{font:400 14px/1.6 Arial,sans-serif;color:#6E687C;}
+.pulse-item .item-source{display:inline-block;margin-top:8px;font:600 12px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
+.pulse-item .item-source:hover{text-decoration:underline;}
+.watch-card{background:#F1ECF6;border:1px solid #D4B8EC;border-radius:14px;padding:20px 24px;margin-top:24px;}
+.watch-card h3{font:700 13px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:#452068;margin-bottom:12px;}
+.watch-card ul{list-style:none;padding:0;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;}
+.watch-card li{font:400 13.5px/1.5 Arial,sans-serif;color:#241C2E;padding-left:16px;position:relative;}
+.watch-card li::before{content:"→";position:absolute;left:0;color:#FF1090;font-weight:700;}
+@media(max-width:600px){.pill-nav a{font-size:11px;padding:7px 13px;}.wrap{padding:20px 16px 48px;}.pulse-card{padding:20px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+
+<div class="wrap">
+  <a class='back-link' href='/pulse-library'>← Back to Library</a>
+
+  <div class="pulse-card">
+    <h2 style="font-size:20px;font-weight:700;color:#241C2E;margin-bottom:20px;">The Week in 5</h2>
+
+    <div class="pulse-item">
+      <div class="item-emoji">🚨</div>
+      <div class="item-title">Auto-enrollment into Medicare Advantage gains momentum, drawing sharp pushback</div>
+      <div class="item-body">The Trump administration's CMS is actively considering making Medicare Advantage the default enrollment for newly eligible beneficiaries — a Project 2025 plank that Medicare director Chris Klomp has confirmed is under feasibility review. This week brought two prominent op-eds (Fortune May 7, Forbes May 9) arguing the policy would lock seniors into prior-auth-heavy plans they didn't choose. For THEI: if this advances, the AEP sales motion changes fundamentally — newly eligible 65-year-olds in Florida would arrive already enrolled rather than shopping. Watch for a formal proposed rule or RFI; nothing has been published yet.</div>
+      <a class="item-source" href="https://www.forbes.com/sites/joshuacohen/2026/05/09/policy-of-auto-enrolling-seniors-in-medicare-advantage-could-backfire/" target="_blank" rel="noopener">Read on Forbes →</a>
+    </div>
+
+    <div class="pulse-item">
+      <div class="item-emoji">📋</div>
+      <div class="item-title">Medicare Advantage Improvement Act of 2026 (HR 8375 / S 4384) is live in Congress</div>
+      <div class="item-body">Bipartisan bill introduced in late April, gaining traction this week, would require MA plans to follow traditional Medicare's medical necessity standards, mandate real-time approvals for routine/low-risk services, prohibit algorithmic auto-denials, and add a "Compliance and Coverage Protection" domain to MA Star Ratings. Companion bill from Reps. Jayapal/Khanna (Stop Deadly Denials Act) goes further by banning prior auth in MA outright. For THEI: if any version passes, prior-auth-driven plan dissatisfaction — a top reason members switch at AEP — could ease. Star ratings would also become harder to game on the consumer-protection side. Track committee markup over the next 30–60 days.</div>
+      <a class="item-source" href="https://leadingage.org/new-bipartisan-bill-targets-medicare-advantage-delays-and-payment-practices/" target="_blank" rel="noopener">Read on LeadingAge →</a>
+    </div>
+
+    <div class="pulse-item">
+      <div class="item-emoji">🌴</div>
+      <div class="item-title">MA network contractions hitting Florida seniors as hospitals exit plans</div>
+      <div class="item-body">Yahoo Finance (May 2026) and Modern Healthcare reporting confirm the trend: the two largest MA insurers, UHC and Humana, will offer plans in about 80% of US counties in 2026 — down from nearly 90% in 2025 — and provider-network terminations (Johns Hopkins/UHC, Scripps medical groups, others) keep stacking up. Florida's dense MA market and concentrated senior population mean THEI clients are disproportionately exposed to mid-year network changes and AEP plan exits. For THEI: build a proactive outreach list of clients on plans most at risk of network shrinkage, especially anyone tied to a specific hospital system.</div>
+      <a class="item-source" href="https://finance.yahoo.com/news/network-shakeups-hit-medicare-advantage-forcing-retirees-to-pay-up-or-find-new-care-150000755.html" target="_blank" rel="noopener">Read on Yahoo Finance →</a>
+    </div>
+
+    <div class="pulse-item">
+      <div class="item-emoji">📰</div>
+      <div class="item-title">UnitedHealth and Humana Q1 2026 earnings beat; both reaffirm 2026 outlook</div>
+      <div class="item-body">UnitedHealth posted $7.23 adjusted EPS (vs. $6.61 estimate), medical cost ratio improved 90 bps to 83.9%; stock surged 37% in April. Humana reported $10.31 adjusted EPS (vs. $10.19 estimate) and projects ~25% MA membership growth versus 2025, though it flagged Star Ratings as a likely 2027 headwind. Combined with CMS's 2.48% CY2027 rate increase (released April 6), carriers have financial cushion to keep benefits relatively stable through this AEP. For THEI: don't expect aggressive benefit cuts from these two at AEP 2027 product release — but Humana's Star Ratings warning is worth tracking because it could affect quality bonus payments and, indirectly, supplemental benefit budgets.</div>
+      <a class="item-source" href="https://247wallst.com/investing/2026/05/01/unitedhealth-or-humana-which-managed-care-stock-had-the-healthiest-returns-in-april/" target="_blank" rel="noopener">Read on 247 Wall St →</a>
+    </div>
+
+    <div class="pulse-item">
+      <div class="item-emoji">📰</div>
+      <div class="item-title">KFF: 53 million prior authorization requests submitted to MA plans in 2024, 7.7% denied</div>
+      <div class="item-body">New KFF data this week quantifies what agents have been seeing operationally: prior auth volume in MA continues to climb, with about 4.1 million denials in 2024. KFF also confirms more enrollees are now in MA-PDs than standalone PDPs (Part D enrollment hit 56 million in February 2026). For THEI: this is the data that fuels the MAIA and Stop Deadly Denials bills above — and it's useful framing when explaining to clients why prior auth experiences vary so much by carrier and plan. Not for marketing materials (CMS marketing rules), but useful for internal training and consultative conversations.</div>
+      <a class="item-source" href="https://www.kff.org/tag/medicare-advantage/" target="_blank" rel="noopener">Read on KFF →</a>
+    </div>
+
+    <div class="watch-card">
+      <h3>What to Watch This Week</h3>
+      <ul>
+        <li>Elevance MA enrollment suspension status: CMS sanction took effect March 31, 2026. Whether Elevance gets cleared before the AEP 2027 marketing season is the open question. Clients with Elevance/Anthem MA plans aren't disenrolled, but new enrollments are blocked.</li>
+        <li>Any CMS RFI or proposed rule language on MA auto-enrollment — formal text would move this from op-ed debate to operational planning.</li>
+        <li>Florida DFS 2-15 license renewal calendar: ongoing 24-hour CE requirement (incl. 4 hours Law &amp; Ethics) for the team's renewal cycles — confirm everyone's CE pacing now, not in Q4.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

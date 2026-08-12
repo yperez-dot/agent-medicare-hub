@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lead Generation Library | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+ --shadow-hover:0 12px 26px rgba(20,10,40,.12);
+ --tint: rgba(69,32,104,.03);
+ --divider: rgba(69,32,104,.10);
+ --ring: 0 0 0 3px rgba(255,16,144,.14);
+
+ --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.section{ margin-top:20px; }
+
+.hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:var(--shadow);
+ position:relative;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:-1px;
+ background:
+ radial-gradient(360px 220px at 18% 15%, rgba(255,16,144,.26), transparent 60%),
+ radial-gradient(420px 260px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+ pointer-events:none;
+}
+.hero-inner{position:relative}
+.hero-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.14);
+ padding:6px 12px;
+ border-radius:999px;
+ font-size:14px;
+ font-weight:900;
+ letter-spacing:.4px;
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 8px;font-size:30px;}
+.hero p{margin:0;opacity:.92;font-size:14px;line-height:1.55;max-width:90ch;}
+
+.section{
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:18px;
+ box-shadow:var(--shadow-soft);
+ padding:16px;
+}
+.section h2{margin:0 0 6px;font-size:18px;}
+.section p{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.55;}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:12px;
+}
+@media(max-width:980px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:14px;
+ background:var(--card);
+ display:flex;
+ flex-direction:row;align-items:center;justify-content:space-between;
+ gap:10px;
+ min-height:170px;
+ transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover{
+ transform:translateY(-2px);
+ box-shadow:var(--shadow-hover);
+ border-color:rgba(69,32,104,.14);
+}
+.card h3{margin:0;font-size:15px;}
+.meta{margin:0;color:var(--muted);font-size:14px;line-height:1.5;}
+
+.pills{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{
+ font-size:14px;
+ font-weight:900;
+ padding:6px 10px;
+ border-radius:999px;
+ border:1px solid rgba(69,32,104,.25);
+ color:var(--primary);
+ background:rgba(69,32,104,.04);
+}
+.pill.hot{
+ border-color:rgba(255,16,144,.35);
+ color:#7a0c44;
+ background:rgba(255,16,144,.08);
+}
+
+.actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+ text-decoration:none;
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ font-size:14px;
+ display:inline-block;
+ border:1px solid transparent;
+ transition:filter .12s ease, transform .12s ease;
+}
+.btn.primary{background:var(--primary);color:#fff;}
+.btn.accent{background:var(--accent);color:#fff;}
+.btn.outline{background:#fff;color:var(--primary);border-color:rgba(69,32,104,.45);}
+.btn:hover{filter:brightness(1.05); transform:translateY(-1px);}
+.btn:active{transform:translateY(0);}
+
+.small{font-size:14px;color:var(--muted);margin-top:10px;}
+
+/* ===== Search ===== */
+.searchbar{
+ margin-top:16px;
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:18px;
+ box-shadow:var(--shadow-soft);
+ padding:12px;
+ display:flex;
+ gap:10px;
+ align-items:center;
+}
+.searchbar .icon{
+ width:38px;height:38px;border-radius:14px;
+ display:grid;place-items:center;
+ border:1px solid rgba(69,32,104,.14);
+ background:linear-gradient(180deg, rgba(69,32,104,.04), #fff);
+ color:var(--primary);
+ flex:0 0 auto;
+}
+.searchbar input{
+ width:100%;
+ border:none;
+ outline:none;
+ font-size:15px;
+ padding:10px 8px;
+ background:transparent;
+ color:var(--text);
+}
+.searchbar input::placeholder{color:rgba(110,104,124,.75);}
+.searchbar .clear{
+ border:1px solid rgba(69,32,104,.18);
+ background:#fff;
+ color:var(--primary);
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ cursor:pointer;
+}
+.searchbar .clear:hover{filter:brightness(1.03);}
+
+.results-note{
+ margin:10px 2px 0;
+ font-size:13px;
+ color:var(--muted);
+}
+.hidden{display:none !important;}
+
+/* ===== Accordion ===== */
+.accordion{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;}
+.acc{
+ border:1px solid rgba(69,32,104,.12);
+ border-radius:18px;
+ background:linear-gradient(180deg, rgba(69,32,104,.035), #fff 65%);
+ box-shadow:var(--shadow-soft);
+ overflow:hidden;
+ transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+}
+.acc:hover{
+ transform:translateY(-1px);
+ box-shadow:0 10px 22px rgba(20,10,40,.10);
+}
+.acc summary{
+ list-style:none;
+ cursor:pointer;
+ padding:16px 18px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ position:relative;
+ background:linear-gradient(180deg, rgba(69,32,104,.045), rgba(255,255,255,.0));
+}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary::before{
+ content:"";
+ position:absolute;
+ left:0;
+ top:12px;
+ bottom:12px;
+ width:4px;
+ border-radius:999px;
+ background: rgba(69,32,104,.35);
+ opacity:.55;
+}
+.acc-title{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:2px;}
+.acc-title strong{color:var(--primary);font-size:16px;font-weight:1000;}
+.acc-title span{color:var(--muted);font-size:14px;}
+.acc-right{display:flex;align-items:center;gap:8px;}
+.acc-count{
+ font-size:14px;font-weight:900;
+ padding:6px 10px;border-radius:999px;
+ border:1px solid rgba(69,32,104,.20);
+ color:var(--primary);
+ background:rgba(69,32,104,.035);
+}
+.acc-chevron{
+ width:34px;height:34px;border-radius:12px;
+ display:grid;place-items:center;
+ border:1px solid rgba(69,32,104,.20);
+ color:var(--primary);
+ background:rgba(69,32,104,.03);
+ transition:transform .18s ease, background .18s ease, border-color .18s ease;
+}
+details[open] .acc-chevron{transform:rotate(180deg);}
+details[open] summary{border-bottom:1px solid var(--divider);}
+.acc summary:focus-visible{
+ outline:none;
+ box-shadow:var(--ring);
+ border-radius:14px;
+}
+.acc-body{
+ padding:14px 16px 16px;
+ background: rgba(69,32,104,.015);
+}
+.acc-body .grid{margin-top:10px;}
+.acc-body .card{border-color: rgba(69,32,104,.10); box-shadow:none;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+<div class="wrap">
+
+ <section class="hero">
+ <div class="hero-inner">
+ <div class="hero-badge">Broker University</div>
+ <h1>Lead Generation Library</h1>
+ <p>How to find new clients. Three proven channels — community presence, provider partnerships, and social media — broken down into step-by-step playbooks.</p>
+ </div>
+ </section>
+
+ <!-- SEARCH -->
+ <div class="searchbar" role="search" aria-label="Search Lead Generation Library">
+ <div class="icon" aria-hidden="true">🔎</div>
+ <input id="searchInput" type="search" placeholder="Search playbooks, scripts, captions (e.g., outreach, AEP, in-service, social media)..." />
+ <button id="clearBtn" class="clear" type="button">Clear</button>
+ </div>
+ <div id="resultsNote" class="results-note"></div>
+
+ <!-- 1) COMMUNITY EVENTS PLAYBOOK -->
+ <section class="section" data-section>
+ <h2>Community Events Playbook</h2>
+ <p>How to build a sustainable community presence — from cold outreach to long-term venue partnerships. 4 phases, bilingual.</p>
+
+ <div class="grid">
+
+ <div class="card" data-search="community events phase 1 getting in venue research outreach email follow up phone walk in bilingual">
+ <h3>Phase 1: Getting In</h3>
+ <div class="pills">
+ <span class="pill hot">Start Here</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">How to find venues, send the first outreach email, follow up, and get the meeting. Includes 4 scripts + outreach tracker.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1dyBtL2W3RZOnkGaTsU8h5gngohK4Yn0W/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 1
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="community events phase 2 showing up right pre event prep checklist 10 minute talk one on one bilingual">
+ <h3>Phase 2: Showing Up Right</h3>
+ <div class="pills">
+ <span class="pill">Day Of</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">Pre-event prep checklist, what to bring, first-visit script, the 10-minute educational talk, and one-on-one scripts.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1v-8gTDkRhRhDpMhPyLIRL3MthY2EKDa7/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 2
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="community events phase 3 converting lead capture same day follow up 7 day sequence objections monthly rhythm bilingual">
+ <h3>Phase 3: Converting</h3>
+ <div class="pills">
+ <span class="pill">After Event</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">Lead capture template, same-day follow-up, the 7-day sequence, objection handling, and how to turn one visit into a monthly partnership.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1nUigracs0daW_SwkzdyIKPoZKwcFUq1C/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 3
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="community events phase 4 building partnership quarterly check in sponsorship event proposal annual review bilingual">
+ <h3>Phase 4: Building the Partnership</h3>
+ <div class="pills">
+ <span class="pill">Long-term</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">Quarterly check-ins, sponsorship offer frameworks, event proposals when you want to host, and the 10 long-term relationship rules.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1poxDqEcA9dkG756Z9PAI3JL2DRByYRtB/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 4
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 2) PROVIDER OFFICE PLAYBOOK -->
+ <section class="section" data-section>
+ <h2>Provider Office Playbook</h2>
+ <p>How to turn doctors' offices into recurring referral pipelines — bi-weekly drop-bys, carrier-sponsored in-services, AEP-prep sessions. 4 phases, bilingual.</p>
+
+ <div class="grid">
+
+ <div class="card" data-search="provider office phase 1 mapping office org chart first visit leave behind packet follow up bilingual">
+ <h3>Phase 1: Mapping the Office</h3>
+ <div class="pills">
+ <span class="pill hot">Start Here</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">How to identify which offices are worth your time, the staff org chart, your 5-minute first visit script, and the leave-behind packet.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1GJiN2PuAALpxA5n0pOJZVWO1adWtwPWc/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 1
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="provider office phase 2 bi weekly drop by cadence treats rotation role scripts compliance bilingual">
+ <h3>Phase 2: The Bi-Weekly Drop-By</h3>
+ <div class="pills">
+ <span class="pill">Cadence</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">The every 2-3 week rhythm, a 6-visit treat rotation, role-by-role conversation scripts, multi-office logistics, and compliance basics.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1P6ty8XsM0BGgSb3oc-di7DPR8oe-AfI6/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 2
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="provider office phase 3 carrier sponsored in service lunch presentation 30 minute proposing follow up bilingual humana uhc aetna wellcare">
+ <h3>Phase 3: Carrier-Sponsored In-Service</h3>
+ <div class="pills">
+ <span class="pill hot">High Impact</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">How to get a carrier (Humana, UHC, Aetna, Wellcare) to sponsor lunch, propose the in-service, deliver the presentation, and follow up.</p>
+ <div class="actions">
+ <a class="btn accent"
+ href="https://docs.google.com/document/d/1ouCYzdvdzDsnV3yjDkAcT-hyAZZ3kHyd/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 3
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="provider office phase 4 becoming office agent aep prep 2027 referral systems quarterly check in defending competitors multi location bilingual">
+ <h3>Phase 4: Becoming THE Office's Agent</h3>
+ <div class="pills">
+ <span class="pill">Long-term</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">The AEP-prep in-service for 2027, frictionless referral systems, defending against competitor agents, and the multi-location play.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1_bEL2If1vJBek8P9eT9_jXyY4jDd26fd/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Phase 4
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 3) SOCIAL MEDIA -->
+ <section class="section" data-section>
+ <h2>Social Media Library</h2>
+ <p>30 ready-to-post Facebook & Instagram captions. Bilingual. No hashtags needed. Pick a caption, grab the visual, post in 10 minutes.</p>
+
+ <div class="grid">
+
+ <div class="card" data-search="social media volume 1 captions educational mythbuster seasonal personal bilingual facebook instagram">
+ <h3>Caption Library — Volume 1</h3>
+ <div class="pills">
+ <span class="pill hot">15 Captions</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">15 ready-to-post captions across 4 categories: Educational, Mythbusters, Seasonal/Timely, and Personal/Brand. Includes weekly rhythm and visual prompts.</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Volume 1
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="social media volume 2 captions aep reviews series part d dual eligible medigap telehealth bilingual">
+ <h3>Caption Library — Volume 2</h3>
+ <div class="pills">
+ <span class="pill hot">15 More Captions</span>
+ <span class="pill">Bilingual</span>
+ </div>
+ <p class="meta">15 more captions including a 4-caption AEP Reviews series timed to the AEP calendar (August through December).</p>
+ <div class="actions">
+ <a class="btn primary"
+ href="https://docs.google.com/document/d/1CIPIu7ZcYn6ZALItNiVF92o_E30ua3d7/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ Open Volume 2
+ </a>
+ </div>
+ </div>
+
+ <div class="card" data-search="social media weekly rhythm posting schedule monday wednesday friday consistency">
+ <h3>The Weekly Rhythm</h3>
+ <div class="pills">
+ <span class="pill">Schedule</span>
+ </div>
+ <p class="meta">Mondays = Educational. Wednesdays = Mythbusters or Seasonal. Fridays = Personal/Brand. 3 posts per week. Detailed in both volumes.</p>
+ <div class="actions">
+ <a class="btn outline"
+ href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit?usp=sharing"
+ target="_blank" rel="noopener">
+ View Rhythm Guide
+ </a>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 4) HOW TO USE -->
+ <section class="section" data-section>
+ <h2>How to Use This Library</h2>
+ <p>Three channels, one strategy. Pick the channel that fits your strengths — then commit.</p>
+
+ <div class="accordion">
+
+ <details class="acc" open data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>Pick Your Lead Generation Channel(s)</strong>
+ <span>You don't have to do all three at once</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">3</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="community events outgoing extrovert in person network">
+ <h3>Community Events</h3>
+ <div class="pills"><span class="pill">Best For</span></div>
+ <p class="meta">Agents who are outgoing, comfortable in groups, and energized by in-person presence. Senior centers, churches, 55+ HOAs.</p>
+ </div>
+
+ <div class="card" data-search="provider offices relationship builder patient quiet professional doctors medical staff">
+ <h3>Provider Offices</h3>
+ <div class="pills"><span class="pill">Best For</span></div>
+ <p class="meta">Agents who are patient, professional, and good at building one-on-one relationships. PCPs, cardiologists, podiatrists.</p>
+ </div>
+
+ <div class="card" data-search="social media writer creative quiet bilingual scalable facebook instagram">
+ <h3>Social Media</h3>
+ <div class="pills"><span class="pill">Best For</span></div>
+ <p class="meta">Agents who write well, prefer working solo, or want to build presence without leaving their desk. Scales infinitely.</p>
+ </div>
+
+ </div>
+ </div>
+ </details>
+
+ <details class="acc" data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>The 90-Day Build Plan</strong>
+ <span>Don't try everything at once</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">3</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="month 1 first 30 days outreach research first visits start social posts">
+ <h3>Month 1: Foundation</h3>
+ <div class="pills"><span class="pill">Days 1-30</span></div>
+ <p class="meta">Pick 3 community venues + 3 provider offices to target. Send first outreach. Start posting 3x/week on social. Read all Phase 1 playbooks.</p>
+ </div>
+
+ <div class="card" data-search="month 2 second 30 days first visits drop bys consistent posting follow up">
+ <h3>Month 2: Consistency</h3>
+ <div class="pills"><span class="pill">Days 31-60</span></div>
+ <p class="meta">Complete first community visits. Drop-by at provider offices every 2 weeks. Follow up with leads. Post consistently. Read Phase 2 playbooks.</p>
+ </div>
+
+ <div class="card" data-search="month 3 third 30 days propose in service convert leads partnerships building">
+ <h3>Month 3: Momentum</h3>
+ <div class="pills"><span class="pill">Days 61-90</span></div>
+ <p class="meta">Propose your first carrier-sponsored in-service. Convert community event leads to enrollments. Lock in monthly venue rhythm. Read Phase 3 playbooks.</p>
+ </div>
+
+ </div>
+ </div>
+ </details>
+
+ <details class="acc" data-accordion>
+ <summary>
+ <div class="acc-title">
+ <strong>The Lead Generation Math</strong>
+ <span>What's realistic from each channel</span>
+ </div>
+ <div class="acc-right">
+ <span class="acc-count">3</span>
+ <span class="acc-chevron">⌄</span>
+ </div>
+ </summary>
+
+ <div class="acc-body">
+ <div class="grid">
+
+ <div class="card" data-search="community events math 3 venues monthly visits 36 touchpoints lead generation">
+ <h3>Community Events</h3>
+ <div class="pills"><span class="pill hot">Realistic Year 1</span></div>
+ <p class="meta">3 venues × monthly visits × full year = 36 touchpoints. Expect 15-25 enrollments from this channel after the first year.</p>
+ </div>
+
+ <div class="card" data-search="provider offices math bi weekly visits 4 offices in service 50 enrollments referrals">
+ <h3>Provider Offices</h3>
+ <div class="pills"><span class="pill hot">Highest ROI</span></div>
+ <p class="meta">4 offices × bi-weekly visits + 1 in-service per office per year = 50-100 enrollments annually once mature (6+ months in).</p>
+ </div>
+
+ <div class="card" data-search="social media math 3 posts weekly 156 posts year inbound leads brand">
+ <h3>Social Media</h3>
+ <div class="pills"><span class="pill">Slowest Build</span></div>
+ <p class="meta">3 posts/week × 52 weeks = 156 posts/year. Inbound leads start trickling in around month 6, accelerate at month 12+. Long game.</p>
+ </div>
+
+ </div>
+ </div>
+ </details>
+
+ </div>
+ </section>
+
+</div>
+
+<script>
+(function(){
+ const input = document.getElementById('searchInput');
+ const clearBtn = document.getElementById('clearBtn');
+ const note = document.getElementById('resultsNote');
+
+ const sections = Array.from(document.querySelectorAll('[data-section]'));
+ const cards = Array.from(document.querySelectorAll('.card'));
+
+ function normalize(s){
+ return (s || "")
+ .toLowerCase()
+ .replace(/\s+/g,' ')
+ .trim();
+ }
+
+ function update(){
+ const q = normalize(input.value);
+ let visibleCards = 0;
+
+ if(!q){
+ cards.forEach(c => c.classList.remove('hidden'));
+ sections.forEach(s => s.classList.remove('hidden'));
+ note.textContent = "";
+ return;
+ }
+
+ cards.forEach(card => {
+ const hay = normalize(card.getAttribute('data-search')) + " " + normalize(card.innerText);
+ const match = hay.includes(q);
+ card.classList.toggle('hidden', !match);
+ if(match) visibleCards++;
+ });
+
+ sections.forEach(section => {
+ const hasVisible = section.querySelector('.card:not(.hidden)');
+ section.classList.toggle('hidden', !hasVisible);
+ });
+
+ document.querySelectorAll('details[data-accordion]').forEach(det => {
+ const hasVisible = det.querySelector('.card:not(.hidden)');
+ if(hasVisible) det.open = true;
+ });
+
+ note.textContent = visibleCards
+ ? `Showing ${visibleCards} item${visibleCards === 1 ? "" : "s"} for "${input.value.trim()}".`
+ : `No results for "${input.value.trim()}". Try "provider office", "community events", "social media", or "in-service".`;
+ }
+
+ input.addEventListener('input', update);
+ clearBtn.addEventListener('click', () => {
+ input.value = "";
+ input.focus();
+ update();
+ });
+
+ update();
+})();
+</script>
+
+</body>
+</html>
