@@ -1,8 +1,7 @@
 name: Deploy to Netlify
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:  # Manual trigger only — Igor runs all deploys via deploy_hub.py
 
 jobs:
   deploy:
