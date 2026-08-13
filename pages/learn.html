@@ -357,7 +357,10 @@ h2.section-h2{font-size:20px;font-weight:700;color:var(--text);display:flex;alig
 
       if(filter === 'all'){
         featured.classList.remove('hidden');
-        sections.forEach(function(s){s.classList.remove('hidden');});
+        sections.forEach(function(s){
+          s.classList.remove('hidden');
+          expandSection(s);
+        });
       } else {
         featured.classList.add('hidden');
         sections.forEach(function(s){
