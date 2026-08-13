@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Medicare Supplement (Medigap) | Medicare Agent Hub</title>
+
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 18px 40px rgba(20,10,40,.14);
+ --shadow-soft:0 10px 22px rgba(20,10,40,.09);
+ --maxw:1100px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.logo-wrap img{height:44px;width:auto;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+
+.hero{
+ background:radial-gradient(900px 380px at 22% 0%, rgba(255,16,144,.25), transparent 60%),
+ linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;border-radius:26px;padding:28px;box-shadow:var(--shadow);margin-bottom:14px;
+}
+.badge{display:inline-block;font-size:14px;font-weight:900;letter-spacing:.4px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.14);margin-bottom:10px;}
+.hero h1{margin:0 0 8px;font-size:34px;line-height:1.12;}
+.hero p{margin:0;color:rgba(255,255,255,.9);font-size:14px;max-width:80ch;line-height:1.55;}
+.hero-stats{display:flex;gap:28px;margin-top:18px;flex-wrap:wrap;}
+.hero-stat-num{font-size:22px;font-weight:900;color:#f0c0ff;}
+.hero-stat-lbl{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px;}
+
+/* Doc grid */
+.doc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:14px;}
+@media(max-width:900px){.doc-grid{grid-template-columns:1fr;}}
+
+.doc-card{
+ background:var(--card);border:1px solid var(--border);border-radius:22px;
+ box-shadow:var(--shadow-soft);padding:18px;display:flex;flex-direction:column;gap:8px;
+ text-decoration:none;color:inherit;transition:box-shadow .2s,transform .15s;
+}
+.doc-card:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:900;padding:5px 10px;border-radius:999px;border:1px solid rgba(69,32,104,.25);background:rgba(69,32,104,.04);color:var(--primary);width:max-content;}
+.tag.pink{background:rgba(255,16,144,.10);border-color:rgba(255,16,144,.28);color:#7a0c44;}
+.tag.green{background:rgba(16,185,89,.08);border-color:rgba(16,185,89,.25);color:#065f46;}
+.tag.amber{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);color:#92400e;}
+
+.doc-card h2{margin:0 0 4px;font-size:17px;line-height:1.25;}
+.doc-card p{margin:0 0 8px;color:var(--muted);font-size:13.5px;line-height:1.55;flex:1;}
+.doc-tip{background:#fff7ed;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:8px 10px;font-size:12.5px;color:#92400e;line-height:1.45;}
+.doc-tip.pink{background:#fff0f6;border-color:#ff1090;color:#7a0c44;}
+.doc-meta{font-size:11.5px;color:#b0a8c0;}
+
+.btn{
+ display:flex;justify-content:space-between;align-items:center;gap:10px;
+ text-decoration:none;font-weight:900;font-size:14px;border-radius:14px;padding:11px 14px;
+ border:1px solid rgba(69,32,104,.30);color:var(--primary);background:#fff;margin-top:auto;
+ transition:background .15s,border-color .15s;
+}
+.btn:hover{background:rgba(69,32,104,.05);border-color:rgba(69,32,104,.50);}
+.btn.primary{background:var(--primary);border-color:transparent;color:#fff;}
+.btn.primary:hover{filter:brightness(1.05);}
+
+/* Quick ref */
+.section{margin-top:14px;background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-soft);padding:20px;}
+.section h3{margin:0 0 14px;font-size:18px;font-weight:800;}
+.kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+@media(max-width:980px){.kv{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.kv{grid-template-columns:1fr;}}
+.kvCard{border:1px solid var(--border);border-radius:16px;padding:14px;background:var(--bg);}
+.kvCard h4{margin:0 0 5px;font-size:13px;color:var(--primary);font-weight:800;text-transform:uppercase;letter-spacing:.04em;}
+.kvCard p{margin:0;color:var(--muted);font-size:13px;line-height:1.5;}
+.kvCard strong{color:var(--text);}
+
+/* Gov links */
+.gov-link{display:flex;align-items:center;gap:14px;background:#f7f5fb;border:1px solid var(--border);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .15s;margin-bottom:10px;}
+.gov-link:hover{border-color:var(--primary);}
+.gov-link-icon{font-size:22px;flex-shrink:0;}
+.gov-link-title{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px;}
+.gov-link-desc{font-size:12.5px;color:var(--muted);line-height:1.45;}
+.gov-link-arrow{margin-left:auto;font-size:18px;color:var(--primary);flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="badge">Medigap</span>
+    <h1>Medicare Supplement (Medigap)</h1>
+    <p>Enrollments are rising and agents need to know this product cold. Everything here — UHC/AARP docs, underwriting questions, hospital networks, rates, and official tools — so you never have to dig through email.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">5</div><div class="hero-stat-lbl">UHC/AARP docs</div></div>
+      <div><div class="hero-stat-num">Jun–May</div><div class="hero-stat-lbl">2026–2027 rates</div></div>
+      <div><div class="hero-stat-num">Pg 3 §6</div><div class="hero-stat-lbl">Underwriting questions</div></div>
+      <div><div class="hero-stat-num">2 areas</div><div class="hero-stat-lbl">FL pricing zones</div></div>
+    </div>
+  </section>
+
+  <!-- DOC GRID -->
+  <div class="doc-grid">
+
+    <!-- 1: Quick Reference -->
+    <a class="doc-card" href="/files/uhc-aarp-agent-quick-reference-2026.pdf" target="_blank" rel="noopener">
+      <span class="tag green">⚡ Start Here</span>
+      <h2>2026 Agent Quick Reference Guide</h2>
+      <p>Plan overview, Medigap basics, enrollment FAQs, Jarvis resources, submission addresses, and contact numbers. 13 pages.</p>
+      <div class="doc-meta">March 2026 · Agent Use Only</div>
+      <div class="btn primary">Open PDF <span>↗</span></div>
+    </a>
+
+    <!-- 2: Enrollment Kit -->
+    <a class="doc-card" href="/files/uhc-aarp-enrollment-kit-fl-2026.pdf" target="_blank" rel="noopener">
+      <span class="tag">📦 Full Kit</span>
+      <h2>Enrollment Kit — Florida 2026</h2>
+      <p>Plan benefit chart, rate tables (Area 1 &amp; 2) by age/gender/tobacco, discounts, outline of coverage, and grievance procedure.</p>
+      <div class="doc-meta">Edition 6/15/26 · BC10064ST</div>
+      <div class="btn primary">Open PDF <span>↗</span></div>
+    </a>
+
+    <!-- 3: Application -->
+    <a class="doc-card" href="/files/uhc-aarp-medsup-application-fl-2026.pdf#page=3" target="_blank" rel="noopener">
+      <span class="tag pink">📋 Underwriting</span>
+      <h2>2026 AARP Application</h2>
+      <p>Full paper application. Opens directly to Page 3 — review Section 6 (knockouts) with clients before submitting.</p>
+      <div class="doc-tip pink">⚠️ <strong>Go to Page 3, Section 6</strong> for the medical underwriting questions. 6A–6K are automatic declines if YES.</div>
+      <div class="doc-meta">S42O49MNAGFL01 · 10 pages</div>
+      <div class="btn primary">Open PDF → Page 3 <span>↗</span></div>
+    </a>
+
+    <!-- 4: Hospital Network -->
+    <a class="doc-card" href="/files/uhc-plan-g-select-hospital-list-fl-2026.pdf" target="_blank" rel="noopener">
+      <span class="tag">🏥 Network</span>
+      <h2>Plan G Select — FL Hospital Network</h2>
+      <p>Participating hospital directory by county for AARP Medicare Select (Plan G Select) — FL, AL &amp; GA. Effective January 2026.</p>
+      <div class="doc-tip">⚠️ Plan G Select only pays full benefits at these hospitals for non-emergency care. Always verify before enrolling.</div>
+      <div class="doc-meta">HD1001FLI · 6 pages</div>
+      <div class="btn primary">Open PDF <span>↗</span></div>
+    </a>
+
+    <!-- 5: GI Guide -->
+    <a class="doc-card" href="/files/uhc-aarp-guaranteed-issue-guide-fl-2026.pdf" target="_blank" rel="noopener">
+      <span class="tag">✅ GI Rights</span>
+      <h2>Guaranteed Issue &amp; Eligibility Guide</h2>
+      <p>GI rights, OEP timing, 63-day rule, pre-existing condition waivers, Select plan restrictions, and exclusions. Florida-specific.</p>
+      <div class="doc-tip">📌 App must be received within <strong>63 days</strong> of prior coverage termination. Include proof of loss with the application.</div>
+      <div class="doc-meta">GU25156FL</div>
+      <div class="btn primary">Open PDF <span>↗</span></div>
+    </a>
+
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <section class="section">
+    <h3>Quick Reference — What Agents Need to Know</h3>
+    <div class="kv">
+
+      <div class="kvCard">
+        <h4>Open Enrollment Period</h4>
+        <p><strong>6 months from Part B effective date.</strong> Guaranteed issue — no health questions. Best time to sell.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Plan G Select vs Plan G</h4>
+        <p><strong>Same benefits, lower premium.</strong> Requires network hospital use for non-emergency care.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>GI Events — 63-Day Rule</h4>
+        <p>Loss of creditable coverage, MA trial right. App received within <strong>63 days</strong> of termination. Include docs.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Underwriting Knockouts (§6)</h4>
+        <p><strong>YES = ineligible.</strong> Cancer, cardiac, COPD, ALS, Alzheimer's, transplants. Review before submitting.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Part B Deductible 2026</h4>
+        <p><strong>$257/year.</strong> Plan G does NOT cover it. Plan F does — but only for pre-2020 Medicare eligibility.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>AARP Membership Required</h4>
+        <p><strong>$20/year.</strong> Enroll at aarp.org/savetoday or 1-866-331-1964. Agents cannot pay dues for clients.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Discounts</h4>
+        <p><strong>3%</strong> multi-insured + <strong>$2/mo</strong> EFT OR <strong>$24/yr</strong> annual pay. EFT and annual pay cannot be combined.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Rate Areas — Florida</h4>
+        <p><strong>Area 1</strong> = South FL (Miami-Dade, Broward, Palm Beach). <strong>Area 2</strong> = rest of FL. ~$55–60/mo difference on Plan G.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Submitting Applications</h4>
+        <p><strong>JarvisEnroll preferred.</strong> Paper mail to PO Box 105331, Atlanta GA 30348. Fax: 1-888-836-3985. No email.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Producer Help Desk</h4>
+        <p><strong>1-888-381-8581</strong> (Option 2 = Español). Also available via Chat on Jarvis.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Member Services (clients)</h4>
+        <p><strong>1-800-523-5800.</strong> Verify current hospital network status before any Plan G Select enrollment.</p>
+      </div>
+
+      <div class="kvCard">
+        <h4>Plans C &amp; F — Restricted</h4>
+        <p>Only for clients eligible for Medicare <strong>before Jan 1, 2020.</strong> Everyone else → push to Plan G.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GOV TOOLS -->
+  <section class="section" style="margin-top:14px;">
+    <h3>Official Medicare.gov Tools</h3>
+
+    <a class="gov-link" href="https://www.medicare.gov/health-drug-plans/medigap/basics" target="_blank" rel="noopener">
+      <div class="gov-link-icon">🏛️</div>
+      <div>
+        <div class="gov-link-title">Medigap Basics</div>
+        <div class="gov-link-desc">What Medigap covers, how it works, when to buy, and how to compare plans. Good to share with clients.</div>
+      </div>
+      <span class="gov-link-arrow">↗</span>
+    </a>
+
+    <a class="gov-link" href="https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when" target="_blank" rel="noopener">
+      <div class="gov-link-icon">💬</div>
+      <div>
+        <div class="gov-link-title">"When Can I Buy Medigap?" Quiz</div>
+        <div class="gov-link-desc">Interactive quiz — walks clients through their enrollment window and GI rights. Walk through it with them on the spot.</div>
+      </div>
+      <span class="gov-link-arrow">↗</span>
+    </a>
+
+    <a class="gov-link" href="https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/change-policies" target="_blank" rel="noopener">
+      <div class="gov-link-icon">🔄</div>
+      <div>
+        <div class="gov-link-title">Changing Medigap Policies</div>
+        <div class="gov-link-desc">CMS guide on switching plans — when you can switch, underwriting rules, and rights when changing policies.</div>
+      </div>
+      <span class="gov-link-arrow">↗</span>
+    </a>
+
+    <a class="gov-link" href="https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/change-policies/switch-drop" target="_blank" rel="noopener">
+      <div class="gov-link-icon">🔁</div>
+      <div>
+        <div class="gov-link-title">"Should I Switch or Drop My Medigap?" Quiz</div>
+        <div class="gov-link-desc">Interactive quiz — helps clients decide whether switching or dropping makes sense. Walk through before a plan change conversation.</div>
+      </div>
+      <span class="gov-link-arrow">↗</span>
+    </a>
+  </section>
+
+  <!-- CARRIER TRAINING -->
+  <section class="section" style="margin-top:14px;">
+    <h3>Carrier Training &amp; Events</h3>
+    <a class="gov-link" href="https://university.healthspringforbrokers.com/EventCalendar" target="_blank" rel="noopener">
+      <div class="gov-link-icon">🎓</div>
+      <div>
+        <div class="gov-link-title">HealthSpring for Brokers — Event Calendar</div>
+        <div class="gov-link-desc">Upcoming training webinars, certification events, and broker education. Check regularly for AEP and certification deadlines.</div>
+      </div>
+      <span class="gov-link-arrow">↗</span>
+    </a>
+  </section>
+
+</div>
+
+<script>
+function logout(){
+  document.cookie='hub_session=;expires=Thu,01 Jan 1970 00:00:00 GMT;path=/';
+  window.location.href='/login';
+}
+</script>
+</body>
+</html>
