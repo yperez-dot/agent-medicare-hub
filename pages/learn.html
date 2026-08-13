@@ -49,7 +49,9 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .cta-link{font:700 12.5px/1 Arial,sans-serif;color:var(--purple);margin-top:4px;}
 .section-block{margin-bottom:28px;}
 .hidden{display:none!important;}
-h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text);}
+h2.section-h2{font-size:20px;font-weight:700;color:var(--text);display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:10px 0;margin-bottom:0;user-select:none;}
+.toggle-arrow{font-size:13px;transition:transform .25s;display:inline-block;margin-left:8px;opacity:.6;}
+.section-grid-wrap{margin-top:14px;margin-bottom:28px;}
 @media(max-width:768px){.grid-3{grid-template-columns:1fr;}}
 .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
 .logo-wrap img{height:52px;width:auto;display:block;}
@@ -121,8 +123,8 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
   </div>
 
   <div class="section-block" data-section="medicare">
-    <h2 class="section-h2">Medicare Basics</h2>
-    <div class="grid-3">
+    <h2 class="section-h2" onclick="toggleSection(this)">Medicare Basics <span class="toggle-arrow">▾</span></h2>
+    <div class="section-grid-wrap"><div class="grid-3">
       <a class="resource-card" href="https://gamma.app/docs/Medicare-Election-Periods-Made-Simple-27r9r29ndrof3eh" target="_blank" rel="noopener">
         <div class="pill-row"><span class="type-badge gamma">Gamma</span></div>
         <h3>Election Periods Guide</h3>
@@ -147,15 +149,18 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
         <p>Parts A, B, C, D explained with 2026 premiums and cost-sharing figures.</p>
         <span class="cta-link">Open Training →</span>
       </a>
-    </div>
+      <a class="resource-card" href="/medicare-supplements">
+        <div class="pill-row"><span class="type-badge">Medigap</span><span class="type-badge" style="background:#E3F5EC;color:#1E8A5C;">UHC/AARP</span></div>
+        <h3>Medicare Supplement (Medigap) Hub</h3>
+        <p>Enrollment kit, underwriting questions (pg 3 §6), Plan G Select hospital network, GI guide, rate tables, and Medicare.gov tools.</p>
+        <span class="cta-link">Open Hub →</span>
+      </a>
+    </div></div>
   </div>
 
-  <!-- Client Forms -->
-
-  <!-- Carrier Resources -->
   <div class="section-block" data-section="carriers">
-    <h2 class="section-h2">🏥 Carrier Resources</h2>
-    <div class="grid-3">
+    <h2 class="section-h2" onclick="toggleSection(this)">🏥 Carrier Resources <span class="toggle-arrow">▾</span></h2>
+    <div class="section-grid-wrap"><div class="grid-3">
       <a class="resource-card featured" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
         <div class="pill-row"><span class="type-badge sheet">Sheet</span></div>
         <h3>📊 2026 MAPD Plan Grid</h3>
@@ -174,12 +179,12 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
         <p>Annual certification deadlines, AHIP, carrier-specific training links, and CMS compliance rules all in one place.</p>
         <span class="cta-link">Open Page →</span>
       </a>
-    </div>
+    </div></div>
   </div>
 
   <div class="section-block" data-section="forms">
-    <h2 class="section-h2">Client Forms &amp; Appeals</h2>
-    <div class="grid-3">
+    <h2 class="section-h2" onclick="toggleSection(this)">Client Forms &amp; Appeals <span class="toggle-arrow">▾</span></h2>
+    <div class="section-grid-wrap"><div class="grid-3">
       <a class="resource-card" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener">
         <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">SSA</span></div>
         <h3>SSA-44 — IRMAA Appeal</h3>
@@ -204,14 +209,12 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
         <p>Use when standard SEP rules don't apply cleanly. For complex enrollment timing situations.</p>
         <span class="cta-link">Open PDF →</span>
       </a>
-    </div>
+    </div></div>
   </div>
 
-  <!-- Medicaid & LIS -->
-
   <div class="section-block" data-section="medicaid">
-    <h2 class="section-h2">Medicaid &amp; LIS</h2>
-    <div class="grid-3">
+    <h2 class="section-h2" onclick="toggleSection(this)">Medicaid &amp; LIS <span class="toggle-arrow">▾</span></h2>
+    <div class="section-grid-wrap"><div class="grid-3">
       <a class="resource-card" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit" target="_blank" rel="noopener">
         <div class="pill-row"><span class="type-badge">Google Doc</span></div>
         <h3>Medicaid Levels Cheat Sheet</h3>
@@ -236,14 +239,12 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
         <p>SSI-related programs & coverage groups — QMB, SLMB, QI1, LIS, MEDS-AD financial eligibility standards. Updated April 2026.</p>
         <span class="cta-link">Download PDF →</span>
       </a>
-    </div>
+    </div></div>
   </div>
 
-  <!-- Sales & Training -->
-
   <div class="section-block" data-section="sales">
-    <h2 class="section-h2">Sales &amp; Training</h2>
-    <div class="grid-3">
+    <h2 class="section-h2" onclick="toggleSection(this)">Sales &amp; Training <span class="toggle-arrow">▾</span></h2>
+    <div class="section-grid-wrap"><div class="grid-3">
       <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
         <div class="pill-row"><span class="type-badge sheet">Google Sheet</span></div>
         <h3>2026 MAPD Plan Comparison Grid</h3>
@@ -262,13 +263,12 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
         <p>Helps identify plan fit and Extra Help eligibility during appointments.</p>
         <span class="cta-link">Open Doc →</span>
       </a>
-    </div>
+    </div></div>
   </div>
 
-  <!-- Lead Generation -->
-
   <div class="section-block" data-section="leadgen">
-    <h2 class="section-h2">Lead Generation</h2>
+    <h2 class="section-h2" onclick="toggleSection(this)">Lead Generation <span class="toggle-arrow">▾</span></h2>
+    <div class="section-grid-wrap">
 
     <span class="section-label">Community Events Playbook</span>
     <div class="grid-3" style="margin-bottom:20px;">
@@ -330,7 +330,7 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
         <p>15 more captions including 4-caption AEP Reviews series timed to the AEP calendar. EN+ES.</p>
         <span class="cta-link">Open Doc →</span>
       </a>
-    </div>
+    </div></div>
   </div>
 
 </div>
@@ -363,6 +363,14 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
 
 <script>
 function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+function toggleSection(h2){
+  var wrap=h2.nextElementSibling;
+  var collapsed=h2.getAttribute('data-collapsed')==='1';
+  h2.setAttribute('data-collapsed',collapsed?'0':'1');
+  var arrow=h2.querySelector('.toggle-arrow');
+  if(arrow) arrow.style.transform=collapsed?'':' rotate(-90deg)';
+  if(wrap) wrap.style.display=collapsed?'':' none';
+}
 </script>
 </body>
 </html>
