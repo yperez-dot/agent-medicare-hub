@@ -93,6 +93,9 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 .gov-link-desc{font-size:12.5px;color:var(--muted);line-height:1.45;}
 .gov-link-arrow{margin-left:auto;font-size:18px;color:var(--primary);flex-shrink:0;}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -305,10 +308,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 </div>
 
 <script>
-function logout(){
-  document.cookie='hub_session=;expires=Thu,01 Jan 1970 00:00:00 GMT;path=/';
-  window.location.href='/login';
-}
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
 </script>
 </body>
 </html>
