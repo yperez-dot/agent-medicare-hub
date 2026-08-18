@@ -170,6 +170,8 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<script src="/hub-nav.js" defer></script>
 </head>
 <body>
 
@@ -798,9 +800,9 @@ const TOUR_STEPS = [
     offset: {x: 0, y: 14}
   },
   {
-    targetSelector: ".pill-nav",
+    targetSelector: "#hubNavToggle, .pill-nav",
     title: "One-click navigation",
-    desc: "Everything is one click from anywhere — Broker University, SEP Tracker, Certs, Carrier Guide, HRA Guide. Use the nav anytime to jump between sections.",
+    desc: "Use the menu anytime to jump between Broker University, SEP Tracker, Certs, Carrier Guide, and more.",
     arrow: "arrow-top",
     offset: {x: 0, y: 14}
   },
@@ -844,10 +846,16 @@ function showTourStep() {
     '<span class="tour-dot' + (i === _tourStep ? ' active' : '') + '"></span>'
   ).join('');
 
-  // Spotlight target
+  // Spotlight target — prefer the first visible match (hamburger on mobile, pills on desktop)
   let el = null;
   if (step.targetId) el = document.getElementById(step.targetId);
-  else if (step.targetSelector) el = document.querySelector(step.targetSelector);
+  else if (step.targetSelector) {
+    const nodes = document.querySelectorAll(step.targetSelector);
+    el = Array.from(nodes).find(function(n){ return n.getClientRects().length > 0; }) || nodes[0] || null;
+  }
+  if (el && !el.getClientRects().length) {
+    el = document.getElementById('hubNavToggle') || el;
+  }
 
   // Reset bubble classes
   bubble.className = 'tour-bubble ' + (step.arrow || '');
