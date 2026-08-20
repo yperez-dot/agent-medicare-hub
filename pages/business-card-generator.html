@@ -272,6 +272,31 @@
         let cropper = null;
         let logoImage = new Image();
 
+        function drawLogo(ctx, x, y, width) {
+            if (!logoImage.complete || logoImage.naturalWidth === 0) return;
+
+            const height = (logoImage.naturalHeight / logoImage.naturalWidth) * width;
+            const cleanLogo = document.createElement('canvas');
+            cleanLogo.width = logoImage.naturalWidth;
+            cleanLogo.height = logoImage.naturalHeight;
+            const cleanCtx = cleanLogo.getContext('2d');
+            cleanCtx.drawImage(logoImage, 0, 0);
+
+            const pixels = cleanCtx.getImageData(0, 0, cleanLogo.width, cleanLogo.height);
+            for (let i = 0; i < pixels.data.length; i += 4) {
+                const red = pixels.data[i];
+                const green = pixels.data[i + 1];
+                const blue = pixels.data[i + 2];
+
+                // Make the JPEG's white backdrop transparent while preserving the logo artwork.
+                if (red > 240 && green > 240 && blue > 240) {
+                    pixels.data[i + 3] = 0;
+                }
+            }
+            cleanCtx.putImageData(pixels, 0, 0);
+            ctx.drawImage(cleanLogo, x, y, width, height);
+        }
+
         function drawPlaceholder() {
             const canvas = document.getElementById('cardCanvas');
             const ctx = canvas.getContext('2d');
@@ -310,10 +335,7 @@
             ctx.fillText('Your Photo', photoX + photoSize/2, photoY + photoSize/2 + 10);
             ctx.textAlign = 'left';
             // Logo area placeholder
-            if (logoImage.complete && logoImage.naturalWidth > 0) {
-                const logoWidth = 220; const logoHeight = logoWidth * (logoImage.naturalHeight / logoImage.naturalWidth);
-                ctx.drawImage(logoImage, 50, 30, logoWidth, logoHeight);
-            }
+            drawLogo(ctx, 50, 30, 220);
             // Name placeholder
             ctx.font = 'bold 60px Arial';
             ctx.fillStyle = '#DDDDDD';
@@ -447,38 +469,34 @@
                 ctx.stroke();
             }
             
-            // Logo - EXACT SIZE from thei-logo.jpg
-            if (logoImage.complete && logoImage.width > 0) {
-                const logoWidth = 600;
-                const logoHeight = (logoImage.height / logoImage.width) * logoWidth;
-                ctx.drawImage(logoImage, 50, 30, logoWidth, logoHeight);
-            }
+            // Keep the logo clear of the service line and agent details.
+            drawLogo(ctx, 50, 30, 430);
             
             // Services
             ctx.font = '22px Arial';
             ctx.fillStyle = '#3D1560';
-            ctx.fillText('Medicare | Individual | Dental | Ancillary', 60, 210);
+            ctx.fillText('Medicare | Individual | Dental | Ancillary', 60, 220);
             
             // Divider
             ctx.strokeStyle = '#E0E0E0';
             ctx.lineWidth = 3;
             ctx.beginPath();
-            ctx.moveTo(60, 230);
-            ctx.lineTo(canvas.width - 360, 230);
+            ctx.moveTo(60, 245);
+            ctx.lineTo(canvas.width - 360, 245);
             ctx.stroke();
             
             // Name
             ctx.font = 'bold 60px Arial';
             ctx.fillStyle = '#3D1560';
-            ctx.fillText(name, 60, 300);
+            ctx.fillText(name, 60, 315);
 
             // Title
             ctx.font = '34px Arial';
             ctx.fillStyle = '#666666';
-            ctx.fillText(title, 60, 345);
+            ctx.fillText(title, 60, 360);
             
             // Contact
-            const contactY = 395;
+            const contactY = 410;
             const lineHeight = 42;
             ctx.font = '28px Arial';
             ctx.fillStyle = '#333333';
