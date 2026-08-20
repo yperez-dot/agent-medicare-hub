@@ -34,6 +34,17 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 
 /* Cards grid */
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.sneak-peek-card{background:linear-gradient(120deg,#2F1348 0%,var(--purple) 58%,#6B2785 100%);border-radius:18px;color:#fff;margin-bottom:18px;overflow:hidden;position:relative;box-shadow:0 10px 26px rgba(69,32,104,.2);}
+.sneak-peek-card::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;right:-105px;top:-150px;background:rgba(255,255,255,.07);}
+.sneak-peek-content{position:relative;z-index:1;display:flex;align-items:center;gap:24px;padding:22px 26px;}
+.sneak-peek-copy{flex:1;}
+.sneak-peek-eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.23);border-radius:999px;padding:4px 9px;font:700 10px/1 Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;margin-bottom:9px;}
+.sneak-peek-title{font:700 20px/1.2 Arial,sans-serif;margin-bottom:5px;}
+.sneak-peek-desc{font:400 13px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:72ch;}
+.sneak-peek-update{display:flex;align-items:center;gap:12px;min-width:325px;padding:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:13px;}
+.sneak-peek-update img{width:56px;height:72px;object-fit:cover;object-position:center;border-radius:8px;flex-shrink:0;}
+.sneak-peek-update strong{display:block;font:700 14px/1.25 Arial,sans-serif;margin-bottom:4px;}
+.sneak-peek-update span{display:block;font:400 12px/1.4 Arial,sans-serif;color:rgba(255,255,255,.78);}
 .info-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--text);transition:box-shadow .15s,transform .15s;position:relative;overflow:hidden;}
 .info-card:hover{box-shadow:0 6px 20px rgba(69,32,104,.12);transform:translateY(-2px);}
 .info-card.featured{border-top:3px solid var(--pink);}
@@ -47,7 +58,8 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .badge-green{background:#E3F5EC;color:#1E8A5C;}
 
 @media(max-width:900px){.cards-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:560px){.cards-grid{grid-template-columns:1fr;}}
+@media(max-width:700px){.sneak-peek-content{align-items:flex-start;flex-direction:column;}.sneak-peek-update{min-width:0;width:100%;}}
+@media(max-width:560px){.cards-grid{grid-template-columns:1fr;}.sneak-peek-content{padding:20px;}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,6 +91,23 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <h1>🏥 Carrier Info</h1>
     <p>Everything you need for every carrier — contacts, certifications, non-commissionable plans, HRA details, plan comparison, and chronic condition eligibility. All in one place.</p>
   </div>
+
+  <section class="sneak-peek-card" aria-labelledby="sneak-peeks-title">
+    <div class="sneak-peek-content">
+      <div class="sneak-peek-copy">
+        <span class="sneak-peek-eyebrow">Plan Year 2027</span>
+        <h2 class="sneak-peek-title" id="sneak-peeks-title">2027 Sneak Peeks</h2>
+        <p class="sneak-peek-desc">Early looks at carrier benefits, launches, and AEP announcements. Check back as new carrier information is shared.</p>
+      </div>
+      <div class="sneak-peek-update">
+        <img src="/files/elevance-aep-2027-reveal.jpg" alt="Elevance Health AEP 2027 benefits reveal" />
+        <div>
+          <strong>Elevance Health Benefits Reveal</strong>
+          <span>Aug. 25 · Seminole Hard Rock, Hollywood</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div class="cards-grid">
 
@@ -127,9 +156,6 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
       <div class="card-desc">Check which carriers cover each chronic condition — C-SNP, D-SNP, and standard MA. Quickly identify the right plan for complex clients.</div>
       <span class="card-link">Open Tool →</span>
     </a>
-
-  </div>
-
 
     <a class='info-card featured' href='/contracting-blackout'>
       <span class="card-badge badge-red">AEP Prep</span>
