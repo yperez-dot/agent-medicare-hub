@@ -311,10 +311,8 @@
             ctx.textAlign = 'left';
             // Logo area placeholder
             if (logoImage.complete && logoImage.naturalWidth > 0) {
-                ctx.globalCompositeOperation = 'multiply';
                 const logoWidth = 220; const logoHeight = logoWidth * (logoImage.naturalHeight / logoImage.naturalWidth);
                 ctx.drawImage(logoImage, 50, 25, logoWidth, logoHeight);
-                ctx.globalCompositeOperation = 'source-over';
             }
             // Name placeholder
             ctx.font = 'bold 60px Arial';
@@ -451,13 +449,11 @@
                 ctx.textAlign = 'left';
             }
             
-            // Logo — multiply blend removes white background
+            // Logo (white bg invisible on white canvas — no blend needed)
             if (logoImage.complete && logoImage.width > 0) {
-                ctx.globalCompositeOperation = 'multiply';
                 const logoWidth = 340;
                 const logoHeight = (logoImage.height / logoImage.width) * logoWidth;
                 ctx.drawImage(logoImage, 50, 20, logoWidth, logoHeight);
-                ctx.globalCompositeOperation = 'source-over';
             }
 
             // Name
