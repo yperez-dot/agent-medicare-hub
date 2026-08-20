@@ -1,0 +1,4 @@
+# Python dependencies for the Agent Medicare Hub tooling.
+# Used by deploy_hub.py (Netlify deploy) — the local dev server (.cursor/dev-server.py)
+# relies only on the Python standard library.
+requests>=2.31,<3
