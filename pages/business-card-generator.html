@@ -311,8 +311,10 @@
             ctx.textAlign = 'left';
             // Logo area placeholder
             if (logoImage.complete && logoImage.naturalWidth > 0) {
+                ctx.globalCompositeOperation = 'multiply';
                 const logoWidth = 220; const logoHeight = logoWidth * (logoImage.naturalHeight / logoImage.naturalWidth);
-                ctx.drawImage(logoImage, 50, 30, logoWidth, logoHeight);
+                ctx.drawImage(logoImage, 50, 25, logoWidth, logoHeight);
+                ctx.globalCompositeOperation = 'source-over';
             }
             // Name placeholder
             ctx.font = 'bold 60px Arial';
@@ -416,24 +418,17 @@
             ctx.fillStyle = '#FFFFFF';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
-            // Pattern
-            ctx.fillStyle = '#E91E8C';
-            ctx.globalAlpha = 0.1;
-            ctx.beginPath();
-            ctx.moveTo(canvas.width * 0.6, 0);
-            ctx.lineTo(canvas.width, 0);
-            ctx.lineTo(canvas.width, canvas.height);
-            ctx.lineTo(canvas.width * 0.6, canvas.height * 0.7);
-            ctx.closePath();
-            ctx.fill();
-            ctx.globalAlpha = 1.0;
-            
+            // Right column — solid light pink (photo background)
+            ctx.fillStyle = '#FCE4EC';
+            ctx.fillRect(Math.round(canvas.width * 0.62), 0, canvas.width, canvas.height);
+
             // Photo
+            const photoSize = 300;
+            const photoX = Math.round(canvas.width * 0.62) + Math.round((canvas.width * 0.38 - photoSize) / 2);
+            const photoY = Math.round((canvas.height - photoSize) / 2);
+
             if (uploadedPhoto) {
                 ctx.save();
-                const photoSize = 300;
-                const photoX = canvas.width - photoSize - 80;
-                const photoY = (canvas.height - photoSize) / 2;
                 ctx.beginPath();
                 ctx.arc(photoX + photoSize/2, photoY + photoSize/2, photoSize/2, 0, Math.PI * 2);
                 ctx.closePath();
@@ -445,41 +440,51 @@
                 ctx.beginPath();
                 ctx.arc(photoX + photoSize/2, photoY + photoSize/2, photoSize/2, 0, Math.PI * 2);
                 ctx.stroke();
+            } else {
+                ctx.strokeStyle = '#E91E8C';
+                ctx.lineWidth = 5;
+                ctx.setLineDash([14, 8]);
+                ctx.beginPath();
+                ctx.arc(photoX + photoSize/2, photoY + photoSize/2, photoSize/2, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.font = 'bold 22px Arial';
+                ctx.fillStyle = '#E91E8C';
+                ctx.textAlign = 'center';
+                ctx.fillText('Upload Photo', photoX + photoSize/2, photoY + photoSize/2 + 8);
+                ctx.textAlign = 'left';
             }
             
-            // Logo - EXACT SIZE from thei-logo.jpg
+            // Logo — multiply blend removes white background
             if (logoImage.complete && logoImage.width > 0) {
-                const logoWidth = 600;
+                ctx.globalCompositeOperation = 'multiply';
+                const logoWidth = 220;
                 const logoHeight = (logoImage.height / logoImage.width) * logoWidth;
-                ctx.drawImage(logoImage, 50, 30, logoWidth, logoHeight);
+                ctx.drawImage(logoImage, 50, 25, logoWidth, logoHeight);
+                ctx.globalCompositeOperation = 'source-over';
             }
-            
-            // Services
-            ctx.font = '22px Arial';
-            ctx.fillStyle = '#3D1560';
-            ctx.fillText('Medicare | Individual | Dental | Ancillary', 60, 210);
-            
-            // Divider
-            ctx.strokeStyle = '#E0E0E0';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(60, 230);
-            ctx.lineTo(canvas.width - 360, 230);
-            ctx.stroke();
-            
+
             // Name
             ctx.font = 'bold 60px Arial';
             ctx.fillStyle = '#3D1560';
-            ctx.fillText(name, 60, 300);
+            ctx.fillText(name, 60, 190);
 
             // Title
             ctx.font = '34px Arial';
             ctx.fillStyle = '#666666';
-            ctx.fillText(title, 60, 345);
-            
+            ctx.fillText(title, 60, 238);
+
+            // Divider
+            ctx.strokeStyle = '#E0E0E0';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(60, 262);
+            ctx.lineTo(Math.round(canvas.width * 0.58), 262);
+            ctx.stroke();
+
             // Contact
-            const contactY = 395;
-            const lineHeight = 42;
+            const contactY = 300;
+            const lineHeight = 44;
             ctx.font = '28px Arial';
             ctx.fillStyle = '#333333';
             
