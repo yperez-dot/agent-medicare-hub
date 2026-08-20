@@ -110,10 +110,14 @@
         .btn-outline { background: white; color: #666; border: 2px solid #E0E0E0; flex: 1; }
         .btn-outline:hover { border-color: #E91E8C; color: #E91E8C; }
         .btn-full { width: 100%; margin-top: 10px; }
-        #cardCanvas {
-            width: 100%;
+        #canvasWrapper {
+            background: #FFFFFF;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        #cardCanvas {
+            width: 100%;
             display: block;
             background-color: #FFFFFF;
         }
@@ -187,7 +191,7 @@
             </div>
             <div class="preview-section">
                 <h2>Your Card Preview</h2>
-                <canvas id="cardCanvas" width="1200" height="675"></canvas>
+                <div id="canvasWrapper"><canvas id="cardCanvas" width="1200" height="675"></canvas></div>
                 <div class="download-section">
                     <button class="btn btn-secondary btn-full" onclick="downloadCard()" id="downloadBtn" disabled>
                         📥 Download Card
@@ -325,9 +329,11 @@
             ctx.fillText('\uD83D\uDCCD  1695 NW 110th Ave Ste 224, Doral, FL 33172', 55, startY + lineH * row);
 
             // Services strip at bottom
-            ctx.font = 'italic 18px Arial';
+            ctx.font = 'italic 16px Arial';
             ctx.fillStyle = '#E91E8C';
-            ctx.fillText('Medicare  |  Individual  |  Dental  |  Ancillary', 55, H - 22);
+            ctx.textAlign = 'center';
+            ctx.fillText('Medicare / Individual & Family Plans / Home & Auto / Life and more', W / 2, H - 18);
+            ctx.textAlign = 'left';
 
             document.getElementById('downloadBtn').disabled = false;
         }
