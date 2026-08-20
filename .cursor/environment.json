@@ -1,0 +1,16 @@
+{
+  "name": "Agent Medicare Hub",
+  "install": "python3 --version && test -f pages/index.html && test -d files",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": "python3 .cursor/serve.py --port 8080"
+    }
+  ],
+  "ports": [
+    {
+      "name": "dev-server",
+      "port": 8080
+    }
+  ]
+}
