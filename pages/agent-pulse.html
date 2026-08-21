@@ -36,6 +36,7 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .alert-card.urgent{border-left:4px solid #D6336C;background:#FFF5F7;}
 .alert-card.watch{border-left:4px solid #B8720A;background:#FDF8EE;}
 .alert-card.update{border-left:4px solid #1E8A5C;background:#F2FBF6;}
+.alert-card.event{border-left:4px solid #452068;background:#F8F5FB;}
 .alert-emoji{font-size:22px;flex:none;margin-top:2px;}
 .alert-body{}
 .alert-date{font:600 11px/1 Arial,sans-serif;color:#9A94A8;margin-bottom:6px;}
@@ -81,9 +82,30 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
   <p class="section-label" style="margin-top:36px;">Weekly Digest Archive</p>
   <div class="pulse-archive" id="archive-container"><div class="loading">Loading...</div></div>
+  <p style="margin-top:16px;text-align:right;">
+    <a href="/pulse-library" style="font:700 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;">Browse Pulse Library →</a>
+  </p>
 </div>
 
 <script>
+const EMOJI_BY_TYPE = { urgent: '🚨', watch: '⚠️', update: '📋', event: '📅' };
+
+function text(value, fallback) {
+  return (value == null || value === '') ? (fallback || '') : value;
+}
+
+function normalizeAlert(a) {
+  const type = a.type || (a.urgent ? 'urgent' : 'update');
+  return {
+    type,
+    emoji: a.emoji || EMOJI_BY_TYPE[type] || '📌',
+    date: text(a.date),
+    title: text(a.title),
+    body: text(a.body, a.summary),
+    source: a.source || ''
+  };
+}
+
 async function loadFeed() {
   try {
     const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
@@ -91,12 +113,12 @@ async function loadFeed() {
 
     // Updated badge
     const badge = document.getElementById('updated-badge');
-    if (badge) badge.textContent = 'Last updated: ' + data.updated;
+    if (badge && data.updated) badge.textContent = 'Last updated: ' + data.updated;
 
     // Alerts
     const container = document.getElementById('alerts-container');
     if (data.alerts && data.alerts.length) {
-      container.innerHTML = data.alerts.map(a => `
+      container.innerHTML = data.alerts.map(normalizeAlert).map(a => `
         <div class="alert-card ${a.type}">
           <div class="alert-emoji">${a.emoji}</div>
           <div class="alert-body">
@@ -117,8 +139,8 @@ async function loadFeed() {
       archive.innerHTML = data.weekly_pulses.map(p => `
         <div class="pulse-archive-item">
           <div>
-            <div class="pulse-week">${p.week}</div>
-            <div class="pulse-headline">${p.headline}</div>
+            <div class="pulse-week">${text(p.week)}</div>
+            <div class="pulse-headline">${text(p.headline)}</div>
           </div>
           ${p.link ? `<a href="${p.link}" style="font:700 12px/1 Arial,sans-serif;color:#452068;text-decoration:none;white-space:nowrap;margin-left:16px;">View →</a>` : '<span style="font:400 12px/1 Arial,sans-serif;color:#C8C4D0;">Email only</span>'}
         </div>

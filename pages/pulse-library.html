@@ -38,7 +38,9 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .pulse-entry .pulse-headline{font:600 15px/1.4 Arial,sans-serif;color:#241C2E;margin-bottom:12px;}
 .pulse-entry .pulse-topics{display:flex;flex-wrap:wrap;gap:6px;font:400 12px/1 Arial,sans-serif;color:#9A94A8;}
 .pulse-entry .pulse-topic-tag{background:#F1ECF6;color:#452068;padding:4px 10px;border-radius:999px;}
-.empty-state{text-align:center;padding:48px 24px;color:#9A94A8;font-size:14px;}
+.empty-state{text-align:center;padding:48px 24px;color:#9A94A8;font-size:14px;grid-column:1/-1;}
+.back-link{display:inline-block;margin-bottom:20px;font:600 12px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
 @media(max-width:600px){.pill-nav a{font-size:11px;padding:7px 12px;}.wrap{padding:20px 16px 48px;}.library-grid{grid-template-columns:1fr;}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,33 +66,48 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
     <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
   </nav>
 </div>
+
+<div class="hero">
+  <div class="badge">Archive</div>
+  <h1>Pulse Library</h1>
+  <p>Weekly Agent Pulse digests — every edition, in one place.</p>
+</div>
+
+<div class="wrap">
+  <a class="back-link" href="/agent-pulse">← Live updates</a>
+  <div class="library-grid" id="library-container">
+    <div class="empty-state">Loading archived pulses...</div>
+  </div>
 </div>
 
 <script>
+function text(value) {
+  return (value == null || value === '') ? '' : value;
+}
+
 async function loadLibrary() {
+  const container = document.getElementById('library-container');
   try {
     const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
-    const data = res.json();
-    
-    data.then(feed => {
-      const container = document.getElementById('library-container');
-      if (feed.weekly_pulses && feed.weekly_pulses.length) {
-        container.innerHTML = feed.weekly_pulses.map(p => `
-          <a class="pulse-entry" href="${p.link || '#'}">
-            <div class="pulse-week">${p.week}</div>
-            <div class="pulse-date">${p.date}</div>
-            <div class="pulse-headline">${p.headline}</div>
-            <div class="pulse-topics">
-              ${p.tag ? `<span class="pulse-topic-tag">${p.tag}</span>` : ''}
-            </div>
-          </a>
-        `).join('');
-      } else {
-        container.innerHTML = '<div class="empty-state">No archived pulses yet. Check back soon!</div>';
-      }
-    });
+    if (!res.ok) throw new Error('Failed to load feed');
+    const feed = await res.json();
+
+    if (feed.weekly_pulses && feed.weekly_pulses.length) {
+      container.innerHTML = feed.weekly_pulses.map(p => `
+        <a class="pulse-entry" href="${p.link || '#'}">
+          <div class="pulse-week">${text(p.week)}</div>
+          <div class="pulse-date">${text(p.date)}</div>
+          <div class="pulse-headline">${text(p.headline)}</div>
+          <div class="pulse-topics">
+            ${p.tag ? `<span class="pulse-topic-tag">${p.tag}</span>` : ''}
+          </div>
+        </a>
+      `).join('');
+    } else {
+      container.innerHTML = '<div class="empty-state">No archived pulses yet. Check back soon!</div>';
+    }
   } catch(e) {
-    document.getElementById('library-container').innerHTML = '<div class="empty-state">Could not load library.</div>';
+    container.innerHTML = '<div class="empty-state">Could not load library.</div>';
   }
 }
 loadLibrary();
