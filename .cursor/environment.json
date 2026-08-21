@@ -1,0 +1,17 @@
+{
+  "name": "Agent Medicare Hub",
+  "install": "pip install --user --break-system-packages -r requirements.txt",
+  "terminals": [
+    {
+      "name": "hub-dev-server",
+      "command": "python3 .cursor/dev-server.py",
+      "description": "Static dev server for the hub. Serves pages/ at the site root and files/ at /files/ with Netlify-style pretty URLs (e.g. /home -> home.html). Open http://localhost:8000/."
+    }
+  ],
+  "ports": [
+    {
+      "name": "hub dev server",
+      "port": 8000
+    }
+  ]
+}
