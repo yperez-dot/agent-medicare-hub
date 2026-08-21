@@ -50,7 +50,6 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .acc-icon{width:38px;height:38px;border-radius:10px;background:#FEF2F2;color:#DC2626;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
 .acc-title{font:700 15px/1.3 Arial,sans-serif;color:#241C2E;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .acc-sub{font:400 12px/1.4 Arial,sans-serif;color:#9A94A8;margin-top:2px;}
-.acc-pending{font:600 9px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:999px;padding:3px 8px;text-transform:uppercase;letter-spacing:.3px;}
 .acc-year{font:800 9px/1 Arial,sans-serif;border-radius:999px;padding:3px 8px;letter-spacing:.3px;}
 .acc-year.y2026{color:#6B21A8;background:#F3E8FF;}
 .acc-year.y2027{color:#065F46;background:#D1FAE5;}
@@ -122,7 +121,6 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
     <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">All Carriers</button>
     <button class="filter-pill" data-filter="2027" onclick="setFilter('2027')">2027</button>
     <button class="filter-pill" data-filter="2026" onclick="setFilter('2026')">2026</button>
-    <button class="filter-pill" data-filter="pending" onclick="setFilter('pending')">⏳ Needs Verification</button>
     <select class="state-select" id="ncStateSelect" onchange="renderList()">
       <option value="">All States</option>
     </select>
@@ -137,7 +135,7 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   </div>
 
   <div class="page-note">
-    <strong>How to read this list:</strong> Plans shown here are non-commissionable for <strong>new sales only</strong> — existing member renewals continue to receive Fair Market Value (FMV) commission. Carriers marked "Needs Verification" have pending confirmation from THEI compliance — always confirm current status directly with the carrier before enrolling a client. Aetna contract/PBP rows are Plan Year 2027 (bulletin updated 8/20/2026); all new Aetna PDP sales are non-commissionable. Other carriers remain 2026 pending their 2027 bulletins.
+    <strong>How to read this list:</strong> Plans shown here are non-commissionable for <strong>new sales only</strong> — existing member renewals continue to receive Fair Market Value (FMV) commission. Each carrier is tagged by plan year. Aetna contract/PBP rows are Plan Year 2027 (bulletin updated 8/20/2026); all new Aetna PDP sales are non-commissionable. Other carriers remain 2026 pending their 2027 bulletins.
   </div>
 
 </div>
@@ -895,7 +893,6 @@ function renderList() {
 
   const html = NC_DATA.map((c, idx) => {
     const year = c.year || 2026;
-    if (_activeFilter === 'pending' && !c.pending) return '';
     if (_activeFilter === '2027' && year !== 2027) return '';
     if (_activeFilter === '2026' && year !== 2026) return '';
 
@@ -930,7 +927,7 @@ function renderList() {
         <div class="acc-left">
           <div class="acc-icon">🚫</div>
           <div>
-            <div class="acc-title">${c.carrier} <span class="acc-year y${year}">${year}</span>${c.pending ? ' <span class="acc-pending">⏳ Needs Verification</span>' : ''}</div>
+            <div class="acc-title">${c.carrier} <span class="acc-year y${year}">${year}</span></div>
             <div class="acc-sub">${matchedPlans.length} plan${matchedPlans.length !== 1 ? 's' : ''} · Plan Year ${year} · ${stateKeys.join(', ')}</div>
           </div>
         </div>

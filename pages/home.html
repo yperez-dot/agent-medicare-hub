@@ -155,7 +155,6 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .tour-next:hover{opacity:.75;}
 
 
-.nc-pending-tag{font:600 8.5px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:6px;padding:2px 6px;}
 .nc-year-tag{font:800 8.5px/1 Arial,sans-serif;border-radius:6px;padding:2px 6px;letter-spacing:.2px;}
 .nc-year-tag.y2026{color:#6B21A8;background:#F3E8FF;}
 .nc-year-tag.y2027{color:#065F46;background:#D1FAE5;}
@@ -853,7 +852,7 @@ let _ncActiveCarrier = null;
   wrap.innerHTML = NC_DATA.map((c, i) => {
     const year = c.year || 2026;
     return `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
-      <span class="nc-carrier-name">${c.carrier} <span class="nc-year-tag y${year}">${year}</span>${c.pending ? ' <span class="nc-pending-tag">⏳ pending</span>' : ''}</span>
+      <span class="nc-carrier-name">${c.carrier} <span class="nc-year-tag y${year}">${year}</span></span>
       <span class="nc-badge">${c.plans.length}</span>
     </button>`;
   }).join('');
@@ -863,8 +862,7 @@ function openNcModal(idx) {
   _ncActiveCarrier = NC_DATA[idx];
   document.getElementById('ncModalTitle').textContent =
     _ncActiveCarrier.carrier + ' — Non-Commissionable Plans ' +
-    (_ncActiveCarrier.year || 2026) +
-    (_ncActiveCarrier.pending ? ' (pending verification)' : '');
+    (_ncActiveCarrier.year || 2026);
   // Populate state filter from this carrier's data
   const states = [...new Set(_ncActiveCarrier.plans.flatMap(p => p.states))].sort();
   const sel = document.getElementById('ncStateFilter');
