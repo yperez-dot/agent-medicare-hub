@@ -1,1754 +1,21 @@
 {
-  "generated_at": "2026-05-29T16:35:00",
-  "today": "2026-05-29",
-  "source_file": "source_grid_03022026.xlsx",
+  "generated_at": "2026-08-21T18:50:00",
+  "today": "2026-08-21",
+  "source_file": "HealthSpring DST-SEP email 2026-08-21",
   "source_sheet": "All.SEP.W.Prev.Reporting (205)",
-  "last_imported": "2026-05-29",
+  "last_imported": "2026-08-21",
   "counts": {
-    "total": 209,
-    "active": 71,
-    "expiring": 29,
-    "ended": 109,
-    "fl_active": 6
+    "total": 244,
+    "active": 93,
+    "expiring": 5,
+    "ended": 146,
+    "fl_active": 1
   },
   "items": [
     {
-      "id": "sep-0201",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "WI",
-      "state_raw": "WI (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Wisconsin - Energy Emergency 11/27/2025",
-      "declaration_number": "284, 283, 282",
-      "disaster_type_raw": "Fuel Shortage;Other",
-      "disaster_types": [
-        "Fuel Shortage",
-        "Other"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2025-12-05",
-      "incident_effective": "2025-11-27",
-      "incident_termination": "2026-03-16",
-      "sep_effective": "2025-11-27",
-      "sep_termination": "2026-05-30",
-      "days_until_expiry": 1,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0004",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "AL",
-      "state_raw": "AL (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Alabama - Winter Storm Event 1/22/2026",
-      "declaration_number": "1.26.26, 1.22.26",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix;Temperature - Arctic Blast/Dangerous Cold",
-      "disaster_types": [
-        "Storms",
-        "Temperature"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Blount",
-        "Cherokee",
-        "Colbert",
-        "Cullman",
-        "DeKalb",
-        "Etowah Fayette",
-        "Franklin",
-        "Geneva",
-        "Houston",
-        "Jackson",
-        "Lamar",
-        "Lauderdale",
-        "Lawrence",
-        "Limestone",
-        "Madison",
-        "Marion",
-        "Marshall",
-        "Montgomery",
-        "Morgan",
-        "Walker",
-        "& Winston"
-      ],
-      "counties_raw": "Blount, Cherokee, Colbert, Cullman, DeKalb, Etowah Fayette, Franklin, Geneva, Houston, Jackson, Lamar, Lauderdale, Lawrence, Limestone, Madison, Marion, Marshall, Montgomery, Morgan, Walker, & Winston",
-      "declaration_date": "2026-01-22",
-      "incident_effective": "2026-01-22",
-      "incident_termination": "2026-03-22",
-      "sep_effective": "2026-01-22",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0037",
-      "raw_status": "SEP - New",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "DE",
-      "state_raw": "DE (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "Delaware - National Guard Activated for Winter Storm Response 2/22/2026",
-      "declaration_number": "2.22.26",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2026-02-22",
-      "incident_effective": "2026-02-22",
-      "incident_termination": "2026-03-22",
-      "sep_effective": "2026-02-22",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0039",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "FL",
-      "state_raw": "FL (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Florida - Illegal Immigration 1/6/2023",
-      "declaration_number": "26-17, 25-243, 25-192, 25-153, 25-120, 25-75, 25-29, 24-269, 24-220, 24-173, 24-118, 24-74, 23-245, 23-213, 23-173, 23-134, 23-88, 23-03",
-      "disaster_type_raw": "Other",
-      "disaster_types": [
-        "Other"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "Statewide",
-      "declaration_date": "2023-01-06",
-      "incident_effective": "2023-01-06",
-      "incident_termination": "2026-03-23",
-      "sep_effective": "2023-01-06",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0040",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "FL",
-      "state_raw": "FL (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Florida - Tropical Cyclone Nine  (Hurricane Helene) 9/23/2024",
-      "declaration_number": "26-02, 25-231, 25-143, 25-102, 25-57, 25-10, 24-249, 24-234, 24-213, 24-209, 24-208",
-      "disaster_type_raw": "Tropical Storm",
-      "disaster_types": [
-        "Tropical Storm"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Alachua",
-        "Baker",
-        "Bay",
-        "Bradford",
-        "Brevard",
-        "Calhoun",
-        "Charlotte",
-        "Citrus",
-        "Clay",
-        "Collier",
-        "Columbia",
-        "DeSoto",
-        "Dixie",
-        "Duval",
-        "Escambia",
-        "Flagler",
-        "Franklin",
-        "Gadsden",
-        "Gilchrist",
-        "Glades",
-        "Gulf",
-        "Hamilton",
-        "Hardee",
-        "Hendry",
-        "Hernando",
-        "Highlands",
-        "Hillsborough",
-        "Holmes",
-        "Jackson",
-        "Jefferson",
-        "Lafayette",
-        "Lake",
-        "Lee",
-        "Leon",
-        "Levy",
-        "Liberty",
-        "Madison",
-        "Manatee",
-        "Marion",
-        "Monroe",
-        "Nassau",
-        "Okaloosa",
-        "Okeechobee",
-        "Orange",
-        "Osceola",
-        "Pasco",
-        "Pinellas",
-        "Polk",
-        "Putnam",
-        "Santa Rosa",
-        "Sarasota",
-        "Seminole",
-        "St. Johns",
-        "Sumter",
-        "Suwannee",
-        "Taylor",
-        "Union",
-        "Volusia",
-        "Wakulla",
-        "Walton",
-        "and Washington"
-      ],
-      "counties_raw": "Alachua, Baker, Bay, Bradford, Brevard, Calhoun, Charlotte, Citrus, Clay, Collier, Columbia, DeSoto, Dixie, Duval, Escambia, Flagler, Franklin, Gadsden, Gilchrist, Glades, Gulf, Hamilton, Hardee, Hendry, Hernando, Highlands, Hillsborough, Holmes, Jackson, Jefferson, Lafayette, Lake, Lee, Leon, Levy, Liberty, Madison, Manatee, Marion, Monroe, Nassau, Okaloosa, Okeechobee, Orange, Osceola, Pasco, Pinellas, Polk, Putnam, Santa Rosa, Sarasota, Seminole, St. Johns, Sumter, Suwannee, Taylor, Union, Volusia, Wakulla, Walton, and Washington",
-      "declaration_date": "2024-09-23",
-      "incident_effective": "2024-09-23",
-      "incident_termination": "2026-03-06",
-      "sep_effective": "2024-09-23",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0041",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "FL",
-      "state_raw": "FL (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Florida - Hurricane Debby 8/1/2024",
-      "declaration_number": "26-03, 25-232, 25-144, 25-104, 25-59, 25-12, 24-261, 24-211, 24-158, 24-156, 25-184",
-      "disaster_type_raw": "Hurricane/Typhoon",
-      "disaster_types": [
-        "Hurricane/Typhoon"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Alachua",
-        "Baker",
-        "Bradford",
-        "Charlotte",
-        "Citrus",
-        "Clay",
-        "Collier",
-        "Columbia",
-        "Dixie",
-        "Duval",
-        "Franklin",
-        "Gadsden",
-        "Gilchrist",
-        "Hamilton",
-        "Hernando",
-        "Hillsborough",
-        "Jefferson",
-        "Lafayette",
-        "Lake",
-        "Lee",
-        "Leon",
-        "Levy",
-        "Liberty",
-        "Madison",
-        "Manatee",
-        "Marion",
-        "Nassau",
-        "Pasco",
-        "Pinellas",
-        "Putnam",
-        "Sarasota",
-        "St. Johns",
-        "Sumter",
-        "Suwannee",
-        "Taylor",
-        "Union",
-        "and Wakulla"
-      ],
-      "counties_raw": "Alachua, Baker, Bradford, Charlotte, Citrus, Clay, Collier, Columbia, Dixie, Duval, Franklin, Gadsden, Gilchrist, Hamilton, Hernando, Hillsborough, Jefferson, Lafayette, Lake, Lee, Leon, Levy, Liberty, Madison, Manatee, Marion, Nassau, Pasco, Pinellas, Putnam, Sarasota, St. Johns, Sumter, Suwannee, Taylor, Union, and Wakulla",
-      "declaration_date": "2024-08-01",
-      "incident_effective": "2024-08-01",
-      "incident_termination": "2026-03-06",
-      "sep_effective": "2024-08-01",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0042",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "FL",
-      "state_raw": "FL (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Florida - Tropical Storm Milton - 10/5/2024",
-      "declaration_number": "26-16, 25-191, 25-150, 25-119, 25-68, 25-26, 24-264, 24-234, 24-215, 24-214",
-      "disaster_type_raw": "Tropical Storm",
-      "disaster_types": [
-        "Tropical Storm"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Alachua",
-        "Baker",
-        "Bradford",
-        "Brevard",
-        "Broward",
-        "Charlotte",
-        "Citrus",
-        "Clay",
-        "Collier",
-        "Columbia",
-        "DeSoto",
-        "Dixie",
-        "Duval",
-        "Flagler",
-        "Gilchrist",
-        "Glades",
-        "Hamilton",
-        "Hardee",
-        "Hendry",
-        "Hernando",
-        "Highlands",
-        "Hillsborough",
-        "Indian River",
-        "Lafayette",
-        "Lake",
-        "Lee",
-        "Levy",
-        "Madison",
-        "Manatee",
-        "Marion",
-        "Maiiin",
-        "Miami-Dade",
-        "Momoe",
-        "Nassau",
-        "Okeechobee",
-        "Orange",
-        "Osceola",
-        "Palm Beach",
-        "Pasco",
-        "Pinellas",
-        "Polk",
-        "Putnam",
-        "Sarasota",
-        "Seminole",
-        "St. Johns",
-        "St. Lucie",
-        "Sumter",
-        "Suwanee",
-        "Taylor",
-        "Union",
-        "and Volusia "
-      ],
-      "counties_raw": "Alachua, Baker, Bradford, Brevard, Broward, Charlotte,  Citrus, Clay, Collier, Columbia, DeSoto, Dixie, Duval, Flagler, Gilchrist, Glades, Hamilton,  Hardee, Hendry, Hernando, Highlands, Hillsborough, Indian River, Lafayette, Lake, Lee, Levy,  Madison, Manatee, Marion, Maiiin, Miami-Dade, Momoe, Nassau, Okeechobee, Orange,  Osceola, Palm Beach, Pasco, Pinellas, Polk, Putnam, Sarasota, Seminole, St. Johns, St. Lucie,  Sumter, Suwanee, Taylor, Union, and Volusia .",
-      "declaration_date": "2024-10-05",
-      "incident_effective": "2024-10-05",
-      "incident_termination": "2026-03-23",
-      "sep_effective": "2024-10-05",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0043",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "FL",
-      "state_raw": "FL (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Florida - Northwest Florida May Tornadoes - 5/10/2025",
-      "declaration_number": "26-01, 25-230, 25-142, 25-101",
-      "disaster_type_raw": "Tornado",
-      "disaster_types": [
-        "Tornado"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Holmes"
-      ],
-      "counties_raw": "Holmes",
-      "declaration_date": "2025-05-11",
-      "incident_effective": "2025-05-10",
-      "incident_termination": "2026-03-06",
-      "sep_effective": "2025-05-10",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0050",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "HI",
-      "state_raw": "HI (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Hawaii - Axis Deer Over Population 3/23/2022",
-      "declaration_number": "1.16.26",
-      "disaster_type_raw": "Other",
-      "disaster_types": [
-        "Other"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Maui"
-      ],
-      "counties_raw": "Maui",
-      "declaration_date": "2022-03-23",
-      "incident_effective": "2022-03-23",
-      "incident_termination": "2026-03-17",
-      "sep_effective": "2022-03-23",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0051",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "HI",
-      "state_raw": "HI (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Hawaii - Homelessness 1/23/2023",
-      "declaration_number": "1.16.26",
-      "disaster_type_raw": "Homelessness/Housing Crisis",
-      "disaster_types": [
-        "Homelessness/Housing Crisis"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "Statewide",
-      "declaration_date": "2023-01-23",
-      "incident_effective": "2023-01-23",
-      "incident_termination": "2026-03-16",
-      "sep_effective": "2023-01-23",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0052",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "HI",
-      "state_raw": "HI (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Hawaii - Affordable Housing - Housing Crisis 7/17/2023",
-      "declaration_number": "1.16.26",
-      "disaster_type_raw": "Homelessness/Housing Crisis",
-      "disaster_types": [
-        "Homelessness/Housing Crisis"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "Statewide",
-      "declaration_date": "2023-07-17",
-      "incident_effective": "2023-07-17",
-      "incident_termination": "2026-03-17",
-      "sep_effective": "2023-07-17",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0053",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "HI",
-      "state_raw": "HI (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Hawaii  - Wildfire 8/8/2023",
-      "declaration_number": "1.6.26",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2023-08-08",
-      "incident_effective": "2023-08-08",
-      "incident_termination": "2026-03-07",
-      "sep_effective": "2023-08-08",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0054",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "HI",
-      "state_raw": "HI (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Hawaii - Pharmacist-Provided Vaccination Services 9/23/2025",
-      "declaration_number": "1.16.26; 11.18, 9.23.25",
-      "disaster_type_raw": "Health Emergency;Other",
-      "disaster_types": [
-        "Health Emergency",
-        "Other"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2025-09-23",
-      "incident_effective": "2025-09-23",
-      "incident_termination": "2026-03-17",
-      "sep_effective": "2025-09-23",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0062",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "IN",
-      "state_raw": "IN (30) days",
-      "lookback": "30",
-      "declaration_name": "Indiana - Severe Winter Storm 1/23/2026",
-      "declaration_number": "26-03",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix;Temperature - Arctic Blast/Dangerous Cold",
-      "disaster_types": [
-        "Storms",
-        "Temperature"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2026-01-23",
-      "incident_effective": "2026-01-23",
-      "incident_termination": "2026-03-23",
-      "sep_effective": "2026-01-23",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0067",
-      "raw_status": "SEP - New",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "KS",
-      "state_raw": "KS (15days)",
-      "lookback": "15days",
-      "declaration_name": "Kansas - Dangerous Fire Weather 2/15/2026",
-      "declaration_number": "2.16.26",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Allen",
-        "Barber",
-        "Barton",
-        "Bourbon",
-        "Chautauqua",
-        "Cherokee",
-        "Cheyenne",
-        "Clark",
-        "Clay",
-        "Cloud",
-        "Comanche",
-        "Cowley",
-        "Crawford",
-        "Decatur",
-        "Dickinson",
-        "Edwards",
-        "Elk",
-        "Ellis",
-        "Ellsworth",
-        "Finney",
-        "Ford",
-        "Gove",
-        "Graham",
-        "Grant",
-        "Gray",
-        "Greeley",
-        "Hamilton",
-        "Harper",
-        "Haskell",
-        "Hodgeman",
-        "Jewell",
-        "Kearny",
-        "Kingman",
-        "Kiowa",
-        "Labette",
-        "Lane",
-        "Lincoln",
-        "Linn",
-        "Logan",
-        "Marshall",
-        "McPherson",
-        "Meade",
-        "Mitchell",
-        "Montgomery",
-        "Morton",
-        "Neosho",
-        "Ness",
-        "Norton",
-        "Osborne",
-        "Ottawa",
-        "Pawnee",
-        "Phillips",
-        "Pratt",
-        "Rawlins",
-        "Reno",
-        "Republic",
-        "Rice",
-        "Riley",
-        "Rooks",
-        "Rush",
-        "Russell",
-        "Saline",
-        "Scott",
-        "Seward",
-        "Sheridan",
-        "Sherman",
-        "Smith",
-        "Stafford",
-        "Stanton",
-        "Stevens",
-        "Sumner",
-        "Thomas",
-        "Trego",
-        "Wallace",
-        "Washington",
-        "Wichita",
-        "Wilson"
-      ],
-      "counties_raw": "Allen, Barber, Barton, Bourbon, Chautauqua, Cherokee, Cheyenne, Clark, Clay, Cloud, Comanche, Cowley, Crawford, Decatur, Dickinson, Edwards, Elk, Ellis, Ellsworth, Finney, Ford, Gove, Graham, Grant, Gray, Greeley, Hamilton, Harper, Haskell, Hodgeman, Jewell, Kearny, Kingman, Kiowa, Labette, Lane, Lincoln, Linn, Logan, Marshall, McPherson, Meade, Mitchell, Montgomery, Morton, Neosho, Ness, Norton, Osborne, Ottawa, Pawnee, Phillips, Pratt, Rawlins, Reno, Republic, Rice, Riley, Rooks, Rush, Russell, Saline, Scott, Seward, Sheridan, Sherman, Smith, Stafford, Stanton, Stevens, Sumner, Thomas, Trego, Wallace, Washington, Wichita, Wilson",
-      "declaration_date": "2026-02-16",
-      "incident_effective": "2026-02-15",
-      "incident_termination": "2026-03-06",
-      "sep_effective": "2026-02-15",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0113",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "FEMA",
-      "state": "NC",
-      "state_raw": "NC (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "North Carolina - Black Cove Fire Complex 3/19/2025",
-      "declaration_number": "FM-5574-NC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Polk"
-      ],
-      "counties_raw": "Polk",
-      "declaration_date": "2025-03-22",
-      "incident_effective": "2025-03-19",
-      "incident_termination": null,
-      "sep_effective": "2025-03-19",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0114",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "FEMA",
-      "state": "NC",
-      "state_raw": "NC (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "North Carolina - Alarka Fire 3/25/2025",
-      "declaration_number": "FM-5577-NC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Swain"
-      ],
-      "counties_raw": "Swain",
-      "declaration_date": "2025-03-26",
-      "incident_effective": "2025-03-25",
-      "incident_termination": null,
-      "sep_effective": "2025-03-25",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0115",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "FEMA",
-      "state": "NC",
-      "state_raw": "NC (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "North Carolina - Table Rock Fire 3/26/2025",
-      "declaration_number": "FM-5578-NC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Transylvania"
-      ],
-      "counties_raw": "Transylvania",
-      "declaration_date": "2025-03-27",
-      "incident_effective": "2025-03-26",
-      "incident_termination": null,
-      "sep_effective": "2025-03-26",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0141",
-      "raw_status": "SEP - New",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "NY",
-      "state_raw": "NY (6 mths)",
-      "lookback": "6 mths",
-      "declaration_name": "New York - Nor'easter Winter Storm 2/22/2026",
-      "declaration_number": "58",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Albany",
-        "Bronx",
-        "Columbia",
-        "Greene",
-        "Delaware",
-        "Dutchess",
-        "Kings",
-        "Nassau",
-        "New York",
-        "Orange",
-        "Otsego",
-        "Putnam",
-        "Queens",
-        "Rensselaer",
-        "Richmond",
-        "Rockland",
-        "Schoharie",
-        "Schenectady",
-        "Suffolk",
-        "Sullivan",
-        "Ulster",
-        "Westchester",
-        "and contiguous"
-      ],
-      "counties_raw": "Albany, Bronx, Columbia, Greene, Delaware, Dutchess, Kings, Nassau, New York, Orange, Otsego, Putnam, Queens, Rensselaer, Richmond, Rockland, Schoharie, Schenectady, Suffolk, Sullivan, Ulster, Westchester, and contiguous ;",
-      "declaration_date": "2026-02-21",
-      "incident_effective": "2026-02-22",
-      "incident_termination": "2026-03-23",
-      "sep_effective": "2026-02-21",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0148",
-      "raw_status": "SEP - New",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "OK",
-      "state_raw": "OK (?)",
-      "lookback": "?",
-      "declaration_name": "Oklahoma - Dangerous Wildfires & Straight-Line-Winds 2/17/2026",
-      "declaration_number": "26-09",
-      "disaster_type_raw": "Fires/Wildfires;Straight-Line Winds",
-      "disaster_types": [
-        "Fires/Wildfires",
-        "Straight-Line Winds"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Beaver",
-        "Harper",
-        "Texas",
-        "& Woodward"
-      ],
-      "counties_raw": "Beaver, Harper, Texas, & Woodward",
-      "declaration_date": "2026-02-17",
-      "incident_effective": "2026-02-17",
-      "incident_termination": "2026-03-17",
-      "sep_effective": "2026-02-17",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0166",
-      "raw_status": "SEP - New",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "PA",
-      "state_raw": "PA (21 days)",
-      "lookback": "21 days",
-      "declaration_name": "Pennsylvania - Complex Winter Storm 2/22/2026",
-      "declaration_number": "2.22.26",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Adams",
-        "Bedford",
-        "Berks",
-        "Blair",
-        "Bucks",
-        "Cambria",
-        "Carbon",
-        "Centre",
-        "Chester",
-        "Clearfield",
-        "Clinton",
-        "Cumberland",
-        "Dauphin",
-        "Delaware",
-        "Fayette",
-        "Franklin",
-        "Fulton",
-        "Juniata",
-        "Indiana",
-        "Lackawanna",
-        "Lancaster",
-        "Lebanon",
-        "Lehigh",
-        "Luzerne",
-        "Mifflin",
-        "Monroe",
-        "Montgomery",
-        "Northampton",
-        "Perry",
-        "Philadelphia",
-        "Pike",
-        "Schuylkill",
-        "Snyder",
-        "Somerset",
-        "Sullivan",
-        "Susquehanna",
-        "Union",
-        "Wayne",
-        "Westmoreland",
-        "Wyoming",
-        "and York"
-      ],
-      "counties_raw": "Adams, Bedford, Berks, Blair, Bucks, Cambria, Carbon, Centre, Chester, Clearfield, Clinton, Cumberland, Dauphin, Delaware, Fayette,  Franklin, Fulton, Juniata, Indiana, Lackawanna, Lancaster, Lebanon, Lehigh, Luzerne, Mifflin, Monroe, Montgomery, Northampton, Perry, Philadelphia, Pike, Schuylkill, Snyder, Somerset, Sullivan, Susquehanna, Union, Wayne, Westmoreland, Wyoming, and York",
-      "declaration_date": "2026-02-22",
-      "incident_effective": "2026-02-22",
-      "incident_termination": "2026-03-15",
-      "sep_effective": "2026-02-22",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0169",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "PR",
-      "state_raw": "PR (6 mths)",
-      "lookback": "6 mths",
-      "declaration_name": "Puerto Rico - Electrical Emergency 4/2/2025",
-      "declaration_number": "2025-47, 2025-16",
-      "disaster_type_raw": "Other",
-      "disaster_types": [
-        "Other"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Island Wide"
-      ],
-      "counties_raw": "Island Wide",
-      "declaration_date": "2025-04-02",
-      "incident_effective": "2025-04-02",
-      "incident_termination": "2026-03-22",
-      "sep_effective": "2025-04-02",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0171",
-      "raw_status": "SEP - New",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "RI",
-      "state_raw": "RI (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "Rhode Island - Blizzard Warning 2/22/2026",
-      "declaration_number": "26-02.1, 26-02",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2026-02-22",
-      "incident_effective": "2026-02-22",
-      "incident_termination": "2026-03-23",
-      "sep_effective": "2026-02-22",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0173",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "FEMA",
-      "state": "SC",
-      "state_raw": "SC (15 days)",
-      "lookback": "15 days",
-      "declaration_name": "South Carolina - Covington Drive Fire 3/1/2025",
-      "declaration_number": "FM-5554-SC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Horry"
-      ],
-      "counties_raw": "Horry",
-      "declaration_date": "2025-03-07",
-      "incident_effective": "2025-03-01",
-      "incident_termination": null,
-      "sep_effective": "2025-03-01",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0174",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "FEMA",
-      "state": "SC",
-      "state_raw": "SC (15 days)",
-      "lookback": "15 days",
-      "declaration_name": "South Carolina - Table Rock Fire 3/21/2025",
-      "declaration_number": "FM-5575-SC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Pickens"
-      ],
-      "counties_raw": "Pickens",
-      "declaration_date": "2025-03-23",
-      "incident_effective": "2025-03-21",
-      "incident_termination": null,
-      "sep_effective": "2025-03-21",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0175",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "FEMA",
-      "state": "SC",
-      "state_raw": "SC (15 days)",
-      "lookback": "15 days",
-      "declaration_name": "South Carolina - Table Rock Fire Complex 3/23/2025",
-      "declaration_number": "FM-5576-SC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Greenville"
-      ],
-      "counties_raw": "Greenville",
-      "declaration_date": "2025-03-23",
-      "incident_effective": "2025-03-23",
-      "incident_termination": null,
-      "sep_effective": "2025-03-23",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0179",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "TN",
-      "state_raw": "TN (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Tennessee - Severe Winter Weather 1/22/2026",
-      "declaration_number": "111, 110",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2026-01-22",
-      "incident_effective": "2026-01-22",
-      "incident_termination": "2026-03-07",
-      "sep_effective": "2026-01-22",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0188",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "TX",
-      "state_raw": "TX (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "Texas - Wildfire Danger (4) - 8/10/2025 (Excluded counties as of 10/10/2025; Excluded counties 11/9/2025)",
-      "declaration_number": "2.7.26, 12.9, 11.9, 10.10, 8.11.25",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "2/7/26: Excludes Jasper   2/9/26 : Added - Brazos",
-        "Delta",
-        "Fannin",
-        "Franklin",
-        "Grimes",
-        "Hopkins",
-        "Houston",
-        "Hunt",
-        "Madison",
-        "Polk",
-        "Real",
-        "Red River",
-        "Robertson",
-        "San Jacinto",
-        "Titus",
-        "Trinity",
-        "Uvalde",
-        "Walker     Amended Excluded  and added 12/9/25: Borden",
-        "Garza",
-        "Glasscock",
-        "Howard",
-        "Irion",
-        "Lynn",
-        "Reagan",
-        "Schleicher",
-        "Sterling",
-        "& Sutton  Full Amended List as of 12/9/25: Andrews",
-        "Aransas",
-        "Archer",
-        "Armstrong",
-        "Atascosa",
-        "Austin",
-        "Bailey",
-        "Bandera",
-        "Bastrop",
-        "Baylor",
-        "Bee",
-        "Bexar",
-        "Blanco",
-        "Borden",
-        "Briscoe",
-        "Brooks",
-        "Brown",
-        "Burleson",
-        "Burnet",
-        "Caldwell",
-        "Calhoun",
-        "Callahan",
-        "Cameron",
-        "Carson",
-        "Castro",
-        "Childress",
-        "Clay",
-        "Cochran",
-        "Coke",
-        "Coleman",
-        "Collingsworth",
-        "Colorado",
-        "Comal",
-        "Comanche",
-        "Concho",
-        "Cottle",
-        "Crane",
-        "Crockett",
-        "Crosby",
-        "Culberson",
-        "Dallam",
-        "Dawson",
-        "Deaf Smith",
-        "DeWitt",
-        "Dickens",
-        "Dimmit",
-        "Donley",
-        "Duval",
-        "Eastland",
-        "Ector",
-        "El Paso",
-        "Erath",
-        "Fayette",
-        "Fisher",
-        "Floyd",
-        "Foard",
-        "Frio",
-        "Gaines",
-        "Gillespie",
-        "Goliad",
-        "Gonzales",
-        "Gray",
-        "Guadalupe",
-        "Hale",
-        "Hall",
-        "Hamilton",
-        "Hansford",
-        "Hardeman",
-        "Hartley",
-        "Haskell",
-        "Hays",
-        "Hemphill",
-        "Hidalgo",
-        "Hockley",
-        "Hood",
-        "Hudspeth",
-        "Hutchinson",
-        "Jack",
-        "Jackson",
-        "Jasper",
-        "Jeff Davis",
-        "Jim Hogg",
-        "Jim Wells",
-        "Jones",
-        "Karnes",
-        "Kendall",
-        "Kenedy",
-        "Kent",
-        "Kerr",
-        "Kimble",
-        "King",
-        "Kleberg",
-        "Knox",
-        "La Salle",
-        "Lamb",
-        "Lampasas",
-        "Lavaca",
-        "Lee",
-        "Lipscomb",
-        "Live Oak",
-        "Llano",
-        "Loving",
-        "Lubbock",
-        "Martin",
-        "Mason",
-        "Matagorda",
-        "Maverick",
-        "McCulloch",
-        "McMullen",
-        "Medina",
-        "Menard",
-        "Midland",
-        "Milam",
-        "Mills",
-        "Mitchell",
-        "Moore",
-        "Motley",
-        "Nolan",
-        "Nueces",
-        "Ochiltree",
-        "Oldham",
-        "Palo Pinto",
-        "Parker",
-        "Parmer",
-        "Pecos",
-        "Potter",
-        "Randall",
-        "Reeves",
-        "Refugio",
-        "Roberts",
-        "Runnels",
-        "San Patricio",
-        "San Saba",
-        "Scurry",
-        "Shackelford",
-        "Sherman",
-        "Somervell",
-        "Starr",
-        "Stephens",
-        "Stonewall",
-        "Sutton",
-        "Swisher",
-        "Taylor",
-        "Terry",
-        "Throckmorton",
-        "Tom Green",
-        "Travis",
-        "Upton",
-        "Victoria",
-        "Waller",
-        "Ward",
-        "Washington",
-        "Webb",
-        "Wharton",
-        "Wheeler",
-        "Wichita",
-        "Wilbarger",
-        "Willacy",
-        "Williamson",
-        "Wilson",
-        "Winkler",
-        "Yoakum",
-        "Young",
-        "Zapata",
-        "and Zavala "
-      ],
-      "counties_raw": "2/7/26: Excludes Jasper   2/9/26 : Added - Brazos, Delta, Fannin, Franklin, Grimes, Hopkins, Houston, Hunt, Madison, Polk, Real, Red River, Robertson, San Jacinto, Titus, Trinity, Uvalde, Walker     Amended Excluded  and added 12/9/25: Borden, Garza, Glasscock, Howard, Irion, Lynn, Reagan, Schleicher, Sterling, & Sutton  Full Amended List as of 12/9/25: Andrews, Aransas, Archer, Armstrong, Atascosa, Austin, Bailey, Bandera, Bastrop, Baylor, Bee, Bexar, Blanco, Borden, Briscoe, Brooks, Brown, Burleson, Burnet, Caldwell, Calhoun, Callahan, Cameron, Carson, Castro, Childress, Clay, Cochran, Coke, Coleman, Collingsworth, Colorado, Comal, Comanche, Concho, Cottle, Crane, Crockett, Crosby, Culberson, Dallam, Dawson, Deaf Smith, DeWitt, Dickens, Dimmit, Donley, Duval, Eastland, Ector, El Paso, Erath, Fayette, Fisher, Floyd, Foard, Frio, Gaines, Garza, Gillespie, Glasscock, Goliad, Gonzales, Gray, Guadalupe, Hale, Hall, Hamilton, Hansford, Hardeman, Hartley, Haskell, Hays, Hemphill, Hidalgo, Hockley, Hood, Howard, Hudspeth, Hutchinson, Irion, Jack, Jackson, Jasper, Jeff Davis, Jim Hogg, Jim Wells, Jones, Karnes, Kendall, Kenedy, Kent, Kerr, Kimble, King, Kleberg, Knox, La Salle, Lamb, Lampasas, Lavaca, Lee, Lipscomb, Live Oak, Llano, Loving, Lubbock, Lynn, Martin, Mason, Matagorda, Maverick, McCulloch, McMullen, Medina, Menard, Midland, Milam, Mills, Mitchell, Moore, Motley, Nolan, Nueces, Ochiltree, Oldham, Palo Pinto, Parker, Parmer, Pecos, Potter, Randall, Reagan, Reeves, Refugio, Roberts, Runnels, San Patricio, San Saba, Schleicher, Scurry, Shackelford, Sherman, Somervell, Starr, Stephens, Sterling, Stonewall, Sutton, Swisher, Taylor, Terry, Throckmorton, Tom Green, Travis, Upton, Victoria, Waller, Ward, Washington, Webb, Wharton, Wheeler, Wichita, Wilbarger, Willacy, Williamson, Wilson, Winkler, Yoakum, Young, Zapata, and Zavala .",
-      "declaration_date": "2025-08-12",
-      "incident_effective": "2025-08-10",
-      "incident_termination": "2026-03-07",
-      "sep_effective": "2025-08-10",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0189",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "expiring",
-      "entity": "State/Local Declaration",
-      "state": "TX",
-      "state_raw": "TX (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "Texas - New World Screwworm Fly Infestation1/29/2026",
-      "declaration_number": "1.29.26",
-      "disaster_type_raw": "Health Emergency",
-      "disaster_types": [
-        "Health Emergency"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2026-01-29",
-      "incident_effective": "2026-01-29",
-      "incident_termination": "2026-03-01",
-      "sep_effective": "2026-01-29",
-      "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0045",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "State/Local Declaration",
-      "state": "FL",
-      "state_raw": "FL (60 days)",
-      "lookback": "60 days",
-      "declaration_name": "Florida - Emergency Management-Impacts of Winter Weather, Droughts, and Wildfire Risks 1/31/2026 thru 2/3/2026",
-      "declaration_number": "26-33",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Alachua",
-        "Baker",
-        "Bay",
-        "Bradford",
-        "Brevard",
-        "Broward",
-        "Calhoun",
-        "Charlotte",
-        "Citrus",
-        "Clay",
-        "Collier",
-        "Columbia",
-        "DeSoto",
-        "Dixie",
-        "Duval",
-        "Escambia",
-        "Flagler",
-        "Franklin",
-        "Gadsden",
-        "Gilchrist",
-        "Glades",
-        "Gulf",
-        "Hamilton",
-        "Hardee",
-        "_Hendry",
-        "Hernando",
-        "Highlands",
-        "Hillsborough",
-        "Holmes",
-        "Indian River",
-        "Jackson",
-        "Jefferson",
-        "Lafayette",
-        "Lake",
-        "Lee",
-        "Leon",
-        "Levy",
-        "Liberty",
-        "Madison",
-        "Manatee",
-        "Marion",
-        "Martin",
-        "Miami-Dade",
-        "Monroe",
-        "Nassau",
-        "Okaloosa",
-        "Okeechobee",
-        "Orange",
-        "Osceola",
-        "Palm Beach",
-        "Pasco",
-        "Pinellas",
-        "Polk",
-        "Putnam",
-        "St. Johns",
-        "St. Lucie",
-        "Santa Rosa",
-        "Sarasota",
-        "Seminole",
-        "Sumter",
-        "Suwannee",
-        "Taylor",
-        "Union",
-        "Volusia",
-        "Wakulla",
-        "Walton",
-        "and Washington "
-      ],
-      "counties_raw": "Alachua, Baker, Bay, Bradford, Brevard, Broward, Calhoun, Charlotte, Citrus, Clay,  Collier, Columbia, DeSoto, Dixie, Duval, Escambia, Flagler, Franklin, Gadsden, Gilchrist, Glades,  Gulf, Hamilton, Hardee, _Hendry, Hernando, Highlands, Hillsborough, Holmes, Indian River,  Jackson, Jefferson, Lafayette, Lake, Lee, Leon, Levy, Liberty, Madison, Manatee, Marion, Martin,  Miami-Dade, Monroe, Nassau, Okaloosa, Okeechobee, Orange, Osceola, Palm Beach, Pasco,  Pinellas, Polk, Putnam, St. Johns, St. Lucie, Santa Rosa, Sarasota, Seminole, Sumter, Suwannee,  Taylor, Union, Volusia, Wakulla, Walton, and Washington .",
-      "declaration_date": "2026-02-09",
-      "incident_effective": "2026-01-31",
-      "incident_termination": "2026-04-09",
-      "sep_effective": "2026-01-31",
-      "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0103",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "State/Local Declaration",
-      "state": "MO",
-      "state_raw": "MO (no reg.)",
-      "lookback": "no reg.",
-      "declaration_name": "Missouri - Drought 9/22/2025",
-      "declaration_number": "25-34, 25-29",
-      "disaster_type_raw": "Drought",
-      "disaster_types": [
-        "Drought"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Audrain",
-        "Barry",
-        "Bates",
-        "Benton",
-        "Bollinger",
-        "Boone",
-        "Butler",
-        "Callaway",
-        "Camden",
-        "Cape Girardeau",
-        "Carter",
-        "Cass",
-        "Christian",
-        "Clark",
-        "Clay",
-        "Cole",
-        "Cooper",
-        "Crawford",
-        "Dade",
-        "Dallas",
-        "Dent",
-        "Douglas",
-        "Dunklin",
-        "Franklin",
-        "Gasconade",
-        "Greene",
-        "Henry",
-        "Hickory",
-        "Howard",
-        "Howell",
-        "Iron",
-        "Jackson",
-        "Jasper",
-        "Jefferson",
-        "Johnson",
-        "Knox",
-        "Laclede",
-        "Lafayette",
-        "Lawrence",
-        "Lewis",
-        "Lincoln",
-        "Madison",
-        "Maries",
-        "Marion",
-        "McDonald",
-        "Miller",
-        "Mississippi",
-        "Moniteau",
-        "Monroe",
-        "Montgomery",
-        "Morgan",
-        "New Madrid",
-        "Newton",
-        "Oregon",
-        "Osage",
-        "Ozark",
-        "Pemiscot",
-        "Perry",
-        "Pettis",
-        "Phelps",
-        "Pike",
-        "Platte",
-        "Polk",
-        "Pulaski",
-        "Ralls",
-        "Ray",
-        "Reynolds",
-        "Ripley",
-        "St. Charles",
-        "St. Clair",
-        "St. Francois",
-        "St. Louis",
-        "Ste. Genevieve",
-        "Scott",
-        "Shannon",
-        "Shelby",
-        "Stoddard",
-        "Stone",
-        "Taney",
-        "Texas",
-        "Warren",
-        "Washington",
-        "Wayne",
-        "Webster",
-        "Wright",
-        "and the City of St. Louis  ADDED  11/26/25: Barton",
-        "Buchanan",
-        "Caldwell",
-        "Carroll",
-        "Cedar",
-        "Chariton",
-        "Clinton",
-        "Daviess",
-        "DeKalb",
-        "Gentry",
-        "Grundy",
-        "Harrison",
-        "Linn",
-        "Livingston",
-        "Macon",
-        "Randolph",
-        "Saline",
-        "Schuyler",
-        "Scotland",
-        "Sullivan",
-        "and Vernon"
-      ],
-      "counties_raw": "Audrain, Barry, Bates, Benton, Bollinger, Boone, Butler, Callaway, Camden, Cape Girardeau, Carter, Cass, Christian, Clark, Clay, Cole, Cooper, Crawford, Dade, Dallas, Dent, Douglas, Dunklin, Franklin, Gasconade, Greene, Henry, Hickory, Howard, Howell, Iron, Jackson, Jasper, Jefferson, Johnson, Knox, Laclede, Lafayette, Lawrence, Lewis,  Lincoln, Madison, Maries, Marion, McDonald, Miller, Mississippi, Moniteau, Monroe, Montgomery, Morgan, New Madrid, Newton, Oregon, Osage, Ozark, Pemiscot, Perry, Pettis, Phelps, Pike, Platte, ,Polk, Pulaski, Ralls, Ray, Reynolds, Ripley, St. Charles, St. Clair, St. Francois, St. Louis, Ste. Genevieve, Scott, Shannon, Shelby, Stoddard, Stone, Taney, Texas, Warren, Washington, Wayne, Webster, Wright, and the City of St. Louis  ADDED  11/26/25: Barton, Buchanan, Caldwell, Carroll, Cedar, Chariton, Clinton, Daviess, DeKalb, Gentry, Grundy, Harrison, Linn, Livingston, Macon, Randolph, Saline, Schuyler, Scotland, Sullivan, and Vernon",
-      "declaration_date": "2025-09-22",
-      "incident_effective": "2025-09-22",
-      "incident_termination": "2026-04-01",
-      "sep_effective": "2025-09-22",
-      "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0116",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "FEMA",
-      "state": "NC",
-      "state_raw": "NC (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "North Carolina - Sam Davis Road Fire 4/18/2025",
-      "declaration_number": "FM-5580-NC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Swain"
-      ],
-      "counties_raw": "Swain",
-      "declaration_date": "2025-04-20",
-      "incident_effective": "2025-04-18",
-      "incident_termination": null,
-      "sep_effective": "2025-04-18",
-      "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0128",
-      "raw_status": "SEP - New",
-      "status": "active",
-      "entity": "State/Local Declaration",
-      "state": "NJ",
-      "state_raw": "NJ (?)",
-      "lookback": "?",
-      "declaration_name": "New Jersey - COVID-19 Public Health Hazard 3/9/2020 (REINSTATED as of 2/13/2026)",
-      "declaration_number": "13-2026, 415, 244, 112, 109, 103",
-      "disaster_type_raw": "Health Emergency",
-      "disaster_types": [
-        "Health Emergency"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2026-02-13",
-      "incident_effective": "2026-02-15",
-      "incident_termination": "2026-04-18",
-      "sep_effective": "2026-02-13",
-      "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0132",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "FEMA",
-      "state": "NM",
-      "state_raw": "NM (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "New Mexico - Rio Grande Fire 4/17/2025",
-      "declaration_number": "FM-5579-NM",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Valencia"
-      ],
-      "counties_raw": "Valencia",
-      "declaration_date": "2025-04-18",
-      "incident_effective": "2025-04-17",
-      "incident_termination": null,
-      "sep_effective": "2025-04-17",
-      "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0142",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "State/Local Declaration",
-      "state": "NY",
-      "state_raw": "NY (6 mths)",
-      "lookback": "6 mths",
-      "declaration_name": "New York - Coastal Storm 10/12/2025",
-      "declaration_number": "53",
-      "disaster_type_raw": "Storms - Rain",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "Bronx",
-        "Kings",
-        "Nassau",
-        "New York",
-        "Queens Richmond",
-        "Suffolk",
-        "Westchester",
-        "& Contagious"
-      ],
-      "counties_raw": "Bronx, Kings, Nassau, New York, Queens Richmond, Suffolk, Westchester, & Contagious",
-      "declaration_date": "2025-10-12",
-      "incident_effective": "2025-10-12",
-      "incident_termination": "2026-04-12",
-      "sep_effective": "2025-10-12",
-      "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0145",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "State/Local Declaration",
-      "state": "OH",
-      "state_raw": "OH (90 days)",
-      "lookback": "90 days",
-      "declaration_name": "Ohio- Winter Storm Fern 1/24/2026",
-      "declaration_number": "1.24.26",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
-      "disaster_types": [
-        "Storms"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "STATEWIDE",
-      "declaration_date": "2026-01-24",
-      "incident_effective": "2026-01-24",
-      "incident_termination": "2026-04-24",
-      "sep_effective": "2026-01-24",
-      "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0012",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "State/Local Declaration",
-      "state": "CA",
-      "state_raw": "CA (no reg.)",
-      "lookback": "no reg.",
-      "declaration_name": "California - Victoria Island Levee 10/21/2024",
-      "declaration_number": null,
-      "disaster_type_raw": "Floods",
-      "disaster_types": [
-        "Floods"
-      ],
-      "declaration_type": "Emergency (EM)",
-      "counties": [
-        "San Joaquin"
-      ],
-      "counties_raw": "San Joaquin",
-      "declaration_date": "2025-05-28",
-      "incident_effective": "2024-10-21",
-      "incident_termination": "2025-10-21",
-      "sep_effective": "2024-10-21",
-      "sep_termination": "2026-07-31",
-      "days_until_expiry": 63,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0117",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "FEMA",
-      "state": "NC",
-      "state_raw": "NC (30 days)",
-      "lookback": "30 days",
-      "declaration_name": "North Carolina - Sunset Drive Fire 5/2/2025",
-      "declaration_number": "FM-5582-NC",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Brunswick"
-      ],
-      "counties_raw": "Brunswick",
-      "declaration_date": "2025-05-03",
-      "incident_effective": "2025-05-02",
-      "incident_termination": null,
-      "sep_effective": "2025-05-02",
-      "sep_termination": "2026-07-31",
-      "days_until_expiry": 63,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-0129",
-      "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
-      "entity": "FEMA",
-      "state": "NJ",
-      "state_raw": "NJ (?)",
-      "lookback": "?",
-      "declaration_name": "New Jersey - Jones Road Fire 4/22/2025",
-      "declaration_number": "FM-5581-NJ",
-      "disaster_type_raw": "Fires/Wildfires",
-      "disaster_types": [
-        "Fires/Wildfires"
-      ],
-      "declaration_type": "Fire Management (FM)",
-      "counties": [
-        "Ocean"
-      ],
-      "counties_raw": "Ocean",
-      "declaration_date": "2025-04-24",
-      "incident_effective": "2025-04-22",
-      "incident_termination": null,
-      "sep_effective": "2025-04-22",
-      "sep_termination": "2026-07-31",
-      "days_until_expiry": 63,
-      "days_since_expiry": null
-    },
-    {
       "id": "sep-0013",
       "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
+      "status": "expiring",
       "entity": "State/Local Declaration",
       "state": "CA",
       "state_raw": "CA (no reg.)",
@@ -1769,13 +36,44 @@
       "incident_termination": "2024-12-18",
       "sep_effective": "2024-12-09",
       "sep_termination": "2026-08-31",
-      "days_until_expiry": 94,
+      "days_until_expiry": 10,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-ia-storm-2026",
+      "raw_status": "Active (New)",
+      "status": "expiring",
+      "entity": "State Declaration",
+      "state": "IA",
+      "state_raw": "IA",
+      "lookback": null,
+      "declaration_name": "Iowa - Severe Storm Systems",
+      "declaration_number": null,
+      "disaster_type_raw": "Severe Storm",
+      "disaster_types": [
+        "Severe Storm"
+      ],
+      "declaration_type": "State Emergency",
+      "counties": [
+        "Cherokee",
+        "Clay",
+        "Kossuth",
+        "Montgomery",
+        "Ringgold"
+      ],
+      "counties_raw": "Cherokee, Clay, Kossuth, Montgomery, and Ringgold Counties",
+      "declaration_date": null,
+      "incident_effective": "2026-05-15",
+      "incident_termination": "2026-07-20",
+      "sep_effective": "2026-05-15",
+      "sep_termination": "2026-08-31",
+      "days_until_expiry": 10,
       "days_since_expiry": null
     },
     {
       "id": "sep-0121",
       "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
+      "status": "expiring",
       "entity": "State/Local Declaration",
       "state": "NE",
       "state_raw": "NE (no reg.)",
@@ -1796,13 +94,41 @@
       "incident_termination": "2026-06-13",
       "sep_effective": "2025-06-13",
       "sep_termination": "2026-08-31",
-      "days_until_expiry": 94,
+      "days_until_expiry": 10,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-nm-drought-2026",
+      "raw_status": "Active (New)",
+      "status": "expiring",
+      "entity": "State Declaration",
+      "state": "NM",
+      "state_raw": "NM",
+      "lookback": null,
+      "declaration_name": "New Mexico - Drought and Severe Fire Conditions",
+      "declaration_number": null,
+      "disaster_type_raw": "Drought",
+      "disaster_types": [
+        "Drought",
+        "Fire"
+      ],
+      "declaration_type": "State Emergency",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "All Counties",
+      "declaration_date": null,
+      "incident_effective": "2026-05-19",
+      "incident_termination": "2026-07-19",
+      "sep_effective": "2026-05-19",
+      "sep_termination": "2026-08-31",
+      "days_until_expiry": 10,
       "days_since_expiry": null
     },
     {
       "id": "sep-0163",
       "raw_status": "SEP - In Progress/No Change",
-      "status": "active",
+      "status": "expiring",
       "entity": "State/Local Declaration",
       "state": "OR",
       "state_raw": "OR (30 days)",
@@ -1823,7 +149,7 @@
       "incident_termination": "2026-06-30",
       "sep_effective": "2025-06-11",
       "sep_termination": "2026-08-31",
-      "days_until_expiry": 94,
+      "days_until_expiry": 10,
       "days_since_expiry": null
     },
     {
@@ -1851,7 +177,7 @@
       "incident_termination": "2026-07-28",
       "sep_effective": "2025-07-28",
       "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
+      "days_until_expiry": 40,
       "days_since_expiry": null
     },
     {
@@ -1879,7 +205,7 @@
       "incident_termination": "2026-07-29",
       "sep_effective": "2025-03-30",
       "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
+      "days_until_expiry": 40,
       "days_since_expiry": null
     },
     {
@@ -1913,7 +239,305 @@
       "incident_termination": "2026-07-29",
       "sep_effective": "2025-01-31",
       "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-ca-chemical-2026-state",
+      "raw_status": "Active (New)",
+      "status": "active",
+      "entity": "State Declaration",
+      "state": "CA",
+      "state_raw": "CA",
+      "lookback": null,
+      "declaration_name": "California - Hazardous Chemical Incident",
+      "declaration_number": null,
+      "disaster_type_raw": "Hazardous Chemical",
+      "disaster_types": [
+        "Hazardous Chemical"
+      ],
+      "declaration_type": "State Emergency",
+      "counties": [
+        "Orange"
+      ],
+      "counties_raw": "Orange County",
+      "declaration_date": null,
+      "incident_effective": "2026-05-21",
+      "incident_termination": "2026-08-19",
+      "sep_effective": "2026-05-21",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0216",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Tornadoes, Damaging Winds, and Torrential Rain 3/10/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tornado",
+      "disaster_types": [
+        "Tornado"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Kankakee"
+      ],
+      "counties_raw": "Kankakee County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-03-10",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-03-10",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0217",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Severe Storms 4/14/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Storms - Rain",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Stephenson"
+      ],
+      "counties_raw": "Stephenson County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-04-14",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-04-14",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0218",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Line of Severe Storms 4/17/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Storms - Rain",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Winnebago"
+      ],
+      "counties_raw": "Winnebago County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-04-17",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-04-17",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0219",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Severe Storms and Tornadoes 4/17/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tornado",
+      "disaster_types": [
+        "Tornado"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "McLean"
+      ],
+      "counties_raw": "McLean County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-04-17",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-04-17",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0220",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Thunderstorms 6/10/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Storms - Rain",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Cook"
+      ],
+      "counties_raw": "Cook County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-06-10",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-06-10",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0221",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Tornadoes 6/11/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tornado",
+      "disaster_types": [
+        "Tornado"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "LaSalle",
+        "Woodford"
+      ],
+      "counties_raw": "LaSalle, and Woodford",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-06-11",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-06-11",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0222",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Severe Storms and Tornadoes 6/17/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tornado",
+      "disaster_types": [
+        "Tornado"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Coles"
+      ],
+      "counties_raw": "Coles County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-06-17",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-06-17",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0223",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Impacts of Severe Weather 6/17/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Storms - Rain",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Effingham"
+      ],
+      "counties_raw": "Effingham County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-06-17",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-06-17",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0224",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Tornado 6/17/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tornado",
+      "disaster_types": [
+        "Tornado"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Warren"
+      ],
+      "counties_raw": "Warren County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-06-17",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-06-17",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0225",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IL",
+      "state_raw": "IL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Illinois - Severe Storms and Tornadoes 6/21/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tornado",
+      "disaster_types": [
+        "Tornado"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Jefferson"
+      ],
+      "counties_raw": "Jefferson County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-06-21",
+      "incident_termination": "2026-08-27",
+      "sep_effective": "2026-06-21",
+      "sep_termination": "2026-09-30",
+      "days_until_expiry": 40,
       "days_since_expiry": null
     },
     {
@@ -1942,7 +566,7 @@
       "incident_termination": "2026-07-15",
       "sep_effective": "2025-05-16",
       "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
+      "days_until_expiry": 40,
       "days_since_expiry": null
     },
     {
@@ -1972,7 +596,7 @@
       "incident_termination": "2026-07-15",
       "sep_effective": "2025-04-02",
       "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
+      "days_until_expiry": 40,
       "days_since_expiry": null
     },
     {
@@ -1999,7 +623,7 @@
       "incident_termination": "2026-07-27",
       "sep_effective": "2026-01-27",
       "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
+      "days_until_expiry": 40,
       "days_since_expiry": null
     },
     {
@@ -2026,7 +650,7 @@
       "incident_termination": null,
       "sep_effective": "2025-07-02",
       "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
+      "days_until_expiry": 40,
       "days_since_expiry": null
     },
     {
@@ -2053,7 +677,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-07",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2080,7 +704,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-02",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2107,7 +731,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-02",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2134,7 +758,34 @@
       "incident_termination": null,
       "sep_effective": "2025-08-10",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0214",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "GU",
+      "state_raw": "GU (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Guam - Typhoon Bavi 7/2/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Hurricane/Typhoon",
+      "disaster_types": [
+        "Hurricane/Typhoon"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "All Counties",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-07-02",
+      "incident_termination": "2026-09-08",
+      "sep_effective": "2026-07-02",
+      "sep_termination": "2026-10-31",
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2161,7 +812,34 @@
       "incident_termination": null,
       "sep_effective": "2025-08-19",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0215",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "HI",
+      "state_raw": "HI (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Hawaii - Tropical Storm LALA 8/13/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tropical Storm",
+      "disaster_types": [
+        "Tropical Storm"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "All Counties",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-13",
+      "incident_termination": "2026-09-25",
+      "sep_effective": "2026-08-13",
+      "sep_termination": "2026-10-31",
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2190,7 +868,7 @@
       "incident_termination": "2026-08-09",
       "sep_effective": "2026-02-09",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2203,9 +881,9 @@
       "lookback": "270 days",
       "declaration_name": "Kentucky - Catastrophic Plane Crash 11/4/2025",
       "declaration_number": "2025-758",
-      "disaster_type_raw": "Building/Bridge/Structural Collapse’;Explosion",
+      "disaster_type_raw": "Building/Bridge/Structural Collapse\u2019;Explosion",
       "disaster_types": [
-        "Building/Bridge/Structural Collapse’",
+        "Building/Bridge/Structural Collapse\u2019",
         "Explosion"
       ],
       "declaration_type": "Emergency (EM)",
@@ -2218,7 +896,7 @@
       "incident_termination": "2026-08-02",
       "sep_effective": "2025-11-04",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2267,7 +945,34 @@
       "incident_termination": null,
       "sep_effective": "2025-08-08",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0235",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "OR",
+      "state_raw": "OR (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Oregon - Grasshopper Fire 7/29/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Wasco"
+      ],
+      "counties_raw": "Wasco County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-07-29",
+      "incident_termination": "2026-09-25",
+      "sep_effective": "2026-07-29",
+      "sep_termination": "2026-10-31",
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2294,7 +999,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-15",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2324,7 +1029,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-13",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
       "days_since_expiry": null
     },
     {
@@ -2351,7 +1056,61 @@
       "incident_termination": null,
       "sep_effective": "2025-08-25",
       "sep_termination": "2026-10-31",
-      "days_until_expiry": 155,
+      "days_until_expiry": 71,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0207",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "AK",
+      "state_raw": "AK (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Alaska - Flooding 7/21/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Floods",
+      "disaster_types": [
+        "Floods"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Matanuska-Susitna Borough"
+      ],
+      "counties_raw": "Matanuska-Susitna Borough",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-07-21",
+      "incident_termination": "2026-10-01",
+      "sep_effective": "2026-07-21",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0208",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "AK",
+      "state_raw": "AK (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Alaska - Catastrophic Flooding 8/12/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Floods",
+      "disaster_types": [
+        "Floods"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Juneau Borough"
+      ],
+      "counties_raw": "Juneau Borough",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-12",
+      "incident_termination": "2026-10-09",
+      "sep_effective": "2026-08-12",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
       "days_since_expiry": null
     },
     {
@@ -2378,7 +1137,7 @@
       "incident_termination": null,
       "sep_effective": "2025-09-02",
       "sep_termination": "2026-11-30",
-      "days_until_expiry": 185,
+      "days_until_expiry": 101,
       "days_since_expiry": null
     },
     {
@@ -2405,7 +1164,286 @@
       "incident_termination": "2025-09-13",
       "sep_effective": "2025-09-02",
       "sep_termination": "2026-11-30",
-      "days_until_expiry": 185,
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0209",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "CO",
+      "state_raw": "CO (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Colorado - 310 Fire 8/6/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Garfield"
+      ],
+      "counties_raw": "Garfield County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-06",
+      "incident_termination": "2026-10-04",
+      "sep_effective": "2026-08-06",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0210",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "CO",
+      "state_raw": "CO (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Colorado - Post Fire 8/12/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Las Animas"
+      ],
+      "counties_raw": "Las Animas County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-12",
+      "incident_termination": "2026-10-10",
+      "sep_effective": "2026-08-12",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0211",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "CO",
+      "state_raw": "CO (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Colorado - The Sheep Pen Fire 8/11/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Las Animas"
+      ],
+      "counties_raw": "Las Animas County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-11",
+      "incident_termination": "2026-10-10",
+      "sep_effective": "2026-08-11",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0212",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "CO",
+      "state_raw": "CO (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Colorado - The High Fence Fire 8/12/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Las Animas"
+      ],
+      "counties_raw": "Las Animas County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-12",
+      "incident_termination": "2026-10-10",
+      "sep_effective": "2026-08-12",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0213",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "CO",
+      "state_raw": "CO (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Colorado - The Gotera Fire 8/12/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Las Animas"
+      ],
+      "counties_raw": "Las Animas County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-12",
+      "incident_termination": "2026-10-10",
+      "sep_effective": "2026-08-12",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0226",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "IN",
+      "state_raw": "IN (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Indiana - Flooding, Severe Weather 8/11/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Floods",
+      "disaster_types": [
+        "Floods"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "All Counties",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-11",
+      "incident_termination": "2026-10-10",
+      "sep_effective": "2026-08-11",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0227",
+      "raw_status": "SEP - Extended/Updated",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "LA",
+      "state_raw": "LA (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Louisiana - Tropical Storm Arthur 6/17/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Tropical Storm",
+      "disaster_types": [
+        "Tropical Storm"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Avoyelles",
+        "East Feliciana",
+        "Lafourche",
+        "Pointe Coupee",
+        "St. Charles",
+        "St. Landry",
+        "St. Tammany",
+        "Terrebonne",
+        "Winn"
+      ],
+      "counties_raw": "Avoyelles, East Feliciana, Lafourche, Pointe Coupee, St. Charles, St. Landry, St. Tammany, Terrebonne, and Winn",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-06-17",
+      "incident_termination": "2026-10-04",
+      "sep_effective": "2026-06-17",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0231",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "NM",
+      "state_raw": "NM (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "New Mexico - Frijoles Fire 8/4/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Rio Arriba",
+        "Santa Fe"
+      ],
+      "counties_raw": "Rio Arriba, and Santa Fe",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-04",
+      "incident_termination": "2026-10-08",
+      "sep_effective": "2026-08-04",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0236",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "OR",
+      "state_raw": "OR (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Oregon - Wrights Spring Fire 8/7/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Klamath"
+      ],
+      "counties_raw": "Klamath County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-07",
+      "incident_termination": "2026-10-04",
+      "sep_effective": "2026-08-07",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0241",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "WA",
+      "state_raw": "WA (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Washington - Burn Ban, Drought Conditions and Wildfires 8/1/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "All Counties",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-01",
+      "incident_termination": "2026-10-08",
+      "sep_effective": "2026-08-01",
+      "sep_termination": "2026-11-30",
+      "days_until_expiry": 101,
       "days_since_expiry": null
     },
     {
@@ -2432,7 +1470,7 @@
       "incident_termination": null,
       "sep_effective": "2025-09-02",
       "sep_termination": "2026-12-02",
-      "days_until_expiry": 187,
+      "days_until_expiry": 103,
       "days_since_expiry": null
     },
     {
@@ -2459,7 +1497,36 @@
       "incident_termination": null,
       "sep_effective": "2025-09-02",
       "sep_termination": "2026-12-02",
-      "days_until_expiry": 187,
+      "days_until_expiry": 103,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0045",
+      "raw_status": "SEP - Extended/Updated",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "FL",
+      "state_raw": "FL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Florida - Emergency Management-Impacts of Winter Weather, Droughts, and Wildfire Risks 1/31/2026 thru 11/3/2026",
+      "declaration_number": "26-33",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix; Drought; Fires/Wildfires",
+      "disaster_types": [
+        "Storms",
+        "Drought",
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "All Counties",
+      "declaration_date": "2026-02-09",
+      "incident_effective": "2026-01-31",
+      "incident_termination": "2026-11-03",
+      "sep_effective": "2026-01-31",
+      "sep_termination": "2026-12-31",
+      "days_until_expiry": 132,
       "days_since_expiry": null
     },
     {
@@ -2486,7 +1553,7 @@
       "incident_termination": "2026-10-20",
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-12-31",
-      "days_until_expiry": 216,
+      "days_until_expiry": 132,
       "days_since_expiry": null
     },
     {
@@ -2513,7 +1580,7 @@
       "incident_termination": null,
       "sep_effective": "2025-10-27",
       "sep_termination": "2026-12-31",
-      "days_until_expiry": 216,
+      "days_until_expiry": 132,
       "days_since_expiry": null
     },
     {
@@ -2540,7 +1607,7 @@
       "incident_termination": null,
       "sep_effective": "2025-10-29",
       "sep_termination": "2026-12-31",
-      "days_until_expiry": 216,
+      "days_until_expiry": 132,
       "days_since_expiry": null
     },
     {
@@ -2568,7 +1635,35 @@
       "incident_termination": null,
       "sep_effective": "2025-11-13",
       "sep_termination": "2027-01-31",
-      "days_until_expiry": 247,
+      "days_until_expiry": 163,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0233",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "OH",
+      "state_raw": "OH (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Ohio - Severe Flooding 8/10/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Floods",
+      "disaster_types": [
+        "Floods"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Perry",
+        "Muskingum"
+      ],
+      "counties_raw": "Perry, and Muskingum",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-10",
+      "incident_termination": "2026-12-07",
+      "sep_effective": "2026-08-10",
+      "sep_termination": "2027-01-31",
+      "days_until_expiry": 163,
       "days_since_expiry": null
     },
     {
@@ -2595,7 +1690,7 @@
       "incident_termination": null,
       "sep_effective": "2025-03-01",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2626,7 +1721,7 @@
       "incident_termination": null,
       "sep_effective": "2025-09-18",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2654,7 +1749,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-23",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2682,7 +1777,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-24",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2710,7 +1805,7 @@
       "incident_termination": null,
       "sep_effective": "2025-08-01",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2723,9 +1818,9 @@
       "lookback": "no reg.",
       "declaration_name": "California - 2025 July Tsunami 7/29/2025",
       "declaration_number": "5- SOE",
-      "disaster_type_raw": "Building/Bridge/Structural Collapse’;Earthquake",
+      "disaster_type_raw": "Building/Bridge/Structural Collapse\u2019;Earthquake",
       "disaster_types": [
-        "Building/Bridge/Structural Collapse’",
+        "Building/Bridge/Structural Collapse\u2019",
         "Earthquake"
       ],
       "declaration_type": "Emergency (EM)",
@@ -2738,7 +1833,7 @@
       "incident_termination": null,
       "sep_effective": "2025-07-29",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2751,10 +1846,10 @@
       "lookback": "no reg.",
       "declaration_name": "California- January 2025  Windstorm Event 1/7/2025 & 1/8/2025",
       "declaration_number": "3 - SOE",
-      "disaster_type_raw": "Straight-Line Winds;Building/Bridge/Structural Collapse’",
+      "disaster_type_raw": "Straight-Line Winds;Building/Bridge/Structural Collapse\u2019",
       "disaster_types": [
         "Straight-Line Winds",
-        "Building/Bridge/Structural Collapse’"
+        "Building/Bridge/Structural Collapse\u2019"
       ],
       "declaration_type": "Emergency (EM)",
       "counties": [
@@ -2766,7 +1861,7 @@
       "incident_termination": null,
       "sep_effective": "2025-01-07",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2800,7 +1895,7 @@
       "incident_termination": null,
       "sep_effective": "2025-12-23",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2828,7 +1923,34 @@
       "incident_termination": null,
       "sep_effective": "2025-12-10",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0232",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "State/Local Declaration",
+      "state": "ND",
+      "state_raw": "ND (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "North Dakota - Drought Conditions 8/4/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Drought",
+      "disaster_types": [
+        "Drought"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "All Counties",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-04",
+      "incident_termination": "2026-12-30",
+      "sep_effective": "2026-08-04",
+      "sep_termination": "2027-02-28",
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2855,7 +1977,7 @@
       "incident_termination": null,
       "sep_effective": "2025-11-21",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2885,7 +2007,7 @@
       "incident_termination": null,
       "sep_effective": "2025-12-09",
       "sep_termination": "2027-02-28",
-      "days_until_expiry": 275,
+      "days_until_expiry": 191,
       "days_since_expiry": null
     },
     {
@@ -2917,7 +2039,7 @@
       "incident_termination": "2027-01-06",
       "sep_effective": "2025-01-07",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -2944,7 +2066,7 @@
       "incident_termination": null,
       "sep_effective": "2026-01-23",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -2971,7 +2093,7 @@
       "incident_termination": null,
       "sep_effective": "2026-01-23",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -2998,7 +2120,34 @@
       "incident_termination": null,
       "sep_effective": "2026-01-23",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0118",
+      "raw_status": "SEP - Extended/Updated",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "NC",
+      "state_raw": "NC (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "North Carolina - Severe Winter Storm 1/21/2026",
+      "declaration_number": "EM-3637-NC",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Alamance  Alexander  Alleghany  Anson  Ashe  Avery  Beaufort  Bertie  Bladen  Brunswick  Buncombe  Burke  Cabarrus  Caldwell  Camden  Carteret  Caswell  Catawba  Chatham  Cherokee  Chowan  Clay  Cleveland  Columbus  Craven  Cumberland  Currituck  Dare  Davidson  Davie  Duplin  Durham  Eastern Band of Cherokee Indians of North Carolina Edgecombe  Forsyth  Franklin  Gaston  Gates  Graham  Granville  Greene  Guilford  Halifax  Harnett  Haywood  Henderson  Hertford  Hoke  Hyde  Iredell  Jackson  Johnston  Jones  Lee  Lenoir  Lincoln  Lumbee (TDSA) Macon  Madison  Martin  McDowell  Mecklenburg  Mitchell  Montgomery  Moore  Nash  New Hanover  Northampton  Onslow  Orange  Pamlico  Pasquotank  Pender  Perquimans  Person  Pitt  Polk  Randolph  Richmond  Robeson  Rockingham  Rowan  Rutherford  Sampson  Scotland  Stanly  Stokes  Surry  Swain  Transylvania  Tyrrell  Union  Vance  Wake  Warren  Washington  Watauga  Wayne  Wilkes  Wilson  Yadkin  Yancey"
+      ],
+      "counties_raw": "Alamance  Alexander  Alleghany  Anson  Ashe  Avery  Beaufort  Bertie  Bladen  Brunswick  Buncombe  Burke  Cabarrus  Caldwell  Camden  Carteret  Caswell  Catawba  Chatham  Cherokee  Chowan  Clay  Cleveland  Columbus  Craven  Cumberland  Currituck  Dare  Davidson  Davie  Duplin  Durham  Eastern Band of Cherokee Indians of North Carolina Edgecombe  Forsyth  Franklin  Gaston  Gates  Graham  Granville  Greene  Guilford  Halifax  Harnett  Haywood  Henderson  Hertford  Hoke  Hyde  Iredell  Jackson  Johnston  Jones  Lee  Lenoir  Lincoln  Lumbee (TDSA) Macon  Madison  Martin  McDowell  Mecklenburg  Mitchell  Montgomery  Moore  Nash  New Hanover  Northampton  Onslow  Orange  Pamlico  Pasquotank  Pender  Perquimans  Person  Pitt  Polk  Randolph  Richmond  Robeson  Rockingham  Rowan  Rutherford  Sampson  Scotland  Stanly  Stokes  Surry  Swain  Transylvania  Tyrrell  Union  Vance  Wake  Warren  Washington  Watauga  Wayne  Wilkes  Wilson  Yadkin  Yancey",
+      "declaration_date": "2026-01-24",
+      "incident_effective": "2026-01-21",
+      "incident_termination": null,
+      "sep_effective": "2026-01-21",
+      "sep_termination": "2027-03-31",
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -3045,7 +2194,7 @@
       "incident_termination": "2027-01-10",
       "sep_effective": "2023-01-10",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -3072,7 +2221,7 @@
       "incident_termination": null,
       "sep_effective": "2026-01-21",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -3099,7 +2248,7 @@
       "incident_termination": null,
       "sep_effective": "2026-01-22",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -3126,7 +2275,7 @@
       "incident_termination": null,
       "sep_effective": "2026-01-22",
       "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
+      "days_until_expiry": 222,
       "days_since_expiry": null
     },
     {
@@ -3139,9 +2288,9 @@
       "lookback": "?",
       "declaration_name": "District of Columbia (DC) - Sewer Line Collapse 1/19/2026",
       "declaration_number": "EM-3643-DC",
-      "disaster_type_raw": "Building/Bridge/Structural Collapse’",
+      "disaster_type_raw": "Building/Bridge/Structural Collapse\u2019",
       "disaster_types": [
-        "Building/Bridge/Structural Collapse’"
+        "Building/Bridge/Structural Collapse\u2019"
       ],
       "declaration_type": "Emergency (EM)",
       "counties": [
@@ -3153,7 +2302,7 @@
       "incident_termination": null,
       "sep_effective": "2026-01-19",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
       "days_since_expiry": null
     },
     {
@@ -3180,7 +2329,7 @@
       "incident_termination": "2027-02-22",
       "sep_effective": "2026-02-22",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
       "days_since_expiry": null
     },
     {
@@ -3207,7 +2356,7 @@
       "incident_termination": null,
       "sep_effective": "2026-02-17",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
       "days_since_expiry": null
     },
     {
@@ -3234,7 +2383,7 @@
       "incident_termination": null,
       "sep_effective": "2026-02-17",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
       "days_since_expiry": null
     },
     {
@@ -3261,7 +2410,7 @@
       "incident_termination": null,
       "sep_effective": "2026-02-17",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
       "days_since_expiry": null
     },
     {
@@ -3288,7 +2437,7 @@
       "incident_termination": null,
       "sep_effective": "2026-02-19",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
       "days_since_expiry": null
     },
     {
@@ -3315,7 +2464,7 @@
       "incident_termination": null,
       "sep_effective": "2026-02-19",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
       "days_since_expiry": null
     },
     {
@@ -3342,7 +2491,254 @@
       "incident_termination": null,
       "sep_effective": "2026-02-17",
       "sep_termination": "2027-04-30",
-      "days_until_expiry": 336,
+      "days_until_expiry": 252,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-ca-chemical-2026-fema",
+      "raw_status": "Active (New)",
+      "status": "active",
+      "entity": "FEMA Declaration",
+      "state": "CA",
+      "state_raw": "CA",
+      "lookback": null,
+      "declaration_name": "California - Chemical Release (FEMA)",
+      "declaration_number": null,
+      "disaster_type_raw": "Chemical Release",
+      "disaster_types": [
+        "Chemical Release"
+      ],
+      "declaration_type": "FEMA Emergency",
+      "counties": [
+        "Orange"
+      ],
+      "counties_raw": "Orange County",
+      "declaration_date": null,
+      "incident_effective": "2026-05-21",
+      "incident_termination": "2027-05-24",
+      "sep_effective": "2026-05-21",
+      "sep_termination": "2027-07-31",
+      "days_until_expiry": 344,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0228",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "NV",
+      "state_raw": "NV (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Nevada - Fred Mountain Fire 8/9/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Washoe"
+      ],
+      "counties_raw": "Washoe County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-09",
+      "incident_termination": "2027-08-10",
+      "sep_effective": "2026-08-09",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0229",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "NV",
+      "state_raw": "NV (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Nevada - Stallion Fire 8/10/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Washoe"
+      ],
+      "counties_raw": "Washoe County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-10",
+      "incident_termination": "2027-08-10",
+      "sep_effective": "2026-08-10",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0230",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "NV",
+      "state_raw": "NV (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Nevada - Bug Fire 8/8/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Washoe"
+      ],
+      "counties_raw": "Washoe County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-08",
+      "incident_termination": "2027-08-07",
+      "sep_effective": "2026-08-08",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0234",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "OK",
+      "state_raw": "OK (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Oklahoma - Train Trestle Fire 8/13/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Canadian",
+        "Oklahoma"
+      ],
+      "counties_raw": "Canadian, and Oklahoma",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-13",
+      "incident_termination": "2027-08-12",
+      "sep_effective": "2026-08-13",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0237",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "OR",
+      "state_raw": "OR (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Oregon - Wrights Spring Fire 8/7/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Klamath"
+      ],
+      "counties_raw": "Klamath County",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-07",
+      "incident_termination": "2027-08-08",
+      "sep_effective": "2026-08-07",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0238",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "OR",
+      "state_raw": "OR (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Oregon - Hagen Fire 7/21/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Umatilla",
+        "Union"
+      ],
+      "counties_raw": "Umatilla, and Union",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-07-21",
+      "incident_termination": "2027-08-08",
+      "sep_effective": "2026-07-21",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0239",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "OR",
+      "state_raw": "OR (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Oregon - Fielder Mountain Fire 8/13/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Jackson",
+        "Josephine"
+      ],
+      "counties_raw": "Jackson, and Josephine",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-13",
+      "incident_termination": "2027-08-12",
+      "sep_effective": "2026-08-13",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
+      "days_since_expiry": null
+    },
+    {
+      "id": "sep-0240",
+      "raw_status": "SEP - New",
+      "status": "active",
+      "entity": "FEMA",
+      "state": "UT",
+      "state_raw": "UT (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Utah - Rocky Canyon Fire 8/7/2026",
+      "declaration_number": null,
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Morgan",
+        "Summit"
+      ],
+      "counties_raw": "Morgan, and Summit",
+      "declaration_date": "2026-08-21",
+      "incident_effective": "2026-08-07",
+      "incident_termination": "2027-08-08",
+      "sep_effective": "2026-08-07",
+      "sep_termination": "2027-10-31",
+      "days_until_expiry": 436,
       "days_since_expiry": null
     },
     {
@@ -3369,7 +2765,7 @@
       "incident_termination": "2030-01-31",
       "sep_effective": "2026-01-17",
       "sep_termination": "2030-03-31",
-      "days_until_expiry": 1402,
+      "days_until_expiry": 1318,
       "days_since_expiry": null
     },
     {
@@ -3408,7 +2804,7 @@
       "sep_effective": "2025-10-09",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0003",
@@ -3435,7 +2831,7 @@
       "sep_effective": "2025-10-01",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0007",
@@ -3463,7 +2859,7 @@
       "sep_effective": "2024-12-05",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0056",
@@ -3490,7 +2886,7 @@
       "sep_effective": "2025-09-18",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0064",
@@ -3519,7 +2915,7 @@
       "sep_effective": "2025-07-17",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0069",
@@ -3548,7 +2944,7 @@
       "sep_effective": "2025-04-02",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0078",
@@ -3575,7 +2971,7 @@
       "sep_effective": "2025-06-20",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0107",
@@ -3603,7 +2999,7 @@
       "sep_effective": "2025-12-17",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0123",
@@ -3633,7 +3029,7 @@
       "sep_effective": "2025-12-02",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0124",
@@ -3678,7 +3074,7 @@
       "sep_effective": "2025-12-26",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0146",
@@ -3705,7 +3101,7 @@
       "sep_effective": "2025-12-19",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0154",
@@ -3732,7 +3128,7 @@
       "sep_effective": "2025-06-18",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0155",
@@ -3759,7 +3155,7 @@
       "sep_effective": "2025-07-02",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0156",
@@ -3786,7 +3182,7 @@
       "sep_effective": "2025-07-16",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0157",
@@ -3816,7 +3212,7 @@
       "sep_effective": "2025-07-02",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0158",
@@ -3844,7 +3240,7 @@
       "sep_effective": "2025-08-13",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0159",
@@ -3871,7 +3267,7 @@
       "sep_effective": "2025-09-29",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0160",
@@ -3898,7 +3294,7 @@
       "sep_effective": "2025-10-30",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0161",
@@ -3925,7 +3321,7 @@
       "sep_effective": "2025-11-17",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0167",
@@ -3952,7 +3348,7 @@
       "sep_effective": "2025-06-30",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0181",
@@ -4157,7 +3553,7 @@
       "sep_effective": "2025-08-10",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0196",
@@ -4187,7 +3583,7 @@
       "sep_effective": "2023-07-09",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0197",
@@ -4214,7 +3610,7 @@
       "sep_effective": "2025-11-11",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0198",
@@ -4243,7 +3639,7 @@
       "sep_effective": "2025-12-02",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0200",
@@ -4270,7 +3666,7 @@
       "sep_effective": "2025-10-31",
       "sep_termination": "2026-02-28",
       "days_until_expiry": null,
-      "days_since_expiry": 90
+      "days_since_expiry": 174
     },
     {
       "id": "sep-0008",
@@ -4297,7 +3693,7 @@
       "sep_effective": "2025-01-07",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0009",
@@ -4324,7 +3720,7 @@
       "sep_effective": "2025-01-07",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0010",
@@ -4351,7 +3747,7 @@
       "sep_effective": "2025-01-07",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0032",
@@ -4379,7 +3775,7 @@
       "sep_effective": "2026-01-24",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0036",
@@ -4406,7 +3802,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0046",
@@ -4433,7 +3829,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0047",
@@ -4460,7 +3856,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0057",
@@ -4487,7 +3883,7 @@
       "sep_effective": "2025-12-04",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0058",
@@ -4515,7 +3911,7 @@
       "sep_effective": "2026-01-15",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0060",
@@ -4543,7 +3939,7 @@
       "sep_effective": "2025-12-13",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0065",
@@ -4570,7 +3966,7 @@
       "sep_effective": "2026-01-14",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0070",
@@ -4599,7 +3995,7 @@
       "sep_effective": "2025-02-15",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0079",
@@ -4626,7 +4022,7 @@
       "sep_effective": "2025-10-10",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0080",
@@ -4656,7 +4052,7 @@
       "sep_effective": "2025-12-19",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0081",
@@ -4688,7 +4084,7 @@
       "sep_effective": "2025-12-22",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0082",
@@ -4715,7 +4111,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0093",
@@ -4742,7 +4138,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0096",
@@ -4769,7 +4165,7 @@
       "sep_effective": "2025-12-18",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0097",
@@ -4796,7 +4192,7 @@
       "sep_effective": "2026-01-05",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0098",
@@ -4823,7 +4219,7 @@
       "sep_effective": "2025-12-23",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0099",
@@ -4850,7 +4246,7 @@
       "sep_effective": "2025-12-28",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0100",
@@ -4877,7 +4273,7 @@
       "sep_effective": "2025-12-15",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0104",
@@ -4904,7 +4300,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0108",
@@ -4934,7 +4330,7 @@
       "sep_effective": "2025-12-08",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0119",
@@ -4961,7 +4357,7 @@
       "sep_effective": "2025-12-22",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0125",
@@ -4973,9 +4369,9 @@
       "lookback": "?",
       "declaration_name": "New Jersey - Interstate 80 Sinkhole 3/8/2025",
       "declaration_number": "383",
-      "disaster_type_raw": "Building/Bridge/Structural Collapse’",
+      "disaster_type_raw": "Building/Bridge/Structural Collapse\u2019",
       "disaster_types": [
-        "Building/Bridge/Structural Collapse’"
+        "Building/Bridge/Structural Collapse\u2019"
       ],
       "declaration_type": "Emergency (EM)",
       "counties": [
@@ -4988,7 +4384,7 @@
       "sep_effective": "2025-03-08",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0126",
@@ -5015,7 +4411,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0137",
@@ -5042,7 +4438,7 @@
       "sep_effective": "2025-09-05",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0138",
@@ -5069,7 +4465,7 @@
       "sep_effective": "2025-12-26",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0143",
@@ -5096,7 +4492,7 @@
       "sep_effective": "2025-10-01",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0144",
@@ -5123,7 +4519,7 @@
       "sep_effective": "2025-10-14",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0162",
@@ -5164,7 +4560,7 @@
       "sep_effective": "2025-12-08",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0168",
@@ -5191,7 +4587,7 @@
       "sep_effective": "2016-06-30",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0177",
@@ -5218,7 +4614,7 @@
       "sep_effective": "2025-12-17",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0182",
@@ -5460,7 +4856,7 @@
       "sep_effective": "2025-11-09",
       "sep_termination": "2026-03-31",
       "days_until_expiry": null,
-      "days_since_expiry": 59
+      "days_since_expiry": 143
     },
     {
       "id": "sep-0005",
@@ -5488,7 +4884,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0033",
@@ -5515,7 +4911,7 @@
       "sep_effective": "2026-02-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0034",
@@ -5543,7 +4939,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0038",
@@ -5572,7 +4968,7 @@
       "sep_effective": "2025-10-26",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0048",
@@ -5599,7 +4995,7 @@
       "sep_effective": "2026-01-30",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0049",
@@ -5626,7 +5022,7 @@
       "sep_effective": "2026-01-30",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0059",
@@ -5654,7 +5050,7 @@
       "sep_effective": "2025-10-01",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0061",
@@ -5682,7 +5078,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0066",
@@ -5709,7 +5105,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0071",
@@ -5743,7 +5139,7 @@
       "sep_effective": "2025-05-20",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0072",
@@ -5774,7 +5170,7 @@
       "sep_effective": "2025-05-28",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0083",
@@ -5801,7 +5197,7 @@
       "sep_effective": "2023-09-20",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0084",
@@ -5828,7 +5224,7 @@
       "sep_effective": "2024-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0085",
@@ -5855,7 +5251,7 @@
       "sep_effective": "2025-02-13",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0086",
@@ -5882,7 +5278,7 @@
       "sep_effective": "2025-07-25",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0087",
@@ -5909,7 +5305,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0088",
@@ -5936,7 +5332,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0089",
@@ -5963,7 +5359,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0090",
@@ -5990,7 +5386,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0094",
@@ -6017,7 +5413,7 @@
       "sep_effective": "2026-02-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0101",
@@ -6046,7 +5442,7 @@
       "sep_effective": "2025-03-14",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0102",
@@ -6074,7 +5470,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0105",
@@ -6102,7 +5498,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0106",
@@ -6129,7 +5525,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0109",
@@ -6156,7 +5552,7 @@
       "sep_effective": "2025-12-18",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0111",
@@ -6183,7 +5579,7 @@
       "sep_effective": "2026-01-21",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0112",
@@ -6210,7 +5606,7 @@
       "sep_effective": "2026-01-29",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0120",
@@ -6237,7 +5633,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0127",
@@ -6264,7 +5660,7 @@
       "sep_effective": "2026-02-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0131",
@@ -6291,7 +5687,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0139",
@@ -6323,7 +5719,7 @@
       "sep_effective": "2026-01-09",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0165",
@@ -6350,7 +5746,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0172",
@@ -6377,7 +5773,7 @@
       "sep_effective": "2026-01-21",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0178",
@@ -6404,7 +5800,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0183",
@@ -6441,7 +5837,7 @@
       "sep_effective": "2022-07-08",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0184",
@@ -6659,7 +6055,7 @@
       "sep_effective": "2026-01-08",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0185",
@@ -6904,7 +6300,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0193",
@@ -6931,7 +6327,7 @@
       "sep_effective": "2026-01-22",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0202",
@@ -6958,7 +6354,7 @@
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0203",
@@ -6970,9 +6366,9 @@
       "lookback": "no reg.",
       "declaration_name": "Wyoming - Emergency for Transportation 2/14/2024",
       "declaration_number": "2025-02",
-      "disaster_type_raw": "Building/Bridge/Structural Collapse’",
+      "disaster_type_raw": "Building/Bridge/Structural Collapse\u2019",
       "disaster_types": [
-        "Building/Bridge/Structural Collapse’"
+        "Building/Bridge/Structural Collapse\u2019"
       ],
       "declaration_type": "Major Disaster (DM) and Emergency (EM)",
       "counties": [
@@ -6985,7 +6381,7 @@
       "sep_effective": "2025-02-14",
       "sep_termination": "2026-04-30",
       "days_until_expiry": null,
-      "days_since_expiry": 29
+      "days_since_expiry": 113
     },
     {
       "id": "sep-0147",
@@ -7013,7 +6409,658 @@
       "sep_effective": "2025-04-17",
       "sep_termination": "2026-05-05",
       "days_until_expiry": null,
-      "days_since_expiry": 24
+      "days_since_expiry": 108
+    },
+    {
+      "id": "sep-0201",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "WI",
+      "state_raw": "WI (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Wisconsin - Energy Emergency 11/27/2025",
+      "declaration_number": "284, 283, 282",
+      "disaster_type_raw": "Fuel Shortage;Other",
+      "disaster_types": [
+        "Fuel Shortage",
+        "Other"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2025-12-05",
+      "incident_effective": "2025-11-27",
+      "incident_termination": "2026-03-16",
+      "sep_effective": "2025-11-27",
+      "sep_termination": "2026-05-30",
+      "days_until_expiry": null,
+      "days_since_expiry": 83
+    },
+    {
+      "id": "sep-0004",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "AL",
+      "state_raw": "AL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Alabama - Winter Storm Event 1/22/2026",
+      "declaration_number": "1.26.26, 1.22.26",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix;Temperature - Arctic Blast/Dangerous Cold",
+      "disaster_types": [
+        "Storms",
+        "Temperature"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Blount",
+        "Cherokee",
+        "Colbert",
+        "Cullman",
+        "DeKalb",
+        "Etowah Fayette",
+        "Franklin",
+        "Geneva",
+        "Houston",
+        "Jackson",
+        "Lamar",
+        "Lauderdale",
+        "Lawrence",
+        "Limestone",
+        "Madison",
+        "Marion",
+        "Marshall",
+        "Montgomery",
+        "Morgan",
+        "Walker",
+        "& Winston"
+      ],
+      "counties_raw": "Blount, Cherokee, Colbert, Cullman, DeKalb, Etowah Fayette, Franklin, Geneva, Houston, Jackson, Lamar, Lauderdale, Lawrence, Limestone, Madison, Marion, Marshall, Montgomery, Morgan, Walker, & Winston",
+      "declaration_date": "2026-01-22",
+      "incident_effective": "2026-01-22",
+      "incident_termination": "2026-03-22",
+      "sep_effective": "2026-01-22",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0037",
+      "raw_status": "SEP - New",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "DE",
+      "state_raw": "DE (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Delaware - National Guard Activated for Winter Storm Response 2/22/2026",
+      "declaration_number": "2.22.26",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2026-02-22",
+      "incident_effective": "2026-02-22",
+      "incident_termination": "2026-03-22",
+      "sep_effective": "2026-02-22",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0039",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "FL",
+      "state_raw": "FL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Florida - Illegal Immigration 1/6/2023",
+      "declaration_number": "26-17, 25-243, 25-192, 25-153, 25-120, 25-75, 25-29, 24-269, 24-220, 24-173, 24-118, 24-74, 23-245, 23-213, 23-173, 23-134, 23-88, 23-03",
+      "disaster_type_raw": "Other",
+      "disaster_types": [
+        "Other"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "Statewide",
+      "declaration_date": "2023-01-06",
+      "incident_effective": "2023-01-06",
+      "incident_termination": "2026-03-23",
+      "sep_effective": "2023-01-06",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0040",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "FL",
+      "state_raw": "FL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Florida - Tropical Cyclone Nine  (Hurricane Helene) 9/23/2024",
+      "declaration_number": "26-02, 25-231, 25-143, 25-102, 25-57, 25-10, 24-249, 24-234, 24-213, 24-209, 24-208",
+      "disaster_type_raw": "Tropical Storm",
+      "disaster_types": [
+        "Tropical Storm"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Alachua",
+        "Baker",
+        "Bay",
+        "Bradford",
+        "Brevard",
+        "Calhoun",
+        "Charlotte",
+        "Citrus",
+        "Clay",
+        "Collier",
+        "Columbia",
+        "DeSoto",
+        "Dixie",
+        "Duval",
+        "Escambia",
+        "Flagler",
+        "Franklin",
+        "Gadsden",
+        "Gilchrist",
+        "Glades",
+        "Gulf",
+        "Hamilton",
+        "Hardee",
+        "Hendry",
+        "Hernando",
+        "Highlands",
+        "Hillsborough",
+        "Holmes",
+        "Jackson",
+        "Jefferson",
+        "Lafayette",
+        "Lake",
+        "Lee",
+        "Leon",
+        "Levy",
+        "Liberty",
+        "Madison",
+        "Manatee",
+        "Marion",
+        "Monroe",
+        "Nassau",
+        "Okaloosa",
+        "Okeechobee",
+        "Orange",
+        "Osceola",
+        "Pasco",
+        "Pinellas",
+        "Polk",
+        "Putnam",
+        "Santa Rosa",
+        "Sarasota",
+        "Seminole",
+        "St. Johns",
+        "Sumter",
+        "Suwannee",
+        "Taylor",
+        "Union",
+        "Volusia",
+        "Wakulla",
+        "Walton",
+        "and Washington"
+      ],
+      "counties_raw": "Alachua, Baker, Bay, Bradford, Brevard, Calhoun, Charlotte, Citrus, Clay, Collier, Columbia, DeSoto, Dixie, Duval, Escambia, Flagler, Franklin, Gadsden, Gilchrist, Glades, Gulf, Hamilton, Hardee, Hendry, Hernando, Highlands, Hillsborough, Holmes, Jackson, Jefferson, Lafayette, Lake, Lee, Leon, Levy, Liberty, Madison, Manatee, Marion, Monroe, Nassau, Okaloosa, Okeechobee, Orange, Osceola, Pasco, Pinellas, Polk, Putnam, Santa Rosa, Sarasota, Seminole, St. Johns, Sumter, Suwannee, Taylor, Union, Volusia, Wakulla, Walton, and Washington",
+      "declaration_date": "2024-09-23",
+      "incident_effective": "2024-09-23",
+      "incident_termination": "2026-03-06",
+      "sep_effective": "2024-09-23",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0041",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "FL",
+      "state_raw": "FL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Florida - Hurricane Debby 8/1/2024",
+      "declaration_number": "26-03, 25-232, 25-144, 25-104, 25-59, 25-12, 24-261, 24-211, 24-158, 24-156, 25-184",
+      "disaster_type_raw": "Hurricane/Typhoon",
+      "disaster_types": [
+        "Hurricane/Typhoon"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Alachua",
+        "Baker",
+        "Bradford",
+        "Charlotte",
+        "Citrus",
+        "Clay",
+        "Collier",
+        "Columbia",
+        "Dixie",
+        "Duval",
+        "Franklin",
+        "Gadsden",
+        "Gilchrist",
+        "Hamilton",
+        "Hernando",
+        "Hillsborough",
+        "Jefferson",
+        "Lafayette",
+        "Lake",
+        "Lee",
+        "Leon",
+        "Levy",
+        "Liberty",
+        "Madison",
+        "Manatee",
+        "Marion",
+        "Nassau",
+        "Pasco",
+        "Pinellas",
+        "Putnam",
+        "Sarasota",
+        "St. Johns",
+        "Sumter",
+        "Suwannee",
+        "Taylor",
+        "Union",
+        "and Wakulla"
+      ],
+      "counties_raw": "Alachua, Baker, Bradford, Charlotte, Citrus, Clay, Collier, Columbia, Dixie, Duval, Franklin, Gadsden, Gilchrist, Hamilton, Hernando, Hillsborough, Jefferson, Lafayette, Lake, Lee, Leon, Levy, Liberty, Madison, Manatee, Marion, Nassau, Pasco, Pinellas, Putnam, Sarasota, St. Johns, Sumter, Suwannee, Taylor, Union, and Wakulla",
+      "declaration_date": "2024-08-01",
+      "incident_effective": "2024-08-01",
+      "incident_termination": "2026-03-06",
+      "sep_effective": "2024-08-01",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0042",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "FL",
+      "state_raw": "FL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Florida - Tropical Storm Milton - 10/5/2024",
+      "declaration_number": "26-16, 25-191, 25-150, 25-119, 25-68, 25-26, 24-264, 24-234, 24-215, 24-214",
+      "disaster_type_raw": "Tropical Storm",
+      "disaster_types": [
+        "Tropical Storm"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Alachua",
+        "Baker",
+        "Bradford",
+        "Brevard",
+        "Broward",
+        "Charlotte",
+        "Citrus",
+        "Clay",
+        "Collier",
+        "Columbia",
+        "DeSoto",
+        "Dixie",
+        "Duval",
+        "Flagler",
+        "Gilchrist",
+        "Glades",
+        "Hamilton",
+        "Hardee",
+        "Hendry",
+        "Hernando",
+        "Highlands",
+        "Hillsborough",
+        "Indian River",
+        "Lafayette",
+        "Lake",
+        "Lee",
+        "Levy",
+        "Madison",
+        "Manatee",
+        "Marion",
+        "Maiiin",
+        "Miami-Dade",
+        "Momoe",
+        "Nassau",
+        "Okeechobee",
+        "Orange",
+        "Osceola",
+        "Palm Beach",
+        "Pasco",
+        "Pinellas",
+        "Polk",
+        "Putnam",
+        "Sarasota",
+        "Seminole",
+        "St. Johns",
+        "St. Lucie",
+        "Sumter",
+        "Suwanee",
+        "Taylor",
+        "Union",
+        "and Volusia "
+      ],
+      "counties_raw": "Alachua, Baker, Bradford, Brevard, Broward, Charlotte,  Citrus, Clay, Collier, Columbia, DeSoto, Dixie, Duval, Flagler, Gilchrist, Glades, Hamilton,  Hardee, Hendry, Hernando, Highlands, Hillsborough, Indian River, Lafayette, Lake, Lee, Levy,  Madison, Manatee, Marion, Maiiin, Miami-Dade, Momoe, Nassau, Okeechobee, Orange,  Osceola, Palm Beach, Pasco, Pinellas, Polk, Putnam, Sarasota, Seminole, St. Johns, St. Lucie,  Sumter, Suwanee, Taylor, Union, and Volusia .",
+      "declaration_date": "2024-10-05",
+      "incident_effective": "2024-10-05",
+      "incident_termination": "2026-03-23",
+      "sep_effective": "2024-10-05",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0043",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "FL",
+      "state_raw": "FL (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Florida - Northwest Florida May Tornadoes - 5/10/2025",
+      "declaration_number": "26-01, 25-230, 25-142, 25-101",
+      "disaster_type_raw": "Tornado",
+      "disaster_types": [
+        "Tornado"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Holmes"
+      ],
+      "counties_raw": "Holmes",
+      "declaration_date": "2025-05-11",
+      "incident_effective": "2025-05-10",
+      "incident_termination": "2026-03-06",
+      "sep_effective": "2025-05-10",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0050",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "HI",
+      "state_raw": "HI (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Hawaii - Axis Deer Over Population 3/23/2022",
+      "declaration_number": "1.16.26",
+      "disaster_type_raw": "Other",
+      "disaster_types": [
+        "Other"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Maui"
+      ],
+      "counties_raw": "Maui",
+      "declaration_date": "2022-03-23",
+      "incident_effective": "2022-03-23",
+      "incident_termination": "2026-03-17",
+      "sep_effective": "2022-03-23",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0051",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "HI",
+      "state_raw": "HI (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Hawaii - Homelessness 1/23/2023",
+      "declaration_number": "1.16.26",
+      "disaster_type_raw": "Homelessness/Housing Crisis",
+      "disaster_types": [
+        "Homelessness/Housing Crisis"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "Statewide",
+      "declaration_date": "2023-01-23",
+      "incident_effective": "2023-01-23",
+      "incident_termination": "2026-03-16",
+      "sep_effective": "2023-01-23",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0052",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "HI",
+      "state_raw": "HI (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Hawaii - Affordable Housing - Housing Crisis 7/17/2023",
+      "declaration_number": "1.16.26",
+      "disaster_type_raw": "Homelessness/Housing Crisis",
+      "disaster_types": [
+        "Homelessness/Housing Crisis"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "Statewide",
+      "declaration_date": "2023-07-17",
+      "incident_effective": "2023-07-17",
+      "incident_termination": "2026-03-17",
+      "sep_effective": "2023-07-17",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0053",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "HI",
+      "state_raw": "HI (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Hawaii  - Wildfire 8/8/2023",
+      "declaration_number": "1.6.26",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2023-08-08",
+      "incident_effective": "2023-08-08",
+      "incident_termination": "2026-03-07",
+      "sep_effective": "2023-08-08",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0054",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "HI",
+      "state_raw": "HI (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Hawaii - Pharmacist-Provided Vaccination Services 9/23/2025",
+      "declaration_number": "1.16.26; 11.18, 9.23.25",
+      "disaster_type_raw": "Health Emergency;Other",
+      "disaster_types": [
+        "Health Emergency",
+        "Other"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2025-09-23",
+      "incident_effective": "2025-09-23",
+      "incident_termination": "2026-03-17",
+      "sep_effective": "2025-09-23",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0062",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "IN",
+      "state_raw": "IN (30) days",
+      "lookback": "30",
+      "declaration_name": "Indiana - Severe Winter Storm 1/23/2026",
+      "declaration_number": "26-03",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix;Temperature - Arctic Blast/Dangerous Cold",
+      "disaster_types": [
+        "Storms",
+        "Temperature"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2026-01-23",
+      "incident_effective": "2026-01-23",
+      "incident_termination": "2026-03-23",
+      "sep_effective": "2026-01-23",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0067",
+      "raw_status": "SEP - New",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "KS",
+      "state_raw": "KS (15days)",
+      "lookback": "15days",
+      "declaration_name": "Kansas - Dangerous Fire Weather 2/15/2026",
+      "declaration_number": "2.16.26",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Allen",
+        "Barber",
+        "Barton",
+        "Bourbon",
+        "Chautauqua",
+        "Cherokee",
+        "Cheyenne",
+        "Clark",
+        "Clay",
+        "Cloud",
+        "Comanche",
+        "Cowley",
+        "Crawford",
+        "Decatur",
+        "Dickinson",
+        "Edwards",
+        "Elk",
+        "Ellis",
+        "Ellsworth",
+        "Finney",
+        "Ford",
+        "Gove",
+        "Graham",
+        "Grant",
+        "Gray",
+        "Greeley",
+        "Hamilton",
+        "Harper",
+        "Haskell",
+        "Hodgeman",
+        "Jewell",
+        "Kearny",
+        "Kingman",
+        "Kiowa",
+        "Labette",
+        "Lane",
+        "Lincoln",
+        "Linn",
+        "Logan",
+        "Marshall",
+        "McPherson",
+        "Meade",
+        "Mitchell",
+        "Montgomery",
+        "Morton",
+        "Neosho",
+        "Ness",
+        "Norton",
+        "Osborne",
+        "Ottawa",
+        "Pawnee",
+        "Phillips",
+        "Pratt",
+        "Rawlins",
+        "Reno",
+        "Republic",
+        "Rice",
+        "Riley",
+        "Rooks",
+        "Rush",
+        "Russell",
+        "Saline",
+        "Scott",
+        "Seward",
+        "Sheridan",
+        "Sherman",
+        "Smith",
+        "Stafford",
+        "Stanton",
+        "Stevens",
+        "Sumner",
+        "Thomas",
+        "Trego",
+        "Wallace",
+        "Washington",
+        "Wichita",
+        "Wilson"
+      ],
+      "counties_raw": "Allen, Barber, Barton, Bourbon, Chautauqua, Cherokee, Cheyenne, Clark, Clay, Cloud, Comanche, Cowley, Crawford, Decatur, Dickinson, Edwards, Elk, Ellis, Ellsworth, Finney, Ford, Gove, Graham, Grant, Gray, Greeley, Hamilton, Harper, Haskell, Hodgeman, Jewell, Kearny, Kingman, Kiowa, Labette, Lane, Lincoln, Linn, Logan, Marshall, McPherson, Meade, Mitchell, Montgomery, Morton, Neosho, Ness, Norton, Osborne, Ottawa, Pawnee, Phillips, Pratt, Rawlins, Reno, Republic, Rice, Riley, Rooks, Rush, Russell, Saline, Scott, Seward, Sheridan, Sherman, Smith, Stafford, Stanton, Stevens, Sumner, Thomas, Trego, Wallace, Washington, Wichita, Wilson",
+      "declaration_date": "2026-02-16",
+      "incident_effective": "2026-02-15",
+      "incident_termination": "2026-03-06",
+      "sep_effective": "2026-02-15",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
     },
     {
       "id": "sep-0091",
@@ -7039,8 +7086,138 @@
       "incident_termination": "2026-03-15",
       "sep_effective": "2021-08-29",
       "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0113",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "NC",
+      "state_raw": "NC (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "North Carolina - Black Cove Fire Complex 3/19/2025",
+      "declaration_number": "FM-5574-NC",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Polk"
+      ],
+      "counties_raw": "Polk",
+      "declaration_date": "2025-03-22",
+      "incident_effective": "2025-03-19",
+      "incident_termination": null,
+      "sep_effective": "2025-03-19",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0114",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "NC",
+      "state_raw": "NC (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "North Carolina - Alarka Fire 3/25/2025",
+      "declaration_number": "FM-5577-NC",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Swain"
+      ],
+      "counties_raw": "Swain",
+      "declaration_date": "2025-03-26",
+      "incident_effective": "2025-03-25",
+      "incident_termination": null,
+      "sep_effective": "2025-03-25",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0115",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "NC",
+      "state_raw": "NC (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "North Carolina - Table Rock Fire 3/26/2025",
+      "declaration_number": "FM-5578-NC",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Transylvania"
+      ],
+      "counties_raw": "Transylvania",
+      "declaration_date": "2025-03-27",
+      "incident_effective": "2025-03-26",
+      "incident_termination": null,
+      "sep_effective": "2025-03-26",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0141",
+      "raw_status": "SEP - New",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "NY",
+      "state_raw": "NY (6 mths)",
+      "lookback": "6 mths",
+      "declaration_name": "New York - Nor'easter Winter Storm 2/22/2026",
+      "declaration_number": "58",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Albany",
+        "Bronx",
+        "Columbia",
+        "Greene",
+        "Delaware",
+        "Dutchess",
+        "Kings",
+        "Nassau",
+        "New York",
+        "Orange",
+        "Otsego",
+        "Putnam",
+        "Queens",
+        "Rensselaer",
+        "Richmond",
+        "Rockland",
+        "Schoharie",
+        "Schenectady",
+        "Suffolk",
+        "Sullivan",
+        "Ulster",
+        "Westchester",
+        "and contiguous"
+      ],
+      "counties_raw": "Albany, Bronx, Columbia, Greene, Delaware, Dutchess, Kings, Nassau, New York, Orange, Otsego, Putnam, Queens, Rensselaer, Richmond, Rockland, Schoharie, Schenectady, Suffolk, Sullivan, Ulster, Westchester, and contiguous ;",
+      "declaration_date": "2026-02-21",
+      "incident_effective": "2026-02-22",
+      "incident_termination": "2026-03-23",
+      "sep_effective": "2026-02-21",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
     },
     {
       "id": "sep-0140",
@@ -7066,8 +7243,512 @@
       "incident_termination": "2026-03-19",
       "sep_effective": "2026-01-23",
       "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0148",
+      "raw_status": "SEP - New",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "OK",
+      "state_raw": "OK (?)",
+      "lookback": "?",
+      "declaration_name": "Oklahoma - Dangerous Wildfires & Straight-Line-Winds 2/17/2026",
+      "declaration_number": "26-09",
+      "disaster_type_raw": "Fires/Wildfires;Straight-Line Winds",
+      "disaster_types": [
+        "Fires/Wildfires",
+        "Straight-Line Winds"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Beaver",
+        "Harper",
+        "Texas",
+        "& Woodward"
+      ],
+      "counties_raw": "Beaver, Harper, Texas, & Woodward",
+      "declaration_date": "2026-02-17",
+      "incident_effective": "2026-02-17",
+      "incident_termination": "2026-03-17",
+      "sep_effective": "2026-02-17",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0166",
+      "raw_status": "SEP - New",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "PA",
+      "state_raw": "PA (21 days)",
+      "lookback": "21 days",
+      "declaration_name": "Pennsylvania - Complex Winter Storm 2/22/2026",
+      "declaration_number": "2.22.26",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Adams",
+        "Bedford",
+        "Berks",
+        "Blair",
+        "Bucks",
+        "Cambria",
+        "Carbon",
+        "Centre",
+        "Chester",
+        "Clearfield",
+        "Clinton",
+        "Cumberland",
+        "Dauphin",
+        "Delaware",
+        "Fayette",
+        "Franklin",
+        "Fulton",
+        "Juniata",
+        "Indiana",
+        "Lackawanna",
+        "Lancaster",
+        "Lebanon",
+        "Lehigh",
+        "Luzerne",
+        "Mifflin",
+        "Monroe",
+        "Montgomery",
+        "Northampton",
+        "Perry",
+        "Philadelphia",
+        "Pike",
+        "Schuylkill",
+        "Snyder",
+        "Somerset",
+        "Sullivan",
+        "Susquehanna",
+        "Union",
+        "Wayne",
+        "Westmoreland",
+        "Wyoming",
+        "and York"
+      ],
+      "counties_raw": "Adams, Bedford, Berks, Blair, Bucks, Cambria, Carbon, Centre, Chester, Clearfield, Clinton, Cumberland, Dauphin, Delaware, Fayette,  Franklin, Fulton, Juniata, Indiana, Lackawanna, Lancaster, Lebanon, Lehigh, Luzerne, Mifflin, Monroe, Montgomery, Northampton, Perry, Philadelphia, Pike, Schuylkill, Snyder, Somerset, Sullivan, Susquehanna, Union, Wayne, Westmoreland, Wyoming, and York",
+      "declaration_date": "2026-02-22",
+      "incident_effective": "2026-02-22",
+      "incident_termination": "2026-03-15",
+      "sep_effective": "2026-02-22",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0169",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "PR",
+      "state_raw": "PR (6 mths)",
+      "lookback": "6 mths",
+      "declaration_name": "Puerto Rico - Electrical Emergency 4/2/2025",
+      "declaration_number": "2025-47, 2025-16",
+      "disaster_type_raw": "Other",
+      "disaster_types": [
+        "Other"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Island Wide"
+      ],
+      "counties_raw": "Island Wide",
+      "declaration_date": "2025-04-02",
+      "incident_effective": "2025-04-02",
+      "incident_termination": "2026-03-22",
+      "sep_effective": "2025-04-02",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0171",
+      "raw_status": "SEP - New",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "RI",
+      "state_raw": "RI (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Rhode Island - Blizzard Warning 2/22/2026",
+      "declaration_number": "26-02.1, 26-02",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2026-02-22",
+      "incident_effective": "2026-02-22",
+      "incident_termination": "2026-03-23",
+      "sep_effective": "2026-02-22",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0173",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "SC",
+      "state_raw": "SC (15 days)",
+      "lookback": "15 days",
+      "declaration_name": "South Carolina - Covington Drive Fire 3/1/2025",
+      "declaration_number": "FM-5554-SC",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Horry"
+      ],
+      "counties_raw": "Horry",
+      "declaration_date": "2025-03-07",
+      "incident_effective": "2025-03-01",
+      "incident_termination": null,
+      "sep_effective": "2025-03-01",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0174",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "SC",
+      "state_raw": "SC (15 days)",
+      "lookback": "15 days",
+      "declaration_name": "South Carolina - Table Rock Fire 3/21/2025",
+      "declaration_number": "FM-5575-SC",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Pickens"
+      ],
+      "counties_raw": "Pickens",
+      "declaration_date": "2025-03-23",
+      "incident_effective": "2025-03-21",
+      "incident_termination": null,
+      "sep_effective": "2025-03-21",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0175",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "SC",
+      "state_raw": "SC (15 days)",
+      "lookback": "15 days",
+      "declaration_name": "South Carolina - Table Rock Fire Complex 3/23/2025",
+      "declaration_number": "FM-5576-SC",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Greenville"
+      ],
+      "counties_raw": "Greenville",
+      "declaration_date": "2025-03-23",
+      "incident_effective": "2025-03-23",
+      "incident_termination": null,
+      "sep_effective": "2025-03-23",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0179",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "TN",
+      "state_raw": "TN (60 days)",
+      "lookback": "60 days",
+      "declaration_name": "Tennessee - Severe Winter Weather 1/22/2026",
+      "declaration_number": "111, 110",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2026-01-22",
+      "incident_effective": "2026-01-22",
+      "incident_termination": "2026-03-07",
+      "sep_effective": "2026-01-22",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0188",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "TX",
+      "state_raw": "TX (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Texas - Wildfire Danger (4) - 8/10/2025 (Excluded counties as of 10/10/2025; Excluded counties 11/9/2025)",
+      "declaration_number": "2.7.26, 12.9, 11.9, 10.10, 8.11.25",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "2/7/26: Excludes Jasper   2/9/26 : Added - Brazos",
+        "Delta",
+        "Fannin",
+        "Franklin",
+        "Grimes",
+        "Hopkins",
+        "Houston",
+        "Hunt",
+        "Madison",
+        "Polk",
+        "Real",
+        "Red River",
+        "Robertson",
+        "San Jacinto",
+        "Titus",
+        "Trinity",
+        "Uvalde",
+        "Walker     Amended Excluded  and added 12/9/25: Borden",
+        "Garza",
+        "Glasscock",
+        "Howard",
+        "Irion",
+        "Lynn",
+        "Reagan",
+        "Schleicher",
+        "Sterling",
+        "& Sutton  Full Amended List as of 12/9/25: Andrews",
+        "Aransas",
+        "Archer",
+        "Armstrong",
+        "Atascosa",
+        "Austin",
+        "Bailey",
+        "Bandera",
+        "Bastrop",
+        "Baylor",
+        "Bee",
+        "Bexar",
+        "Blanco",
+        "Borden",
+        "Briscoe",
+        "Brooks",
+        "Brown",
+        "Burleson",
+        "Burnet",
+        "Caldwell",
+        "Calhoun",
+        "Callahan",
+        "Cameron",
+        "Carson",
+        "Castro",
+        "Childress",
+        "Clay",
+        "Cochran",
+        "Coke",
+        "Coleman",
+        "Collingsworth",
+        "Colorado",
+        "Comal",
+        "Comanche",
+        "Concho",
+        "Cottle",
+        "Crane",
+        "Crockett",
+        "Crosby",
+        "Culberson",
+        "Dallam",
+        "Dawson",
+        "Deaf Smith",
+        "DeWitt",
+        "Dickens",
+        "Dimmit",
+        "Donley",
+        "Duval",
+        "Eastland",
+        "Ector",
+        "El Paso",
+        "Erath",
+        "Fayette",
+        "Fisher",
+        "Floyd",
+        "Foard",
+        "Frio",
+        "Gaines",
+        "Gillespie",
+        "Goliad",
+        "Gonzales",
+        "Gray",
+        "Guadalupe",
+        "Hale",
+        "Hall",
+        "Hamilton",
+        "Hansford",
+        "Hardeman",
+        "Hartley",
+        "Haskell",
+        "Hays",
+        "Hemphill",
+        "Hidalgo",
+        "Hockley",
+        "Hood",
+        "Hudspeth",
+        "Hutchinson",
+        "Jack",
+        "Jackson",
+        "Jasper",
+        "Jeff Davis",
+        "Jim Hogg",
+        "Jim Wells",
+        "Jones",
+        "Karnes",
+        "Kendall",
+        "Kenedy",
+        "Kent",
+        "Kerr",
+        "Kimble",
+        "King",
+        "Kleberg",
+        "Knox",
+        "La Salle",
+        "Lamb",
+        "Lampasas",
+        "Lavaca",
+        "Lee",
+        "Lipscomb",
+        "Live Oak",
+        "Llano",
+        "Loving",
+        "Lubbock",
+        "Martin",
+        "Mason",
+        "Matagorda",
+        "Maverick",
+        "McCulloch",
+        "McMullen",
+        "Medina",
+        "Menard",
+        "Midland",
+        "Milam",
+        "Mills",
+        "Mitchell",
+        "Moore",
+        "Motley",
+        "Nolan",
+        "Nueces",
+        "Ochiltree",
+        "Oldham",
+        "Palo Pinto",
+        "Parker",
+        "Parmer",
+        "Pecos",
+        "Potter",
+        "Randall",
+        "Reeves",
+        "Refugio",
+        "Roberts",
+        "Runnels",
+        "San Patricio",
+        "San Saba",
+        "Scurry",
+        "Shackelford",
+        "Sherman",
+        "Somervell",
+        "Starr",
+        "Stephens",
+        "Stonewall",
+        "Sutton",
+        "Swisher",
+        "Taylor",
+        "Terry",
+        "Throckmorton",
+        "Tom Green",
+        "Travis",
+        "Upton",
+        "Victoria",
+        "Waller",
+        "Ward",
+        "Washington",
+        "Webb",
+        "Wharton",
+        "Wheeler",
+        "Wichita",
+        "Wilbarger",
+        "Willacy",
+        "Williamson",
+        "Wilson",
+        "Winkler",
+        "Yoakum",
+        "Young",
+        "Zapata",
+        "and Zavala "
+      ],
+      "counties_raw": "2/7/26: Excludes Jasper   2/9/26 : Added - Brazos, Delta, Fannin, Franklin, Grimes, Hopkins, Houston, Hunt, Madison, Polk, Real, Red River, Robertson, San Jacinto, Titus, Trinity, Uvalde, Walker     Amended Excluded  and added 12/9/25: Borden, Garza, Glasscock, Howard, Irion, Lynn, Reagan, Schleicher, Sterling, & Sutton  Full Amended List as of 12/9/25: Andrews, Aransas, Archer, Armstrong, Atascosa, Austin, Bailey, Bandera, Bastrop, Baylor, Bee, Bexar, Blanco, Borden, Briscoe, Brooks, Brown, Burleson, Burnet, Caldwell, Calhoun, Callahan, Cameron, Carson, Castro, Childress, Clay, Cochran, Coke, Coleman, Collingsworth, Colorado, Comal, Comanche, Concho, Cottle, Crane, Crockett, Crosby, Culberson, Dallam, Dawson, Deaf Smith, DeWitt, Dickens, Dimmit, Donley, Duval, Eastland, Ector, El Paso, Erath, Fayette, Fisher, Floyd, Foard, Frio, Gaines, Garza, Gillespie, Glasscock, Goliad, Gonzales, Gray, Guadalupe, Hale, Hall, Hamilton, Hansford, Hardeman, Hartley, Haskell, Hays, Hemphill, Hidalgo, Hockley, Hood, Howard, Hudspeth, Hutchinson, Irion, Jack, Jackson, Jasper, Jeff Davis, Jim Hogg, Jim Wells, Jones, Karnes, Kendall, Kenedy, Kent, Kerr, Kimble, King, Kleberg, Knox, La Salle, Lamb, Lampasas, Lavaca, Lee, Lipscomb, Live Oak, Llano, Loving, Lubbock, Lynn, Martin, Mason, Matagorda, Maverick, McCulloch, McMullen, Medina, Menard, Midland, Milam, Mills, Mitchell, Moore, Motley, Nolan, Nueces, Ochiltree, Oldham, Palo Pinto, Parker, Parmer, Pecos, Potter, Randall, Reagan, Reeves, Refugio, Roberts, Runnels, San Patricio, San Saba, Schleicher, Scurry, Shackelford, Sherman, Somervell, Starr, Stephens, Sterling, Stonewall, Sutton, Swisher, Taylor, Terry, Throckmorton, Tom Green, Travis, Upton, Victoria, Waller, Ward, Washington, Webb, Wharton, Wheeler, Wichita, Wilbarger, Willacy, Williamson, Wilson, Winkler, Yoakum, Young, Zapata, and Zavala .",
+      "declaration_date": "2025-08-12",
+      "incident_effective": "2025-08-10",
+      "incident_termination": "2026-03-07",
+      "sep_effective": "2025-08-10",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
+    },
+    {
+      "id": "sep-0189",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "TX",
+      "state_raw": "TX (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "Texas - New World Screwworm Fly Infestation1/29/2026",
+      "declaration_number": "1.29.26",
+      "disaster_type_raw": "Health Emergency",
+      "disaster_types": [
+        "Health Emergency"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2026-01-29",
+      "incident_effective": "2026-01-29",
+      "incident_termination": "2026-03-01",
+      "sep_effective": "2026-01-29",
+      "sep_termination": "2026-05-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 82
     },
     {
       "id": "sep-0186",
@@ -7161,8 +7842,8 @@
       "incident_termination": "2026-03-16",
       "sep_effective": "2021-05-31",
       "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
+      "days_until_expiry": null,
+      "days_since_expiry": 82
     },
     {
       "id": "sep-0187",
@@ -7218,8 +7899,8 @@
       "incident_termination": "2026-03-16",
       "sep_effective": "2025-07-02",
       "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
+      "days_until_expiry": null,
+      "days_since_expiry": 82
     },
     {
       "id": "sep-0190",
@@ -7333,8 +8014,8 @@
       "incident_termination": "2026-03-16",
       "sep_effective": "2022-07-08",
       "sep_termination": "2026-05-31",
-      "days_until_expiry": 2,
-      "days_since_expiry": null
+      "days_until_expiry": null,
+      "days_since_expiry": 82
     },
     {
       "id": "sep-0044",
@@ -7375,8 +8056,309 @@
       "incident_termination": "2026-04-20",
       "sep_effective": "2024-05-10",
       "sep_termination": "2026-06-30",
-      "days_until_expiry": 32,
-      "days_since_expiry": null
+      "days_until_expiry": null,
+      "days_since_expiry": 52
+    },
+    {
+      "id": "sep-0103",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "MO",
+      "state_raw": "MO (no reg.)",
+      "lookback": "no reg.",
+      "declaration_name": "Missouri - Drought 9/22/2025",
+      "declaration_number": "25-34, 25-29",
+      "disaster_type_raw": "Drought",
+      "disaster_types": [
+        "Drought"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Audrain",
+        "Barry",
+        "Bates",
+        "Benton",
+        "Bollinger",
+        "Boone",
+        "Butler",
+        "Callaway",
+        "Camden",
+        "Cape Girardeau",
+        "Carter",
+        "Cass",
+        "Christian",
+        "Clark",
+        "Clay",
+        "Cole",
+        "Cooper",
+        "Crawford",
+        "Dade",
+        "Dallas",
+        "Dent",
+        "Douglas",
+        "Dunklin",
+        "Franklin",
+        "Gasconade",
+        "Greene",
+        "Henry",
+        "Hickory",
+        "Howard",
+        "Howell",
+        "Iron",
+        "Jackson",
+        "Jasper",
+        "Jefferson",
+        "Johnson",
+        "Knox",
+        "Laclede",
+        "Lafayette",
+        "Lawrence",
+        "Lewis",
+        "Lincoln",
+        "Madison",
+        "Maries",
+        "Marion",
+        "McDonald",
+        "Miller",
+        "Mississippi",
+        "Moniteau",
+        "Monroe",
+        "Montgomery",
+        "Morgan",
+        "New Madrid",
+        "Newton",
+        "Oregon",
+        "Osage",
+        "Ozark",
+        "Pemiscot",
+        "Perry",
+        "Pettis",
+        "Phelps",
+        "Pike",
+        "Platte",
+        "Polk",
+        "Pulaski",
+        "Ralls",
+        "Ray",
+        "Reynolds",
+        "Ripley",
+        "St. Charles",
+        "St. Clair",
+        "St. Francois",
+        "St. Louis",
+        "Ste. Genevieve",
+        "Scott",
+        "Shannon",
+        "Shelby",
+        "Stoddard",
+        "Stone",
+        "Taney",
+        "Texas",
+        "Warren",
+        "Washington",
+        "Wayne",
+        "Webster",
+        "Wright",
+        "and the City of St. Louis  ADDED  11/26/25: Barton",
+        "Buchanan",
+        "Caldwell",
+        "Carroll",
+        "Cedar",
+        "Chariton",
+        "Clinton",
+        "Daviess",
+        "DeKalb",
+        "Gentry",
+        "Grundy",
+        "Harrison",
+        "Linn",
+        "Livingston",
+        "Macon",
+        "Randolph",
+        "Saline",
+        "Schuyler",
+        "Scotland",
+        "Sullivan",
+        "and Vernon"
+      ],
+      "counties_raw": "Audrain, Barry, Bates, Benton, Bollinger, Boone, Butler, Callaway, Camden, Cape Girardeau, Carter, Cass, Christian, Clark, Clay, Cole, Cooper, Crawford, Dade, Dallas, Dent, Douglas, Dunklin, Franklin, Gasconade, Greene, Henry, Hickory, Howard, Howell, Iron, Jackson, Jasper, Jefferson, Johnson, Knox, Laclede, Lafayette, Lawrence, Lewis,  Lincoln, Madison, Maries, Marion, McDonald, Miller, Mississippi, Moniteau, Monroe, Montgomery, Morgan, New Madrid, Newton, Oregon, Osage, Ozark, Pemiscot, Perry, Pettis, Phelps, Pike, Platte, ,Polk, Pulaski, Ralls, Ray, Reynolds, Ripley, St. Charles, St. Clair, St. Francois, St. Louis, Ste. Genevieve, Scott, Shannon, Shelby, Stoddard, Stone, Taney, Texas, Warren, Washington, Wayne, Webster, Wright, and the City of St. Louis  ADDED  11/26/25: Barton, Buchanan, Caldwell, Carroll, Cedar, Chariton, Clinton, Daviess, DeKalb, Gentry, Grundy, Harrison, Linn, Livingston, Macon, Randolph, Saline, Schuyler, Scotland, Sullivan, and Vernon",
+      "declaration_date": "2025-09-22",
+      "incident_effective": "2025-09-22",
+      "incident_termination": "2026-04-01",
+      "sep_effective": "2025-09-22",
+      "sep_termination": "2026-06-30",
+      "days_until_expiry": null,
+      "days_since_expiry": 52
+    },
+    {
+      "id": "sep-0116",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "NC",
+      "state_raw": "NC (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "North Carolina - Sam Davis Road Fire 4/18/2025",
+      "declaration_number": "FM-5580-NC",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Swain"
+      ],
+      "counties_raw": "Swain",
+      "declaration_date": "2025-04-20",
+      "incident_effective": "2025-04-18",
+      "incident_termination": null,
+      "sep_effective": "2025-04-18",
+      "sep_termination": "2026-06-30",
+      "days_until_expiry": null,
+      "days_since_expiry": 52
+    },
+    {
+      "id": "sep-0128",
+      "raw_status": "SEP - New",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "NJ",
+      "state_raw": "NJ (?)",
+      "lookback": "?",
+      "declaration_name": "New Jersey - COVID-19 Public Health Hazard 3/9/2020 (REINSTATED as of 2/13/2026)",
+      "declaration_number": "13-2026, 415, 244, 112, 109, 103",
+      "disaster_type_raw": "Health Emergency",
+      "disaster_types": [
+        "Health Emergency"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2026-02-13",
+      "incident_effective": "2026-02-15",
+      "incident_termination": "2026-04-18",
+      "sep_effective": "2026-02-13",
+      "sep_termination": "2026-06-30",
+      "days_until_expiry": null,
+      "days_since_expiry": 52
+    },
+    {
+      "id": "sep-0132",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "NM",
+      "state_raw": "NM (30 days)",
+      "lookback": "30 days",
+      "declaration_name": "New Mexico - Rio Grande Fire 4/17/2025",
+      "declaration_number": "FM-5579-NM",
+      "disaster_type_raw": "Fires/Wildfires",
+      "disaster_types": [
+        "Fires/Wildfires"
+      ],
+      "declaration_type": "Fire Management (FM)",
+      "counties": [
+        "Valencia"
+      ],
+      "counties_raw": "Valencia",
+      "declaration_date": "2025-04-18",
+      "incident_effective": "2025-04-17",
+      "incident_termination": null,
+      "sep_effective": "2025-04-17",
+      "sep_termination": "2026-06-30",
+      "days_until_expiry": null,
+      "days_since_expiry": 52
+    },
+    {
+      "id": "sep-0142",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "NY",
+      "state_raw": "NY (6 mths)",
+      "lookback": "6 mths",
+      "declaration_name": "New York - Coastal Storm 10/12/2025",
+      "declaration_number": "53",
+      "disaster_type_raw": "Storms - Rain",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "Bronx",
+        "Kings",
+        "Nassau",
+        "New York",
+        "Queens Richmond",
+        "Suffolk",
+        "Westchester",
+        "& Contagious"
+      ],
+      "counties_raw": "Bronx, Kings, Nassau, New York, Queens Richmond, Suffolk, Westchester, & Contagious",
+      "declaration_date": "2025-10-12",
+      "incident_effective": "2025-10-12",
+      "incident_termination": "2026-04-12",
+      "sep_effective": "2025-10-12",
+      "sep_termination": "2026-06-30",
+      "days_until_expiry": null,
+      "days_since_expiry": 52
+    },
+    {
+      "id": "sep-0145",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "OH",
+      "state_raw": "OH (90 days)",
+      "lookback": "90 days",
+      "declaration_name": "Ohio- Winter Storm Fern 1/24/2026",
+      "declaration_number": "1.24.26",
+      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "disaster_types": [
+        "Storms"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "STATEWIDE"
+      ],
+      "counties_raw": "STATEWIDE",
+      "declaration_date": "2026-01-24",
+      "incident_effective": "2026-01-24",
+      "incident_termination": "2026-04-24",
+      "sep_effective": "2026-01-24",
+      "sep_termination": "2026-06-30",
+      "days_until_expiry": null,
+      "days_since_expiry": 52
+    },
+    {
+      "id": "sep-0012",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "State/Local Declaration",
+      "state": "CA",
+      "state_raw": "CA (no reg.)",
+      "lookback": "no reg.",
+      "declaration_name": "California - Victoria Island Levee 10/21/2024",
+      "declaration_number": null,
+      "disaster_type_raw": "Floods",
+      "disaster_types": [
+        "Floods"
+      ],
+      "declaration_type": "Emergency (EM)",
+      "counties": [
+        "San Joaquin"
+      ],
+      "counties_raw": "San Joaquin",
+      "declaration_date": "2025-05-28",
+      "incident_effective": "2024-10-21",
+      "incident_termination": "2025-10-21",
+      "sep_effective": "2024-10-21",
+      "sep_termination": "2026-07-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 21
     },
     {
       "id": "sep-0011",
@@ -7402,150 +8384,64 @@
       "incident_termination": "2025-12-15",
       "sep_effective": "2024-12-15",
       "sep_termination": "2026-07-31",
-      "days_until_expiry": 63,
-      "days_since_expiry": null
+      "days_until_expiry": null,
+      "days_since_expiry": 21
     },
     {
-      "id": "sep-0118",
-      "raw_status": "SEP - Extended/Updated",
+      "id": "sep-0117",
+      "raw_status": "SEP - In Progress/No Change",
       "status": "ended",
       "entity": "FEMA",
       "state": "NC",
       "state_raw": "NC (30 days)",
       "lookback": "30 days",
-      "declaration_name": "North Carolina - Severe Winter Storm 1/21/2026",
-      "declaration_number": "EM-3637-NC",
-      "disaster_type_raw": "Storms - Snowstorm/Blizzard/Mix",
+      "declaration_name": "North Carolina - Sunset Drive Fire 5/2/2025",
+      "declaration_number": "FM-5582-NC",
+      "disaster_type_raw": "Fires/Wildfires",
       "disaster_types": [
-        "Storms"
+        "Fires/Wildfires"
       ],
-      "declaration_type": "Emergency (EM)",
+      "declaration_type": "Fire Management (FM)",
       "counties": [
-        "Alamance  Alexander  Alleghany  Anson  Ashe  Avery  Beaufort  Bertie  Bladen  Brunswick  Buncombe  Burke  Cabarrus  Caldwell  Camden  Carteret  Caswell  Catawba  Chatham  Cherokee  Chowan  Clay  Cleveland  Columbus  Craven  Cumberland  Currituck  Dare  Davidson  Davie  Duplin  Durham  Eastern Band of Cherokee Indians of North Carolina Edgecombe  Forsyth  Franklin  Gaston  Gates  Graham  Granville  Greene  Guilford  Halifax  Harnett  Haywood  Henderson  Hertford  Hoke  Hyde  Iredell  Jackson  Johnston  Jones  Lee  Lenoir  Lincoln  Lumbee (TDSA) Macon  Madison  Martin  McDowell  Mecklenburg  Mitchell  Montgomery  Moore  Nash  New Hanover  Northampton  Onslow  Orange  Pamlico  Pasquotank  Pender  Perquimans  Person  Pitt  Polk  Randolph  Richmond  Robeson  Rockingham  Rowan  Rutherford  Sampson  Scotland  Stanly  Stokes  Surry  Swain  Transylvania  Tyrrell  Union  Vance  Wake  Warren  Washington  Watauga  Wayne  Wilkes  Wilson  Yadkin  Yancey"
+        "Brunswick"
       ],
-      "counties_raw": "Alamance  Alexander  Alleghany  Anson  Ashe  Avery  Beaufort  Bertie  Bladen  Brunswick  Buncombe  Burke  Cabarrus  Caldwell  Camden  Carteret  Caswell  Catawba  Chatham  Cherokee  Chowan  Clay  Cleveland  Columbus  Craven  Cumberland  Currituck  Dare  Davidson  Davie  Duplin  Durham  Eastern Band of Cherokee Indians of North Carolina Edgecombe  Forsyth  Franklin  Gaston  Gates  Graham  Granville  Greene  Guilford  Halifax  Harnett  Haywood  Henderson  Hertford  Hoke  Hyde  Iredell  Jackson  Johnston  Jones  Lee  Lenoir  Lincoln  Lumbee (TDSA) Macon  Madison  Martin  McDowell  Mecklenburg  Mitchell  Montgomery  Moore  Nash  New Hanover  Northampton  Onslow  Orange  Pamlico  Pasquotank  Pender  Perquimans  Person  Pitt  Polk  Randolph  Richmond  Robeson  Rockingham  Rowan  Rutherford  Sampson  Scotland  Stanly  Stokes  Surry  Swain  Transylvania  Tyrrell  Union  Vance  Wake  Warren  Washington  Watauga  Wayne  Wilkes  Wilson  Yadkin  Yancey",
-      "declaration_date": "2026-01-24",
-      "incident_effective": "2026-01-21",
+      "counties_raw": "Brunswick",
+      "declaration_date": "2025-05-03",
+      "incident_effective": "2025-05-02",
       "incident_termination": null,
-      "sep_effective": "2026-01-21",
-      "sep_termination": "2027-03-31",
-      "days_until_expiry": 306,
-      "days_since_expiry": null
+      "sep_effective": "2025-05-02",
+      "sep_termination": "2026-07-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 21
     },
     {
-      "id": "sep-ca-chemical-2026-state",
-      "raw_status": "Active (New)",
-      "status": "active",
-      "entity": "State Declaration",
-      "state": "CA",
-      "state_raw": "CA",
-      "lookback": null,
-      "declaration_name": "California - Hazardous Chemical Incident",
-      "declaration_number": null,
-      "disaster_type_raw": "Hazardous Chemical",
+      "id": "sep-0129",
+      "raw_status": "SEP - In Progress/No Change",
+      "status": "ended",
+      "entity": "FEMA",
+      "state": "NJ",
+      "state_raw": "NJ (?)",
+      "lookback": "?",
+      "declaration_name": "New Jersey - Jones Road Fire 4/22/2025",
+      "declaration_number": "FM-5581-NJ",
+      "disaster_type_raw": "Fires/Wildfires",
       "disaster_types": [
-        "Hazardous Chemical"
+        "Fires/Wildfires"
       ],
-      "declaration_type": "State Emergency",
+      "declaration_type": "Fire Management (FM)",
       "counties": [
-        "Orange"
+        "Ocean"
       ],
-      "counties_raw": "Orange County",
-      "declaration_date": null,
-      "incident_effective": "2026-05-21",
-      "incident_termination": "2026-08-19",
-      "sep_effective": "2026-05-21",
-      "sep_termination": "2026-09-30",
-      "days_until_expiry": 124,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-ca-chemical-2026-fema",
-      "raw_status": "Active (New)",
-      "status": "active",
-      "entity": "FEMA Declaration",
-      "state": "CA",
-      "state_raw": "CA",
-      "lookback": null,
-      "declaration_name": "California - Chemical Release (FEMA)",
-      "declaration_number": null,
-      "disaster_type_raw": "Chemical Release",
-      "disaster_types": [
-        "Chemical Release"
-      ],
-      "declaration_type": "FEMA Emergency",
-      "counties": [
-        "Orange"
-      ],
-      "counties_raw": "Orange County",
-      "declaration_date": null,
-      "incident_effective": "2026-05-21",
-      "incident_termination": "2027-05-24",
-      "sep_effective": "2026-05-21",
-      "sep_termination": "2027-07-31",
-      "days_until_expiry": 428,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-ia-storm-2026",
-      "raw_status": "Active (New)",
-      "status": "active",
-      "entity": "State Declaration",
-      "state": "IA",
-      "state_raw": "IA",
-      "lookback": null,
-      "declaration_name": "Iowa - Severe Storm Systems",
-      "declaration_number": null,
-      "disaster_type_raw": "Severe Storm",
-      "disaster_types": [
-        "Severe Storm"
-      ],
-      "declaration_type": "State Emergency",
-      "counties": [
-        "Cherokee",
-        "Clay",
-        "Kossuth",
-        "Montgomery",
-        "Ringgold"
-      ],
-      "counties_raw": "Cherokee, Clay, Kossuth, Montgomery, and Ringgold Counties",
-      "declaration_date": null,
-      "incident_effective": "2026-05-15",
-      "incident_termination": "2026-07-20",
-      "sep_effective": "2026-05-15",
-      "sep_termination": "2026-08-31",
-      "days_until_expiry": 94,
-      "days_since_expiry": null
-    },
-    {
-      "id": "sep-nm-drought-2026",
-      "raw_status": "Active (New)",
-      "status": "active",
-      "entity": "State Declaration",
-      "state": "NM",
-      "state_raw": "NM",
-      "lookback": null,
-      "declaration_name": "New Mexico - Drought and Severe Fire Conditions",
-      "declaration_number": null,
-      "disaster_type_raw": "Drought",
-      "disaster_types": [
-        "Drought",
-        "Fire"
-      ],
-      "declaration_type": "State Emergency",
-      "counties": [
-        "STATEWIDE"
-      ],
-      "counties_raw": "All Counties",
-      "declaration_date": null,
-      "incident_effective": "2026-05-19",
-      "incident_termination": "2026-07-19",
-      "sep_effective": "2026-05-19",
-      "sep_termination": "2026-08-31",
-      "days_until_expiry": 94,
-      "days_since_expiry": null
+      "counties_raw": "Ocean",
+      "declaration_date": "2025-04-24",
+      "incident_effective": "2025-04-22",
+      "incident_termination": null,
+      "sep_effective": "2025-04-22",
+      "sep_termination": "2026-07-31",
+      "days_until_expiry": null,
+      "days_since_expiry": 21
     }
   ],
-  "last_updated": "2026-05-29",
-  "source": "March 2 grid + HealthSpring updates (Apr 6, May 29)"
+  "last_updated": "2026-08-21",
+  "source": "HealthSpring DST-SEP weekly email 2026-08-21"
 }
