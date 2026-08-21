@@ -1,5 +1,6 @@
 {
-  "updated": "2026-08-04",
+  "updated": "2026-08-21",
+  "activeSeps": 1,
   "alerts": [
     {
       "id": "2026-08-06-soa-cy2027-rule",
@@ -120,12 +121,12 @@
       "source": null
     },
     {
-      "id": "2026-07-14-sep-tracker",
+      "id": "2026-08-21-sep-tracker",
       "type": "update",
       "emoji": "\ud83d\udccb",
       "title": "Florida Disaster SEPs \u2014 Current Status",
-      "body": "Milton SEP ends Jul 31, 2026. Severe Thunderstorms SEP ends Jun 30 (expired). Winter Weather SEP extended through Oct 31, 2026. Check the SEP Tracker for full details.",
-      "date": "Jul 14, 2026",
+      "body": "Florida statewide SEP for Impacts of Winter Weather, Droughts, and Wildfire Risks is renewed through Dec 31, 2026 (incident period Jan 31 \u2013 Nov 3). Milton, Helene, Debby, and the May thunderstorms SEPs have ended. Check the SEP Tracker for counties and other states.",
+      "date": "Aug 21, 2026",
       "source": "/sep-tracker.html"
     },
     {
