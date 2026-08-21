@@ -156,6 +156,9 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
 
 .nc-pending-tag{font:600 8.5px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:6px;padding:2px 6px;}
+.nc-year-tag{font:800 8.5px/1 Arial,sans-serif;border-radius:6px;padding:2px 6px;letter-spacing:.2px;}
+.nc-year-tag.y2026{color:#6B21A8;background:#F3E8FF;}
+.nc-year-tag.y2027{color:#065F46;background:#D1FAE5;}
 .nc-note{font-size:11.5px;color:#9A94A8;margin-top:14px;padding-top:12px;border-top:1px solid #F1ECF6;}
 
 @media(max-width:768px){
@@ -410,8 +413,8 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
     <div class="nc-card">
       <div class="nc-card-head">
-        <strong>🚫 Non-Commissionable Plans — 2026</strong>
-        <small>New sales only · Renewals get FMV · Tap a carrier for plans by state</small>
+        <strong>🚫 Non-Commissionable Plans — 2026 &amp; 2027</strong>
+        <small>New sales only · Renewals get FMV · Each carrier is tagged by plan year</small>
       </div>
       <div style="padding:14px 16px 6px;font:400 11.5px/1.5 Arial,sans-serif;color:#6E687C;">These plans pay reduced or zero commission on new enrollments. Tap any carrier to see which plans are affected in your state — and always verify before submitting an application.</div>
       <div id="ncCarrierList"></div>
@@ -668,7 +671,7 @@ const NC_DATA = [
  { id: 'H7617-110', states: ['FL'] },
  { id: 'H7617-111', states: ['FL'] },
  ]},
- { carrier: 'Aetna', pending: false, plans: [
+ { carrier: 'Aetna', pending: false, year: 2027, plans: [
  { id: 'H4982-022', name: 'Aetna Medicare Prime Value Plus (HMO)', states: ['CA'] },
  { id: 'H4982-001', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
  { id: 'H4982-002', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
@@ -847,19 +850,20 @@ let _ncActiveCarrier = null;
 (function renderNcCarriers(){
   const wrap = document.getElementById('ncCarrierList');
   if (!wrap) return;
-  wrap.innerHTML = NC_DATA.map((c, i) =>
-    `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
-      <span class="nc-carrier-name">${c.carrier}${c.pending ? ' <span class="nc-pending-tag">⏳ pending</span>' : ''}</span>
+  wrap.innerHTML = NC_DATA.map((c, i) => {
+    const year = c.year || 2026;
+    return `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
+      <span class="nc-carrier-name">${c.carrier} <span class="nc-year-tag y${year}">${year}</span>${c.pending ? ' <span class="nc-pending-tag">⏳ pending</span>' : ''}</span>
       <span class="nc-badge">${c.plans.length}</span>
-    </button>`
-  ).join('');
+    </button>`;
+  }).join('');
 })();
 
 function openNcModal(idx) {
   _ncActiveCarrier = NC_DATA[idx];
   document.getElementById('ncModalTitle').textContent =
     _ncActiveCarrier.carrier + ' — Non-Commissionable Plans ' +
-    (_ncActiveCarrier.carrier === 'Aetna' ? '2027' : '2026') +
+    (_ncActiveCarrier.year || 2026) +
     (_ncActiveCarrier.pending ? ' (pending verification)' : '');
   // Populate state filter from this carrier's data
   const states = [...new Set(_ncActiveCarrier.plans.flatMap(p => p.states))].sort();
@@ -896,7 +900,7 @@ function renderNcPlans() {
   body.innerHTML = stateKeys.map(st =>
     `<div class="nc-state-section">
       <div class="nc-state-label">${st}</div>
-      ${byState[st].map(p => `<span class="nc-plan-chip">${p.name ? p.id + ' — ' + p.name : p.id}</span>`).join('')}
+      ${byState[st].map(p => `<span class="nc-plan-chip">${(_ncActiveCarrier.year || 2026)} · ${p.name ? p.id + ' — ' + p.name : p.id}</span>`).join('')}
     </div>`
   ).join('') +
   (_ncActiveCarrier && _ncActiveCarrier.carrier === 'Humana'
@@ -942,7 +946,7 @@ const TOUR_STEPS = [
   },
   {
     targetSelector: ".nc-card",
-    title: "Non-Commissionable Plans — 2026 🚫",
+    title: "Non-Commissionable Plans — 2026 & 2027 🚫",
     desc: "These plans pay reduced or zero commission on new enrollments — renewals still get FMV. Tap any carrier to see which plans are affected in your state, and always verify before submitting an application.",
     arrow: "arrow-top",
     offset: {x: 0, y: 14}
