@@ -155,7 +155,9 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .tour-next:hover{opacity:.75;}
 
 
-.nc-pending-tag{font:600 8.5px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:6px;padding:2px 6px;}
+.nc-year-tag{font:800 8.5px/1 Arial,sans-serif;border-radius:6px;padding:2px 6px;letter-spacing:.2px;}
+.nc-year-tag.y2026{color:#6B21A8;background:#F3E8FF;}
+.nc-year-tag.y2027{color:#065F46;background:#D1FAE5;}
 .nc-note{font-size:11.5px;color:#9A94A8;margin-top:14px;padding-top:12px;border-top:1px solid #F1ECF6;}
 
 @media(max-width:768px){
@@ -410,8 +412,8 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
     <div class="nc-card">
       <div class="nc-card-head">
-        <strong>🚫 Non-Commissionable Plans — 2026</strong>
-        <small>New sales only · Renewals get FMV · Tap a carrier for plans by state</small>
+        <strong>🚫 Non-Commissionable Plans — 2026 &amp; 2027</strong>
+        <small>New sales only · Renewals get FMV · Each carrier is tagged by plan year</small>
       </div>
       <div style="padding:14px 16px 6px;font:400 11.5px/1.5 Arial,sans-serif;color:#6E687C;">These plans pay reduced or zero commission on new enrollments. Tap any carrier to see which plans are affected in your state — and always verify before submitting an application.</div>
       <div id="ncCarrierList"></div>
@@ -668,6 +670,150 @@ const NC_DATA = [
  { id: 'H7617-110', states: ['FL'] },
  { id: 'H7617-111', states: ['FL'] },
  ]},
+ { carrier: 'Aetna', pending: false, year: 2027, plans: [
+ { id: 'H4982-022', name: 'Aetna Medicare Prime Value Plus (HMO)', states: ['CA'] },
+ { id: 'H4982-001', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H4982-002', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H4982-025', name: 'Aetna Medicare Prime Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-007', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H0523-065', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H0523-086', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
+ { id: 'H0523-083', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H0523-089', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-030', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-026', name: 'Aetna Medicare Prime Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-003', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H5521-650', name: 'Aetna Medicare Elite (PPO)', states: ['VA'] },
+ { id: 'H5521-272', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
+ { id: 'H5521-270', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
+ { id: 'H5521-269', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
+ { id: 'H5521-569', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
+ { id: 'H5521-033', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
+ { id: 'H5521-435', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
+ { id: 'H1609-028', name: 'Aetna Medicare Select Extra (HMO-POS)', states: ['FL'] },
+ { id: 'H5521-470', name: 'Aetna Medicare Value Plus (PPO)', states: ['MS'] },
+ { id: 'H5521-326', name: 'Aetna Medicare Value Care (PPO)', states: ['LA'] },
+ { id: 'H5521-646', name: 'Aetna Medicare Value Plus (PPO)', states: ['LA'] },
+ { id: 'H2293-001', name: 'Aetna Medicare Value Extra Care (PPO)', states: ['GA'] },
+ { id: 'H5521-364', name: 'Aetna Medicare Value Care (PPO)', states: ['GA'] },
+ { id: 'H2293-023', name: 'Aetna Medicare Value Care (PPO)', states: ['GA'] },
+ { id: 'H2293-033', name: 'Aetna Medicare Value Plus (PPO)', states: ['GA'] },
+ { id: 'H1608-021', name: 'Aetna Medicare Signature Classic Plus (PPO)', states: ['AR'] },
+ { id: 'H1608-054', name: 'Aetna Medicare Elite Classic (PPO)', states: ['AR'] },
+ { id: 'H1608-079', name: 'Aetna Medicare Signature Classic Giveback (PPO)', states: ['AR'] },
+ { id: 'H1608-074', name: 'Aetna Medicare Eagle Classic Giveback (PPO)', states: ['AR'] },
+ { id: 'H5521-467', name: 'Aetna Medicare Value Plus (PPO)', states: ['AL'] },
+ { id: 'H1608-016', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS','MO'] },
+ { id: 'H1608-018', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS','MO'] },
+ { id: 'H1608-017', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['KS'] },
+ { id: 'H1608-024', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['KS'] },
+ { id: 'H1608-072', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS'] },
+ { id: 'H2663-111', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['KS'] },
+ { id: 'H5325-003', name: 'Aetna Medicare Dual Care (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5325-004', name: 'Aetna Medicare Dual (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5325-013', name: 'Aetna Medicare Full Dual (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5325-012', name: 'Aetna Medicare Full Dual Care (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5521-388', name: 'Aetna Medicare Enhanced (PPO)', states: ['WI'] },
+ { id: 'H7301-033', name: 'Aetna Medicare Signature (PPO)', states: ['IL'] },
+ { id: 'H3192-001', name: 'Aetna Medicare Prime (HMO-POS)', states: ['IL'] },
+ { id: 'H3192-013', name: 'Aetna Medicare Signature (HMO-POS)', states: ['IL'] },
+ { id: 'H3959-066', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['PA'] },
+ { id: 'H1608-085', name: 'Aetna Medicare Premier Classic (PPO)', states: ['WV'] },
+ { id: 'H1608-027', name: 'Aetna Medicare Advantra Enhanced Classic (PPO)', states: ['WV'] },
+ { id: 'H1608-031', name: 'Aetna Medicare Advantra Classic Giveback (PPO)', states: ['WV'] },
+ { id: 'H1608-040', name: 'Aetna Medicare Advantra Signature Classic (PPO)', states: ['WV'] },
+ { id: 'H3931-196', name: 'Aetna Medicare Full Dual Care (HMO D-SNP)', states: ['CO'] },
+ { id: 'H3931-175', name: 'Aetna Medicare Dual Extra Care (HMO D-SNP)', states: ['CO'] },
+ { id: 'H1608-001', name: 'Aetna Medicare Signature Classic (PPO)', states: ['IA'] },
+ { id: 'H1608-117', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['IA'] },
+ { id: 'H1608-012', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['NE'] },
+ { id: 'H1608-118', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['NE'] },
+ { id: 'H1608-038', name: 'Aetna Medicare Signature Classic (PPO)', states: ['NE'] },
+ { id: 'H1608-081', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['ND'] },
+ { id: 'H1608-120', name: 'Aetna Medicare Signature Classic (PPO)', states: ['SD'] },
+ { id: 'H1608-119', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['SD'] },
+ { id: 'H1608-062', name: 'Aetna Medicare Dual Classic (PPO D-SNP)', states: ['SD'] },
+ { id: 'H1608-121', name: 'Aetna Medicare Full Dual Classic (PPO D-SNP)', states: ['SD'] },
+ { id: 'H1608-061', name: 'Aetna Medicare Eagle Classic (PPO)', states: ['SD'] },
+ { id: 'H3146-011', name: 'Aetna Medicare Value Plus (HMO)', states: ['SC'] },
+ { id: 'H3146-006', name: 'Aetna Medicare Value Plus (HMO)', states: ['NC'] },
+ { id: 'H3146-044', name: 'Aetna Medicare Chronic Care Value (HMO C-SNP)', states: ['NC'] },
+ { id: 'H3219-004', name: 'Allina Health Aetna Medicare Premier Extra (PPO)', states: ['MN'] },
+ { id: 'H3219-016', name: 'Allina Health Aetna Medicare Value (PPO C-SNP)', states: ['MN'] },
+ { id: 'H3931-151', name: 'Aetna Medicare Prime (HMO)', states: ['NV'] },
+ { id: 'H3931-094', name: 'Aetna Medicare Signature (HMO)', states: ['NV'] },
+ { id: 'H3931-157', name: 'Aetna Medicare Value Care (HMO)', states: ['NV'] },
+ { id: 'H5521-654', name: 'Aetna Medicare Signature (PPO)', states: ['UT'] },
+ { id: 'H8649-013', name: 'Aetna Medicare Signature (HMO)', states: ['UT'] },
+ { id: 'H5521-246', name: 'Aetna Medicare Elite (PPO)', states: ['UT'] },
+ { id: 'H5521-159', name: 'Aetna Medicare Signature Extra (PPO)', states: ['MA'] },
+ { id: 'H5521-451', name: 'Aetna Medicare Elite (PPO)', states: ['MA'] },
+ { id: 'H5793-018', name: 'Aetna Medicare Signature (HMO-POS)', states: ['MA'] },
+ { id: 'H5793-020', name: 'Aetna Medicare QMB Only (HMO-POS D-SNP)', states: ['CT'] },
+ { id: 'H5793-001', name: 'Aetna Medicare Signature (HMO-POS)', states: ['CT'] },
+ { id: 'H5521-446', name: 'Aetna Medicare Signature (PPO)', states: ['CT'] },
+ { id: 'H5521-157', name: 'Aetna Medicare Elite (PPO)', states: ['CT'] },
+ { id: 'H3597-012', name: 'Aetna Medicare Partial Dual (HMO-POS D-SNP)', states: ['ME'] },
+ { id: 'H3597-018', name: 'Aetna Medicare Signature (HMO-POS)', states: ['ME'] },
+ { id: 'H5521-037', name: 'Aetna Medicare Enhanced Extra (PPO)', states: ['NJ'] },
+ { id: 'H5521-392', name: 'Aetna Medicare Prime (PPO)', states: ['NJ'] },
+ { id: 'H3152-098', name: 'Aetna Medicare Elite (HMO)', states: ['NJ'] },
+ { id: 'H5521-510', name: 'Aetna Medicare Enhanced Advantage (PPO)', states: ['NJ'] },
+ { id: 'R6694-006', name: 'Aetna Medicare Enhanced (Regional PPO)', states: ['NJ'] },
+ { id: 'H5521-124', name: 'Aetna Medicare Enhanced Extra (PPO)', states: ['NJ'] },
+ { id: 'H5521-536', name: 'Aetna Medicare Elite (PPO)', states: ['NY'] },
+ { id: 'H3312-074', name: 'Aetna Medicare Signature Care (HMO)', states: ['NY'] },
+ { id: 'H3312-002', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
+ { id: 'H3312-048', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
+ { id: 'H3312-091', name: 'Aetna Medicare Chronic Care (HMO C-SNP)', states: ['NY'] },
+ { id: 'H5521-661', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
+ { id: 'H5521-121', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
+ { id: 'H5521-674', name: 'Aetna Medicare Elite Extra (PPO)', states: ['NY'] },
+ { id: 'H5521-699', name: 'Aetna Medicare Elite Extra (PPO)', states: ['NY'] },
+ { id: 'H5521-736', name: 'Aetna Medicare Elite (PPO)', states: ['NY'] },
+ { id: 'H3312-018', name: 'Aetna Medicare Enhanced (HMO-POS)', states: ['NY'] },
+ { id: 'H5521-669', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
+ { id: 'H3312-081', name: 'Aetna Medicare Enhanced (HMO)', states: ['NY'] },
+ { id: 'H3312-097', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
+ { id: 'H5521-461', name: 'Aetna Medicare Longevity (PPO I-SNP)', states: ['NY'] },
+ { id: 'H5521-687', name: 'Aetna Medicare Enhanced (PPO)', states: ['WA'] },
+ { id: 'H3748-003', name: 'Aetna Medicare Signature (HMO)', states: ['WA'] },
+ { id: 'H3931-197', name: 'Aetna Medicare Signature (HMO)', states: ['WA'] },
+ { id: 'H5521-686', name: 'Aetna Medicare Enhanced (PPO)', states: ['WA'] },
+ { id: 'H2056-005', name: 'Aetna Medicare Elite (HMO)', states: ['OR'] },
+ { id: 'H2056-003', name: 'Aetna Medicare Elite (HMO)', states: ['OR'] },
+ { id: 'H5521-089', name: 'Aetna Medicare Signature (PPO)', states: ['OH'] },
+ { id: 'H1608-029', name: 'Aetna Medicare Advantra Signature Classic (PPO)', states: ['OH'] },
+ { id: 'H0628-018', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['OH'] },
+ { id: 'H3288-004', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
+ { id: 'H3288-001', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
+ { id: 'H3288-018', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
+ { id: 'H1608-067', name: 'Aetna Medicare Elite Classic Extra (PPO)', states: ['MO'] },
+ { id: 'H1608-050', name: 'Aetna Medicare Elite Classic (PPO)', states: ['MO'] },
+ { id: 'H1608-051', name: 'Aetna Medicare Signature Classic (PPO)', states: ['MO'] },
+ { id: 'H1608-013', name: 'Aetna Medicare Enhanced Classic (PPO)', states: ['MO'] },
+ { id: 'H2663-113', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['MO'] },
+ { id: 'S5601-006', name: 'SilverScript Choice (PDP)', states: ['NY'] },
+ { id: 'S5601-008', name: 'SilverScript Choice (PDP)', states: ['NJ'] },
+ { id: 'S5601-010', name: 'SilverScript Choice (PDP)', states: ['DC','DE','MD'] },
+ { id: 'S5601-014', name: 'SilverScript Choice (PDP)', states: ['VA'] },
+ { id: 'S5601-016', name: 'SilverScript Choice (PDP)', states: ['NC'] },
+ { id: 'S5601-020', name: 'SilverScript Choice (PDP)', states: ['GA'] },
+ { id: 'S5601-022', name: 'SilverScript Choice (PDP)', states: ['FL'] },
+ { id: 'S5601-024', name: 'SilverScript Choice (PDP)', states: ['AL','TN'] },
+ { id: 'S5601-026', name: 'SilverScript Choice (PDP)', states: ['MI'] },
+ { id: 'S5601-028', name: 'SilverScript Choice (PDP)', states: ['OH'] },
+ { id: 'S5601-034', name: 'SilverScript Choice (PDP)', states: ['IL'] },
+ { id: 'S5601-036', name: 'SilverScript Choice (PDP)', states: ['MO'] },
+ { id: 'S5601-038', name: 'SilverScript Choice (PDP)', states: ['AR'] },
+ { id: 'S5601-040', name: 'SilverScript Choice (PDP)', states: ['MS'] },
+ { id: 'S5601-044', name: 'SilverScript Choice (PDP)', states: ['TX'] },
+ { id: 'S5601-048', name: 'SilverScript Choice (PDP)', states: ['KS'] },
+ { id: 'S5601-052', name: 'SilverScript Choice (PDP)', states: ['NM'] },
+ { id: 'S5601-056', name: 'SilverScript Choice (PDP)', states: ['AZ'] },
+ { id: 'S5601-058', name: 'SilverScript Choice (PDP)', states: ['NV'] },
+ { id: 'S5601-068', name: 'SilverScript Choice (PDP)', states: ['AK'] },
+ ]},
  { carrier: 'FL Blue', pending: false, plans: [
  { id: 'H1035-017', states: ['FL'] },
  { id: 'H1035-019', states: ['FL'] },
@@ -703,18 +849,20 @@ let _ncActiveCarrier = null;
 (function renderNcCarriers(){
   const wrap = document.getElementById('ncCarrierList');
   if (!wrap) return;
-  wrap.innerHTML = NC_DATA.map((c, i) =>
-    `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
-      <span class="nc-carrier-name">${c.carrier}${c.pending ? ' <span class="nc-pending-tag">⏳ pending</span>' : ''}</span>
+  wrap.innerHTML = NC_DATA.map((c, i) => {
+    const year = c.year || 2026;
+    return `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
+      <span class="nc-carrier-name">${c.carrier} <span class="nc-year-tag y${year}">${year}</span></span>
       <span class="nc-badge">${c.plans.length}</span>
-    </button>`
-  ).join('');
+    </button>`;
+  }).join('');
 })();
 
 function openNcModal(idx) {
   _ncActiveCarrier = NC_DATA[idx];
   document.getElementById('ncModalTitle').textContent =
-    _ncActiveCarrier.carrier + ' — Non-Commissionable Plans 2026' + (_ncActiveCarrier.pending ? ' (pending verification)' : '');
+    _ncActiveCarrier.carrier + ' — Non-Commissionable Plans ' +
+    (_ncActiveCarrier.year || 2026);
   // Populate state filter from this carrier's data
   const states = [...new Set(_ncActiveCarrier.plans.flatMap(p => p.states))].sort();
   const sel = document.getElementById('ncStateFilter');
@@ -737,8 +885,8 @@ function renderNcPlans() {
   _ncActiveCarrier.plans.forEach(p => {
     p.states.forEach(st => {
       if (stateFilter && st !== stateFilter) return;
-      if (q && !p.id.toLowerCase().includes(q)) return;
-      (byState[st] = byState[st] || []).push(p.id);
+      if (q && !p.id.toLowerCase().includes(q) && !(p.name && p.name.toLowerCase().includes(q))) return;
+      (byState[st] = byState[st] || []).push(p);
     });
   });
 
@@ -750,11 +898,13 @@ function renderNcPlans() {
   body.innerHTML = stateKeys.map(st =>
     `<div class="nc-state-section">
       <div class="nc-state-label">${st}</div>
-      ${byState[st].map(id => `<span class="nc-plan-chip">${id}</span>`).join('')}
+      ${byState[st].map(p => `<span class="nc-plan-chip">${(_ncActiveCarrier.year || 2026)} · ${p.name ? p.id + ' — ' + p.name : p.id}</span>`).join('')}
     </div>`
   ).join('') +
   (_ncActiveCarrier && _ncActiveCarrier.carrier === 'Humana'
     ? '<div class="nc-note"><strong>Modified commission \$165.00</strong> (prorated by eff. date) for Like Plan Type Changes from Humana plans. Source: Humana PPP GCHMRX7EN 01/2026. Always verify before enrolling.</div>'
+    : _ncActiveCarrier && _ncActiveCarrier.carrier === 'Aetna'
+    ? '<div class="nc-note">Plan Year <strong>2027</strong>. Non-commissionable for <strong>new sales only</strong> — renewals receive FMV. All new Aetna PDP sales are non-commissionable regardless of state, county, or hierarchy. Source: Aetna Non-Commissionable Individual Medicare Products (updated 8/20/2026). Always verify before enrolling.</div>'
     : '<div class="nc-note">Non-commissionable for <strong>new sales only</strong> — renewals receive FMV. Source: CMS National Landscape Extract. Always verify with the carrier before enrolling.</div>');
 }
 
@@ -794,7 +944,7 @@ const TOUR_STEPS = [
   },
   {
     targetSelector: ".nc-card",
-    title: "Non-Commissionable Plans — 2026 🚫",
+    title: "Non-Commissionable Plans — 2026 & 2027 🚫",
     desc: "These plans pay reduced or zero commission on new enrollments — renewals still get FMV. Tap any carrier to see which plans are affected in your state, and always verify before submitting an application.",
     arrow: "arrow-top",
     offset: {x: 0, y: 14}
