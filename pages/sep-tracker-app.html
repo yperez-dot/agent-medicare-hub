@@ -284,14 +284,15 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
 
   .page { padding:8px 8px 72px; }
   .hero {
-    padding:14px 14px 12px; border-radius:12px 12px 0 0;
-    /* sit flush under shell header — no extra brand strip */
+    padding:16px 14px 14px; border-radius:12px 12px 0 0;
+    overflow:visible; /* don't clip title inside the card */
   }
-  .hero-kicker { margin-bottom:6px; font-size:11px; }
-  .hero h1 { font-size:1.35rem; line-height:1.18; margin:0; }
+  .hero::before { display:none; } /* decorative blob can crowd small screens */
+  .hero-kicker { margin-bottom:8px; font-size:11px; }
+  .hero h1 { font-size:1.4rem; line-height:1.2; margin:0 0 0; padding-top:2px; }
   .title-full { display:none; }
   .title-short { display:inline; }
-  .hero-desc { display:none; } /* keep first viewport short on phones */
+  .hero-desc { display:none; } /* short first viewport on phones */
   .hero-meta { margin-top:10px; gap:6px; }
   .chip { padding:6px 10px; font-size:.78rem; }
   .chip-desktop-only { display:none; }
@@ -733,6 +734,9 @@ document.addEventListener('keydown', function(ev){
   });
 })();
 
+
+window.addEventListener('load', function(){ window.scrollTo(0,0); });
+document.documentElement.scrollTop = 0; document.body.scrollTop = 0;
 </script>
 </body>
 </html>

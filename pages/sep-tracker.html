@@ -37,6 +37,38 @@ iframe{flex:1 1 auto;min-height:0;border:none;width:100%;display:block;backgroun
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
 <script src="/hub-nav.js" defer></script>
+
+<style id="sep-shell-overrides">
+/* Public SEP page: never let hub-nav sticky/fixed chrome cover the iframe hero */
+html, body {
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: 100dvh;
+}
+.top-bar,
+.hub-nav-ready .top-bar,
+html.hub-nav-ready .top-bar,
+body.hub-nav-ready .top-bar {
+  position: relative !important;
+  top: auto !important;
+  flex-shrink: 0 !important;
+  z-index: 2 !important;
+}
+iframe {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  border: 0 !important;
+  display: block !important;
+  background: #F6F5F8;
+}
+</style>
 </head>
 <body>
 
@@ -46,7 +78,8 @@ iframe{flex:1 1 auto;min-height:0;border:none;width:100%;display:block;backgroun
 </div>
 
 <iframe
-  src="/sep-tracker-app.html?v=20260823-hero2"
+  src="/sep-tracker-app.html?v=20260823-hero3"
+  onload="try{this.contentWindow.scrollTo(0,0)}catch(e){}"
   title="SEP Disaster Tracker"
   allow="fullscreen"
 ></iframe>
