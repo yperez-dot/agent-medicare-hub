@@ -640,7 +640,7 @@ html[lang="es"] .show-en{display:none !important;}
   document.querySelectorAll('[data-set-lang]').forEach(function(btn){
     btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-set-lang')); });
   });
-  setLang(document.documentElement.lang || 'en');
+  setLang(localStorage.getItem('hub_lang') || document.documentElement.lang || 'en');
 })();
 </script>
 </body>
