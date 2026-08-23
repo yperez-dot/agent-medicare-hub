@@ -197,6 +197,8 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
   border:1px solid #f0d7e8; border-radius:14px; padding:20px 22px;
   display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
 }
+/* Author display:flex beats the UA [hidden] rule — keep logged-in hide working */
+.cta[hidden], .chip[hidden] { display:none !important; }
 .cta-text { flex:1 1 320px; font-size:var(--fs-lede); line-height:1.5; color:#3a3148; }
 .cta-text strong { color:var(--ink); }
 .cta-actions { display:flex; flex-wrap:wrap; gap:10px; }
@@ -480,7 +482,7 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
       <span class="chip chip-desktop-only">Carrier DST-SEP + FEMA source</span>
       <a class="chip" href="https://www.fema.gov/disaster/declarations" target="_blank" rel="noopener" title="Official FEMA disaster declarations">FEMA declarations</a>
       <span class="chip soft" id="hero-imported">August 21, 2026 &middot; 244 SEPs</span>
-      <span class="chip soft chip-desktop-only">Free to view</span>
+      <span class="chip soft chip-desktop-only" id="publicFreeChip">Free to view</span>
     </div>
   </header>
 
@@ -741,12 +743,14 @@ document.addEventListener('keydown', function(ev){
     if (window.self === window.top) document.documentElement.classList.add('standalone');
   } catch (e) {}
 
-  /* Lead CTA is for public visitors; logged-in agents already have hub contact paths. */
+  /* Lead CTA + "Free to view" are for public visitors only. */
   try {
     var session = JSON.parse(localStorage.getItem('hub_session') || 'null');
     if (session && session.token && session.expires > Date.now()) {
       var leadCta = document.getElementById('publicLeadCta');
       if (leadCta) leadCta.hidden = true;
+      var freeChip = document.getElementById('publicFreeChip');
+      if (freeChip) freeChip.hidden = true;
     }
   } catch (e) {}
 
