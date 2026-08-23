@@ -180,7 +180,7 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
 }
 .scope { color:#4a4454; font-size:var(--fs-meta); line-height:1.5; max-width:360px; }
 .scope.collapsed {
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
 }
 .scope-toggle {
   display:inline-block; margin-top:4px; color:var(--accent); font-size:.78rem;
@@ -309,9 +309,12 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
   .controls {
     padding:12px;
     flex-direction:column; align-items:stretch; gap:10px;
-    position:sticky; top:0; z-index:20;
-    background:rgba(255,255,255,.97); backdrop-filter:blur(10px);
-    box-shadow:0 8px 18px rgba(47,22,80,.07);
+    position:sticky; top:0; z-index:30;
+    /* Fully opaque so scrolled cards never show through */
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 6px 16px rgba(47,22,80,.08);
+    backdrop-filter:none; -webkit-backdrop-filter:none;
   }
   .search { min-width:0; width:100%; }
   .search input { padding:14px 14px 14px 42px; font-size:17px; border-radius:12px; }
@@ -365,12 +368,13 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
     padding:16px;
     background:#fff !important;
     box-shadow:0 3px 12px rgba(47,22,80,.05);
-    overflow:visible;
+    overflow:hidden; /* keep long county lists inside the card */
+    isolation:isolate;
   }
   .sep-table tbody tr:active { transform:scale(.995); }
   .sep-table td {
     display:block; padding:0; border:none; width:auto; min-width:0;
-    overflow:visible; white-space:normal;
+    overflow:hidden; white-space:normal;
   }
   .sep-table td::before { display:none !important; content:none !important; }
 
@@ -397,13 +401,20 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
   }
   .col-reason .reason-type { margin-top:4px; font-size:.8rem; }
 
-  .col-scope { grid-area:scope; min-width:0; }
+  .col-scope { grid-area:scope; min-width:0; max-width:100%; overflow:hidden; }
   .col-scope .scope {
-    max-width:none; color:var(--muted); font-size:var(--fs-meta); line-height:1.45;
-    white-space:normal; overflow:visible;
+    max-width:100%; color:var(--muted); font-size:var(--fs-meta); line-height:1.45;
+    white-space:normal; overflow:hidden; word-break:break-word;
   }
-  .scope.collapsed { -webkit-line-clamp:2; }
-  .scope-toggle { font-size:.9rem; }
+  .col-scope .scope.collapsed {
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    line-clamp:2;
+    overflow:hidden !important;
+    max-height:3.1em;
+  }
+  .scope-toggle { font-size:.9rem; display:inline-block; margin-top:4px; }
 
   .col-start, .col-end {
     font-size:var(--fs-meta); color:var(--muted); font-weight:600; min-width:0;
@@ -444,7 +455,7 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
   <header class="hero">
     <div class="hero-kicker"><i></i> Live disaster SEP status</div>
     <h1><span class="title-full">Medicare Special Enrollment Periods — Active by State</span><span class="title-short">SEP Tracker — Active by State</span></h1>
-    <p class="hero-desc">Current emergency and disaster Medicare SEPs across U.S. states and territories. Search by state, county, or incident — then open any row for full details. No login required.</p>
+    <p class="hero-desc">Current emergency and disaster Medicare SEPs across U.S. states and territories. Search by state, county, or incident — then open any row for full details.</p>
     <div class="hero-meta">
       <span class="chip chip-desktop-only">HealthSpring DST-SEP source</span>
       <a class="chip" href="https://www.fema.gov/disaster/declarations" target="_blank" rel="noopener" title="Official FEMA disaster declarations">FEMA declarations</a>
