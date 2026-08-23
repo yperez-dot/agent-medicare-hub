@@ -1,0 +1,17 @@
+# Default: keep the agent hub out of search indexes
+/*
+  X-Robots-Tag: noindex, nofollow
+
+# Public SEP Tracker (and its share image) may be indexed
+/sep-tracker
+  X-Robots-Tag: index, follow
+
+/sep-tracker/
+  X-Robots-Tag: index, follow
+
+/sep-tracker-og.png
+  X-Robots-Tag: index, follow
+
+# Iframe app is not a standalone landing page — keep it out of Google
+/sep-tracker-app.html
+  X-Robots-Tag: noindex, nofollow

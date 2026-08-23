@@ -1,0 +1,15 @@
+# Public lead magnet only — rest of Agent Medicare Hub is team-private.
+# Google: longest matching rule wins, so the iframe app stays blocked.
+User-agent: *
+Allow: /sep-tracker$
+Allow: /sep-tracker/$
+Allow: /sep-tracker-og.png
+Disallow: /sep-tracker-app
+Disallow: /
+
+User-agent: Googlebot
+Allow: /sep-tracker$
+Allow: /sep-tracker/$
+Allow: /sep-tracker-og.png
+Disallow: /sep-tracker-app
+Disallow: /
