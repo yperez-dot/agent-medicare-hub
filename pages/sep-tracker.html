@@ -16,7 +16,6 @@ html,body{height:100%;}body{font-family:'Inter',Arial,sans-serif;background:#F6F
 .pill-nav a.nav-call{background:#452068;border-color:#452068;color:#fff;}
 .pill-nav a.nav-call:hover{background:#341850;border-color:#341850;}
 .pill-nav a.nav-signout{color:#D6336C;border-color:#F5C0C0;}
-.pill-nav a.nav-tour{width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;padding:0;border:none;}
 iframe{flex:1 1 auto;min-height:0;border:none;width:100%;display:block;background:#F6F5F8;}
 /* public lead-magnet nav type */
 .pill-nav a{font-size:14px;padding:10px 18px;}
@@ -93,19 +92,15 @@ iframe {
     } catch(e) { return false; }
   }
 
+  /* Public lead-magnet page: keep nav client-safe even when an agent is
+     logged in, so shared phones / screenshots never expose the full hub menu. */
   var nav = document.getElementById('sepShellNav');
   if (loggedIn()) {
     nav.innerHTML =
-      "<a href='/home'>Agent Dashboard</a>"+
-      "<a href='/learn'>Broker University</a>"+
-      "<a href='/carrier-info'>Carrier Info</a>"+
-      "<a href='/events'>Events</a>"+
-      "<a href='/compliance'>Compliance</a>"+
-      "<a href='/tools-perks'>Agent Tools Hub</a>"+
-      "<a href='/retention-toolkit'>Retention Toolkit</a>"+
       "<a class='active' href='/sep-tracker'>SEP Tracker</a>"+
-      "<a href='#' class='nav-signout' id='sepSignOut'>Sign Out</a>"+
-      "<a class='nav-tour' href='/home#tour' title='Hub tour'>?</a>";
+      "<a class='nav-call' href='tel:18003806821'>Call 1-800-380-6821</a>"+
+      "<a href='/home'>Agent Dashboard</a>"+
+      "<a href='#' class='nav-signout' id='sepSignOut'>Sign Out</a>";
     var out = document.getElementById('sepSignOut');
     if (out) out.addEventListener('click', function(e){
       e.preventDefault();
