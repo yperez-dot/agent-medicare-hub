@@ -1,5 +1,9 @@
 # Lead Generation Library — Extracted Links
 
+## AEP 2026 Compliance Strategy
+- Medicare Lead Generation for AEP 2026 (external): https://affordablecareagents.com/medicare-lead-generation-aep-2026-broker-guide/
+- Hub Compliance page: /compliance
+
 ## Community Events Playbook
 - Phase 1 Getting In: https://docs.google.com/document/d/1dyBtL2W3RZOnkGaTsU8h5gngohK4Yn0W/edit?usp=sharing
 - Phase 2 Showing Up Right: https://docs.google.com/document/d/1v-8gTDkRhRhDpMhPyLIRL3MthY2EKDa7/edit?usp=sharing
