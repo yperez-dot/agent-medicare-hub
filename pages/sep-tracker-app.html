@@ -309,9 +309,10 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
   .controls {
     padding:12px;
     flex-direction:column; align-items:stretch; gap:10px;
-    position:sticky; top:0; z-index:20;
-    background:rgba(255,255,255,.97); backdrop-filter:blur(10px);
-    box-shadow:0 8px 18px rgba(47,22,80,.07);
+    /* Do not sticky on mobile — sticky controls leave a large white band when scrolling up inside the hub iframe */
+    position:static;
+    background:var(--panel);
+    box-shadow:none;
   }
   .search { min-width:0; width:100%; }
   .search input { padding:14px 14px 14px 42px; font-size:17px; border-radius:12px; }
