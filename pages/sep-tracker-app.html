@@ -522,7 +522,7 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
     </table>
   </div>
 
-  <div class="cta">
+  <div class="cta" id="publicLeadCta">
     <div class="cta-text">
       <strong>Think you may qualify — or helping a client?</strong> Confirm the county and SEP window here, then reach The Health Experts so we can walk through eligibility while the window is open.
     </div>
@@ -739,6 +739,15 @@ document.addEventListener('keydown', function(ev){
 (function(){
   try {
     if (window.self === window.top) document.documentElement.classList.add('standalone');
+  } catch (e) {}
+
+  /* Lead CTA is for public visitors; logged-in agents already have hub contact paths. */
+  try {
+    var session = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (session && session.token && session.expires > Date.now()) {
+      var leadCta = document.getElementById('publicLeadCta');
+      if (leadCta) leadCta.hidden = true;
+    }
   } catch (e) {}
 
   var btn = document.getElementById('toTop');
