@@ -47,6 +47,42 @@ body{
 .hero strong{color:var(--accent);}
 .hero p{margin:0;font-size:14px;opacity:.92;max-width:95ch;}
 
+.hero-top{
+ display:flex;
+ align-items:flex-start;
+ justify-content:space-between;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-bottom:10px;
+}
+
+.lang-toggle{
+ display:inline-flex;
+ background:rgba(255,255,255,.14);
+ border:1px solid rgba(255,255,255,.28);
+ border-radius:999px;
+ padding:3px;
+ gap:2px;
+}
+.lang-toggle button{
+ border:none;
+ background:transparent;
+ color:#fff;
+ font:800 12px/1 Inter,system-ui,sans-serif;
+ padding:8px 12px;
+ border-radius:999px;
+ cursor:pointer;
+ opacity:.85;
+}
+/* Visual selected state follows html[lang] so it is correct on first paint after refresh */
+html[lang="en"] .lang-toggle button[data-set-lang="en"],
+html[lang="es"] .lang-toggle button[data-set-lang="es"],
+.lang-toggle button[aria-pressed="true"]{
+ background:#fff;
+ color:var(--primary);
+ opacity:1;
+}
+
 .hero-nav{
  margin-top:12px;
  display:flex;
@@ -160,6 +196,11 @@ body{
 .note strong{display:block;font-size:14px;margin-bottom:4px;}
 .note p{margin:0;font-size:14px;color:var(--muted);}
 
+html[lang="en"] [data-lang="es"],
+html[lang="es"] [data-lang="en"]{display:none !important;}
+html[lang="en"] .show-es,
+html[lang="es"] .show-en{display:none !important;}
+
 @media(max-width:800px){
  .grid-3{grid-template-columns:1fr;}
 }
@@ -174,6 +215,12 @@ body{
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
 <script src="/hub-nav.js" defer></script>
+<script>
+(function(){
+  var saved = localStorage.getItem('hub_lang');
+  if (saved === 'es' || saved === 'en') document.documentElement.lang = saved;
+})();
+</script>
 </head>
 
 <body>
@@ -195,139 +242,271 @@ body{
 <div class="wrap">
 
  <section class="hero">
+ <div class="hero-top">
+  <div></div>
+  <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+   <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+   <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+  </div>
+ </div>
+
+ <div data-lang="en">
  <h1>Compliance <strong>&</strong> Regulatory Resources</h1>
  <p>
  Medicare marketing and enrollment must follow CMS and carrier requirements.
  Use the official compliance portal for the most up-to-date guidance, approved scripts, bulletins, and policies.
  </p>
+ </div>
+ <div data-lang="es">
+ <h1>Cumplimiento <strong>&</strong> Recursos Regulatorios</h1>
+ <p>
+ El mercadeo y la inscripción de Medicare deben cumplir con los requisitos de CMS y de las aseguradoras.
+ Use el portal oficial de cumplimiento para la orientación más actualizada, guiones aprobados, boletines y políticas.
+ </p>
+ </div>
 
  <div class="cta-row">
  <a class="btn accent" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
- Access YourFMO Compliance Portal
+  <span data-lang="en">Access YourFMO Compliance Portal</span>
+  <span data-lang="es">Acceder al Portal de Cumplimiento YourFMO</span>
  </a>
- <a class="btn outline" href="/aep-2027-training" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5);color:#fff;">Take AEP 2027 Training</a>
+ <a class="btn outline" href="/aep-2027-training" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5);color:#fff;">
+  <span data-lang="en">Take AEP 2027 Training</span>
+  <span data-lang="es">Tomar Capacitación AEP 2027</span>
+ </a>
  </div>
 
  <div class="hero-nav" aria-label="Jump links">
- <a href="#soa-2027">SOA Update 2027</a>
- <a href="#official-portal">Official Portal</a>
- <a href="#quick-checklist">Quick Checklist</a>
- <a href="#aep">AEP/OEP Reminder</a>
+ <a href="#cms-2027"><span data-lang="en">CMS Rules Oct 1</span><span data-lang="es">Reglas CMS 1 oct</span></a>
+ <a href="#edu-events"><span data-lang="en">Educational Events</span><span data-lang="es">Eventos Educativos</span></a>
+ <a href="#official-portal"><span data-lang="en">Official Portal</span><span data-lang="es">Portal Oficial</span></a>
+ <a href="#quick-checklist"><span data-lang="en">Quick Checklist</span><span data-lang="es">Lista Rápida</span></a>
+ <a href="#aep-guide"><span data-lang="en">AEP Strategy Guide</span><span data-lang="es">Guía Estrategia AEP</span></a>
  <a href="#faq">FAQs</a>
  </div>
  </section>
 
- <section class="section" id="soa-2027" style="border:2px solid #DC2626;">
+ <section class="section" id="cms-2027" style="border:2px solid #DC2626;">
  <div class="kicker">
- <h2 style="color:#DC2626;">NEW — SOA Rule Change · Effective October 1, 2026</h2>
+ <h2 style="color:#DC2626;">
+  <span data-lang="en">NEW — CMS Marketing Rules · Effective October 1, 2026</span>
+  <span data-lang="es">NUEVO — Reglas de Mercadeo CMS · Vigentes el 1 de octubre de 2026</span>
+ </h2>
  <span class="badge" style="background:rgba(220,38,38,.1);color:#DC2626;border-color:rgba(220,38,38,.3);">CY2027 Final Rule</span>
  </div>
 
- <p style="font-weight:700;font-size:15px;color:#1f1b2a;">The mandatory 48-hour waiting period between obtaining a Scope of Appointment (SOA) and conducting a personal marketing appointment has been eliminated.</p>
-
- <p>Beginning <strong>October 1, 2026</strong> for Plan Year 2027 enrollments, appointments may occur the same day an SOA is completed. All other SOA requirements remain in effect.</p>
+ <p style="font-weight:700;font-size:15px;color:#1f1b2a;" data-lang="en">Three marketing/communications changes from the CMS CY2027 Final Rule apply to MA and Part D marketing beginning <strong>October 1, 2026</strong> — two weeks before AEP opens.</p>
+ <p style="font-weight:700;font-size:15px;color:#1f1b2a;" data-lang="es">Tres cambios de mercadeo/comunicaciones de la Regla Final CMS CY2027 aplican al mercadeo de MA y Parte D a partir del <strong>1 de octubre de 2026</strong> — dos semanas antes de que abra el AEP.</p>
 
  <div class="grid-3" style="margin-top:16px;">
  <div class="card" style="border-color:#FCA5A5;background:#FEF2F2;">
- <h3 style="color:#DC2626;">What Changed</h3>
- <p>48-hour waiting period eliminated. Same-day appointments permitted starting Oct 1, 2026 for PY27 enrollments.</p>
+ <h3 style="color:#DC2626;" data-lang="en">1. 48-Hour SOA Wait Eliminated</h3>
+ <h3 style="color:#DC2626;" data-lang="es">1. Espera de 48 horas del SOA eliminada</h3>
+ <p data-lang="en">Same-day personal marketing appointments are permitted after an SOA is completed. The SOA itself is still required.</p>
+ <p data-lang="es">Se permiten citas de mercadeo personal el mismo día después de completar un SOA. El SOA en sí sigue siendo obligatorio.</p>
+ </div>
+ <div class="card" style="border-color:#FCA5A5;background:#FEF2F2;">
+ <h3 style="color:#DC2626;" data-lang="en">2. 12-Hour Event Gap Eliminated</h3>
+ <h3 style="color:#DC2626;" data-lang="es">2. Brecha de 12 horas entre eventos eliminada</h3>
+ <p data-lang="en">A marketing event may follow an educational event at the same location without a 12-hour wait — if attendees are notified and given a real chance to leave.</p>
+ <p data-lang="es">Un evento de mercadeo puede seguir a un evento educativo en el mismo lugar sin espera de 12 horas — si se notifica a los asistentes y se les da una oportunidad real de salir.</p>
+ </div>
+ <div class="card" style="border-color:#FCA5A5;background:#FEF2F2;">
+ <h3 style="color:#DC2626;" data-lang="en">3. SOA at Educational Events OK</h3>
+ <h3 style="color:#DC2626;" data-lang="es">3. SOA en eventos educativos permitido</h3>
+ <p data-lang="en">Agents may collect SOA forms at educational events for future personal marketing appointments. Collecting an SOA is not itself a sales activity.</p>
+ <p data-lang="es">Los agentes pueden recopilar formularios SOA en eventos educativos para futuras citas de mercadeo personal. Recopilar un SOA no es en sí una actividad de ventas.</p>
  </div>
  <div class="card">
- <h3>What Stayed the Same</h3>
- <p>SOA still required before every personal marketing appointment. New SOA needed when product scope changes.</p>
+ <h3 data-lang="en">What Stayed the Same</h3>
+ <h3 data-lang="es">Lo que no cambió</h3>
+ <p data-lang="en">SOA still required before every personal marketing appointment. New SOA needed when product scope changes. SOAs remain valid for 12 months if scope is unchanged.</p>
+ <p data-lang="es">El SOA sigue siendo obligatorio antes de cada cita de mercadeo personal. Se necesita un SOA nuevo si cambia el alcance de productos. Los SOA siguen válidos por 12 meses si el alcance no cambia.</p>
  </div>
  <div class="card">
- <h3>Electronic Signatures</h3>
- <p>CMS explicitly confirms electronic signatures and audio/video recordings satisfy the written requirement.</p>
+ <h3 data-lang="en">Electronic Signatures</h3>
+ <h3 data-lang="es">Firmas electrónicas</h3>
+ <p data-lang="en">CMS confirms electronic signatures and audio/video recordings satisfy the written SOA requirement.</p>
+ <p data-lang="es">CMS confirma que las firmas electrónicas y las grabaciones de audio/video cumplen el requisito escrito del SOA.</p>
  </div>
  <div class="card">
- <h3>SOA Validity</h3>
- <p>SOAs remain valid for 12 months. If product scope does not change, a new SOA is not required solely because the plan year changes.</p>
+ <h3 data-lang="en">Carrier Overrides</h3>
+ <h3 data-lang="es">Requisitos adicionales de la aseguradora</h3>
+ <p data-lang="en">Individual carriers may keep stricter documentation standards than the CMS minimum. Confirm with YourFMO / your upline before Oct 1.</p>
+ <p data-lang="es">Las aseguradoras individuales pueden mantener estándares de documentación más estrictos que el mínimo de CMS. Confirme con YourFMO / su upline antes del 1 de oct.</p>
  </div>
  </div>
 
  <div style="margin-top:16px;background:#fff8f8;border:1px solid #FCA5A5;border-radius:14px;padding:14px;">
- <strong style="font-size:13px;display:block;margin-bottom:8px;">Agent Action Items</strong>
- <ul class="list">
+ <strong style="font-size:13px;display:block;margin-bottom:8px;" data-lang="en">Agent Action Items</strong>
+ <strong style="font-size:13px;display:block;margin-bottom:8px;" data-lang="es">Acciones para el agente</strong>
+ <ul class="list" data-lang="en">
  <li>Obtain and document an SOA before every personal marketing appointment</li>
  <li>Only discuss products identified within the documented SOA</li>
  <li>Obtain a new SOA before expanding discussions to additional product lines</li>
- <li>Retain SOA documentation per CMS record retention requirements</li>
+ <li>If transitioning educational → marketing at the same venue: announce clearly and give attendees a meaningful opportunity to leave</li>
+ <li>Retain SOA and event documentation per CMS record retention requirements</li>
+ </ul>
+ <ul class="list" data-lang="es">
+ <li>Obtenga y documente un SOA antes de cada cita de mercadeo personal</li>
+ <li>Solo discuta los productos identificados en el SOA documentado</li>
+ <li>Obtenga un SOA nuevo antes de ampliar la conversación a otras líneas de productos</li>
+ <li>Si pasa de educativo → mercadeo en el mismo lugar: anuncie claramente y dé a los asistentes una oportunidad real de salir</li>
+ <li>Conserve la documentación del SOA y del evento según los requisitos de retención de CMS</li>
  </ul>
  </div>
 
  <div class="note" style="margin-top:12px;">
- <strong>Source</strong>
- <p>CMS CY2027 Final Rule — 42 CFR §§ 422.2264(c)(3) and 423.2264(c)(3). Bulletin issued via YourFMO. For licensed agent use only — do not distribute to clients.</p>
+ <strong data-lang="en">Source</strong>
+ <strong data-lang="es">Fuente</strong>
+ <p data-lang="en">CMS CY2027 Final Rule (Apr 6, 2026) — 42 CFR §§ 422.2264(c)(3) and 423.2264(c)(3), plus related educational/marketing event amendments. Bulletin issued via YourFMO. For licensed agent use only — do not distribute to clients.</p>
+ <p data-lang="es">Regla Final CMS CY2027 (6 abr 2026) — 42 CFR §§ 422.2264(c)(3) y 423.2264(c)(3), más enmiendas relacionadas de eventos educativos/mercadeo. Boletín emitido vía YourFMO. Solo para uso de agentes licenciados — no distribuir a clientes.</p>
  </div>
 
  <div class="cta-row" style="margin-top:12px;">
- <a class="btn primary" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">View Full Bulletin on YourFMO</a>
+ <a class="btn primary" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
+  <span data-lang="en">View Full Bulletin on YourFMO</span>
+  <span data-lang="es">Ver boletín completo en YourFMO</span>
+ </a>
+ <a class="btn outline" href="/aep-2027-training">
+  <span data-lang="en">Take AEP 2027 Training</span>
+  <span data-lang="es">Tomar Capacitación AEP 2027</span>
+ </a>
+ </div>
+ </section>
+
+ <section class="section" id="edu-events">
+ <div class="kicker">
+ <h2 data-lang="en">Educational Events — Compliant AEP Workflow</h2>
+ <h2 data-lang="es">Eventos educativos — Flujo compatible con AEP</h2>
+ <span class="badge" data-lang="en">Community Lead Gen</span>
+ <span class="badge" data-lang="es">Generación de leads comunitarios</span>
+ </div>
+
+ <p data-lang="en">
+ Educational seminars remain a strong lead channel. Under the CY2027 rules, they are also more efficient — SOA collection is allowed, and a marketing event can follow the same day when transition rules are followed.
+ </p>
+ <p data-lang="es">
+ Los seminarios educativos siguen siendo un canal fuerte de leads. Bajo las reglas CY2027, también son más eficientes — se permite recopilar SOA, y un evento de mercadeo puede seguir el mismo día si se cumplen las reglas de transición.
+ </p>
+
+ <ul class="list" data-lang="en">
+ <li><strong>Keep the educational portion educational</strong> — plan comparison concepts, enrollment periods, and drug coverage basics; no plan-specific selling during the educational segment.</li>
+ <li><strong>Collect SOAs properly</strong> — permitted at educational events for future personal marketing appointments.</li>
+ <li><strong>Announce any marketing transition</strong> — notify attendees the educational event is ending, that marketing is beginning, and give a genuine opportunity to leave.</li>
+ <li><strong>Document everything</strong> — SOA times, event notices, and appointment records; carriers may require more than the CMS floor.</li>
+ <li><strong>Follow up fast</strong> — warm attendees convert best within 24–48 hours.</li>
+ </ul>
+ <ul class="list" data-lang="es">
+ <li><strong>Mantenga la parte educativa como educativa</strong> — conceptos de comparación de planes, períodos de inscripción y lo básico de cobertura de medicamentos; sin ventas específicas de planes durante el segmento educativo.</li>
+ <li><strong>Recopile SOAs correctamente</strong> — permitido en eventos educativos para futuras citas de mercadeo personal.</li>
+ <li><strong>Anuncie cualquier transición a mercadeo</strong> — notifique que el evento educativo termina, que comienza el mercadeo, y dé una oportunidad genuina de salir.</li>
+ <li><strong>Documente todo</strong> — horarios de SOA, avisos del evento y registros de citas; las aseguradoras pueden exigir más que el mínimo de CMS.</li>
+ <li><strong>Haga seguimiento rápido</strong> — los asistentes interesados convierten mejor en 24–48 horas.</li>
+ </ul>
+
+ <div class="cta-row">
+ <a class="btn outline" href="/lead-gen-library">
+  <span data-lang="en">Open Lead Generation Library</span>
+  <span data-lang="es">Abrir Biblioteca de Generación de Leads</span>
+ </a>
  </div>
  </section>
 
  <section class="section" id="official-portal">
  <div class="kicker">
- <h2>Official Compliance Portal</h2>
- <span class="badge">Always Current</span>
+ <h2 data-lang="en">Official Compliance Portal</h2>
+ <h2 data-lang="es">Portal oficial de cumplimiento</h2>
+ <span class="badge" data-lang="en">Always Current</span>
+ <span class="badge" data-lang="es">Siempre actualizado</span>
  </div>
 
- <p>
+ <p data-lang="en">
  To ensure you are using the most current CMS and carrier-approved materials,
  reference the official YourFMO Compliance Center.
  </p>
+ <p data-lang="es">
+ Para asegurarse de usar los materiales más actuales aprobados por CMS y las aseguradoras,
+ consulte el Centro de Cumplimiento oficial de YourFMO.
+ </p>
 
- <ul class="list">
+ <ul class="list" data-lang="en">
  <li>AEP Compliance Guidance</li>
  <li>CMS-approved scripts</li>
  <li>Compliance bulletins</li>
  <li>Carrier compliance policies</li>
  <li>FWA awareness resources</li>
  </ul>
+ <ul class="list" data-lang="es">
+ <li>Guía de cumplimiento AEP</li>
+ <li>Guiones aprobados por CMS</li>
+ <li>Boletines de cumplimiento</li>
+ <li>Políticas de cumplimiento de las aseguradoras</li>
+ <li>Recursos de concientización sobre FWA</li>
+ </ul>
 
  <div class="note">
- <strong>Best Practice</strong>
- <p>Bookmark the Compliance Center and review updates regularly, especially before and during AEP/OEP.</p>
+ <strong data-lang="en">Best Practice</strong>
+ <strong data-lang="es">Mejor práctica</strong>
+ <p data-lang="en">Bookmark the Compliance Center and review updates regularly, especially before and during AEP/OEP.</p>
+ <p data-lang="es">Marque el Centro de Cumplimiento y revise las actualizaciones con regularidad, especialmente antes y durante AEP/OEP.</p>
  </div>
 
  <div class="cta-row">
  <a class="btn primary" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
- Access the Compliance Portal
+  <span data-lang="en">Access the Compliance Portal</span>
+  <span data-lang="es">Acceder al portal de cumplimiento</span>
  </a>
  </div>
  </section>
 
  <section class="section" id="quick-checklist">
- <h2>Quick Compliance Checklist</h2>
- <p>
+ <h2 data-lang="en">Quick Compliance Checklist</h2>
+ <h2 data-lang="es">Lista rápida de cumplimiento</h2>
+ <p data-lang="en">
  These reminders help reduce risk and maintain CMS compliance. Always verify against current guidance.
+ </p>
+ <p data-lang="es">
+ Estos recordatorios ayudan a reducir riesgos y mantener el cumplimiento con CMS. Siempre verifique con la orientación vigente.
  </p>
 
  <div class="grid-3">
 
  <div class="card">
- <h3>CMS Marketing Guidelines</h3>
- <p>Use approved marketing materials and avoid misleading or unapproved plan representations.</p>
+ <h3 data-lang="en">CMS Marketing Guidelines</h3>
+ <h3 data-lang="es">Guías de mercadeo de CMS</h3>
+ <p data-lang="en">Use approved marketing materials and avoid misleading or unapproved plan representations.</p>
+ <p data-lang="es">Use materiales de mercadeo aprobados y evite representaciones engañosas o no aprobadas de los planes.</p>
  </div>
 
  <div class="card" style="border-color:#FCA5A5;">
  <h3>Scope of Appointment (SOA)</h3>
- <p>Obtain and document SOA before every appointment. <strong style="color:#DC2626;">NEW Oct 1, 2026:</strong> 48-hour wait eliminated — same-day appointments now permitted for PY2027.</p>
+ <p data-lang="en">Obtain and document SOA before every appointment. <strong style="color:#DC2626;">NEW Oct 1, 2026:</strong> 48-hour wait eliminated; SOA collection at educational events permitted; educational→marketing same-day transitions allowed with notice.</p>
+ <p data-lang="es">Obtenga y documente el SOA antes de cada cita. <strong style="color:#DC2626;">NUEVO 1 oct 2026:</strong> se elimina la espera de 48 horas; se permite recopilar SOA en eventos educativos; se permiten transiciones educativo→mercadeo el mismo día con aviso.</p>
  </div>
 
  <div class="card">
- <h3>Sunfire: SOA & Applications</h3>
- <p>
+ <h3 data-lang="en">Sunfire: SOA & Applications</h3>
+ <h3 data-lang="es">Sunfire: SOA y solicitudes</h3>
+ <p data-lang="en">
  In Sunfire, generate CMS-approved SOA forms and enrollment applications. Send via text/email or complete in person.
  </p>
- <p style="margin-top:8px;">
+ <p data-lang="es">
+ En Sunfire, genere formularios SOA y solicitudes de inscripción aprobados por CMS. Envíelos por texto/correo o complete en persona.
+ </p>
+ <p style="margin-top:8px;" data-lang="en">
  If Sunfire is unavailable, use the carrier portal to obtain the official CMS-approved SOA and enrollment application.
+ </p>
+ <p style="margin-top:8px;" data-lang="es">
+ Si Sunfire no está disponible, use el portal de la aseguradora para obtener el SOA y la solicitud de inscripción oficiales aprobados por CMS.
  </p>
  </div>
 
  <div class="card">
- <h3>Documentation & Retention</h3>
- <p>Maintain required enrollment and communication records per CMS and carrier retention policies.</p>
+ <h3 data-lang="en">Documentation & Retention</h3>
+ <h3 data-lang="es">Documentación y retención</h3>
+ <p data-lang="en">Maintain required enrollment and communication records per CMS and carrier retention policies.</p>
+ <p data-lang="es">Mantenga los registros de inscripción y comunicación requeridos según las políticas de retención de CMS y de las aseguradoras.</p>
  </div>
 
  </div>
@@ -335,36 +514,134 @@ body{
 
  <section class="section" id="aep">
  <div class="kicker">
- <h2>AEP / OEP Reminder</h2>
- <span class="badge">High Priority</span>
+ <h2 data-lang="en">AEP / OEP Reminder</h2>
+ <h2 data-lang="es">Recordatorio AEP / OEP</h2>
+ <span class="badge" data-lang="en">High Priority</span>
+ <span class="badge" data-lang="es">Alta prioridad</span>
  </div>
 
- <p>
+ <p data-lang="en">
  Before marketing or enrolling during AEP/OEP, review current seasonal compliance guidance
  to ensure all communications and enrollments meet CMS standards.
  </p>
+ <p data-lang="es">
+ Antes de mercadear o inscribir durante AEP/OEP, revise la orientación de cumplimiento de temporada
+ para asegurar que todas las comunicaciones e inscripciones cumplan con los estándares de CMS.
+ </p>
+ <ul class="list" data-lang="en">
+ <li><strong>Oct 1, 2026</strong> — New CMS marketing / SOA rules take effect</li>
+ <li><strong>Oct 15 – Dec 7, 2026</strong> — AEP 2026 (coverage starts Jan 1, 2027)</li>
+ </ul>
+ <ul class="list" data-lang="es">
+ <li><strong>1 oct 2026</strong> — Entran en vigor las nuevas reglas de mercadeo / SOA de CMS</li>
+ <li><strong>15 oct – 7 dic 2026</strong> — AEP 2026 (la cobertura comienza el 1 ene 2027)</li>
+ </ul>
+ </section>
+
+ <section class="section" id="aep-guide">
+ <div class="kicker">
+ <h2 data-lang="en">AEP 2026 Broker Strategy Guide</h2>
+ <h2 data-lang="es">Guía de estrategia AEP 2026 para brokers</h2>
+ <span class="badge" data-lang="en">External Resource</span>
+ <span class="badge" data-lang="es">Recurso externo</span>
+ </div>
+
+ <p data-lang="en">
+ Practical, compliance-conscious pipeline playbook for AEP 2026: pre-season timing, the three Oct 1 CMS rule changes, referral / community / digital channels, and month-by-month actions.
+ </p>
+ <p data-lang="es">
+ Manual práctico y consciente del cumplimiento para el pipeline de AEP 2026: timing de pretemporada, los tres cambios de CMS del 1 de oct, canales de referidos / comunidad / digital, y acciones mes a mes.
+ </p>
+
+ <div class="note">
+ <strong data-lang="en">How to use this on the hub</strong>
+ <strong data-lang="es">Cómo usar esto en el hub</strong>
+ <p data-lang="en">Treat it as agent education alongside YourFMO. Always confirm carrier-specific SOA and event documentation standards before acting. Do not distribute external marketing articles to beneficiaries as plan materials.</p>
+ <p data-lang="es">Trátelo como educación para agentes junto con YourFMO. Siempre confirme los estándares de SOA y documentación de eventos de cada aseguradora antes de actuar. No distribuya artículos externos de mercadeo a beneficiarios como materiales del plan.</p>
+ </div>
+
+ <div class="cta-row">
+ <a class="btn accent" href="https://affordablecareagents.com/medicare-lead-generation-aep-2026-broker-guide/" target="_blank" rel="noopener">
+  <span data-lang="en">Open AEP 2026 Broker Guide</span>
+  <span data-lang="es">Abrir Guía AEP 2026 para Brokers</span>
+ </a>
+ <a class="btn outline" href="/lead-gen-library">
+  <span data-lang="en">Lead Gen Playbooks</span>
+  <span data-lang="es">Playbooks de generación de leads</span>
+ </a>
+ </div>
+ <p class="show-es" style="margin-top:10px;font-size:13px;color:var(--muted);">Nota: la guía externa de ACA está publicada en inglés. El resumen de cumplimiento de esta página está disponible en español.</p>
  </section>
 
  <section class="section" id="faq">
  <h2>FAQs</h2>
 
- <details class="faq-item">
+ <details class="faq-item" data-lang="en">
  <summary>Do I need to host my own compliance documents?</summary>
  <p>No. The official compliance portal ensures you are accessing the most current CMS and carrier-approved materials.</p>
  </details>
+ <details class="faq-item" data-lang="es">
+ <summary>¿Necesito alojar mis propios documentos de cumplimiento?</summary>
+ <p>No. El portal oficial de cumplimiento asegura que acceda a los materiales más actuales aprobados por CMS y las aseguradoras.</p>
+ </details>
 
- <details class="faq-item">
+ <details class="faq-item" data-lang="en">
  <summary>What if I'm unsure whether something is compliant?</summary>
  <p>Default to approved scripts and materials. When in doubt, verify against the official compliance portal before use.</p>
  </details>
+ <details class="faq-item" data-lang="es">
+ <summary>¿Qué hago si no estoy seguro de que algo cumpla?</summary>
+ <p>Use por defecto guiones y materiales aprobados. En caso de duda, verifique en el portal oficial de cumplimiento antes de usarlo.</p>
+ </details>
 
- <details class="faq-item">
+ <details class="faq-item" data-lang="en">
  <summary>Where should I obtain SOAs and enrollment applications?</summary>
  <p>Use Sunfire when available. If unavailable, access the official carrier portal for CMS-approved forms.</p>
+ </details>
+ <details class="faq-item" data-lang="es">
+ <summary>¿Dónde debo obtener SOAs y solicitudes de inscripción?</summary>
+ <p>Use Sunfire cuando esté disponible. Si no, acceda al portal oficial de la aseguradora para formularios aprobados por CMS.</p>
+ </details>
+
+ <details class="faq-item" data-lang="en">
+ <summary>Can I collect an SOA at an educational event?</summary>
+ <p>Yes, beginning October 1, 2026 under the CMS CY2027 Final Rule. Collecting an SOA is not itself a sales or marketing activity, but keep the educational portion educational and confirm any carrier-specific requirements with YourFMO.</p>
+ </details>
+ <details class="faq-item" data-lang="es">
+ <summary>¿Puedo recopilar un SOA en un evento educativo?</summary>
+ <p>Sí, a partir del 1 de octubre de 2026 bajo la Regla Final CMS CY2027. Recopilar un SOA no es en sí una actividad de ventas o mercadeo, pero mantenga la parte educativa como educativa y confirme cualquier requisito específico de la aseguradora con YourFMO.</p>
+ </details>
+
+ <details class="faq-item" data-lang="en">
+ <summary>Can a marketing event immediately follow an educational event?</summary>
+ <p>Yes, the prior 12-hour same-location gap is eliminated effective October 1, 2026. You must clearly notify attendees that the educational event is ending and marketing is beginning, and give them a meaningful opportunity to leave before marketing starts.</p>
+ </details>
+ <details class="faq-item" data-lang="es">
+ <summary>¿Puede un evento de mercadeo seguir inmediatamente a uno educativo?</summary>
+ <p>Sí, la brecha previa de 12 horas en el mismo lugar se elimina a partir del 1 de octubre de 2026. Debe notificar claramente a los asistentes que el evento educativo termina y comienza el mercadeo, y darles una oportunidad real de salir antes de que inicie el mercadeo.</p>
  </details>
 
  </section>
 
 </div>
+<script>
+(function(){
+  function setLang(lang){
+    if (lang !== 'en' && lang !== 'es') lang = 'en';
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('hub_lang', lang); } catch(e) {}
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+    });
+    document.title = lang === 'es'
+      ? 'Cumplimiento | The Health Experts'
+      : 'Compliance | The Health Experts';
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-set-lang')); });
+  });
+  setLang(localStorage.getItem('hub_lang') || document.documentElement.lang || 'en');
+})();
+</script>
 </body>
 </html>
