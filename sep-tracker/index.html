@@ -100,7 +100,7 @@ a.chip:hover { background:rgba(255,16,144,.28); color:#fff; }
 .controls {
   background:var(--panel); border:1px solid var(--line); border-top:none;
   padding:16px 18px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;
 }
 .search { flex:1 1 260px; min-width:220px; }
 .search input {
@@ -123,7 +123,7 @@ a.chip:hover { background:rgba(255,16,144,.28); color:#fff; }
   border:none; background:none; color:var(--accent); font:inherit; font-size:.85rem;
   font-weight:700; cursor:pointer; padding:6px 4px;
 }
-.clear-btn[hidden] { display:none; }
+.clear-btn[hidden] { display:none !important; margin:0 !important; padding:0 !important; height:0 !important; overflow:hidden !important; }
 
 .stats {
   display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
@@ -292,18 +292,31 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
   .hero h1 { font-size:1.4rem; line-height:1.2; margin:0 0 0; padding-top:2px; }
   .title-full { display:none; }
   .title-short { display:inline; }
-  .hero-desc { display:none; } /* short first viewport on phones */
+  .hero-desc {
+    display:block;
+    margin:8px 0 0;
+    font-size:.95rem;
+    line-height:1.45;
+    color:#eadff5;
+  }
   .hero-meta { margin-top:10px; gap:6px; }
   .chip { padding:6px 10px; font-size:.78rem; }
   .chip-desktop-only { display:none; }
 
   .controls {
     padding:12px;
-    flex-direction:column; align-items:stretch; gap:10px;
-    position:static; /* scroll away with page — no sticky search */
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    align-items:stretch;
+    justify-content:flex-start; /* NOT space-between — that created the huge white gap */
+    gap:10px;
+    position:static;
     background:var(--panel);
     box-shadow:none;
     border-bottom:none;
+    min-height:0;
+    height:auto;
   }
   .search { min-width:0; width:100%; }
   .search input { padding:14px 14px 14px 42px; font-size:17px; border-radius:12px; }
@@ -455,7 +468,7 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
   <header class="hero">
     <div class="hero-kicker"><i></i> Live disaster SEP status</div>
     <h1><span class="title-full">Medicare Special Enrollment Periods — Active by State</span><span class="title-short">Active SEPs by State</span></h1>
-    <p class="hero-desc">Current emergency and disaster Medicare SEPs across U.S. states and territories. Search by state, county, or incident — then open any row for full details.</p>
+    <p class="hero-desc">Current emergency and disaster Medicare Special Enrollment Periods across U.S. states and territories. Search by state, county, or incident — then open any row for full details.</p>
     <div class="hero-meta">
       <span class="chip chip-desktop-only">HealthSpring DST-SEP source</span>
       <a class="chip" href="https://www.fema.gov/disaster/declarations" target="_blank" rel="noopener" title="Official FEMA disaster declarations">FEMA declarations</a>
@@ -479,8 +492,8 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
         <option value="ended">Ended</option>
         <option value="all">All statuses</option>
       </select>
-      <button type="button" class="clear-btn" id="clearBtn" hidden>Clear filters</button>
     </div>
+    <button type="button" class="clear-btn" id="clearBtn" hidden>Clear filters</button>
     <div class="count" id="countLine">—</div>
   </div>
 
