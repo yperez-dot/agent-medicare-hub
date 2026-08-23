@@ -3,8 +3,23 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Live Medicare disaster Special Enrollment Periods by state — search active SEPs from The Health Experts Insurance."/>
-<title>SEP Tracker | The Health Experts Insurance</title>
+<title>Medicare Disaster SEP Tracker — HealthSpring DST-SEP by State | THEI</title>
+<meta name="description" content="Live Medicare disaster and emergency Special Enrollment Periods by state and county. Track HealthSpring DST-SEP windows, FEMA-related SEPs, start/end dates, and status — updated for agents and enrollment teams."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://agentmedicarehub.com/sep-tracker"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="The Health Experts Insurance"/>
+<meta property="og:url" content="https://agentmedicarehub.com/sep-tracker"/>
+<meta property="og:title" content="Medicare Disaster SEP Tracker — HealthSpring DST-SEP by State"/>
+<meta property="og:description" content="Search active Medicare disaster SEPs by state or county. HealthSpring DST-SEP windows, FEMA-linked periods, dates, and status in one tracker."/>
+<meta property="og:image" content="https://agentmedicarehub.com/sep-tracker-og.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Medicare Disaster SEP Tracker — HealthSpring DST-SEP by state"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Medicare Disaster SEP Tracker — HealthSpring DST-SEP by State"/>
+<meta name="twitter:description" content="Search active Medicare disaster SEPs by state or county. HealthSpring DST-SEP windows, dates, and status."/>
+<meta name="twitter:image" content="https://agentmedicarehub.com/sep-tracker-og.png"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;}body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;display:flex;flex-direction:column;height:100dvh;max-height:100dvh;overflow:hidden;}
@@ -59,6 +74,18 @@ body.hub-nav-ready .top-bar {
   flex-shrink: 0 !important;
   z-index: 2 !important;
 }
+/* Menu open: raise chrome above the overlay so Agent Hub links receive taps */
+html.hub-nav-open .top-bar,
+body.hub-nav-open .top-bar,
+.hub-nav-ready.hub-nav-open .top-bar,
+html.hub-nav-ready.hub-nav-open .top-bar,
+body.hub-nav-ready.hub-nav-open .top-bar {
+  z-index: 1003 !important;
+}
+/* Keep click-outside-to-close, but do not darken the tracker behind the drawer */
+.hub-nav-overlay {
+  background: transparent !important;
+}
 iframe {
   flex: 1 1 auto !important;
   min-height: 0 !important;
@@ -97,9 +124,9 @@ iframe {
   var nav = document.getElementById('sepShellNav');
   if (loggedIn()) {
     nav.innerHTML =
+      "<a href='/home'>Agent Hub</a>"+
       "<a class='active' href='/sep-tracker'>SEP Tracker</a>"+
       "<a class='nav-call' href='tel:18003806821'>Call 1-800-380-6821</a>"+
-      "<a href='/home'>Agent Dashboard</a>"+
       "<a href='#' class='nav-signout' id='sepSignOut'>Sign Out</a>";
     var out = document.getElementById('sepSignOut');
     if (out) out.addEventListener('click', function(e){
