@@ -695,6 +695,8 @@ function applyStatFilter(key){
   document.getElementById('stateFilter').value=st.state||'';
   document.getElementById('statusFilter').value=st.status||'open';
   render();
+  var table=document.querySelector('.table-wrap');
+  if(table) table.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
 function populateStates(){
   var sel=document.getElementById('stateFilter');
