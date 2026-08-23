@@ -1,24 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script>
-(function(){
-  // Preview bypass — ?preview=THEI allows viewing without login
-  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
-  try {
-    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
-    if (!s || !s.token || s.expires < Date.now()) {
-      localStorage.removeItem('hub_session');
-      window.location.replace('/login.html');
-    }
-  } catch(e) {
-    window.location.replace('/login.html');
-  }
-})();
-</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>SEP Tracker | Medicare Agent Hub</title>
+<meta name="description" content="Live Medicare disaster Special Enrollment Periods by state — search active SEPs from The Health Experts Insurance."/>
+<title>SEP Tracker | The Health Experts Insurance</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
@@ -27,6 +13,10 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;display:flex;flex-d
 .pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
 .pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.pill-nav a.nav-call{background:#452068;border-color:#452068;color:#fff;}
+.pill-nav a.nav-call:hover{background:#341850;border-color:#341850;}
+.pill-nav a.nav-signout{color:#D6336C;border-color:#F5C0C0;}
+.pill-nav a.nav-tour{width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;padding:0;border:none;}
 iframe{flex:1;border:none;width:100%;display:block;}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,29 +29,50 @@ iframe{flex:1;border:none;width:100%;display:block;}
 
 <div class="top-bar">
   <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
-  <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a class='active' href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
-  </nav>
+  <nav class="pill-nav" id="sepShellNav" aria-label="SEP Tracker navigation"></nav>
 </div>
 
 <iframe
-  src="/sep-tracker-app.html?v=20260823-mobile4"
+  src="/sep-tracker-app.html?v=20260823-public1"
   title="SEP Disaster Tracker"
   allow="fullscreen"
 ></iframe>
 
-
 <script>
-function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+(function(){
+  function loggedIn(){
+    try {
+      var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+      return !!(s && s.token && s.expires > Date.now());
+    } catch(e) { return false; }
+  }
+
+  var nav = document.getElementById('sepShellNav');
+  if (loggedIn()) {
+    nav.innerHTML =
+      "<a href='/home'>Agent Dashboard</a>"+
+      "<a href='/learn'>Broker University</a>"+
+      "<a href='/carrier-info'>Carrier Info</a>"+
+      "<a href='/events'>Events</a>"+
+      "<a href='/compliance'>Compliance</a>"+
+      "<a href='/tools-perks'>Agent Tools Hub</a>"+
+      "<a href='/retention-toolkit'>Retention Toolkit</a>"+
+      "<a class='active' href='/sep-tracker'>SEP Tracker</a>"+
+      "<a href='#' class='nav-signout' id='sepSignOut'>Sign Out</a>"+
+      "<a class='nav-tour' href='/home#tour' title='Hub tour'>?</a>";
+    var out = document.getElementById('sepSignOut');
+    if (out) out.addEventListener('click', function(e){
+      e.preventDefault();
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    });
+  } else {
+    nav.innerHTML =
+      "<a class='active' href='/sep-tracker'>SEP Tracker</a>"+
+      "<a class='nav-call' href='tel:13058321104'>Call 305-832-1104</a>"+
+      "<a href='/login.html'>Agent Login</a>";
+  }
+})();
 </script>
 </body>
 </html>
