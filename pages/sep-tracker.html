@@ -59,6 +59,18 @@ body.hub-nav-ready .top-bar {
   flex-shrink: 0 !important;
   z-index: 2 !important;
 }
+/* Menu open: raise chrome above the overlay so Agent Hub links receive taps */
+html.hub-nav-open .top-bar,
+body.hub-nav-open .top-bar,
+.hub-nav-ready.hub-nav-open .top-bar,
+html.hub-nav-ready.hub-nav-open .top-bar,
+body.hub-nav-ready.hub-nav-open .top-bar {
+  z-index: 1003 !important;
+}
+/* Keep click-outside-to-close, but do not darken the tracker behind the drawer */
+.hub-nav-overlay {
+  background: transparent !important;
+}
 iframe {
   flex: 1 1 auto !important;
   min-height: 0 !important;
@@ -97,9 +109,9 @@ iframe {
   var nav = document.getElementById('sepShellNav');
   if (loggedIn()) {
     nav.innerHTML =
+      "<a href='/home'>Agent Hub</a>"+
       "<a class='active' href='/sep-tracker'>SEP Tracker</a>"+
       "<a class='nav-call' href='tel:18003806821'>Call 1-800-380-6821</a>"+
-      "<a href='/home'>Agent Dashboard</a>"+
       "<a href='#' class='nav-signout' id='sepSignOut'>Sign Out</a>";
     var out = document.getElementById('sepSignOut');
     if (out) out.addEventListener('click', function(e){
