@@ -74,6 +74,9 @@ body{
  cursor:pointer;
  opacity:.85;
 }
+/* Visual selected state follows html[lang] so it is correct on first paint after refresh */
+html[lang="en"] .lang-toggle button[data-set-lang="en"],
+html[lang="es"] .lang-toggle button[data-set-lang="es"],
 .lang-toggle button[aria-pressed="true"]{
  background:#fff;
  color:var(--primary);
