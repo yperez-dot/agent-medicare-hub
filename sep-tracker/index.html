@@ -205,15 +205,22 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:.9rem; min-wid
 .btn-ghost:hover { background:var(--brand); color:#fff; }
 
 .note {
-  margin-top:14px; background:#fff; border-radius:10px; padding:14px 16px;
-  font-size:.82rem; color:#4a4454; line-height:1.55;
+  margin-top:14px; background:#fff; border-radius:10px; padding:16px 18px;
+  font-size:.88rem; color:#4a4454; line-height:1.6;
   border:1px solid var(--line); border-left:4px solid var(--brand);
 }
 .note-title {
-  display:block; font-size:.72rem; font-weight:700; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--brand); margin-bottom:6px;
+  display:block; font-size:.74rem; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--brand); margin-bottom:8px;
 }
-.sources { margin-top:12px; font-size:.78rem; color:var(--faint); padding:0 4px; }
+.note p { margin:0 0 12px; }
+.note p:last-child { margin-bottom:0; }
+.note hr {
+  border:none; border-top:1px solid var(--line); margin:12px 0;
+}
+.note a { color:var(--brand); font-weight:600; text-decoration:none; }
+.note a:hover { text-decoration:underline; }
+.sources { margin-top:12px; font-size:.8rem; color:var(--faint); padding:0 4px; line-height:1.55; }
 .sources a { color:var(--brand); font-weight:600; text-decoration:none; }
 .sources a:hover { text-decoration:underline; }
 
@@ -438,21 +445,25 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:.9rem; min-wid
 
   <div class="cta">
     <div class="cta-text">
-      <strong>Think you may qualify — or helping a client?</strong> Confirm the county and SEP window here, then call The Health Experts so we can walk through eligibility while the window is open.
+      <strong>Think you may qualify — or helping a client?</strong> Confirm the county and SEP window here, then reach The Health Experts so we can walk through eligibility while the window is open.
     </div>
     <div class="cta-actions">
       <a class="btn btn-primary" href="tel:13058321104">Call 305-832-1104</a>
-      <a class="btn btn-ghost" href="/login.html">Agent Login</a>
+      <a class="btn btn-ghost" href="mailto:info@healthexps.com?subject=SEP%20Tracker%20question">Email our team</a>
     </div>
   </div>
 
   <aside class="note" role="note">
     <span class="note-title">Compliance &amp; Disclaimer</span>
-    <p>This tracker is refreshed from carrier DST-SEP updates and cross-checked against public FEMA disaster declarations. It is a quick reference for the public and THEI agents. Eligibility, affected counties, and end dates can change — always confirm with a licensed agent, the plan carrier, and the official <a href="https://www.fema.gov/disaster/declarations" target="_blank" rel="noopener">FEMA Disaster Declarations</a> list before completing an enrollment.</p>
+    <p>We work to keep this tracker current with carrier DST-SEP updates and public <a href="https://www.fema.gov/disaster/declarations" target="_blank" rel="noopener">FEMA disaster declarations</a>, but we cannot guarantee completeness or accuracy at all times. Eligibility, affected counties, and end dates can change — always confirm with a licensed agent at <a href="tel:13058321104">305-832-1104</a>, the plan carrier, Medicaid/state agencies when relevant, and official FEMA/CMS sources before completing an enrollment.</p>
+    <hr>
+    <p>The Health Experts Insurance is a licensed insurance brokerage. We are not affiliated with or endorsed by Medicare, CMS, FEMA, or any government agency. This page is for informational purposes only and does not constitute legal, financial, or medical advice.</p>
   </aside>
   <div class="sources">
-    Sources: HealthSpring DST-SEP weekly updates ·
-    <a href="https://www.fema.gov/disaster/declarations" target="_blank" rel="noopener">FEMA Disaster Declarations</a>
+    Sources:
+    <a href="https://www.fema.gov/disaster/declarations" target="_blank" rel="noopener">FEMA Disaster Declarations</a> ·
+    HealthSpring DST-SEP updates · CMS rules.
+    This page is a quick public reference and refreshes when you visit.
   </div>
 </div>
 
