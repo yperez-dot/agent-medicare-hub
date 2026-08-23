@@ -102,7 +102,7 @@ a.chip:hover { background:rgba(255,16,144,.28); color:#fff; }
   padding:16px 18px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;
   justify-content:flex-start;
 }
-.search { flex:1 1 260px; min-width:220px; }
+.search { flex:1 1 auto; min-width:min(220px, 100%); }
 .search input {
   width:100%; padding:13px 14px 13px 44px; border:1.5px solid var(--line);
   border-radius:12px; font:inherit; font-size:1rem; color:var(--ink); background:#fff;
@@ -318,7 +318,14 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
     min-height:0;
     height:auto;
   }
-  .search { min-width:0; width:100%; }
+  /* flex-basis:260px from desktop becomes HEIGHT in a column flex — that caused the huge white gap */
+  .search {
+    flex:0 0 auto !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+  }
   .search input { padding:14px 14px 14px 42px; font-size:17px; border-radius:12px; }
   .filters { width:100%; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .filters select {
