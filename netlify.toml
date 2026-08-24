@@ -1,16 +1,8 @@
 # Agent Hub — Netlify config
-# publish = "." keeps /files/* accessible from repo root
-# Rewrite rule sends /:slug → /pages/:slug (fires only if no real file exists at path)
+# publish = "pages" → pages/*.html served at root, pages/files/* served at /files/*
 
 [build]
-  publish = "."
-
-# Rewrite: /:slug → /pages/:slug (200 = transparent rewrite, URL stays clean)
-[[redirects]]
-  from = "/:slug"
-  to = "/pages/:slug"
-  status = 200
-  force = false
+  publish = "pages"
 
 [[headers]]
   for = "/files/*"
