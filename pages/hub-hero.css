@@ -1,0 +1,52 @@
+/* Shared page hero — title + blurb banner used across the hub */
+.hero{
+  background:linear-gradient(135deg,#341751,#452068);
+  border-radius:20px;
+  padding:28px 32px;
+  margin-bottom:32px;
+  color:#fff;
+}
+.hero h1{
+  font:700 28px/1.2 Arial,sans-serif;
+  margin:0 0 6px;
+  color:#fff;
+}
+.hero h1 strong{color:#FF1090;}
+.hero p{
+  font:400 14px/1.5 Arial,sans-serif;
+  color:rgba(255,255,255,.82);
+  max-width:60ch;
+  margin:0;
+}
+.hero .cta-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+.hero .hero-nav{
+  margin-top:14px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.hero .hero-nav a{
+  color:#fff;
+  font:800 13px/1 Arial,sans-serif;
+  text-decoration:none;
+  opacity:.9;
+  border-bottom:1px solid rgba(255,255,255,.25);
+}
+.hero .hero-nav a:hover{
+  opacity:1;
+  border-bottom-color:rgba(255,255,255,.55);
+}
+.hero .btn.outline{
+  background:rgba(255,255,255,.15);
+  border-color:rgba(255,255,255,.5);
+  color:#fff;
+}
+@media(max-width:600px){
+  .hero{padding:20px 18px;}
+}

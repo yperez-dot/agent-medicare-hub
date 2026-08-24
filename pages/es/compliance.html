@@ -32,70 +32,10 @@ body{
 }
 
 .wrap{
- max-width:980px;
+ max-width:1100px;
  margin:0 auto;
- padding:22px;
+ padding:36px 24px 64px;
 }
-
-.hero{
- background:linear-gradient(135deg,var(--primary),var(--primary-dark));
- color:#fff;
- padding:28px;
- border-radius:22px;
-}
-.hero h1{margin:0 0 8px;font-size:28px;}
-.hero strong{color:var(--accent);}
-.hero p{margin:0;font-size:14px;opacity:.92;max-width:95ch;}
-
-.hero-top{
- display:flex;
- align-items:flex-start;
- justify-content:space-between;
- gap:12px;
- flex-wrap:wrap;
- margin-bottom:10px;
-}
-.lang-toggle{
- display:inline-flex;
- background:rgba(255,255,255,.14);
- border:1px solid rgba(255,255,255,.28);
- border-radius:999px;
- padding:3px;
- gap:2px;
-}
-.lang-toggle a{
- border:none;
- background:transparent;
- color:#fff;
- font:800 12px/1 Inter,system-ui,sans-serif;
- padding:8px 12px;
- border-radius:999px;
- text-decoration:none;
- opacity:.85;
-}
-.lang-toggle a.active,
-.lang-toggle a[aria-current="page"]{
- background:#fff;
- color:var(--primary);
- opacity:1;
-}
-
-.hero-nav{
- margin-top:12px;
- display:flex;
- gap:14px;
- flex-wrap:wrap;
- align-items:center;
-}
-.hero-nav a{
- color:#fff;
- font-weight:800;
- font-size:13px;
- text-decoration:none;
- opacity:.9;
- border-bottom:1px solid rgba(255,255,255,.25);
-}
-.hero-nav a:hover{opacity:1;border-bottom-color:rgba(255,255,255,.55);}
 
 .section{
  margin-top:16px;
@@ -206,6 +146,7 @@ body{
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
 <script src="/hub-nav.js" defer></script>
 </head>
 
@@ -227,14 +168,7 @@ body{
 </div>
 <div class="wrap">
 
- <section class="hero">
- <div class="hero-top">
-  <div></div>
-  <div class="lang-toggle" role="group" aria-label="Language / Idioma">
-   <a href="/compliance">EN</a>
-   <a class="active" href="/es/compliance" aria-current="page">ES</a>
-  </div>
- </div>
+ <div class="hero">
  <h1>Cumplimiento <strong>&amp;</strong> Recursos Regulatorios</h1>
  <p>
  El marketing y las inscripciones de Medicare deben seguir los requisitos de CMS y las aseguradoras.
@@ -245,7 +179,7 @@ body{
  <a class="btn accent" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
  Acceder al Portal de Cumplimiento YourFMO
  </a>
- <a class="btn outline" href="/aep-2027-training" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5);color:#fff;">Tomar Capacitación AEP 2027</a>
+ <a class="btn outline" href="/aep-2027-training">Tomar Capacitación AEP 2027</a>
  </div>
 
  <div class="hero-nav" aria-label="Enlaces rápidos">
@@ -255,7 +189,7 @@ body{
  <a href="#aep">Recordatorio AEP/OEP</a>
  <a href="#faq">Preguntas Frecuentes</a>
  </div>
- </section>
+ </div>
 
  <section class="section" id="soa-2027" style="border:2px solid #DC2626;">
  <div class="kicker">
