@@ -113,7 +113,7 @@ details[open] summary::after{content:"▴";}
     <a href='/events'>Events</a>
     <a href='/compliance'>Compliance</a>
     <a href='/tools-perks'>Agent Tools Hub</a>
-    <a class='active' href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
     <a href='/sep-tracker'>SEP Tracker</a>
     <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
     <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
@@ -288,6 +288,16 @@ details[open] summary::after{content:"▴";}
 
 <script>
 function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
 </script>
 </body>
 </html>

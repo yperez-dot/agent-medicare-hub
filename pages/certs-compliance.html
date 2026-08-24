@@ -110,7 +110,7 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   <nav class="pill-nav">
     <a href='/home'>Agent Dashboard</a>
     <a href='/learn'>Broker University</a>
-    <a class='active' href='/carrier-info'>Carrier Info</a>
+    <a href='/carrier-info'>Carrier Info</a>
     <a href='/events'>Events</a>
     <a href='/compliance'>Compliance</a>
     <a href='/tools-perks'>Agent Tools Hub</a>
@@ -362,6 +362,16 @@ function toggleCheck(i) {
   renderChecklist();
 }
 renderChecklist();
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
 </script>
 </body>
 </html>

@@ -91,7 +91,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 <div class="top-bar">
   <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a class='active' href='/home'>Agent Dashboard</a>
+    <a href='/home'>Agent Dashboard</a>
     <a href='/learn'>Broker University</a>
     <a href='/carrier-info'>Carrier Info</a>
     <a href='/events'>Events</a>
@@ -247,6 +247,16 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
  empty.style.display = (q && shown===0) ? 'block' : 'none';
  }
  input.addEventListener('input', applyFilter);
+})();
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
 })();
 </script>
 </body>

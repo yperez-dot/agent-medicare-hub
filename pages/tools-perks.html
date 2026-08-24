@@ -94,7 +94,7 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:16px;margin-top:28px;
     <a href='/carrier-info'>Carrier Info</a>
     <a href='/events'>Events</a>
     <a href='/compliance'>Compliance</a>
-    <a class='active' href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
     <a href='/retention-toolkit'>Retention Toolkit</a>
     <a href='/sep-tracker'>SEP Tracker</a>
     <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
@@ -219,6 +219,16 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:16px;margin-top:28px;
 
 <script>
 function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
 </script>
 </body>
 </html>

@@ -125,7 +125,7 @@ iframe {
   if (loggedIn()) {
     nav.innerHTML =
       "<a href='/home'>Agent Hub</a>"+
-      "<a class='active' href='/sep-tracker'>SEP Tracker</a>"+
+      "<a href='/sep-tracker'>SEP Tracker</a>"+
       "<a class='nav-call' href='tel:18003806821'>Call 1-800-380-6821</a>"+
       "<a href='#' class='nav-signout' id='sepSignOut'>Sign Out</a>";
     var out = document.getElementById('sepSignOut');
@@ -136,10 +136,20 @@ iframe {
     });
   } else {
     nav.innerHTML =
-      "<a class='active' href='/sep-tracker'>SEP Tracker</a>"+
+      "<a href='/sep-tracker'>SEP Tracker</a>"+
       "<a class='nav-call' href='tel:18003806821'>Call 1-800-380-6821</a>"+
       "<a href='/login.html'>Agent Login</a>";
   }
+})();
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
 })();
 </script>
 </body>
