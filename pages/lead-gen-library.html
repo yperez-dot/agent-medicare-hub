@@ -694,15 +694,6 @@ details[open] summary{border-bottom:1px solid var(--divider);}
 })();
 </script>
 
-<script>
-(function(){
-  var p = window.location.pathname.replace(/\/+$/,'') || '/';
-  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
-    a.classList.remove('active');
-    var h = a.getAttribute('href').replace(/\/+$/,'');
-    if (h && p === h) a.classList.add('active');
-  });
-})();
-</script>
+
 </body>
 </html>
