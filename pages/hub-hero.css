@@ -1,0 +1,37 @@
+/* Shared page hero — Events-style title + blurb banner */
+.hero{
+  background:linear-gradient(135deg,#341751,#452068);
+  border-radius:20px;
+  padding:28px 32px;
+  margin-bottom:20px;
+  color:#fff;
+}
+.hero h1{
+  font:700 28px/1.2 Arial,sans-serif;
+  margin:0 0 6px;
+  color:#fff;
+}
+.hero h1 strong{color:#fff;}
+.hero p{
+  font:400 14px/1.5 Arial,sans-serif;
+  color:rgba(255,255,255,.82);
+  max-width:60ch;
+  margin:0;
+}
+.page-jump{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin:0 0 28px;
+}
+.page-jump a{
+  color:#452068;
+  font:800 13px/1 Arial,sans-serif;
+  text-decoration:none;
+  border-bottom:1px solid rgba(69,32,104,.22);
+}
+.page-jump a:hover{border-bottom-color:#452068;}
+@media(max-width:600px){
+  .hero{padding:20px 18px;}
+}

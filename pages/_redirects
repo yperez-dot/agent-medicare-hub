@@ -2,3 +2,6 @@
 # Pretty URL for certs page
 /certs /certs.html 200
 
+# Spanish compliance (mirrors /compliance)
+/es/compliance /es/compliance.html 200
+

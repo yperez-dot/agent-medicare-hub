@@ -123,15 +123,6 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   </div>
 
 </div>
-<script>
-(function(){
-  var p = window.location.pathname.replace(/\/+$/,'') || '/';
-  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
-    a.classList.remove('active');
-    var h = a.getAttribute('href').replace(/\/+$/,'');
-    if (h && p === h) a.classList.add('active');
-  });
-})();
-</script>
+
 </body>
 </html>

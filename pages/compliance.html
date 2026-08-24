@@ -32,37 +32,10 @@ body{
 }
 
 .wrap{
- max-width:980px;
+ max-width:1100px;
  margin:0 auto;
- padding:22px;
+ padding:36px 24px 64px;
 }
-
-.hero{
- background:linear-gradient(135deg,var(--primary),var(--primary-dark));
- color:#fff;
- padding:28px;
- border-radius:22px;
-}
-.hero h1{margin:0 0 8px;font-size:28px;}
-.hero strong{color:var(--accent);}
-.hero p{margin:0;font-size:14px;opacity:.92;max-width:95ch;}
-
-.hero-nav{
- margin-top:12px;
- display:flex;
- gap:14px;
- flex-wrap:wrap;
- align-items:center;
-}
-.hero-nav a{
- color:#fff;
- font-weight:800;
- font-size:13px;
- text-decoration:none;
- opacity:.9;
- border-bottom:1px solid rgba(255,255,255,.25);
-}
-.hero-nav a:hover{opacity:1;border-bottom-color:rgba(255,255,255,.55);}
 
 .section{
  margin-top:16px;
@@ -82,7 +55,7 @@ body{
  display:flex;
  gap:10px;
  flex-wrap:wrap;
- margin-top:12px;
+ margin:0 0 12px;
 }
 
 .btn{
@@ -173,6 +146,7 @@ body{
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
 <script src="/hub-nav.js" defer></script>
 </head>
 
@@ -184,7 +158,7 @@ body{
     <a href='/learn'>Broker University</a>
     <a href='/carrier-info'>Carrier Info</a>
     <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
+    <a class='active' href='/compliance'>Compliance</a>
     <a href='/tools-perks'>Agent Tools Hub</a>
     <a href='/retention-toolkit'>Retention Toolkit</a>
     <a href='/sep-tracker'>SEP Tracker</a>
@@ -194,28 +168,28 @@ body{
 </div>
 <div class="wrap">
 
- <section class="hero">
- <h1>Compliance <strong>&</strong> Regulatory Resources</h1>
+ <div class="hero">
+ <h1>Compliance &amp; Regulatory Resources</h1>
  <p>
  Medicare marketing and enrollment must follow CMS and carrier requirements.
  Use the official compliance portal for the most up-to-date guidance, approved scripts, bulletins, and policies.
  </p>
+ </div>
 
  <div class="cta-row">
  <a class="btn accent" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
  Access YourFMO Compliance Portal
  </a>
- <a class="btn outline" href="/aep-2027-training" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5);color:#fff;">Take AEP 2027 Training</a>
+ <a class="btn outline" href="/aep-2027-training">Take AEP 2027 Training</a>
  </div>
 
- <div class="hero-nav" aria-label="Jump links">
+ <div class="page-jump" aria-label="Jump links">
  <a href="#soa-2027">SOA Update 2027</a>
  <a href="#official-portal">Official Portal</a>
  <a href="#quick-checklist">Quick Checklist</a>
  <a href="#aep">AEP/OEP Reminder</a>
  <a href="#faq">FAQs</a>
  </div>
- </section>
 
  <section class="section" id="soa-2027" style="border:2px solid #DC2626;">
  <div class="kicker">
@@ -366,15 +340,6 @@ body{
  </section>
 
 </div>
-<script>
-(function(){
-  var p = window.location.pathname.replace(/\/+$/,'') || '/';
-  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
-    a.classList.remove('active');
-    var h = a.getAttribute('href').replace(/\/+$/,'');
-    if (h && p === h) a.classList.add('active');
-  });
-})();
-</script>
+
 </body>
 </html>

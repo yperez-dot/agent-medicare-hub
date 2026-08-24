@@ -82,6 +82,7 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:16px;margin-top:28px;
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
 <script src="/hub-nav.js" defer></script>
 </head>
 <body>
@@ -103,6 +104,11 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:16px;margin-top:28px;
 </div>
 
 <div class="wrap">
+
+  <div class="hero">
+    <h1>Agent Tools Hub</h1>
+    <p>Business cards, quoting platforms, calendars, and the tools you use every day — all in one place.</p>
+  </div>
 
   <!-- Business Card Generator -->
   <div class="generator-card">
@@ -220,15 +226,6 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:16px;margin-top:28px;
 <script>
 function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
 </script>
-<script>
-(function(){
-  var p = window.location.pathname.replace(/\/+$/,'') || '/';
-  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
-    a.classList.remove('active');
-    var h = a.getAttribute('href').replace(/\/+$/,'');
-    if (h && p === h) a.classList.add('active');
-  });
-})();
-</script>
+
 </body>
 </html>
