@@ -36,18 +36,25 @@
   .app { display: flex; flex-direction: column; height: 100%; }
 
   .topbar {
-    background: var(--purple-dark);
-    color: #fff;
+    background: #fff;
+    color: var(--purple-dark);
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
     padding: 0 20px;
-    height: 58px;
+    height: 64px;
     flex-shrink: 0;
     z-index: 20;
+    border-bottom: 1px solid var(--line);
   }
-  .topbar img { height: 34px; }
-  .topbar h1 { font-size: 15px; font-weight: 700; letter-spacing: .02em; flex: 1; }
+  .topbar img {
+    height: 44px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    display: block;
+  }
+  .topbar h1 { font-size: 15px; font-weight: 700; letter-spacing: .02em; flex: 1; color: var(--purple-dark); }
   .topbar .badge {
     margin-left: auto;
     background: var(--pink);
@@ -151,7 +158,13 @@
   .btn[disabled] { opacity: .4; cursor: not-allowed; }
 
   .welcome { padding: 48px 36px 40px; text-align: center; }
-  .welcome img { height: 52px; margin-bottom: 18px; }
+  .welcome img {
+    height: 56px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    margin-bottom: 18px;
+  }
   .welcome h2 { font-size: 32px; color: var(--purple-dark); font-weight: 800; }
   .welcome .sub { color: var(--muted); margin: 8px 0 18px; font-size: 16px; }
   .time-pill {
@@ -274,8 +287,14 @@
   .cert {
     border: 6px solid var(--purple); border-radius: 12px; overflow: hidden; max-width: 640px; margin: 0 auto 16px;
   }
-  .cert-h { background: linear-gradient(135deg, var(--purple-dark), var(--purple)); color: #fff; text-align: center; padding: 22px; }
-  .cert-h img { height: 36px; margin-bottom: 8px; }
+  .cert-h { background: #fff; color: var(--purple-dark); text-align: center; padding: 18px 22px 12px; border-bottom: 1px solid var(--line); }
+  .cert-h img {
+    height: 48px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    margin-bottom: 6px;
+  }
   .cert-b { padding: 28px 24px; text-align: center; }
   .cert-b .sm { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #9a8fb0; }
   .cert-b h3 { font-size: 26px; color: var(--purple-dark); margin: 6px 0 16px; }
