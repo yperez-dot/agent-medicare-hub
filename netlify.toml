@@ -1,6 +1,16 @@
 # Agent Hub — Netlify config
-# Deploy script must use pages/ as root and files/ as /files/
-# See: workspace/hub-migration deploy pattern
+# publish = "." keeps /files/* accessible from repo root
+# Rewrite rule sends /:slug → /pages/:slug (fires only if no real file exists at path)
+
+[build]
+  publish = "."
+
+# Rewrite: /:slug → /pages/:slug (200 = transparent rewrite, URL stays clean)
+[[redirects]]
+  from = "/:slug"
+  to = "/pages/:slug"
+  status = 200
+  force = false
 
 [[headers]]
   for = "/files/*"
