@@ -1,0 +1,25 @@
+{
+  "updated": "2026-08-17",
+  "peeks": [
+    {
+      "id": "elevance-aep-2027-reveal",
+      "carrier": "Elevance Health",
+      "title": "Elevance Health Benefits Reveal",
+      "detail": "Aug. 25 · Seminole Hard Rock, Hollywood",
+      "image": "/files/elevance-aep-2027-reveal.jpg",
+      "date": "2026-08-25"
+    },
+    {
+      "id": "devoted-2027-bpag-fl",
+      "carrier": "Devoted Health",
+      "title": "Devoted Health 2027 B-PAG — Florida",
+      "detail": "Published Aug. 17 · Broker-only · Not for beneficiaries",
+      "note": "Miami-Dade: Core $0 MOOP $3,400 · D-SNP $455/mo Food & Home · $202 Giveback available",
+      "badge": "DEVOTED\n2027",
+      "badgeColor": "#1B4FD8",
+      "download": "/files/devoted-2027-bpag.xlsx",
+      "downloadLabel": "Download B-PAG",
+      "date": "2026-08-17"
+    }
+  ]
+}

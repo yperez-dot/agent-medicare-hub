@@ -95,7 +95,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
         <h2 class="sneak-peek-title" id="sneak-peeks-title">2027 Sneak Peeks</h2>
         <p class="sneak-peek-desc">Early looks at carrier benefits, launches, and AEP announcements. Check back as new carrier information is shared.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:10px;min-width:300px;">
+      <div id="sneak-peek-list" style="display:flex;flex-direction:column;gap:10px;min-width:300px;">
         <div class="sneak-peek-update">
           <img src="/files/elevance-aep-2027-reveal.jpg" alt="Elevance Health AEP 2027 benefits reveal" />
           <div>
@@ -187,6 +187,34 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 
 <script>
 function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+
+function sneakPeekCard(peek){
+  function esc(value){
+    return String(value || "").replace(/[&<>"']/g, function(ch){
+      return ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[ch];
+    });
+  }
+  var media = peek.image
+    ? '<img src="' + esc(peek.image) + '" alt="' + esc(peek.title || "Sneak peek") + '" />'
+    : '<div style="width:56px;height:72px;border-radius:8px;background:' + esc(peek.badgeColor || "#452068") + ';flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:#fff;text-align:center;line-height:1.2;white-space:pre-line;">' + esc(peek.badge || "2027") + '</div>';
+  var note = peek.note ? '<span style="margin-top:4px;display:block;font-size:11px;opacity:.75;">' + esc(peek.note) + '</span>' : '';
+  var download = peek.download
+    ? '<a href="' + esc(peek.download) + '" download style="display:inline-block;margin-top:6px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:3px 9px;font-size:11px;font-weight:700;color:#fff;text-decoration:none;">' + esc(peek.downloadLabel || "Download") + '</a>'
+    : '';
+  return '<div class="sneak-peek-update">' + media + '<div><strong>' + esc(peek.title) + '</strong><span>' + esc(peek.detail) + '</span>' + note + download + '</div></div>';
+}
+
+(function loadSneakPeeks(){
+  var list = document.getElementById('sneak-peek-list');
+  if (!list) return;
+  fetch('/files/sneak-peeks.json', { cache: 'no-store' })
+    .then(function(res){ return res.ok ? res.json() : null; })
+    .then(function(data){
+      if (!data || !data.peeks || !data.peeks.length) return;
+      list.innerHTML = data.peeks.map(sneakPeekCard).join('');
+    })
+    .catch(function(){});
+})();
 </script>
 
 </body>
