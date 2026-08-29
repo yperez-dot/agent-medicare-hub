@@ -85,47 +85,6 @@
     else nav.appendChild(wrap);
   }
 
-  // TEMPORARY AEP 2027 tab — remove insertAepTab + pages/aep.html after AEP ends (Dec 7, 2026)
-  function insertAepTab(nav){
-    if (!nav || nav.id === 'sepShellNav') return;
-    if (nav.querySelector('a[href="/aep"], a[href="/aep.html"]')) return;
-    if (navPath(location.pathname) === '/sep-tracker') return;
-
-    var a = document.createElement('a');
-    a.href = '/aep';
-    a.className = 'nav-aep';
-    a.setAttribute('data-temp-aep', '1');
-    a.textContent = 'AEP';
-
-    var kids = nav.children;
-    var i, el, href, text, before = null;
-    for (i = 0; i < kids.length; i++) {
-      el = kids[i];
-      href = (el.getAttribute && el.getAttribute('href')) || '';
-      text = (el.textContent || '').replace(/\s+/g, ' ').trim();
-      if (/\/sep-tracker/i.test(href) || /^SEP Tracker$/i.test(text) || /Rastreador de SEP/i.test(text)) {
-        before = el;
-        break;
-      }
-    }
-    if (!before) {
-      for (i = 0; i < kids.length; i++) {
-        el = kids[i];
-        text = (el.textContent || '').replace(/\s+/g, ' ').trim();
-        if (
-          el.tagName === 'BUTTON' ||
-          /sign out|cerrar sesi[oó]n/i.test(text) ||
-          ((el.getAttribute('onclick') || '').indexOf('logout') !== -1)
-        ) {
-          before = el;
-          break;
-        }
-      }
-    }
-    if (before) nav.insertBefore(a, before);
-    else nav.appendChild(a);
-  }
-
   function markActiveNav(nav){
     var path = navPath(location.pathname);
     var links = nav.querySelectorAll('a[href]');
@@ -152,7 +111,6 @@
     if (!bar || !nav) return;
 
     nav.id = nav.id || 'hub-pill-nav';
-    insertAepTab(nav);
     insertLangToggle(nav);
     markActiveNav(nav);
 

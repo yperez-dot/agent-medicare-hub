@@ -122,19 +122,6 @@
   }
 }
 
-/* TEMPORARY AEP 2027 tab — remove with insertAepTab after Dec 7, 2026 */
-.pill-nav a.nav-aep{
-  background:#FF1090;
-  border-color:#FF1090;
-  color:#fff;
-}
-.pill-nav a.nav-aep:hover,
-.pill-nav a.nav-aep.active{
-  background:#D10E78;
-  border-color:#D10E78;
-  color:#fff;
-}
-
 .pill-nav .lang-toggle{
   display:inline-flex;
   align-items:center;
