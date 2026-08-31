@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-21",
+  "updated": "2026-08-31",
   "activeSeps": 1,
   "alerts": [
     {
@@ -42,7 +42,7 @@
       "id": "2026-07-24-solis-aep2027-kickoff",
       "type": "event",
       "emoji": "🌴",
-      "title": "Solis AEP 2027 Kickoff \u2014 South Florida | Aug 28 @ 11AM",
+      "title": "Solis AEP 2027 Kickoff — South Florida | Aug 28 @ 11AM",
       "body": "Jungle Island, 1111 Parrot Jungle Trail, Miami FL 33132. Be the first to discover Solis 2027 benefits. RSVP to secure your seat.",
       "date": "Jul 24, 2026",
       "source": null
@@ -51,34 +51,34 @@
       "id": "2026-07-24-2027-blackout-dates",
       "type": "urgent",
       "emoji": "🚫",
-      "title": "2027 MA Contracting Blackout Dates \u2014 Humana & Elevance Already Active",
-      "body": "Humana (Jul 15) and Elevance (Jul 1) transfer blackouts are in effect now. UHC blackout starts Sep 1 \u2014 submit any pending transfers immediately. Full schedule for all 14 carriers now in the Agent Hub.",
+      "title": "2027 MA Contracting Blackout Dates — Humana & Elevance Already Active",
+      "body": "Humana (Jul 15) and Elevance (Jul 1) transfer blackouts are in effect now. UHC blackout starts Sep 1 — submit any pending transfers immediately. Full schedule for all 14 carriers now in the Agent Hub.",
       "date": "Jul 24, 2026",
       "source": "/contracting-blackout"
     },
     {
       "id": "2026-07-22-devoted-cvs-events",
       "type": "urgent",
-      "emoji": "\u23f0",
-      "title": "Devoted \u2014 CVS Event Slots \u00b7 DEADLINE THIS FRIDAY Jul 24 @ Noon (Sep/Oct/Nov 2026)",
-      "body": "Roberto Sanchez (rsanchez@devoted.com \u00b7 786-355-1071) collecting CVS event requests for Sep\u2013Nov 2026 in Miami-Dade. Deadline: Fri Jul 24 at 12:00 PM sharp \u2014 all MCOs submit concurrently. Include store #, date, and time. Location list in theiagentpulse inbox.",
+      "emoji": "⏰",
+      "title": "Devoted — CVS Event Slots · DEADLINE THIS FRIDAY Jul 24 @ Noon (Sep/Oct/Nov 2026)",
+      "body": "Roberto Sanchez (rsanchez@devoted.com · 786-355-1071) collecting CVS event requests for Sep–Nov 2026 in Miami-Dade. Deadline: Fri Jul 24 at 12:00 PM sharp — all MCOs submit concurrently. Include store #, date, and time. Location list in theiagentpulse inbox.",
       "date": "Jul 22, 2026",
       "source": null
     },
     {
       "id": "2026-07-22-aetna-academy-jul30",
       "type": "event",
-      "emoji": "\ud83d\udcc5",
-      "title": "Aetna Academy \u2014 National Medicare Training Webinar \u00b7 July 30",
-      "body": "National Medicare training webinar with actionable strategies. 8 days away \u2014 register your agents now if not done.",
+      "emoji": "📅",
+      "title": "Aetna Academy — National Medicare Training Webinar · July 30",
+      "body": "National Medicare training webinar with actionable strategies. 8 days away — register your agents now if not done.",
       "date": "Jul 22, 2026",
       "source": null
     },
     {
       "id": "2026-07-22-devoted-aep-training",
       "type": "event",
-      "emoji": "\ud83c\udf93",
-      "title": "Devoted \u2014 AEP Summer Training \u00b7 Medicaid/LIS + Portal Nav (July/August)",
+      "emoji": "🎓",
+      "title": "Devoted — AEP Summer Training · Medicaid/LIS + Portal Nav (July/August)",
       "body": "Live walkthroughs covering Medicaid/LIS Deep Dive and Portal Navigation. Pre-AEP prep for the team. Reply to Jean-Luc Batista to schedule.",
       "date": "Jul 22, 2026",
       "source": null
@@ -86,8 +86,8 @@
     {
       "id": "2026-07-22-healthspring-august-training",
       "type": "event",
-      "emoji": "\ud83d\udccc",
-      "title": "HealthSpring \u2014 August Broker Training Schedule Released",
+      "emoji": "📌",
+      "title": "HealthSpring — August Broker Training Schedule Released",
       "body": "HealthSpring released their August broker training schedule. Check theiagentpulse inbox for the full schedule and registration link.",
       "date": "Jul 22, 2026",
       "source": null
@@ -97,7 +97,7 @@
       "type": "update",
       "emoji": "📋",
       "title": "Devoted PY27 Certification Now Open",
-      "body": "Devoted PY27 certification opened June 23. Certifying for PY27 automatically makes you RTS for PY26. Key dates: Mid-August \u2014 PY27 Broker Plans-at-a-Glance released. Late August \u2014 PY27 broker rollout events. Look for 'Welcome to Devoted' email to confirm RTS status.",
+      "body": "Devoted PY27 certification opened June 23. Certifying for PY27 automatically makes you RTS for PY26. Key dates: Mid-August — PY27 Broker Plans-at-a-Glance released. Late August — PY27 broker rollout events. Look for 'Welcome to Devoted' email to confirm RTS status.",
       "date": "Jul 15, 2026",
       "source": null
     },
@@ -113,8 +113,8 @@
     {
       "id": "2026-07-15-elevance-aep-reveal",
       "type": "event",
-      "emoji": "\ud83c\udfa4",
-      "title": "\ud83c\udfa4 SAVE THE DATE \u2014 Elevance AEP 2027 Benefits Reveal \u00b7 Aug 25 \u00b7 Seminole Hard Rock, Hollywood FL",
+      "emoji": "🎤",
+      "title": "🎤 SAVE THE DATE — Elevance AEP 2027 Benefits Reveal · Aug 25 · Seminole Hard Rock, Hollywood FL",
       "body": "Elevance Health (HealthSun, Simply, Freedom, Optimum) AEP 2027 Medicare portfolio preview. Registration details coming soon. Contact: DL-SHP-SFLBroker@elevancehealth.com",
       "date": "Jul 15, 2026",
       "source": "/agent-pulse",
@@ -123,25 +123,25 @@
     {
       "id": "2026-07-14-uhc-um",
       "type": "urgent",
-      "emoji": "\ud83d\udea8",
+      "emoji": "🚨",
       "title": "UHC Utilization Management Policy Update",
-      "body": "UHC has updated its prior authorization requirements for certain outpatient services effective Q3 2026. Review client plans with high utilization \u2014 agents should proactively reach out to affected members.",
+      "body": "UHC has updated its prior authorization requirements for certain outpatient services effective Q3 2026. Review client plans with high utilization — agents should proactively reach out to affected members.",
       "date": "Jul 14, 2026",
       "source": null
     },
     {
       "id": "2026-08-21-sep-tracker",
       "type": "update",
-      "emoji": "\ud83d\udccb",
-      "title": "Florida Disaster SEPs \u2014 Current Status",
-      "body": "Florida statewide SEP for Impacts of Winter Weather, Droughts, and Wildfire Risks is renewed through Dec 31, 2026 (incident period Jan 31 \u2013 Nov 3). Milton, Helene, Debby, and the May thunderstorms SEPs have ended. Check the SEP Tracker for counties and other states.",
+      "emoji": "📋",
+      "title": "Florida Disaster SEPs — Current Status",
+      "body": "Florida statewide SEP for Impacts of Winter Weather, Droughts, and Wildfire Risks is renewed through Dec 31, 2026 (incident period Jan 31 – Nov 3). Milton, Helene, Debby, and the May thunderstorms SEPs have ended. Check the SEP Tracker for counties and other states.",
       "date": "Aug 21, 2026",
       "source": "/sep-tracker.html"
     },
     {
       "id": "2026-05-10-ma-auto-enrollment",
       "type": "watch",
-      "emoji": "\ud83d\udc40",
+      "emoji": "👀",
       "title": "CMS Considering MA Auto-Enrollment for New Beneficiaries",
       "body": "Trump administration's CMS is reviewing making Medicare Advantage the default enrollment for newly eligible beneficiaries. If this advances, the AEP sales motion changes fundamentally for Florida agents. No formal rule published yet.",
       "date": "May 10, 2026",
@@ -150,7 +150,7 @@
     {
       "id": "2026-05-10-maia",
       "type": "update",
-      "emoji": "\ud83d\udccb",
+      "emoji": "📋",
       "title": "Medicare Advantage Improvement Act of 2026 Moving in Congress",
       "body": "Bipartisan HR 8375 / S 4384 would require MA plans to follow traditional Medicare's medical necessity standards and ban algorithmic auto-denials. Track committee markup over the next 30-60 days.",
       "date": "May 10, 2026",
@@ -159,7 +159,7 @@
     {
       "id": "2026-05-10-elevance",
       "type": "watch",
-      "emoji": "\u26a0\ufe0f",
+      "emoji": "⚠️",
       "title": "Elevance / Anthem MA Enrollment Suspension Still Active",
       "body": "CMS sanction took effect March 31, 2026. Elevance cannot enroll new members until cleared. Clients already enrolled are unaffected. Watch for CMS clearance announcement before AEP 2027 marketing season.",
       "date": "May 10, 2026",
@@ -168,16 +168,23 @@
   ],
   "weekly_pulses": [
     {
+      "week": "Week of August 31, 2026",
+      "date": "Aug 31, 2026",
+      "headline": "AEP Oct 15–Dec 7 · SOA 48-hour wait still on through Sep 30 · carrier inbox brief missing this morning",
+      "link": "/pulse-2026-08-31.html",
+      "tag": "Latest"
+    },
+    {
       "week": "Week of July 13, 2026",
       "date": "Jul 13, 2026",
-      "headline": "UHC UM policy changes \u00b7 Florida SEP deadlines \u00b7 MA network exits \u00b7 Elevance suspension update",
+      "headline": "UHC UM policy changes · Florida SEP deadlines · MA network exits · Elevance suspension update",
       "link": "/pulse-2026-07-13.html",
-      "tag": "Latest"
+      "tag": ""
     },
     {
       "week": "Week of May 10, 2026",
       "date": "May 10, 2026",
-      "headline": "MA auto-enrollment debate \u00b7 MAIA in Congress \u00b7 Network contractions \u00b7 UHC & Humana Q1 earnings",
+      "headline": "MA auto-enrollment debate · MAIA in Congress · Network contractions · UHC & Humana Q1 earnings",
       "link": "/pulse-2026-05-10.html",
       "tag": ""
     }
