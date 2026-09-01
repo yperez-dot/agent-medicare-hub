@@ -2,6 +2,17 @@
   "updated": "2026-09-01",
   "peeks": [
     {
+      "id": "2026-09-01-devoted-core-001-fl-hmo-h1290-001-000-en",
+      "carrier": "Devoted Health",
+      "title": "DEVOTED CORE 001 FL (HMO)   H1290 001 000   ENG",
+      "detail": "Uploaded Sep 1, 2026 · Broker-only",
+      "download": "/files/DEVOTED-CORE-001-FL--HMO----H1290-001-000---ENG.pdf",
+      "downloadLabel": "Download",
+      "badge": "2027",
+      "date": "2026-09-01",
+      "fileName": "DEVOTED-CORE-001-FL--HMO----H1290-001-000---ENG.pdf"
+    },
+    {
       "id": "2026-08-28-spreadsheet-shared-with-you-2027-bpag-fl",
       "carrier": "Carrier",
       "title": "Spreadsheet shared with you: \"2027-BPAG-FL.xlsx\"",
@@ -60,14 +71,6 @@
       "detail": "Jul 13, 2026",
       "badge": "DEVOTED\n2027",
       "date": "2026-07-13"
-    },
-    {
-      "id": "2026-07-10-elevance-health-save-the-date-aep-2027-m",
-      "carrier": "Elevance Health",
-      "title": "Elevance Health - Save the Date: AEP 2027 Medicare Benefits Reveal",
-      "detail": "Jul 10, 2026",
-      "badge": "ELEVANCE\n2027",
-      "date": "2026-07-10"
     }
   ]
 }
