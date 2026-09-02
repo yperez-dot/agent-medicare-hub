@@ -1,0 +1,82 @@
+{
+  "updated": "2026-09-01",
+  "peeks": [
+    {
+      "id": "2026-09-01-devoted-core-001-fl-hmo-h1290-001-000-en",
+      "carrier": "Devoted Health",
+      "title": "DEVOTED CORE 001 FL (HMO)   H1290 001 000   ENG",
+      "detail": "Uploaded Sep 1, 2026 · Broker-only",
+      "download": "/files/DEVOTED-CORE-001-FL--HMO----H1290-001-000---ENG.pdf",
+      "downloadLabel": "Download",
+      "badge": "2027",
+      "date": "2026-09-01",
+      "fileName": "DEVOTED-CORE-001-FL--HMO----H1290-001-000---ENG.pdf"
+    },
+    {
+      "id": "2026-09-01-2027-uhc-preferred-dual-complete-fl-y6-h",
+      "carrier": "UnitedHealthcare",
+      "title": "2027 UHC Preferred Dual Complete FL Y6 (HMO POS D SNP)",
+      "detail": "Uploaded Sep 1, 2026 · Broker-only",
+      "download": "/files/2027-UHC-Preferred-Dual-Complete-FL-Y6--HMO-POS-D-SNP-.pdf",
+      "downloadLabel": "Download",
+      "badge": "2027",
+      "date": "2026-09-01",
+      "fileName": "2027-UHC-Preferred-Dual-Complete-FL-Y6--HMO-POS-D-SNP-.pdf"
+    },
+    {
+      "id": "2026-09-01-2027-uhc-medicaremax-medicare-advantage-",
+      "carrier": "UnitedHealthcare",
+      "title": "2027 UHC MedicareMax Medicare Advantage FL 0028 (HMO)",
+      "detail": "Uploaded Sep 1, 2026 · Broker-only",
+      "download": "/files/2027-UHC-MedicareMax-Medicare-Advantage-FL-0028--HMO-.pdf",
+      "downloadLabel": "Download",
+      "badge": "2027",
+      "date": "2026-09-01",
+      "fileName": "2027-UHC-MedicareMax-Medicare-Advantage-FL-0028--HMO-.pdf"
+    },
+    {
+      "id": "2026-08-28-spreadsheet-shared-with-you-2027-bpag-fl",
+      "carrier": "Carrier",
+      "title": "Spreadsheet shared with you: \"2027-BPAG-FL.xlsx\"",
+      "detail": "Aug 28, 2026",
+      "badge": "CARRIER\n2027",
+      "date": "2026-08-28"
+    },
+    {
+      "id": "elevance-aep-2027-reveal",
+      "carrier": "Elevance Health",
+      "title": "Elevance Health Benefits Reveal",
+      "detail": "Aug. 25 · Seminole Hard Rock, Hollywood",
+      "image": "/files/elevance-aep-2027-reveal.jpg",
+      "date": "2026-08-25"
+    },
+    {
+      "id": "2026-08-20-re-yperez-dot-healthexps-en-add-cloud-ag",
+      "carrier": "Carrier",
+      "title": "Re: [yperez-dot/healthexps-en] Add Cloud Agent dev environment + temporary 2027 sneak-peek promo banner (PR #2)",
+      "detail": "Aug 20, 2026",
+      "badge": "CARRIER\n2027",
+      "date": "2026-08-20"
+    },
+    {
+      "id": "devoted-2027-bpag-fl",
+      "carrier": "Devoted Health",
+      "title": "Devoted Health 2027 B-PAG — Florida",
+      "detail": "Published Aug. 17 · Broker-only · Not for beneficiaries",
+      "note": "Miami-Dade: Core $0 MOOP $3,400 · D-SNP $455/mo Food & Home · $202 Giveback available",
+      "badge": "DEVOTED\n2027",
+      "badgeColor": "#1B4FD8",
+      "download": "/files/devoted-2027-bpag.xlsx",
+      "downloadLabel": "Download B-PAG",
+      "date": "2026-08-17"
+    },
+    {
+      "id": "2026-07-15-the-devoted-download-your-py27-playbook-",
+      "carrier": "Devoted Health",
+      "title": "📬 The Devoted Download: Your PY27 Playbook, Previews, & Live Training Events",
+      "detail": "Jul 15, 2026",
+      "badge": "DEVOTED\n2027",
+      "date": "2026-07-15"
+    }
+  ]
+}

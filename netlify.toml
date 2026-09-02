@@ -1,6 +1,8 @@
 # Agent Hub — Netlify config
-# Deploy script must use pages/ as root and files/ as /files/
-# See: workspace/hub-migration deploy pattern
+# publish = "pages" → pages/*.html served at root, pages/files/* served at /files/*
+
+[build]
+  publish = "pages"
 
 [[headers]]
   for = "/files/*"

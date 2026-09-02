@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>THEI Agent Pulse — Week of August 31, 2026</title>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) { localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
+.back-bar{background:#452068;padding:10px 24px;display:flex;align-items:center;gap:16px;}
+.back-bar a{color:#fff;text-decoration:none;font:600 13px/1 Arial,sans-serif;opacity:.85;}
+.email-wrap{max-width:680px;margin:24px auto 48px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+@media(max-width:600px){.email-wrap{margin:0;border-radius:0;}}
+</style>
+<link rel="stylesheet" href="/hub-nav.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href="/home">Agent Dashboard</a>
+    <a href="/pulse-library">Pulse Library</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+  </nav>
+</div>
+<div class="back-bar">
+  <a href="/pulse-library">← Pulse Library</a>
+  <span style="color:rgba(255,255,255,.3);">|</span>
+  <a href="/agent-pulse">Agent Pulse</a>
+</div>
+<div class="email-wrap">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE Health Experts Insider</title>
+</head>
+<body style="margin:0;padding:0;background:#EDE8F0;">
+  <span style="display:none !important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">CMS flags $1.6B in lab fraud, The Villages Health settles $541.5M, and AEP 2027 is six weeks out.</span>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EDE8F0;padding:24px 0;">
+    <tr><td align="center">
+      <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="max-width:640px;width:100%;background:#FFFFFF;border-radius:8px;overflow:hidden;">
+        <tr>
+          <td style="padding:28px 36px 22px 36px;border-bottom:2px solid #D6006C;text-align:left;">
+            <img src="/thei-logo.png" alt="The Health Experts Insurance" width="360" style="display:block;width:360px;max-width:100%;height:auto;border:0;outline:none;">
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#D6006C;padding:16px 36px;font-family:Helvetica,Arial,sans-serif;font-size:15px;color:#FFFFFF;line-height:1.5;font-weight:700;">
+            Corrected version — this morning's Issue #11 went out in the wrong format. Please use this email and ignore the earlier one.
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#FBEFC8;padding:14px 36px;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#3D1560;line-height:1.5;">
+            📬 Reading THE Health Experts Insider? If a colleague would benefit, please forward it on!
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#2A0E45;padding:48px 36px;text-align:center;">
+            <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#FFFFFF;letter-spacing:3px;font-weight:700;opacity:0.85;">Week of August 31, 2026 &nbsp;·&nbsp; ISSUE 011</p>
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:30px;color:#FFFFFF;line-height:1;">The Week in</p>
+            <p style="margin:6px 0 0 0;font-family:Helvetica,Arial,sans-serif;font-weight:900;font-size:56px;color:#E6007E;line-height:1;letter-spacing:-1px;">Medicare</p>
+            <div style="width:60px;height:3px;background:#E6007E;margin:18px auto 0 auto;"></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:32px 36px 8px 36px;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#2A2A2A;line-height:1.6;">
+            <p>Happy Monday, team! 👋</p><p>Corrected version — this morning's Issue #11 went out in the wrong format. Please use this email and ignore the earlier one.</p><p>CMS closed last week with a <b style="background:#FBEFC8;">$1.6 billion</b> lab-fraud crackdown while Florida’s largest recent Medicare Advantage coding case settled at <b style="background:#FBEFC8;">$541.5 million</b>. AEP for 2027 coverage starts <b style="background:#FBEFC8;">October 15</b> — six weeks from today.</p><p>— Yahoska &amp; Katy</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:8px 36px 24px 36px;text-align:center;">
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;letter-spacing:3px;font-weight:700;">— THE WEEK IN MEDICARE —</p>
+          </td>
+        </tr>
+        <tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · AGENT
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Six weeks to AEP 2027 — finish certs before September blackouts</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>The Annual Enrollment Period for 2027 coverage runs <b style="background:#FBEFC8;">October 15 through December 7, 2026</b>. CMS’s CY2027 marketing and communications rules apply beginning <b style="background:#FBEFC8;">October 1, 2026</b>. Industry calendars show most carrier certification and contracting blackout windows opening <b style="background:#FBEFC8;">September 1 through October 1</b>. 2027 Medicare and FWA training has been live since <b style="background:#FBEFC8;">June 22</b>. CMS also set <b style="background:#FBEFC8;">August 31, 2026</b> as the CY2027 MA contract-execution deadline, with remaining contracts expected to be fully signed by mid-September. Scope of Appointment still must be completed before any plan-specific marketing conversation.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Close remaining 2027 carrier certifications this week and confirm Ready-to-Sell in every portal you use. Do not market 2027 plans before October 1. Restock SOA, call-recording, and needs-analysis workflows now — do not wait until October 14.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: ICRC Key 2026 Medicare Advantage Dates; Federal Register CY2027 MA and Part D final rule, April 6, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · CMS
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">CMS says it blocked more than $1.6 billion in suspect Medicare lab payments</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>On <b style="background:#FBEFC8;">August 28</b>, CMS announced it has prevented more than <b style="background:#FBEFC8;">$1.6 billion</b> in potentially fraudulent Medicare laboratory payments since the start of the current administration. The agency cited <b style="background:#FBEFC8;">$732 million</b> tied to <b style="background:#FBEFC8;">157 providers</b> revoked from Medicare, more than <b style="background:#FBEFC8;">$500 million</b> stopped through <b style="background:#FBEFC8;">185 payment suspensions</b> after reviewing about <b style="background:#FBEFC8;">600 labs</b>, more than <b style="background:#FBEFC8;">$276 million</b> from <b style="background:#FBEFC8;">442</b> identified overpayments, and <b style="background:#FBEFC8;">$127 million</b> tied to law-enforcement referrals. CMS said labs billed for tests never performed or not medically necessary, including genetic and pathogen testing. For fiscal year 2026 to date, CMS said it has identified <b style="background:#FBEFC8;">$1.8 billion</b> in Medicare overpayments, collected <b style="background:#FBEFC8;">$378 million</b>, and suspended more than <b style="background:#FBEFC8;">$539 million</b>.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Use this as a counseling point, not a sales pitch. If a client mentions a surprise lab or genetic-test bill, tell them to hang up on unsolicited testing offers and report suspect Medicare activity to 1-800-MEDICARE or Florida SHINE.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS / Fierce Healthcare, August 28, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · LEGAL
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">The Villages Health agrees to $541.5 million Medicare Advantage coding settlement</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>The U.S. Department of Justice announced <b style="background:#FBEFC8;">August 26</b> that The Villages Health System LLC, based in The Villages, Florida, agreed to a <b style="background:#FBEFC8;">$541.5 million</b> False Claims Act settlement. DOJ alleged the provider submitted invalid diagnosis codes from <b style="background:#FBEFC8;">2020 through 2024</b> that inflated Medicare Advantage risk-adjusted payments. The U.S. Bankruptcy Court for the Middle District of Florida approved the deal on <b style="background:#FBEFC8;">August 25</b>. DOJ said the organization self-disclosed through the HHS-OIG protocol in December 2024, and that the Medicare Advantage organizations that received the codes are returning related overpayments to CMS. DOJ stated the claims resolved are allegations only and there has been no determination of liability.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Central Florida clients will see this in local news. Stay factual: it is a provider coding case, not a plan cancellation. Do not speculate about plan quality. If a client asks, walk the Annual Notice of Change and a full AEP review.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: U.S. Department of Justice, August 26, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · FLORIDA
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Naples health system will drop two Medicare Advantage contracts in 2027</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>Naples Comprehensive Health told patients on <b style="background:#FBEFC8;">August 26</b> that beginning <b style="background:#FBEFC8;">January 1, 2027</b>, it will no longer accept Cigna Medicare Advantage plans or Wellcare Medicare Advantage plans. NCH said patients can continue care through Original Medicare, a Medicare Supplement (Medigap) policy, or any Medicare Advantage plan that remains in-network with NCH. The hospital asked patients to prepare during AEP, <b style="background:#FBEFC8;">October 15–December 7, 2026</b>. This is a local network change, not a CMS enrollment rule.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Southwest Florida agents should inventory clients who use NCH. Confirm 2027 provider directories when they post. Document each client’s doctors and drugs before any plan discussion. Do not steer. Present every option the client is eligible for, including remaining in Original Medicare with a Medigap policy if that matches their needs.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: Gulf Coast News / NCH, August 26, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · POLICY
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">CMS capacity limits mean some 2027 Medicare Advantage plans may close to new members</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>Modern Healthcare reported <b style="background:#FBEFC8;">August 28</b> that Medicare Advantage enrollment caps are expected to reshape 2027. CMS’s CY2027 bid guidance lets MA organizations request an <b style="background:#FBEFC8;">enrollment capacity limit</b> on a plan. CMS will only accept limits at or above a plan’s enrollment as of <b style="background:#FBEFC8;">June 1, 2026</b>, and plans <b style="background:#FBEFC8;">may not disenroll current members</b> to hit a cap. Once a plan is closed, it must stay closed to new enrollments until attrition opens a slot. AEP shopping will not look the same in every Florida county.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Do not assume every 2026 plan will take new 2027 members. Watch carrier 2027 plan lists and closed-to-new-members flags when they drop. Have a backup comparison ready. Capacity closures are first-come during AEP — October 15 is not the same as late November.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: Modern Healthcare, August 28, 2026; CMS CY2027 Part C Bid Review Memorandum, April 22, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📰</span>&nbsp;&nbsp;FYI · CMS
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">CMS ends the six-month freeze on new DMEPOS supplier enrollments</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>CMS announced <b style="background:#FBEFC8;">August 27</b> that its six-month moratorium on initial Medicare enrollment for seven categories of durable medical equipment, prosthetics, orthotics, and supplies (DMEPOS) suppliers has expired. National provider enrollment contractors are again accepting applications. CMS urged suppliers to file promptly so applications can be processed before the bidding window for the <b style="background:#FBEFC8;">2028</b> DMEPOS Competitive Bidding Program. Separately, on <b style="background:#FBEFC8;">August 31</b> MedTech Dive reported CMS finalized a rule to pay for certain continuous glucose monitors, insulin pumps, and diabetes supplies on a bundled monthly rental under competitive bidding, with bidding later in 2027.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Clients on Original Medicare who use CGMs, pumps, or mail-order diabetes supplies may see supplier and payment changes in coming years. For 2027 AEP conversations, confirm the client’s current DME supplier is still billing Medicare. Do not promise device brands.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: AHA News / CMS, August 28, 2026; MedTech Dive, August 31, 2026</p>
+  </td>
+</tr>
+        <tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">— WHAT TO WATCH THIS WEEK —</p>
+    <ul style="margin:0;padding:0 0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><li style="margin:0 0 8px 0;"><b>October 1 marketing / October 15 AEP</b>: CY2027 marketing may begin October 1, 2026. AEP for 2027 coverage is October 15–December 7. Have SOA, recordings, and 2027 plan-compare workflow locked before the window opens.</li><li style="margin:0 0 8px 0;"><b>Florida SHINE Open Enrollment education</b>: Florida SHINE is running virtual Medicare Basics, Part C, Part D, and Open Enrollment education sessions through September. Clients can be pointed to floridashine.org or 1-800-963-5337 for free, unbiased counseling.</li><li style="margin:0 0 8px 0;"><b>CMS RADV audits moving ahead</b>: CMS has initiated RADV audits across 471 Medicare Advantage contracts for payment year 2020 and continues overpayment recoveries from earlier years. Watch for plan operational noise, not for agent talking points.</li><li style="margin:0 0 8px 0;"><b>2027 Part D premiums</b>: The temporary Part D premium-stabilization demonstration ends after 2026. KFF and CMS have flagged that many standalone drug-plan premiums may move for 2027. Recheck every client’s formulary and premium when 2027 PDPs post.</li></ul>
+  </td>
+</tr>
+        <tr>
+          <td style="padding:24px 36px 32px 36px;">
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#8A8A8A;letter-spacing:1.5px;">SOURCES REVIEWED</p>
+            <p style="margin:8px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;line-height:1.55;">CMS Newsroom, Federal Register, CMS CY2027 Part C Bid Review Memorandum, DOJ, HHS-OIG, AHA News, Fierce Healthcare, Modern Healthcare, MedTech Dive, Gulf Coast News/NCH, ICRC, Florida SHINE, KFF</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#2A0E45;padding:32px 36px;text-align:center;">
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#FFFFFF;line-height:1.6;">
+              You're receiving this because you're a contracted agent with The Health Experts Insurance.<br><br><b>Questions? Tips? Carrier intel to share?</b> Reply to this email.
+            </p>
+            <p style="margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;color:#E6007E;">Making Healthcare Easy</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+
+</div>
+</body>
+</html>

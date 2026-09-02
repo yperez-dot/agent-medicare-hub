@@ -27,11 +27,6 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
 .wrap{max-width:1100px;margin:0 auto;padding:36px 24px 64px;}
 
-/* Hero */
-.hero{background:linear-gradient(135deg,var(--purple-dark),var(--purple));border-radius:20px;padding:28px 32px;margin-bottom:32px;color:#fff;}
-.hero h1{font:700 28px/1.2 Arial,sans-serif;margin-bottom:6px;}
-.hero p{font:400 14px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:60ch;}
-
 /* Filter pills */
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
 .filter-pill{padding:7px 16px;border:1.5px solid var(--border);border-radius:999px;font:600 12px/1 Arial,sans-serif;color:var(--text-soft);cursor:pointer;background:#fff;transition:all .15s;}
@@ -74,12 +69,13 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .column-header h2{font:700 17px/1 Arial,sans-serif;color:var(--text);}
 
 @media(max-width:780px){.columns{grid-template-columns:1fr;}}
-@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}.pill-nav{gap:6px;}.hero{padding:20px 18px;}}
+@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}.pill-nav{gap:6px;}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
 <script src="/hub-nav.js" defer></script>
 </head>
 <body>
@@ -90,7 +86,8 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <a href='/home'>Agent Dashboard</a>
     <a href='/learn'>Broker University</a>
     <a href='/carrier-info'>Carrier Info</a>
-    <a class='active' href='/events'>Events</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
     <a href='/tools-perks'>Agent Tools Hub</a>
     <a href='/retention-toolkit'>Retention Toolkit</a>
     <a href='/sep-tracker'>SEP Tracker</a>
