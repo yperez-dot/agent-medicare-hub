@@ -1,7 +1,106 @@
 {
-  "updated": "2026-09-01",
+  "updated": "2026-09-02",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-01-bilingual-humana-broker-relationship-new",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Bilingual Humana Broker Relationship Newsletter: Training Opportunities for September 2026",
+      "body": "[cid:image001.jpg@01DD3931.83C2B7E0] Estimados Agentes, Nos complace apoyar su crecimiento durante la prÃ³xima temporada de AEP. En vista que Octubre se acerca rÃ¡pidamente, hemos preparado una lista de verificaciÃ³n para ayudarles que estÃ©n bien posicionados para el Ã©xito. * Complete la CertificaciÃ³n/RecertificaciÃ³n de 2027. * Solicite los materiales de ventas para el prÃ³ximo aÃ±o del plan; el 15 de Septiembre es la fecha lÃ­mite para garantizar la entrega antes del 15 de Octubre. * Revise",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-re-yperez-dot-igor-config-queue-nch-cign",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Re: [yperez-dot/igor-config] Queue NCH Cigna/Wellcare 2027 article for healthexps.com (PR #35)",
+      "body": "@cursor[bot] commented on this pull request. <!-- CURSOR_AUTOMATION_ID: 96f41898-9d93-11f1-a7d1-d6b4613131ce | RUN_ID: bc-e5e2c18a-13a5-4533-a1d9-353fb78a831c --> Risk: medium. Not approved: this queues Medicare Advantage 2027 network-change copy (AEP guidance, plan-path language, and licensed-agent CTAs), so custom policy requires human review rather than auto-approval. Reviewers will be requested per that routing. <div><a href=\"https://cursor.com/agents/bc-e5e2c18a-13a5-4533-a1d9-353fb78a831c?",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-re-yperez-dot-healthexps-www-publish-nch",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Re: [yperez-dot/healthexps-www] Publish NCH dropping Cigna and Wellcare MA plans in 2027 (PR #49)",
+      "body": "netlify[bot] left a comment (yperez-dot/healthexps-www#49) ### <span aria-hidden=\"true\">ð·</span> Deploy Preview for *super-blancmange-6bb737* processing. | Name | Link | |:-:|------------------------| |<span aria-hidden=\"true\">ð¨</span> Latest commit | 73700d960df534f0a8ea801d1e5fa6386020bb69 | |<span aria-hidden=\"true\">ð</span> Latest deploy log | https://app.netlify.com/projects/super-blancmange-6bb737/deploys/6a96b2da45ae9b000820e74c |",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-re-yperez-dot-healthexps-www-publish-nch",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Re: [yperez-dot/healthexps-www] Publish NCH dropping Cigna and Wellcare MA plans in 2027 (PR #49)",
+      "body": "@cursor[bot] commented on this pull request. <!-- CURSOR_AUTOMATION_ID: 96f41898-9d93-11f1-a7d1-d6b4613131ce | RUN_ID: bc-6198a8d5-fde6-449f-8199-be9f02096551 --> Risk: medium. Not approved: this PR adds Medicare Advantage network-change copy and compliance-sensitive plan-selection language, which must go to human review rather than auto-approval. Assigned yperez-dot. <div><a href=\"https://cursor.com/agents/bc-6198a8d5-fde6-449f-8199-be9f02096551?cursor_ref=pr_footer&cursor_cta=open_in_web\"><pic",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-kayla-robles-s-zoom-meeting",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Kayla Robles's Zoom Meeting",
+      "body": "[https://zoom.us/account/branding/p/4398e8dd-d593-4f46-9169-51f48a381142.png] Join Zoom Meeting<https://humana.zoom.us/j/95503763588?pwd=zLOPHMcbaq7ar5KrifbFZD8T2fKNbM.1&from=addon> Meeting URL: https://humana.zoom.us/j/95503763588?pwd=zLOPHMcbaq7ar5KrifbFZD8T2fKNbM.1&from=addon Meeting ID: 955 0376 3588 Passcode: 412598 Join by Phone One tap mobile: US: +13126266799,95503763588<tel:+13126266799,95503763588> Meeting ID: 955 0376 3588 International Numbers<https://humana.zoom.us/u/abHxuEBuPO> Joi",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-get-contracted-to-sell-unitedhealthone",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Get Contracted to Sell Unitedhealthone",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell UnitedHealthOne: Why UHOne? Comprehensive Product Portfolio to Meet Your Clients Needs Nationally Recognized Brand of United Healthcare Competitive Commissions Sell Year-Round With No Enrollment Windows Online Support & Training to Help You Succeed PHONE NUMBER: 1 800 249 0173 ï»¿| Premier Insurance Contracts, Inc. | 832 850 6873 | STAY CONNECTED â Premier Insurance Contracts Inc | 16750 Hedgecroft ",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-devoted-s-2027-digital-enrollment-kits-a",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Devoted’s 2027 digital enrollment kits are ready to download!",
+      "body": "Everything you need to sell Devoted, in one place. DevotedHealthPlans-RGB-1 (https://cJfPw04.na1.hubspotlinks.com/Ctc/LX+113/cJfPw04/VWCYpV8HZTFsW1qhS-331xFQwW3NdgT55TqqfvN6ybcXR3pyd0W7lCdLW6lZ3nWW8jTn0T1Cxj39W1cmZLn98wvPkW5H6YKp1P2PVZVSvLKT6cSvgPV8FKBX1KpPbLW8KZblH79K5WGW2Sh-5w8rCX0xW6W0BZC2cqqdMW69hpLS6ccpyqN16LN3n_N248W8nH5mK6zy2LdW37jcZT4gW51pW5CJR683QDWNDW2xKNdH5zpG-GW7XtC_85Gf5k0W6yp1cn6k7ctwW5qxf2h5D6hnKW1w0bS039BMdWW4NpcLX22Vm7FW8k4tTs20yQbhN4cm35XhXSc_W8Q__F35Nxck6W4zzP6H7c0-GcVzTMbC39z",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-reminder-sell-medicare-advantage-year-ro",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: Sell Medicare Advantage Year-Round in TX & FL with Devoted Health 5-Star Plans",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get contracted to Sell: ï»¿ â Devoted Health 5-Star Plans = Year-Round Medicare Salesï»¿ Texas & Florida Agentsï»¿ Great news for agents in Texas and Florida!ï»¿ For 2026, Devoted Health offers 5-Star Medicare Advantage plans in both states â which means you can use the 5-Star Special Enrollment Period and enroll Medicare clients year-round, not just during AEP.ï»¿ Why Devoted + Premier Insurance Contracts ï»¿ 5-Star pl",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-check-out-unitedhealthcare-medicare-adva",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Check out UnitedHealthcare Medicare Advantage Plans in the Medicare Product Portal",
+      "body": "<head> <title></title> <!--[if !mso]><!--> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <!--<![endif]--> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <style type=\"text/css\"> table, td, div, h1, p { font-family: Arial, sans-serif; } body { margin: 0; padding: 0; word-spacing: normal; background-color: #e4e4e4; } pre {white-space: normal!important;} h2 { margin:0;} </style> <!--[if mso]> <style typ",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-action-required-your-cherry-contract-is-",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "[ACTION REQUIRED] Your Cherry contract is 5 days past due",
+      "body": "*Your Cherry contract is 5 days past due* Yahoska, You are 5 days late on your $575.00 payment from your Glow Medspa Miami purchase. Make a payment to keep your Cherry contract in good standing. Make a Payment ( https://consumer.withcherry.com/portal/purchases ) If you've already made your payment or feel this email has been sent in error, contact us at support@withcherry.com ( support@withcherry.com?subject=&body= ). How do I access my Cherry Account? Log in to your Cherry Account ( http://cons",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-01-humana-careplus-september-calendar-of-ev",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Humana/Careplus September Calendar of Events",
+      "body": "Good afternoon & Happy Tuesday! AEP season is right around the corner, and now is the perfect time to get prepared, get energized, and get ahead. We invite you to join us throughout September for exciting in-person benefit rollout sessions designed to help you get ready for a successful AEP. These sessions are a great opportunity to learn more about the upcoming 2027 plan offerings, hear important updates, and connect with your team and carrier partners. In addition to our rollout meetings, we w",
+      "date": "Sep 1, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-09-01-uhc-transfer-blackout-active",
       "type": "urgent",
