@@ -31,7 +31,7 @@
  --radius:18px;
  --shadow:0 14px 30px rgba(20,10,40,.12);
  --shadow-soft:0 8px 18px rgba(20,10,40,.08);
- --maxw:1100px;
+ --maxw:860px;
 }
 *{box-sizing:border-box}
 body{
@@ -77,52 +77,87 @@ body{
  font-size:13px;
 }
 .crumb a{color:#fff;font-weight:800;text-decoration:underline;text-underline-offset:2px;}
-.section-h2{margin:22px 0 10px;font-size:18px;color:var(--primary);}
-.section-lead{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.55;}
-.grid{
- margin-top:0;
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:14px;
+.jump{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ margin:16px 0 6px;
 }
-@media(max-width:900px){ .grid{grid-template-columns:1fr;} }
-.card{
+.jump a{
+ text-decoration:none;
+ font-weight:800;
+ font-size:13px;
+ padding:8px 14px;
+ border-radius:999px;
+ border:1.5px solid var(--border);
+ background:#fff;
+ color:var(--primary);
+}
+.jump a:hover{border-color:var(--primary);background:rgba(69,32,104,.04);}
+.shelf{
+ margin-top:16px;
  background:var(--card);
  border:1px solid var(--border);
- border-radius:var(--radius);
+ border-radius:22px;
  box-shadow:var(--shadow-soft);
- padding:18px;
+ overflow:hidden;
+ scroll-margin-top:16px;
+}
+.shelf-head{
+ padding:18px 18px 14px;
+ border-bottom:1px solid var(--border);
+}
+.shelf-kicker{
+ display:inline-block;
+ font-size:11px;
+ font-weight:900;
+ letter-spacing:.5px;
+ text-transform:uppercase;
+ color:var(--accent);
+ margin-bottom:6px;
+}
+.shelf-head h2{margin:0 0 6px;font-size:20px;color:var(--primary);}
+.shelf-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.55;}
+.downloads{padding:12px;display:flex;flex-direction:column;gap:10px;}
+.dl{
+ display:grid;
+ grid-template-columns:76px minmax(0,1fr) auto;
+ gap:12px;
+ align-items:center;
+ padding:12px 14px;
+ border:1px solid var(--border);
+ border-radius:16px;
+ background:#fff;
+}
+.dl-en{border-left:5px solid var(--primary);}
+.dl-es{border-left:5px solid var(--accent);}
+.dl-lang{
  display:flex;
  flex-direction:column;
- gap:10px;
- min-height:220px;
+ align-items:flex-start;
+ gap:2px;
 }
-.card h2{margin:0;font-size:18px;}
-.meta{margin:0;font-size:14px;color:var(--muted);line-height:1.55;}
-.pills{display:flex;gap:8px;flex-wrap:wrap;}
-.pill{
- font-size:14px;
+.lang-code{
+ font-size:18px;
  font-weight:900;
- padding:6px 10px;
- border-radius:999px;
- border:1px solid rgba(69,32,104,.25);
- color:var(--primary);
- background:rgba(69,32,104,.04);
+ letter-spacing:.4px;
+ line-height:1;
 }
-.pill.hot{
- border-color:rgba(255,16,144,.35);
- color:#7a0c44;
- background:rgba(255,16,144,.08);
-}
-.actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+.dl-en .lang-code{color:var(--primary);}
+.dl-es .lang-code{color:var(--accent);}
+.lang-name{font-size:12px;font-weight:800;color:var(--muted);}
+.dl h3{margin:0 0 4px;font-size:16px;}
+.dl .meta{margin:0;font-size:13px;color:var(--muted);line-height:1.45;}
 .btn{
  text-decoration:none;
- padding:10px 12px;
+ padding:11px 14px;
  border-radius:14px;
  font-weight:900;
  font-size:14px;
  display:inline-block;
  border:1px solid transparent;
+ white-space:nowrap;
+ text-align:center;
 }
 .btn.primary{background:var(--primary);color:#fff;}
 .btn.accent{background:var(--accent);color:#fff;}
@@ -142,6 +177,13 @@ body{
 .pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
 .pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
 .pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+@media(max-width:700px){
+ .dl{
+  grid-template-columns:1fr;
+  gap:8px;
+ }
+ .btn{width:100%;}
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -175,64 +217,73 @@ body{
     </div>
   </section>
 
-  <h2 class="section-h2">Turning 65 / Cumpliendo 65</h2>
-  <p class="section-lead">Enrollment leave-behinds for people approaching Medicare. English and Spanish are separate files.</p>
-  <section class="grid">
-    <article class="card">
-      <div class="pills">
-        <span class="pill hot">English</span>
-        <span class="pill">2026</span>
-        <span class="pill">Leave-behind</span>
-      </div>
-      <h2>Turning 65 — 2026 Guide</h2>
-      <p class="meta">English client-facing sales guide for people approaching Medicare. Use as a leave-behind after Turning 65 appointments or send before the first meeting.</p>
-      <div class="actions">
-        <a class="btn accent" href="/files/turning-65-2026-en.pdf" target="_blank" rel="noopener">Open English PDF</a>
-      </div>
-    </article>
+  <nav class="jump" aria-label="Jump to a guide">
+    <a href="#turning-65">Turning 65 / Cumpliendo 65</a>
+    <a href="#mapd">MAPD Plan Comparison</a>
+  </nav>
 
-    <article class="card">
-      <div class="pills">
-        <span class="pill hot">Español</span>
-        <span class="pill">2026</span>
-        <span class="pill">Leave-behind</span>
-      </div>
-      <h2>Cumpliendo 65 — Guía 2026</h2>
-      <p class="meta">Guía de ventas para clientes que están por cumplir 65 años. Use como material para dejar o enviar después de la cita.</p>
-      <div class="actions">
+  <section class="shelf" id="turning-65">
+    <header class="shelf-head">
+      <span class="shelf-kicker">Leave-behind · 2026</span>
+      <h2>Turning 65 / Cumpliendo 65</h2>
+      <p>Enrollment leave-behind for people approaching Medicare. Print after the appointment or send before the first meeting.</p>
+    </header>
+    <div class="downloads">
+      <article class="dl dl-en">
+        <div class="dl-lang">
+          <span class="lang-code">EN</span>
+          <span class="lang-name">English</span>
+        </div>
+        <div>
+          <h3>Turning 65 — 2026 Guide</h3>
+          <p class="meta">PDF · Leave-behind · English only</p>
+        </div>
+        <a class="btn accent" href="/files/turning-65-2026-en.pdf" target="_blank" rel="noopener">Open English PDF</a>
+      </article>
+      <article class="dl dl-es">
+        <div class="dl-lang">
+          <span class="lang-code">ES</span>
+          <span class="lang-name">Español</span>
+        </div>
+        <div>
+          <h3>Cumpliendo 65 — Guía 2026</h3>
+          <p class="meta">PDF · Material para dejar · Solo en español</p>
+        </div>
         <a class="btn primary" href="/files/cumpliendo-65-2026-es.pdf" target="_blank" rel="noopener">Abrir PDF en español</a>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
 
-  <h2 class="section-h2">MAPD Plan Comparison</h2>
-  <p class="section-lead">2027 plan-year worksheet to compare up to three Medicare Advantage plans side by side. English and Spanish are separate files — not a combined bilingual download.</p>
-  <section class="grid">
-    <article class="card">
-      <div class="pills">
-        <span class="pill hot">English</span>
-        <span class="pill">2027</span>
-        <span class="pill">Worksheet</span>
-      </div>
-      <h2>MAPD Plan Comparison — English</h2>
-      <p class="meta">English client worksheet for comparing premiums, MOOP, doctors, drugs, and extra benefits across up to three MAPD plans.</p>
-      <div class="actions">
+  <section class="shelf" id="mapd">
+    <header class="shelf-head">
+      <span class="shelf-kicker">Worksheet · 2027 plan year</span>
+      <h2>MAPD Plan Comparison</h2>
+      <p>Side-by-side worksheet for up to three Medicare Advantage plans — premiums, MOOP, doctors, drugs, and extra benefits.</p>
+    </header>
+    <div class="downloads">
+      <article class="dl dl-en">
+        <div class="dl-lang">
+          <span class="lang-code">EN</span>
+          <span class="lang-name">English</span>
+        </div>
+        <div>
+          <h3>MAPD Plan Comparison — English</h3>
+          <p class="meta">PDF · Worksheet · English only</p>
+        </div>
         <a class="btn accent" href="/files/mapd-plan-comparison-2027-en.pdf" target="_blank" rel="noopener">Open English PDF</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="pills">
-        <span class="pill hot">Español</span>
-        <span class="pill">2027</span>
-        <span class="pill">Hoja de trabajo</span>
-      </div>
-      <h2>Comparación de planes MAPD — Español</h2>
-      <p class="meta">Hoja para comparar hasta tres planes Medicare Advantage: primas, MOOP, médicos, medicinas y beneficios extra. Archivo en español solamente.</p>
-      <div class="actions">
+      </article>
+      <article class="dl dl-es">
+        <div class="dl-lang">
+          <span class="lang-code">ES</span>
+          <span class="lang-name">Español</span>
+        </div>
+        <div>
+          <h3>Comparación de planes MAPD — Español</h3>
+          <p class="meta">PDF · Hoja de trabajo · Solo en español</p>
+        </div>
         <a class="btn primary" href="/files/mapd-plan-comparison-2027-es.pdf" target="_blank" rel="noopener">Abrir PDF en español</a>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
 
   <section class="note">
