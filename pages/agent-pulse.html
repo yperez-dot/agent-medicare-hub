@@ -106,6 +106,12 @@ function normalizeAlert(a) {
   };
 }
 
+const PULSE_PRIVATE = /wallet balance|personal access token|cherry contract|cherry collections|yperez-dot|igor-config|payment update needed|contract termination|sattori group|joseph gonzalez/i;
+function isPublicAlert(a) {
+  const hay = [a.id, a.title, a.body, a.summary].filter(Boolean).join(' ');
+  return !PULSE_PRIVATE.test(hay);
+}
+
 async function loadFeed() {
   try {
     const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
@@ -117,8 +123,9 @@ async function loadFeed() {
 
     // Alerts
     const container = document.getElementById('alerts-container');
-    if (data.alerts && data.alerts.length) {
-      container.innerHTML = data.alerts.map(normalizeAlert).map(a => `
+    const publicAlerts = (data.alerts || []).filter(isPublicAlert);
+    if (publicAlerts.length) {
+      container.innerHTML = publicAlerts.map(normalizeAlert).map(a => `
         <div class="alert-card ${a.type}">
           <div class="alert-emoji">${a.emoji}</div>
           <div class="alert-body">

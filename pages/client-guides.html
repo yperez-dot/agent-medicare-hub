@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Client Guides | Medicare Agent Hub</title>
+<style>
+:root{
+ --primary:#452068;
+ --primary-dark:#2f1348;
+ --accent:#ff1090;
+ --bg:#f7f5fb;
+ --card:#ffffff;
+ --text:#1f1b2a;
+ --muted:#6e687c;
+ --border:#ece8f3;
+ --radius:18px;
+ --shadow:0 14px 30px rgba(20,10,40,.12);
+ --shadow-soft:0 8px 18px rgba(20,10,40,.08);
+ --maxw:1100px;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'Inter',system-ui,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+.hero{
+ background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+ color:#fff;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:var(--shadow);
+ position:relative;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ inset:-1px;
+ background:
+ radial-gradient(360px 220px at 18% 15%, rgba(255,16,144,.26), transparent 60%),
+ radial-gradient(420px 260px at 85% 30%, rgba(255,255,255,.10), transparent 60%);
+ pointer-events:none;
+}
+.hero-inner{position:relative}
+.hero-badge{
+ display:inline-block;
+ background:rgba(255,255,255,.14);
+ padding:6px 12px;
+ border-radius:999px;
+ font-size:14px;
+ font-weight:900;
+ letter-spacing:.4px;
+ margin-bottom:10px;
+}
+.hero h1{margin:0 0 8px;font-size:30px;}
+.hero p{margin:0;opacity:.92;font-size:14px;line-height:1.55;max-width:90ch;}
+.crumb{
+ margin:14px 0 0;
+ font-size:13px;
+}
+.crumb a{color:#fff;font-weight:800;text-decoration:underline;text-underline-offset:2px;}
+.section-h2{margin:22px 0 10px;font-size:18px;color:var(--primary);}
+.section-lead{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.55;}
+.grid{
+ margin-top:0;
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:14px;
+}
+@media(max-width:900px){ .grid{grid-template-columns:1fr;} }
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ box-shadow:var(--shadow-soft);
+ padding:18px;
+ display:flex;
+ flex-direction:column;
+ gap:10px;
+ min-height:220px;
+}
+.card h2{margin:0;font-size:18px;}
+.meta{margin:0;font-size:14px;color:var(--muted);line-height:1.55;}
+.pills{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{
+ font-size:14px;
+ font-weight:900;
+ padding:6px 10px;
+ border-radius:999px;
+ border:1px solid rgba(69,32,104,.25);
+ color:var(--primary);
+ background:rgba(69,32,104,.04);
+}
+.pill.hot{
+ border-color:rgba(255,16,144,.35);
+ color:#7a0c44;
+ background:rgba(255,16,144,.08);
+}
+.actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+ text-decoration:none;
+ padding:10px 12px;
+ border-radius:14px;
+ font-weight:900;
+ font-size:14px;
+ display:inline-block;
+ border:1px solid transparent;
+}
+.btn.primary{background:var(--primary);color:#fff;}
+.btn.accent{background:var(--accent);color:#fff;}
+.btn:hover{filter:brightness(1.05);}
+.note{
+ margin-top:14px;
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:14px;
+ box-shadow:var(--shadow-soft);
+}
+.note p{margin:0;color:var(--muted);font-size:14px;line-height:1.6;}
+.note a{color:var(--primary);font-weight:800;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a class='active' href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+  </nav>
+</div>
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Broker University</div>
+      <h1>Client Guides</h1>
+      <p>Client-facing leave-behinds for appointments. English and Spanish are always separate downloads — pick the language your client needs.</p>
+      <p class="crumb"><a href="/learn">← Back to Broker University</a></p>
+    </div>
+  </section>
+
+  <h2 class="section-h2">Turning 65 / Cumpliendo 65</h2>
+  <p class="section-lead">Enrollment leave-behinds for people approaching Medicare. English and Spanish are separate files.</p>
+  <section class="grid">
+    <article class="card">
+      <div class="pills">
+        <span class="pill hot">English</span>
+        <span class="pill">2026</span>
+        <span class="pill">Leave-behind</span>
+      </div>
+      <h2>Turning 65 — 2026 Guide</h2>
+      <p class="meta">English client-facing sales guide for people approaching Medicare. Use as a leave-behind after Turning 65 appointments or send before the first meeting.</p>
+      <div class="actions">
+        <a class="btn accent" href="/files/turning-65-2026-en.pdf" target="_blank" rel="noopener">Open English PDF</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="pills">
+        <span class="pill hot">Español</span>
+        <span class="pill">2026</span>
+        <span class="pill">Leave-behind</span>
+      </div>
+      <h2>Cumpliendo 65 — Guía 2026</h2>
+      <p class="meta">Guía de ventas para clientes que están por cumplir 65 años. Use como material para dejar o enviar después de la cita.</p>
+      <div class="actions">
+        <a class="btn primary" href="/files/cumpliendo-65-2026-es.pdf" target="_blank" rel="noopener">Abrir PDF en español</a>
+      </div>
+    </article>
+  </section>
+
+  <h2 class="section-h2">MAPD Plan Comparison</h2>
+  <p class="section-lead">2027 plan-year worksheet to compare up to three Medicare Advantage plans side by side. English and Spanish are separate files — not a combined bilingual download.</p>
+  <section class="grid">
+    <article class="card">
+      <div class="pills">
+        <span class="pill hot">English</span>
+        <span class="pill">2027</span>
+        <span class="pill">Worksheet</span>
+      </div>
+      <h2>MAPD Plan Comparison — English</h2>
+      <p class="meta">English client worksheet for comparing premiums, MOOP, doctors, drugs, and extra benefits across up to three MAPD plans.</p>
+      <div class="actions">
+        <a class="btn accent" href="/files/mapd-plan-comparison-2027-en.pdf" target="_blank" rel="noopener">Open English PDF</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="pills">
+        <span class="pill hot">Español</span>
+        <span class="pill">2027</span>
+        <span class="pill">Hoja de trabajo</span>
+      </div>
+      <h2>Comparación de planes MAPD — Español</h2>
+      <p class="meta">Hoja para comparar hasta tres planes Medicare Advantage: primas, MOOP, médicos, medicinas y beneficios extra. Archivo en español solamente.</p>
+      <div class="actions">
+        <a class="btn primary" href="/files/mapd-plan-comparison-2027-es.pdf" target="_blank" rel="noopener">Abrir PDF en español</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="note">
+    <p>These are agent-facing leave-behinds — not official SSA/CMS enrollment forms. For SSA-44, CMS-40B, and CMS-L564, use <a href="/client-forms">Client Forms &amp; Appeals</a> in Broker University.</p>
+  </section>
+</div>
+<script>
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+</body>
+</html>

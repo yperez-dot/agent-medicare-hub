@@ -1,7 +1,106 @@
 {
-  "updated": "2026-08-21",
+  "updated": "2026-09-01",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-01-uhc-transfer-blackout-active",
+      "type": "urgent",
+      "emoji": "🚫",
+      "title": "UHC Transfer Blackout Active Now — Humana, Elevance & Devoted Also In Effect",
+      "body": "UnitedHealthcare's transfer/release blackout is in effect today (Sep 1 – Dec 31). Also active: Humana (Jul 15–Dec 31), Elevance (Jul 1–Sep 30), Devoted delayed releases (Aug 15 onward), and HCSC (full freeze). HealthSpring starts Sep 15. Aetna, Clover, Molina, and SCAN start Oct 1. Full schedule in the Agent Hub.",
+      "date": "Sep 1, 2026",
+      "source": "/contracting-blackout"
+    },
+    {
+      "id": "2026-08-28-uhc-2026-aca-commission-schedule",
+      "type": "update",
+      "emoji": "📋",
+      "title": "UHC 2026 ACA Commission Schedule",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell: Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a $100 welcome bonus from us. PHONE NUMBER: 1 800 249 0173 | Premier Insurance Contracts, Inc. | 832 850 6873 | | emailreply@prinsuco.com | www.prinsuco.com | STAY CONNECTED Premier Insurance Contracts Inc | 16750 Hedgecroft Drive Ste 500 | H",
+      "date": "Aug 28, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-28-critical-cms-changes-every-broker-needs-",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Critical CMS Changes Every Broker Needs to Know",
+      "body": "https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5ODJ9AAoAAAAABFPt_iRUYzPAhiq-ko1byjtqjKZiL8JB2LeRwHeJVFXM7AHnqYaTAyu0NlM9KjdZnL-dpg7TPsjZp_SMV2GdsMuQj7h9md7o-tH5EjjF https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5ODJ9AAoAAAAABFPt_iRVRjgNhtqOI7Lc8G6w7yIXSLv4bHBIuwK6UmMHW7Qga_AyNrvk4QG_bp0eH1YHaN3hV_vzrao78iZBgjIbboHNZWwIwg22RE_H Broker Login | https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5ODJ9AAoAAAAABFPt_iRWJEaSrrOgAXqGwYV0Cro-gMPT_-eYQID4lAlyBPKwzZd4L7nRrdDUFJe4l050dUJ",
+      "date": "Aug 28, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-28-get-contracted-to-sell-unitedhealthone",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Get Contracted to Sell Unitedhealthone",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell UnitedHealthOne: Why UHOne? Comprehensive Product Portfolio to Meet Your Clients Needs Nationally Recognized Brand of United Healthcare Competitive Commissions Sell Year-Round With No Enrollment Windows Online Support & Training to Help You Succeed PHONE NUMBER: 1 800 249 0173 ï»¿| Premier Insurance Contracts, Inc. | 832 850 6873 | STAY CONNECTED â Premier Insurance Contracts Inc | 16750 Hedgecroft ",
+      "date": "Aug 28, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-28-you-re-invited-learn-what-s-new-in-2027-",
+      "type": "update",
+      "emoji": "📋",
+      "title": "You’re invited: Learn what's new in 2027 for UnitedHealthcare Individual & Family Plans in your state",
+      "body": "Para ver este mensaje en espanol, haga clic aqui (https://cvent.me/EA1rOo?i=RAFlCSv9kUSG9IeLNJyZkA&locale=en-US&pc=Invitation+%28Spanish%29). You're invited! UnitedHealthcare Individual and Family Plans Marketplace open enrollment period is almost here. Learn what's new in your state for 2027. Register now for one of our broker events to kick off the 2027 selling season. Click the button below to register for an event near you. Register now (https://cvent.me/EA1rOo?i=RAFlCSv9kUSG9IeLNJyZkA&local",
+      "date": "Aug 28, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-30-reminder-uhc-2026-aca-commission-schedul",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: UHC 2026 ACA Commission Schedule",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell: Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a $100 welcome bonus from us. PHONE NUMBER: 1 800 249 0173 | Premier Insurance Contracts, Inc. | 832 850 6873 | | emailreply@prinsuco.com | www.prinsuco.com | STAY CONNECTED Premier Insurance Contracts Inc | 16750 Hedgecroft Drive Ste 500 | H",
+      "date": "Aug 30, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-30-reminder-get-contracted-to-sell-unitedhe",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: Get Contracted to Sell Unitedhealthone",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell UnitedHealthOne: Why UHOne? Comprehensive Product Portfolio to Meet Your Clients Needs Nationally Recognized Brand of United Healthcare Competitive Commissions Sell Year-Round With No Enrollment Windows Online Support & Training to Help You Succeed PHONE NUMBER: 1 800 249 0173 ï»¿| Premier Insurance Contracts, Inc. | 832 850 6873 | STAY CONNECTED â Premier Insurance Contracts Inc | 16750 Hedgecroft ",
+      "date": "Aug 30, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-30-reminder-get-ready-for-aep-27-reserve-yo",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: Get Ready for AEP '27: Reserve Your Spot at the Devoted Health Mini-Rollouts!",
+      "body": "Get ready for an exceptional AEP '2027!This year, weâre doing things a little differently. Instead of the massive, crowded rollout events of the past, we are bringing the updates and insights directly to you through the Devoted Health PY27 Roadshow!For agents who don't have a central agency officeâor just prefer a more personal, face-to-face settingâour local team is hosting exclusive Mini-Rollouts. Join us for an intimate, deep-dive informative session to get a first look at our 2027 bene",
+      "date": "Aug 30, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-31-quick-summary-devoted-health-2027-aep-to",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Quick Summary: Devoted Health 2027 AEP Tools, Local Roadshow Events & Key Dates",
+      "body": "Hi Valued Broker, Devoted Health released its August update for Plan Year 2027 (PY27). Below are the key takeaways, resources, upcoming local events, and deadlines you need to get ready for AEP. *1. Devoted Health PY27 Local Roadshows & Mini-Rollouts* Instead of massive rollout events, Devoted is hosting intimate local Mini-Rollout sessions for deep-dive updates on 2027 benefits, strategy, and tools. Use the links below to register for an event in Miami: - *Miami-Dade:* Eventbrite - Miami-Dade <",
+      "date": "Aug 31, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-31-sell-medicare-advantage-year-round-in-tx",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Sell Medicare Advantage Year-Round in TX & FL with Devoted Health 5-Star Plans",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get contracted to Sell: ï»¿ â Devoted Health 5-Star Plans = Year-Round Medicare Salesï»¿ Texas & Florida Agentsï»¿ Great news for agents in Texas and Florida!ï»¿ For 2026, Devoted Health offers 5-Star Medicare Advantage plans in both states â which means you can use the 5-Star Special Enrollment Period and enroll Medicare clients year-round, not just during AEP.ï»¿ Why Devoted + Premier Insurance Contracts ï»¿ 5-Star pl",
+      "date": "Aug 31, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-08-31-disaster-seps-in-ar-co-hi-il-in-ks-mo-nv",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Disaster SEPs in AR, CO, HI, IL, IN, KS, MO, NV, TX, and WA",
+      "body": "Email from HCSC For any impacted client who missed an election period in the above state(s). â â â Disaster Special Election Periods (DST-SEPs) DST-SEPs in Arkansas, Colorado, Hawaii, Illinois, Indiana, Kansas, Missouri, Nevada, Texas, and Washington â â This communication is an important announcement for those with clientele and business in the following states, commonwealths, and/or districts: Arkansas, Colorado, Hawaii, Illinois, Indiana, Kansas, Missouri, Nevada, Texas, and Washing",
+      "date": "Aug 31, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-08-06-soa-cy2027-rule",
       "type": "urgent",
@@ -42,7 +141,7 @@
       "id": "2026-07-24-solis-aep2027-kickoff",
       "type": "event",
       "emoji": "🌴",
-      "title": "Solis AEP 2027 Kickoff \u2014 South Florida | Aug 28 @ 11AM",
+      "title": "Solis AEP 2027 Kickoff — South Florida | Aug 28 @ 11AM",
       "body": "Jungle Island, 1111 Parrot Jungle Trail, Miami FL 33132. Be the first to discover Solis 2027 benefits. RSVP to secure your seat.",
       "date": "Jul 24, 2026",
       "source": null
@@ -51,34 +150,34 @@
       "id": "2026-07-24-2027-blackout-dates",
       "type": "urgent",
       "emoji": "🚫",
-      "title": "2027 MA Contracting Blackout Dates \u2014 Humana & Elevance Already Active",
-      "body": "Humana (Jul 15) and Elevance (Jul 1) transfer blackouts are in effect now. UHC blackout starts Sep 1 \u2014 submit any pending transfers immediately. Full schedule for all 14 carriers now in the Agent Hub.",
+      "title": "2027 MA Contracting Blackout Dates — Full Schedule in Agent Hub",
+      "body": "Transfer/release blackout schedule for 14 carriers is in the Agent Hub. Humana, Elevance, Devoted delayed-release, and UHC windows are now in effect — see the live schedule for current status.",
       "date": "Jul 24, 2026",
       "source": "/contracting-blackout"
     },
     {
       "id": "2026-07-22-devoted-cvs-events",
       "type": "urgent",
-      "emoji": "\u23f0",
-      "title": "Devoted \u2014 CVS Event Slots \u00b7 DEADLINE THIS FRIDAY Jul 24 @ Noon (Sep/Oct/Nov 2026)",
-      "body": "Roberto Sanchez (rsanchez@devoted.com \u00b7 786-355-1071) collecting CVS event requests for Sep\u2013Nov 2026 in Miami-Dade. Deadline: Fri Jul 24 at 12:00 PM sharp \u2014 all MCOs submit concurrently. Include store #, date, and time. Location list in theiagentpulse inbox.",
+      "emoji": "⏰",
+      "title": "Devoted — CVS Event Slots · DEADLINE THIS FRIDAY Jul 24 @ Noon (Sep/Oct/Nov 2026)",
+      "body": "Roberto Sanchez (rsanchez@devoted.com · 786-355-1071) collecting CVS event requests for Sep–Nov 2026 in Miami-Dade. Deadline: Fri Jul 24 at 12:00 PM sharp — all MCOs submit concurrently. Include store #, date, and time. Location list in theiagentpulse inbox.",
       "date": "Jul 22, 2026",
       "source": null
     },
     {
       "id": "2026-07-22-aetna-academy-jul30",
       "type": "event",
-      "emoji": "\ud83d\udcc5",
-      "title": "Aetna Academy \u2014 National Medicare Training Webinar \u00b7 July 30",
-      "body": "National Medicare training webinar with actionable strategies. 8 days away \u2014 register your agents now if not done.",
+      "emoji": "📅",
+      "title": "Aetna Academy — National Medicare Training Webinar · July 30",
+      "body": "National Medicare training webinar with actionable strategies. 8 days away — register your agents now if not done.",
       "date": "Jul 22, 2026",
       "source": null
     },
     {
       "id": "2026-07-22-devoted-aep-training",
       "type": "event",
-      "emoji": "\ud83c\udf93",
-      "title": "Devoted \u2014 AEP Summer Training \u00b7 Medicaid/LIS + Portal Nav (July/August)",
+      "emoji": "🎓",
+      "title": "Devoted — AEP Summer Training · Medicaid/LIS + Portal Nav (July/August)",
       "body": "Live walkthroughs covering Medicaid/LIS Deep Dive and Portal Navigation. Pre-AEP prep for the team. Reply to Jean-Luc Batista to schedule.",
       "date": "Jul 22, 2026",
       "source": null
@@ -86,8 +185,8 @@
     {
       "id": "2026-07-22-healthspring-august-training",
       "type": "event",
-      "emoji": "\ud83d\udccc",
-      "title": "HealthSpring \u2014 August Broker Training Schedule Released",
+      "emoji": "📌",
+      "title": "HealthSpring — August Broker Training Schedule Released",
       "body": "HealthSpring released their August broker training schedule. Check theiagentpulse inbox for the full schedule and registration link.",
       "date": "Jul 22, 2026",
       "source": null
@@ -97,7 +196,7 @@
       "type": "update",
       "emoji": "📋",
       "title": "Devoted PY27 Certification Now Open",
-      "body": "Devoted PY27 certification opened June 23. Certifying for PY27 automatically makes you RTS for PY26. Key dates: Mid-August \u2014 PY27 Broker Plans-at-a-Glance released. Late August \u2014 PY27 broker rollout events. Look for 'Welcome to Devoted' email to confirm RTS status.",
+      "body": "Devoted PY27 certification opened June 23. Certifying for PY27 automatically makes you RTS for PY26. Key dates: Mid-August — PY27 Broker Plans-at-a-Glance released. Late August — PY27 broker rollout events. Look for 'Welcome to Devoted' email to confirm RTS status.",
       "date": "Jul 15, 2026",
       "source": null
     },
@@ -113,8 +212,8 @@
     {
       "id": "2026-07-15-elevance-aep-reveal",
       "type": "event",
-      "emoji": "\ud83c\udfa4",
-      "title": "\ud83c\udfa4 SAVE THE DATE \u2014 Elevance AEP 2027 Benefits Reveal \u00b7 Aug 25 \u00b7 Seminole Hard Rock, Hollywood FL",
+      "emoji": "🎤",
+      "title": "🎤 SAVE THE DATE — Elevance AEP 2027 Benefits Reveal · Aug 25 · Seminole Hard Rock, Hollywood FL",
       "body": "Elevance Health (HealthSun, Simply, Freedom, Optimum) AEP 2027 Medicare portfolio preview. Registration details coming soon. Contact: DL-SHP-SFLBroker@elevancehealth.com",
       "date": "Jul 15, 2026",
       "source": "/agent-pulse",
@@ -123,25 +222,25 @@
     {
       "id": "2026-07-14-uhc-um",
       "type": "urgent",
-      "emoji": "\ud83d\udea8",
+      "emoji": "🚨",
       "title": "UHC Utilization Management Policy Update",
-      "body": "UHC has updated its prior authorization requirements for certain outpatient services effective Q3 2026. Review client plans with high utilization \u2014 agents should proactively reach out to affected members.",
+      "body": "UHC has updated its prior authorization requirements for certain outpatient services effective Q3 2026. Review client plans with high utilization — agents should proactively reach out to affected members.",
       "date": "Jul 14, 2026",
       "source": null
     },
     {
       "id": "2026-08-21-sep-tracker",
       "type": "update",
-      "emoji": "\ud83d\udccb",
-      "title": "Florida Disaster SEPs \u2014 Current Status",
-      "body": "Florida statewide SEP for Impacts of Winter Weather, Droughts, and Wildfire Risks is renewed through Dec 31, 2026 (incident period Jan 31 \u2013 Nov 3). Milton, Helene, Debby, and the May thunderstorms SEPs have ended. Check the SEP Tracker for counties and other states.",
+      "emoji": "📋",
+      "title": "Florida Disaster SEPs — Current Status",
+      "body": "Florida statewide SEP for Impacts of Winter Weather, Droughts, and Wildfire Risks is renewed through Dec 31, 2026 (incident period Jan 31 – Nov 3). Milton, Helene, Debby, and the May thunderstorms SEPs have ended. Check the SEP Tracker for counties and other states.",
       "date": "Aug 21, 2026",
       "source": "/sep-tracker.html"
     },
     {
       "id": "2026-05-10-ma-auto-enrollment",
       "type": "watch",
-      "emoji": "\ud83d\udc40",
+      "emoji": "👀",
       "title": "CMS Considering MA Auto-Enrollment for New Beneficiaries",
       "body": "Trump administration's CMS is reviewing making Medicare Advantage the default enrollment for newly eligible beneficiaries. If this advances, the AEP sales motion changes fundamentally for Florida agents. No formal rule published yet.",
       "date": "May 10, 2026",
@@ -150,7 +249,7 @@
     {
       "id": "2026-05-10-maia",
       "type": "update",
-      "emoji": "\ud83d\udccb",
+      "emoji": "📋",
       "title": "Medicare Advantage Improvement Act of 2026 Moving in Congress",
       "body": "Bipartisan HR 8375 / S 4384 would require MA plans to follow traditional Medicare's medical necessity standards and ban algorithmic auto-denials. Track committee markup over the next 30-60 days.",
       "date": "May 10, 2026",
@@ -159,7 +258,7 @@
     {
       "id": "2026-05-10-elevance",
       "type": "watch",
-      "emoji": "\u26a0\ufe0f",
+      "emoji": "⚠️",
       "title": "Elevance / Anthem MA Enrollment Suspension Still Active",
       "body": "CMS sanction took effect March 31, 2026. Elevance cannot enroll new members until cleared. Clients already enrolled are unaffected. Watch for CMS clearance announcement before AEP 2027 marketing season.",
       "date": "May 10, 2026",
@@ -168,16 +267,23 @@
   ],
   "weekly_pulses": [
     {
+      "week": "Week of August 31, 2026",
+      "date": "Aug 31, 2026",
+      "headline": "CMS flags $1.6B in lab fraud, The Villages Health settles $541.5M, and AEP 2027 is six weeks out.",
+      "link": "/pulse-2026-08-31.html",
+      "tag": "Latest"
+    },
+    {
       "week": "Week of July 13, 2026",
       "date": "Jul 13, 2026",
-      "headline": "UHC UM policy changes \u00b7 Florida SEP deadlines \u00b7 MA network exits \u00b7 Elevance suspension update",
+      "headline": "UHC UM policy changes · Florida SEP deadlines · MA network exits · Elevance suspension update",
       "link": "/pulse-2026-07-13.html",
-      "tag": "Latest"
+      "tag": ""
     },
     {
       "week": "Week of May 10, 2026",
       "date": "May 10, 2026",
-      "headline": "MA auto-enrollment debate \u00b7 MAIA in Congress \u00b7 Network contractions \u00b7 UHC & Humana Q1 earnings",
+      "headline": "MA auto-enrollment debate · MAIA in Congress · Network contractions · UHC & Humana Q1 earnings",
       "link": "/pulse-2026-05-10.html",
       "tag": ""
     }

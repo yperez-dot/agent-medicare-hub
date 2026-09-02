@@ -369,14 +369,7 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
       <a class='ql-item' href='/retention-toolkit'>
         <div class="ql-left">
           <span class="ql-name">Retention Toolkit</span>
-          <span class="ql-desc">AEP review calendar &amp; email templates</span>
-        </div>
-        <span class="ql-arrow">→</span>
-      </a>
-      <a class='ql-item' href='/retention-toolkit#aep-reviews'>
-        <div class="ql-left">
-          <span class="ql-name">AEP 2027 reviews</span>
-          <span class="ql-desc">Book-of-business calendar Sep 8–Oct 14</span>
+          <span class="ql-desc">Bilingual email templates for every client touchpoint</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
@@ -391,6 +384,13 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
         <div class="ql-left">
           <span class="ql-name">Carrier Contact Guide</span>
           <span class="ql-desc">All 14 carriers — phones &amp; contacts</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
+      <a class='ql-item' href='/client-guides'>
+        <div class="ql-left">
+          <span class="ql-name">Client Guides</span>
+          <span class="ql-desc">Turning 65 / Cumpliendo 65 leave-behinds</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
@@ -464,7 +464,6 @@ const SEARCH_INDEX = [
   {icon:'📋',title:'Nextere — Contracting',desc:'Contracting for Doctors Health, Solis, Gold Kidney, HealthSun.',tags:['nextere','doctors health','solis','gold kidney','healthsun','contracting'],url:'/tools-perks.html'},
   {icon:'💊',title:'Medicaid & LIS / Extra Help',desc:'QMB, SLMB, income limits and eligibility rules.',tags:['medicaid','lis','extra help','qmb','slmb','income','low income'],url:'/learn.html'},
   {icon:'📧',title:'Retention Email Templates',desc:'7 client email templates — birthday, AEP, mid-year, annual review.',tags:['retention','email','template','birthday','aep','annual review','client'],url:'/retention-toolkit.html'},
-  {icon:'📅',title:'AEP 2027 Review Calendar',desc:'Log book-of-business reviews Sep 8–Oct 14. Today count on the Retention Toolkit.',tags:['aep','review','calendar','book of business','retention'],url:'/retention-toolkit.html#aep-reviews'},
   {icon:'🎓',title:'Broker University',desc:'Medicare basics, sales scripts, training guides, lead gen resources.',tags:['training','university','learn','medicare basics','sales','script','education','basics'],url:'/learn.html'},
   {icon:'📇',title:'Business Card Generator (EN)',desc:'Generate your THEI-branded digital business card instantly.',tags:['business card','card','generator','digital','brand','tarjeta'],url:'https://moonlit-douhua-e20b2a.netlify.app/'},
   {icon:'📇',title:'Business Card Generator (ES)',desc:'Genera tu tarjeta digital de THEI en segundos.',tags:['tarjeta','business card','spanish','espanol','generator'],url:'https://boisterous-truffle-d00468.netlify.app/'},
@@ -472,6 +471,11 @@ const SEARCH_INDEX = [
   {icon:'🔗',title:'MedicarePRO CRM',desc:'CRM for managing leads and client pipeline.',tags:['medicaRepro','crm','leads','pipeline','pro'],url:'/tools-perks.html'},
   {icon:'🔗',title:'XCLUSIVE CRM',desc:'CRM platform access for agents.',tags:['xclusive','crm','platform'],url:'/tools-perks.html'},
 
+  {icon:'📘',title:'Client Guides',desc:'Turning 65 / Cumpliendo 65 and MAPD comparison leave-behinds. English and Spanish are separate downloads.',tags:['client guides','turning 65','cumpliendo 65','mapd','plan comparison','leave behind','enrollment guide','spanish','english','sales guide'],url:'/client-guides'},
+  {icon:'📄',title:'Turning 65 — 2026 Guide (English)',desc:'English client leave-behind for people approaching Medicare.',tags:['turning 65','t65','english','leave behind','enrollment'],url:'/files/turning-65-2026-en.pdf'},
+  {icon:'📄',title:'Cumpliendo 65 — Guía 2026 (Español)',desc:'Guía para clientes que están por cumplir 65 años.',tags:['cumpliendo 65','spanish','espanol','español','leave behind'],url:'/files/cumpliendo-65-2026-es.pdf'},
+  {icon:'📄',title:'MAPD Plan Comparison — English',desc:'2027 English worksheet to compare up to three Medicare Advantage plans.',tags:['mapd','plan comparison','worksheet','english','2027','medicare advantage'],url:'/files/mapd-plan-comparison-2027-en.pdf'},
+  {icon:'📄',title:'Comparación de planes MAPD — Español',desc:'Hoja 2027 en español para comparar hasta tres planes MAPD.',tags:['mapd','comparacion','comparación','spanish','espanol','español','2027'],url:'/files/mapd-plan-comparison-2027-es.pdf'},
   {icon:'📋',title:'Client Forms & Appeals',desc:'SSA-44 IRMAA appeal, CMS-40B Part B application, CMS-L564 employer verification, SEP exceptional conditions.',tags:['client forms','forms','appeals','ssa-44','irmaa appeal','cms-40b','part b application','cms-l564','employer verification','sep','exceptional'],url:'/learn.html'},
   {icon:'📄',title:'SSA-44 — IRMAA Appeal Form',desc:'Life-changing event appeal to reduce IRMAA surcharge. Social Security form.',tags:['ssa-44','irmaa','appeal','life changing','surcharge','social security','form'],url:'/learn.html'},
   {icon:'📄',title:'CMS-40B — Part B Application',desc:'Application for enrollment in Medicare Part B. Pair with CMS-L564 for SEP.',tags:['cms-40b','part b','application','enrollment','medicare part b','40b'],url:'/learn.html'},
@@ -517,11 +521,18 @@ function renderAepCountdown() {
 }
 renderAepCountdown();
 
+// Block personal / internal inbox items so they never appear on the public ticker.
+const TICKER_PRIVATE = /wallet balance|personal access token|cherry contract|cherry collections|yperez-dot|igor-config|payment update needed|contract termination|sattori group|joseph gonzalez/i;
+function isPublicAlert(a) {
+  const hay = [a.id, a.title, a.body, a.summary].filter(Boolean).join(' ');
+  return !TICKER_PRIVATE.test(hay);
+}
+
 // Load news bulletin + Active FL SEPs count from pulse-feed.json
 async function loadNewsBulletin() {
   const sepEl = document.getElementById('sepCount');
   try {
-    const res = await fetch('/files/pulse-feed.json');
+    const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
  const data = await res.json();
 
     // Active FL SEPs — additive field on pulse-feed.json. Falls back to
@@ -532,6 +543,7 @@ async function loadNewsBulletin() {
     const now = Date.now();
     const cutoff = now - (60 * 24 * 60 * 60 * 1000); // 60 days
     const recent = data.alerts.filter(a => {
+      if (!isPublicAlert(a)) return false;
       const d = new Date(a.date);
       return !isNaN(d) && d.getTime() >= cutoff;
     });
@@ -1080,6 +1092,7 @@ function logout() {
   localStorage.removeItem('hub_session');
   window.location.replace('/login.html');
 }
+try { localStorage.removeItem('thei_aep_reviews_2027'); } catch(e){}
 
 (function(){
   const input = document.getElementById('hubSearch');

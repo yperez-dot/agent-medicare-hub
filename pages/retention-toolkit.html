@@ -88,17 +88,6 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .accord-item summary::after{content:"▾";color:var(--purple);}
 details[open] summary::after{content:"▴";}
 .accord-body{padding:4px 4px 14px;font-size:13.5px;color:var(--text-soft);}
-.aep-cal{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;margin:0 0 24px;box-shadow:0 1px 3px rgba(36,28,46,0.06);}
-.aep-cal h2{font-size:18px;margin:0 0 8px;}
-.aep-cal .aep-today{font-size:28px;font-weight:800;color:var(--purple);}
-.aep-cal table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:12px;}
-.aep-cal th,.aep-cal td{padding:8px 6px;border-bottom:1px solid var(--border);text-align:left;}
-.aep-cal input,.aep-cal select{width:100%;padding:6px 8px;border:1px solid var(--border);border-radius:8px;font:inherit;}
-.aep-cal .aep-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
-.aep-cal button{background:var(--purple);color:#fff;border:none;border-radius:999px;padding:8px 14px;font:600 12.5px/1 Arial,sans-serif;cursor:pointer;}
-.aep-cal button.ghost{background:#fff;color:var(--purple);border:1.5px solid var(--purple);}
-.aep-ads{background:#FFF6FB;border:1px solid #FFD0E8;border-radius:12px;padding:14px 16px;margin-top:14px;font-size:13.5px;color:var(--text-soft);}
-.aep-ads code{font-size:12px;word-break:break-all;}
 @media(max-width:768px){.grid-4{grid-template-columns:1fr 1fr;}.two-col{grid-template-columns:1fr;}.stat-row{gap:16px;}}
 @media(max-width:480px){.grid-4{grid-template-columns:1fr;}}
 .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
@@ -190,34 +179,6 @@ details[open] summary::after{content:"▴";}
         <div class="ts-label">Annual Review</div>
         <div class="ts-note">Renewal confirm</div>
       </div>
-    </div>
-  </div>
-
-  <div class="aep-cal" id="aep-reviews">
-    <h2>AEP book-of-business reviews</h2>
-    <p style="color:var(--text-soft);font-size:14px;margin:0 0 12px;">Sep 8–Oct 14. Export your 2026 MA/MAPD book from MedicarePro or GHL, then log reviews here. Names stay on this device — not a second CRM.</p>
-    <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end;">
-      <div><div class="aep-today" id="aepTodayCount">0</div><div style="font-size:12px;color:var(--text-soft);">Today’s reviews</div></div>
-      <div><div class="aep-today" id="aepOpenCount" style="color:var(--pink);">0</div><div style="font-size:12px;color:var(--text-soft);">Open through Oct 14</div></div>
-    </div>
-    <table>
-      <thead><tr><th>Date</th><th>Client</th><th>Status</th><th></th></tr></thead>
-      <tbody id="aepCalBody"></tbody>
-    </table>
-    <div class="aep-actions">
-      <input id="aepName" placeholder="Client name" style="max-width:220px;">
-      <input id="aepDate" type="date" style="max-width:160px;">
-      <button type="button" id="aepAdd">Add review</button>
-      <button type="button" class="ghost" id="aepExport">Export CSV</button>
-    </div>
-    <p style="font-size:12.5px;color:var(--text-soft);margin:12px 0 0;">Status: Not started → Booked → SOA on file → Done. Use the Pre-AEP September email above, then book the call.</p>
-    <div class="aep-ads">
-      <strong>GHL SLA (cannot be set from this repo):</strong> first call/text in under 5 minutes, 9am–6pm ET. After hours: Elena, then morning queue. Test a site form + WhatsApp into GHL today. Kill the New / No Answer pile before AEP.
-      <br><br>
-      <strong>Facebook ads — do not raise spend until that SLA is true.</strong><br>
-      Destination (same URL organic uses):<br>
-      <code>https://www.healthexps.com/medicare-annual-enrollment-2027/?utm_source=facebook&amp;utm_medium=paid&amp;utm_campaign=aep-2027&amp;utm_content=c1</code><br>
-      ES: <code>https://www.healthexps.com/es/inscripcion-anual-medicare-2027/?utm_source=facebook&amp;utm_medium=paid&amp;utm_campaign=aep-2027</code>
     </div>
   </div>
 
@@ -327,57 +288,7 @@ details[open] summary::after{content:"▴";}
 
 <script>
 function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
-
-(function(){
-  var KEY = 'thei_aep_reviews_2027';
-  var body = document.getElementById('aepCalBody');
-  if (!body) return;
-  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e){ return []; } }
-  function save(rows){ localStorage.setItem(KEY, JSON.stringify(rows)); }
-  function todayStr(){
-    var d = new Date();
-    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-  }
-  function render(){
-    var rows = load();
-    var t = todayStr();
-    document.getElementById('aepTodayCount').textContent = rows.filter(function(r){ return r.date === t; }).length;
-    document.getElementById('aepOpenCount').textContent = rows.filter(function(r){ return r.status !== 'Done'; }).length;
-    body.innerHTML = '';
-    rows.sort(function(a,b){ return (a.date||'').localeCompare(b.date||''); }).forEach(function(r, i){
-      var tr = document.createElement('tr');
-      tr.innerHTML = '<td>'+r.date+'</td><td>'+r.name+'</td><td></td><td><button type="button" class="ghost" data-i="'+i+'">Remove</button></td>';
-      var sel = document.createElement('select');
-      ['Not started','Booked','SOA on file','Done'].forEach(function(s){
-        var o = document.createElement('option'); o.value=s; o.textContent=s; if(r.status===s) o.selected=true; sel.appendChild(o);
-      });
-      sel.addEventListener('change', function(){ var all=load(); all[i].status=sel.value; save(all); render(); });
-      tr.children[2].appendChild(sel);
-      tr.querySelector('button').addEventListener('click', function(){ var all=load(); all.splice(i,1); save(all); render(); });
-      body.appendChild(tr);
-    });
-  }
-  document.getElementById('aepAdd').addEventListener('click', function(){
-    var name = (document.getElementById('aepName').value || '').trim();
-    var date = document.getElementById('aepDate').value || todayStr();
-    if (!name) return;
-    var rows = load();
-    rows.push({ name: name, date: date, status: 'Not started' });
-    save(rows);
-    document.getElementById('aepName').value = '';
-    render();
-  });
-  document.getElementById('aepExport').addEventListener('click', function(){
-    var rows = load();
-    var csv = 'date,name,status\n' + rows.map(function(r){ return r.date+','+JSON.stringify(r.name)+','+r.status; }).join('\n');
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
-    a.download = 'aep-2027-reviews.csv';
-    a.click();
-  });
-  if (!document.getElementById('aepDate').value) document.getElementById('aepDate').value = todayStr();
-  render();
-})();
+try { localStorage.removeItem('thei_aep_reviews_2027'); } catch(e){}
 </script>
 </body>
 </html>
