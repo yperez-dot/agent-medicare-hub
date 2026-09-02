@@ -66,8 +66,12 @@ body{
  box-shadow:var(--shadow-soft);
  padding:18px;
  display:flex;
- flex-direction:row;align-items:center;justify-content:space-between;
+ flex-direction:column;
  min-height:190px;
+}
+.card.hot{
+ border-color:rgba(255,16,144,.35);
+ box-shadow:0 8px 20px rgba(255,16,144,.12);
 }
 .tag{
  display:inline-flex;
@@ -203,10 +207,10 @@ body{
  </article>
 
  <!-- Client Guides -->
- <article class="card">
+ <article class="card hot">
  <span class="tag pink">Leave-behind</span>
  <h2>Client Guides</h2>
- <p>Turning 65 / Cumpliendo 65 2026 enrollment guides — English and Spanish leave-behinds for appointments.</p>
+ <p>Turning 65 and MAPD comparison leave-behinds. English and Spanish are separate PDFs — never a combined download.</p>
  <a class="btn primary" href="/client-guides">Open Client Guides <span>→</span></a>
  </article>
 

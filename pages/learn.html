@@ -30,7 +30,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .page-header{margin-bottom:20px;}
 .page-header h1{font-size:34px;font-weight:700;margin-bottom:6px;}
 .page-header p{font-size:15px;color:var(--text-soft);max-width:80ch;}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.pills{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:40;background:var(--bg);padding:8px 0 16px;margin-bottom:8px;}
 .pill{font:600 13px/1 Arial,sans-serif;padding:8px 16px;border-radius:999px;cursor:pointer;border:none;background:var(--purple-tint);color:var(--purple);transition:background .15s,color .15s;}
 .pill.active{background:var(--purple);color:#fff;}
 .pill:hover{background:var(--purple);color:#fff;}
@@ -47,10 +47,53 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .type-badge.sheet{background:#E3F5EC;color:#1E8A5C;}
 .type-badge.gamma{background:#E8F1FA;color:#1B4F8A;}
 .cta-link{font:700 12.5px/1 Arial,sans-serif;color:var(--purple);margin-top:4px;}
-.section-block{margin-bottom:28px;}
+.section-block{margin-bottom:28px;scroll-margin-top:72px;}
 .hidden{display:none!important;}
-h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text);}
-@media(max-width:768px){.grid-3{grid-template-columns:1fr;}}
+h2.section-h2{font-size:20px;font-weight:700;margin-bottom:8px;color:var(--text);}
+.section-lead{font-size:14px;color:var(--text-soft);margin-bottom:14px;max-width:80ch;}
+.finder{margin-bottom:20px;}
+.finder-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--text-faint);margin-bottom:10px;display:block;}
+.finder-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;}
+.finder-card{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:12px 14px;text-align:left;cursor:pointer;font-family:inherit;color:var(--text);text-decoration:none;transition:border-color .15s,box-shadow .15s,background .15s;}
+.finder-card:hover,.finder-card.active{border-color:var(--purple);box-shadow:0 4px 12px rgba(36,28,46,.08);}
+.finder-card strong{display:block;font-size:13.5px;font-weight:800;margin-bottom:3px;}
+.finder-card span{display:block;font-size:12px;color:var(--text-soft);line-height:1.4;}
+.finder-card.hot{border-color:rgba(255,16,144,.5);background:linear-gradient(180deg,#FFE8F3,#fff 62%);box-shadow:0 4px 14px rgba(255,16,144,.12);}
+.finder-card.hot.active,.finder-card.hot:hover{border-color:var(--pink);}
+.finder-card.hot strong{color:var(--pink-dark);}
+.searchbar{display:flex;gap:8px;align-items:center;margin-bottom:16px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:8px 10px;box-shadow:0 1px 3px rgba(36,28,46,.06);}
+.searchbar input{flex:1;border:0;outline:none;font:400 14px/1.4 Inter,Arial,sans-serif;background:transparent;color:var(--text);min-width:0;}
+.searchbar input::placeholder{color:var(--text-faint);}
+.search-clear{border:1px solid var(--border);background:#fff;color:var(--purple);padding:8px 12px;border-radius:10px;font:800 12px/1 Arial,sans-serif;cursor:pointer;}
+.shelf{background:#fff;border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 3px rgba(36,28,46,.06);}
+.shelf-head{padding:14px 16px 10px;border-bottom:1px solid var(--border);}
+.shelf-kicker{display:block;font:800 10.5px/1 Arial,sans-serif;letter-spacing:.4px;text-transform:uppercase;color:var(--pink);margin-bottom:5px;}
+.shelf-head h3{font-size:16px;font-weight:800;margin-bottom:4px;}
+.shelf-head p{font-size:13px;color:var(--text-soft);}
+.downloads{padding:10px;display:flex;flex-direction:column;gap:8px;}
+.dl{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);background:#fff;}
+.dl:hover{box-shadow:0 4px 12px rgba(36,28,46,.08);}
+.dl-en{border-left:4px solid var(--purple);}
+.dl-es{border-left:4px solid var(--pink);}
+.lang-code{font-size:16px;font-weight:900;letter-spacing:.3px;display:block;}
+.dl-en .lang-code{color:var(--purple);}
+.dl-es .lang-code{color:var(--pink);}
+.lang-name{font-size:11px;font-weight:700;color:var(--text-soft);}
+.dl h4{font-size:14px;font-weight:800;margin-bottom:2px;}
+.dl .meta{font-size:12px;color:var(--text-soft);}
+.dl-cta{font:800 12.5px/1 Arial,sans-serif;color:#fff;background:var(--purple);padding:9px 12px;border-radius:10px;white-space:nowrap;}
+.dl-es .dl-cta{background:var(--pink);}
+.library-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;margin-bottom:12px;border-radius:14px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--purple),var(--purple-dark));box-shadow:0 4px 12px rgba(69,32,104,.18);}
+.library-banner strong{display:block;font-size:14.5px;margin-bottom:3px;}
+.library-banner span{display:block;font-size:12.5px;opacity:.88;}
+.library-banner em{font-style:normal;font-weight:800;white-space:nowrap;}
+@media(max-width:768px){
+ .grid-3{grid-template-columns:1fr;}
+ .dl{grid-template-columns:1fr;}
+ .dl-cta{width:100%;text-align:center;}
+ .library-banner{flex-direction:column;align-items:flex-start;}
+ .pills{top:56px;}
+}
 .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
 .logo-wrap img{height:52px;width:auto;display:block;}
 .pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
@@ -91,12 +134,30 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
 
 <div class="wrap">
 
+  <div class="finder" aria-label="Find a topic">
+    <span class="finder-label">Find a topic</span>
+    <div class="finder-grid">
+      <button type="button" class="finder-card" data-filter="medicare"><strong>Medicare Basics</strong><span>Election periods, IRMAA, Medigap</span></button>
+      <a class="finder-card hot" href="/client-guides"><strong>Client Guides</strong><span>Turning 65 + MAPD · EN/ES</span></a>
+      <button type="button" class="finder-card" data-filter="forms"><strong>Client Forms</strong><span>SSA-44, CMS-40B, L564</span></button>
+      <button type="button" class="finder-card" data-filter="medicaid"><strong>Medicaid &amp; LIS</strong><span>Levels, income limits, Extra Help</span></button>
+      <button type="button" class="finder-card" data-filter="carriers"><strong>Carrier Resources</strong><span>Plan grid, contacts, certs</span></button>
+      <button type="button" class="finder-card" data-filter="sales"><strong>Sales &amp; Training</strong><span>AEP course, scripts, decks</span></button>
+      <button type="button" class="finder-card" data-filter="leadgen"><strong>Lead Generation</strong><span>Events, offices, captions</span></button>
+    </div>
+  </div>
+
+  <div class="searchbar" role="search">
+    <input id="hubSearch" type="search" placeholder="Search Turning 65, SSA-44, AEP…" aria-label="Search Broker University" />
+    <button type="button" class="search-clear" id="hubSearchClear">Clear</button>
+  </div>
+
   <div class="pills">
     <button class="pill active" data-filter="all">All</button>
     <button class="pill" data-filter="medicare">Medicare Basics</button>
-    <button class="pill" data-filter="carriers">Carrier Resources</button>
     <button class="pill" data-filter="guides">Client Guides</button>
     <button class="pill" data-filter="forms">Client Forms &amp; Appeals</button>
+    <button class="pill" data-filter="carriers">Carrier Resources</button>
     <button class="pill" data-filter="medicaid">Medicaid &amp; LIS</button>
     <button class="pill" data-filter="sales">Sales &amp; Training</button>
     <button class="pill" data-filter="leadgen">Lead Generation</button>
@@ -105,6 +166,11 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
   <div class="section-block" id="block-featured">
     <h2 class="section-h2">⭐ Most Opened This Month</h2>
     <div class="grid-3">
+      <a class="resource-card featured" href="/client-guides">
+        <h3>Client Guides — EN / ES leave-behinds</h3>
+        <p>Turning 65 and MAPD comparison. English and Spanish are separate PDFs — pick the language, open the file.</p>
+        <span class="cta-link">Open Client Guides →</span>
+      </a>
       <a class="resource-card featured" href="/aep-2027-training">
         <h3>AEP 2027 Compliance Training</h3>
         <p>12-minute course: new SOA rules, same-day appointments, events, and the $2,400 Part D cap. Quiz + certificate.</p>
@@ -114,21 +180,6 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
         <h3>Medicaid Levels Cheat Sheet</h3>
         <p>Quick reference for Medicaid eligibility levels and how to classify members fast.</p>
         <span class="cta-link">Open Google Doc →</span>
-      </a>
-      <a class="resource-card featured" href="/client-guides">
-        <h3>Client Guides — Turning 65 / Cumpliendo 65</h3>
-        <p>2026 leave-behind enrollment guides in English and Spanish. Print or send after appointments.</p>
-        <span class="cta-link">Open Client Guides →</span>
-      </a>
-      <a class="resource-card featured" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener">
-        <h3>SSA-44 — IRMAA Appeal Form</h3>
-        <p>Use when a client has a life-changing event and wants Social Security to reconsider IRMAA.</p>
-        <span class="cta-link">Open PDF →</span>
-      </a>
-      <a class="resource-card featured" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
-        <h3>2026 MAPD Plan Comparison</h3>
-        <p>Side-by-side plan comparison used daily for client calls.</p>
-        <span class="cta-link">Open Google Sheet →</span>
       </a>
     </div>
   </div>
@@ -193,40 +244,54 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
     </div></div>
   </div>
 
-  <div class="section-block" data-section="guides">
+  <div class="section-block" data-section="guides" id="guides">
     <h2 class="section-h2">Client Guides</h2>
-    <div style="margin-bottom:28px;"><div class="grid-3">
-      <a class="resource-card featured" href="/client-guides">
-        <div class="pill-row"><span class="type-badge">Hub Page</span><span class="type-badge" style="background:#FFE8F3;color:#D10E78;">Leave-behind</span></div>
-        <h3>Client Guides Library</h3>
-        <p>Leave-behinds in one place: Turning 65 / Cumpliendo 65 and MAPD comparison. English and Spanish are separate downloads.</p>
-        <span class="cta-link">Open Client Guides →</span>
-      </a>
-      <a class="resource-card" href="/files/turning-65-2026-en.pdf" target="_blank" rel="noopener">
-        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">English</span><span class="type-badge">2026</span></div>
-        <h3>Turning 65 — 2026 Guide</h3>
-        <p>English leave-behind for clients approaching Medicare. Share after the appointment or send before the first meeting.</p>
-        <span class="cta-link">Open English PDF →</span>
-      </a>
-      <a class="resource-card" href="/files/cumpliendo-65-2026-es.pdf" target="_blank" rel="noopener">
-        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">Español</span><span class="type-badge">2026</span></div>
-        <h3>Cumpliendo 65 — Guía 2026</h3>
-        <p>Guía para dejar o enviar a clientes que están por cumplir 65 años. Versión en español.</p>
-        <span class="cta-link">Abrir PDF en español →</span>
-      </a>
-      <a class="resource-card" href="/files/mapd-plan-comparison-2027-en.pdf" target="_blank" rel="noopener">
-        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">English</span><span class="type-badge">2027</span></div>
-        <h3>MAPD Plan Comparison — English</h3>
-        <p>English worksheet to compare up to three Medicare Advantage plans. Separate from the Turning 65 guides.</p>
-        <span class="cta-link">Open English PDF →</span>
-      </a>
-      <a class="resource-card" href="/files/mapd-plan-comparison-2027-es.pdf" target="_blank" rel="noopener">
-        <div class="pill-row"><span class="type-badge pdf">PDF</span><span class="type-badge">Español</span><span class="type-badge">2027</span></div>
-        <h3>Comparación de planes MAPD — Español</h3>
-        <p>Hoja en español para comparar hasta tres planes MAPD. Archivo separado — no es un PDF bilingüe combinado.</p>
-        <span class="cta-link">Abrir PDF en español →</span>
-      </a>
-    </div></div>
+    <p class="section-lead">Leave-behinds grouped by topic. English and Spanish are always separate files — never a combined bilingual download.</p>
+    <a class="library-banner" href="/client-guides">
+      <div>
+        <strong>Open the Client Guides library</strong>
+        <span>Turning 65 and MAPD comparison, English and Spanish, each as its own PDF.</span>
+      </div>
+      <em>View library →</em>
+    </a>
+    <div class="shelf">
+      <div class="shelf-head">
+        <span class="shelf-kicker">Leave-behind · 2026</span>
+        <h3>Turning 65 / Cumpliendo 65</h3>
+        <p>Enrollment guide for people approaching Medicare.</p>
+      </div>
+      <div class="downloads">
+        <a class="dl dl-en" href="/files/turning-65-2026-en.pdf" target="_blank" rel="noopener">
+          <div><span class="lang-code">EN</span><span class="lang-name">English</span></div>
+          <div><h4>Turning 65 — 2026 Guide</h4><p class="meta">PDF · Leave-behind</p></div>
+          <span class="dl-cta">Open English PDF</span>
+        </a>
+        <a class="dl dl-es" href="/files/cumpliendo-65-2026-es.pdf" target="_blank" rel="noopener">
+          <div><span class="lang-code">ES</span><span class="lang-name">Español</span></div>
+          <div><h4>Cumpliendo 65 — Guía 2026</h4><p class="meta">PDF · Material para dejar</p></div>
+          <span class="dl-cta">Abrir PDF en español</span>
+        </a>
+      </div>
+    </div>
+    <div class="shelf">
+      <div class="shelf-head">
+        <span class="shelf-kicker">Worksheet · 2027 plan year</span>
+        <h3>MAPD Plan Comparison</h3>
+        <p>Compare up to three Medicare Advantage plans side by side.</p>
+      </div>
+      <div class="downloads">
+        <a class="dl dl-en" href="/files/mapd-plan-comparison-2027-en.pdf" target="_blank" rel="noopener">
+          <div><span class="lang-code">EN</span><span class="lang-name">English</span></div>
+          <div><h4>MAPD Plan Comparison — English</h4><p class="meta">PDF · Worksheet</p></div>
+          <span class="dl-cta">Open English PDF</span>
+        </a>
+        <a class="dl dl-es" href="/files/mapd-plan-comparison-2027-es.pdf" target="_blank" rel="noopener">
+          <div><span class="lang-code">ES</span><span class="lang-name">Español</span></div>
+          <div><h4>Comparación de planes MAPD — Español</h4><p class="meta">PDF · Hoja de trabajo</p></div>
+          <span class="dl-cta">Abrir PDF en español</span>
+        </a>
+      </div>
+    </div>
   </div>
 
   <div class="section-block" data-section="forms">
@@ -391,39 +456,81 @@ h2.section-h2{font-size:20px;font-weight:700;margin-bottom:14px;color:var(--text
 <script>
 (function(){
   const pills = document.querySelectorAll('.pill[data-filter]');
+  const finderBtns = document.querySelectorAll('.finder-card[data-filter]');
   const sections = document.querySelectorAll('[data-section]');
   const featured = document.getElementById('block-featured');
+  const searchInput = document.getElementById('hubSearch');
+  const searchClear = document.getElementById('hubSearchClear');
+  const searchable = document.querySelectorAll('.resource-card, .dl, .library-banner, .shelf');
+  const allowed = {all:1,medicare:1,carriers:1,guides:1,forms:1,medicaid:1,sales:1,leadgen:1};
+  let currentFilter = 'all';
 
-  function expandSection(block){
-    var wrap = block.querySelector('.section-grid-wrap');
-    var h2 = block.querySelector('.section-h2');
-    var arrow = h2 ? h2.querySelector('.toggle-arrow') : null;
-    if(wrap) wrap.style.display = '';
-    if(arrow) arrow.style.transform = 'rotate(0deg)';
+  function setActive(filter){
+    pills.forEach(function(p){p.classList.toggle('active', p.dataset.filter === filter);});
+    finderBtns.forEach(function(p){p.classList.toggle('active', p.dataset.filter === filter);});
+  }
+
+  function applyFilter(filter){
+    currentFilter = allowed[filter] ? filter : 'all';
+    setActive(currentFilter);
+    var q = (searchInput && searchInput.value || '').trim().toLowerCase();
+
+    searchable.forEach(function(el){
+      var matchQ = !q || (el.textContent || '').toLowerCase().indexOf(q) !== -1;
+      el.classList.toggle('hidden', !matchQ);
+    });
+
+    if(q){
+      featured.classList.add('hidden');
+      sections.forEach(function(s){
+        var visible = s.querySelector('.resource-card:not(.hidden), .dl:not(.hidden), .library-banner:not(.hidden), .shelf:not(.hidden)');
+        s.classList.toggle('hidden', !visible);
+      });
+      return;
+    }
+
+    if(currentFilter === 'all'){
+      featured.classList.remove('hidden');
+      sections.forEach(function(s){s.classList.remove('hidden');});
+    } else {
+      featured.classList.add('hidden');
+      sections.forEach(function(s){
+        s.classList.toggle('hidden', s.dataset.section !== currentFilter);
+      });
+    }
   }
 
   pills.forEach(function(pill){
     pill.addEventListener('click', function(){
-      const filter = this.dataset.filter;
-      pills.forEach(function(p){p.classList.remove('active');});
-      this.classList.add('active');
-
-      if(filter === 'all'){
-        featured.classList.remove('hidden');
-        sections.forEach(function(s){
-          s.classList.remove('hidden');
-          expandSection(s);
-        });
-      } else {
-        featured.classList.add('hidden');
-        sections.forEach(function(s){
-          var match = s.dataset.section === filter;
-          s.classList.toggle('hidden', !match);
-          if(match) expandSection(s);
-        });
-      }
+      applyFilter(this.dataset.filter);
+      if(this.dataset.filter === 'all') history.replaceState(null, '', location.pathname + location.search.replace(/([?&])filter=[^&]*/g,''));
+      else history.replaceState(null, '', '#');
     });
   });
+
+  finderBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyFilter(this.dataset.filter);
+      var block = document.querySelector('[data-section="'+this.dataset.filter+'"]');
+      if(block) block.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  if(searchInput){
+    searchInput.addEventListener('input', function(){ applyFilter(currentFilter); });
+  }
+  if(searchClear){
+    searchClear.addEventListener('click', function(){
+      if(searchInput) searchInput.value = '';
+      applyFilter(currentFilter);
+      if(searchInput) searchInput.focus();
+    });
+  }
+
+  var params = new URLSearchParams(location.search);
+  var fromQuery = params.get('filter');
+  var fromHash = (location.hash || '').replace('#','');
+  applyFilter(fromQuery || fromHash || 'all');
 })();
 </script>
 
