@@ -1,7 +1,61 @@
 {
-  "updated": "2026-09-02",
+  "updated": "2026-09-03",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-02-re-yperez-dot-max-guru-backend-look-up-d",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Re: [yperez-dot/max-guru-backend] Look up Doctors and HealthSun without Sunfire; Solis stays PDF (PR #15)",
+      "body": "@cursor[bot] pushed 1 commit. d969eb90977ff444467b11b2e2d6a04dc5344aba Look up Doctors and HealthSun without Sunfire; Solis stays PDF.",
+      "date": "Sep 2, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-02-re-yperez-dot-max-guru-backend-look-up-a",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Re: [yperez-dot/max-guru-backend] Look up Aetna and Simply from their public guest searches (PR #16)",
+      "body": "@cursor[bot] pushed 1 commit. d7e8efa14624f56f4a8eaa49b2f0d15f4ffdfb2b Find a pasted NPI even when ZIP matches a different Garcia.",
+      "date": "Sep 2, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-02-reminder-get-contracted-to-sell-unitedhe",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: Get Contracted to Sell Unitedhealthone",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell UnitedHealthOne: Why UHOne? Comprehensive Product Portfolio to Meet Your Clients Needs Nationally Recognized Brand of United Healthcare Competitive Commissions Sell Year-Round With No Enrollment Windows Online Support & Training to Help You Succeed PHONE NUMBER: 1 800 249 0173 ï»¿| Premier Insurance Contracts, Inc. | 832 850 6873 | STAY CONNECTED â Premier Insurance Contracts Inc | 16750 Hedgecroft ",
+      "date": "Sep 2, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-03-sub-account-wallet-balance-negative-acti",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Sub-Account Wallet Balance Negative - Action Required",
+      "body": "Hi Joseph Gonzalez, We're reaching out to let you know that one of your sub-accounts, Sattori Group | Facebook Form, currently has a negative wallet balance. This typically occurs when an auto-recharge attempt fails, but the sub-account continues to incur paid usage charges such as Monthly Phone Charges, Inbound SMS, A2P Registration, Dedicated IPs, and other billable services. Because this sub-account is linked to your agency, these charges also reflect on your agency wallet, which may create u",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-03-sub-account-wallet-balance-negative-acti",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Sub-Account Wallet Balance Negative - Action Required",
+      "body": "Hi Joseph Gonzalez, We're reaching out to let you know that one of your sub-accounts, Sattori Group | Facebook Form, currently has a negative wallet balance. This typically occurs when an auto-recharge attempt fails, but the sub-account continues to incur paid usage charges such as Monthly Phone Charges, Inbound SMS, A2P Registration, Dedicated IPs, and other billable services. Because this sub-account is linked to your agency, these charges also reflect on your agency wallet, which may create u",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-03-re-yperez-dot-max-guru-backend-look-up-a",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Re: [yperez-dot/max-guru-backend] Look up Aetna and Simply from their public guest searches (PR #16)",
+      "body": "@cursor[bot] commented on this pull request. <!-- CURSOR_AUTOMATION_ID: 96f41898-9d93-11f1-a7d1-d6b4613131ce | RUN_ID: bc-dcba5b11-0e2e-419e-a1a3-90d4f7705d11 --> Risk: high. Left a non-blocking comment and assigned a reviewer. This change is Medicare provider-network / compliance logic (live in-network answers in Max), so it is not auto-approved. <div><a href=\"https://cursor.com/agents/bc-dcba5b11-0e2e-419e-a1a3-90d4f7705d11?cursor_ref=pr_footer&cursor_cta=open_in_web\"><picture><source media=\"(",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-09-01-bilingual-humana-broker-relationship-new",
       "type": "event",
