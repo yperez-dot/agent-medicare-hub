@@ -1,7 +1,61 @@
 {
-  "updated": "2026-09-03",
+  "updated": "2026-09-04",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-03-2027-elevance-benefits-training-live-vir",
+      "type": "event",
+      "emoji": "📅",
+      "title": "2027 Elevance Benefits Training | Live Virtual Sessions- September ",
+      "body": "Good Morning, Were excited to invite you and your teams to our upcoming 2027 Benefits Training virtual sessions! These live trainings are designed to help agents prepare for the 2027 selling season with important benefits information, helpful insights, and an opportunity to ask questions. Were offering two virtual sessions: English Training Monday, September 21 at 10:00 AM Spanish Training Tuesday, September 22 at 10:00 AM Please see the attached flyer for session details and clickable links t",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-03-your-100-welcome-bonus-from-devoted-awai",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Your $100 Welcome Bonus from Devoted Awaits",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get contracted to Sell: ï»¿Get contracted with Devoted for Medicare Advantage through Premier Insurance Contracts, Inc. Click here now to start your contracting process. Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a ï»¿$100 welcome bonus from us. Call 1 800 249 0173 â | Premier Insurance Contracts, Inc. | 8",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-03-your-dental-bonus-is-adding-up",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Your dental bonus is adding up.",
+      "body": "To view this email as a web page, go to the following address: https://engage.cignahealthcare.com/index.php/email/emailWebview?mkt_tok=MTQ1LVJLRS0zODUAAAGkB2b-qrQO_wEu9xZr64zhMnlkyDjumv7DzCMYeCYKNdDPIxtm1NAQLLN11wILMLuAJZdc0s2yh-CReYh-s4U5xzkpcxgzb4vdmo9sSvQXWg FOR AGENT/BROKER USE ONLY. DO NOT DISTRIBUTE. Individual and Family Plans The busy selling season is almost here. Donât forget, your dental sales can earn you even more with the Cigna Dental Individual and Family Plans bonus program. ${",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-03-action-required-your-cherry-contract-is-",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "[ACTION REQUIRED] Your Cherry contract is 7 days past due",
+      "body": "*Your Cherry contract is 7 days past due* Yahoska, Make a payment to keep your Cherry contract in good standing. Make a Payment ( https://consumer.withcherry.com/portal/purchases ) If you've already made your payment or feel this email has been sent in error, contact us at support@withcherry.com ( support@withcherry.com?subject=&body= ). How do I access my Cherry Account? Log in to your Cherry Account ( http://consumer.withcherry.com ) using your mobile phone: +1 (786) 368-3093. We will text you",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-03-webinar-ssbci-and-extra-supports-wallet-",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Webinar: SSBCI and Extra Supports Wallet updates for 2027",
+      "body": "âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ â",
+      "date": "Sep 3, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-04-annual-amendments-to-your-medicare-contr",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Annual amendments to your Medicare contract",
+      "body": "96 Annual amendments to your Medicare contract Including your 2027 rate schedule &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;",
+      "date": "Sep 4, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-09-02-re-yperez-dot-max-guru-backend-look-up-d",
       "type": "update",
@@ -398,24 +452,6 @@
       "body": "Trump administration's CMS is reviewing making Medicare Advantage the default enrollment for newly eligible beneficiaries. If this advances, the AEP sales motion changes fundamentally for Florida agents. No formal rule published yet.",
       "date": "May 10, 2026",
       "source": "https://www.forbes.com/sites/joshuacohen/2026/05/09/policy-of-auto-enrolling-seniors-in-medicare-advantage-could-backfire/"
-    },
-    {
-      "id": "2026-05-10-maia",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Medicare Advantage Improvement Act of 2026 Moving in Congress",
-      "body": "Bipartisan HR 8375 / S 4384 would require MA plans to follow traditional Medicare's medical necessity standards and ban algorithmic auto-denials. Track committee markup over the next 30-60 days.",
-      "date": "May 10, 2026",
-      "source": "https://leadingage.org/new-bipartisan-bill-targets-medicare-advantage-delays-and-payment-practices/"
-    },
-    {
-      "id": "2026-05-10-elevance",
-      "type": "watch",
-      "emoji": "⚠️",
-      "title": "Elevance / Anthem MA Enrollment Suspension Still Active",
-      "body": "CMS sanction took effect March 31, 2026. Elevance cannot enroll new members until cleared. Clients already enrolled are unaffected. Watch for CMS clearance announcement before AEP 2027 marketing season.",
-      "date": "May 10, 2026",
-      "source": null
     }
   ],
   "weekly_pulses": [
