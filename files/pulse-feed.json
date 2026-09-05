@@ -1,7 +1,52 @@
 {
-  "updated": "2026-09-04",
+  "updated": "2026-09-05",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-04-ifp-connect-september-4-2026",
+      "type": "update",
+      "emoji": "📋",
+      "title": "IFP Connect - September 4, 2026",
+      "body": "UnitedHealthcare http://click.ifp.uhc.com/?qs«B7InYiOjEsImQiOjQ5ODl9AAEAAAAAAcBhD-vVj3AP3VKKAum-54T29D6M24bydPZz_e5D-ZmmpPqhDRzuIQZTRcPAfmh8HbpMxl7v1XGGxCKJHAupwyTFBHgw3_-oWRrTdM5GUQ September 4, 2026 In this issue: - In the Spotlight:Mark of Integrity - Training Touchpoint: Dual Enrollment - Jarvis updates - Member Experience Focus: Sanitas expansion Mark of Integrity When members make important health coverage decisions, trust matters. That trust begins with every interaction, every enrollment",
+      "date": "Sep 4, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-04-registration-now-open-plan-year-2027-hea",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Registration Now Open | Plan Year 2027 Health Insurance Marketplace Registration & Training for Returning Agents and Brokers - 09/10/2026",
+      "body": "Email from Centers for Medicare & Medicaid Services (CMS) View as Webpage Plan Year 2027 (PY2027) Health Insurance Marketplace Registration & Training for Returning Agents and Brokers This webinar will provide step-by-step instructions returning agents and brokers need to complete to assist with enrolling consumers in Marketplace coverage. This session will include a walk-through of the registration and training process, as well as an overview of the information agents and brokers will need to p",
+      "date": "Sep 4, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-04-re-request-for-contract-termination-rele",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Re: Request for Contract Termination / Release",
+      "body": "Hello Victoria, Attached is the release for Devoted. This appears to be the only contract active with us under Amerilife or the carrier itself. Below are specific notes regarding the status of the contracts for each carrier. - *Freedom/Optimum: Not active on the carrier end* - *Anthem- not active on carrier end* - *Devoted- active - The agent will need to request transfer directly with the carrier. The agent can call directly to 877-764-9446 or submit a request via their agent portal.* - *Health",
+      "date": "Sep 4, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-04-oscar-virtual-primary-care-update-for-20",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Oscar Virtual Primary Care update for 2027",
+      "body": "https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5ODl9AAoAAAAABIVGYwb1wjJJ41wZk95oMiFCc_gormvC_3pV5dyQit6XyAAwimIdUC3ff0m1vMoWXyn9olL83EpexWsGErXwTDGItu2F_UfaSOAw9HNReg https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5ODl9AAoAAAAABIVGYwb210kIclP5Pcljf2vn8fmPffM8FbVu3hg_O-CM0w9w2fM7N0zmMqu7W6kOuIfdrrHE2xjtZWx4j7Euu3aD0Rg3zxK4dvQyxXc9kQ Broker Login | https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5ODl9AAoAAAAABIVGYwb3mxk6FbuewXTjdqydP0p2hKqR0BkIhsUVogih__TuEnEPf9fHsqSga9R_UfA",
+      "date": "Sep 4, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-04-planning-your-aep-aetna-can-quickly-up-y",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Planning your AEP? Aetna can quickly up your game!",
+      "body": "96 Aetna If you are unable to see the message below, click here to view . Ready-to-use marketing materials designed to help grow and retain your book of business &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#",
+      "date": "Sep 4, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-09-03-2027-elevance-benefits-training-live-vir",
       "type": "event",
@@ -30,15 +75,6 @@
       "source": "/agent-pulse"
     },
     {
-      "id": "2026-09-03-action-required-your-cherry-contract-is-",
-      "type": "urgent",
-      "emoji": "🚨",
-      "title": "[ACTION REQUIRED] Your Cherry contract is 7 days past due",
-      "body": "*Your Cherry contract is 7 days past due* Yahoska, Make a payment to keep your Cherry contract in good standing. Make a Payment ( https://consumer.withcherry.com/portal/purchases ) If you've already made your payment or feel this email has been sent in error, contact us at support@withcherry.com ( support@withcherry.com?subject=&body= ). How do I access my Cherry Account? Log in to your Cherry Account ( http://consumer.withcherry.com ) using your mobile phone: +1 (786) 368-3093. We will text you",
-      "date": "Sep 3, 2026",
-      "source": "/agent-pulse"
-    },
-    {
       "id": "2026-09-03-webinar-ssbci-and-extra-supports-wallet-",
       "type": "event",
       "emoji": "📅",
@@ -57,24 +93,6 @@
       "source": "/agent-pulse"
     },
     {
-      "id": "2026-09-02-re-yperez-dot-max-guru-backend-look-up-d",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Re: [yperez-dot/max-guru-backend] Look up Doctors and HealthSun without Sunfire; Solis stays PDF (PR #15)",
-      "body": "@cursor[bot] pushed 1 commit. d969eb90977ff444467b11b2e2d6a04dc5344aba Look up Doctors and HealthSun without Sunfire; Solis stays PDF.",
-      "date": "Sep 2, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-02-re-yperez-dot-max-guru-backend-look-up-a",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Re: [yperez-dot/max-guru-backend] Look up Aetna and Simply from their public guest searches (PR #16)",
-      "body": "@cursor[bot] pushed 1 commit. d7e8efa14624f56f4a8eaa49b2f0d15f4ffdfb2b Find a pasted NPI even when ZIP matches a different Garcia.",
-      "date": "Sep 2, 2026",
-      "source": "/agent-pulse"
-    },
-    {
       "id": "2026-09-02-reminder-get-contracted-to-sell-unitedhe",
       "type": "update",
       "emoji": "📋",
@@ -84,74 +102,11 @@
       "source": "/agent-pulse"
     },
     {
-      "id": "2026-09-03-sub-account-wallet-balance-negative-acti",
-      "type": "urgent",
-      "emoji": "🚨",
-      "title": "Sub-Account Wallet Balance Negative - Action Required",
-      "body": "Hi Joseph Gonzalez, We're reaching out to let you know that one of your sub-accounts, Sattori Group | Facebook Form, currently has a negative wallet balance. This typically occurs when an auto-recharge attempt fails, but the sub-account continues to incur paid usage charges such as Monthly Phone Charges, Inbound SMS, A2P Registration, Dedicated IPs, and other billable services. Because this sub-account is linked to your agency, these charges also reflect on your agency wallet, which may create u",
-      "date": "Sep 3, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-03-sub-account-wallet-balance-negative-acti",
-      "type": "urgent",
-      "emoji": "🚨",
-      "title": "Sub-Account Wallet Balance Negative - Action Required",
-      "body": "Hi Joseph Gonzalez, We're reaching out to let you know that one of your sub-accounts, Sattori Group | Facebook Form, currently has a negative wallet balance. This typically occurs when an auto-recharge attempt fails, but the sub-account continues to incur paid usage charges such as Monthly Phone Charges, Inbound SMS, A2P Registration, Dedicated IPs, and other billable services. Because this sub-account is linked to your agency, these charges also reflect on your agency wallet, which may create u",
-      "date": "Sep 3, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-03-re-yperez-dot-max-guru-backend-look-up-a",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Re: [yperez-dot/max-guru-backend] Look up Aetna and Simply from their public guest searches (PR #16)",
-      "body": "@cursor[bot] commented on this pull request. <!-- CURSOR_AUTOMATION_ID: 96f41898-9d93-11f1-a7d1-d6b4613131ce | RUN_ID: bc-dcba5b11-0e2e-419e-a1a3-90d4f7705d11 --> Risk: high. Left a non-blocking comment and assigned a reviewer. This change is Medicare provider-network / compliance logic (live in-network answers in Max), so it is not auto-approved. <div><a href=\"https://cursor.com/agents/bc-dcba5b11-0e2e-419e-a1a3-90d4f7705d11?cursor_ref=pr_footer&cursor_cta=open_in_web\"><picture><source media=\"(",
-      "date": "Sep 3, 2026",
-      "source": "/agent-pulse"
-    },
-    {
       "id": "2026-09-01-bilingual-humana-broker-relationship-new",
       "type": "event",
       "emoji": "📅",
       "title": "Bilingual Humana Broker Relationship Newsletter: Training Opportunities for September 2026",
       "body": "[cid:image001.jpg@01DD3931.83C2B7E0] Estimados Agentes, Nos complace apoyar su crecimiento durante la prÃ³xima temporada de AEP. En vista que Octubre se acerca rÃ¡pidamente, hemos preparado una lista de verificaciÃ³n para ayudarles que estÃ©n bien posicionados para el Ã©xito. * Complete la CertificaciÃ³n/RecertificaciÃ³n de 2027. * Solicite los materiales de ventas para el prÃ³ximo aÃ±o del plan; el 15 de Septiembre es la fecha lÃ­mite para garantizar la entrega antes del 15 de Octubre. * Revise",
-      "date": "Sep 1, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-01-re-yperez-dot-igor-config-queue-nch-cign",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Re: [yperez-dot/igor-config] Queue NCH Cigna/Wellcare 2027 article for healthexps.com (PR #35)",
-      "body": "@cursor[bot] commented on this pull request. <!-- CURSOR_AUTOMATION_ID: 96f41898-9d93-11f1-a7d1-d6b4613131ce | RUN_ID: bc-e5e2c18a-13a5-4533-a1d9-353fb78a831c --> Risk: medium. Not approved: this queues Medicare Advantage 2027 network-change copy (AEP guidance, plan-path language, and licensed-agent CTAs), so custom policy requires human review rather than auto-approval. Reviewers will be requested per that routing. <div><a href=\"https://cursor.com/agents/bc-e5e2c18a-13a5-4533-a1d9-353fb78a831c?",
-      "date": "Sep 1, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-01-re-yperez-dot-healthexps-www-publish-nch",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Re: [yperez-dot/healthexps-www] Publish NCH dropping Cigna and Wellcare MA plans in 2027 (PR #49)",
-      "body": "netlify[bot] left a comment (yperez-dot/healthexps-www#49) ### <span aria-hidden=\"true\">ð·</span> Deploy Preview for *super-blancmange-6bb737* processing. | Name | Link | |:-:|------------------------| |<span aria-hidden=\"true\">ð¨</span> Latest commit | 73700d960df534f0a8ea801d1e5fa6386020bb69 | |<span aria-hidden=\"true\">ð</span> Latest deploy log | https://app.netlify.com/projects/super-blancmange-6bb737/deploys/6a96b2da45ae9b000820e74c |",
-      "date": "Sep 1, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-01-re-yperez-dot-healthexps-www-publish-nch",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Re: [yperez-dot/healthexps-www] Publish NCH dropping Cigna and Wellcare MA plans in 2027 (PR #49)",
-      "body": "@cursor[bot] commented on this pull request. <!-- CURSOR_AUTOMATION_ID: 96f41898-9d93-11f1-a7d1-d6b4613131ce | RUN_ID: bc-6198a8d5-fde6-449f-8199-be9f02096551 --> Risk: medium. Not approved: this PR adds Medicare Advantage network-change copy and compliance-sensitive plan-selection language, which must go to human review rather than auto-approval. Assigned yperez-dot. <div><a href=\"https://cursor.com/agents/bc-6198a8d5-fde6-449f-8199-be9f02096551?cursor_ref=pr_footer&cursor_cta=open_in_web\"><pic",
-      "date": "Sep 1, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-01-kayla-robles-s-zoom-meeting",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Kayla Robles's Zoom Meeting",
-      "body": "[https://zoom.us/account/branding/p/4398e8dd-d593-4f46-9169-51f48a381142.png] Join Zoom Meeting<https://humana.zoom.us/j/95503763588?pwd=zLOPHMcbaq7ar5KrifbFZD8T2fKNbM.1&from=addon> Meeting URL: https://humana.zoom.us/j/95503763588?pwd=zLOPHMcbaq7ar5KrifbFZD8T2fKNbM.1&from=addon Meeting ID: 955 0376 3588 Passcode: 412598 Join by Phone One tap mobile: US: +13126266799,95503763588<tel:+13126266799,95503763588> Meeting ID: 955 0376 3588 International Numbers<https://humana.zoom.us/u/abHxuEBuPO> Joi",
       "date": "Sep 1, 2026",
       "source": "/agent-pulse"
     },
@@ -188,15 +143,6 @@
       "emoji": "📋",
       "title": "Check out UnitedHealthcare Medicare Advantage Plans in the Medicare Product Portal",
       "body": "<head> <title></title> <!--[if !mso]><!--> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <!--<![endif]--> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <style type=\"text/css\"> table, td, div, h1, p { font-family: Arial, sans-serif; } body { margin: 0; padding: 0; word-spacing: normal; background-color: #e4e4e4; } pre {white-space: normal!important;} h2 { margin:0;} </style> <!--[if mso]> <style typ",
-      "date": "Sep 1, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-01-action-required-your-cherry-contract-is-",
-      "type": "urgent",
-      "emoji": "🚨",
-      "title": "[ACTION REQUIRED] Your Cherry contract is 5 days past due",
-      "body": "*Your Cherry contract is 5 days past due* Yahoska, You are 5 days late on your $575.00 payment from your Glow Medspa Miami purchase. Make a payment to keep your Cherry contract in good standing. Make a Payment ( https://consumer.withcherry.com/portal/purchases ) If you've already made your payment or feel this email has been sent in error, contact us at support@withcherry.com ( support@withcherry.com?subject=&body= ). How do I access my Cherry Account? Log in to your Cherry Account ( http://cons",
       "date": "Sep 1, 2026",
       "source": "/agent-pulse"
     },
