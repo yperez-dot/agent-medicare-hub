@@ -1,7 +1,34 @@
 {
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-05-reminder-your-100-welcome-bonus-from-dev",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: Your $100 Welcome Bonus from Devoted Awaits",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get contracted to Sell: ï»¿Get contracted with Devoted for Medicare Advantage through Premier Insurance Contracts, Inc. Click here now to start your contracting process. Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a ï»¿$100 welcome bonus from us. Call 1 800 249 0173 â | Premier Insurance Contracts, Inc. | 8",
+      "date": "Sep 5, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-05-action-required-update-your-cherry-accou",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Action Required: Update Your Cherry Account",
+      "body": "Regarding your Glow Medspa Miami contract <script type=\"application/ld+json\">{\"@context\":\"http://schema.org\",\"@type\":\"Invoice\",\"accountId\":\"L-GTK9869022-1\",\"paymentStatus\":\"PaymentDue\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Cherry Collections\"},\"totalPaymentDue\":{\"@type\":\"PriceSpecification\",\"price\":\"$575.00\",\"priceCurrency\":\"USD\"},\"paymentDue\":\"2026-08-27\"}</script><script type=\"application/ld+json\">{\"@context\":\"http://schema.org\",\"@type\":\"EmailMessage\",\"description\":\"Cherry Collections bil",
+      "date": "Sep 5, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-05-you-re-invited-aep-retention-planning-on",
+      "type": "update",
+      "emoji": "📋",
+      "title": "You're Invited: AEP Retention Planning on September 9, 2026 at 9:00 AM",
+      "body": "You're Invited: AEP Retention Planning on September 9, 2026 at 9:00 AM AEP Retention Planning Join us for a virtual training session on AEP Retention Planning training session and learn strategies to help strengthen member retention during the Annual Enrollment Period. During this session, we will cover: Drivers of Retention &ndash; Understanding the key factors that influence member satisfaction and loyalty. What Members Can Expect &ndash; Preparing for common member questions and concerns duri",
+      "date": "Sep 5, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-09-04-ifp-connect-september-4-2026",
       "type": "update",
