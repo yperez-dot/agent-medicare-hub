@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "activeSeps": 1,
   "alerts": [
     {
@@ -429,11 +429,18 @@
   ],
   "weekly_pulses": [
     {
+      "week": "Week of September 7, 2026",
+      "date": "Sep 7, 2026",
+      "headline": "Issue #12 | Week of September 7, 2026",
+      "link": "/pulse-2026-09-07.html",
+      "tag": "Latest"
+    },
+    {
       "week": "Week of August 31, 2026",
       "date": "Aug 31, 2026",
       "headline": "CMS flags $1.6B in lab fraud, The Villages Health settles $541.5M, and AEP 2027 is six weeks out.",
       "link": "/pulse-2026-08-31.html",
-      "tag": "Latest"
+      "tag": ""
     },
     {
       "week": "Week of July 13, 2026",
