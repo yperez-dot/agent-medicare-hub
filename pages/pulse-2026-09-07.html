@@ -4,41 +4,189 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>THEI Agent Pulse — Week of September 7, 2026</title>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) { localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
+.back-bar{background:#452068;padding:10px 24px;display:flex;align-items:center;gap:16px;}
+.back-bar a{color:#fff;text-decoration:none;font:600 13px/1 Arial,sans-serif;opacity:.85;}
+.email-wrap{max-width:680px;margin:24px auto 48px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+@media(max-width:600px){.email-wrap{margin:0;border-radius:0;}}
+</style>
 <link rel="stylesheet" href="/hub-nav.css">
 <script src="/hub-nav.js" defer></script>
 </head>
 <body>
-<div class="wrap" style="max-width:680px;margin:32px auto;padding:0 20px 48px;font-family:Arial,sans-serif;color:#241C2E;">
-  <p><a href="/agent-pulse">← Agent Pulse</a></p>
-  <h1 style="font-size:24px;">THEI Agent Pulse — Week of September 7, 2026</h1>
-  <pre style="white-space:pre-wrap;font-family:Arial,sans-serif;line-height:1.55;">THE Health Experts Insider (Agent Pulse)
-Issue #12 | Week of September 7, 2026
-From: info@healthexps.com
-For contracted Florida Medicare agents
-Hub: agentmedicarehub.com/agent-pulse
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href="/home">Agent Dashboard</a>
+    <a href="/pulse-library">Pulse Library</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+  </nav>
+</div>
+<div class="back-bar">
+  <a href="/pulse-library">← Pulse Library</a>
+  <span style="color:rgba(255,255,255,.3);">|</span>
+  <a href="/agent-pulse">Agent Pulse</a>
+</div>
+<div class="email-wrap">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE Health Experts Insider</title>
+</head>
+<body style="margin:0;padding:0;background:#EDE8F0;">
+  <span style="display:none !important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">CMS 2027 landscape due this month; AEP opens October 15 — five-week countdown for Florida agents</span>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EDE8F0;padding:24px 0;">
+    <tr><td align="center">
+      <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="max-width:640px;width:100%;background:#FFFFFF;border-radius:8px;overflow:hidden;">
+        <tr>
+          <td style="padding:28px 36px 22px 36px;border-bottom:2px solid #D6006C;text-align:left;">
+            <img src="/thei-logo.png" alt="The Health Experts Insurance" width="360" style="display:block;width:360px;max-width:100%;height:auto;border:0;outline:none;">
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#D6006C;padding:16px 36px;font-family:Helvetica,Arial,sans-serif;font-size:15px;color:#FFFFFF;line-height:1.5;font-weight:700;">
+            This morning went out in the wrong format. Use this branded Insider email.
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#FBEFC8;padding:14px 36px;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#3D1560;line-height:1.5;">
+            📬 Reading THE Health Experts Insider? If a colleague would benefit, please forward it on!
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#2A0E45;padding:48px 36px;text-align:center;">
+            <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#FFFFFF;letter-spacing:3px;font-weight:700;opacity:0.85;">Week of September 7, 2026 &nbsp;·&nbsp; ISSUE 012</p>
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:30px;color:#FFFFFF;line-height:1;">The Week in</p>
+            <p style="margin:6px 0 0 0;font-family:Helvetica,Arial,sans-serif;font-weight:900;font-size:56px;color:#E6007E;line-height:1;letter-spacing:-1px;">Medicare</p>
+            <div style="width:60px;height:3px;background:#E6007E;margin:18px auto 0 auto;"></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:32px 36px 8px 36px;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#2A2A2A;line-height:1.6;">
+            <p>Happy Monday, team! 👋</p><p>This morning went out in the wrong format. Use this branded Insider email.</p><p>CMS is due to post the 2027 MA and Part D landscape in mid-to-late September, five weeks before AEP. Here is the public industry brief — not an inbox dump.</p><p>— Yahoska &amp; Katy</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:8px 36px 24px 36px;text-align:center;">
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;letter-spacing:3px;font-weight:700;">— THE WEEK IN MEDICARE —</p>
+          </td>
+        </tr>
+        <tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · CMS
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">2027 landscape is due this month; AEP opens October 15</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>CMS said it will release final average Medicare Advantage and Part D premiums, plus the <b style="background:#FBEFC8;">full 2027 landscape</b>, in <b style="background:#FBEFC8;">mid-to-late September</b>. The Annual Election Period for 2027 coverage runs <b style="background:#FBEFC8;">October 15 through December 7, 2026</b>. Medicare Plan Finder typically updates with 2027 options around <b style="background:#FBEFC8;">October 1</b>. Annual Notices of Change should be reaching current enrollees this month. 2027 Star Ratings are expected on Medicare.gov in <b style="background:#FBEFC8;">early to mid-October</b>. Do not take 2027 applications before October 15.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Finish remaining 2027 certifications this week. Review ANOCs after clients receive them. Compare networks, drugs, and premiums only after CMS posts the landscape. Block October 15 on the calendar.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS Part D 2027 NAMBA fact sheet, July 28, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · POLICY
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Part D 2027: premium demo ends; OOP cap moves to $2,400</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>CMS set the 2027 Part D national average monthly bid amount at <b style="background:#FBEFC8;">$296.05</b>, about <b style="background:#FBEFC8;">24%</b> higher year over year, and will <b style="background:#FBEFC8;">end the Part D Premium Stabilization Demonstration</b> after 2026. The national base beneficiary premium rises to <b style="background:#FBEFC8;">$41.33</b> from $38.99, still limited by the IRA <b style="background:#FBEFC8;">6%</b> annual growth cap through 2029. The 2027 Part D out-of-pocket threshold is <b style="background:#FBEFC8;">$2,400</b>, with a <b style="background:#FBEFC8;">$700</b> standard deductible. CMS has said premiums will rise by less than <b style="background:#FBEFC8;">$10</b> for most people, with many seeing lower premiums. Plan-level numbers land with the September landscape.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Expect more PDP comparison questions. Walk clients through TrOOP, the $2,400 cap, and Extra Help. Do not quote 2027 premiums until CMS and carriers publish them. Premiums are not the whole cost.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS, July 28, 2026; Managed Healthcare Executive, July 30, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · CMS
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">2027 Star Ratings reset; CMS eased some agent conversation rules</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>In the Contract Year 2027 MA and Part D final rule, CMS is <b style="background:#FBEFC8;">not implementing</b> the Excellent Health Outcomes for All reward for 2027 Star Ratings and will keep the <b style="background:#FBEFC8;">historical reward factor</b>. CMS is <b style="background:#FBEFC8;">removing 11 measures</b> that were administrative or showed little plan-to-plan difference, and adding a Part C Depression Screening and Follow-Up measure starting with measurement year 2027 (2029 ratings). The rule also <b style="background:#FBEFC8;">removes restrictions on the time and manner</b> of conversations between beneficiaries and licensed agents, rescinds the mid-year unused supplemental-benefit notice, and tightens SSBCI debit-card rules (real-time eligibility checks, plan-year limited). IRA Part D redesign is codified for 2027 and beyond: no coverage gap, an annual OOP threshold, and <b style="background:#FBEFC8;">$0</b> enrollee cost sharing in catastrophic.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Refresh how you explain Stars — fewer process measures, more clinical and experience measures. Follow current CMS marketing rules, SOAs, and recording requirements. The conversation-timing change is not a green light for unsolicited contact.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS CY 2027 MA and Part D Final Rule fact sheet, April 2, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📰</span>&nbsp;&nbsp;FYI · FLORIDA
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Florida SHINE Medicare classes start this week</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>Florida SHINE (Serving Health Insurance Needs of Elders) is running <b style="background:#FBEFC8;">virtual Medicare classes starting Monday, September 7, 2026</b>, covering Medicare Basics, Part C, Part D, preventive services, and fraud prevention through late September. SHINE counseling remains unbiased and confidential through the Florida Department of Elder Affairs and local Area Agencies on Aging. Helpline: <b style="background:#FBEFC8;">1-800-963-5337</b>. Clients will hear a lot of public education between now and AEP.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Point clients to SHINE when they want a second opinion. Keep your presentations compliant and clearly separate from SHINE events. Do not imply affiliation with SHINE or DFS.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: Florida SHINE event listings, September 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · LEGAL
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Florida provider group settles MA coding case for $541.5 million</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>DOJ announced on <b style="background:#FBEFC8;">August 26, 2026</b> that The Villages Health System LLC, headquartered in The Villages, Florida, agreed to a <b style="background:#FBEFC8;">$541.5 million</b> False Claims Act settlement over self-disclosed invalid diagnosis codes submitted to Medicare Advantage organizations from <b style="background:#FBEFC8;">2020 through 2024</b>. Those plans have agreements with CMS to return related funds. The bankruptcy court approved the settlement on August 25. Separately, CMS said on August 28 it has blocked or recovered more than <b style="background:#FBEFC8;">$1.6 billion</b> in potentially improper Medicare laboratory payments and revoked <b style="background:#FBEFC8;">157</b> lab providers.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> If clients mention chart reviews, in-home assessments, or lab or DME solicitations, keep the conversation educational. Do not coach diagnoses. Report suspected fraud to 1-800-MEDICARE or Florida SHINE.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: U.S. Department of Justice, August 26, 2026; CMS Newsroom, August 28, 2026</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · AGENT
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Five weeks to AEP — lock certs, SOA, and 2027 product training</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>AHIP 2027 training went live <b style="background:#FBEFC8;">June 22, 2026</b>. Carrier 2027 benefits trainings are opening this month. You still need a compliant <b style="background:#FBEFC8;">Scope of Appointment</b> before a marketing appointment, and you cannot submit 2027 enrollments before <b style="background:#FBEFC8;">October 15</b>. KFF reports <b style="background:#FBEFC8;">55%</b> of eligible Medicare beneficiaries are in MA in 2026 (<b style="background:#FBEFC8;">35.2 million</b> of 64.2 million). Medicare will spend at least <b style="background:#FBEFC8;">$13.4 billion</b> on MA quality bonuses in 2026, with <b style="background:#FBEFC8;">68%</b> of MA enrollees in bonus-qualifying plans — the lowest share since 2018.</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Audit ready-to-sell status this week. Calendar remaining 2027 product trainings. Confirm SOA and TPMO disclaimer workflows before October. Practice ANOC reviews now so October is execution, not scramble.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: KFF, June 5, 2026 and August 12, 2026; Action Benefits AHIP update, May 8, 2026</p>
+  </td>
+</tr>
+        <tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">— WHAT TO WATCH THIS WEEK —</p>
+    <ul style="margin:0;padding:0 0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><li style="margin:0 0 8px 0;"><b>CMS 2027 MA and Part D landscape</b>: Final average premiums and the full 2027 plan lineup are due mid-to-late September, before AEP.</li><li style="margin:0 0 8px 0;"><b>Medicare.gov Plan Finder</b>: 2027 plan details typically go live around October 1 for comparison; enrollments still wait until October 15.</li><li style="margin:0 0 8px 0;"><b>2027 Star Ratings</b>: CMS calendar points to an early-to-mid-October post on Medicare.gov. Preview windows ran in August–September.</li><li style="margin:0 0 8px 0;"><b>AEP 2027 coverage</b>: October 15 through December 7, 2026. Changes take effect January 1, 2027.</li><li style="margin:0 0 8px 0;"><b>CY 2027 Physician Fee Schedule comments</b>: Public comments on CMS-1848-P close September 14, 2026. Provider-pay story, not an enrollment deadline.</li></ul>
+  </td>
+</tr>
+        <tr>
+          <td style="padding:24px 36px 32px 36px;">
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#8A8A8A;letter-spacing:1.5px;">SOURCES REVIEWED</p>
+            <p style="margin:8px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;line-height:1.55;">CMS Newsroom, CMS CY 2027 MA and Part D Final Rule (April 2, 2026), CMS Part D 2027 NAMBA fact sheet (July 28, 2026), CMS CY 2027 Rate Announcement (April 6, 2026), KFF, DOJ, Florida SHINE, Florida Department of Elder Affairs, Managed Healthcare Executive</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#2A0E45;padding:32px 36px;text-align:center;">
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#FFFFFF;line-height:1.6;">
+              You're receiving this because you're a contracted agent with The Health Experts Insurance.<br><br><b>Questions? Tips? Carrier intel to share?</b> Reply to this email.
+            </p>
+            <p style="margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;color:#E6007E;">Making Healthcare Easy</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
 
-🌴 Florida-specific
-Elevance Health South FL Broker Support invited agents and teams to live virtual 2027 Benefits Training. English: Monday, September 21 at 10:00 AM. Spanish: Tuesday, September 22 at 10:00 AM. The carrier said to use the attached flyer for session details and join links. Questions: DL-SHP-SFLBroker@elevancehealth.com
-
-📋 operational
-Aetna Medicare broker news sent annual amendments to Medicare contracts, including the 2027 rate schedule. Review that Aetna email and complete any steps it asks for. Extra body instructions were not captured in the scan.
-
-📋 operational
-Aetna Medicare broker news also sent a webinar notice on SSBCI and Extra Supports Wallet updates for 2027. Open the original Aetna email for date, time, and how to attend. Those details were not readable in the inbox scan.
-
-📰 general
-Aetna broker news pointed to ready-to-use marketing materials for enrollment-period planning. Use only carrier-approved pieces and follow CMS marketing rules. This is not a recommendation of any plan or carrier.
-
-📋 operational
-Oscar told brokers that Oscar Primary Care (OPC) ends December 31, 2026. Members who currently use OPC will need other primary care starting January 1, 2027. Oscar wrote that access to primary care covered by the Oscar plan is not changing, and members can continue to see other in-network primary care providers. Members who use OPC will need a new PCP.
-
-📰 general
-UnitedHealthcare IFP Connect dated September 4, 2026 listed a Mark of Integrity initiative for Individual and Family Plans (training and attestation, ongoing communications, quarterly reporting, and coaching), a dual-enrollment training touchpoint, Jarvis updates, and a member-experience note on Sanitas expansion. Open that IFP Connect email for the full items. This is IFP broker news, not a plan recommendation.
-
-📋 operational
-CMS REGTAP: webinar for returning agents and brokers on Plan Year 2027 Health Insurance Marketplace registration and training. Thursday, September 10, 2026, 1:30 p.m. to 3:00 p.m. ET. CMS stated that attending does not fulfill PY2027 Marketplace registration and training. Register on REGTAP for the event titled PY2027 Health Insurance Marketplace Registration and Training for Returning Agents and Brokers. Registration closes at 10:00 a.m. ET the morning of the session. New users can create an account at https://regtap.cms.gov. CMS said information for agents who did not complete Plan Year 2026 training will be available soon.
-
-Sources: theiagentpulse inbox scan</pre>
 </div>
 </body>
 </html>
