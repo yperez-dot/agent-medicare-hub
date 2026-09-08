@@ -1,7 +1,25 @@
 {
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-07-uhc-2026-aca-commission-schedule",
+      "type": "update",
+      "emoji": "📋",
+      "title": "UHC 2026 ACA Commission Schedule",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell: Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a $100 welcome bonus from us. PHONE NUMBER: 1 800 249 0173 | Premier Insurance Contracts, Inc. | 832 850 6873 | | emailreply@prinsuco.com | www.prinsuco.com | STAY CONNECTED Premier Insurance Contracts Inc | 16750 Hedgecroft Drive Ste 500 | H",
+      "date": "Sep 7, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-08-2026-oscar-commission-schedule",
+      "type": "update",
+      "emoji": "📋",
+      "title": "2026 Oscar Commission Schedule",
+      "body": "2026 Oscar Commission Schedule",
+      "date": "Sep 8, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-09-05-reminder-your-100-welcome-bonus-from-dev",
       "type": "update",
@@ -431,7 +449,7 @@
     {
       "week": "Week of September 7, 2026",
       "date": "Sep 7, 2026",
-      "headline": "Issue #12 | Week of September 7, 2026",
+      "headline": "CMS 2027 landscape due this month; AEP opens October 15 — five-week countdown for Florida agents",
       "link": "/pulse-2026-09-07.html",
       "tag": "Latest"
     },
