@@ -501,21 +501,6 @@ function renderAepCountdown() {
 }
 renderAepCountdown();
 
-// Active FL SEPs count from pulse-feed.json
-async function loadSepCount() {
-  const sepEl = document.getElementById('sepCount');
-  try {
-    const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
-    const data = await res.json();
-    // Additive field on pulse-feed.json. Falls back to "–" (not zero)
-    // if Igor hasn't added it yet, so we don't show a false 0.
-    if (sepEl) sepEl.textContent = (typeof data.activeSeps === 'number') ? data.activeSeps : '–';
-  } catch(e) {
-    if (sepEl) sepEl.textContent = '–';
-  }
-}
-loadSepCount();
-
 
 // ── Non-Commissionable Plans — carrier list + modal ─────────────────────────
 // Data structure: carrier → plans, each plan lists the states it applies to.
