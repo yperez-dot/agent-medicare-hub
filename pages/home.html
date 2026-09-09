@@ -522,7 +522,7 @@ function renderAepCountdown() {
 renderAepCountdown();
 
 // Block personal / internal inbox items so they never appear on the public ticker.
-const TICKER_PRIVATE = /wallet balance|personal access token|cherry contract|cherry collections|yperez-dot|igor-config|payment update needed|contract termination|sattori group|joseph gonzalez/i;
+const TICKER_PRIVATE = /wallet balance|personal access token|cherry contract|cherry collections|yperez-dot|igor-config|payment update needed|contract termination|sattori group|joseph gonzalez|zoom meeting|zoom\.us|google calendar|calendar invitation|kayla/i;
 function isPublicAlert(a) {
   const hay = [a.id, a.title, a.body, a.summary].filter(Boolean).join(' ');
   return !TICKER_PRIVATE.test(hay);
@@ -568,7 +568,7 @@ async function loadNewsBulletin() {
       const container = track.parentElement;
       // Always clone + animate — don't gate on overflow
       cloneEl.innerHTML = items;
-      track.style.animation = 'ticker-scroll 150s linear infinite';
+      const secs = Math.max(60, Number(data.tickerSeconds) || 150); track.style.animation = 'ticker-scroll ' + secs + 's linear infinite';
     });
   } catch(e) {
     if (sepEl) sepEl.textContent = '–';
