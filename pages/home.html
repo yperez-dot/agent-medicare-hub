@@ -224,26 +224,6 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 </div>
 
 
-<!-- News Ticker -->
-<div id="news-ticker" style="display:none;background:#fff;overflow:hidden;width:100%;position:relative;border-bottom:2px solid #FF1090;border-top:2px solid #FF1090;">
-  <div style="display:flex;align-items:stretch;">
-    <a href='/agent-pulse' style='flex:none;display:flex;align-items:center;gap:8px;padding:0 18px;background:#FF1090;text-decoration:none;z-index:2;white-space:nowrap;'>
-      <span style="font:800 11px/1 Arial,sans-serif;color:#fff;text-transform:uppercase;letter-spacing:.8px;">Live</span>
-    </a>
-    <div style="flex:1;overflow:hidden;padding:10px 0;">
-      <div id="ticker-track" style="display:inline-flex;gap:0;white-space:nowrap;animation:ticker-scroll 150s linear infinite;">
-        <span id="ticker-items"></span>
-        <span id="ticker-items-clone"></span>
-      </div>
-    </div>
-    <a href='/agent-pulse' style='flex:none;display:flex;align-items:center;padding:0 16px;color:rgba(255,255,255,0.9);font:600 11px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap;border-left:1px solid #F1ECF6;'>View all →</a>
-  </div>
-</div>
-<style>
-@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-#news-ticker:hover #ticker-track{animation-play-state:paused}
-</style>
-
 <!-- Content -->
 <div class="wrap">
 
@@ -521,15 +501,8 @@ function renderAepCountdown() {
 }
 renderAepCountdown();
 
-// Block personal / internal inbox items so they never appear on the public ticker.
-const TICKER_PRIVATE = /wallet balance|personal access token|cherry contract|cherry collections|yperez-dot|igor-config|payment update needed|contract termination|sattori group|joseph gonzalez|zoom meeting|zoom\.us|google calendar|calendar invitation|kayla/i;
-function isPublicAlert(a) {
-  const hay = [a.id, a.title, a.body, a.summary].filter(Boolean).join(' ');
-  return !TICKER_PRIVATE.test(hay);
-}
-
-// Load news bulletin + Active FL SEPs count from pulse-feed.json
-async function loadNewsBulletin() {
+// Load the Active FL SEP count from pulse-feed.json
+async function loadActiveSepCount() {
   const sepEl = document.getElementById('sepCount');
   try {
     const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
@@ -539,42 +512,11 @@ async function loadNewsBulletin() {
     // "–" (not zero) if Igor hasn't added it yet, so we don't show a false 0.
     if (sepEl) sepEl.textContent = (typeof data.activeSeps === 'number') ? data.activeSeps : '–';
 
-    if (!data.alerts || !data.alerts.length) return;
-    const now = Date.now();
-    const cutoff = now - (60 * 24 * 60 * 60 * 1000); // 60 days
-    const recent = data.alerts.filter(a => {
-      if (!isPublicAlert(a)) return false;
-      const d = new Date(a.date);
-      return !isNaN(d) && d.getTime() >= cutoff;
-    });
-    if (!recent.length) return;
-    const items = recent.map(a => {
-      const url = a.source || '/agent-pulse.html';
-      const external = a.source && a.source.startsWith('http');
-      return `<a href="${url}" ${external ? 'target="_blank" rel="noopener"' : ''} style="display:inline-flex;align-items:center;gap:8px;padding:0 28px;border-right:1px solid #F1ECF6;text-decoration:none;">
-        <span style="font:600 12.5px/1 Arial,sans-serif;color:#452068;">${a.title}</span>
-        <span style="font:400 11px/1 Arial,sans-serif;color:#C9B8DF;">${a.date}</span>
-      </a>`;
-    }).join('');
-    const track = document.getElementById('ticker-track');
-    const itemsEl = document.getElementById('ticker-items');
-    const cloneEl = document.getElementById('ticker-items-clone');
-    itemsEl.innerHTML = items;
-    cloneEl.innerHTML = '';
-    document.getElementById('news-ticker').style.display = 'block';
-    // Only clone + animate if content actually overflows the strip —
-    // otherwise short feeds show visible duplicates.
-    requestAnimationFrame(() => {
-      const container = track.parentElement;
-      // Always clone + animate — don't gate on overflow
-      cloneEl.innerHTML = items;
-      const secs = Math.max(60, Number(data.tickerSeconds) || 150); track.style.animation = 'ticker-scroll ' + secs + 's linear infinite';
-    });
   } catch(e) {
     if (sepEl) sepEl.textContent = '–';
   }
 }
-loadNewsBulletin();
+loadActiveSepCount();
 
 
 // ── Non-Commissionable Plans — carrier list + modal ─────────────────────────
