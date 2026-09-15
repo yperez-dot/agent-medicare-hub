@@ -1,6 +1,17 @@
 {
-  "updated": "2026-09-01",
+  "updated": "2026-09-15",
   "peeks": [
+    {
+      "id": "2026-09-15-disaster-seps-in-co-hi-ms-and-tx",
+      "carrier": "Carrier",
+      "title": "Disaster SEPs in CO, HI, MS, and TX",
+      "detail": "Uploaded Sep 15, 2026 · Broker-only",
+      "download": "/files/Disaster-SEPs-in-CO--HI--MS--and-TX.pdf",
+      "downloadLabel": "Download",
+      "badge": "2027",
+      "date": "2026-09-15",
+      "fileName": "Disaster-SEPs-in-CO--HI--MS--and-TX.pdf"
+    },
     {
       "id": "2026-09-01-devoted-core-001-fl-hmo-h1290-001-000-en",
       "carrier": "Devoted Health",
@@ -69,14 +80,6 @@
       "download": "/files/devoted-2027-bpag.xlsx",
       "downloadLabel": "Download B-PAG",
       "date": "2026-08-17"
-    },
-    {
-      "id": "2026-07-15-the-devoted-download-your-py27-playbook-",
-      "carrier": "Devoted Health",
-      "title": "📬 The Devoted Download: Your PY27 Playbook, Previews, & Live Training Events",
-      "detail": "Jul 15, 2026",
-      "badge": "DEVOTED\n2027",
-      "date": "2026-07-15"
     }
   ]
 }
