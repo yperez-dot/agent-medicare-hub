@@ -942,7 +942,13 @@ function renderList() {
   let visibleCarriers = 0;
   let visiblePlans = 0;
 
-  const html = NC_DATA.map((c, idx) => {
+  const sortedData = [...NC_DATA].sort((a, b) => {
+    const byName = a.carrier.localeCompare(b.carrier, undefined, { sensitivity: 'base' });
+    if (byName) return byName;
+    return (a.year || 2026) - (b.year || 2026);
+  });
+
+  const html = sortedData.map((c, idx) => {
     const year = c.year || 2026;
     if (_activeFilter === '2027' && year !== 2027) return '';
     if (_activeFilter === '2026' && year !== 2026) return '';
@@ -957,6 +963,10 @@ function renderList() {
         p.states.some(s => s.toLowerCase().includes(q));
       const matchesState = !stateFilter || p.states.includes(stateFilter);
       return matchesQ && matchesState;
+    }).sort((a, b) => {
+      const an = (a.name || a.id).toLowerCase();
+      const bn = (b.name || b.id).toLowerCase();
+      return an.localeCompare(bn);
     });
 
     if (!matchedPlans.length) return '';
