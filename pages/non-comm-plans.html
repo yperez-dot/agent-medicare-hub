@@ -150,6 +150,8 @@ function logout() {
 // ⚠️ Mirrors NC_DATA in home.html. Keep both in sync until this is
 // centralized into a shared JSON file Igor can update from one place.
 // Aetna rows are Plan Year 2027 (bulletin 8/20/2026, contract/PBP + name).
+// Anthem, WellPoint, and Freedom Health/Optimum HealthCare (FL) 2027 rows
+// are from Elevance's "Exceptions List, Plan Year 2027" (bulletin 09/02/2026).
 // Other carriers remain 2026 pending their 2027 bulletins.
 const NC_DATA = [
  { carrier: 'Humana', pending: false, plans: [
@@ -857,6 +859,55 @@ const NC_DATA = [
  { id: 'Wellpoint Lung Care 2', states: ['AZ'] },
  { id: 'Wellpoint Medicare Advantage 2', states: ['AZ'] },
  { id: 'Wellpoint Premium Savings', states: ['AZ'] },
+ ]},
+ { carrier: 'Anthem', pending: false, year: 2027, plans: [
+  { id: 'H4471-005-000', name: 'Anthem Dual Advantage (HMO D-SNP)', states: ['CA'] },
+  { id: 'H4909-029-000', name: 'Anthem Chronic Care (PPO C-SNP)', states: ['CA'] },
+  { id: 'H4346-037-000', name: 'Anthem Chronic Care (HMO-POS C-SNP)', states: ['CO'] },
+  { id: 'H2836-006-000', name: 'Anthem Full Dual Advantage (PPO D-SNP)', states: ['CT'] },
+  { id: 'H5854-019-001', name: 'Anthem Medicare Advantage (HMO)', states: ['CT'] },
+  { id: 'H5854-019-002', name: 'Anthem Medicare Advantage (HMO)', states: ['CT'] },
+  { id: 'H1607-012-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['IN'] },
+  { id: 'H1607-015-000', name: 'Anthem Medicare Advantage 2 (PPO)', states: ['IN'] },
+  { id: 'H7093-002-000', name: 'Anthem Medicare Advantage (PPO)', states: ['IN'] },
+  { id: 'H7220-004-000', name: 'Anthem Medicare Advantage 2 (HMO-POS)', states: ['IN'] },
+  { id: 'H7220-009-001', name: 'Anthem Medicare Advantage 3 (HMO-POS)', states: ['IN'] },
+  { id: 'H7220-009-002', name: 'Anthem Medicare Advantage 3 (HMO-POS)', states: ['IN'] },
+  { id: 'H7220-010-000', name: 'Anthem Medicare Advantage 4 (HMO-POS)', states: ['IN'] },
+  { id: 'R5941-016-000', name: 'Anthem Medicare Advantage (Regional PPO)', states: ['IN','KY'] },
+  { id: 'H4036-034-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['KY'] },
+  { id: 'H4036-036-000', name: 'Anthem Medicare Advantage (PPO)', states: ['KY'] },
+  { id: 'H9065-008-000', name: 'Anthem | MaineHealth Advantage Plus (HMO)', states: ['ME'] },
+  { id: 'H4036-017-000', name: 'Anthem Medicare Advantage 4 (PPO)', states: ['OH'] },
+  { id: 'H4036-025-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['OH'] },
+  { id: 'H4036-026-000', name: 'Anthem Medicare Advantage (PPO)', states: ['OH'] },
+  { id: 'R5941-014-000', name: 'Anthem Medicare Advantage (Regional PPO)', states: ['OH'] },
+  { id: 'H3447-033-000', name: 'Anthem Kidney Care (HMO-POS C-SNP)', states: ['VA'] },
+  { id: 'H4909-014-000', name: 'Anthem Medicare Advantage (PPO)', states: ['VA'] },
+  { id: 'H4909-020-000', name: 'Anthem Veteran (PPO)', states: ['VA'] },
+  { id: 'H4909-026-000', name: 'Anthem Medicare Advantage 2 (PPO)', states: ['VA'] },
+  { id: 'H4036-008-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['WI'] },
+ ]},
+ { carrier: 'WellPoint', pending: false, year: 2027, plans: [
+  { id: 'H2593-001-000', name: 'Wellpoint Medicare Advantage 2 (HMO-POS)', states: ['AZ'] },
+  { id: 'H2593-003-000', name: 'Wellpoint | CareMore Home Care 2 (HMO I-SNP)', states: ['AZ'] },
+  { id: 'H2593-005-000', name: 'Wellpoint Lung Care 2 (HMO-POS C-SNP)', states: ['AZ'] },
+  { id: 'H5828-008-000', name: 'Wellpoint Extra Help (HMO-POS)', states: ['TN'] },
+  { id: 'H2593-029-000', name: 'Wellpoint Medicare Advantage 2 (HMO-POS)', states: ['TX'] },
+  { id: 'H8849-022-000', name: 'Wellpoint Full Dual Advantage Select (HMO D-SNP)', states: ['TX'] },
+  { id: 'H8849-023-000', name: 'Wellpoint Full Dual Advantage Select (HMO D-SNP)', states: ['TX'] },
+  { id: 'H8849-027-000', name: 'Wellpoint Full Dual Advantage (HMO D-SNP)', states: ['TX'] },
+  { id: 'H8849-016-000', name: 'Wellpoint Dual Advantage (HMO D-SNP)', states: ['WA'] },
+  { id: 'H8849-017-000', name: 'Wellpoint Dual Advantage Plus (HMO D-SNP)', states: ['WA'] },
+ ]},
+ { carrier: 'Freedom Health / Optimum HealthCare (FL)', pending: false, year: 2027, plans: [
+  { id: 'H5427-059-000', name: 'Freedom Medicare Plan Rx (HMO)', states: ['FL'] },
+  { id: 'H5427-060-000', name: 'Freedom Medicare Plan Rx (HMO)', states: ['FL'] },
+  { id: 'H5594-019-000', name: 'Optimum Gold Plan (HMO)', states: ['FL'] },
+  { id: 'H5594-022-000', name: 'Optimum Gold Rewards Plan (HMO)', states: ['FL'] },
+  { id: 'H5594-026-000', name: 'Optimum Gold Rewards Plan (HMO)', states: ['FL'] },
+  { id: 'H5594-030-000', name: 'Optimum Diamond Savings (HMO C-SNP)', states: ['FL'] },
+  { id: 'H5594-031-000', name: 'Optimum Diamond Savings COPD (HMO C-SNP)', states: ['FL'] },
  ]},
 ];
 
