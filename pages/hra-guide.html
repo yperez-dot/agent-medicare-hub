@@ -108,7 +108,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   <div class="hero">
     <h1>💳 HRA Quick Reference</h1>
     <p>Health Risk Assessment (HRA) amounts, eligible plan types, completion timeframes, and OTC info — all in one place. Confirm amounts with the carrier before quoting.</p>
-    <span class="badge">2026 · Florida Medicare Advantage</span>
+    <span class="badge">2027 · Florida Medicare Advantage</span>
   </div>
 
   <div class="search-row">
@@ -178,12 +178,12 @@ const CARRIERS = [
     needsConfirm: false
   },
   {
-    id: 'simply', name: 'Simply Healthcare (Elevance)', sub: 'DSNP & CSNP · MProducer',
-    hasHra: true, amount: 125, amountLabel: 'DSNP & CSNP — new members only',
-    tags: ['dsnp','csnp','new'],
-    timeframe: '7 business days after enrollment',
-    portal: 'Sunfire / MProducer',
-    howTo: 'Complete HRA through Sunfire or MProducer. New members only — renewals do not receive HRA.',
+    id: 'simply', name: 'Simply Healthcare (Elevance)', sub: 'D-SNP · online enrollment tool',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP — new members only',
+    tags: ['dsnp','new'],
+    timeframe: 'During enrollment or within 7 days of submitting the application',
+    portal: 'Online enrollment tool',
+    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only. If the writing agent is eligible for Benefit Activation and that process has started, no administrative fee is paid for a standalone HRA.',
     otc: 'Costco, CVS, Publix, Walmart, Winn-Dixie',
     otcNetwork: 'Carelon Rx OTC',
     needsConfirm: false
@@ -239,13 +239,37 @@ const CARRIERS = [
     needsConfirm: true
   },
   {
-    id: 'healthsun', name: 'HealthSun (Elevance)', sub: 'Confirm with carrier',
-    hasHra: false, amount: null, amountLabel: null,
-    tags: [],
-    timeframe: null, portal: null, howTo: null,
+    id: 'healthsun', name: 'HealthSun (Elevance)', sub: 'D-SNP · online enrollment tool',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP — new members only',
+    tags: ['dsnp','new'],
+    timeframe: 'During enrollment or within 7 days of submitting the application',
+    portal: 'Online enrollment tool',
+    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only.',
     otc: 'EasyScripts · 1-855-963-0400',
     otcNetwork: 'EasyScripts',
-    needsConfirm: true
+    needsConfirm: false
+  },
+  {
+    id: 'freedom', name: 'Freedom (Elevance)', sub: 'D-SNP & C-SNP · online enrollment tool',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP & C-SNP — new members only',
+    tags: ['dsnp','csnp','new'],
+    timeframe: 'During enrollment or within 7 days of submitting the application',
+    portal: 'Online enrollment tool',
+    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only.',
+    otc: '',
+    otcNetwork: '',
+    needsConfirm: false
+  },
+  {
+    id: 'optimum', name: 'Optimum (Elevance)', sub: 'D-SNP & C-SNP · online enrollment tool',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP & C-SNP — new members only',
+    tags: ['dsnp','csnp','new'],
+    timeframe: 'During enrollment or within 7 days of submitting the application',
+    portal: 'Online enrollment tool',
+    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only.',
+    otc: '',
+    otcNetwork: '',
+    needsConfirm: false
   },
   {
     id: 'wellcare', name: 'WellCare', sub: 'Confirm with carrier',
@@ -289,9 +313,8 @@ function cardHTML(c){
         <div class="no-hra-msg">HRA data not confirmed for this carrier.</div>
         ${c.needsConfirm ? '<div class="confirm-flag">⚠️ Verify amount & eligibility with carrier before quoting</div>' : ''}
       `}
-      <div class="divider"></div>
-      <div class="otc-row"><strong>OTC Network:</strong> ${c.otcNetwork}</div>
-      ${c.needsConfirm && c.hasHra === false ? '' : ''}
+      ${c.otcNetwork ? `<div class="divider"></div>
+      <div class="otc-row"><strong>OTC Network:</strong> ${c.otcNetwork}</div>` : ''}
     </div>
   </div>`;
 }
