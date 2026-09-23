@@ -1,6 +1,14 @@
 {
-  "updated": "2026-09-15",
+  "updated": "2026-09-23",
   "peeks": [
+    {
+      "id": "2026-09-17-agent-authorization-a-sneak-peek-at-heal",
+      "carrier": "Carrier",
+      "title": "Agent authorization: A sneak peek at HealthSherpa’s tools",
+      "detail": "Sep 17, 2026",
+      "badge": "CARRIER\n2027",
+      "date": "2026-09-17"
+    },
     {
       "id": "2026-09-15-disaster-seps-in-co-hi-ms-and-tx",
       "carrier": "Carrier",
@@ -68,18 +76,6 @@
       "detail": "Aug 20, 2026",
       "badge": "CARRIER\n2027",
       "date": "2026-08-20"
-    },
-    {
-      "id": "devoted-2027-bpag-fl",
-      "carrier": "Devoted Health",
-      "title": "Devoted Health 2027 B-PAG — Florida",
-      "detail": "Published Aug. 17 · Broker-only · Not for beneficiaries",
-      "note": "Miami-Dade: Core $0 MOOP $3,400 · D-SNP $455/mo Food & Home · $202 Giveback available",
-      "badge": "DEVOTED\n2027",
-      "badgeColor": "#1B4FD8",
-      "download": "/files/devoted-2027-bpag.xlsx",
-      "downloadLabel": "Download B-PAG",
-      "date": "2026-08-17"
     }
   ]
 }
