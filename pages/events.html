@@ -58,6 +58,15 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .event-desc{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);margin-bottom:7px;}
 .event-meta{font:600 11px/1 Arial,sans-serif;color:var(--text-faint);}
 
+/* Event request forms — primary discovery for Carolina / AEP outreach */
+.event-forms-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--border);border-top:3px solid var(--pink);border-radius:16px;padding:18px 20px;text-decoration:none;color:inherit;margin-bottom:22px;box-shadow:0 1px 3px rgba(36,28,46,.06);}
+.event-forms-banner:hover{box-shadow:0 4px 16px rgba(69,32,104,.1);}
+.event-forms-kicker{font:700 10.5px/1 Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;color:var(--pink-dark);margin-bottom:6px;}
+.event-forms-banner h2{font:700 17px/1.25 Arial,sans-serif;color:var(--text);margin-bottom:4px;}
+.event-forms-banner p{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);margin:0;}
+.event-forms-cta{flex-shrink:0;padding:10px 18px;background:var(--purple);color:#fff;border-radius:999px;font:700 13px/1 Arial,sans-serif;}
+@media(max-width:700px){.event-forms-banner{flex-direction:column;align-items:flex-start;}}
+
 /* Add event CTA */
 .add-event{background:#fff;border:2px dashed var(--border);border-radius:14px;padding:22px 20px;display:flex;align-items:center;gap:14px;color:var(--text-soft);cursor:pointer;transition:all .15s;}
 .add-event:hover{border-color:var(--purple);color:var(--purple);}
@@ -102,6 +111,15 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <h1>Events</h1>
     <p>Carrier-led webinars, AEP prep sessions, and THEI team trainings — all in one place. Stay current, stay ready for AEP.</p>
   </div>
+
+  <a class="event-forms-banner" href="/carrier-event-forms">
+    <div>
+      <div class="event-forms-kicker">AEP · Year-round outreach</div>
+      <h2>Carrier Event Request Forms</h2>
+      <p>DHCP and Solis forms for tabletops, educational, and member-facing events. Share with Carolina for AEP and year-round outreach.</p>
+    </div>
+    <span class="event-forms-cta">Open Forms →</span>
+  </a>
 
   <!-- Filters -->
   <div class="filter-bar">

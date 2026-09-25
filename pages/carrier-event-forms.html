@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Carrier Event Request Forms | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.wrap{max-width:1100px;margin:0 auto;padding:36px 24px 64px;}
+.intro{font:400 14.5px/1.55 Arial,sans-serif;color:var(--text-soft);max-width:78ch;margin:0 0 22px;}
+.forms-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 3px rgba(36,28,46,.06);}
+.form-card.featured{border-top:3px solid var(--pink);}
+.form-kicker{font:700 10.5px/1 Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;color:var(--pink-dark);}
+.form-card h2{font:700 18px/1.25 Arial,sans-serif;color:var(--text);}
+.form-card p{font:400 13.5px/1.55 Arial,sans-serif;color:var(--text-soft);flex:1;}
+.form-meta{font:600 12.5px/1.5 Arial,sans-serif;color:var(--text-faint);}
+.form-meta a{color:var(--purple);font-weight:700;}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;padding:12px 16px;border-radius:12px;background:var(--purple);color:#fff;text-decoration:none;font:700 13.5px/1 Arial,sans-serif;}
+.btn:hover{filter:brightness(1.06);}
+.footnote{margin-top:22px;padding:14px 16px;background:#fff;border:1px solid var(--border);border-radius:12px;font:400 12.5px/1.5 Arial,sans-serif;color:var(--text-soft);}
+@media(max-width:780px){.forms-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Carrier Event Request Forms</h1>
+    <p>Request tabletops, educational, and member-facing events — AEP and year-round.</p>
+  </div>
+
+  <p class="intro">Carrier forms THEI uses to request marketing / community events (tabletops, educational, member-facing, etc.). Share with Carolina for AEP and year-round outreach.</p>
+
+  <div class="forms-grid">
+    <article class="form-card featured">
+      <div class="form-kicker">Doctors HealthCare Plans</div>
+      <h2>DHCP Event Request Form</h2>
+      <p>Submit marketing and community event requests for Doctors HealthCare Plans. Allow time for carrier review before you confirm a venue or promote the event.</p>
+      <div class="form-meta">Questions: <a href="mailto:marketing@doctorshcp.com">marketing@doctorshcp.com</a> — allow 3–5 business days for review.</div>
+      <a class="btn" href="https://forms.monday.com/forms/f6b015bb3bb0a600cbf86ec58c41df48?r=use1" target="_blank" rel="noopener">Open DHCP Form <span>→</span></a>
+    </article>
+
+    <article class="form-card featured">
+      <div class="form-kicker">Solis Health Plans</div>
+      <h2>Solis Event Request Form</h2>
+      <p>South / Central Florida regions. Covers sales, educational, AEP, and member-facing events.</p>
+      <div class="form-meta">Use for tabletops, educational sessions, AEP events, and member-facing outreach.</div>
+      <a class="btn" href="https://form.jotform.com/222678744027058" target="_blank" rel="noopener">Open Solis Form <span>→</span></a>
+    </article>
+  </div>
+
+  <div class="footnote">Added Sep 25, 2026. Add more carrier event forms here as they come in.</div>
+</div>
+
+<script>
+function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+</script>
+</body>
+</html>
