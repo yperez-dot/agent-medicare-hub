@@ -1,8 +1,20 @@
 
-# Pretty URL for certs page
+# Pretty URLs for hub pages
 /certs /certs.html 200
 /carrier-event-forms /carrier-event-forms.html 200
 /medicaid-levels /medicaid-levels.html 200
+/retention-toolkit /retention-toolkit.html 200
+/hra-guide /hra-guide.html 200
+/home /home.html 200
+/learn /learn.html 200
+/events /events.html 200
+/carrier-info /carrier-info.html 200
+/compliance /compliance.html 200
+/tools-perks /tools-perks.html 200
+/sep-tracker /sep-tracker.html 200
+/chronic-conditions /chronic-conditions.html 200
+/medicaid-lis /medicaid-lis.html 200
+/client-guides /client-guides.html 200
 
 # Spanish compliance (mirrors /compliance)
 /es/compliance /es/compliance.html 200

@@ -158,11 +158,30 @@
       else open();
     }
 
+    function isRealNavLink(el){
+      if (!el || el.tagName !== 'A') return false;
+      var href = el.getAttribute('href') || '';
+      if (!href || href === '#' || href.indexOf('javascript:') === 0) return false;
+      var onclick = el.getAttribute('onclick') || '';
+      if (/logout/i.test(onclick)) return false;
+      return true;
+    }
+
     btn.addEventListener('click', toggle);
     overlay.addEventListener('click', close);
+    // Never hide the drawer in the same turn as a real link click.
+    // display:none on .pill-nav cancels navigation on some mobile browsers
+    // (Retention Toolkit sits near the end of the scrolled drawer).
     nav.addEventListener('click', function(e){
       if (!isMobile()) return;
-      if (e.target.closest('a,button')) close();
+      var el = e.target.closest('a,button');
+      if (!el) return;
+      if (isRealNavLink(el)) {
+        var dest = navPath(el.getAttribute('href'));
+        if (dest === navPath(location.pathname)) setTimeout(close, 0);
+        return;
+      }
+      setTimeout(close, 0);
     });
     document.addEventListener('keydown', function(e){
       if (e.key === 'Escape') close();
@@ -170,6 +189,8 @@
     window.addEventListener('resize', function(){
       if (!isMobile()) close();
     });
+    window.addEventListener('pagehide', close);
+    window.addEventListener('pageshow', close);
   }
 
   if (document.readyState === 'loading') {
