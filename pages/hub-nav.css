@@ -53,10 +53,15 @@
 
 .hub-nav-overlay{
   display:none;
+  pointer-events:none;
   position:fixed;
   inset:0;
   background:rgba(36,28,46,.48);
   z-index:1001;
+}
+.hub-nav-ready .pill-nav > a{
+  position:relative;
+  z-index:1;
 }
 
 @media(max-width:1100px){
@@ -100,7 +105,7 @@
   }
   .hub-nav-ready.hub-nav-open .top-bar{z-index:1003;}
   .hub-nav-ready.hub-nav-open .pill-nav{display:flex !important;}
-  .hub-nav-ready.hub-nav-open .hub-nav-overlay{display:block !important;}
+  .hub-nav-ready.hub-nav-open .hub-nav-overlay{display:block !important;pointer-events:auto;}
   body.hub-nav-open{overflow:hidden;}
   .hub-nav-ready .pill-nav a,
   .hub-nav-ready .pill-nav button{

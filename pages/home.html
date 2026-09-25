@@ -16,6 +16,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Agent Hub | The Health Experts Insurance</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
@@ -318,13 +321,17 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   <div class="two-col">
     <div class="res-card">
       <h3>Most-Needed Resources</h3>
-      <a class="res-item" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit" target="_blank" rel="noopener">
-        <span class="res-name">Medicaid Levels Cheat Sheet</span>
-        <span class="res-tag tag-pink">Google Doc</span>
+      <a class="res-item" href="/medicaid-levels">
+        <span class="res-name">Medicaid Levels</span>
+        <span class="res-tag tag-pink">In-Hub Table</span>
+      </a>
+      <a class="res-item" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">
+        <span class="res-name">2027 Plan Comparison Grid</span>
+        <span class="res-tag tag-purple">Top Used · AEP</span>
       </a>
       <a class="res-item" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
-        <span class="res-name">2026 MAPD Plan Comparison</span>
-        <span class="res-tag tag-purple">Top Used</span>
+        <span class="res-name">2026 MAPD Plan Comparison (sell through Nov 30)</span>
+        <span class="res-tag tag-green">Through Nov 30</span>
       </a>
       <a class="res-item" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener">
         <span class="res-name">2026 Income Limits (SSI Chart)</span>
@@ -346,6 +353,13 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
     <div class="res-card">
       <h3>Quick Links</h3>
+      <a class='ql-item' href='/carrier-event-forms'>
+        <div class="ql-left">
+          <span class="ql-name">Carrier Event Request Forms</span>
+          <span class="ql-desc">DHCP &amp; Solis tabletops, educational, and AEP events</span>
+        </div>
+        <span class="ql-arrow">→</span>
+      </a>
       <a class='ql-item' href='/retention-toolkit'>
         <div class="ql-left">
           <span class="ql-name">Retention Toolkit</span>
@@ -437,12 +451,16 @@ const SEARCH_INDEX = [
   {icon:'📚',title:'WebCE Continuing Education',desc:'Complete CE hours to maintain your insurance license.',tags:['webce','ce','continuing education','license','hours'],url:'/tools-perks.html'},
   {icon:'🛡️',title:'E&O Insurance',desc:'Agency-negotiated pricing — required for Medicare contracting.',tags:['e&o','errors','omissions','eo','insurance'],url:'/tools-perks.html'},
   {icon:'🪪',title:'Florida DFS (MyProfile)',desc:'Manage your FL license, CE compliance, and appointments.',tags:['dfs','license','florida','myprofile','appointment'],url:'/tools-perks.html'},
-  {icon:'📊',title:'2026 MAPD Plan Comparison Grid',desc:'Side-by-side benefits, copays, OTC, dental, vision for all 2026 plans.',tags:['plan','mapd','grid','comparison','2026','benefits','plan grid'],url:'/learn.html'},
+  {icon:'📊',title:'2027 Plan Comparison Grid',desc:'Side-by-side benefits, copays, OTC, dental, vision for all 2027 MAPD plans. Primary AEP grid.',tags:['plan','mapd','grid','comparison','2027','benefits','plan grid','plan comparison','aep'],url:'https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit'},
+  {icon:'📊',title:'2026 MAPD Plan Comparison (sell through Nov 30)',desc:'Current-year side-by-side MAPD grid. Agents can still sell 2026 plans through Nov 30, 2026.',tags:['plan','mapd','grid','comparison','2026','benefits','plan grid','plan comparison','nov 30','current year'],url:'https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit'},
   {icon:'🩺',title:'Chronic Condition Eligibility',desc:'C-SNP, D-SNP, and MA coverage by condition — all carriers.',tags:['chronic','condition','snp','csnp','dsnp','eligibility'],url:'/chronic-conditions.html'},
+  {icon:'💳',title:'HRA Quick Reference',desc:'Health Risk Assessment amounts, plan types, timeframes, and OTC — all carriers.',tags:['hra','health risk assessment','rates','payment','dsnp','csnp','quick reference'],url:'/hra-guide'},
   {icon:'📞',title:'Carrier Contact Guide',desc:'Auth lines, member services, OTC, HRA, pharmacy — all carriers.',tags:['carrier','contact','humana','aetna','solis','devoted','uhc','united','careplus','hra','otc','auth','member services','pharmacy','oscar','wellcare'],url:'/carrier-contact-guide.html'},
+  {icon:'🚫',title:'Non-Commissionable Plans',desc:'Plans that pay reduced or zero commission on new enrollments — 2026 and 2027.',tags:['non-commissionable','non comm','commission','aetna','new sales'],url:'/non-comm-plans.html'},
+  {icon:'🎓',title:'AEP 2027 Compliance Training',desc:'Required AEP course: SOA wait is gone, events changed, Part D cap $2,400.',tags:['aep','2027','training','compliance','soa','part d'],url:'/aep-2027-training.html'},
   {icon:'📋',title:'AgentSync — Contracting',desc:'Carrier onboarding, contracting docs, appointment tracking.',tags:['agentsync','contracting','onboarding','contract','appointment'],url:'/tools-perks.html'},
   {icon:'📋',title:'Nextere — Contracting',desc:'Contracting for Doctors Health, Solis, Gold Kidney, HealthSun.',tags:['nextere','doctors health','solis','gold kidney','healthsun','contracting'],url:'/tools-perks.html'},
-  {icon:'💊',title:'Medicaid & LIS / Extra Help',desc:'QMB, SLMB, income limits and eligibility rules.',tags:['medicaid','lis','extra help','qmb','slmb','income','low income'],url:'/learn.html'},
+  {icon:'💊',title:'Medicaid & LIS / Extra Help',desc:'QMB, SLMB, income limits and eligibility rules.',tags:['medicaid','lis','extra help','qmb','slmb','income','low income'],url:'/medicaid-lis.html'},
   {icon:'📧',title:'Retention Email Templates',desc:'7 client email templates — birthday, AEP, mid-year, annual review.',tags:['retention','email','template','birthday','aep','annual review','client'],url:'/retention-toolkit.html'},
   {icon:'🎓',title:'Broker University',desc:'Medicare basics, sales scripts, training guides, lead gen resources.',tags:['training','university','learn','medicare basics','sales','script','education','basics'],url:'/learn.html'},
   {icon:'📇',title:'Business Card Generator (EN)',desc:'Generate your THEI-branded digital business card instantly.',tags:['business card','card','generator','digital','brand','tarjeta'],url:'https://moonlit-douhua-e20b2a.netlify.app/'},
@@ -468,10 +486,14 @@ const SEARCH_INDEX = [
   {icon:'👔',title:'Medicare & Employer Coverage',desc:'Working past 65? How employer plans affect timing and when Part B should start.',tags:['employer coverage','working','past 65','employer','group plan','part b timing','coordination'],url:'/learn.html'},
   {icon:'💵',title:'IRMAA & Late Enrollment Penalties',desc:'Income-related surcharges and penalties agents need to prevent.',tags:['irmaa','penalty','late enrollment','surcharge','part b premium','income','part d penalty'],url:'/learn.html'},
   {icon:'🎓',title:'HealthSpring Broker Training',desc:'Upcoming training webinars and certification events from HealthSpring University.',tags:['healthspring','broker training','training','webinar','certification','events','health spring'],url:'/medicare-supplements'},
+  {icon:'📝',title:'Carrier Event Request Forms',desc:'DHCP and Solis forms for tabletops, educational, AEP, and member-facing events.',tags:['event form','event forms','carrier event','dhcp','doctors healthcare','doctors hcp','solis','solis event','tabletop','community event','community event form','aep','outreach','carolina'],url:'/carrier-event-forms'},
+  {icon:'📝',title:'DHCP Event Request Form',desc:'Doctors HealthCare Plans event form. Questions: marketing@doctorshcp.com — allow 3–5 business days.',tags:['dhcp','doctors healthcare','doctors hcp','event form','monday','marketing'],url:'/carrier-event-forms'},
+  {icon:'📝',title:'Solis Event Request Form',desc:'Solis Health Plans event form for South/Central Florida — sales, educational, AEP, member-facing.',tags:['solis','solis event','jotform','event form','south florida','central florida','tabletop'],url:'/carrier-event-forms'},
   {icon:'📣',title:'Community Events Playbook',desc:'4-phase guide — getting in, showing up, converting leads, building the partnership.',tags:['community events','events','playbook','lead gen','venue','outreach','community','leads'],url:'/learn.html'},
   {icon:'🏥',title:'Provider Office Playbook',desc:'4-phase guide for building referral relationships with doctors offices.',tags:['provider office','doctor','referral','physician','office','playbook','lead gen'],url:'/learn.html'},
   {icon:'📱',title:'Social Media Caption Library',desc:'30 ready-to-post bilingual captions — educational, seasonal, AEP series.',tags:['social media','caption','instagram','facebook','post','content','bilingual','en','es'],url:'/learn.html'},
-  {icon:'📊',title:'Medicaid Levels Cheat Sheet',desc:'Quick reference for Medicaid eligibility levels — QMB, SLMB, LIS.',tags:['medicaid','levels','cheat sheet','qmb','slmb','lis','extra help','eligibility'],url:'/learn.html'},
+  {icon:'📊',title:'Medicaid Levels',desc:'In-hub LIS copays and MSP comparison — QMB, SLMB, QI, FBDE.',tags:['medicaid','levels','cheat sheet','qmb','slmb','qi','fbde','lis','extra help','eligibility','msp','medicare savings','table'],url:'/medicaid-levels'},
+  {icon:'📅',title:'Events',desc:'Carrier-led webinars, AEP prep, and THEI trainings.',tags:['events','calendar','training','webinar','aep'],url:'/events.html'},
   {icon:'✅',title:'Certs & Compliance',desc:'Carrier certifications, CMS guidelines, certification deadlines.',tags:['certs','compliance','carrier cert','cms','certify','deadline'],url:'/certs.html'},
 ];
 
@@ -1041,13 +1063,32 @@ try { localStorage.removeItem('thei_aep_reviews_2027'); } catch(e){}
   const dropdown = document.getElementById('searchDropdown');
   let focusIdx = -1;
 
+  function scoreItem(item, q){
+    const title = item.title.toLowerCase();
+    const desc = item.desc.toLowerCase();
+    const tags = item.tags || [];
+    let score = 0;
+    if (title === q) score += 120;
+    if (title.startsWith(q)) score += 80;
+    else if (title.includes(q)) {
+      score += 55;
+      if (new RegExp('(?:^|\\s|—|-)' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(title)) score += 15;
+    }
+    if (title.includes(q)) score += Math.max(0, 24 - title.length);
+    if (tags.some(t => t === q)) score += 40;
+    else if (tags.some(t => t.includes(q))) score += 12;
+    if (desc.includes(q)) score += 5;
+    return score;
+  }
+
   function getResults(q){
     if(!q || q.length < 2) return [];
-    return SEARCH_INDEX.filter(item =>
-      item.tags.some(t => t.includes(q)) ||
-      item.title.toLowerCase().includes(q) ||
-      item.desc.toLowerCase().includes(q)
-    ).slice(0, 7);
+    return SEARCH_INDEX
+      .map((item, idx) => ({ item, idx, score: scoreItem(item, q) }))
+      .filter(r => r.score > 0)
+      .sort((a, b) => b.score - a.score || a.idx - b.idx)
+      .slice(0, 7)
+      .map(r => r.item);
   }
 
   function renderDropdown(results){
