@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Medicaid Levels | Medicare Agent Hub</title>
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;--green:#1E8A5C;--green-tint:#E3F5EC;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.wrap{max-width:1180px;margin:0 auto;padding:36px 24px 64px;}
+.section{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:0 1px 3px rgba(36,28,46,.06);}
+.section h2{font:700 18px/1.2 Arial,sans-serif;margin-bottom:8px;}
+.section .lead{font:400 13.5px/1.55 Arial,sans-serif;color:var(--text-soft);margin-bottom:14px;}
+.note{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);background:var(--purple-tint);border-radius:10px;padding:10px 12px;margin:10px 0 14px;}
+.note strong{color:var(--purple);}
+.bullets{margin:0 0 14px 18px;color:var(--text-soft);font-size:13.5px;}
+.bullets li{margin:4px 0;}
+.table-wrap{overflow-x:auto;}
+table.ref{width:100%;border-collapse:collapse;font-size:13.5px;}
+.ref th{background:var(--purple-dark);color:#fff;text-align:left;padding:11px 12px;font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em;}
+.ref th:first-child{position:sticky;left:0;z-index:1;background:var(--purple-dark);}
+.ref td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text);}
+.ref td:first-child{position:sticky;left:0;background:#fff;font-weight:800;color:var(--purple);white-space:nowrap;}
+.ref tr:nth-child(even) td{background:#FBF8FF;}
+.ref tr:nth-child(even) td:first-child{background:#FBF8FF;}
+.ref tr:last-child td{border-bottom:none;}
+.yes{color:var(--green);font-weight:800;}
+.no{color:#9A94A8;font-weight:700;}
+.limited{color:#B45309;font-weight:700;}
+.level-cards{display:none;}
+.level-card{border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;}
+.level-card h3{font:800 15px/1.2 Arial,sans-serif;color:var(--purple);margin-bottom:8px;}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:13px;}
+.kv dt{color:var(--text-faint);}
+.kv dd{font-weight:700;text-align:right;}
+.footnote{font:400 12.5px/1.5 Arial,sans-serif;color:var(--text-soft);padding:4px 2px;}
+@media(max-width:800px){
+  .desktop-table{display:none;}
+  .level-cards{display:block;}
+  .ref th:first-child,.ref td:first-child{position:static;}
+}
+@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Agent Dashboard</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Carrier Info</a>
+    <a href='/events'>Events</a>
+    <a href='/compliance'>Compliance</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Retention Toolkit</a>
+    <a href='/sep-tracker'>SEP Tracker</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Medicaid Levels &amp; Extra Help</h1>
+    <p>In-hub quick reference for LIS copays and Medicare Savings Program levels — classify members without opening a Google Doc.</p>
+  </div>
+
+  <section class="section">
+    <h2>LIS Extra Help</h2>
+    <p class="lead">Covers part or all of monthly premiums, deductibles, and copayments for Medicare drug plans. Members pay copays based on their LIS level — those copays are the operative agent need on a sales call.</p>
+    <ul class="bullets">
+      <li><strong>Auto-enrollment:</strong> Medicaid, SSI, or any Medicare Savings Program (QMB / SLMB / QI) automatically enrolls the member in Extra Help.</li>
+      <li><strong>Apply:</strong> SSA online or call <a href="tel:18007721213" style="color:#452068;font-weight:700;">1-800-772-1213</a>.</li>
+      <li><strong>Since 2024:</strong> full Extra Help benefits only — the old partial LIS level is gone.</li>
+    </ul>
+    <div class="note"><strong>2026 Extra Help income / assets</strong> (Florida, aligned with the live THEI / HealthExps MSP figures): Individual ≤ $1,903/mo · Couple ≤ $2,575/mo · Assets $17,220. Home and one car are typically excluded. Countable income is often lower than gross (first $20 of most income and first $65 of earned income do not count).</div>
+
+    <div class="table-wrap">
+      <table class="ref">
+        <thead>
+          <tr>
+            <th>LIS level</th>
+            <th>Generic copay</th>
+            <th>Brand copay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Level 1</td><td>$5.10</td><td>$12.65</td></tr>
+          <tr><td>Level 2</td><td>$1.60</td><td>$12.65</td></tr>
+          <tr><td>Level 3</td><td>$0</td><td>$0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Medicaid Levels / Medicare Savings Program</h2>
+    <p class="lead">Use this to classify the member on a call. Benefit distinctions are from the THEI Medicaid &amp; LIS cheat sheet (updated 04/07/2026).</p>
+
+    <div class="table-wrap desktop-table">
+      <table class="ref">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Full Medicaid?</th>
+            <th>Pays Part A premium</th>
+            <th>Pays Part B premium</th>
+            <th>Pays deductibles / copays for Medicare services</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>QMB+</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
+            <td>Medicaid coverage of Medicare cost-share <em>and</em> full Medicaid. Member pays nothing except Part D copays.</td>
+          </tr>
+          <tr>
+            <td>QMB</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
+            <td class="yes">Yes</td>
+            <td>Cost-share only — not full Medicaid. Pays Part A &amp; B premiums, deductibles, coinsurance, and copays for Medicare-covered services. Member pays nothing except Part D copays.</td>
+          </tr>
+          <tr>
+            <td>QI</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+            <td>Part B premium only. State does not pay cost-share. No full Medicaid. Limited slots; must re-apply every year.</td>
+          </tr>
+          <tr>
+            <td>SLMB+</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
+            <td class="limited">Limited</td>
+            <td>Part B premium + full Medicaid. Generally 0% cost-share when the service is covered by both Medicare and Medicaid. Member may pay when Medicaid does not cover the service.</td>
+          </tr>
+          <tr>
+            <td>SLMB</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+            <td>Part B premium only. State does not pay cost-share. No full Medicaid.</td>
+          </tr>
+          <tr>
+            <td>FBDE</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="limited">Limited</td>
+            <td>Full Medicaid. Medicaid may give limited help with Medicare cost-sharing. Generally 0% when both Medicare and Medicaid cover the service; member may pay when Medicaid does not.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="level-cards">
+      <article class="level-card">
+        <h3>QMB+</h3>
+        <dl class="kv">
+          <dt>Full Medicaid?</dt><dd class="yes">Yes</dd>
+          <dt>Part A premium</dt><dd class="yes">Yes</dd>
+          <dt>Part B premium</dt><dd class="yes">Yes</dd>
+          <dt>Medicare deductibles / copays</dt><dd class="yes">Yes</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Cost-share + full Medicaid. Member pays nothing except Part D copays.</p>
+      </article>
+      <article class="level-card">
+        <h3>QMB</h3>
+        <dl class="kv">
+          <dt>Full Medicaid?</dt><dd class="no">No</dd>
+          <dt>Part A premium</dt><dd class="yes">Yes</dd>
+          <dt>Part B premium</dt><dd class="yes">Yes</dd>
+          <dt>Medicare deductibles / copays</dt><dd class="yes">Yes</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Cost-share only. Member pays nothing except Part D copays.</p>
+      </article>
+      <article class="level-card">
+        <h3>QI</h3>
+        <dl class="kv">
+          <dt>Full Medicaid?</dt><dd class="no">No</dd>
+          <dt>Part A premium</dt><dd class="no">No</dd>
+          <dt>Part B premium</dt><dd class="yes">Yes</dd>
+          <dt>Medicare deductibles / copays</dt><dd class="no">No</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Part B premium only. Re-apply every year.</p>
+      </article>
+      <article class="level-card">
+        <h3>SLMB+</h3>
+        <dl class="kv">
+          <dt>Full Medicaid?</dt><dd class="yes">Yes</dd>
+          <dt>Part A premium</dt><dd class="no">No</dd>
+          <dt>Part B premium</dt><dd class="yes">Yes</dd>
+          <dt>Medicare deductibles / copays</dt><dd class="limited">Limited</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Part B + full Medicaid. Generally 0% when both programs cover the service.</p>
+      </article>
+      <article class="level-card">
+        <h3>SLMB</h3>
+        <dl class="kv">
+          <dt>Full Medicaid?</dt><dd class="no">No</dd>
+          <dt>Part A premium</dt><dd class="no">No</dd>
+          <dt>Part B premium</dt><dd class="yes">Yes</dd>
+          <dt>Medicare deductibles / copays</dt><dd class="no">No</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Part B premium only. No full Medicaid.</p>
+      </article>
+      <article class="level-card">
+        <h3>FBDE</h3>
+        <dl class="kv">
+          <dt>Full Medicaid?</dt><dd class="yes">Yes</dd>
+          <dt>Part A premium</dt><dd class="no">No</dd>
+          <dt>Part B premium</dt><dd class="no">No</dd>
+          <dt>Medicare deductibles / copays</dt><dd class="limited">Limited</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Full Medicaid. Limited help with Medicare cost-share; generally 0% when both cover the service.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>2026 Florida MSP &amp; Extra Help limits</h2>
+    <p class="lead">Compact income/asset figures from the live THEI / HealthExps MSP reference. Full Medicaid (QMB+, SLMB+, FBDE) uses state DCF Medicaid limits — verify with DCF.</p>
+    <div class="table-wrap">
+      <table class="ref">
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>Individual</th>
+            <th>Couple</th>
+            <th>Asset limit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>QMB</td><td>≤ $1,330/mo</td><td>≤ $1,803/mo</td><td>$9,950</td></tr>
+          <tr><td>SLMB</td><td>≤ $1,596/mo</td><td>≤ $2,164/mo</td><td>$9,950</td></tr>
+          <tr><td>QI</td><td>≤ $1,796/mo</td><td>≤ $2,435/mo</td><td>$9,950</td></tr>
+          <tr><td>Extra Help / LIS</td><td>≤ $1,903/mo</td><td>≤ $2,575/mo</td><td>$17,220</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="footnote">Updated Apr 7, 2026 · Agent reference · verify with state/DCF as needed. Income figures aligned with 2026 HealthExps / hub MSP numbers (the 2025 LIS income wording in the old Google Doc is outdated).</p>
+</div>
+
+<script>
+function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+</script>
+</body>
+</html>

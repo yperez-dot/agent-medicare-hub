@@ -1,7 +1,7 @@
 # Agent Dashboard (Home) — Extracted Links
 
 ## Most-Needed Resources
-- Medicaid Levels Cheat Sheet: https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit?usp=sharing
+- Medicaid Levels (in-hub table): /medicaid-levels
 - 2027 Plan Comparison Grid: https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit
 - 2026 MAPD Plan Comparison (sell through Nov 30): https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit?usp=sharing
 - Chronic Conditions List: https://docs.google.com/spreadsheets/d/1pzfYr4ZSZrej2hx2VqDA4ijodb12wfzq8e-lBtwCAl8/edit?usp=sharing

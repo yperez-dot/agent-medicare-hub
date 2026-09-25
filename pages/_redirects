@@ -1,6 +1,8 @@
 
 # Pretty URL for certs page
 /certs /certs.html 200
+/carrier-event-forms /carrier-event-forms.html 200
+/medicaid-levels /medicaid-levels.html 200
 
 # Spanish compliance (mirrors /compliance)
 /es/compliance /es/compliance.html 200
