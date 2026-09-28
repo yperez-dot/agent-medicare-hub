@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>THEI Agent Pulse — Week of September 28, 2026</title>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) { localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
+.back-bar{background:#452068;padding:10px 24px;display:flex;align-items:center;gap:16px;}
+.back-bar a{color:#fff;text-decoration:none;font:600 13px/1 Arial,sans-serif;opacity:.85;}
+.email-wrap{max-width:680px;margin:24px auto 48px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+@media(max-width:600px){.email-wrap{margin:0;border-radius:0;}}
+</style>
+<link rel="stylesheet" href="/hub-nav.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href="/home">Agent Dashboard</a>
+    <a href="/pulse-library">Pulse Library</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
+  </nav>
+</div>
+<div class="back-bar">
+  <a href="/pulse-library">← Pulse Library</a>
+  <span style="color:rgba(255,255,255,.3);">|</span>
+  <a href="/agent-pulse">Agent Pulse</a>
+</div>
+<div class="email-wrap">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>THE Health Experts Insider</title>
+</head>
+<body style="margin:0;padding:0;background:#EDE8F0;">
+  <span style="display:none !important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;">CMS tightens 2027 enrollment operations as Florida dual-eligible changes move closer to October 1.</span>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EDE8F0;padding:24px 0;">
+    <tr><td align="center">
+      <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="max-width:640px;width:100%;background:#FFFFFF;border-radius:8px;overflow:hidden;">
+        <tr>
+          <td style="padding:28px 36px 22px 36px;border-bottom:2px solid #D6006C;text-align:left;">
+            <img src="/thei-logo.png" alt="The Health Experts Insurance" width="360" style="display:block;width:360px;max-width:100%;height:auto;border:0;outline:none;">
+          </td>
+        </tr>
+        
+        <tr>
+          <td style="background:#FBEFC8;padding:14px 36px;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#3D1560;line-height:1.5;">
+            📬 Reading THE Health Experts Insider? If a colleague would benefit, please forward it on!
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#2A0E45;padding:48px 36px;text-align:center;">
+            <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#FFFFFF;letter-spacing:3px;font-weight:700;opacity:0.85;">Week of September 28, 2026 &nbsp;·&nbsp; ISSUE 015</p>
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:30px;color:#FFFFFF;line-height:1;">The Week in</p>
+            <p style="margin:6px 0 0 0;font-family:Helvetica,Arial,sans-serif;font-weight:900;font-size:56px;color:#E6007E;line-height:1;letter-spacing:-1px;">Medicare</p>
+            <div style="width:60px;height:3px;background:#E6007E;margin:18px auto 0 auto;"></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:32px 36px 8px 36px;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#2A2A2A;line-height:1.6;">
+            <p>Happy Monday, team! 👋</p><p>CMS has published late-September 2027 guidance, Florida is preparing for a major Medicaid plan transition, and AEP readiness now depends on clean documentation, current certifications, and careful dual-eligible conversations.</p><p>— Yahoska &amp; Katy</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:8px 36px 24px 36px;text-align:center;">
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;letter-spacing:3px;font-weight:700;">— THE WEEK IN MEDICARE —</p>
+          </td>
+        </tr>
+        <tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · CMS
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">CMS updates 2027 enrollment guidance before AEP</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>CMS updated its 2027 Medicare Advantage and Part D enrollment and disenrollment guidance on <b style="background:#FBEFC8;">September 15, 2026</b>. The guidance adds operational details, including the required availability of paper enrollment forms, and applies to 2027 requests beginning January 1, 2027; plans may optionally use the updated guidance for AEP enrollments effective January 1. <b style="background:#FBEFC8;">Medicare Open Enrollment remains October 15 through December 7.</b> ([cms.gov](https://www.cms.gov/medicare/enrollment-renewal/managed-care-eligibility-enrollment?utm_source=openai))</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Review each carrier’s current enrollment workflow before AEP. Confirm that your submission process, election-period documentation, paper-form process, and effective-date handling match the latest carrier instructions.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS Medicare Managed Care Eligibility and Enrollment / CY 2027 Enrollment and Disenrollment Guidance — September 15, 2026 ([cms.gov](https://www.cms.gov/medicare/enrollment-renewal/managed-care-eligibility-enrollment?utm_source=openai))</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · AEPCERTS
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">2027 agent and broker training guidelines are posted</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>CMS has posted the <b style="background:#FBEFC8;">CY 2027 Agent/Broker Training and Testing Guidelines</b>. The materials reinforce core election-period rules, including that the MA OEP is not an opportunity for someone in Original Medicare to newly join an MA plan. <b style="background:#FBEFC8;">AEP is October 15–December 7</b>, and the MA OEP is January 1–March 31 for eligible individuals already enrolled in Medicare Advantage. ([cms.gov](https://www.cms.gov/medicare/health-drug-plans/managed-care-marketing/models-standard-documents-educational-materials?utm_source=openai))</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Finish any remaining carrier certifications and keep the CMS training materials available for quick reference. Be especially precise when explaining AEP, MA OEP, and enrollment effective dates.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS Agent/Broker Training &amp; Testing Guidelines and Medicare marketing materials — September 2026 ([cms.gov](https://www.cms.gov/medicare/health-drug-plans/managed-care-marketing/models-standard-documents-educational-materials?utm_source=openai))</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📰</span>&nbsp;&nbsp;FYI · POLICY
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Part D’s 2027 national premium benchmarks are set</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>CMS says the <b style="background:#FBEFC8;">2027 national average monthly bid amount is $296.05</b> and the <b style="background:#FBEFC8;">2027 Part D national base beneficiary premium is $41.33</b>. CMS is also ending the voluntary Part D Premium Stabilization Demonstration after 2026, returning standalone prescription drug plans to traditional market conditions for 2027. These are national benchmarks, not plan-specific premiums. ([cms.gov](https://www.cms.gov/newsroom/fact-sheets/medicare-part-d-2027-national-average-monthly-bid-amount-information?utm_source=openai))</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> Use the upcoming plan materials and formularies—not national benchmarks alone—when reviewing a beneficiary’s drug coverage. Recheck premiums, tiers, utilization rules, pharmacies, and annual cost exposure during every review.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS, Medicare Part D 2027 National Average Monthly Bid Amount Information — July 28, 2026 ([cms.gov](https://www.cms.gov/newsroom/fact-sheets/medicare-part-d-2027-national-average-monthly-bid-amount-information?utm_source=openai))</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">📋</span>&nbsp;&nbsp;IMPORTANT · FLORIDA
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">Florida’s CMS Plan transition begins October 1</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>Florida AHCA reports that <b style="background:#FBEFC8;">Molina Healthcare of Florida will operate the statewide CMS Plan beginning October 1, 2026</b>, replacing Sunshine State Health Plan as administrator. AHCA says current members will transition automatically, while existing appointments, prescriptions, and prior authorizations are expected to be honored for continuity of care. ([ahca.myflorida.com](https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/2025-2030-smmc-plans/cms-plan-transition.html?utm_source=openai))</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> For dual-eligible households connected to the Florida CMS Plan, verify the member’s new plan and provider details before discussing 2027 coverage. Do not assume that a familiar plan name, provider, pharmacy, or authorization will carry over without checking current records.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: Florida Agency for Health Care Administration, CMS Plan Transition — September 2026 ([ahca.myflorida.com](https://ahca.myflorida.com/medicaid/statewide-medicaid-managed-care/2025-2030-smmc-plans/cms-plan-transition.html?utm_source=openai))</p>
+  </td>
+</tr>
+<tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 8px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">
+      <span style="font-size:14px;letter-spacing:0;">🚨</span>&nbsp;&nbsp;ACTION · CMS
+    </p>
+    <h2 style="margin:0 0 6px 0;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1.25;color:#3D1560;font-weight:700;">D-SNP alignment rules matter more for 2027 conversations</h2>
+    <p style="margin:0 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">2-minute read</p>
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><p>CMS says provisions taking effect in 2027 will limit enrollment in certain D-SNPs to individuals also enrolled in an affiliated Medicaid managed care organization. The rules also limit how many D-SNP plan benefit packages related organizations can offer in the same service area as an affiliated Medicaid MCO. <b style="background:#FBEFC8;">Medicaid status and plan alignment are central eligibility checks—not afterthoughts.</b> ([cms.gov](https://www.cms.gov/medicare/medicaid-coordination/about/dsnps?utm_source=openai))</p></div>
+    <div style="background:#FBEFC8;border-radius:6px;padding:18px 22px;margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.55;"><p><b style="color:#3D1560;">What this means for you:</b> For dual-eligible clients, confirm current Medicaid enrollment, service-area eligibility, and plan alignment before presenting enrollment options. Keep Medicare and Medicaid facts separate and document what was verified.</p></div>
+    <p style="margin:14px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;font-style:italic;">Source: CMS, D-SNPs: Integration &amp; Unified Appeals and Grievance Requirements — updated August 11, 2026 ([cms.gov](https://www.cms.gov/medicare/medicaid-coordination/about/dsnps?utm_source=openai))</p>
+  </td>
+</tr>
+        <tr>
+  <td style="padding:28px 36px;border-bottom:1px solid #E5E0EA;">
+    <p style="margin:0 0 14px 0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#D6006C;font-weight:700;letter-spacing:2px;">— WHAT TO WATCH THIS WEEK —</p>
+    <ul style="margin:0;padding:0 0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#2A2A2A;line-height:1.6;"><li style="margin:0 0 8px 0;"><b>CMS 2027 landscape files</b>: CMS’s Medicare Open Enrollment materials page still lists the 2027 state-by-state MA and Part D landscape files as coming soon. Watch for the Florida-specific plan counts, premiums, and plan availability data before finalizing AEP review tools. ([cms.gov](https://www.cms.gov/outreach-and-education/reach-out/find-tools-to-help-you-help-others/open-enrollment-outreach-and-media-materials?utm_source=openai))</li><li style="margin:0 0 8px 0;"><b>Florida Medicaid managed care activity</b>: Florida AHCA lists statewide Medicaid managed care open enrollment beginning October 1, 2026, along with additional transition notices. This may affect dual-eligible conversations and D-SNP alignment checks during AEP. ([ahca.myflorida.com](https://ahca.myflorida.com/medicaid/florida-medicaid-health-care-alerts/florida-medicaid-health-care-alerts-last-90-days.html?utm_source=openai))</li><li style="margin:0 0 8px 0;"><b>Marketplace identity-proofing enforcement</b>: CMS announced September 22, 2026 actions against unauthorized Marketplace enrollments and said new 2027 Marketplace registration is temporarily restricted for agents and brokers without an active 2026 Exchange Agreement. This is ACA Marketplace news, but it reinforces the broader compliance environment around identity, consent, and application accuracy. ([cms.gov](https://www.cms.gov/newsroom/press-releases/cms-cracks-down-fraud-waste-abuse-federal-health-insurance-marketplacer?utm_source=openai))</li></ul>
+  </td>
+</tr>
+        <tr>
+          <td style="padding:24px 36px 32px 36px;">
+            <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#8A8A8A;letter-spacing:1.5px;">SOURCES REVIEWED</p>
+            <p style="margin:8px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:13px;color:#8A8A8A;line-height:1.55;">CMS Newsroom and Medicare.gov materials; Florida Agency for Health Care Administration; Florida Department of Financial Services; agentmedicarehub.com/agent-pulse — September 2026</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#2A0E45;padding:32px 36px;text-align:center;">
+            <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#FFFFFF;line-height:1.6;">
+              You're receiving this because you're a contracted agent with The Health Experts Insurance.<br><br><b>Questions? Tips? Carrier intel to share?</b> Reply to this email.
+            </p>
+            <p style="margin:18px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;color:#E6007E;">Making Healthcare Easy</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+
+</div>
+</body>
+</html>
