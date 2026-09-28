@@ -1,7 +1,223 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-28",
   "activeSeps": 1,
   "alerts": [
+    {
+      "id": "2026-09-23-training-completion",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Training Completion",
+      "body": "This email was sent through Amazon SES using the AWS SDK for Java.",
+      "date": "Sep 23, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-23-recertification-complete",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Recertification Complete",
+      "body": "This email was sent through Amazon SES using the AWS SDK for Java.",
+      "date": "Sep 23, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-23-reminder-your-100-welcome-bonus-from-dev",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: Your $100 Welcome Bonus from Devoted Awaits",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get contracted to Sell: ï»¿Get contracted with Devoted for Medicare Advantage through Premier Insurance Contracts, Inc. Click here now to start your contracting process. Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a ï»¿$100 welcome bonus from us. Call 1 800 249 0173 â | Premier Insurance Contracts, Inc. | 8",
+      "date": "Sep 23, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-23-the-food-and-home-card-help-your-clients",
+      "type": "update",
+      "emoji": "📋",
+      "title": "The Food and Home Card: Help your clients save on essentials",
+      "body": "A monthly allowance on many 2027 plans â here's who qualifies. DevotedHealthPlan (https://cJfPw04.na1.hubspotlinks.com/Ctc/LX+113/cJfPw04/VXd_y816HvDkW8w4yMK93G3tGW89-nNw5VhDmFN4dVQc83pyd0W7lCdLW6lZ3pcW3KFs9Z205_dFW4Tl4x058czwBW2hsYC541_TlKW3BcyBD3-8RXnW47dcBp24DFBZW1QHjS25Rw73LW2G8dDG4CsN5ZW8QsH0x517LPhW5StZ9L7dfkbYW8tyGMN8tm5pyW1q5SMx1kD8NWW2k8cPP2GM-SBVBP40G10NdflW3KL15Q2JTx5tW78FKTh4GqHVZW8FLt_92dfbF4W5Sj4ZX889-N_W2cPLvS29B0jcMKBlQ4qBKncW1J3xD316bbh1VBJZCR2spG_MW3SvQRQ7lJwHYW1T445r16qKk2Vw",
+      "date": "Sep 23, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-23-plex-updates-and-resources",
+      "type": "update",
+      "emoji": "📋",
+      "title": "PLEX Updates and Resources",
+      "body": "96 120 This message contains graphics. If you do not see the graphics, click here to view . <!--==========================================================",
+      "date": "Sep 23, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-23-register-for-upcoming-oscar-oe-webinars",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Register for upcoming Oscar OE webinars",
+      "body": "https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjUwMDh9AAoAAAAABPcO56Jggh3nQ4uNFbLH_LsoMUuRYRPd1D6pckLkOxS5RteN3oOURaWRagROvL1aus1tMUWOWjN7eSQE1gm_tTsO6oh0us-nqiJaI0MF https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjUwMDh9AAoAAAAABPcO56JhWiK2kcwmyMaK-V5Dtc3TdbtHEYkbXCRuoPldJ9kkobf3laSdx4rMJ3mnBWG4uA0Mfw5cbERds1vOCRwhowcduIfzeBvVkxxj Broker Login | https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjUwMDh9AAoAAAAABPcO56JiOtbZC4wtopPGKJZOnzvWTxD9l0Uj2DigAXbflH5Y2VWdCfvHla25A1hz9kHy_Bw",
+      "date": "Sep 23, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-23-you-re-invited-2027-d-snp-deep-dive-plan",
+      "type": "update",
+      "emoji": "📋",
+      "title": "You're Invited: 2027 D-SNP Deep Dive Plan Review on September 28, 2026 at 9:00 AM / ¡Está Invitado(a)! Análisis Detallado de los Planes D-SNP 2027 el 28 de sept",
+      "body": "You're Invited: 2027 D-SNP Deep Dive Plan Review on September 28, 2026 at 9:00 AM / Â¡EstÃ¡ Invitado(a)! AnÃ¡lisis Detallado de los Planes D-SNP 2027 el 28 de septiembre de 2026 a las 3:30 PM 2027 D-SNP Deep Dive Plan Review Join us for an in-depth review of UnitedHealthcare&#39;s 2027 Dual Special Needs Plans (D-SNP) during our upcoming virtual training session. This session is designed to help you strengthen your understanding of the 2027 D-SNP portfolio and prepare for productive conversation",
+      "date": "Sep 23, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-reminder-join-our-webinar-on-the-new-cms",
+      "type": "event",
+      "emoji": "📅",
+      "title": "REMINDER: Join our webinar on the new CMS Identify Proofing Requirement for Brokers",
+      "body": "https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjUwMDl9AAoAAAAABPsQWhZPIbzie3H47uRME4dAKAFLA_IUJftn53XQBa9ye2Foluw4vPzXLkMJtuhFDRxFAb8k2c_1f31pT-9d5Vkait_Re69QDn6LQ6CV https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjUwMDl9AAoAAAAABPsQWhZQwei9roPXyi4_BxIeft3JjBdm66f_Fxl9GrrWnm2cgt3XkLC-RBzsOZDWx90YzlIkmMNcN1QmxGfl6Fbp3YJVJ9FeKAC31Yn9 Broker Login | https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjUwMDl9AAoAAAAABPsQWhZS5nysBbEG8eWFQ__58no79RVSGchRinXHVN4kvsFo1VPGIHXs7djhMxv7-qvNN7s",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-accepted-amerilife-dinner-thu-sep-24-202",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Accepted: Amerilife Dinner @ Thu Sep 24, 2026 8pm - 11pm (EDT) (Yahoska Perez)",
+      "body": "S2F0eSBSb2JsZXMgaGFzIGFjY2VwdGVkIHRoaXMgaW52aXRhdGlvbi4NCg0KQW1lcmlsaWZlIERp bm5lcg0KVGh1cnNkYXkgU2VwIDI0LCAyMDI2IOKLhSA4cG0g4oCTIDExcG0NCkVhc3Rlcm4gVGlt ZSAtIE5ldyBZb3JrDQoNCkxvY2F0aW9uDQpBbWF6w7NuaWNvIE1pYW1pLCA4MDAgQnJpY2tlbGwg QXZlLCBNaWFtaSwgRkwgMzMxMzEsIFVTQQkNCmh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vbWFwcy9z ZWFyY2gvQW1heiVDMyVCM25pY28rTWlhbWksKzgwMCtCcmlja2VsbCtBdmUsK01pYW1pLCtGTCsz MzEzMSwrVVNBP2hsPWVuDQoNCg0KDQpPcmdhbml6ZXINCllhaG9za2EgUGVyZXoNCnlwZXJlekBo ZWFsdGhleHBzLmNvbQ0KDQpHdWVzdHMNCllhaG",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-you-re-invited-to-join-us-for-a-virtual-",
+      "type": "update",
+      "emoji": "📋",
+      "title": "You’re invited to join us for a virtual AARP® Medicare Supplement AEP Showcase!",
+      "body": "Youâre invited to join us for a virtual AARPÂ® Medicare Supplement AEP Showcase! Register now for an upcoming virtual AARP Medicare Supplement AEP Showcase! Join Claire Cuddihy for an upcoming virtual training for AARP &reg; Medicare Supplement Insurance Plans from UnitedHealthcare &reg; ! There are four Florida specific dates to choose from. Register for one today! AEP Showcase AARP&reg; Medicare Supplement AEP Showcase (SPANISH) Thursday October 1, 2026 10:00 AM - 12:00 PM EST CLICK TO REGIS",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-our-2027-pdp-first-look-is-now-available",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Our 2027 PDP First Look is now available!",
+      "body": "Email from HCSC Log in to the broker portal to view it today. â â â 2027 HealthSpring Prescription Drug Plans First Look Now available! Log in to HealthSpringforBrokers.com to view it today. â â Our 2027 HealthSpring Prescription Drug Plans (PDP) First Look is now available! Log in to HealthSpringforBrokers.com (HFB) to see an overview of our featured plans and benefits for 2027. Top PDP updates for 2027 We have coast-to-coast PDP coverage for 2027 (at least one plan in all 50 states p",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-broker-insights-the-newsletter-for-all-m",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Broker Insights: The newsletter for all Medicare brokers – Edition 9.2",
+      "body": "Email from HCSC HSB business updates, MA First Look, October training schedule, and more in this edition of Broker Insights! â â â September 2026 â Edition 9.2 Broker Insights is the newsletter for Medicare Advantage (MA), Prescription Drug Plan (PDP), and Supplemental Benefits (HSB) brokers. Thank you for your partnership! Important: You must log in to HealthSpringforBrokers.com (HFB) to view any of the resources that indicate \"login required\". Haven't registered in HFB? Click here for ",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-join-our-october-virtual-training-sessio",
+      "type": "event",
+      "emoji": "📅",
+      "title": "Join our October virtual training sessions for AARP® Medicare Supplement Plans in Florida!",
+      "body": "Join our October virtual training sessions for AARPÂ® Medicare Supplement Plans in Florida! Register now for upcoming virtual AARP Medicare Supplement Plan trainings! Join Claire Cuddihy for upcoming virtual trainings for AARP &reg; Medicare Supplement Insurance Plans from UnitedHealthcare &reg; ! These trainings are available to agents in Florida. This list includes the AEP Showcases being offered. REGISTER NOW! October Virtual Trainings AARP&reg; Medicare Supplement AEP Showcase (SPANISH) Octo",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-deadline-approaching-final-chance-to-app",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Deadline approaching: Final chance to apply for the Toast Changemakers $10K food insecurity grant",
+      "body": "Deadline approaching: Final chance to apply for the Toast Changemakers $10K food insecurity grant Applications close October 1 at 6 PM ET, fifteen grants total. &#847;&zwnj; &#847;&zwnj; &#847;&zwnj; &#847;&zwnj; &#847;&zwnj; &#847;&zwnj; https://click.email.helloalice.com/?qs«B7InYiOjEsImQiOjUwMDl9AAwAAAAAAyQ6gQHbhxoP9Q2zsmh8PnKEDEUBW8KP01G2QWDPH2-PsYEZ_TML9Qw0U7vlJrW-gIvTrm6A04rkAYdYV6j5yy5zaO0vmvx526EZaXvtWA https://click.email.helloalice.com/?qs«B7InYiOjEsImQiOjUwMDl9AAwAAAAAAyQ6gQHcxQwPpkVh",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-24-urgent-your-cherry-account-needs-attenti",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Urgent: Your Cherry Account Needs Attention",
+      "body": "Regarding your Glow Medspa Miami contract <script type=\"application/ld+json\">{\"@context\":\"http://schema.org\",\"@type\":\"Invoice\",\"accountId\":\"L-GTK9869022-1\",\"paymentStatus\":\"PaymentDue\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Cherry Collections\"},\"totalPaymentDue\":{\"@type\":\"PriceSpecification\",\"price\":\"$575.00\",\"priceCurrency\":\"USD\"},\"paymentDue\":\"2026-08-27\"}</script><script type=\"application/ld+json\">{\"@context\":\"http://schema.org\",\"@type\":\"EmailMessage\",\"description\":\"Cherry Collections bil",
+      "date": "Sep 24, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-25-get-contracted-to-sell-unitedhealthone",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Get Contracted to Sell Unitedhealthone",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell UnitedHealthOne: Why UHOne? Comprehensive Product Portfolio to Meet Your Clients Needs Nationally Recognized Brand of United Healthcare Competitive Commissions Sell Year-Round With No Enrollment Windows Online Support & Training to Help You Succeed PHONE NUMBER: 1 800 249 0173 ï»¿| Premier Insurance Contracts, Inc. | 832 850 6873 | STAY CONNECTED â Premier Insurance Contracts Inc | 16750 Hedgecroft ",
+      "date": "Sep 25, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-25-ffm-certification-now-available-for-retu",
+      "type": "update",
+      "emoji": "📋",
+      "title": "FFM certification now available for returning agents and brokers",
+      "body": "UnitedHealthcare Open Enrollment Is Coming Plan Year 2027 certification for returning agents and brokers is now available through the CMS Marketplace Learning Management System. Ready to get certified? Click the button below to access certification information and required training coursework. http://click.ifp.uhc.com/?qs«B7InYiOjEsImQiOjUwMTB9AAEAAAAAAf_V4O9kJAKeWobUsgTmAq41-AZXRsSE9LnTXqndE5e3RUa3523jQ9tpVO11deQONIYUpsAzv9bGYY_pSU9ZAceWmt0rPon6t7oGVQ8Z Open Enrollment for plan year 2027 runs f",
+      "date": "Sep 25, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-25-urgent-protect-your-2027-commissions",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "URGENT: Protect Your 2027 Commissions",
+      "body": "[View in browser](https://nmkz0.r.sp1-brevo.net/mk/mr/sh/7nVTPdZCTJDXOjvYENRL8fbnEa5qvL7/pASLajpmgafz) YOUR GROWTH-FOCUSED FMO PARTNER *Por favor, desplÃ¡cese hacia abajo para ver la versiÃ³n en espaÃ±ol.* **Important CMS Requirement: Review Your Book of Business Now** Good afternoon, We are sharing an important update from CMS that may directly impact your **2027 renewals and commissions**. As part of its efforts to reduce unauthorized and non-compliant Marketplace enrollments, CMS is adding an",
+      "date": "Sep 25, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-25-disaster-seps-in-ca-fl-in-ne-oh-va-and-w",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Disaster SEPs in CA, FL, IN, NE, OH, VA, and WV",
+      "body": "Email from HCSC For any impacted client who missed an election period in the above state(s). â â â Disaster Special Election Periods (DST-SEPs) DST-SEPs in California, Florida, Indiana, Nebraska. Ohio, Virginia, and West Virginia â â This communication is an important announcement for those with clientele and business in the following states, commonwealths, and/or districts: California, Florida, Indiana, Nebraska, Ohio, Virginia, and West Virginia. The counties, parishes, boroughs, tri",
+      "date": "Sep 25, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-25-newsletter-ssbci-eligibility-aep-prep-ne",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Newsletter: SSBCI eligibility, AEP prep, new cross-selling playbook, ANOC",
+      "body": "Plus: Sales materials, market-specific training, AMP, SOA updates âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ âÍ â",
+      "date": "Sep 25, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-25-oscar-monthly-commission-payment",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Oscar Monthly Commission Payment",
+      "body": "(https://links.hioscar.com/c/eJxUjLFuhDAQRL_G7oLW68XLFi7S3G-cfPYmRgIOgRVy-foIikipZqSZ90r8yBm1txodC_jBgQdb44OYUmEmF3IhktIHZH4UBQw5QLLj3x-FoHOdY4RBvBPvQEiEpXeGYE7j1NXxuee0dfk52ynW1tbd-HeDN4O34zj-7Ve768ndxxIDD8IDCNotvlbd9McQVE1Tq_q97hfSYvrUpb2t6TWfecG26ZKWdjoupf2K-BsAAP__Nk1JLA) Your Oscar monthly commission payment is on the way! Expect to see the money in the mail or in your account within 7 business days, depending on whether you have selected check or ACH payment method. Please note that Oscar ",
+      "date": "Sep 25, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-27-deadline-approaching-make-your-selection",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Deadline approaching: make your selection",
+      "body": "Hi Yahoska, Our deadline to order postcards before Halloween is quickly approaching! One tip: mailing postcards with seasonal content helps them stand out in the mailbox. Pair that with a highly targeted mailing list (only the people who actually make sense for your business) and you've got a solid fall campaign in the works! To make it easier for you, I've collected 2 of our top performing postcards for you to choose from. Order before Halloween here. <http://email.remindermedia.com/MzQ5LUZRWS0",
+      "date": "Sep 27, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-27-reminder-get-contracted-to-sell-unitedhe",
+      "type": "update",
+      "emoji": "📋",
+      "title": "Reminder: Get Contracted to Sell Unitedhealthone",
+      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell UnitedHealthOne: Why UHOne? Comprehensive Product Portfolio to Meet Your Clients Needs Nationally Recognized Brand of United Healthcare Competitive Commissions Sell Year-Round With No Enrollment Windows Online Support & Training to Help You Succeed PHONE NUMBER: 1 800 249 0173 ï»¿| Premier Insurance Contracts, Inc. | 832 850 6873 | STAY CONNECTED â Premier Insurance Contracts Inc | 16750 Hedgecroft ",
+      "date": "Sep 27, 2026",
+      "source": "/agent-pulse"
+    },
+    {
+      "id": "2026-09-27-deadline-approaching-make-your-selection",
+      "type": "urgent",
+      "emoji": "🚨",
+      "title": "Deadline approaching: make your selection",
+      "body": "Hi Yahoska, Our deadline to order postcards before Halloween is quickly approaching! One tip: mailing postcards with seasonal content helps them stand out in the mailbox. Pair that with a highly targeted mailing list (only the people who actually make sense for your business) and you've got a solid fall campaign in the works! To make it easier for you, I've collected 2 of our top performing postcards for you to choose from. Order before Halloween here. <http://email.remindermedia.com/MzQ5LUZRWS0",
+      "date": "Sep 27, 2026",
+      "source": "/agent-pulse"
+    },
     {
       "id": "2026-09-21-disaster-seps-in-ar-il-nv-or-tx-and-wv",
       "type": "update",
@@ -235,231 +451,22 @@
       "body": "<!-- WARNING: This file is auto-generated from HEML templates. DO NOT EDIT THIS FILE MANUALLY. To make changes, edit the corresponding .heml file in site/content/ or site/layouts/ and run 'yarn build' to regenerate this file.",
       "date": "Sep 13, 2026",
       "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-13-netlify-action-required-provide-a-valid-",
-      "type": "urgent",
-      "emoji": "🚨",
-      "title": "[Netlify] Action required: provide a valid credit card for Commission Tracker",
-      "body": "<!-- WARNING: This file is auto-generated from HEML templates. DO NOT EDIT THIS FILE MANUALLY. To make changes, edit the corresponding .heml file in site/content/ or site/layouts/ and run 'yarn build' to regenerate this file.",
-      "date": "Sep 13, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-11-introducing-your-new-regional-sales-exec",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Introducing Your New Regional Sales Executive: Christopher Potts",
-      "body": "https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5OTZ9AAoAAAAABKzGsm49Mf8VbKaNpMDxVDo9tMl3XbKyonPvHbF9_T3V8AJJn4daiHJkqWx-nqBJxQLE5EWo7xgkvwB3aV61FrAinku4zgZCPJKJ_wDFdg https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5OTZ9AAoAAAAABKzGsm4-ZOPug_fn0kVgUrInluNsFGQjcwaDAudz3ONZk6ajDKDerFxWWLUahmJKNHgjhILx41ji-5wG34OeFxrFdf1bHN9nv0kCCuKiJQ Broker Login | https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5OTZ9AAoAAAAABKzGsm4_IB5idEfUh_N9jQXan8cnS0v_c8ZVD9qGP24AKWMaZhke4rgehpklQUxpWaW",
-      "date": "Sep 11, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-11-past-due-month-3",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Past Due Month 3",
-      "body": "/* Target Outlook 2007 and 2010 */ <!-- Header Area ----------------------------------------------------------------------=",
-      "date": "Sep 11, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-11-reminder-you-re-invited-elevance-health-",
-      "type": "event",
-      "emoji": "📅",
-      "title": "REMINDER: You’re Invited: Elevance Health 2027 Benefits Training at Palm Medical Centers – September 14 at 1PM",
-      "body": "RGVhciBCcm9rZXIgUGFydG5lcnMsDQoNCg0KWW914oCZcmUgaW52aXRlZCB0byBqb2luIEVsZXZh bmNlIEhlYWx0aCBhbmQgUGFsbSBNZWRpY2FsIENlbnRlcnMgZm9yIGFuIGluZm9ybWF0aXZlIDIw MjcgQmVuZWZpdHMgVHJhaW5pbmcgZGVzaWduZWQgZXNwZWNpYWxseSBmb3Igb3VyIGJyb2tlciBw YXJ0bmVycy4NCg0KDQpUaGlzIGlzIGEgZ3JlYXQgb3Bwb3J0dW5pdHkgdG8gbGVhcm4gYWJvdXQg b3VyIHVwY29taW5nIDIwMjcgYmVuZWZpdHMsIGdhaW4gdmFsdWFibGUgaW5mb3JtYXRpb24gdG8g aGVscCBwcmVwYXJlIGZvciB0aGUgeWVhciBhaGVhZCwgYW5kIG5ldHdvcmsgd2l0aCB0aGUgUGFs bSBNZWRpY2FsIENlbnRlcnMgc3RhZmYuDQoNCg",
-      "date": "Sep 11, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-11-we-have-updated-our-undelivered-member-m",
-      "type": "update",
-      "emoji": "📋",
-      "title": "We have updated our Undelivered Member Mail process.",
-      "body": "Email from HCSC You can help confirm member service area and retain AOR. â â â Undelivered member mail process and impacts Members can be disenrolled if their address is unconfirmed. See our outreach process below. â â Dear Broker, This email is to provide you with information and guidance about our HealthSpring member Undeliverable Mail Process that is currently in progress for Prescription Drug Plans (PDP), and which we updated and resumed on Sept. 1, 2026 for Medicare Advantage (MA)",
-      "date": "Sep 11, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-11-fully-insured-florida-blue-uhc-proposals",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Fully Insured Florida Blue & UHC Proposals Attached / Angle Health Uncompetitive / Group Insurance Quote Request AHT Marine 11/01",
-      "body": "SGkgS2F0eSwNCg0KVGhhbmsgeW91IGZvciB0aGUgb3Bwb3J0dW5pdHkgdG8gcXVvdGUgQUhUIE1h cmluZS4NCg0KUGxlYXNlIHNlZSBhdHRhY2hlZCBGdWxseSBJbnN1cmVkIHByb3Bvc2FscyBmcm9t IEZsb3JpZGEgQmx1ZSBhbmQgVW5pdGVkIEhlYWx0aGNhcmUgZm9yIGEgcmVxdWVzdGVkIGVmZmVj dGl2ZSBkYXRlIG9mIDExLzEvMjAyNi4NCg0KV2UgcmVjZWl2ZWQgYSByZXNwb25zZSBmcm9tIEFu Z2xlIEhlYWx0aCB3aXRoIHVuY29tcGV0aXRpdmUgcmF0ZXMg4oCTIGVzc2VudGlhbGx5IGEgRGVj bGluZSB0byBRdW90ZSAoRFRRKS4gUGxlYXNlIHNlZSBhdHRhY2hlZCBjb3B5IG9mIEFuZ2xlIEhl YWx0aOKAmXMgU2NvcmVjYXJkIHdoaWNoIG91dG",
-      "date": "Sep 11, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-11-new-information-available-on-regtap",
-      "type": "update",
-      "emoji": "📋",
-      "title": "New Information Available on REGTAP",
-      "body": "Email from Centers for Medicare & Medicaid Services (CMS) REGTAP has been updated with the following information: Affordable Care Act (ACA) Marketplaces Library Updates Agent and Broker (AB) Plan Year 2027 Health Insurance Marketplace Registration and Training for Returning Agents and Brokers (09/10/26) Centers for Medicare & Medicaid Services (CMS) | 7500 Security Boulevard | Baltimore, MD 21244 US Unsubscribe | Update Profile | Constant Contact Data Notice",
-      "date": "Sep 11, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-11-humana-mai-overview-of-the-member-activa",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Humana MAI / Overview of the Member Activation Initiative Live Demo: Monday, September 14th 9:30 EST- Register here!",
-      "body": "R29vZCBhZnRlcm5vb24g8J+Zgg0KDQpQbGVhc2Ugam9pbiB1cyBNb25kYXksIFNlcHRlbWJlciAx NHRoIGF0IDk6MzAgYW0gZm9yIGEgbGl2ZSBkZW1vIG9uIE1lbWJlciBBY3RpdmF0aW9uIEluaXRp YXRpdmUgKE1BSSkNCg0KRHVyaW5nIHRoaXMgc2Vzc2lvbiB3ZSB3aWxsIHdhbGsgdGhydSB0aGUg TUFJIHByb2Nlc3MgYW5kIHByb3ZpZGUgaGVscGZ1bCBndWlkYW5jZSB0byBlbnN1cmUgeW91IHVu ZGVyc3RhbmQgaG93IHRvIHN1Y2Nlc3NmdWxseSBjb21wbGV0ZSB0aGUgaW5pdGlhdGl2ZS4NCg0K UGxlYXNlIHJlZ2lzdGVyIHVzaW5nIHRoZSBsaW5rIGJlbG93Og0KDQpNZW1iZXIgQWN0aXZhdGlv biBJbml0aWF0aXZlIFdlYmluYXIgTW9uZGF5LC",
-      "date": "Sep 11, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-09-registration-closing-soon-plan-year-2027",
-      "type": "event",
-      "emoji": "📅",
-      "title": "Registration Closing Soon | Plan Year 2027 Health Insurance Marketplace Registration & Training for Returning Agents and Brokers - 09/10/2026",
-      "body": "Email from Centers for Medicare & Medicaid Services (CMS) View as Webpage Plan Year 2027 (PY2027) Health Insurance Marketplace Registration & Training for Returning Agents and Brokers This webinar will provide step-by-step instructions returning agents and brokers need to complete to assist with enrolling consumers in Marketplace coverage. This session will include a walk-through of the registration and training process, as well as an overview of the information agents and brokers will need to p",
-      "date": "Sep 9, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-09-your-100-welcome-bonus-from-devoted-awai",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Your $100 Welcome Bonus from Devoted Awaits",
-      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get contracted to Sell: ï»¿Get contracted with Devoted for Medicare Advantage through Premier Insurance Contracts, Inc. Click here now to start your contracting process. Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a ï»¿$100 welcome bonus from us. Call 1 800 249 0173 â | Premier Insurance Contracts, Inc. | 8",
-      "date": "Sep 9, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-09-meet-oswell-for-brokers-your-ai-assistan",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Meet Oswell for Brokers: Your AI Assistant for Personalized Broker Answers",
-      "body": "https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5OTR9AAoAAAAABKBJ5fGEdvU76gPgCNSXRferRQ_czpzy3aTh-P3yfaQp5SN6CTKTnDtKQnijDXPvpBe18bJwh8VNjklaI5TAAsytmaVsxRq0CTgnqFa8zyU https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5OTR9AAoAAAAABKBJ5fGFTj_23FXO3KBEq2tz3Au_5GXDfVp4NR7AK9InSPM4E3VLMwXB_htKJxcUnJrYEtKCw9FFIoMBjAMOGFPy_xe3JPV1gfoEapBzEo8 Broker Login | https://click.updates.hioscar.com/?qs«B7InYiOjEsImQiOjQ5OTR9AAoAAAAABKBJ5fGG37uCZ2QroNvlIfyeSvczHoxyyKeK2eIFDhHBfnrzoM-w-JWkaQlcz0mWg",
-      "date": "Sep 9, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-09-agent-contract-denied-yahoska-perez",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Agent contract denied - YAHOSKA PEREZ",
-      "body": "Agent Name: YAHOSKA PEREZ Dear Contracting Team, Contract denied This letter is to inform you that the prospective agent indicated above did not pass the required Background check for contracting. Therefore, their application for contracting has been denied. A letter regarding the denied contract has been sent to the prospect. You can always contact us If you have any questions, please feel free to contact our Agent Services team at 866.272.6630 and ask to speak to the Regional Sales Specialist ",
-      "date": "Sep 9, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-09-2027-marketing-materials-and-tools-are-l",
-      "type": "update",
-      "emoji": "📋",
-      "title": "2027 marketing materials and tools are live!",
-      "body": "Download and customize for free â all from one hub. DevotedHealthPlans-RGB-1 (https://cJfPw04.na1.hubspotlinks.com/Ctc/LX+113/cJfPw04/MWzrglWJKrzW6qDp7f28n5dRVJvnzy5TLDl-N7gG7_x3pyd0W7lCdLW6lZ3l_W4T2ZL51cg9-LW317zpc7mTsH1N1xjbmGbsqKDW6kT6Fn4yRf-pW8bMnJ21bqTqPW3gmh1-4rKcGPW6QshyW6_R8TgW7MnZkR10qj55W4zJLDQ299_4QW4XKMJp3Jpgt7W6pYWGS3BrpSrW1Bqjks6Q8X2VW6wyVmS6Ts_k5W12_v1n8Vm8vPW6_4pQ98dBpmMW35HgMS8FgXLLW7WWfQ54_gtvvW4yrcXJ8wyPZQW76-5qq4QBFBKW3PW29d93RfjCN8Wkf2ZWR3jFW74DFlR3h7VW_W4tf_cP1r0Gn-W615lk",
-      "date": "Sep 9, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-09-sec-perez-yahoska-correspondence-related",
-      "type": "update",
-      "emoji": "📋",
-      "title": "{SEC} PEREZ, YAHOSKA: Correspondence related to your application with Aetna",
-      "body": "Please review attached PDF to find important correspondence related to your application with Aetna. Johana Compliance Management Specialist Toll Free 800-245-2318 x 2048 Direct 727-807-2048 Fax 866-883-6169 compliance@ainsight.com<mailto:compliance@ainsight.com> [cid:image002.png@01D9C631.3BBE1370] aINSIGHT®<http://www.applicantinsight.com/> | NoMoreForms®<http://www.nomoreforms.com/> [cid:image003.jpg@01DD405A.8BE1FAA0] Disclaimer: The materials and information available in this email are confi",
-      "date": "Sep 9, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-09-reminder-2026-oscar-commission-schedule",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Reminder: 2026 Oscar Commission Schedule",
-      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell: Big News! Oscar Health is expanding in 2026 â get contracted today through Premier Insurance Contracts to sell Affordable Care Act plans! Act now to grow your clientele and elevate your earningsâthis is your chance to seize a high-reward opportunity. Time is of the essence, so jump in today! Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first ",
-      "date": "Sep 9, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-10-aetna-sr-supp-insurance-agent-terminatio",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Aetna Sr Supp Insurance - Agent Termination",
-      "body": "Dear Yahoska Perez, This is to notify you that we are terminating your contracts with Aetna Senior Supplemental Insurance (SSI). We made this decision based on the termination provisions within your contract. Your state appointments shall be terminated immediately. Please return to the company all accounts, records, rate books, application forms, advertising materials, company literature or any other supplies furnished to you as directed in your contract. You can contact our Agent Services team ",
-      "date": "Sep 10, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-07-uhc-2026-aca-commission-schedule",
-      "type": "update",
-      "emoji": "📋",
-      "title": "UHC 2026 ACA Commission Schedule",
-      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get Contracted to Sell: Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a $100 welcome bonus from us. PHONE NUMBER: 1 800 249 0173 | Premier Insurance Contracts, Inc. | 832 850 6873 | | emailreply@prinsuco.com | www.prinsuco.com | STAY CONNECTED Premier Insurance Contracts Inc | 16750 Hedgecroft Drive Ste 500 | H",
-      "date": "Sep 7, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-08-2026-oscar-commission-schedule",
-      "type": "update",
-      "emoji": "📋",
-      "title": "2026 Oscar Commission Schedule",
-      "body": "2026 Oscar Commission Schedule",
-      "date": "Sep 8, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-05-reminder-your-100-welcome-bonus-from-dev",
-      "type": "update",
-      "emoji": "📋",
-      "title": "Reminder: Your $100 Welcome Bonus from Devoted Awaits",
-      "body": "Email from Premier Insurance Contracts Inc You donÂ´t want to miss this. Get contracted to Sell: ï»¿Get contracted with Devoted for Medicare Advantage through Premier Insurance Contracts, Inc. Click here now to start your contracting process. Become fully contracted with Premier Insurance Contracts, Inc. If you write any business within the first 30 days of receiving your writing number, you will get a ï»¿$100 welcome bonus from us. Call 1 800 249 0173 â | Premier Insurance Contracts, Inc. | 8",
-      "date": "Sep 5, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-05-action-required-update-your-cherry-accou",
-      "type": "urgent",
-      "emoji": "🚨",
-      "title": "Action Required: Update Your Cherry Account",
-      "body": "Regarding your Glow Medspa Miami contract <script type=\"application/ld+json\">{\"@context\":\"http://schema.org\",\"@type\":\"Invoice\",\"accountId\":\"L-GTK9869022-1\",\"paymentStatus\":\"PaymentDue\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Cherry Collections\"},\"totalPaymentDue\":{\"@type\":\"PriceSpecification\",\"price\":\"$575.00\",\"priceCurrency\":\"USD\"},\"paymentDue\":\"2026-08-27\"}</script><script type=\"application/ld+json\">{\"@context\":\"http://schema.org\",\"@type\":\"EmailMessage\",\"description\":\"Cherry Collections bil",
-      "date": "Sep 5, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-05-you-re-invited-aep-retention-planning-on",
-      "type": "update",
-      "emoji": "📋",
-      "title": "You're Invited: AEP Retention Planning on September 9, 2026 at 9:00 AM",
-      "body": "You're Invited: AEP Retention Planning on September 9, 2026 at 9:00 AM AEP Retention Planning Join us for a virtual training session on AEP Retention Planning training session and learn strategies to help strengthen member retention during the Annual Enrollment Period. During this session, we will cover: Drivers of Retention &ndash; Understanding the key factors that influence member satisfaction and loyalty. What Members Can Expect &ndash; Preparing for common member questions and concerns duri",
-      "date": "Sep 5, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-04-ifp-connect-september-4-2026",
-      "type": "update",
-      "emoji": "📋",
-      "title": "IFP Connect - September 4, 2026",
-      "body": "UnitedHealthcare http://click.ifp.uhc.com/?qs«B7InYiOjEsImQiOjQ5ODl9AAEAAAAAAcBhD-vVj3AP3VKKAum-54T29D6M24bydPZz_e5D-ZmmpPqhDRzuIQZTRcPAfmh8HbpMxl7v1XGGxCKJHAupwyTFBHgw3_-oWRrTdM5GUQ September 4, 2026 In this issue: - In the Spotlight:Mark of Integrity - Training Touchpoint: Dual Enrollment - Jarvis updates - Member Experience Focus: Sanitas expansion Mark of Integrity When members make important health coverage decisions, trust matters. That trust begins with every interaction, every enrollment",
-      "date": "Sep 4, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-04-registration-now-open-plan-year-2027-hea",
-      "type": "event",
-      "emoji": "📅",
-      "title": "Registration Now Open | Plan Year 2027 Health Insurance Marketplace Registration & Training for Returning Agents and Brokers - 09/10/2026",
-      "body": "Email from Centers for Medicare & Medicaid Services (CMS) View as Webpage Plan Year 2027 (PY2027) Health Insurance Marketplace Registration & Training for Returning Agents and Brokers This webinar will provide step-by-step instructions returning agents and brokers need to complete to assist with enrolling consumers in Marketplace coverage. This session will include a walk-through of the registration and training process, as well as an overview of the information agents and brokers will need to p",
-      "date": "Sep 4, 2026",
-      "source": "/agent-pulse"
-    },
-    {
-      "id": "2026-09-04-re-request-for-contract-termination-rele",
-      "type": "urgent",
-      "emoji": "🚨",
-      "title": "Re: Request for Contract Termination / Release",
-      "body": "Hello Victoria, Attached is the release for Devoted. This appears to be the only contract active with us under Amerilife or the carrier itself. Below are specific notes regarding the status of the contracts for each carrier. - *Freedom/Optimum: Not active on the carrier end* - *Anthem- not active on carrier end* - *Devoted- active - The agent will need to request transfer directly with the carrier. The agent can call directly to 877-764-9446 or submit a request via their agent portal.* - *Health",
-      "date": "Sep 4, 2026",
-      "source": "/agent-pulse"
     }
   ],
   "weekly_pulses": [
+    {
+      "week": "Week of September 28, 2026",
+      "date": "Sep 28, 2026",
+      "headline": "CMS tightens 2027 enrollment operations as Florida dual-eligible changes move closer to October 1.",
+      "link": "/pulse-2026-09-28.html",
+      "tag": "Latest"
+    },
     {
       "week": "Week of September 7, 2026",
       "date": "Sep 7, 2026",
       "headline": "CMS 2027 landscape due this month; AEP opens October 15 — five-week countdown for Florida agents",
       "link": "/pulse-2026-09-07.html",
-      "tag": "Latest"
+      "tag": ""
     },
     {
       "week": "Week of August 31, 2026",
