@@ -85,17 +85,6 @@
     else nav.appendChild(wrap);
   }
 
-  function insertCarrierOps(nav){
-    if (nav.querySelector('a[href="/carrier-ops"], a[href="/carrier-ops.html"]')) return;
-    var link = document.createElement('a');
-    link.href = '/carrier-ops';
-    link.textContent = 'Carrier Ops';
-    var carrierInfo = nav.querySelector('a[href="/carrier-info"], a[href="/carrier-info.html"]');
-    if (carrierInfo && carrierInfo.nextSibling) nav.insertBefore(link, carrierInfo.nextSibling);
-    else if (carrierInfo) nav.appendChild(link);
-    else nav.insertBefore(link, nav.firstChild);
-  }
-
   function markActiveNav(nav){
     var path = navPath(location.pathname);
     var links = nav.querySelectorAll('a[href]');
@@ -107,7 +96,16 @@
       if (!href || href === '#' || href.indexOf('javascript:') === 0) continue;
       if (/^https?:/i.test(href) || href.charAt(0) === '#') continue;
       h = navPath(href);
-      if (h === path) matched = a;
+      if (
+        h === path ||
+        (h === '/carrier-info' && (
+          path.indexOf('/carrier-info/') === 0 ||
+          path === '/carrier-ops/uhc-fl-dsnp-crosswalk' ||
+          path === '/carrier-ops/humana-plex' ||
+          path === '/carrier-ops-uhc-fl-dsnp-crosswalk' ||
+          path === '/carrier-ops-humana-plex'
+        ))
+      ) matched = a;
     }
     for (i = 0; i < links.length; i++) {
       if (links[i].closest('.lang-toggle')) continue;
@@ -122,7 +120,6 @@
     if (!bar || !nav) return;
 
     nav.id = nav.id || 'hub-pill-nav';
-    insertCarrierOps(nav);
     insertLangToggle(nav);
     markActiveNav(nav);
 

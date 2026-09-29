@@ -298,7 +298,7 @@ function tagHTML(tags, needsConfirm){
 function cardHTML(c){
   const amtDisplay = c.amountDisplay || (c.amount != null ? `$${c.amount}` : null);
   return `
-  <div class="hra-card ${c.hasHra ? 'has-hra' : 'no-hra'}" data-carrier="${c.id}" data-tags="${c.tags.join(',')}" data-confirm="${c.needsConfirm}">
+  <div class="hra-card ${c.hasHra ? 'has-hra' : 'no-hra'}" id="${c.id}" data-carrier="${c.id}" data-tags="${c.tags.join(',')}" data-confirm="${c.needsConfirm}">
     <div class="card-header">
       <div class="carrier-name">${c.name}</div>
       <div class="carrier-sub">${c.sub}</div>
