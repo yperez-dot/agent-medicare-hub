@@ -85,6 +85,17 @@
     else nav.appendChild(wrap);
   }
 
+  function insertCarrierOps(nav){
+    if (nav.querySelector('a[href="/carrier-ops"], a[href="/carrier-ops.html"]')) return;
+    var link = document.createElement('a');
+    link.href = '/carrier-ops';
+    link.textContent = 'Carrier Ops';
+    var carrierInfo = nav.querySelector('a[href="/carrier-info"], a[href="/carrier-info.html"]');
+    if (carrierInfo && carrierInfo.nextSibling) nav.insertBefore(link, carrierInfo.nextSibling);
+    else if (carrierInfo) nav.appendChild(link);
+    else nav.insertBefore(link, nav.firstChild);
+  }
+
   function markActiveNav(nav){
     var path = navPath(location.pathname);
     var links = nav.querySelectorAll('a[href]');
@@ -111,6 +122,7 @@
     if (!bar || !nav) return;
 
     nav.id = nav.id || 'hub-pill-nav';
+    insertCarrierOps(nav);
     insertLangToggle(nav);
     markActiveNav(nav);
 
