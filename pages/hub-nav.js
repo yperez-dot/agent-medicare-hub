@@ -96,7 +96,16 @@
       if (!href || href === '#' || href.indexOf('javascript:') === 0) continue;
       if (/^https?:/i.test(href) || href.charAt(0) === '#') continue;
       h = navPath(href);
-      if (h === path) matched = a;
+      if (
+        h === path ||
+        (h === '/carrier-info' && (
+          path.indexOf('/carrier-info/') === 0 ||
+          path === '/carrier-ops/uhc-fl-dsnp-crosswalk' ||
+          path === '/carrier-ops/humana-plex' ||
+          path === '/carrier-ops-uhc-fl-dsnp-crosswalk' ||
+          path === '/carrier-ops-humana-plex'
+        ))
+      ) matched = a;
     }
     for (i = 0; i < links.length; i++) {
       if (links[i].closest('.lang-toggle')) continue;

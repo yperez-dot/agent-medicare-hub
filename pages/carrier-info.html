@@ -30,6 +30,19 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
 .wrap{max-width:1100px;margin:0 auto;padding:36px 24px 64px;}
 
+/* High-priority carrier alerts */
+.agent-alerts{background:linear-gradient(120deg,var(--purple-dark) 0%,var(--purple) 58%,#7A236F 100%);border:2px solid rgba(255,16,144,.5);border-radius:18px;color:#fff;margin-bottom:18px;padding:22px 24px;box-shadow:0 10px 26px rgba(69,32,104,.2);scroll-margin-top:18px;}
+.agent-alerts-heading{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.agent-alerts-stars{color:#FF8CCB;font-size:18px;letter-spacing:1px;}
+.agent-alerts h2{font:800 20px/1.2 Arial,sans-serif;}
+.agent-alerts-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.agent-alert{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:104px;padding:16px 18px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.24);border-radius:13px;color:#fff;text-decoration:none;transition:background .15s,transform .15s;}
+.agent-alert:hover{background:rgba(255,255,255,.18);transform:translateY(-1px);}
+.agent-alert-kicker{display:block;margin-bottom:5px;color:#FFB9DE;font:800 10px/1 Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;}
+.agent-alert-title{display:block;margin-bottom:4px;font:700 15px/1.25 Arial,sans-serif;}
+.agent-alert-desc{display:block;color:rgba(255,255,255,.78);font:400 12.5px/1.45 Arial,sans-serif;}
+.agent-alert-arrow{font-size:22px;font-weight:800;color:#FF8CCB;flex-shrink:0;}
+
 /* Cards grid */
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .sneak-peek-card{background:linear-gradient(120deg,#2F1348 0%,var(--purple) 58%,#6B2785 100%);border-radius:18px;color:#fff;margin-bottom:18px;overflow:hidden;position:relative;box-shadow:0 10px 26px rgba(69,32,104,.2);}
@@ -57,7 +70,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 
 @media(max-width:900px){.cards-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:700px){.sneak-peek-content{align-items:flex-start;flex-direction:column;}.sneak-peek-update{min-width:0;width:100%;}}
-@media(max-width:560px){.cards-grid{grid-template-columns:1fr;}.sneak-peek-content{padding:20px;}}
+@media(max-width:560px){.cards-grid,.agent-alerts-grid{grid-template-columns:1fr;}.sneak-peek-content{padding:20px;}.agent-alerts{padding:20px 16px;}.agent-alerts h2{font-size:18px;}.agent-alerts-heading .agent-alerts-stars:last-child{display:none;}.agent-alert{min-height:0;}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +104,32 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <p>Everything you need for every carrier — contacts, certifications, non-commissionable plans, HRA details, plan comparison, and chronic condition eligibility. All in one place.</p>
   </div>
 
+  <section class="agent-alerts" id="agent-alerts" aria-labelledby="agent-alerts-title">
+    <div class="agent-alerts-heading">
+      <span class="agent-alerts-stars" aria-hidden="true">★★★</span>
+      <h2 id="agent-alerts-title">Agent alerts — AEP / crosswalk</h2>
+      <span class="agent-alerts-stars" aria-hidden="true">★★★</span>
+    </div>
+    <div class="agent-alerts-grid">
+      <a class="agent-alert" href="/carrier-info/uhc-fl-dsnp-crosswalk">
+        <span>
+          <span class="agent-alert-kicker">UHC Florida · Crosswalk</span>
+          <span class="agent-alert-title">D-SNP crosswalk grid</span>
+          <span class="agent-alert-desc">Review Medicaid eligibility, LTSS, and county-specific exceptions by plan ID.</span>
+        </span>
+        <span class="agent-alert-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="agent-alert" href="/carrier-info/humana-plex">
+        <span>
+          <span class="agent-alert-kicker">Humana · AEP 2027</span>
+          <span class="agent-alert-title">PLEX plan exits</span>
+          <span class="agent-alert-desc">See affected-member guidance, outreach timing, support, and enrollment expectations.</span>
+        </span>
+        <span class="agent-alert-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
   <section class="sneak-peek-card" aria-labelledby="sneak-peeks-title">
     <div class="sneak-peek-content">
       <div class="sneak-peek-copy">
@@ -104,15 +143,6 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
           <div>
             <strong>Elevance Health Benefits Reveal</strong>
             <span>Aug. 25 · Seminole Hard Rock, Hollywood</span>
-          </div>
-        </div>
-        <div class="sneak-peek-update">
-          <div style="width:56px;height:72px;border-radius:8px;background:#1B4FD8;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:#fff;text-align:center;line-height:1.2;">DEVOTED<br>2027</div>
-          <div>
-            <strong>Devoted Health 2027 B-PAG — Florida</strong>
-            <span>Published Aug. 17 · Broker-only · Not for beneficiaries</span>
-            <span style="margin-top:4px;display:block;font-size:11px;opacity:.75;">Miami-Dade: Core $0 MOOP $3,400 · D-SNP $455/mo Food &amp; Home · $202 Giveback available</span>
-            <a href="/files/devoted-2027-bpag.xlsx" download style="display:inline-block;margin-top:6px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:3px 9px;font-size:11px;font-weight:700;color:#fff;text-decoration:none;">⬇ Download B-PAG</a>
           </div>
         </div>
       </div>
