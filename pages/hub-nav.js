@@ -85,6 +85,21 @@
     else nav.appendChild(wrap);
   }
 
+  function rewriteEsRootLinks(nav){
+    // ES site serves Spanish pages at domain root (not /es/). Hardcoded
+    // /es/... pill-nav hrefs (needed for EN /es/* preview) must collapse here.
+    if (!isEsHost()) return;
+    var links = nav.querySelectorAll('a[href]');
+    var i, a, href;
+    for (i = 0; i < links.length; i++) {
+      a = links[i];
+      href = a.getAttribute('href') || '';
+      if (href === '/es' || href.indexOf('/es/') === 0) {
+        a.setAttribute('href', href === '/es' ? '/' : href.slice(3));
+      }
+    }
+  }
+
   function markActiveNav(nav){
     var path = navPath(location.pathname);
     var links = nav.querySelectorAll('a[href]');
@@ -120,6 +135,7 @@
     if (!bar || !nav) return;
 
     nav.id = nav.id || 'hub-pill-nav';
+    rewriteEsRootLinks(nav);
     insertLangToggle(nav);
     markActiveNav(nav);
 
