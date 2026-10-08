@@ -1,0 +1,50 @@
+/* Agent Medicare Hub — sitewide density scale
+   Reference: Client Guides compact page + Health Experts calm hierarchy
+   (soft shadow, consistent radius, clear type steps — not a marketing clone)
+*/
+:root{
+  --hub-fs-body:15px;
+  --hub-fs-page-title:24px;
+  --hub-fs-section:20px;
+  --hub-fs-card-title:16px;
+  --hub-fs-body-sm:13px;
+  --hub-fs-meta:12px;
+  --hub-fs-btn:13px;
+  --hub-hero-pad-y:16px;
+  --hub-hero-pad-x:20px;
+  --hub-card-pad:14px 16px;
+  --hub-wrap-pad:18px 22px 36px;
+  --hub-radius:14px;
+  --hub-radius-lg:16px;
+  --hub-shadow:0 4px 16px rgba(69,32,104,.08);
+  --hub-shadow-soft:0 8px 18px rgba(20,10,40,.08);
+  --hub-purple:#452068;
+  --hub-purple-dark:#3F2566;
+  --hub-pink:#EA158C;
+  --hub-pink-bright:#ff1090;
+}
+
+/* Gentle helpers — only apply when pages opt into these classes */
+.hub-compact-hero{
+  padding:var(--hub-hero-pad-y) var(--hub-hero-pad-x) !important;
+  border-radius:var(--hub-radius-lg) !important;
+  margin-bottom:16px !important;
+}
+.hub-compact-hero h1{
+  font-size:var(--hub-fs-page-title) !important;
+  line-height:1.2 !important;
+  margin:0 0 4px !important;
+}
+.hub-compact-hero p{
+  font-size:var(--hub-fs-body-sm) !important;
+  line-height:1.45 !important;
+}
+.hub-section-title{
+  font-size:var(--hub-fs-section) !important;
+  line-height:1.25 !important;
+  margin:0 0 10px !important;
+}
+.hub-card-title{
+  font-size:var(--hub-fs-card-title) !important;
+  line-height:1.25 !important;
+}
