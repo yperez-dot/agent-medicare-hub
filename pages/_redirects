@@ -15,6 +15,7 @@
 /carrier-info/humana-plex /carrier-ops-humana-plex.html 200
 /home /home.html 200
 /learn /learn.html 200
+/negotiated-drugs /negotiated-drugs.html 200
 /events /events.html 200
 /carrier-info /carrier-info.html 200
 /compliance /compliance.html 200
@@ -33,3 +34,7 @@
 
 # Spanish client guides (mirrors /client-guides)
 /es/client-guides /es/client-guides.html 200
+
+# Spanish Broker University (mirrors /learn) + Negotiated Drugs page split out of /learn
+/es/learn /es/learn.html 200
+/es/negotiated-drugs /es/negotiated-drugs.html 200

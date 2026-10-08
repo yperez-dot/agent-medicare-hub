@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+<script>
+(function(){
+  // Preview bypass — ?preview=THEI allows viewing without login
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Medicamentos Negociados | Medicare Agent Hub</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+:root{--purple:#452068;--purple-dark:#2f1550;--purple-tint:#f7f2fb;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#ece5f0;--text:#241a30;--text-soft:#5f566b;--text-faint:#8f879b;--success:#1E8A5C;--success-tint:#E3F5EC;--shadow:0 4px 20px rgba(69,32,104,.07);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;}
+.hidden{display:none!important;}
+/* Compact hero (matches Client Guides) */
+.wrap>.hero{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;padding:22px 28px;border-radius:16px;margin:0 0 22px;box-shadow:0 16px 40px rgba(69,32,104,.14);position:relative;overflow:hidden;}
+.wrap>.hero:before{content:"";position:absolute;inset:-1px;background:radial-gradient(280px 160px at 18% 15%,rgba(255,16,144,.22),transparent 60%),radial-gradient(320px 180px at 85% 30%,rgba(255,255,255,.08),transparent 60%);pointer-events:none;}
+.wrap>.hero h1,.wrap>.hero p{position:relative;}
+.wrap>.hero h1{font:700 27px/1.2 'Inter',Arial,sans-serif;letter-spacing:-.2px;margin:0 0 6px;color:#fff;}
+.wrap>.hero p{font:400 15px/1.5 'Inter',Arial,sans-serif;color:rgba(255,255,255,.88);max-width:70ch;margin:0;}
+.type-badge{display:inline-block;font:600 10.5px/1 Arial,sans-serif;padding:4px 8px;border-radius:999px;background:var(--purple-tint);color:var(--purple);text-transform:uppercase;letter-spacing:.3px;white-space:nowrap;}
+.type-badge.pdf{background:#FBE3ED;color:#8B1A3A;}
+.type-badge.sheet,.type-badge.green{background:var(--success-tint);color:var(--success);}
+.type-badge.gamma{background:#E8F1FA;color:#1B4F8A;}
+.type-badge.hot{background:var(--pink-tint);color:var(--pink-dark);}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 32px 56px;}
+.crumb{margin:0 0 12px;font-size:14px;}
+.crumb a{color:var(--purple);font-weight:800;text-decoration:none;}
+.crumb a:hover{text-decoration:underline;text-underline-offset:2px;}
+.nd-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px;}
+.nd-jump{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.nd-jump a{color:var(--purple);font:700 14px/1 'Inter',Arial,sans-serif;text-decoration:none;border-bottom:1px solid rgba(69,32,104,.22);padding-bottom:2px;}
+.nd-jump a:hover{border-bottom-color:var(--purple);}
+.section-lead{font-size:15px;color:var(--text-soft);margin-bottom:20px;max-width:80ch;}
+.shelf{background:#fff;border:1px solid var(--border);border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:var(--shadow);scroll-margin-top:16px;}
+.shelf-head{padding:18px 20px 14px;border-bottom:1px solid var(--border);}
+.shelf-kicker{display:block;font:700 11.5px/1 Arial,sans-serif;letter-spacing:.4px;text-transform:uppercase;color:var(--pink-dark);margin-bottom:5px;}
+.shelf-head h3{font-size:20px;font-weight:700;margin-bottom:4px;}
+.shelf-head p{font-size:14px;color:var(--text-soft);}
+.drug-table-wrap{padding:4px 10px 10px;overflow-x:auto;}
+.drug-table{width:100%;border-collapse:collapse;font-size:14px;}
+.drug-table th{font:700 11.5px/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:.4px;color:var(--text-faint);text-align:left;padding:10px 8px;border-bottom:1px solid var(--border);}
+.drug-table td{padding:10px 10px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text);}
+.drug-table tbody tr:last-child td{border-bottom:0;}
+.drug-table tbody tr:nth-child(even){background:#FAF9FC;}
+.drug-brand strong{font-weight:800;color:var(--purple);margin-right:4px;}
+.drug-brand .type-badge{display:inline-block;margin:2px 4px 0 0;vertical-align:middle;}
+.drug-generic{color:var(--text-soft);font-style:italic;}
+.type-badge.partb{background:var(--pink-tint);color:var(--pink-dark);}
+.type-badge.out{background:#FFF4E0;color:#8A5A00;}
+.drug-note{font-size:13.5px;color:var(--text-soft);padding:0 18px 14px;}
+.drug-source{font-size:13px;color:var(--text-faint);margin:6px 0 0;max-width:100ch;}
+.drug-source a{color:var(--purple);font-weight:700;}
+@media(max-width:768px){
+ .wrap{padding:16px 16px 32px;}
+ .drug-table thead{display:none;}
+ .drug-table,.drug-table tbody,.drug-table tr,.drug-table td{display:block;width:100%;}
+ .drug-table tr{padding:10px 4px;border-bottom:1px solid var(--border);}
+ .drug-table tbody tr:last-child{border-bottom:0;}
+ .drug-table td{border:0;padding:2px 4px;}
+}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/es/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Tour del Hub'>?</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+<p class="crumb"><a href="/learn">← Volver a Broker University</a></p>
+<div class="hero">
+  <h1>Medicamentos Negociados por Medicare</h1>
+  <p>Medicamentos con precios negociados por Medicare para 2026, 2027 y 2028 — y para qué se usa cada uno.</p>
+</div>
+
+<div class="nd-bar">
+  <nav class="nd-jump" aria-label="Ir al año"><a href="#y2026">2026 · 10 medicamentos</a><a href="#y2027">2027 · 15 medicamentos</a><a href="#y2028">2028 · 15 medicamentos</a></nav>
+</div>
+
+<div class="nd-lang" lang="es">
+      <p class="section-lead">Medicare negocia los precios directamente con las farmacéuticas para algunos de los medicamentos de marca más costosos. Los precios negociados (CMS los llama “precios justos máximos”) aplican a la Parte D de Medicare — y a partir de 2028, también a la Parte B. Lo que paga el cliente sigue dependiendo del copago o coseguro de su plan.</p>
+      <div class="shelf" id="y2026">
+        <div class="shelf-head">
+          <span class="shelf-kicker">Ciclo 1 · Vigente desde el 1 de enero de 2026</span>
+          <h3>Precios negociados 2026 — 10 medicamentos</h3>
+          <p>Medicamentos de la Parte D. Cuatro de ellos salen del programa el 1 de enero de 2027 porque ya existe un genérico o biosimilar en el mercado (exclusión de CMS).</p>
+        </div>
+        <div class="drug-table-wrap">
+          <table class="drug-table">
+            <thead><tr><th>Medicamento (marca)</th><th>Genérico</th><th>Para qué se usa</th></tr></thead>
+            <tbody>
+            <tr><td class="drug-brand"><strong>Eliquis</strong></td><td class="drug-generic">apixaban</td><td>Prevención y tratamiento de coágulos sanguíneos</td></tr>
+            <tr><td class="drug-brand"><strong>Enbrel</strong></td><td class="drug-generic">etanercept</td><td>Artritis reumatoide; psoriasis; artritis psoriásica</td></tr>
+            <tr><td class="drug-brand"><strong>Entresto</strong> <span class="type-badge out">Sale del programa 1/1/2027</span></td><td class="drug-generic">sacubitril/valsartan</td><td>Insuficiencia cardíaca</td></tr>
+            <tr><td class="drug-brand"><strong>Farxiga</strong></td><td class="drug-generic">dapagliflozin</td><td>Diabetes; insuficiencia cardíaca; enfermedad renal crónica</td></tr>
+            <tr><td class="drug-brand"><strong>Fiasp; NovoLog</strong> <span class="type-badge out">Sale del programa 1/1/2027</span></td><td class="drug-generic">insulin aspart</td><td>Diabetes</td></tr>
+            <tr><td class="drug-brand"><strong>Imbruvica</strong></td><td class="drug-generic">ibrutinib</td><td>Cánceres de la sangre</td></tr>
+            <tr><td class="drug-brand"><strong>Januvia</strong></td><td class="drug-generic">sitagliptin</td><td>Diabetes</td></tr>
+            <tr><td class="drug-brand"><strong>Jardiance</strong></td><td class="drug-generic">empagliflozin</td><td>Diabetes; insuficiencia cardíaca; enfermedad renal crónica</td></tr>
+            <tr><td class="drug-brand"><strong>Stelara</strong> <span class="type-badge out">Sale del programa 1/1/2027</span></td><td class="drug-generic">ustekinumab</td><td>Psoriasis; artritis psoriásica; enfermedad de Crohn; colitis ulcerosa</td></tr>
+            <tr><td class="drug-brand"><strong>Xarelto</strong> <span class="type-badge out">Sale del programa 1/1/2027</span></td><td class="drug-generic">rivaroxaban</td><td>Prevención y tratamiento de coágulos sanguíneos; reduce el riesgo en pacientes con enfermedad arterial coronaria o periférica</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="shelf" id="y2027">
+        <div class="shelf-head">
+          <span class="shelf-kicker">Ciclo 2 · Vigente desde el 1 de enero de 2027</span>
+          <h3>Precios negociados 2027 — 15 medicamentos</h3>
+          <p>Medicamentos de la Parte D. Los precios entran en vigor con el año de plan 2027.</p>
+        </div>
+        <div class="drug-table-wrap">
+          <table class="drug-table">
+            <thead><tr><th>Medicamento (marca)</th><th>Genérico</th><th>Para qué se usa</th></tr></thead>
+            <tbody>
+            <tr><td class="drug-brand"><strong>Austedo; Austedo XR</strong></td><td class="drug-generic">deutetrabenazine</td><td>Corea en la enfermedad de Huntington; discinesia tardía</td></tr>
+            <tr><td class="drug-brand"><strong>Breo Ellipta</strong></td><td class="drug-generic">fluticasone furoate/vilanterol</td><td>Asma; EPOC</td></tr>
+            <tr><td class="drug-brand"><strong>Calquence</strong></td><td class="drug-generic">acalabrutinib</td><td>Leucemia linfocítica crónica / linfoma linfocítico de células pequeñas; linfoma de células del manto</td></tr>
+            <tr><td class="drug-brand"><strong>Ibrance</strong></td><td class="drug-generic">palbociclib</td><td>Cáncer de mama</td></tr>
+            <tr><td class="drug-brand"><strong>Janumet; Janumet XR</strong></td><td class="drug-generic">sitagliptin/metformin</td><td>Diabetes tipo 2</td></tr>
+            <tr><td class="drug-brand"><strong>Linzess</strong></td><td class="drug-generic">linaclotide</td><td>Estreñimiento idiopático crónico; síndrome del intestino irritable con estreñimiento</td></tr>
+            <tr><td class="drug-brand"><strong>Ofev</strong></td><td class="drug-generic">nintedanib</td><td>Fibrosis pulmonar idiopática</td></tr>
+            <tr><td class="drug-brand"><strong>Otezla; Otezla XR</strong></td><td class="drug-generic">apremilast</td><td>Psoriasis en placas; artritis psoriásica; úlceras orales por enfermedad de Behçet</td></tr>
+            <tr><td class="drug-brand"><strong>Ozempic; Rybelsus; Wegovy</strong></td><td class="drug-generic">semaglutide</td><td>Diabetes tipo 2; diabetes tipo 2 con enfermedad cardiovascular; enfermedad cardiovascular con obesidad/sobrepeso</td></tr>
+            <tr><td class="drug-brand"><strong>Pomalyst</strong></td><td class="drug-generic">pomalidomide</td><td>Mieloma múltiple; sarcoma de Kaposi</td></tr>
+            <tr><td class="drug-brand"><strong>Tradjenta</strong></td><td class="drug-generic">linagliptin</td><td>Diabetes tipo 2</td></tr>
+            <tr><td class="drug-brand"><strong>Trelegy Ellipta</strong></td><td class="drug-generic">fluticasone furoate/umeclidinium/vilanterol</td><td>Asma; EPOC</td></tr>
+            <tr><td class="drug-brand"><strong>Vraylar</strong></td><td class="drug-generic">cariprazine</td><td>Trastorno bipolar I; trastorno depresivo mayor; esquizofrenia</td></tr>
+            <tr><td class="drug-brand"><strong>Xifaxan</strong></td><td class="drug-generic">rifaximin</td><td>Encefalopatía hepática; síndrome del intestino irritable con diarrea</td></tr>
+            <tr><td class="drug-brand"><strong>Xtandi</strong></td><td class="drug-generic">enzalutamide</td><td>Cáncer de próstata</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="shelf" id="y2028">
+        <div class="shelf-head">
+          <span class="shelf-kicker">Ciclo 3 · Vigente desde el 1 de enero de 2028</span>
+          <h3>Precios negociados 2028 — 15 medicamentos</h3>
+          <p>Primer ciclo que incluye medicamentos de la Parte B (administrados por el médico). Las negociaciones terminan el 1 de noviembre de 2026; CMS debe publicar los precios acordados a más tardar el 30 de noviembre de 2026. Tradjenta (Ciclo 2) también se está renegociando para 2028.</p>
+        </div>
+        <div class="drug-table-wrap">
+          <table class="drug-table">
+            <thead><tr><th>Medicamento (marca)</th><th>Genérico</th><th>Para qué se usa</th></tr></thead>
+            <tbody>
+            <tr><td class="drug-brand"><strong>Anoro Ellipta</strong></td><td class="drug-generic">umeclidinium/vilanterol</td><td>EPOC</td></tr>
+            <tr><td class="drug-brand"><strong>Biktarvy</strong></td><td class="drug-generic">bictegravir/emtricitabine/tenofovir alafenamide</td><td>Infección por VIH-1</td></tr>
+            <tr><td class="drug-brand"><strong>Botox; Botox Cosmetic</strong> <span class="type-badge partb" title="CMS indica un código de facturación (HCPCS) de la Parte B">Parte B</span></td><td class="drug-generic">onabotulinumtoxinA</td><td>Migraña crónica; vejiga hiperactiva; espasticidad; otros trastornos del movimiento</td></tr>
+            <tr><td class="drug-brand"><strong>Cimzia</strong> <span class="type-badge partb" title="CMS indica un código de facturación (HCPCS) de la Parte B">Parte B</span></td><td class="drug-generic">certolizumab pegol</td><td>Enfermedad de Crohn; psoriasis en placas; artritis psoriásica; artritis reumatoide</td></tr>
+            <tr><td class="drug-brand"><strong>Cosentyx</strong> <span class="type-badge partb" title="CMS indica un código de facturación (HCPCS) de la Parte B">Parte B</span></td><td class="drug-generic">secukinumab</td><td>Psoriasis en placas; artritis psoriásica</td></tr>
+            <tr><td class="drug-brand"><strong>Entyvio</strong> <span class="type-badge partb" title="CMS indica un código de facturación (HCPCS) de la Parte B">Parte B</span></td><td class="drug-generic">vedolizumab</td><td>Enfermedad de Crohn; colitis ulcerosa</td></tr>
+            <tr><td class="drug-brand"><strong>Erleada</strong></td><td class="drug-generic">apalutamide</td><td>Cáncer de próstata</td></tr>
+            <tr><td class="drug-brand"><strong>Kisqali</strong></td><td class="drug-generic">ribociclib</td><td>Cáncer de mama</td></tr>
+            <tr><td class="drug-brand"><strong>Lenvima</strong></td><td class="drug-generic">lenvatinib</td><td>Cáncer de tiroides, endometrio, hígado y riñón</td></tr>
+            <tr><td class="drug-brand"><strong>Orencia</strong> <span class="type-badge partb" title="CMS indica un código de facturación (HCPCS) de la Parte B">Parte B</span></td><td class="drug-generic">abatacept</td><td>Artritis reumatoide; artritis psoriásica</td></tr>
+            <tr><td class="drug-brand"><strong>Rexulti</strong></td><td class="drug-generic">brexpiprazole</td><td>Trastorno depresivo mayor; esquizofrenia; agitación asociada a demencia por Alzheimer</td></tr>
+            <tr><td class="drug-brand"><strong>Trulicity</strong></td><td class="drug-generic">dulaglutide</td><td>Diabetes tipo 2; diabetes tipo 2 con enfermedad cardiovascular o factores de riesgo cardiovascular</td></tr>
+            <tr><td class="drug-brand"><strong>Verzenio</strong></td><td class="drug-generic">abemaciclib</td><td>Cáncer de mama</td></tr>
+            <tr><td class="drug-brand"><strong>Xeljanz; Xeljanz XR</strong> <span class="type-badge out">Sale del programa 1/1/2029</span></td><td class="drug-generic">tofacitinib</td><td>Artritis reumatoide; artritis psoriásica; colitis ulcerosa</td></tr>
+            <tr><td class="drug-brand"><strong>Xolair</strong> <span class="type-badge partb" title="CMS indica un código de facturación (HCPCS) de la Parte B">Parte B</span></td><td class="drug-generic">omalizumab</td><td>Asma; urticaria crónica espontánea</td></tr>
+            <tr><td class="drug-brand"><strong>Tradjenta</strong> <span class="type-badge">Renegociación</span></td><td class="drug-generic">linagliptin</td><td>Diabetes tipo 2 (precio renegociado para 2028)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="drug-note"><strong>Parte B</strong> = CMS indica un código de facturación de la Parte B (se administra en el consultorio o clínica). Orencia, Cimzia, Cosentyx y Xolair también tienen versiones autoinyectables cubiertas por la Parte D.</p>
+      </div>
+      <p class="drug-source">Fuente: <a href="https://www.cms.gov/initiatives/medicare-prescription-drug-affordability/overview/medicare-drug-price-negotiation-program/selected-drugs-negotiated-prices" target="_blank" rel="noopener">CMS — Medicamentos seleccionados y precios negociados</a> (hojas informativas de CMS para 2026, 2027 y 2028). Las condiciones son las “condiciones tratadas comúnmente” según CMS; no es una lista completa.</p>
+      <p class="drug-source">Importante: la lista de “64 medicamentos” que circula es de otro programa — reducciones de coseguro de la Parte B bajo el Programa de Reembolsos por Inflación de Medicare (trimestre ene–mar 2025) — no de la negociación de precios.</p>
+</div>
+
+</div>
+
+<script>
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+</body>
+</html>

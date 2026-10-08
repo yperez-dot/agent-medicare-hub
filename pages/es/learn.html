@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <script>
 (function(){
@@ -18,7 +18,7 @@
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Learn | Medicare Agent Hub</title>
+<title>Aprende | Medicare Agent Hub</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -102,16 +102,16 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
 <div class="top-bar">
   <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
+    <a href='/home'>Panel del Agente</a>
     <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/es/compliance'>Cumplimiento</a>
     <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Tour del Hub'>?</a>
   </nav>
 </div>
 
@@ -119,263 +119,263 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
 
 <div class="hero">
   <h1>Broker University</h1>
-  <p>Training, client resources, forms, and carrier tools — pick a topic or search.</p>
+  <p>Entrenamiento, recursos para clientes, formularios y herramientas de carriers — elige un tema o busca.</p>
 </div>
 
-  <div class="finder" id="finder" role="group" aria-label="Find a topic">
-    <button type="button" class="topic" data-filter="medicare" aria-pressed="false"><strong>Medicare Basics</strong><span>Periods, IRMAA, Medigap</span></button>
-    <button type="button" class="topic" data-filter="carriers" aria-pressed="false"><strong>Carrier Resources</strong><span>Grids, contacts, certs</span></button>
-    <button type="button" class="topic" data-filter="guides" aria-pressed="false"><strong>Client Guides</strong><span>Turning 65, MAPD · EN/ES</span></button>
-    <button type="button" class="topic" data-filter="negotiated" aria-pressed="false"><strong>Negotiated Drugs</strong><span>2026–2028 lists · EN/ES</span></button>
-    <button type="button" class="topic" data-filter="forms" aria-pressed="false"><strong>Client Forms</strong><span>SSA-44, CMS-40B, L564</span></button>
-    <button type="button" class="topic" data-filter="medicaid" aria-pressed="false"><strong>Medicaid &amp; LIS</strong><span>Levels, income limits</span></button>
-    <button type="button" class="topic" data-filter="sales" aria-pressed="false"><strong>Sales &amp; Training</strong><span>AEP course, grids, decks</span></button>
-    <button type="button" class="topic" data-filter="leadgen" aria-pressed="false"><strong>Lead Generation</strong><span>Events, offices, captions</span></button>
+  <div class="finder" id="finder" role="group" aria-label="Busca un tema">
+    <button type="button" class="topic" data-filter="medicare" aria-pressed="false"><strong>Medicare Básico</strong><span>Períodos, IRMAA, Medigap</span></button>
+    <button type="button" class="topic" data-filter="carriers" aria-pressed="false"><strong>Recursos de Carriers</strong><span>Tablas, contactos, certs</span></button>
+    <button type="button" class="topic" data-filter="guides" aria-pressed="false"><strong>Guías para Clientes</strong><span>Cumpliendo 65, MAPD · EN/ES</span></button>
+    <button type="button" class="topic" data-filter="negotiated" aria-pressed="false"><strong>Medicamentos Negociados</strong><span>Listas 2026–2028 · EN/ES</span></button>
+    <button type="button" class="topic" data-filter="forms" aria-pressed="false"><strong>Formularios</strong><span>SSA-44, CMS-40B, L564</span></button>
+    <button type="button" class="topic" data-filter="medicaid" aria-pressed="false"><strong>Medicaid y LIS</strong><span>Niveles, límites de ingreso</span></button>
+    <button type="button" class="topic" data-filter="sales" aria-pressed="false"><strong>Ventas y Entrenamiento</strong><span>Curso AEP, tablas, presentaciones</span></button>
+    <button type="button" class="topic" data-filter="leadgen" aria-pressed="false"><strong>Generación de Leads</strong><span>Eventos, oficinas, captions</span></button>
   </div>
 
   <div class="searchbar" role="search">
-    <input id="hubSearch" type="search" placeholder="Search Turning 65, SSA-44, Eliquis, AEP…" aria-label="Search Broker University" />
-    <button type="button" class="search-clear" id="hubSearchClear">Clear</button>
+    <input id="hubSearch" type="search" placeholder="Busca Cumpliendo 65, SSA-44, Eliquis, AEP…" aria-label="Buscar en Broker University" />
+    <button type="button" class="search-clear" id="hubSearchClear">Borrar</button>
   </div>
 
   <section class="section-block" id="block-featured">
-    <div class="sec-head"><h2 class="section-h2">Most Opened This Month</h2></div>
+    <div class="sec-head"><h2 class="section-h2">Lo Más Abierto Este Mes</h2></div>
     <div class="cards">
       <a class="resource-card featured" href="/client-guides" data-preview>
-        <h3>Client Guides — EN / ES leave-behinds</h3>
-        <p>Turning 65 and MAPD comparison. English and Spanish are separate PDFs — pick the language, open the file.</p>
+        <h3>Guías para Clientes — materiales EN / ES</h3>
+        <p>Cumpliendo 65 y comparación MAPD. Inglés y español son PDFs separados — elige el idioma y abre el archivo.</p>
       </a>
       <a class="resource-card featured" href="/aep-2027-training" data-preview>
-        <h3>AEP 2027 Compliance Training</h3>
-        <p>12-minute course: new SOA rules, same-day appointments, events, and the $2,400 Part D cap. Quiz + certificate.</p>
+        <h3>Entrenamiento de Cumplimiento AEP 2027</h3>
+        <p>Curso de 12 minutos: nuevas reglas de SOA, citas el mismo día, eventos y el tope de $2,400 de la Parte D. Quiz + certificado.</p>
       </a>
       <a class="resource-card featured" href="/medicaid-levels" data-preview>
-        <h3>Medicaid Levels</h3>
-        <p>In-hub LIS copays and MSP comparison — QMB, SLMB, QI, FBDE. Classify members without opening a Doc.</p>
+        <h3>Niveles de Medicaid</h3>
+        <p>Copagos de LIS y comparación de MSP dentro del hub — QMB, SLMB, QI, FBDE. Clasifica miembros sin abrir un Doc.</p>
       </a>
     </div>
   </section>
 
   <section class="section-block" data-section="medicare" id="medicare">
-    <div class="sec-head"><h2 class="section-h2">Medicare Basics</h2><button type="button" class="see-all" data-see="medicare" data-count="5">See all 5 →</button></div>
+    <div class="sec-head"><h2 class="section-h2">Medicare Básico</h2><button type="button" class="see-all" data-see="medicare" data-count="5">Ver todos (5) →</button></div>
     <div class="cards">
       <a class="resource-card" href="https://gamma.app/docs/Medicare-Election-Periods-Made-Simple-27r9r29ndrof3eh" target="_blank" rel="noopener" data-preview>
         <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>Election Periods Guide</h3>
-        <p>IEP, AEP, OEP, and SEP — when clients can enroll or change plans and what triggers each window.</p>
+        <h3>Guía de Períodos de Elección</h3>
+        <p>IEP, AEP, OEP y SEP — cuándo pueden inscribirse o cambiar de plan tus clientes y qué activa cada ventana.</p>
       </a>
       <a class="resource-card" href="https://gamma.app/docs/hazgszb9yzwtvhr" target="_blank" rel="noopener" data-preview>
         <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>Medicare &amp; Employer Coverage</h3>
-        <p>Working past 65? How employer plans affect timing, SEPs, and when Part B should start.</p>
+        <h3>Medicare y Cobertura de Empleador</h3>
+        <p>¿Trabaja después de los 65? Cómo los planes de empleador afectan el tiempo, los SEPs y cuándo debe comenzar la Parte B.</p>
       </a>
       <a class="resource-card" href="https://gamma.app/docs/IRMAA-Late-Enrollment-Penalties-Made-Simple-i4g2sa24oepj2ge" target="_blank" rel="noopener" data-preview>
         <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>IRMAA &amp; Late Enrollment Penalties</h3>
-        <p>IRMAA surcharges and common late enrollment penalties agents need to prevent.</p>
+        <h3>IRMAA y Penalizaciones por Inscripción Tardía</h3>
+        <p>Recargos de IRMAA y penalizaciones comunes por inscripción tardía que los agentes necesitan prevenir.</p>
       </a>
       <a class="resource-card" href="https://gamma.app/docs/Basics-2026-Costs-u0t827urdu6kcjc" target="_blank" rel="noopener">
         <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>Medicare 101 (With 2026 Costs)</h3>
-        <p>Parts A, B, C, D explained with 2026 premiums and cost-sharing figures.</p>
+        <h3>Medicare 101 (Con Costos 2026)</h3>
+        <p>Partes A, B, C y D explicadas con las primas y costos compartidos de 2026.</p>
       </a>
       <a class="resource-card" href="/medicare-supplements">
         <div class="badges"><span class="type-badge">Medigap</span><span class="type-badge green">UHC/AARP</span></div>
-        <h3>Medicare Supplement (Medigap) Hub</h3>
-        <p>Enrollment kit, underwriting questions (pg 3 §6), Plan G Select hospital network, GI guide, rate tables, and Medicare.gov tools.</p>
+        <h3>Hub de Medicare Suplementario (Medigap)</h3>
+        <p>Kit de inscripción, preguntas de suscripción (pág. 3 §6), red hospitalaria Plan G Select, guía de GI, tablas de tarifas y herramientas de Medicare.gov.</p>
       </a>
     </div>
   </section>
 
   <section class="section-block" data-section="carriers" id="carriers">
-    <div class="sec-head"><h2 class="section-h2">Carrier Resources</h2><button type="button" class="see-all" data-see="carriers" data-count="4">See all 4 →</button></div>
+    <div class="sec-head"><h2 class="section-h2">Recursos de Carriers</h2><button type="button" class="see-all" data-see="carriers" data-count="4">Ver todos (4) →</button></div>
     <div class="cards">
       <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge hot">Top Used · AEP</span></div>
-        <h3>2027 Plan Comparison Grid</h3>
-        <p>Side-by-side comparison of all 2027 Medicare Advantage plans. Benefits, copays, OTC, dental, vision, and more.</p>
+        <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge hot">Más usado · AEP</span></div>
+        <h3>Tabla Comparativa de Planes 2027</h3>
+        <p>Comparación lado a lado de todos los planes Medicare Advantage 2027. Beneficios, copagos, OTC, dental, visión y más.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge green">Through Nov 30</span></div>
-        <h3>2026 MAPD Plan Grid (sell through Nov 30)</h3>
-        <p>Current-year side-by-side MAPD comparison. Agents can still sell 2026 plans through Nov 30, 2026.</p>
+        <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge green">Hasta el 30 nov</span></div>
+        <h3>Tabla de Planes MAPD 2026 (venta hasta el 30 nov)</h3>
+        <p>Comparación MAPD lado a lado del año en curso. Los agentes pueden vender planes 2026 hasta el 30 de noviembre de 2026.</p>
       </a>
       <a class="resource-card" href="/carrier-info" data-preview>
-        <div class="badges"><span class="type-badge">Hub Page</span></div>
-        <h3>Carrier Contact Guide</h3>
-        <p>Direct lines, auth numbers, member services, and key contacts for every carrier — Humana, UHC, Aetna, Solis, Devoted, and more.</p>
+        <div class="badges"><span class="type-badge">Página del Hub</span></div>
+        <h3>Guía de Contactos de Carriers</h3>
+        <p>Líneas directas, números de autorización, servicios al miembro y contactos clave de cada carrier — Humana, UHC, Aetna, Solis, Devoted y más.</p>
       </a>
       <a class="resource-card" href="/certs">
-        <div class="badges"><span class="type-badge pdf">Compliance</span></div>
-        <h3>Certs &amp; Compliance</h3>
-        <p>Annual certification deadlines, AHIP, carrier-specific training links, and CMS compliance rules all in one place.</p>
+        <div class="badges"><span class="type-badge pdf">Cumplimiento</span></div>
+        <h3>Certificaciones y Cumplimiento</h3>
+        <p>Fechas límite de certificación anual, AHIP, links de entrenamiento por carrier y reglas de cumplimiento de CMS, todo en un lugar.</p>
       </a>
     </div>
   </section>
 
   <div class="pair">
     <section class="section-block" data-section="guides" id="guides">
-      <div class="sec-head"><h2 class="section-h2">Client Guides</h2><button type="button" class="see-all" data-see="guides" data-count="1">See all 1 →</button></div>
+      <div class="sec-head"><h2 class="section-h2">Guías para Clientes</h2><button type="button" class="see-all" data-see="guides" data-count="1">Ver todos (1) →</button></div>
       <div class="cards">
         <a class="resource-card" href="/client-guides" data-preview data-keywords="Turning 65 Cumpliendo 65 2026 guide guía MAPD plan comparison comparación de planes 2027 worksheet hoja de trabajo leave-behind material para dejar PDF English Spanish inglés español">
-          <div class="badges"><span class="type-badge">Hub Page</span><span class="type-badge">EN / ES</span></div>
-          <h3>Client Guides library</h3>
-          <p>Turning 65 / Cumpliendo 65 (2026) and MAPD Plan Comparison (2027) leave-behinds. English and Spanish are always separate PDFs.</p>
+          <div class="badges"><span class="type-badge">Página del Hub</span><span class="type-badge">EN / ES</span></div>
+          <h3>Biblioteca de Guías para Clientes</h3>
+          <p>Materiales Cumpliendo 65 / Turning 65 (2026) y Comparación de Planes MAPD (2027). Inglés y español siempre son PDFs separados.</p>
         </a>
       </div>
     </section>
 
     <section class="section-block" data-section="negotiated" id="negotiated">
-      <div class="sec-head"><h2 class="section-h2">Negotiated Drugs</h2><button type="button" class="see-all" data-see="negotiated" data-count="1">See all 1 →</button></div>
+      <div class="sec-head"><h2 class="section-h2">Medicamentos Negociados</h2><button type="button" class="see-all" data-see="negotiated" data-count="1">Ver todos (1) →</button></div>
       <div class="cards">
         <a class="resource-card" href="/negotiated-drugs" data-preview data-keywords="negotiated drugs medicamentos negociados maximum fair price precio justo máximo IRA inflation reduction act part d parte d part b parte b Eliquis apixaban Enbrel etanercept Entresto sacubitril valsartan Farxiga dapagliflozin Fiasp NovoLog insulin aspart Imbruvica ibrutinib Januvia sitagliptin Jardiance empagliflozin Stelara ustekinumab Xarelto rivaroxaban Austedo deutetrabenazine Breo Ellipta fluticasone vilanterol Calquence acalabrutinib Ibrance palbociclib Janumet metformin Linzess linaclotide Ofev nintedanib Otezla apremilast Ozempic Rybelsus Wegovy semaglutide Pomalyst pomalidomide Tradjenta linagliptin Trelegy umeclidinium Vraylar cariprazine Xifaxan rifaximin Xtandi enzalutamide Anoro Biktarvy bictegravir Botox onabotulinumtoxinA Cimzia certolizumab Cosentyx secukinumab Entyvio vedolizumab Erleada apalutamide Kisqali ribociclib Lenvima lenvatinib Orencia abatacept Rexulti brexpiprazole Trulicity dulaglutide Verzenio abemaciclib Xeljanz tofacitinib Xolair omalizumab">
-          <div class="badges"><span class="type-badge">Hub Page</span><span class="type-badge">EN / ES</span></div>
-          <h3>Medicare Negotiated Drugs 2026–2028</h3>
-          <p>Every drug with a Medicare-negotiated price: 10 for 2026, 15 for 2027, 15 for 2028 (first Part B drugs).</p>
+          <div class="badges"><span class="type-badge">Página del Hub</span><span class="type-badge">EN / ES</span></div>
+          <h3>Medicamentos Negociados por Medicare 2026–2028</h3>
+          <p>Todos los medicamentos con precio negociado por Medicare: 10 para 2026, 15 para 2027, 15 para 2028 (primeros de la Parte B).</p>
         </a>
       </div>
     </section>
   </div>
 
   <section class="section-block" data-section="forms" id="forms">
-    <div class="sec-head"><h2 class="section-h2">Client Forms &amp; Appeals</h2><button type="button" class="see-all" data-see="forms" data-count="4">See all 4 →</button></div>
+    <div class="sec-head"><h2 class="section-h2">Formularios y Apelaciones</h2><button type="button" class="see-all" data-see="forms" data-count="4">Ver todos (4) →</button></div>
     <div class="cards">
       <a class="resource-card" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener" data-preview>
         <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">SSA</span></div>
-        <h3>SSA-44 — IRMAA Appeal</h3>
-        <p>Life-changing event appeal to reduce IRMAA surcharge. Most requested form.</p>
+        <h3>SSA-44 — Apelación de IRMAA</h3>
+        <p>Apelación por evento de vida para reducir el recargo de IRMAA. El formulario más solicitado.</p>
       </a>
       <a class="resource-card" href="https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms40b-e.pdf" target="_blank" rel="noopener" data-preview>
         <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
-        <h3>CMS-40B — Part B Application</h3>
-        <p>Application for enrollment in Medicare Part B. Often paired with CMS-L564 for SEP.</p>
+        <h3>CMS-40B — Solicitud de la Parte B</h3>
+        <p>Solicitud de inscripción en la Parte B de Medicare. Frecuentemente se usa junto con CMS-L564 para SEP.</p>
       </a>
       <a class="resource-card" href="https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/Downloads/CMSL564-E.PDF" target="_blank" rel="noopener" data-preview>
         <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
-        <h3>CMS-L564 — Employer Verification</h3>
-        <p>Employer completes this to verify group coverage for Part B Special Enrollment Period.</p>
+        <h3>CMS-L564 — Verificación de Empleador</h3>
+        <p>El empleador lo completa para verificar la cobertura grupal para el Período Especial de Inscripción de la Parte B.</p>
       </a>
       <a class="resource-card" href="https://www.cms.gov/files/document/application-medicare-part-part-b-special-enrollment-period-exceptional-conditions.pdf" target="_blank" rel="noopener">
         <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
-        <h3>Special Enrollment — Exceptional Conditions</h3>
-        <p>Use when standard SEP rules don't apply cleanly. For complex enrollment timing situations.</p>
+        <h3>Inscripción Especial — Condiciones Excepcionales</h3>
+        <p>Úsalo cuando las reglas estándar de SEP no aplican claramente. Para situaciones complejas de tiempo de inscripción.</p>
       </a>
     </div>
   </section>
 
   <section class="section-block" data-section="medicaid" id="medicaid">
-    <div class="sec-head"><h2 class="section-h2">Medicaid &amp; LIS</h2><button type="button" class="see-all" data-see="medicaid" data-count="4">See all 4 →</button></div>
+    <div class="sec-head"><h2 class="section-h2">Medicaid y LIS</h2><button type="button" class="see-all" data-see="medicaid" data-count="4">Ver todos (4) →</button></div>
     <div class="cards">
       <a class="resource-card" href="/medicaid-levels" data-preview>
-        <div class="badges"><span class="type-badge">In-Hub Table</span></div>
-        <h3>Medicaid Levels</h3>
-        <p>Quick reference for Medicaid eligibility levels and how to classify members fast. Most used resource.</p>
+        <div class="badges"><span class="type-badge">Tabla en el Hub</span></div>
+        <h3>Niveles de Medicaid</h3>
+        <p>Referencia rápida de niveles de elegibilidad de Medicaid y cómo clasificar miembros rápido. El recurso más usado.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1pzfYr4ZSZrej2hx2VqDA4ijodb12wfzq8e-lBtwCAl8/edit" target="_blank" rel="noopener" data-preview>
         <div class="badges"><span class="type-badge sheet">Google Sheet</span></div>
-        <h3>Chronic Conditions List</h3>
-        <p>Reference list for plan fit, DSNP/HRA considerations, and client notes.</p>
+        <h3>Lista de Condiciones Crónicas</h3>
+        <p>Lista de referencia para selección de plan, consideraciones de DSNP/HRA y notas del cliente.</p>
       </a>
       <a class="resource-card" href="https://www.healthexps.com/medicare/medicare-costs" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge">Live Reference</span><span class="type-badge green">2026 ✓</span></div>
-        <h3>2026 Medicare Cost Quick Reference</h3>
-        <p>Part B: $202.90/mo · Deductible: $283 · Part A deductible: $1,736 · IRMAA from $284.10. Full breakdown with IRMAA tiers.</p>
+        <div class="badges"><span class="type-badge">Referencia en vivo</span><span class="type-badge green">2026 ✓</span></div>
+        <h3>Referencia Rápida de Costos de Medicare 2026</h3>
+        <p>Parte B: $202.90/mes · Deducible: $283 · Deducible de la Parte A: $1,736 · IRMAA desde $284.10. Desglose completo con niveles de IRMAA.</p>
       </a>
       <a class="resource-card" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener" download>
-        <div class="badges"><span class="type-badge">PDF · April 2026</span></div>
-        <h3>2026 Updated Income Limits</h3>
-        <p>SSI-related programs &amp; coverage groups — QMB, SLMB, QI1, LIS, MEDS-AD financial eligibility standards. Updated April 2026.</p>
+        <div class="badges"><span class="type-badge">PDF · Abril 2026</span></div>
+        <h3>Límites de Ingresos Actualizados 2026</h3>
+        <p>Programas relacionados con SSI y grupos de cobertura — QMB, SLMB, QI1, LIS, MEDS-AD: estándares de elegibilidad financiera. Actualizado en abril de 2026.</p>
       </a>
     </div>
   </section>
 
   <section class="section-block" data-section="sales" id="sales">
-    <div class="sec-head"><h2 class="section-h2">Sales &amp; Training</h2><button type="button" class="see-all" data-see="sales" data-count="5">See all 5 →</button></div>
+    <div class="sec-head"><h2 class="section-h2">Ventas y Entrenamiento</h2><button type="button" class="see-all" data-see="sales" data-count="5">Ver todos (5) →</button></div>
     <div class="cards">
       <a class="resource-card" href="/aep-2027-training" data-preview>
-        <div class="badges"><span class="type-badge">Required</span><span class="type-badge hot">New for 2027</span></div>
-        <h3>AEP 2027 Compliance Training</h3>
-        <p>What's new this year in plain English: SOA wait is gone, events changed, Part D caps at $2,400. 8-question quiz.</p>
+        <div class="badges"><span class="type-badge">Obligatorio</span><span class="type-badge hot">Nuevo para 2027</span></div>
+        <h3>Entrenamiento de Cumplimiento AEP 2027</h3>
+        <p>Lo nuevo de este año en palabras sencillas: ya no hay espera del SOA, cambiaron los eventos, la Parte D tiene tope de $2,400. Quiz de 8 preguntas.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge hot">Top Used · AEP</span></div>
-        <h3>2027 Plan Comparison Grid</h3>
-        <p>Primary AEP side-by-side comparison used daily for client calls. Updated for 2027 plan year.</p>
+        <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge hot">Más usado · AEP</span></div>
+        <h3>Tabla Comparativa de Planes 2027</h3>
+        <p>Comparación principal de AEP, usada a diario en llamadas con clientes. Actualizada para el año de plan 2027.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge green">Through Nov 30</span></div>
-        <h3>2026 MAPD Plan Comparison (sell through Nov 30)</h3>
-        <p>Current-year side-by-side grid. Agents can still sell 2026 plans through Nov 30, 2026.</p>
+        <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge green">Hasta el 30 nov</span></div>
+        <h3>Comparación de Planes MAPD 2026 (venta hasta el 30 nov)</h3>
+        <p>Tabla lado a lado del año en curso. Los agentes pueden vender planes 2026 hasta el 30 de noviembre de 2026.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/presentation/d/1KIAU8uobrnghsPI5TbblgPWcGLaz0bRTeXMzMQIfOss/edit" target="_blank" rel="noopener">
-        <div class="badges"><span class="type-badge">Presentation</span></div>
-        <h3>Contracting &amp; Onboarding Deck</h3>
-        <p>Agent contracting help, transfer rules, and appointment guidance.</p>
+        <div class="badges"><span class="type-badge">Presentación</span></div>
+        <h3>Presentación de Contratación e Incorporación</h3>
+        <p>Ayuda con contratación de agentes, reglas de transferencia y guía de citas.</p>
       </a>
       <a class="resource-card" href="/medicaid-levels">
-        <div class="badges"><span class="type-badge">In-Hub Table</span></div>
-        <h3>Medicaid Cheat Sheet for Sales</h3>
-        <p>Helps identify plan fit and Extra Help eligibility during appointments.</p>
+        <div class="badges"><span class="type-badge">Tabla en el Hub</span></div>
+        <h3>Guía Rápida de Medicaid para Ventas</h3>
+        <p>Ayuda a identificar el plan adecuado y la elegibilidad para Extra Help durante las citas.</p>
       </a>
     </div>
   </section>
 
   <section class="section-block" data-section="leadgen" id="leadgen">
-    <div class="sec-head"><h2 class="section-h2">Lead Generation</h2><button type="button" class="see-all" data-see="leadgen" data-count="10">See all 10 →</button></div>
+    <div class="sec-head"><h2 class="section-h2">Generación de Leads</h2><button type="button" class="see-all" data-see="leadgen" data-count="10">Ver todos (10) →</button></div>
     <div class="cards">
-      <span class="sub-label">Community Events Playbook</span>
+      <span class="sub-label">Guía de Eventos Comunitarios</span>
       <a class="resource-card" href="https://docs.google.com/document/d/1dyBtL2W3RZOnkGaTsU8h5gngohK4Yn0W/edit" target="_blank" rel="noopener" data-preview>
-        <h3>Community Events — Phase 1: Getting In</h3>
-        <p>Find venues, send first outreach, follow up. 4 scripts + outreach tracker.</p>
+        <h3>Eventos Comunitarios — Fase 1: Cómo Entrar</h3>
+        <p>Encuentra lugares, envía el primer contacto, da seguimiento. 4 guiones + rastreador de contactos.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/document/d/1v-8gTDkRhRhDpMhPyLIRL3MthY2EKDa7/edit" target="_blank" rel="noopener">
-        <h3>Community Events — Phase 2: Showing Up Right</h3>
-        <p>Pre-event checklist, first visit script, 10-minute talk, one-on-one scripts.</p>
+        <h3>Eventos Comunitarios — Fase 2: Presentarte Bien</h3>
+        <p>Lista de verificación previa al evento, guion de primera visita, charla de 10 minutos, guiones de conversación individual.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/document/d/1nUigracs0daW_SwkzdyIKPoZKwcFUq1C/edit" target="_blank" rel="noopener">
-        <h3>Community Events — Phase 3: Converting</h3>
-        <p>Lead capture, same-day follow-up, 7-day sequence, objection handling.</p>
+        <h3>Eventos Comunitarios — Fase 3: Convertir</h3>
+        <p>Captura de leads, seguimiento el mismo día, secuencia de 7 días, manejo de objeciones.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/document/d/1poxDqEcA9dkG756Z9PAI3JL2DRByYRtB/edit" target="_blank" rel="noopener">
-        <h3>Community Events — Phase 4: Building the Partnership</h3>
-        <p>Quarterly check-ins, sponsorship frameworks, 10 long-term relationship rules.</p>
+        <h3>Eventos Comunitarios — Fase 4: Construir la Alianza</h3>
+        <p>Revisiones trimestrales, estructuras de patrocinio, 10 reglas de relaciones a largo plazo.</p>
       </a>
-      <span class="sub-label">Provider Office Playbook</span>
+      <span class="sub-label">Guía de Oficinas de Proveedores</span>
       <a class="resource-card" href="https://docs.google.com/document/d/1GJiN2PuAALpxA5n0pOJZVWO1adWtwPWc/edit" target="_blank" rel="noopener" data-preview>
-        <h3>Provider Offices — Phase 1: Mapping the Office</h3>
-        <p>Identify worthwhile offices, staff org chart, 5-minute first visit script.</p>
+        <h3>Oficinas de Proveedores — Fase 1: Mapear la Oficina</h3>
+        <p>Identifica las oficinas que valen la pena, organigrama del personal, guion de primera visita de 5 minutos.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/document/d/1P6ty8XsM0BGgSb3oc-di7DPR8oe-AfI6/edit" target="_blank" rel="noopener">
-        <h3>Provider Offices — Phase 2: Bi-Weekly Drop-By</h3>
-        <p>Every 2–3 week rhythm, 6-visit treat rotation, role-by-role scripts.</p>
+        <h3>Oficinas de Proveedores — Fase 2: Visitas Quincenales</h3>
+        <p>Ritmo de cada 2–3 semanas, rotación de detalles en 6 visitas, guiones por rol del personal.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/document/d/1ouCYzdvdzDsnV3yjDkAcT-hyAZZ3kHyd/edit" target="_blank" rel="noopener">
-        <h3>Provider Offices — Phase 3: Carrier In-Service</h3>
-        <p>Get a carrier to sponsor lunch, propose the presentation, follow up. Highest ROI.</p>
+        <h3>Oficinas de Proveedores — Fase 3: Capacitación del Carrier</h3>
+        <p>Consigue que un carrier patrocine el almuerzo, propón la presentación, da seguimiento. El mayor retorno de inversión.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/document/d/1_bEL2If1vJBek8P9eT9_jXyY4jDd26fd/edit" target="_blank" rel="noopener">
-        <h3>Provider Offices — Phase 4: Becoming THE Agent</h3>
-        <p>AEP-prep in-service, frictionless referral systems, defending against competitor agents.</p>
+        <h3>Oficinas de Proveedores — Fase 4: Convertirte en EL Agente</h3>
+        <p>Capacitación de preparación para AEP, sistemas de referidos sin fricción, cómo defenderte de agentes competidores.</p>
       </a>
-      <span class="sub-label">Social Media</span>
+      <span class="sub-label">Redes Sociales</span>
       <a class="resource-card" href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit" target="_blank" rel="noopener" data-preview>
-        <h3>Caption Library — Volume 1</h3>
-        <p>15 ready-to-post captions: Educational, Mythbusters, Seasonal, Personal/Brand. EN+ES.</p>
+        <h3>Librería de Captions — Volumen 1</h3>
+        <p>15 captions listos para publicar: Educativos, Desmentidores de Mitos, Temporales, Personal/Marca. EN+ES.</p>
       </a>
       <a class="resource-card" href="https://docs.google.com/document/d/1CIPIu7ZcYn6ZALItNiVF92o_E30ua3d7/edit" target="_blank" rel="noopener">
-        <h3>Caption Library — Volume 2</h3>
-        <p>15 more captions including 4-caption AEP Reviews series timed to the AEP calendar. EN+ES.</p>
+        <h3>Librería de Captions — Volumen 2</h3>
+        <p>15 captions más, incluyendo una serie de 4 captions de Reseñas AEP sincronizados con el calendario AEP. EN+ES.</p>
       </a>
     </div>
   </section>
 
-  <p class="no-results hidden" id="noResults">No matches. Try another word or clear the search.</p>
+  <p class="no-results hidden" id="noResults">Sin resultados. Prueba otra palabra o borra la búsqueda.</p>
 
 </div>
 
 <script>
 (function(){
-  var L = {seeAll:'See all {n} →', allTopics:'← All topics'};
+  var L = {seeAll:'Ver todos ({n}) →', allTopics:'← Todos los temas'};
   var tiles = document.querySelectorAll('.topic[data-filter]');
   var sections = document.querySelectorAll('[data-section]');
   var featured = document.getElementById('block-featured');

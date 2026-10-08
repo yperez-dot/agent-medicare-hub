@@ -1,29 +1,30 @@
-/* Shared page hero — Events-style title + blurb banner */
+/* Shared page hero — compact density (aligned with Client Guides) */
 .hero{
   background:linear-gradient(135deg,#341751,#452068);
-  border-radius:20px;
-  padding:28px 32px;
-  margin-bottom:20px;
+  border-radius:16px;
+  padding:16px 20px;
+  margin-bottom:16px;
   color:#fff;
+  box-shadow:0 8px 18px rgba(20,10,40,.10);
 }
 .hero h1{
-  font:700 28px/1.2 Arial,sans-serif;
-  margin:0 0 6px;
+  font:700 24px/1.2 Arial,sans-serif;
+  margin:0 0 4px;
   color:#fff;
 }
 .hero h1 strong{color:#fff;}
 .hero p{
-  font:400 14px/1.5 Arial,sans-serif;
+  font:400 13px/1.45 Arial,sans-serif;
   color:rgba(255,255,255,.82);
-  max-width:60ch;
+  max-width:70ch;
   margin:0;
 }
 .page-jump{
   display:flex;
-  gap:14px;
+  gap:12px;
   flex-wrap:wrap;
   align-items:center;
-  margin:0 0 28px;
+  margin:0 0 18px;
 }
 .page-jump a{
   color:#452068;
@@ -33,5 +34,6 @@
 }
 .page-jump a:hover{border-bottom-color:#452068;}
 @media(max-width:600px){
-  .hero{padding:20px 18px;}
+  .hero{padding:14px 16px;}
+  .hero h1{font:700 20px/1.2 Arial,sans-serif;}
 }
