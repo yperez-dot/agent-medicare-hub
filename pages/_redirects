@@ -31,3 +31,5 @@
 # Spanish compliance (mirrors /compliance)
 /es/compliance /es/compliance.html 200
 
+# Spanish client guides (mirrors /client-guides)
+/es/client-guides /es/client-guides.html 200
