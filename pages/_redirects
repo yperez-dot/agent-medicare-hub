@@ -20,7 +20,11 @@
 /compliance /compliance.html 200
 /tools-perks /tools-perks.html 200
 /sep-tracker /sep-tracker.html 200
-/chronic-conditions /chronic-conditions.html 200
+/ssbci-eligibility /ssbci-eligibility.html 200
+
+# Renamed Oct 2026: "Chronic Conditions" -> "SSBCI Eligibility" (avoid confusion with C-SNP plans)
+/chronic-conditions /ssbci-eligibility 301!
+/chronic-conditions.html /ssbci-eligibility 301!
 /medicaid-lis /medicaid-lis.html 200
 /client-guides /client-guides.html 200
 
