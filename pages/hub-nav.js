@@ -42,7 +42,7 @@
   function esUrl(){
     var p = navPath(location.pathname);
     if (isEsHost()) return withSearch(p);
-    if (isLocalHost() && p === '/compliance') return withSearch('/es/compliance');
+    if (isLocalHost() && (p === '/compliance' || p === '/client-guides')) return withSearch('/es' + p);
     if (!isLocalHost() && location.pathname.indexOf('/es/') === 0) return withSearch(location.pathname.replace(/\.html$/i, ''));
     return 'https://es.agentmedicarehub.com' + withSearch(p);
   }
