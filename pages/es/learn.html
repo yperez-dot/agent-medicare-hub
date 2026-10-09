@@ -47,29 +47,49 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .topic:hover{border-color:var(--purple);}
 .topic.active{border-color:var(--purple);background:var(--purple-tint);}
 .topic.active strong{color:var(--purple);}
-.searchbar{display:flex;gap:8px;align-items:center;margin-bottom:36px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px 8px 8px 16px;}
+.searchbar{display:flex;gap:8px;align-items:center;margin-bottom:28px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px 8px 8px 16px;}
 .searchbar input{flex:1;border:0;outline:none;font:400 15px/1.4 Inter,Arial,sans-serif;background:transparent;color:var(--text);min-width:0;}
 .searchbar input::placeholder{color:var(--text-faint);}
 .search-clear{border:1px solid var(--border);background:#fff;color:var(--purple);padding:7px 11px;border-radius:9px;font:800 12px/1 Arial,sans-serif;cursor:pointer;}
-/* Sections */
-.section-block{margin-bottom:36px;scroll-margin-top:16px;}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px;}
-h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;letter-spacing:-.1px;}
-.see-all{background:none;border:0;border-bottom:1px solid rgba(69,32,104,.25);padding:2px 0;font:700 14px/1.2 'Inter',Arial,sans-serif;color:var(--purple);cursor:pointer;white-space:nowrap;}
-.see-all:hover{border-bottom-color:var(--purple);}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
-.resource-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s;}
-.resource-card:hover{border-color:rgba(69,32,104,.28);box-shadow:0 16px 40px rgba(69,32,104,.12);}
+/* Featured strip stays open */
+.section-block.featured-block{
+  margin-bottom:14px;scroll-margin-top:16px;background:#fff;border:1px solid #ECE8F1;border-radius:14px;padding:14px 16px;
+}
+.featured-block .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.featured-block h2.section-h2{font-size:16px;font-weight:700;color:var(--text);line-height:1.25;}
+/* Accordion rows */
+details.acc{
+  margin-bottom:10px;scroll-margin-top:16px;background:#fff;border:1px solid #ECE8F1;border-radius:14px;overflow:hidden;
+}
+details.acc>summary{
+  list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto auto;gap:8px 14px;align-items:center;
+  padding:14px 16px;user-select:none;
+}
+details.acc>summary::-webkit-details-marker{display:none;}
+details.acc>summary .acc-title{font-size:15.5px;font-weight:700;color:var(--text);line-height:1.25;grid-column:1;grid-row:1;}
+details.acc>summary .acc-desc{font-size:13.5px;color:var(--text-soft);line-height:1.45;grid-column:1;grid-row:2;max-width:72ch;}
+details.acc>summary .acc-count{
+  grid-column:2;grid-row:1 / span 2;align-self:center;font:700 12px/1 Arial,sans-serif;color:var(--purple);
+  background:var(--purple-tint);padding:6px 10px;border-radius:999px;white-space:nowrap;
+}
+details.acc>summary .acc-chevron{
+  grid-column:3;grid-row:1 / span 2;width:10px;height:10px;border-right:2px solid var(--purple);border-bottom:2px solid var(--purple);
+  transform:rotate(45deg);transition:transform .15s ease;margin-right:4px;
+}
+details.acc[open]>summary .acc-chevron{transform:rotate(-135deg);margin-top:4px;}
+details.acc>summary:hover{background:#FAF8FC;}
+details.acc[open]>summary{border-bottom:1px solid #ECE8F1;}
+.acc-body{padding:12px 16px 16px;}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.resource-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--text);box-shadow:none;transition:border-color .15s;}
+.resource-card:hover{border-color:rgba(69,32,104,.28);}
 .resource-card.featured{border-top:3px solid var(--pink);}
-.resource-card h3{font-size:16.5px;font-weight:700;line-height:1.3;color:var(--text);}
+.resource-card h3{font-size:15.5px;font-weight:700;line-height:1.3;color:var(--text);}
 .resource-card h3:after{content:" →";color:var(--purple);font-weight:800;}
 .badges{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1px;}
-.resource-card p{font-size:14px;color:var(--text-soft);line-height:1.55;}
-.sub-label{grid-column:1/-1;font:700 12px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--text-faint);margin:6px 0 0;}
+.resource-card p{font-size:13.5px;color:var(--text-soft);line-height:1.5;}
+.sub-label{grid-column:1/-1;font:700 11.5px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:var(--text-faint);margin:4px 0 0;}
 .sub-label:first-child{margin-top:0;}
-.section-block:not(.expanded) .cards>.resource-card:not([data-preview]),.section-block:not(.expanded) .sub-label{display:none;}
-.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;}
-.pair .cards{grid-template-columns:1fr;}
 .no-results{font-size:14px;color:var(--text-soft);padding:8px 2px 18px;}
 @media(max-width:1000px){
  .cards{grid-template-columns:repeat(2,minmax(0,1fr));}
@@ -77,12 +97,14 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
 @media(max-width:768px){
  .wrap{padding:16px 16px 32px;}
  .cards{grid-template-columns:1fr;}
- .pair{grid-template-columns:1fr;}
  .finder{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
  .topic{padding:10px 12px;}
  .topic strong{font-size:14px;}
- .section-block{margin-bottom:28px;}
  .wrap>.hero h1{font-size:24px;}
+ details.acc>summary{grid-template-columns:1fr auto;padding:12px 14px;}
+ details.acc>summary .acc-count{grid-column:2;grid-row:1;}
+ details.acc>summary .acc-chevron{grid-column:2;grid-row:2;justify-self:end;}
+ details.acc>summary .acc-desc{grid-column:1 / -1;}
 }
 .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
 .logo-wrap img{height:52px;width:auto;display:block;}
@@ -138,7 +160,7 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
     <button type="button" class="search-clear" id="hubSearchClear">Borrar</button>
   </div>
 
-  <section class="section-block" id="block-featured">
+  <section class="section-block featured-block" id="block-featured">
     <div class="sec-head"><h2 class="section-h2">Lo Más Abierto Este Mes</h2></div>
     <div class="cards">
       <a class="resource-card featured" href="/client-guides" data-preview>
@@ -156,66 +178,85 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
     </div>
   </section>
 
-  <section class="section-block" data-section="medicare" id="medicare">
-    <div class="sec-head"><h2 class="section-h2">Medicare Básico</h2><button type="button" class="see-all" data-see="medicare" data-count="5">Ver todos (5) →</button></div>
-    <div class="cards">
-      <a class="resource-card" href="https://gamma.app/docs/Medicare-Election-Periods-Made-Simple-27r9r29ndrof3eh" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>Guía de Períodos de Elección</h3>
-        <p>IEP, AEP, OEP y SEP — cuándo pueden inscribirse o cambiar de plan tus clientes y qué activa cada ventana.</p>
-      </a>
-      <a class="resource-card" href="https://gamma.app/docs/hazgszb9yzwtvhr" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>Medicare y Cobertura de Empleador</h3>
-        <p>¿Trabaja después de los 65? Cómo los planes de empleador afectan el tiempo, los SEPs y cuándo debe comenzar la Parte B.</p>
-      </a>
-      <a class="resource-card" href="https://gamma.app/docs/IRMAA-Late-Enrollment-Penalties-Made-Simple-i4g2sa24oepj2ge" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>IRMAA y Penalizaciones por Inscripción Tardía</h3>
-        <p>Recargos de IRMAA y penalizaciones comunes por inscripción tardía que los agentes necesitan prevenir.</p>
-      </a>
-      <a class="resource-card" href="https://gamma.app/docs/Basics-2026-Costs-u0t827urdu6kcjc" target="_blank" rel="noopener">
-        <div class="badges"><span class="type-badge gamma">Gamma</span></div>
-        <h3>Medicare 101 (Con Costos 2026)</h3>
-        <p>Partes A, B, C y D explicadas con las primas y costos compartidos de 2026.</p>
-      </a>
-      <a class="resource-card" href="/medicare-supplements">
-        <div class="badges"><span class="type-badge">Medigap</span><span class="type-badge green">UHC/AARP</span></div>
-        <h3>Hub de Medicare Suplementario (Medigap)</h3>
-        <p>Kit de inscripción, preguntas de suscripción (pág. 3 §6), red hospitalaria Plan G Select, guía de GI, tablas de tarifas y herramientas de Medicare.gov.</p>
-      </a>
+  <details class="acc" data-section="medicare" id="medicare">
+    <summary>
+      <span class="acc-title">Medicare Básico</span>
+      <span class="acc-desc">Períodos de elección, cobertura de empleador, IRMAA y penalidades, Medicare 101 con costos, y Medigap.</span>
+      <span class="acc-count">5 ítems</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
+      <div class="cards">
+        <a class="resource-card" href="https://gamma.app/docs/Medicare-Election-Periods-Made-Simple-27r9r29ndrof3eh" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge gamma">Gamma</span></div>
+          <h3>Guía de Períodos de Elección</h3>
+          <p>IEP, AEP, OEP y SEP — cuándo pueden inscribirse o cambiar de plan tus clientes y qué activa cada ventana.</p>
+        </a>
+        <a class="resource-card" href="https://gamma.app/docs/hazgszb9yzwtvhr" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge gamma">Gamma</span></div>
+          <h3>Medicare y Cobertura de Empleador</h3>
+          <p>¿Trabaja después de los 65? Cómo los planes de empleador afectan el tiempo, los SEPs y cuándo debe comenzar la Parte B.</p>
+        </a>
+        <a class="resource-card" href="https://gamma.app/docs/IRMAA-Late-Enrollment-Penalties-Made-Simple-i4g2sa24oepj2ge" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge gamma">Gamma</span></div>
+          <h3>IRMAA y Penalizaciones por Inscripción Tardía</h3>
+          <p>Recargos de IRMAA y penalizaciones comunes por inscripción tardía que los agentes necesitan prevenir.</p>
+        </a>
+        <a class="resource-card" href="https://gamma.app/docs/Basics-2026-Costs-u0t827urdu6kcjc" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge gamma">Gamma</span></div>
+          <h3>Medicare 101 (Con Costos 2026)</h3>
+          <p>Partes A, B, C y D explicadas con las primas y costos compartidos de 2026.</p>
+        </a>
+        <a class="resource-card" href="/medicare-supplements" data-preview>
+          <div class="badges"><span class="type-badge">Medigap</span><span class="type-badge green">UHC/AARP</span></div>
+          <h3>Hub de Medicare Suplementario (Medigap)</h3>
+          <p>Kit de inscripción, preguntas de suscripción (pág. 3 §6), red hospitalaria Plan G Select, guía de GI, tablas de tarifas y herramientas de Medicare.gov.</p>
+        </a>
+      </div>
     </div>
-  </section>
+  </details>
 
-  <section class="section-block" data-section="carriers" id="carriers">
-    <div class="sec-head"><h2 class="section-h2">Recursos de Carriers</h2><button type="button" class="see-all" data-see="carriers" data-count="4">Ver todos (4) →</button></div>
-    <div class="cards">
-      <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge hot">Más usado · AEP</span></div>
-        <h3>Tabla Comparativa de Planes 2027</h3>
-        <p>Comparación lado a lado de todos los planes Medicare Advantage 2027. Beneficios, copagos, OTC, dental, visión y más.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge green">Hasta el 30 nov</span></div>
-        <h3>Tabla de Planes MAPD 2026 (venta hasta el 30 nov)</h3>
-        <p>Comparación MAPD lado a lado del año en curso. Los agentes pueden vender planes 2026 hasta el 30 de noviembre de 2026.</p>
-      </a>
-      <a class="resource-card" href="/carrier-info" data-preview>
-        <div class="badges"><span class="type-badge">Página del Hub</span></div>
-        <h3>Guía de Contactos de Carriers</h3>
-        <p>Líneas directas, números de autorización, servicios al miembro y contactos clave de cada carrier — Humana, UHC, Aetna, Solis, Devoted y más.</p>
-      </a>
-      <a class="resource-card" href="/certs">
-        <div class="badges"><span class="type-badge pdf">Cumplimiento</span></div>
-        <h3>Certificaciones y Cumplimiento</h3>
-        <p>Fechas límite de certificación anual, AHIP, links de entrenamiento por carrier y reglas de cumplimiento de CMS, todo en un lugar.</p>
-      </a>
+  <details class="acc" data-section="carriers" id="carriers">
+    <summary>
+      <span class="acc-title">Recursos de Carriers</span>
+      <span class="acc-desc">Tablas de comparación 2027 y 2026, contactos de carriers, y enlaces de certificaciones y cumplimiento.</span>
+      <span class="acc-count">4 ítems</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
+      <div class="cards">
+        <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge hot">Más usado · AEP</span></div>
+          <h3>Tabla Comparativa de Planes 2027</h3>
+          <p>Comparación lado a lado de todos los planes Medicare Advantage 2027. Beneficios, copagos, OTC, dental, visión y más.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge sheet">Sheet</span><span class="type-badge green">Hasta el 30 nov</span></div>
+          <h3>Tabla de Planes MAPD 2026 (venta hasta el 30 nov)</h3>
+          <p>Comparación MAPD lado a lado del año en curso. Los agentes pueden vender planes 2026 hasta el 30 de noviembre de 2026.</p>
+        </a>
+        <a class="resource-card" href="/carrier-info" data-preview>
+          <div class="badges"><span class="type-badge">Página del Hub</span></div>
+          <h3>Guía de Contactos de Carriers</h3>
+          <p>Líneas directas, números de autorización, servicios al miembro y contactos clave de cada carrier — Humana, UHC, Aetna, Solis, Devoted y más.</p>
+        </a>
+        <a class="resource-card" href="/certs" data-preview>
+          <div class="badges"><span class="type-badge pdf">Cumplimiento</span></div>
+          <h3>Certificaciones y Cumplimiento</h3>
+          <p>Fechas límite de certificación anual, AHIP, links de entrenamiento por carrier y reglas de cumplimiento de CMS, todo en un lugar.</p>
+        </a>
+      </div>
     </div>
-  </section>
+  </details>
 
-  <div class="pair">
-    <section class="section-block" data-section="guides" id="guides">
-      <div class="sec-head"><h2 class="section-h2">Guías para Clientes</h2><button type="button" class="see-all" data-see="guides" data-count="1">Ver todos (1) →</button></div>
+  <details class="acc" data-section="guides" id="guides">
+    <summary>
+      <span class="acc-title">Guías para Clientes</span>
+      <span class="acc-desc">PDFs para dejar: Cumpliendo 65 / Turning 65 y comparación de planes MAPD en inglés y español.</span>
+      <span class="acc-count">1 ítem</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
       <div class="cards">
         <a class="resource-card" href="/client-guides" data-preview data-keywords="Turning 65 Cumpliendo 65 2026 guide guía MAPD plan comparison comparación de planes 2027 worksheet hoja de trabajo leave-behind material para dejar PDF English Spanish inglés español">
           <div class="badges"><span class="type-badge">Página del Hub</span><span class="type-badge">EN / ES</span></div>
@@ -223,10 +264,17 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
           <p>Materiales Cumpliendo 65 / Turning 65 (2026) y Comparación de Planes MAPD (2027). Inglés y español siempre son PDFs separados.</p>
         </a>
       </div>
-    </section>
+    </div>
+  </details>
 
-    <section class="section-block" data-section="negotiated" id="negotiated">
-      <div class="sec-head"><h2 class="section-h2">Medicamentos Negociados</h2><button type="button" class="see-all" data-see="negotiated" data-count="1">Ver todos (1) →</button></div>
+  <details class="acc" data-section="negotiated" id="negotiated">
+    <summary>
+      <span class="acc-title">Medicamentos Negociados</span>
+      <span class="acc-desc">Todos los medicamentos con precio negociado por Medicare para 2026, 2027 y 2028.</span>
+      <span class="acc-count">1 ítem</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
       <div class="cards">
         <a class="resource-card" href="/negotiated-drugs" data-preview data-keywords="negotiated drugs medicamentos negociados maximum fair price precio justo máximo IRA inflation reduction act part d parte d part b parte b Eliquis apixaban Enbrel etanercept Entresto sacubitril valsartan Farxiga dapagliflozin Fiasp NovoLog insulin aspart Imbruvica ibrutinib Januvia sitagliptin Jardiance empagliflozin Stelara ustekinumab Xarelto rivaroxaban Austedo deutetrabenazine Breo Ellipta fluticasone vilanterol Calquence acalabrutinib Ibrance palbociclib Janumet metformin Linzess linaclotide Ofev nintedanib Otezla apremilast Ozempic Rybelsus Wegovy semaglutide Pomalyst pomalidomide Tradjenta linagliptin Trelegy umeclidinium Vraylar cariprazine Xifaxan rifaximin Xtandi enzalutamide Anoro Biktarvy bictegravir Botox onabotulinumtoxinA Cimzia certolizumab Cosentyx secukinumab Entyvio vedolizumab Erleada apalutamide Kisqali ribociclib Lenvima lenvatinib Orencia abatacept Rexulti brexpiprazole Trulicity dulaglutide Verzenio abemaciclib Xeljanz tofacitinib Xolair omalizumab">
           <div class="badges"><span class="type-badge">Página del Hub</span><span class="type-badge">EN / ES</span></div>
@@ -234,140 +282,168 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
           <p>Todos los medicamentos con precio negociado por Medicare: 10 para 2026, 15 para 2027, 15 para 2028 (primeros de la Parte B).</p>
         </a>
       </div>
-    </section>
-  </div>
-
-  <section class="section-block" data-section="forms" id="forms">
-    <div class="sec-head"><h2 class="section-h2">Formularios y Apelaciones</h2><button type="button" class="see-all" data-see="forms" data-count="4">Ver todos (4) →</button></div>
-    <div class="cards">
-      <a class="resource-card" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">SSA</span></div>
-        <h3>SSA-44 — Apelación de IRMAA</h3>
-        <p>Apelación por evento de vida para reducir el recargo de IRMAA. El formulario más solicitado.</p>
-      </a>
-      <a class="resource-card" href="https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms40b-e.pdf" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
-        <h3>CMS-40B — Solicitud de la Parte B</h3>
-        <p>Solicitud de inscripción en la Parte B de Medicare. Frecuentemente se usa junto con CMS-L564 para SEP.</p>
-      </a>
-      <a class="resource-card" href="https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/Downloads/CMSL564-E.PDF" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
-        <h3>CMS-L564 — Verificación de Empleador</h3>
-        <p>El empleador lo completa para verificar la cobertura grupal para el Período Especial de Inscripción de la Parte B.</p>
-      </a>
-      <a class="resource-card" href="https://www.cms.gov/files/document/application-medicare-part-part-b-special-enrollment-period-exceptional-conditions.pdf" target="_blank" rel="noopener">
-        <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
-        <h3>Inscripción Especial — Condiciones Excepcionales</h3>
-        <p>Úsalo cuando las reglas estándar de SEP no aplican claramente. Para situaciones complejas de tiempo de inscripción.</p>
-      </a>
     </div>
-  </section>
+  </details>
 
-  <section class="section-block" data-section="medicaid" id="medicaid">
-    <div class="sec-head"><h2 class="section-h2">Medicaid y LIS</h2><button type="button" class="see-all" data-see="medicaid" data-count="4">Ver todos (4) →</button></div>
-    <div class="cards">
-      <a class="resource-card" href="/medicaid-levels" data-preview>
-        <div class="badges"><span class="type-badge">Tabla en el Hub</span></div>
-        <h3>Niveles de Medicaid</h3>
-        <p>Referencia rápida de niveles de elegibilidad de Medicaid y cómo clasificar miembros rápido. El recurso más usado.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1pzfYr4ZSZrej2hx2VqDA4ijodb12wfzq8e-lBtwCAl8/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Google Sheet</span></div>
-        <h3>Lista de Condiciones Crónicas</h3>
-        <p>Lista de referencia para selección de plan, consideraciones de DSNP/HRA y notas del cliente.</p>
-      </a>
-      <a class="resource-card" href="https://www.healthexps.com/medicare/medicare-costs" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge">Referencia en vivo</span><span class="type-badge green">2026 ✓</span></div>
-        <h3>Referencia Rápida de Costos de Medicare 2026</h3>
-        <p>Parte B: $202.90/mes · Deducible: $283 · Deducible de la Parte A: $1,736 · IRMAA desde $284.10. Desglose completo con niveles de IRMAA.</p>
-      </a>
-      <a class="resource-card" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener" download>
-        <div class="badges"><span class="type-badge">PDF · Abril 2026</span></div>
-        <h3>Límites de Ingresos Actualizados 2026</h3>
-        <p>Programas relacionados con SSI y grupos de cobertura — QMB, SLMB, QI1, LIS, MEDS-AD: estándares de elegibilidad financiera. Actualizado en abril de 2026.</p>
-      </a>
+  <details class="acc" data-section="forms" id="forms">
+    <summary>
+      <span class="acc-title">Formularios y Apelaciones</span>
+      <span class="acc-desc">Apelación IRMAA SSA-44, solicitud Parte B CMS-40B, verificación de empleador CMS-L564 y SEP por condiciones excepcionales.</span>
+      <span class="acc-count">4 ítems</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
+      <div class="cards">
+        <a class="resource-card" href="https://www.ssa.gov/forms/ssa-44.pdf" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">SSA</span></div>
+          <h3>SSA-44 — Apelación de IRMAA</h3>
+          <p>Apelación por evento de vida para reducir el recargo de IRMAA. El formulario más solicitado.</p>
+        </a>
+        <a class="resource-card" href="https://www.cms.gov/medicare/cms-forms/cms-forms/downloads/cms40b-e.pdf" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
+          <h3>CMS-40B — Solicitud de la Parte B</h3>
+          <p>Solicitud de inscripción en la Parte B de Medicare. Frecuentemente se usa junto con CMS-L564 para SEP.</p>
+        </a>
+        <a class="resource-card" href="https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/Downloads/CMSL564-E.PDF" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
+          <h3>CMS-L564 — Verificación de Empleador</h3>
+          <p>El empleador lo completa para verificar la cobertura grupal para el Período Especial de Inscripción de la Parte B.</p>
+        </a>
+        <a class="resource-card" href="https://www.cms.gov/files/document/application-medicare-part-part-b-special-enrollment-period-exceptional-conditions.pdf" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge pdf">PDF</span><span class="type-badge">CMS</span></div>
+          <h3>Inscripción Especial — Condiciones Excepcionales</h3>
+          <p>Úsalo cuando las reglas estándar de SEP no aplican claramente. Para situaciones complejas de tiempo de inscripción.</p>
+        </a>
+      </div>
     </div>
-  </section>
+  </details>
 
-  <section class="section-block" data-section="sales" id="sales">
-    <div class="sec-head"><h2 class="section-h2">Ventas y Entrenamiento</h2><button type="button" class="see-all" data-see="sales" data-count="5">Ver todos (5) →</button></div>
-    <div class="cards">
-      <a class="resource-card" href="/aep-2027-training" data-preview>
-        <div class="badges"><span class="type-badge">Obligatorio</span><span class="type-badge hot">Nuevo para 2027</span></div>
-        <h3>Entrenamiento de Cumplimiento AEP 2027</h3>
-        <p>Lo nuevo de este año en palabras sencillas: ya no hay espera del SOA, cambiaron los eventos, la Parte D tiene tope de $2,400. Quiz de 8 preguntas.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge hot">Más usado · AEP</span></div>
-        <h3>Tabla Comparativa de Planes 2027</h3>
-        <p>Comparación principal de AEP, usada a diario en llamadas con clientes. Actualizada para el año de plan 2027.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener" data-preview>
-        <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge green">Hasta el 30 nov</span></div>
-        <h3>Comparación de Planes MAPD 2026 (venta hasta el 30 nov)</h3>
-        <p>Tabla lado a lado del año en curso. Los agentes pueden vender planes 2026 hasta el 30 de noviembre de 2026.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/presentation/d/1KIAU8uobrnghsPI5TbblgPWcGLaz0bRTeXMzMQIfOss/edit" target="_blank" rel="noopener">
-        <div class="badges"><span class="type-badge">Presentación</span></div>
-        <h3>Presentación de Contratación e Incorporación</h3>
-        <p>Ayuda con contratación de agentes, reglas de transferencia y guía de citas.</p>
-      </a>
-      <a class="resource-card" href="/medicaid-levels">
-        <div class="badges"><span class="type-badge">Tabla en el Hub</span></div>
-        <h3>Guía Rápida de Medicaid para Ventas</h3>
-        <p>Ayuda a identificar el plan adecuado y la elegibilidad para Extra Help durante las citas.</p>
-      </a>
+  <details class="acc" data-section="medicaid" id="medicaid">
+    <summary>
+      <span class="acc-title">Medicaid y LIS</span>
+      <span class="acc-desc">Niveles de Medicaid, lista de condiciones crónicas, y referencias rápidas de costos y límites de ingreso 2026.</span>
+      <span class="acc-count">4 ítems</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
+      <div class="cards">
+        <a class="resource-card" href="/medicaid-levels" data-preview>
+          <div class="badges"><span class="type-badge">Tabla en el Hub</span></div>
+          <h3>Niveles de Medicaid</h3>
+          <p>Referencia rápida de niveles de elegibilidad de Medicaid y cómo clasificar miembros rápido. El recurso más usado.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1pzfYr4ZSZrej2hx2VqDA4ijodb12wfzq8e-lBtwCAl8/edit" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge sheet">Google Sheet</span></div>
+          <h3>Lista de Condiciones Crónicas</h3>
+          <p>Lista de referencia para selección de plan, consideraciones de DSNP/HRA y notas del cliente.</p>
+        </a>
+        <a class="resource-card" href="https://www.healthexps.com/medicare/medicare-costs" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge">Referencia en vivo</span><span class="type-badge green">2026 ✓</span></div>
+          <h3>Referencia Rápida de Costos de Medicare 2026</h3>
+          <p>Parte B: $202.90/mes · Deducible: $283 · Deducible de la Parte A: $1,736 · IRMAA desde $284.10. Desglose completo con niveles de IRMAA.</p>
+        </a>
+        <a class="resource-card" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener" download data-preview>
+          <div class="badges"><span class="type-badge">PDF · Abril 2026</span></div>
+          <h3>Límites de Ingresos Actualizados 2026</h3>
+          <p>Programas relacionados con SSI y grupos de cobertura — QMB, SLMB, QI1, LIS, MEDS-AD: estándares de elegibilidad financiera. Actualizado en abril de 2026.</p>
+        </a>
+      </div>
     </div>
-  </section>
+  </details>
 
-  <section class="section-block" data-section="leadgen" id="leadgen">
-    <div class="sec-head"><h2 class="section-h2">Generación de Leads</h2><button type="button" class="see-all" data-see="leadgen" data-count="10">Ver todos (10) →</button></div>
-    <div class="cards">
-      <span class="sub-label">Guía de Eventos Comunitarios</span>
-      <a class="resource-card" href="https://docs.google.com/document/d/1dyBtL2W3RZOnkGaTsU8h5gngohK4Yn0W/edit" target="_blank" rel="noopener" data-preview>
-        <h3>Eventos Comunitarios — Fase 1: Cómo Entrar</h3>
-        <p>Encuentra lugares, envía el primer contacto, da seguimiento. 4 guiones + rastreador de contactos.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/document/d/1v-8gTDkRhRhDpMhPyLIRL3MthY2EKDa7/edit" target="_blank" rel="noopener">
-        <h3>Eventos Comunitarios — Fase 2: Presentarte Bien</h3>
-        <p>Lista de verificación previa al evento, guion de primera visita, charla de 10 minutos, guiones de conversación individual.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/document/d/1nUigracs0daW_SwkzdyIKPoZKwcFUq1C/edit" target="_blank" rel="noopener">
-        <h3>Eventos Comunitarios — Fase 3: Convertir</h3>
-        <p>Captura de leads, seguimiento el mismo día, secuencia de 7 días, manejo de objeciones.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/document/d/1poxDqEcA9dkG756Z9PAI3JL2DRByYRtB/edit" target="_blank" rel="noopener">
-        <h3>Eventos Comunitarios — Fase 4: Construir la Alianza</h3>
-        <p>Revisiones trimestrales, estructuras de patrocinio, 10 reglas de relaciones a largo plazo.</p>
-      </a>
-      <span class="sub-label">Guía de Oficinas de Proveedores</span>
-      <a class="resource-card" href="https://docs.google.com/document/d/1GJiN2PuAALpxA5n0pOJZVWO1adWtwPWc/edit" target="_blank" rel="noopener" data-preview>
-        <h3>Oficinas de Proveedores — Fase 1: Mapear la Oficina</h3>
-        <p>Identifica las oficinas que valen la pena, organigrama del personal, guion de primera visita de 5 minutos.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/document/d/1P6ty8XsM0BGgSb3oc-di7DPR8oe-AfI6/edit" target="_blank" rel="noopener">
-        <h3>Oficinas de Proveedores — Fase 2: Visitas Quincenales</h3>
-        <p>Ritmo de cada 2–3 semanas, rotación de detalles en 6 visitas, guiones por rol del personal.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/document/d/1ouCYzdvdzDsnV3yjDkAcT-hyAZZ3kHyd/edit" target="_blank" rel="noopener">
-        <h3>Oficinas de Proveedores — Fase 3: Capacitación del Carrier</h3>
-        <p>Consigue que un carrier patrocine el almuerzo, propón la presentación, da seguimiento. El mayor retorno de inversión.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/document/d/1_bEL2If1vJBek8P9eT9_jXyY4jDd26fd/edit" target="_blank" rel="noopener">
-        <h3>Oficinas de Proveedores — Fase 4: Convertirte en EL Agente</h3>
-        <p>Capacitación de preparación para AEP, sistemas de referidos sin fricción, cómo defenderte de agentes competidores.</p>
-      </a>
-      <span class="sub-label">Redes Sociales</span>
-      <a class="resource-card" href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit" target="_blank" rel="noopener" data-preview>
-        <h3>Librería de Captions — Volumen 1</h3>
-        <p>15 captions listos para publicar: Educativos, Desmentidores de Mitos, Temporales, Personal/Marca. EN+ES.</p>
-      </a>
-      <a class="resource-card" href="https://docs.google.com/document/d/1CIPIu7ZcYn6ZALItNiVF92o_E30ua3d7/edit" target="_blank" rel="noopener">
-        <h3>Librería de Captions — Volumen 2</h3>
-        <p>15 captions más, incluyendo una serie de 4 captions de Reseñas AEP sincronizados con el calendario AEP. EN+ES.</p>
-      </a>
+  <details class="acc" data-section="sales" id="sales">
+    <summary>
+      <span class="acc-title">Ventas y Entrenamiento</span>
+      <span class="acc-desc">Entrenamiento de cumplimiento AEP 2027, tablas de planes, deck de contracting y hoja de Medicaid para ventas.</span>
+      <span class="acc-count">5 ítems</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
+      <div class="cards">
+        <a class="resource-card" href="/aep-2027-training" data-preview>
+          <div class="badges"><span class="type-badge">Obligatorio</span><span class="type-badge hot">Nuevo para 2027</span></div>
+          <h3>Entrenamiento de Cumplimiento AEP 2027</h3>
+          <p>Lo nuevo de este año en palabras sencillas: ya no hay espera del SOA, cambiaron los eventos, la Parte D tiene tope de $2,400. Quiz de 8 preguntas.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge hot">Más usado · AEP</span></div>
+          <h3>Tabla Comparativa de Planes 2027</h3>
+          <p>Comparación principal de AEP, usada a diario en llamadas con clientes. Actualizada para el año de plan 2027.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge sheet">Google Sheet</span><span class="type-badge green">Hasta el 30 nov</span></div>
+          <h3>Comparación de Planes MAPD 2026 (venta hasta el 30 nov)</h3>
+          <p>Tabla lado a lado del año en curso. Los agentes pueden vender planes 2026 hasta el 30 de noviembre de 2026.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/presentation/d/1KIAU8uobrnghsPI5TbblgPWcGLaz0bRTeXMzMQIfOss/edit" target="_blank" rel="noopener" data-preview>
+          <div class="badges"><span class="type-badge">Presentación</span></div>
+          <h3>Presentación de Contratación e Incorporación</h3>
+          <p>Ayuda con contratación de agentes, reglas de transferencia y guía de citas.</p>
+        </a>
+        <a class="resource-card" href="/medicaid-levels" data-preview>
+          <div class="badges"><span class="type-badge">Tabla en el Hub</span></div>
+          <h3>Guía Rápida de Medicaid para Ventas</h3>
+          <p>Ayuda a identificar el plan adecuado y la elegibilidad para Extra Help durante las citas.</p>
+        </a>
+      </div>
     </div>
-  </section>
+  </details>
+
+  <details class="acc" data-section="leadgen" id="leadgen">
+    <summary>
+      <span class="acc-title">Generación de Leads</span>
+      <span class="acc-desc">Playbooks de eventos comunitarios y oficinas de proveedores, más librerías de captions para outreach.</span>
+      <span class="acc-count">10 ítems</span>
+      <span class="acc-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="acc-body">
+      <div class="cards">
+        <span class="sub-label">Guía de Eventos Comunitarios</span>
+        <a class="resource-card" href="https://docs.google.com/document/d/1dyBtL2W3RZOnkGaTsU8h5gngohK4Yn0W/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Eventos Comunitarios — Fase 1: Cómo Entrar</h3>
+          <p>Encuentra lugares, envía el primer contacto, da seguimiento. 4 guiones + rastreador de contactos.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/document/d/1v-8gTDkRhRhDpMhPyLIRL3MthY2EKDa7/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Eventos Comunitarios — Fase 2: Presentarte Bien</h3>
+          <p>Lista de verificación previa al evento, guion de primera visita, charla de 10 minutos, guiones de conversación individual.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/document/d/1nUigracs0daW_SwkzdyIKPoZKwcFUq1C/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Eventos Comunitarios — Fase 3: Convertir</h3>
+          <p>Captura de leads, seguimiento el mismo día, secuencia de 7 días, manejo de objeciones.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/document/d/1poxDqEcA9dkG756Z9PAI3JL2DRByYRtB/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Eventos Comunitarios — Fase 4: Construir la Alianza</h3>
+          <p>Revisiones trimestrales, estructuras de patrocinio, 10 reglas de relaciones a largo plazo.</p>
+        </a>
+        <span class="sub-label">Guía de Oficinas de Proveedores</span>
+        <a class="resource-card" href="https://docs.google.com/document/d/1GJiN2PuAALpxA5n0pOJZVWO1adWtwPWc/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Oficinas de Proveedores — Fase 1: Mapear la Oficina</h3>
+          <p>Identifica las oficinas que valen la pena, organigrama del personal, guion de primera visita de 5 minutos.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/document/d/1P6ty8XsM0BGgSb3oc-di7DPR8oe-AfI6/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Oficinas de Proveedores — Fase 2: Visitas Quincenales</h3>
+          <p>Ritmo de cada 2–3 semanas, rotación de detalles en 6 visitas, guiones por rol del personal.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/document/d/1ouCYzdvdzDsnV3yjDkAcT-hyAZZ3kHyd/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Oficinas de Proveedores — Fase 3: Capacitación del Carrier</h3>
+          <p>Consigue que un carrier patrocine el almuerzo, propón la presentación, da seguimiento. El mayor retorno de inversión.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/document/d/1_bEL2If1vJBek8P9eT9_jXyY4jDd26fd/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Oficinas de Proveedores — Fase 4: Convertirte en EL Agente</h3>
+          <p>Capacitación de preparación para AEP, sistemas de referidos sin fricción, cómo defenderte de agentes competidores.</p>
+        </a>
+        <span class="sub-label">Redes Sociales</span>
+        <a class="resource-card" href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Librería de Captions — Volumen 1</h3>
+          <p>15 captions listos para publicar: Educativos, Desmentidores de Mitos, Temporales, Personal/Marca. EN+ES.</p>
+        </a>
+        <a class="resource-card" href="https://docs.google.com/document/d/1CIPIu7ZcYn6ZALItNiVF92o_E30ua3d7/edit" target="_blank" rel="noopener" data-preview>
+          <h3>Librería de Captions — Volumen 2</h3>
+          <p>15 captions más, incluyendo una serie de 4 captions de Reseñas AEP sincronizados con el calendario AEP. EN+ES.</p>
+        </a>
+      </div>
+    </div>
+  </details>
 
   <p class="no-results hidden" id="noResults">Sin resultados. Prueba otra palabra o borra la búsqueda.</p>
 
@@ -375,14 +451,13 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
 
 <script>
 (function(){
-  var L = {seeAll:'Ver todos ({n}) →', allTopics:'← Todos los temas'};
   var tiles = document.querySelectorAll('.topic[data-filter]');
-  var sections = document.querySelectorAll('[data-section]');
+  var sections = document.querySelectorAll('details.acc[data-section]');
   var featured = document.getElementById('block-featured');
   var noResults = document.getElementById('noResults');
   var searchInput = document.getElementById('hubSearch');
   var searchClear = document.getElementById('hubSearchClear');
-  var searchable = document.querySelectorAll('.section-block[data-section] .resource-card');
+  var searchable = document.querySelectorAll('details.acc[data-section] .resource-card');
   var allowed = {all:1};
   sections.forEach(function(s){ allowed[s.dataset.section] = 1; });
   var currentFilter = 'all';
@@ -392,9 +467,13 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
     history.replaceState(null, '', currentFilter === 'all' ? base : base + '#' + currentFilter);
   }
 
-  function applyFilter(filter){
+  function applyFilter(filter, opts){
+    opts = opts || {};
     currentFilter = allowed[filter] ? filter : 'all';
-    tiles.forEach(function(t){ t.classList.toggle('active', t.dataset.filter === currentFilter); t.setAttribute('aria-pressed', t.dataset.filter === currentFilter ? 'true' : 'false'); });
+    tiles.forEach(function(t){
+      t.classList.toggle('active', t.dataset.filter === currentFilter);
+      t.setAttribute('aria-pressed', t.dataset.filter === currentFilter ? 'true' : 'false');
+    });
     var q = (searchInput && searchInput.value || '').trim().toLowerCase();
     var any = false;
 
@@ -405,43 +484,67 @@ h2.section-h2{font-size:21px;font-weight:700;color:var(--text);line-height:1.25;
 
     sections.forEach(function(s){
       var inFilter = currentFilter === 'all' || s.dataset.section === currentFilter;
-      var visible = inFilter && (!q || !!s.querySelector('.resource-card:not(.hidden)'));
+      var hasMatch = !q || !!s.querySelector('.resource-card:not(.hidden)');
+      var visible = inFilter && hasMatch;
       s.classList.toggle('hidden', !visible);
-      s.classList.toggle('expanded', !!q || currentFilter !== 'all');
-      if (visible) any = true;
-      var btn = s.querySelector('.see-all');
-      if (btn) {
-        var n = +btn.dataset.count;
-        if (currentFilter !== 'all') { btn.textContent = L.allTopics; btn.classList.remove('hidden'); }
-        else { btn.textContent = L.seeAll.replace('{n}', n); btn.classList.toggle('hidden', !!q || n <= 3); }
+      if (!visible) {
+        s.open = false;
+      } else if (q) {
+        s.open = true;
+      } else if (currentFilter !== 'all' && s.dataset.section === currentFilter) {
+        s.open = true;
+      } else if (currentFilter === 'all' && !q && !opts.keepOpen) {
+        /* leave user-toggled state alone when browsing all with empty search */
       }
+      if (visible) any = true;
     });
-    featured.classList.toggle('hidden', !!q || currentFilter !== 'all');
-    if (noResults) noResults.classList.toggle('hidden', any);
+
+    if (featured) featured.classList.toggle('hidden', !!q || currentFilter !== 'all');
+    if (noResults) noResults.classList.toggle('hidden', any || (!q && currentFilter === 'all' && sections.length));
+    if (noResults && currentFilter === 'all' && !q) noResults.classList.add('hidden');
   }
 
   function go(filter){
-    applyFilter(filter);
+    var same = filter === currentFilter && filter !== 'all';
+    applyFilter(same ? 'all' : filter, {keepOpen: false});
+    // When selecting a topic, close others
+    if (currentFilter !== 'all') {
+      sections.forEach(function(s){
+        s.open = (s.dataset.section === currentFilter);
+      });
+    } else {
+      sections.forEach(function(s){ s.open = false; });
+    }
     setUrl();
-    var target = currentFilter === 'all' ? null : document.querySelector('[data-section="' + currentFilter + '"]');
+    var target = currentFilter === 'all' ? null : document.querySelector('details.acc[data-section="' + currentFilter + '"]');
     (target || document.getElementById('finder')).scrollIntoView({behavior:'smooth', block:'start'});
   }
 
   tiles.forEach(function(t){
-    t.addEventListener('click', function(){ go(this.dataset.filter === currentFilter ? 'all' : this.dataset.filter); });
+    t.addEventListener('click', function(){ go(this.dataset.filter); });
   });
-  document.querySelectorAll('.see-all').forEach(function(b){
-    b.addEventListener('click', function(){ go(currentFilter === 'all' ? this.dataset.see : 'all'); });
+  if (searchInput) searchInput.addEventListener('input', function(){
+    applyFilter(currentFilter, {keepOpen: true});
   });
-  if (searchInput) searchInput.addEventListener('input', function(){ applyFilter(currentFilter); });
   if (searchClear) searchClear.addEventListener('click', function(){
     if (searchInput) searchInput.value = '';
-    applyFilter(currentFilter);
+    applyFilter(currentFilter, {keepOpen: true});
+    sections.forEach(function(s){
+      if (currentFilter === 'all') s.open = false;
+      else s.open = (s.dataset.section === currentFilter);
+    });
     if (searchInput) searchInput.focus();
   });
 
   var params = new URLSearchParams(location.search);
-  applyFilter(params.get('filter') || (location.hash || '').replace('#', '') || 'all');
+  var initial = params.get('filter') || (location.hash || '').replace('#', '') || 'all';
+  applyFilter(initial);
+  if (currentFilter !== 'all') {
+    sections.forEach(function(s){ s.open = (s.dataset.section === currentFilter); });
+    setUrl();
+    var target = document.querySelector('details.acc[data-section="' + currentFilter + '"]');
+    if (target) setTimeout(function(){ target.scrollIntoView({behavior:'smooth', block:'start'}); }, 50);
+  }
 })();
 </script>
 
