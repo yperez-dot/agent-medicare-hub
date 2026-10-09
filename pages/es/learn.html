@@ -524,6 +524,12 @@ details.acc[open]>summary{border-bottom:1px solid #ECE8F1;}
     t.addEventListener('click', function(){ go(this.dataset.filter); });
   });
   if (searchInput) searchInput.addEventListener('input', function(){
+    /* Typing searches all topics: drop any active topic-tile filter */
+    if (searchInput.value.trim() && currentFilter !== 'all') {
+      applyFilter('all', {keepOpen: true});
+      setUrl();
+      return;
+    }
     applyFilter(currentFilter, {keepOpen: true});
   });
   if (searchClear) searchClear.addEventListener('click', function(){
