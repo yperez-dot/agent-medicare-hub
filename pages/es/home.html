@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <script>
 (function(){
@@ -15,10 +15,7 @@
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Agent Hub | The Health Experts Insurance</title>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Panel del Agente | The Health Experts Insurance</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
@@ -44,10 +41,10 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
 /* Hero stat cards — AEP countdown + Active SEPs (bold treatment) */
 .hero-stats{display:flex;gap:14px;flex-shrink:0;}
-.hero-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:14px 18px;text-align:center;min-width:150px;text-decoration:none;display:block;}
+.hero-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:20px 26px;text-align:center;min-width:190px;text-decoration:none;display:block;}
 .hero-stat.accent{border-color:rgba(255,16,144,.35);background:rgba(255,16,144,.07);}
 .hero-stat .stat-eyebrow{font:700 10px/1.3 Arial,sans-serif;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;}
-.hero-stat .num{font:800 32px/1 Arial,sans-serif;color:#fff;letter-spacing:-1px;}
+.hero-stat .num{font:800 44px/1 Arial,sans-serif;color:#fff;letter-spacing:-1px;}
 .hero-stat .num span{font-size:15px;font-weight:700;color:#FF9FD3;margin-left:4px;}
 .hero-stat .stat-sub{font:600 11.5px/1.4 Arial,sans-serif;color:rgba(255,255,255,.7);margin-top:8px;}
 .hero-stat .stat-dates{font:400 10.5px/1.4 Arial,sans-serif;color:rgba(255,255,255,.45);margin-top:4px;}
@@ -76,6 +73,16 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .wrap{max-width:1400px;margin:0 auto;padding:40px 32px 64px;}
 .section-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.8px;color:#9A94A8;margin-bottom:16px;}
 .section-label span{color:#FF1090;}
+
+/* Lanzamiento del Hub Medicare 2027 */
+.launch-2027{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(110deg,#D10E78 0%,#8B145E 42%,#452068 100%);border:3px solid #FFB7DE;border-radius:22px;padding:28px 32px;margin-bottom:30px;box-shadow:0 16px 36px rgba(69,32,104,.24);color:#fff;}
+.launch-2027::after{content:'2027';position:absolute;right:170px;top:-34px;font:900 128px/1 Arial,sans-serif;color:rgba(255,255,255,.07);pointer-events:none;}
+.launch-2027-copy{position:relative;z-index:1;max-width:780px;}
+.launch-2027-badge{display:inline-flex;align-items:center;gap:7px;background:#FFF2A8;color:#5C3900;border-radius:999px;padding:7px 12px;font:900 11px/1 Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;margin-bottom:10px;}
+.launch-2027 h2{font:900 32px/1.08 'Inter',Arial,sans-serif;margin:0 0 8px;letter-spacing:-.6px;color:#fff;}
+.launch-2027 p{font:600 15px/1.5 'Inter',Arial,sans-serif;color:rgba(255,255,255,.9);margin:0;}
+.launch-2027-btn{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;min-width:220px;padding:16px 24px;background:#fff;color:#7B145A;border:2px solid #fff;border-radius:999px;font:900 15px/1 Arial,sans-serif;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.2);white-space:nowrap;transition:transform .15s,box-shadow .15s;}
+.launch-2027-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.26);}
 
 /* Category cards */
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
@@ -158,9 +165,7 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .tour-next:hover{opacity:.75;}
 
 
-.nc-year-tag{font:800 8.5px/1 Arial,sans-serif;border-radius:6px;padding:2px 6px;letter-spacing:.2px;}
-.nc-year-tag.y2026{color:#6B21A8;background:#F3E8FF;}
-.nc-year-tag.y2027{color:#065F46;background:#D1FAE5;}
+.nc-pending-tag{font:600 8.5px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:6px;padding:2px 6px;}
 .nc-note{font-size:11.5px;color:#9A94A8;margin-top:14px;padding-top:12px;border-top:1px solid #F1ECF6;}
 
 @media(max-width:768px){
@@ -169,6 +174,10 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   .pill-nav a{font-size:12px;padding:8px 14px;}
   .hero h1{font-size:24px;}
   .hero{padding:16px 20px;}
+  .launch-2027{align-items:flex-start;flex-direction:column;padding:24px 22px;}
+  .launch-2027::after{right:-18px;top:-12px;font-size:96px;}
+  .launch-2027 h2{font-size:27px;}
+  .launch-2027-btn{width:100%;}
 }
 @media(max-width:480px){.cat-grid{grid-template-columns:1fr;}}
 </style>
@@ -248,22 +257,42 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
 <!-- Top Nav -->
 <div class="top-bar">
-  <div class="logo-wrap"><img src="/thei-logo.png" alt="The Health Experts Insurance" style="height:52px;width:auto;display:block;"></div>
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="The Health Experts Insurance" style="height:52px;width:auto;display:block;"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <button id="tourBtn" onclick="startTour()" title="Replay hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+    <a href='/home'>Inicio</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <button id="tourBtn" onclick="startTour()" title="Ver el recorrido del hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
   </nav>
 </div>
 
 
+
+<!-- News Ticker -->
+<div id="news-ticker" style="display:none;background:#fff;overflow:hidden;width:100%;position:relative;border-bottom:2px solid #FF1090;border-top:2px solid #FF1090;">
+  <div style="display:flex;align-items:stretch;">
+    <a href='/agent-pulse' style='flex:none;display:flex;align-items:center;gap:8px;padding:0 18px;background:#FF1090;text-decoration:none;z-index:2;white-space:nowrap;'>
+      <span style="font:800 11px/1 Arial,sans-serif;color:#fff;text-transform:uppercase;letter-spacing:.8px;">En Vivo</span>
+    </a>
+    <div style="flex:1;overflow:hidden;padding:10px 0;">
+      <div id="ticker-track" style="display:inline-flex;gap:0;white-space:nowrap;animation:ticker-scroll 90s linear infinite;">
+        <span id="ticker-items"></span>
+        <span id="ticker-items-clone"></span>
+      </div>
+    </div>
+    <a href='/agent-pulse' style='flex:none;display:flex;align-items:center;padding:0 16px;color:rgba(255,255,255,0.9);font:600 11px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap;border-left:1px solid #F1ECF6;'>Ver todo →</a>
+  </div>
+</div>
+<style>
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+#news-ticker:hover #ticker-track{animation-play-state:paused}
+</style>
 
 <!-- Content -->
 <div class="wrap">
@@ -273,37 +302,46 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
     <div class="hero-text">
       <div id="hub-greeting" class="hero-eyebrow" style="color:rgba(255,255,255,0.75);"></div>
       <h1><span style="color:#fff;">The Health Experts</span> Medicare Agent Hub</h1>
-      <p>Start contracting, transfer your book, or access your most-used resources.</p>
+      <p>Empieza tu contratación, transfiere tu cartera o accede a tus recursos más usados.</p>
       <div class="search-wrap">
-        <input type="text" id="hubSearch" placeholder="Search the hub — try HRA, Sunfire, AHIP, SEP, Medicaid…" autocomplete="off">
+        <input type="text" id="hubSearch" placeholder="Busca en el hub — prueba HRA, Sunfire, AHIP, SEP, Medicaid…" autocomplete="off">
         <div class="search-dropdown" id="searchDropdown"></div>
       </div>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="stat-eyebrow">Annual Enrollment Period</div>
-        <div class="num" id="aepDays">–<span>days</span></div>
-        <div class="stat-sub" id="aepLabel">until AEP begins</div>
+        <div class="stat-eyebrow">Período de Inscripción Anual</div>
+        <div class="num" id="aepDays">–<span>días</span></div>
+        <div class="stat-sub" id="aepLabel">hasta que empiece el AEP</div>
         <div class="stat-dates" id="aepDates"></div>
       </div>
       <a class="hero-stat accent" href="/certs">
-   <div class="stat-eyebrow">Now Open</div>
+   <div class="stat-eyebrow">Disponible Ahora</div>
    <div class="num">2027<span>Certs</span></div>
-   <div class="stat-sub">Carrier certifications open — get certified before AEP</div>
-   <span class="lbl-link">Start Certifications →</span>
+   <div class="stat-sub">Certificaciones de aseguradoras abiertas — certifícate antes del AEP</div>
+   <span class="lbl-link">Comenzar Certificaciones →</span>
    </a>
     </div>
     </div>
   </div>
 
+  <section class="launch-2027" aria-labelledby="launch-2027-title">
+    <div class="launch-2027-copy">
+      <div class="launch-2027-badge">Ya disponible · Usar a partir del 1 de octubre</div>
+      <h2 id="launch-2027-title">Hub Medicare 2027</h2>
+      <p>Tu espacio central para el año de plan 2027 con información de aseguradoras y planes Medicare Advantage.</p>
+    </div>
+    <a class="launch-2027-btn" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">Abrir el Hub 2027</a>
+  </section>
+
 <!-- AEP 2027 Carrier Trainings -->
-  <section class="certs-strip" aria-label="AEP 2027 — Carrier Certifications Open">
+  <section class="certs-strip" aria-label="AEP 2027 — Certificaciones de Aseguradoras Abiertas">
     <div class="cs-head">
       <div>
-        <div class="cs-kicker">AEP 2027 — Carrier Certifications Open</div>
-        <div class="cs-title">Complete your certs now — portals are live</div>
+        <div class="cs-kicker">AEP 2027 — Certificaciones de Aseguradoras Abiertas</div>
+        <div class="cs-title">Completa tus certs ahora — los portales están activos</div>
       </div>
-      <a class="cs-all" href="/certs">View All Certs →</a>
+      <a class="cs-all" href="/certs">Ver Todas las Certs →</a>
     </div>
     <div class="cs-chips">
       <a class="cs-chip" href="https://account.humana.com/" target="_blank" rel="noopener">Humana</a>
@@ -320,56 +358,56 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   </section>
 
 <!-- Category cards -->
-  <p class="section-label">Resources &amp; Tools</p>
+  <p class="section-label">Recursos y Herramientas</p>
   <div class="cat-grid">
     <a class='cat-card' href='/learn'>
-      <h3>Broker University</h3>
-      <p>Training, Medicare basics, sales scripts, compliance guidance.</p>
-      <div class="best-for">Best for: Learning &amp; skill-building</div>
+      <h3>Universidad del Broker</h3>
+      <p>Capacitación, conceptos básicos de Medicare, guiones de ventas y orientación de cumplimiento.</p>
+      <div class="best-for">Ideal para: Aprender y mejorar tus habilidades</div>
     </a>
     <a class='cat-card' href='/tools-perks'>
-      <h3>Agent Tools Hub</h3>
-      <p>Quoting platforms, plan comparison grid, HRA rates, vendor contacts.</p>
-      <div class="best-for">Best for: Working active clients</div>
+      <h3>Hub de Herramientas y Beneficios</h3>
+      <p>Plataformas de cotización, grilla de comparación de planes, tarifas HRA, contactos de proveedores.</p>
+      <div class="best-for">Ideal para: Trabajar con clientes activos</div>
     </a>
     <a class='cat-card' href='/tools-perks'>
-      <h3>Agent Benefits</h3>
-      <p>Referral programs, AHIP access, E&amp;O insurance, CE courses.</p>
-      <div class="best-for">Best for: Licensing &amp; compliance support</div>
+      <h3>Beneficios del Agente</h3>
+      <p>Descuentos, acceso a AHIP, seguro E&amp;O, cursos CE.</p>
+      <div class="best-for">Ideal para: Licencias y apoyo de cumplimiento</div>
     </a>
     <a class='cat-card' href='/certs'>
-      <h3>Certs &amp; Compliance</h3>
-      <p>Carrier certifications, CMS guidelines, YourFMO compliance portal.</p>
-      <div class="best-for">Best for: Annual certification tracking</div>
+      <h3>Certs y Cumplimiento</h3>
+      <p>Certificaciones de aseguradoras, directrices de CMS, portal de cumplimiento de YourFMO.</p>
+      <div class="best-for">Ideal para: Seguimiento anual de certificaciones</div>
     </a>
     <a class='cat-card' href='/retention-toolkit'>
-      <h3>Retention Toolkit</h3>
-      <p>Email templates, Year 2 income calculator, AEP retention scripts.</p>
-      <div class="best-for">Best for: Keeping your book of business</div>
+      <h3>Kit de Retención</h3>
+      <p>Plantillas de correo, calculadora de ingresos del Año 2, guiones de retención para el AEP.</p>
+      <div class="best-for">Ideal para: Proteger tu cartera de clientes</div>
     </a>
     <a class='cat-card' href='/carrier-contact-guide'>
-      <h3>Carrier Contact Guide</h3>
-      <p>Broker contacts, member services, OTC, pharmacy, HRA details for all carriers.</p>
-      <div class="best-for">Best for: Client support &amp; escalations</div>
+      <h3>Guía de Contactos de Aseguradoras</h3>
+      <p>Contactos del broker, servicios al miembro, OTC, farmacia y detalles de HRA para todas las aseguradoras.</p>
+      <div class="best-for">Ideal para: Apoyo al cliente y escalaciones</div>
     </a>
     <div class="cat-card" style="cursor:default;position:relative;">
       <h3>THEI Agent Pulse</h3>
-      <p>Weekly Medicare industry news, regulatory updates &amp; carrier changes — curated for THEI agents.</p>
-      <div class="best-for">Best for: Staying current &amp; informed</div>
+      <p>Noticias semanales de la industria Medicare, actualizaciones regulatorias y cambios de aseguradoras — curadas para agentes de THEI.</p>
+      <div class="best-for">Ideal para: Mantenerte al día e informado</div>
       <div style="display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #E7E4ED;">
-        <a href='/agent-pulse' style='flex:1;display:inline-block;padding:8px 12px;background:#452068;color:#fff;border-radius:6px;font:600 12px/1 Arial,sans-serif;text-align:center;text-decoration:none;'>Live Updates</a>
-        <a href='/pulse-library' style='flex:1;display:inline-block;padding:8px 12px;background:#F1ECF6;color:#452068;border-radius:6px;font:600 12px/1 Arial,sans-serif;text-align:center;text-decoration:none;'>View Library</a>
+        <a href='/agent-pulse' style='flex:1;display:inline-block;padding:8px 12px;background:#452068;color:#fff;border-radius:6px;font:600 12px/1 Arial,sans-serif;text-align:center;text-decoration:none;'>Actualizaciones en Vivo</a>
+        <a href='/pulse-library' style='flex:1;display:inline-block;padding:8px 12px;background:#F1ECF6;color:#452068;border-radius:6px;font:600 12px/1 Arial,sans-serif;text-align:center;text-decoration:none;'>Ver Biblioteca</a>
       </div>
     </div>
     <a class='cat-card' href='/sep-tracker'>
-      <h3>SEP Tracker</h3>
-      <p>Active Special Enrollment Periods in Florida — always up to date.</p>
-      <div class="best-for">Best for: Mid-year enrollment opportunities</div>
+      <h3>Rastreador de SEP</h3>
+      <p>Períodos de Inscripción Especial activos en Florida — siempre actualizados.</p>
+      <div class="best-for">Ideal para: Oportunidades de inscripción durante el año</div>
     </a>
     <a class='cat-card' href='/ssbci-eligibility'>
-      <h3>SSBCI Eligibility</h3>
-      <p>Search which carriers qualify a member's condition for SSBCI benefits — food card, OTC &amp; more.</p>
-      <div class="best-for">Best for: Benefit eligibility during enrollment</div>
+      <h3>Elegibilidad SSBCI</h3>
+      <p>Busca qué aseguradoras califican la condición de un miembro para beneficios SSBCI — tarjeta de alimentos, OTC y más.</p>
+      <div class="best-for">Ideal para: Elegibilidad de beneficios durante la inscripción</div>
     </a>
 
   </div>
@@ -377,88 +415,88 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   <!-- Resources + Quick Links -->
   <div class="two-col">
     <div class="res-card">
-      <h3>Most-Needed Resources</h3>
-      <a class="res-item" href="/medicaid-levels">
-        <span class="res-name">Medicaid Levels</span>
+      <h3>Recursos Más Usados</h3>
+      <a class="res-item" href="https://docs.google.com/document/d/1xj4I9RV2WixDsb_2FIwQ7xDxVSBYmjutdV8r4tL7Yrk/edit" target="_blank" rel="noopener">
+        <span class="res-name">Hoja de Referencia de Niveles de Medicaid</span>
       </a>
       <a class="res-item" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">
-        <span class="res-name">2027 Plan Comparison Grid</span>
+        <span class="res-name">Cuadrícula de Comparación de Planes 2027</span>
       </a>
       <a class="res-item" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
-        <span class="res-name">2026 MAPD Plan Comparison (sell through Nov 30)</span>
-        <span class="res-tag tag-green">Through Nov 30</span>
+        <span class="res-name">Comparación de Planes MAPD 2026 (venta hasta el 30 de nov)</span>
+        <span class="res-tag tag-green">Hasta el 30 de nov</span>
       </a>
       <a class="res-item" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener">
-        <span class="res-name">2026 Income Limits (SSI Chart)</span>
-        <span class="res-tag tag-green">PDF · Apr 2026</span>
+        <span class="res-name">Límites de Ingresos 2026 (Tabla SSI)</span>
+        <span class="res-tag tag-green">PDF · Abr 2026</span>
       </a>
       <a class="res-item" href="https://www.sunfirematrix.com/app/agent/yourmedicare" target="_blank" rel="noopener">
-        <span class="res-name">Sunfire Quoting Tool</span>
+        <span class="res-name">Herramienta de Cotización Sunfire</span>
       </a>
       <a class="res-item" href="https://login.agentsync.io/" target="_blank" rel="noopener">
-        <span class="res-name">AgentSync (Contracting)</span>
+        <span class="res-name">AgentSync (Contratación)</span>
       </a>
       <a class="res-item" href="https://www.ahipmedicaretraining.com/page/login" target="_blank" rel="noopener">
         <span class="res-name">AHIP Medicare Training</span>
-        <span class="res-tag tag-pink">Discounted</span>
+        <span class="res-tag tag-pink">Con Descuento</span>
       </a>
     </div>
 
     <div class="res-card">
-      <h3>Quick Links</h3>
-      <a class='ql-item' href='/carrier-event-forms'>
+      <h3>Accesos Rápidos</h3>
+      <a class='ql-item' href='https://agentmedicarehub.com/carrier-event-forms'>
         <div class="ql-left">
-          <span class="ql-name">Carrier Event Request Forms</span>
-          <span class="ql-desc">DHCP &amp; Solis tabletops, educational, and AEP events</span>
+          <span class="ql-name">Formularios para Solicitar Eventos con Aseguradoras</span>
+          <span class="ql-desc">Mesas informativas (tabletops) de DHCP y Solis, eventos educativos y de AEP</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
       <a class='ql-item' href='/retention-toolkit'>
         <div class="ql-left">
-          <span class="ql-name">Retention Toolkit</span>
-          <span class="ql-desc">Bilingual email templates for every client touchpoint</span>
+          <span class="ql-name">Kit de Retención</span>
+          <span class="ql-desc">Plantillas de correo y calendario AEP</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
       <a class='ql-item' href='/sep-tracker'>
         <div class="ql-left">
-          <span class="ql-name">SEP Tracker</span>
-          <span class="ql-desc">Florida disaster SEPs — live data</span>
+          <span class="ql-name">Rastreador de SEP</span>
+          <span class="ql-desc">SEPs de desastres en Florida — datos en tiempo real</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
       <a class='ql-item' href='/carrier-contact-guide'>
         <div class="ql-left">
-          <span class="ql-name">Carrier Contact Guide</span>
-          <span class="ql-desc">All 14 carriers — phones &amp; contacts</span>
+          <span class="ql-name">Guía de Contactos de Aseguradoras</span>
+          <span class="ql-desc">Las 14 aseguradoras — teléfonos y contactos</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
       <a class='ql-item' href='/client-guides'>
         <div class="ql-left">
-          <span class="ql-name">Client Guides</span>
-          <span class="ql-desc">Turning 65 / Cumpliendo 65 leave-behinds</span>
+          <span class="ql-name">Guías para Clientes</span>
+          <span class="ql-desc">Material para dejar al cliente: Turning 65 / Cumpliendo 65</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
       <a class='ql-item' href='/certs'>
         <div class="ql-left">
-          <span class="ql-name">Carrier Certifications</span>
-          <span class="ql-desc">Portals, deadlines &amp; guides</span>
+          <span class="ql-name">Certificaciones de Aseguradoras</span>
+          <span class="ql-desc">Portales, fechas límite y guías</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
       <a class='ql-item' href='/agent-pulse'>
         <div class="ql-left">
           <span class="ql-name">THEI Agent Pulse</span>
-          <span class="ql-desc">This week's Medicare industry news</span>
+          <span class="ql-desc">Las noticias de la industria Medicare esta semana</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
       <a class="ql-item" href="https://www.medicare.gov" target="_blank" rel="noopener">
         <div class="ql-left">
           <span class="ql-name">Medicare.gov</span>
-          <span class="ql-desc">Official plan finder &amp; enrollment</span>
+          <span class="ql-desc">Buscador oficial de planes e inscripción</span>
         </div>
         <span class="ql-arrow">→</span>
       </a>
@@ -466,14 +504,14 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
     <div class="nc-card">
       <div class="nc-card-head">
-        <strong>Non-Commissionable Plans — 2026 &amp; 2027</strong>
-        <small>New sales only · Renewals get FMV · Each carrier is tagged by plan year</small>
+        <strong>Planes sin Comisión — 2026</strong>
+        <small>Solo ventas nuevas · Las renovaciones reciben FMV · Toca una aseguradora para ver los planes por estado</small>
       </div>
-      <div class="nc-intro">These plans pay reduced or zero commission on new enrollments. Tap any carrier to see which plans are affected in your state — and always verify before submitting an application.</div>
+      <div class="nc-intro">Estos planes pagan comisión reducida o cero en nuevas inscripciones. Toca cualquier aseguradora para ver los planes afectados en tu estado — y verifica siempre antes de enviar una solicitud.</div>
       <div id="ncCarrierList"></div>
       <div class="nc-card-foot">
-        Source: CMS National Landscape Extract · <a href='/non-comm-plans'>Full list →</a><br>
-        Always verify with carrier before enrolling.
+        Fuente: CMS National Landscape Extract · <a href='/non-comm-plans'>Lista completa →</a><br>
+        Verifica siempre con la aseguradora antes de inscribir.
       </div>
     </div>
     </div>
@@ -488,66 +526,38 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
     const s = JSON.parse(localStorage.getItem('hub_session') || 'null');
     if (s && s.name) {
       const firstName = s.name.split(' ')[0];
-      greeting.textContent = 'Welcome back, ' + firstName + '.';
+      greeting.textContent = 'Hola de nuevo, ' + firstName + '.';
     } else {
-      greeting.textContent = 'Welcome back.';
+      greeting.textContent = 'Hola de nuevo.';
     }
   } catch(e){
-    greeting.textContent = 'Welcome back.';
+    greeting.textContent = 'Hola de nuevo.';
   }
 })();
 
 const SEARCH_INDEX = [
-  {icon:'✍️',title:'Sunfire — SOA & Enrollments',desc:'Send Scope of Appointment, enroll clients, collect signatures.',tags:['sunfire','soa','enroll','quote','enrollment','scope'],url:'/tools-perks.html'},
-  {icon:'🗓',title:'SEP Tracker',desc:'Live disaster Special Enrollment Periods — Florida + all states.',tags:['sep','disaster','special enrollment','hurricane','flood','storm','milton'],url:'/sep-tracker.html'},
-  {icon:'🎓',title:'AHIP Medicare Training',desc:'Required annual certification — use the discounted THEI portal.',tags:['ahip','certification','annual','cert','training'],url:'/certs.html'},
-  {icon:'📚',title:'WebCE Continuing Education',desc:'Complete CE hours to maintain your insurance license.',tags:['webce','ce','continuing education','license','hours'],url:'/tools-perks.html'},
-  {icon:'🛡️',title:'E&O Insurance',desc:'Agency-negotiated pricing — required for Medicare contracting.',tags:['e&o','errors','omissions','eo','insurance'],url:'/tools-perks.html'},
-  {icon:'🪪',title:'Florida DFS (MyProfile)',desc:'Manage your FL license, CE compliance, and appointments.',tags:['dfs','license','florida','myprofile','appointment'],url:'/tools-perks.html'},
-  {icon:'📊',title:'2027 Plan Comparison Grid',desc:'Side-by-side benefits, copays, OTC, dental, vision for all 2027 MAPD plans. Primary AEP grid.',tags:['plan','mapd','grid','comparison','2027','benefits','plan grid','plan comparison','aep'],url:'https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit'},
-  {icon:'📊',title:'2026 MAPD Plan Comparison (sell through Nov 30)',desc:'Current-year side-by-side MAPD grid. Agents can still sell 2026 plans through Nov 30, 2026.',tags:['plan','mapd','grid','comparison','2026','benefits','plan grid','plan comparison','nov 30','current year'],url:'https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit'},
-  {icon:'🩺',title:'SSBCI Eligibility',desc:'Which carriers qualify a member for SSBCI extra benefits (food card, OTC & more), by condition. Not a C-SNP list.',tags:['ssbci','supplemental','benefits','chronic','condition','food card','otc','eligibility'],url:'/ssbci-eligibility'},
-  {icon:'💳',title:'HRA Quick Reference',desc:'Health Risk Assessment amounts, plan types, timeframes, and OTC — all carriers.',tags:['hra','health risk assessment','rates','payment','dsnp','csnp','quick reference'],url:'/hra-guide'},
-  {icon:'📞',title:'Carrier Contact Guide',desc:'Auth lines, member services, OTC, HRA, pharmacy — all carriers.',tags:['carrier','contact','humana','aetna','solis','devoted','uhc','united','careplus','hra','otc','auth','member services','pharmacy','oscar','wellcare'],url:'/carrier-contact-guide.html'},
-  {icon:'🚫',title:'Non-Commissionable Plans',desc:'Plans that pay reduced or zero commission on new enrollments — 2026 and 2027.',tags:['non-commissionable','non comm','commission','aetna','new sales'],url:'/non-comm-plans.html'},
-  {icon:'🎓',title:'AEP 2027 Compliance Training',desc:'Required AEP course: SOA wait is gone, events changed, Part D cap $2,400.',tags:['aep','2027','training','compliance','soa','part d'],url:'/aep-2027-training.html'},
-  {icon:'📋',title:'AgentSync — Contracting',desc:'Carrier onboarding, contracting docs, appointment tracking.',tags:['agentsync','contracting','onboarding','contract','appointment'],url:'/tools-perks.html'},
-  {icon:'📋',title:'Nextere — Contracting',desc:'Contracting for Doctors Health, Solis, Gold Kidney, HealthSun.',tags:['nextere','doctors health','solis','gold kidney','healthsun','contracting'],url:'/tools-perks.html'},
-  {icon:'💊',title:'Medicaid & LIS / Extra Help',desc:'QMB, SLMB, income limits and eligibility rules.',tags:['medicaid','lis','extra help','qmb','slmb','income','low income'],url:'/medicaid-lis.html'},
-  {icon:'📧',title:'Retention Email Templates',desc:'7 client email templates — birthday, AEP, mid-year, annual review.',tags:['retention','email','template','birthday','aep','annual review','client'],url:'/retention-toolkit.html'},
-  {icon:'🎓',title:'Broker University',desc:'Medicare basics, sales scripts, training guides, lead gen resources.',tags:['training','university','learn','medicare basics','sales','script','education','basics'],url:'/learn.html'},
-  {icon:'📇',title:'Business Card Generator (EN)',desc:'Generate your THEI-branded digital business card instantly.',tags:['business card','card','generator','digital','brand','tarjeta'],url:'https://moonlit-douhua-e20b2a.netlify.app/'},
+  {icon:'✍️',title:'Sunfire — SOA e Inscripciones',desc:'Envía el Alcance de la Cita (SOA), inscribe clientes, recopila firmas.',tags:['sunfire','soa','enroll','quote','enrollment','scope'],url:'/tools-perks.html'},
+  {icon:'🗓',title:'Rastreador de SEP',desc:'Períodos de Inscripción Especial por desastre — Florida y todos los estados.',tags:['sep','disaster','special enrollment','hurricane','flood','storm','milton'],url:'/sep-tracker.html'},
+  {icon:'🎓',title:'AHIP Medicare Training',desc:'Certificación anual requerida — usa el portal de THEI con descuento.',tags:['ahip','certification','annual','cert','training'],url:'/certs.html'},
+  {icon:'📚',title:'WebCE — Educación Continua',desc:'Completa tus horas CE para mantener tu licencia de seguro.',tags:['webce','ce','continuing education','license','hours'],url:'/tools-perks.html'},
+  {icon:'🛡️',title:'E&O Insurance',desc:'Precio negociado por la agencia — requerido para la contratación de Medicare.',tags:['e&o','errors','omissions','eo','insurance'],url:'/tools-perks.html'},
+  {icon:'🪪',title:'Florida DFS (MyProfile)',desc:'Gestiona tu licencia de FL, cumplimiento CE y citas.',tags:['dfs','license','florida','myprofile','appointment'],url:'/tools-perks.html'},
+  {icon:'📊',title:'Cuadrícula de Comparación de Planes 2027',desc:'Beneficios, copagos, OTC, dental y visión lado a lado para todos los planes MAPD 2027. La cuadrícula principal para el AEP.',tags:['plan','mapd','grid','comparison','2027','benefits','plan grid','plan comparison','aep','cuadricula','cuadrícula','comparacion','comparación','planes'],url:'https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit'},
+  {icon:'📊',title:'Grilla de Comparación de Planes MAPD 2026',desc:'Beneficios comparativos, copagos, OTC, dental y visión para todos los planes 2026.',tags:['plan','mapd','grid','comparison','2026','benefits','plan grid'],url:'/learn.html'},
+  {icon:'🩺',title:'Elegibilidad SSBCI',desc:'Qué aseguradoras califican a un miembro para beneficios SSBCI (tarjeta de alimentos, OTC y más), por condición. No es una lista C-SNP.',tags:['ssbci','beneficios','suplementarios','crónica','condición','chronic','condition','eligibility','elegibilidad'],url:'/ssbci-eligibility'},
+  {icon:'📞',title:'Guía de Contactos de Aseguradoras',desc:'Líneas de autorización, servicios al miembro, OTC, HRA, farmacia — todas las aseguradoras.',tags:['carrier','contact','humana','aetna','solis','devoted','uhc','united','careplus','hra','otc','auth','member services','pharmacy','oscar','wellcare'],url:'/carrier-contact-guide.html'},
+  {icon:'📋',title:'AgentSync — Contratación',desc:'Incorporación de aseguradoras, documentos de contratación, seguimiento de citas.',tags:['agentsync','contracting','onboarding','contract','appointment'],url:'/tools-perks.html'},
+  {icon:'📋',title:'Nextere — Contratación',desc:'Contratación para Doctors Health, Solis, Gold Kidney, HealthSun.',tags:['nextere','doctors health','solis','gold kidney','healthsun','contracting'],url:'/tools-perks.html'},
+  {icon:'💊',title:'Medicaid & LIS / Extra Help',desc:'QMB, SLMB, límites de ingresos y reglas de elegibilidad.',tags:['medicaid','lis','extra help','qmb','slmb','income','low income'],url:'/learn.html'},
+  {icon:'📧',title:'Plantillas de Correo para Retención',desc:'7 plantillas de correo para clientes — cumpleaños, AEP, a mitad del año, revisión anual.',tags:['retention','email','template','birthday','aep','annual review','client'],url:'/retention-toolkit.html'},
+  {icon:'📅',title:'Calendario de Retención',desc:'Calendario de contacto con clientes durante todo el año para renovaciones.',tags:['retention','calendar','renewal','touchpoint'],url:'/retention-toolkit.html'},
+  {icon:'🎓',title:'Universidad del Broker',desc:'Conceptos básicos de Medicare, guiones de ventas, guías de capacitación y recursos para generar leads.',tags:['training','university','learn','medicare basics','sales','script','education','basics'],url:'/learn.html'},
+  {icon:'📇',title:'Business Card Generator (EN)',desc:'Genera tu tarjeta digital con la marca THEI al instante.',tags:['business card','card','generator','digital','brand','tarjeta'],url:'https://moonlit-douhua-e20b2a.netlify.app/'},
   {icon:'📇',title:'Business Card Generator (ES)',desc:'Genera tu tarjeta digital de THEI en segundos.',tags:['tarjeta','business card','spanish','espanol','generator'],url:'https://boisterous-truffle-d00468.netlify.app/'},
-  {icon:'📰',title:'Agent Pulse — Live Updates',desc:'Latest Medicare regulatory changes, carrier alerts, and industry news.',tags:['pulse','news','alerts','regulatory','update','industry','cms'],url:'/agent-pulse.html'},
-  {icon:'🔗',title:'MedicarePRO CRM',desc:'CRM for managing leads and client pipeline.',tags:['medicaRepro','crm','leads','pipeline','pro'],url:'/tools-perks.html'},
-  {icon:'🔗',title:'XCLUSIVE CRM',desc:'CRM platform access for agents.',tags:['xclusive','crm','platform'],url:'/tools-perks.html'},
-
-  {icon:'📘',title:'Client Guides',desc:'Turning 65 / Cumpliendo 65 and MAPD comparison leave-behinds. English and Spanish are separate downloads.',tags:['client guides','turning 65','cumpliendo 65','mapd','plan comparison','leave behind','enrollment guide','spanish','english','sales guide'],url:'/client-guides'},
-  {icon:'📄',title:'Turning 65 — 2026 Guide (English)',desc:'English client leave-behind for people approaching Medicare.',tags:['turning 65','t65','english','leave behind','enrollment'],url:'/files/turning-65-2026-en.pdf'},
-  {icon:'📄',title:'Cumpliendo 65 — Guía 2026 (Español)',desc:'Guía para clientes que están por cumplir 65 años.',tags:['cumpliendo 65','spanish','espanol','español','leave behind'],url:'/files/cumpliendo-65-2026-es.pdf'},
-  {icon:'📄',title:'MAPD Plan Comparison — English',desc:'2027 English worksheet to compare up to three Medicare Advantage plans.',tags:['mapd','plan comparison','worksheet','english','2027','medicare advantage'],url:'/files/mapd-plan-comparison-2027-en.pdf'},
-  {icon:'📄',title:'Comparación de planes MAPD — Español',desc:'Hoja 2027 en español para comparar hasta tres planes MAPD.',tags:['mapd','comparacion','comparación','spanish','espanol','español','2027'],url:'/files/mapd-plan-comparison-2027-es.pdf'},
-  {icon:'📋',title:'Client Forms & Appeals',desc:'SSA-44 IRMAA appeal, CMS-40B Part B application, CMS-L564 employer verification, SEP exceptional conditions.',tags:['client forms','forms','appeals','ssa-44','irmaa appeal','cms-40b','part b application','cms-l564','employer verification','sep','exceptional'],url:'/learn.html'},
-  {icon:'📄',title:'SSA-44 — IRMAA Appeal Form',desc:'Life-changing event appeal to reduce IRMAA surcharge. Social Security form.',tags:['ssa-44','irmaa','appeal','life changing','surcharge','social security','form'],url:'/learn.html'},
-  {icon:'📄',title:'CMS-40B — Part B Application',desc:'Application for enrollment in Medicare Part B. Pair with CMS-L564 for SEP.',tags:['cms-40b','part b','application','enrollment','medicare part b','40b'],url:'/learn.html'},
-  {icon:'📄',title:'CMS-L564 — Employer Verification',desc:'Employer completes this to verify group coverage for Part B Special Enrollment Period.',tags:['cms-l564','l564','employer','verification','group coverage','part b','sep'],url:'/learn.html'},
-  {icon:'🛡️',title:'Medicare Supplement (Medigap) Hub',desc:'UHC/AARP enrollment kit, underwriting questions, Plan G Select hospital network, GI guide, rate tables.',tags:['medigap','medicare supplement','supplement','plan g','plan n','uhc','aarp','underwriting','gi','guaranteed issue','hospital network','rates','medigap hub'],url:'/medicare-supplements'},
-  {icon:'🏥',title:'Plan G Select — Hospital Network',desc:'Participating hospital list for UHC AARP Medicare Select Plan G in Florida.',tags:['plan g select','hospital','network','uhc','select','florida','medigap'],url:'/medicare-supplements'},
-  {icon:'📑',title:'AARP Medicare Supplement Application',desc:'Full 2026 UHC application — go to Page 3 Section 6 for underwriting questions.',tags:['aarp application','application','underwriting','section 6','medical questions','medigap application','uhc application'],url:'/medicare-supplements'},
-  {icon:'✅',title:'Guaranteed Issue Rights',desc:'When clients can enroll without underwriting — loss of coverage, MA trial right, 63-day rule.',tags:['guaranteed issue','gi','gi rights','63 day','loss of coverage','trial right','ma disenroll','medigap gi'],url:'/medicare-supplements'},
-  {icon:'⏱️',title:'Election Periods Guide',desc:'IEP, AEP, OEP, SEP — when clients can enroll or change plans.',tags:['election periods','iep','aep','oep','sep','enrollment window','when can i enroll','initial enrollment','open enrollment'],url:'/learn.html'},
-  {icon:'👔',title:'Medicare & Employer Coverage',desc:'Working past 65? How employer plans affect timing and when Part B should start.',tags:['employer coverage','working','past 65','employer','group plan','part b timing','coordination'],url:'/learn.html'},
-  {icon:'💵',title:'IRMAA & Late Enrollment Penalties',desc:'Income-related surcharges and penalties agents need to prevent.',tags:['irmaa','penalty','late enrollment','surcharge','part b premium','income','part d penalty'],url:'/learn.html'},
-  {icon:'🎓',title:'HealthSpring Broker Training',desc:'Upcoming training webinars and certification events from HealthSpring University.',tags:['healthspring','broker training','training','webinar','certification','events','health spring'],url:'/medicare-supplements'},
-  {icon:'📝',title:'Carrier Event Request Forms',desc:'DHCP and Solis forms for tabletops, educational, AEP, and member-facing events.',tags:['event form','event forms','carrier event','dhcp','doctors healthcare','doctors hcp','solis','solis event','tabletop','community event','community event form','aep','outreach','carolina'],url:'/carrier-event-forms'},
-  {icon:'📝',title:'DHCP Event Request Form',desc:'Doctors HealthCare Plans event form. Questions: marketing@doctorshcp.com — allow 3–5 business days.',tags:['dhcp','doctors healthcare','doctors hcp','event form','monday','marketing'],url:'/carrier-event-forms'},
-  {icon:'📝',title:'Solis Event Request Form',desc:'Solis Health Plans event form for South/Central Florida — sales, educational, AEP, member-facing.',tags:['solis','solis event','jotform','event form','south florida','central florida','tabletop'],url:'/carrier-event-forms'},
-  {icon:'📣',title:'Community Events Playbook',desc:'4-phase guide — getting in, showing up, converting leads, building the partnership.',tags:['community events','events','playbook','lead gen','venue','outreach','community','leads'],url:'/learn.html'},
-  {icon:'🏥',title:'Provider Office Playbook',desc:'4-phase guide for building referral relationships with doctors offices.',tags:['provider office','doctor','referral','physician','office','playbook','lead gen'],url:'/learn.html'},
-  {icon:'📱',title:'Social Media Caption Library',desc:'30 ready-to-post bilingual captions — educational, seasonal, AEP series.',tags:['social media','caption','instagram','facebook','post','content','bilingual','en','es'],url:'/learn.html'},
-  {icon:'📊',title:'Medicaid Levels',desc:'In-hub LIS copays and MSP comparison — QMB, SLMB, QI, FBDE.',tags:['medicaid','levels','cheat sheet','qmb','slmb','qi','fbde','lis','extra help','eligibility','msp','medicare savings','table'],url:'/medicaid-levels'},
-  {icon:'📅',title:'Events',desc:'Carrier-led webinars, AEP prep, and THEI trainings.',tags:['events','calendar','training','webinar','aep'],url:'/events.html'},
-  {icon:'✅',title:'Certs & Compliance',desc:'Carrier certifications, CMS guidelines, certification deadlines.',tags:['certs','compliance','carrier cert','cms','certify','deadline'],url:'/certs.html'},
+  {icon:'📰',title:'Agent Pulse — Actualizaciones en Vivo',desc:'Últimos cambios regulatorios de Medicare, alertas de aseguradoras y noticias de la industria.',tags:['pulse','news','alerts','regulatory','update','industry','cms'],url:'/agent-pulse.html'},
+  {icon:'🔗',title:'MedicarePRO CRM',desc:'CRM para gestionar leads y el pipeline de clientes.',tags:['medicaRepro','crm','leads','pipeline','pro'],url:'/tools-perks.html'},
+  {icon:'🔗',title:'XCLUSIVE CRM',desc:'Acceso a la plataforma CRM para agentes.',tags:['xclusive','crm','platform'],url:'/tools-perks.html'},
+  {icon:'✅',title:'Certs y Cumplimiento',desc:'Certificaciones de aseguradoras, directrices de CMS, fechas límite de certificación.',tags:['certs','compliance','carrier cert','cms','certify','deadline'],url:'/certs.html'},
 ];
 
 function hubSearch(q){}
@@ -569,29 +579,59 @@ function renderAepCountdown() {
   const days = inWindow
     ? Math.ceil((aepEnd - now) / msPerDay)
     : Math.ceil((aepStart - now) / msPerDay);
-  const fmt = d => d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
-  document.getElementById('aepDays').innerHTML = days + '<span>days</span>';
-  document.getElementById('aepLabel').textContent = inWindow ? 'until AEP ends — go time' : 'until AEP begins';
+  const fmt = d => d.toLocaleDateString('es', {month:'short', day:'numeric', year:'numeric'});
+  document.getElementById('aepDays').innerHTML = days + '<span>días</span>';
+  document.getElementById('aepLabel').textContent = inWindow ? 'hasta que termina el AEP — ¡es hora!' : 'hasta que empiece el AEP';
   document.getElementById('aepDates').textContent = fmt(aepStart) + ' – ' + fmt(aepEnd);
 }
 renderAepCountdown();
 
-// Load the Active FL SEP count from pulse-feed.json
-async function loadActiveSepCount() {
+// Load news bulletin + Active FL SEPs count from pulse-feed.json
+async function loadNewsBulletin() {
   const sepEl = document.getElementById('sepCount');
   try {
-    const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
+    const res = await fetch('/files/pulse-feed.json');
  const data = await res.json();
 
     // Active FL SEPs — additive field on pulse-feed.json. Falls back to
     // "–" (not zero) if Igor hasn't added it yet, so we don't show a false 0.
     if (sepEl) sepEl.textContent = (typeof data.activeSeps === 'number') ? data.activeSeps : '–';
 
+    if (!data.alerts || !data.alerts.length) return;
+    const now = Date.now();
+    const cutoff = now - (60 * 24 * 60 * 60 * 1000); // 60 days
+    const recent = data.alerts.filter(a => {
+      const d = new Date(a.date);
+      return !isNaN(d) && d.getTime() >= cutoff;
+    });
+    if (!recent.length) return;
+    const items = recent.map(a => {
+      const url = a.source || '/agent-pulse.html';
+      const external = a.source && a.source.startsWith('http');
+      return `<a href="${url}" ${external ? 'target="_blank" rel="noopener"' : ''} style="display:inline-flex;align-items:center;gap:8px;padding:0 28px;border-right:1px solid #F1ECF6;text-decoration:none;">
+        <span style="font:600 12.5px/1 Arial,sans-serif;color:#452068;">${a.title}</span>
+        <span style="font:400 11px/1 Arial,sans-serif;color:#C9B8DF;">${a.date}</span>
+      </a>`;
+    }).join('');
+    const track = document.getElementById('ticker-track');
+    const itemsEl = document.getElementById('ticker-items');
+    const cloneEl = document.getElementById('ticker-items-clone');
+    itemsEl.innerHTML = items;
+    cloneEl.innerHTML = '';
+    document.getElementById('news-ticker').style.display = 'block';
+    // Only clone + animate if content actually overflows the strip —
+    // otherwise short feeds show visible duplicates.
+    requestAnimationFrame(() => {
+      const container = track.parentElement;
+      // Always clone + animate — don't gate on overflow
+      cloneEl.innerHTML = items;
+      track.style.animation = 'ticker-scroll 90s linear infinite';
+    });
   } catch(e) {
     if (sepEl) sepEl.textContent = '–';
   }
 }
-loadActiveSepCount();
+loadNewsBulletin();
 
 
 // ── Non-Commissionable Plans — carrier list + modal ─────────────────────────
@@ -706,150 +746,6 @@ const NC_DATA = [
  { id: 'H7617-110', states: ['FL'] },
  { id: 'H7617-111', states: ['FL'] },
  ]},
- { carrier: 'Aetna', pending: false, year: 2027, plans: [
- { id: 'H4982-022', name: 'Aetna Medicare Prime Value Plus (HMO)', states: ['CA'] },
- { id: 'H4982-001', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
- { id: 'H4982-002', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
- { id: 'H4982-025', name: 'Aetna Medicare Prime Extra (HMO)', states: ['CA'] },
- { id: 'H4982-007', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
- { id: 'H0523-065', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
- { id: 'H0523-086', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
- { id: 'H0523-083', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
- { id: 'H0523-089', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
- { id: 'H4982-030', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
- { id: 'H4982-026', name: 'Aetna Medicare Prime Extra (HMO)', states: ['CA'] },
- { id: 'H4982-003', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
- { id: 'H5521-650', name: 'Aetna Medicare Elite (PPO)', states: ['VA'] },
- { id: 'H5521-272', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
- { id: 'H5521-270', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
- { id: 'H5521-269', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
- { id: 'H5521-569', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
- { id: 'H5521-033', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
- { id: 'H5521-435', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
- { id: 'H1609-028', name: 'Aetna Medicare Select Extra (HMO-POS)', states: ['FL'] },
- { id: 'H5521-470', name: 'Aetna Medicare Value Plus (PPO)', states: ['MS'] },
- { id: 'H5521-326', name: 'Aetna Medicare Value Care (PPO)', states: ['LA'] },
- { id: 'H5521-646', name: 'Aetna Medicare Value Plus (PPO)', states: ['LA'] },
- { id: 'H2293-001', name: 'Aetna Medicare Value Extra Care (PPO)', states: ['GA'] },
- { id: 'H5521-364', name: 'Aetna Medicare Value Care (PPO)', states: ['GA'] },
- { id: 'H2293-023', name: 'Aetna Medicare Value Care (PPO)', states: ['GA'] },
- { id: 'H2293-033', name: 'Aetna Medicare Value Plus (PPO)', states: ['GA'] },
- { id: 'H1608-021', name: 'Aetna Medicare Signature Classic Plus (PPO)', states: ['AR'] },
- { id: 'H1608-054', name: 'Aetna Medicare Elite Classic (PPO)', states: ['AR'] },
- { id: 'H1608-079', name: 'Aetna Medicare Signature Classic Giveback (PPO)', states: ['AR'] },
- { id: 'H1608-074', name: 'Aetna Medicare Eagle Classic Giveback (PPO)', states: ['AR'] },
- { id: 'H5521-467', name: 'Aetna Medicare Value Plus (PPO)', states: ['AL'] },
- { id: 'H1608-016', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS','MO'] },
- { id: 'H1608-018', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS','MO'] },
- { id: 'H1608-017', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['KS'] },
- { id: 'H1608-024', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['KS'] },
- { id: 'H1608-072', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS'] },
- { id: 'H2663-111', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['KS'] },
- { id: 'H5325-003', name: 'Aetna Medicare Dual Care (HMO D-SNP)', states: ['MO'] },
- { id: 'H5325-004', name: 'Aetna Medicare Dual (HMO D-SNP)', states: ['MO'] },
- { id: 'H5325-013', name: 'Aetna Medicare Full Dual (HMO D-SNP)', states: ['MO'] },
- { id: 'H5325-012', name: 'Aetna Medicare Full Dual Care (HMO D-SNP)', states: ['MO'] },
- { id: 'H5521-388', name: 'Aetna Medicare Enhanced (PPO)', states: ['WI'] },
- { id: 'H7301-033', name: 'Aetna Medicare Signature (PPO)', states: ['IL'] },
- { id: 'H3192-001', name: 'Aetna Medicare Prime (HMO-POS)', states: ['IL'] },
- { id: 'H3192-013', name: 'Aetna Medicare Signature (HMO-POS)', states: ['IL'] },
- { id: 'H3959-066', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['PA'] },
- { id: 'H1608-085', name: 'Aetna Medicare Premier Classic (PPO)', states: ['WV'] },
- { id: 'H1608-027', name: 'Aetna Medicare Advantra Enhanced Classic (PPO)', states: ['WV'] },
- { id: 'H1608-031', name: 'Aetna Medicare Advantra Classic Giveback (PPO)', states: ['WV'] },
- { id: 'H1608-040', name: 'Aetna Medicare Advantra Signature Classic (PPO)', states: ['WV'] },
- { id: 'H3931-196', name: 'Aetna Medicare Full Dual Care (HMO D-SNP)', states: ['CO'] },
- { id: 'H3931-175', name: 'Aetna Medicare Dual Extra Care (HMO D-SNP)', states: ['CO'] },
- { id: 'H1608-001', name: 'Aetna Medicare Signature Classic (PPO)', states: ['IA'] },
- { id: 'H1608-117', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['IA'] },
- { id: 'H1608-012', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['NE'] },
- { id: 'H1608-118', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['NE'] },
- { id: 'H1608-038', name: 'Aetna Medicare Signature Classic (PPO)', states: ['NE'] },
- { id: 'H1608-081', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['ND'] },
- { id: 'H1608-120', name: 'Aetna Medicare Signature Classic (PPO)', states: ['SD'] },
- { id: 'H1608-119', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['SD'] },
- { id: 'H1608-062', name: 'Aetna Medicare Dual Classic (PPO D-SNP)', states: ['SD'] },
- { id: 'H1608-121', name: 'Aetna Medicare Full Dual Classic (PPO D-SNP)', states: ['SD'] },
- { id: 'H1608-061', name: 'Aetna Medicare Eagle Classic (PPO)', states: ['SD'] },
- { id: 'H3146-011', name: 'Aetna Medicare Value Plus (HMO)', states: ['SC'] },
- { id: 'H3146-006', name: 'Aetna Medicare Value Plus (HMO)', states: ['NC'] },
- { id: 'H3146-044', name: 'Aetna Medicare Chronic Care Value (HMO C-SNP)', states: ['NC'] },
- { id: 'H3219-004', name: 'Allina Health Aetna Medicare Premier Extra (PPO)', states: ['MN'] },
- { id: 'H3219-016', name: 'Allina Health Aetna Medicare Value (PPO C-SNP)', states: ['MN'] },
- { id: 'H3931-151', name: 'Aetna Medicare Prime (HMO)', states: ['NV'] },
- { id: 'H3931-094', name: 'Aetna Medicare Signature (HMO)', states: ['NV'] },
- { id: 'H3931-157', name: 'Aetna Medicare Value Care (HMO)', states: ['NV'] },
- { id: 'H5521-654', name: 'Aetna Medicare Signature (PPO)', states: ['UT'] },
- { id: 'H8649-013', name: 'Aetna Medicare Signature (HMO)', states: ['UT'] },
- { id: 'H5521-246', name: 'Aetna Medicare Elite (PPO)', states: ['UT'] },
- { id: 'H5521-159', name: 'Aetna Medicare Signature Extra (PPO)', states: ['MA'] },
- { id: 'H5521-451', name: 'Aetna Medicare Elite (PPO)', states: ['MA'] },
- { id: 'H5793-018', name: 'Aetna Medicare Signature (HMO-POS)', states: ['MA'] },
- { id: 'H5793-020', name: 'Aetna Medicare QMB Only (HMO-POS D-SNP)', states: ['CT'] },
- { id: 'H5793-001', name: 'Aetna Medicare Signature (HMO-POS)', states: ['CT'] },
- { id: 'H5521-446', name: 'Aetna Medicare Signature (PPO)', states: ['CT'] },
- { id: 'H5521-157', name: 'Aetna Medicare Elite (PPO)', states: ['CT'] },
- { id: 'H3597-012', name: 'Aetna Medicare Partial Dual (HMO-POS D-SNP)', states: ['ME'] },
- { id: 'H3597-018', name: 'Aetna Medicare Signature (HMO-POS)', states: ['ME'] },
- { id: 'H5521-037', name: 'Aetna Medicare Enhanced Extra (PPO)', states: ['NJ'] },
- { id: 'H5521-392', name: 'Aetna Medicare Prime (PPO)', states: ['NJ'] },
- { id: 'H3152-098', name: 'Aetna Medicare Elite (HMO)', states: ['NJ'] },
- { id: 'H5521-510', name: 'Aetna Medicare Enhanced Advantage (PPO)', states: ['NJ'] },
- { id: 'R6694-006', name: 'Aetna Medicare Enhanced (Regional PPO)', states: ['NJ'] },
- { id: 'H5521-124', name: 'Aetna Medicare Enhanced Extra (PPO)', states: ['NJ'] },
- { id: 'H5521-536', name: 'Aetna Medicare Elite (PPO)', states: ['NY'] },
- { id: 'H3312-074', name: 'Aetna Medicare Signature Care (HMO)', states: ['NY'] },
- { id: 'H3312-002', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
- { id: 'H3312-048', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
- { id: 'H3312-091', name: 'Aetna Medicare Chronic Care (HMO C-SNP)', states: ['NY'] },
- { id: 'H5521-661', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
- { id: 'H5521-121', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
- { id: 'H5521-674', name: 'Aetna Medicare Elite Extra (PPO)', states: ['NY'] },
- { id: 'H5521-699', name: 'Aetna Medicare Elite Extra (PPO)', states: ['NY'] },
- { id: 'H5521-736', name: 'Aetna Medicare Elite (PPO)', states: ['NY'] },
- { id: 'H3312-018', name: 'Aetna Medicare Enhanced (HMO-POS)', states: ['NY'] },
- { id: 'H5521-669', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
- { id: 'H3312-081', name: 'Aetna Medicare Enhanced (HMO)', states: ['NY'] },
- { id: 'H3312-097', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
- { id: 'H5521-461', name: 'Aetna Medicare Longevity (PPO I-SNP)', states: ['NY'] },
- { id: 'H5521-687', name: 'Aetna Medicare Enhanced (PPO)', states: ['WA'] },
- { id: 'H3748-003', name: 'Aetna Medicare Signature (HMO)', states: ['WA'] },
- { id: 'H3931-197', name: 'Aetna Medicare Signature (HMO)', states: ['WA'] },
- { id: 'H5521-686', name: 'Aetna Medicare Enhanced (PPO)', states: ['WA'] },
- { id: 'H2056-005', name: 'Aetna Medicare Elite (HMO)', states: ['OR'] },
- { id: 'H2056-003', name: 'Aetna Medicare Elite (HMO)', states: ['OR'] },
- { id: 'H5521-089', name: 'Aetna Medicare Signature (PPO)', states: ['OH'] },
- { id: 'H1608-029', name: 'Aetna Medicare Advantra Signature Classic (PPO)', states: ['OH'] },
- { id: 'H0628-018', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['OH'] },
- { id: 'H3288-004', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
- { id: 'H3288-001', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
- { id: 'H3288-018', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
- { id: 'H1608-067', name: 'Aetna Medicare Elite Classic Extra (PPO)', states: ['MO'] },
- { id: 'H1608-050', name: 'Aetna Medicare Elite Classic (PPO)', states: ['MO'] },
- { id: 'H1608-051', name: 'Aetna Medicare Signature Classic (PPO)', states: ['MO'] },
- { id: 'H1608-013', name: 'Aetna Medicare Enhanced Classic (PPO)', states: ['MO'] },
- { id: 'H2663-113', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['MO'] },
- { id: 'S5601-006', name: 'SilverScript Choice (PDP)', states: ['NY'] },
- { id: 'S5601-008', name: 'SilverScript Choice (PDP)', states: ['NJ'] },
- { id: 'S5601-010', name: 'SilverScript Choice (PDP)', states: ['DC','DE','MD'] },
- { id: 'S5601-014', name: 'SilverScript Choice (PDP)', states: ['VA'] },
- { id: 'S5601-016', name: 'SilverScript Choice (PDP)', states: ['NC'] },
- { id: 'S5601-020', name: 'SilverScript Choice (PDP)', states: ['GA'] },
- { id: 'S5601-022', name: 'SilverScript Choice (PDP)', states: ['FL'] },
- { id: 'S5601-024', name: 'SilverScript Choice (PDP)', states: ['AL','TN'] },
- { id: 'S5601-026', name: 'SilverScript Choice (PDP)', states: ['MI'] },
- { id: 'S5601-028', name: 'SilverScript Choice (PDP)', states: ['OH'] },
- { id: 'S5601-034', name: 'SilverScript Choice (PDP)', states: ['IL'] },
- { id: 'S5601-036', name: 'SilverScript Choice (PDP)', states: ['MO'] },
- { id: 'S5601-038', name: 'SilverScript Choice (PDP)', states: ['AR'] },
- { id: 'S5601-040', name: 'SilverScript Choice (PDP)', states: ['MS'] },
- { id: 'S5601-044', name: 'SilverScript Choice (PDP)', states: ['TX'] },
- { id: 'S5601-048', name: 'SilverScript Choice (PDP)', states: ['KS'] },
- { id: 'S5601-052', name: 'SilverScript Choice (PDP)', states: ['NM'] },
- { id: 'S5601-056', name: 'SilverScript Choice (PDP)', states: ['AZ'] },
- { id: 'S5601-058', name: 'SilverScript Choice (PDP)', states: ['NV'] },
- { id: 'S5601-068', name: 'SilverScript Choice (PDP)', states: ['AK'] },
- ]},
  { carrier: 'FL Blue', pending: false, plans: [
  { id: 'H1035-017', states: ['FL'] },
  { id: 'H1035-019', states: ['FL'] },
@@ -885,24 +781,22 @@ let _ncActiveCarrier = null;
 (function renderNcCarriers(){
   const wrap = document.getElementById('ncCarrierList');
   if (!wrap) return;
-  wrap.innerHTML = NC_DATA.map((c, i) => {
-    const year = c.year || 2026;
-    return `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
-      <span class="nc-carrier-name">${c.carrier} <span class="nc-year-tag y${year}">${year}</span></span>
+  wrap.innerHTML = NC_DATA.map((c, i) =>
+    `<button class="nc-carrier-btn" onclick="openNcModal(${i})">
+      <span class="nc-carrier-name">${c.carrier}${c.pending ? ' <span class="nc-pending-tag">⏳ pendiente</span>' : ''}</span>
       <span class="nc-badge">${c.plans.length}</span>
-    </button>`;
-  }).join('');
+    </button>`
+  ).join('');
 })();
 
 function openNcModal(idx) {
   _ncActiveCarrier = NC_DATA[idx];
   document.getElementById('ncModalTitle').textContent =
-    _ncActiveCarrier.carrier + ' — Non-Commissionable Plans ' +
-    (_ncActiveCarrier.year || 2026);
+    _ncActiveCarrier.carrier + ' — Planes sin Comisión 2026' + (_ncActiveCarrier.pending ? ' (pendiente de verificación)' : '');
   // Populate state filter from this carrier's data
   const states = [...new Set(_ncActiveCarrier.plans.flatMap(p => p.states))].sort();
   const sel = document.getElementById('ncStateFilter');
-  sel.innerHTML = '<option value="">All states</option>' +
+  sel.innerHTML = '<option value="">Todos los estados</option>' +
     states.map(s => `<option value="${s}">${s}</option>`).join('');
   document.getElementById('ncPlanSearch').value = '';
   renderNcPlans();
@@ -921,27 +815,25 @@ function renderNcPlans() {
   _ncActiveCarrier.plans.forEach(p => {
     p.states.forEach(st => {
       if (stateFilter && st !== stateFilter) return;
-      if (q && !p.id.toLowerCase().includes(q) && !(p.name && p.name.toLowerCase().includes(q))) return;
-      (byState[st] = byState[st] || []).push(p);
+      if (q && !p.id.toLowerCase().includes(q)) return;
+      (byState[st] = byState[st] || []).push(p.id);
     });
   });
 
   const stateKeys = Object.keys(byState).sort();
   if (!stateKeys.length) {
-    body.innerHTML = '<div style="padding:24px;text-align:center;color:#9A94A8;font:400 13px/1 Arial,sans-serif;">No plans match your filter.</div>';
+    body.innerHTML = '<div style="padding:24px;text-align:center;color:#9A94A8;font:400 13px/1 Arial,sans-serif;">Ningún plan coincide con tu filtro.</div>';
     return;
   }
   body.innerHTML = stateKeys.map(st =>
     `<div class="nc-state-section">
       <div class="nc-state-label">${st}</div>
-      ${byState[st].map(p => `<span class="nc-plan-chip">${(_ncActiveCarrier.year || 2026)} · ${p.name ? p.id + ' — ' + p.name : p.id}</span>`).join('')}
+      ${byState[st].map(id => `<span class="nc-plan-chip">${id}</span>`).join('')}
     </div>`
   ).join('') +
   (_ncActiveCarrier && _ncActiveCarrier.carrier === 'Humana'
-    ? '<div class="nc-note"><strong>Modified commission \$165.00</strong> (prorated by eff. date) for Like Plan Type Changes from Humana plans. Source: Humana PPP GCHMRX7EN 01/2026. Always verify before enrolling.</div>'
-    : _ncActiveCarrier && _ncActiveCarrier.carrier === 'Aetna'
-    ? '<div class="nc-note">Plan Year <strong>2027</strong>. Non-commissionable for <strong>new sales only</strong> — renewals receive FMV. All new Aetna PDP sales are non-commissionable regardless of state, county, or hierarchy. Source: Aetna Non-Commissionable Individual Medicare Products (updated 8/20/2026). Always verify before enrolling.</div>'
-    : '<div class="nc-note">Non-commissionable for <strong>new sales only</strong> — renewals receive FMV. Source: CMS National Landscape Extract. Always verify with the carrier before enrolling.</div>');
+    ? '<div class="nc-note"><strong>Comisión modificada $165.00</strong> (prorrateada por fecha de vigencia) para Cambios de Tipo de Plan Similar desde planes Humana. Fuente: Humana PPP GCHMRX7EN 01/2026. Verifica siempre antes de inscribir.</div>'
+    : '<div class="nc-note">Sin comisión para <strong>ventas nuevas únicamente</strong> — las renovaciones reciben FMV. Fuente: CMS National Landscape Extract. Verifica siempre con la aseguradora antes de inscribir.</div>');
 }
 
 function closeNcModal() {
@@ -959,43 +851,43 @@ document.addEventListener('keydown', function(e){
 const TOUR_STEPS = [
   {
     targetId: null, // hero/welcome area — no spotlight
-    title: "Welcome to your Agent Hub",
-    desc: "Everything you need as a licensed THEI agent — certs, tools, retention, and live SEP data — one click away. This quick tour shows you around.",
+    title: "Bienvenido a tu Agent Hub",
+    desc: "Todo lo que necesitas como agente licenciado de THEI — certs, herramientas, retención y datos SEP en vivo — a un clic. Este recorrido rápido te muestra todo.",
     arrow: "arrow-top",
     bubblePos: {top: "140px", left: "50%", transform: "translateX(-50%)"}
   },
   {
     targetSelector: ".cat-card[href='/retention-toolkit']",
-    title: "Retention Toolkit",
-    desc: "Your flagship retention resource — bilingual email templates for every client touchpoint all year. This is the #1 tool for protecting your renewal commissions.",
+    title: "Kit de Retención",
+    desc: "Tu recurso estrella de retención — plantillas de correo bilingües para cada punto de contacto con el cliente durante todo el año. Esta es la herramienta #1 para proteger tus comisiones de renovación.",
     arrow: "arrow-top",
     offset: {x: 0, y: 14}
   },
   {
     targetSelector: ".cat-card[href='/sep-tracker']",
-    title: "SEP Tracker — Your Sales Edge",
-    desc: "Disaster Special Enrollment Periods open enrollment windows outside AEP. When a disaster hits, your clients can switch plans. This tracker keeps you ahead of every opportunity.",
+    title: "Rastreador de SEP — Tu Ventaja de Ventas",
+    desc: "Los Períodos de Inscripción Especial por desastre abren ventanas de inscripción fuera del AEP. Cuando ocurre un desastre, tus clientes pueden cambiar de plan. Este tracker te mantiene adelante de cada oportunidad.",
     arrow: "arrow-top",
     offset: {x: 0, y: 14}
   },
   {
     targetSelector: ".nc-card",
-    title: "Non-Commissionable Plans — 2026 & 2027",
-    desc: "These plans pay reduced or zero commission on new enrollments — renewals still get FMV. Tap any carrier to see which plans are affected in your state, and always verify before submitting an application.",
+    title: "Planes sin Comisión — 2026",
+    desc: "Estos planes pagan comisión reducida o cero en nuevas inscripciones — las renovaciones siguen recibiendo FMV. Toca cualquier aseguradora para ver los planes afectados en tu estado, y verifica siempre antes de enviar una solicitud.",
     arrow: "arrow-top",
     offset: {x: 0, y: 14}
   },
   {
-    targetSelector: "#hubNavToggle, .pill-nav",
-    title: "One-click navigation",
-    desc: "Use the menu anytime to jump between Broker University, SEP Tracker, Certs, Carrier Guide, and more.",
+    targetSelector: ".pill-nav",
+    title: "Navegación con un clic",
+    desc: "Todo está a un clic desde cualquier lugar — Universidad del Broker, Rastreador de SEP, Certs, Guía de Aseguradoras, Guía HRA. Usa la navegación en cualquier momento para saltar entre secciones.",
     arrow: "arrow-top",
     offset: {x: 0, y: 14}
   },
   {
     targetId: "tourBtn",
-    title: "Replay this tour anytime",
-    desc: "Need a refresher? Click the ? icon in the nav anytime to restart the tour from the beginning.",
+    title: "Repite este recorrido cuando quieras",
+    desc: "¿Necesitas refrescarte? Haz clic en el ícono ? en la navegación para reiniciar el recorrido desde el principio.",
     arrow: "arrow-top",
     offset: {x: 0, y: 10}
   }
@@ -1022,26 +914,20 @@ function showTourStep() {
   overlay.classList.add('active');
 
   // Content
-  label.textContent = 'Step ' + (_tourStep + 1) + ' of ' + TOUR_STEPS.length;
+  label.textContent = 'Paso ' + (_tourStep + 1) + ' de ' + TOUR_STEPS.length;
   title.textContent = step.title;
   desc.textContent = step.desc;
-  nextBtn.textContent = _tourStep === TOUR_STEPS.length - 1 ? 'Got it ✓' : 'Next →';
+  nextBtn.textContent = _tourStep === TOUR_STEPS.length - 1 ? '¡Entendido ✓' : 'Siguiente →';
 
   // Dots
   dots.innerHTML = TOUR_STEPS.map((_, i) =>
     '<span class="tour-dot' + (i === _tourStep ? ' active' : '') + '"></span>'
   ).join('');
 
-  // Spotlight target — prefer the first visible match (hamburger on mobile, pills on desktop)
+  // Spotlight target
   let el = null;
   if (step.targetId) el = document.getElementById(step.targetId);
-  else if (step.targetSelector) {
-    const nodes = document.querySelectorAll(step.targetSelector);
-    el = Array.from(nodes).find(function(n){ return n.getClientRects().length > 0; }) || nodes[0] || null;
-  }
-  if (el && !el.getClientRects().length) {
-    el = document.getElementById('hubNavToggle') || el;
-  }
+  else if (step.targetSelector) el = document.querySelector(step.targetSelector);
 
   // Reset bubble classes
   bubble.className = 'tour-bubble ' + (step.arrow || '');
@@ -1109,45 +995,26 @@ function logout() {
   localStorage.removeItem('hub_session');
   window.location.replace('/login.html');
 }
-try { localStorage.removeItem('thei_aep_reviews_2027'); } catch(e){}
 
 (function(){
   const input = document.getElementById('hubSearch');
   const dropdown = document.getElementById('searchDropdown');
   let focusIdx = -1;
 
-  function scoreItem(item, q){
-    const title = item.title.toLowerCase();
-    const desc = item.desc.toLowerCase();
-    const tags = item.tags || [];
-    let score = 0;
-    if (title === q) score += 120;
-    if (title.startsWith(q)) score += 80;
-    else if (title.includes(q)) {
-      score += 55;
-      if (new RegExp('(?:^|\\s|—|-)' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(title)) score += 15;
-    }
-    if (title.includes(q)) score += Math.max(0, 24 - title.length);
-    if (tags.some(t => t === q)) score += 40;
-    else if (tags.some(t => t.includes(q))) score += 12;
-    if (desc.includes(q)) score += 5;
-    return score;
-  }
 
   function getResults(q){
     if(!q || q.length < 2) return [];
-    return SEARCH_INDEX
-      .map((item, idx) => ({ item, idx, score: scoreItem(item, q) }))
-      .filter(r => r.score > 0)
-      .sort((a, b) => b.score - a.score || a.idx - b.idx)
-      .slice(0, 7)
-      .map(r => r.item);
+    return SEARCH_INDEX.filter(item =>
+      item.tags.some(t => t.includes(q)) ||
+      item.title.toLowerCase().includes(q) ||
+      item.desc.toLowerCase().includes(q)
+    ).slice(0, 7);
   }
 
   function renderDropdown(results){
     focusIdx = -1;
     if(!results.length){
-      dropdown.innerHTML = '<div class="search-no-results">No results — try a different term</div>';
+      dropdown.innerHTML = '<div class="search-no-results">Sin resultados — prueba con otro término</div>';
     } else {
       dropdown.innerHTML = results.map((r,i) =>
         `<a class="search-result" href="${r.url}" data-idx="${i}">
@@ -1184,12 +1051,12 @@ try { localStorage.removeItem('thei_aep_reviews_2027'); } catch(e){}
 <div class="nc-modal-backdrop" id="ncModalBackdrop" onclick="if(event.target===this)closeNcModal()">
   <div class="nc-modal">
     <div class="nc-modal-head">
-      <h2 id="ncModalTitle">Plans</h2>
+      <h2 id="ncModalTitle">Planes</h2>
       <button class="nc-modal-close" onclick="closeNcModal()">✕</button>
     </div>
     <div class="nc-modal-filters">
-      <select id="ncStateFilter" onchange="renderNcPlans()"><option value="">All states</option></select>
-      <input type="search" id="ncPlanSearch" placeholder="Search plans…" oninput="renderNcPlans()">
+      <select id="ncStateFilter" onchange="renderNcPlans()"><option value="">Todos los estados</option></select>
+      <input type="search" id="ncPlanSearch" placeholder="Buscar planes…" oninput="renderNcPlans()">
     </div>
     <div class="nc-modal-body" id="ncModalBody"></div>
   </div>
@@ -1199,13 +1066,13 @@ try { localStorage.removeItem('thei_aep_reviews_2027'); } catch(e){}
   <div class="tour-dim" onclick="endTour()"></div>
   <div class="tour-spotlight" id="tourSpotlight"></div>
   <div class="tour-bubble" id="tourBubble" style="pointer-events:all;">
-    <div class="tour-step-label" id="tourStepLabel">Step 1 of 5</div>
+    <div class="tour-step-label" id="tourStepLabel">Paso 1 de 5</div>
     <h4 id="tourTitle"></h4>
     <p id="tourDesc"></p>
     <div class="tour-actions">
-      <button class="tour-skip" onclick="endTour()">Skip tour</button>
+      <button class="tour-skip" onclick="endTour()">Saltar recorrido</button>
       <div class="tour-dots" id="tourDots"></div>
-      <button class="tour-next" id="tourNextBtn" onclick="tourNext()">Next →</button>
+      <button class="tour-next" id="tourNextBtn" onclick="tourNext()">Siguiente →</button>
     </div>
   </div>
 </div>

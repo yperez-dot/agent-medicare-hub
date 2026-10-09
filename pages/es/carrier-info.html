@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <script>
 (function(){
@@ -15,12 +15,20 @@
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Carrier Info | Medicare Agent Hub</title>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Info de Aseguradoras | Medicare Agent Hub</title>
 <style>
 :root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;}
+.sneak-peek-card{background:linear-gradient(120deg,#2F1348 0%,var(--purple) 58%,#6B2785 100%);border-radius:18px;color:#fff;margin-bottom:18px;overflow:hidden;position:relative;box-shadow:0 10px 26px rgba(69,32,104,.2);}
+.sneak-peek-card::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;right:-105px;top:-150px;background:rgba(255,255,255,.07);}
+.sneak-peek-content{position:relative;z-index:1;display:flex;align-items:center;gap:24px;padding:22px 26px;}
+.sneak-peek-copy{flex:1;}
+.sneak-peek-eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.23);border-radius:999px;padding:4px 9px;font:700 10px/1 Arial,sans-serif;letter-spacing:.7px;text-transform:uppercase;margin-bottom:9px;}
+.sneak-peek-title{font:700 20px/1.2 Arial,sans-serif;margin-bottom:5px;}
+.sneak-peek-desc{font:400 13px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:72ch;}
+.sneak-peek-update{display:flex;align-items:center;gap:12px;min-width:300px;padding:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:13px;}
+.sneak-peek-update strong{display:block;font:700 14px/1.25 Arial,sans-serif;margin-bottom:4px;}
+.sneak-peek-update span{display:block;font:400 12px/1.4 Arial,sans-serif;color:rgba(255,255,255,.78);}
+@media(max-width:700px){.sneak-peek-content{align-items:flex-start;flex-direction:column;}.sneak-peek-update{min-width:0;width:100%;}}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
 .top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
@@ -29,6 +37,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
 .pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
 .wrap{max-width:1100px;margin:0 auto;padding:18px 22px 36px;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--purple-dark),var(--purple));border-radius:16px;padding:16px 20px;margin-bottom:32px;color:#fff;}
+.hero h1{font:700 24px/1.2 Arial,sans-serif;margin-bottom:6px;}
+.hero p{font:400 14px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:60ch;}
 
 /* High-priority carrier alerts */
 .agent-alerts{background:linear-gradient(120deg,var(--purple-dark) 0%,var(--purple) 58%,#7A236F 100%);border:2px solid rgba(255,16,144,.5);border-radius:18px;color:#fff;margin-bottom:18px;padding:22px 24px;box-shadow:0 10px 26px rgba(69,32,104,.2);scroll-margin-top:18px;}
@@ -45,7 +58,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 
 /* Cards grid */
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.info-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--text);transition:box-shadow .15s,transform .15s;position:relative;overflow:hidden;}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--text);transition:box-shadow .15s,transform .15s;position:relative;overflow:hidden;}
 .info-card:hover{box-shadow:0 6px 20px rgba(69,32,104,.12);transform:translateY(-2px);}
 .info-card.featured{border-top:3px solid var(--pink);}
 .card-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
@@ -64,7 +77,6 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
-<link rel="stylesheet" href="/hub-hero.css">
 <link rel="stylesheet" href="/hub-density.css">
 <link rel="stylesheet" href="/hub-clean.css">
 <style id="r2">
@@ -100,46 +112,45 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 <body>
 
 <div class="top-bar">
-  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <button onclick="window.location.href='/home.html'" title="Tour del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
   </nav>
 </div>
 
 <div class="wrap">
-
-  <div class="hero">
-    <h1>Carrier Info</h1>
-    <p>Everything you need for every carrier — contacts, certifications, non-commissionable plans, HRA details, plan comparison, and SSBCI eligibility. All in one place.</p>
+<div class="hero">
+    <h1>Info de Aseguradoras</h1>
+    <p>Todo lo que necesitas para cada aseguradora — contactos, certificaciones, planes sin comisión, detalles del HRA, comparación de planes y elegibilidad SSBCI. Todo en un solo lugar.</p>
   </div>
 
   <section class="agent-alerts" id="agent-alerts" aria-labelledby="agent-alerts-title">
     <div class="agent-alerts-heading">
-      <h2 id="agent-alerts-title">Agent alerts — AEP / crosswalk</h2>
+      <h2 id="agent-alerts-title">Alertas para agentes — AEP / crosswalk</h2>
     </div>
     <div class="agent-alerts-grid">
-      <a class="agent-alert" href="/carrier-info/uhc-fl-dsnp-crosswalk">
+      <a class="agent-alert" href="https://agentmedicarehub.com/carrier-info/uhc-fl-dsnp-crosswalk">
         <span>
           <span class="agent-alert-kicker">UHC Florida · Crosswalk</span>
-          <span class="agent-alert-title">D-SNP crosswalk grid</span>
-          <span class="agent-alert-desc">Review Medicaid eligibility, LTSS, and county-specific exceptions by plan ID.</span>
+          <span class="agent-alert-title">Cuadrícula de crosswalk D-SNP</span>
+          <span class="agent-alert-desc">Revisa la elegibilidad de Medicaid, LTSS y las excepciones por condado según el ID del plan.</span>
         </span>
         <span class="agent-alert-arrow" aria-hidden="true">→</span>
       </a>
-      <a class="agent-alert" href="/carrier-info/humana-plex">
+      <a class="agent-alert" href="https://agentmedicarehub.com/carrier-info/humana-plex">
         <span>
           <span class="agent-alert-kicker">Humana · AEP 2027</span>
-          <span class="agent-alert-title">PLEX plan exits</span>
-          <span class="agent-alert-desc">See affected-member guidance, outreach timing, support, and enrollment expectations.</span>
+          <span class="agent-alert-title">Salida de planes PLEX</span>
+          <span class="agent-alert-desc">Consulta la guía para miembros afectados, cuándo contactarlos, el apoyo disponible y qué esperar en la inscripción.</span>
         </span>
         <span class="agent-alert-arrow" aria-hidden="true">→</span>
       </a>
@@ -149,58 +160,58 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   <div class="cards-grid">
 
     <a class='info-card featured' href='/carrier-contact-guide'>
-      <div class="card-title">Carrier Contact Guide</div>
-      <div class="card-desc">Direct lines, auth numbers, member services, OTC, HRA, pharmacy — all 14 carriers. Humana, UHC, Aetna, Solis, Devoted, and more.</div>
-      <span class="card-link">Open Guide →</span>
+      <div class="card-title">Guía de Contactos de Aseguradoras</div>
+      <div class="card-desc">Líneas directas, números de autorización, servicios al miembro, OTC, HRA, farmacia — las 14 aseguradoras. Humana, UHC, Aetna, Solis, Devoted y más.</div>
+      <span class="card-link">Abrir Guía →</span>
     </a>
 
     <a class='info-card featured' href='/certs'>
-      <div class="card-title">Carrier Certifications</div>
-      <div class="card-desc">AHIP, carrier-specific certification portals, deadlines, and training requirements for all carriers you're contracted with.</div>
-      <span class="card-link">Open Certs Page →</span>
+      <div class="card-title">Certificaciones de Aseguradoras</div>
+      <div class="card-desc">AHIP, portales de certificación por aseguradora, fechas límite y requisitos de capacitación para todas las aseguradoras con las que tienes contrato.</div>
+      <span class="card-link">Abrir Página de Certs →</span>
     </a>
 
     <a class='info-card featured' href='/non-comm-plans'>
-      <div class="card-title">Non-Commissionable Plans</div>
-      <div class="card-desc">Full searchable list of non-commissionable plans by carrier and state, including Aetna Plan Year 2027 contract/PBP IDs. Always verify before enrolling.</div>
-      <span class="card-link">View Plans →</span>
+      <div class="card-title">Planes Sin Comisión</div>
+      <div class="card-desc">Lista completa y buscable de planes sin comisión por aseguradora y estado, incluidos los IDs de contrato/PBP de Aetna para el año de plan 2027. Fuente: Archivo SAR Landscape de CMS + documentos de aseguradoras. Verifica siempre antes de inscribir.</div>
+      <span class="card-link">Ver Planes →</span>
     </a>
 
-    <a class="info-card featured" href="/carrier-event-forms">
-      <div class="card-title">Carrier Event Request Forms</div>
-      <div class="card-desc">Request tabletops, educational, and member-facing events — AEP and year-round. DHCP and Solis forms.</div>
-      <span class="card-link">Open Event Forms →</span>
+    <a class="info-card featured" href="https://agentmedicarehub.com/carrier-event-forms">
+      <div class="card-title">Formularios para Solicitar Eventos con Aseguradoras</div>
+      <div class="card-desc">Solicita mesas informativas (tabletops), eventos educativos y eventos para miembros — en AEP y durante todo el año. Formularios de DHCP y Solis.</div>
+      <span class="card-link">Abrir Formularios de Eventos →</span>
     </a>
 
     <a class="info-card featured" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">
-      <div class="card-title">2027 Plan Comparison Grid</div>
-      <div class="card-desc">Side-by-side comparison of all 2027 Medicare Advantage plans. Benefits, copays, OTC, dental, vision, transportation, and more.</div>
-      <span class="card-link">Open 2027 Grid →</span>
+      <div class="card-title">Cuadrícula de Comparación de Planes 2027</div>
+      <div class="card-desc">Comparación lado a lado de todos los planes Medicare Advantage 2027. Beneficios, copagos, OTC, dental, visión, transporte y más.</div>
+      <span class="card-link">Abrir Cuadrícula 2027 →</span>
     </a>
 
     <a class="info-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
-      <span class="card-badge badge-green">Through Nov 30</span>
-      <div class="card-title">2026 MAPD Plan Grid (sell through Nov 30)</div>
-      <div class="card-desc">Current-year side-by-side MAPD comparison. Agents can still sell 2026 plans through Nov 30, 2026.</div>
-      <span class="card-link">Open 2026 Grid →</span>
+      <span class="card-badge badge-green">Hasta el 30 de nov</span>
+      <div class="card-title">Cuadrícula de Planes MAPD 2026 (venta hasta el 30 de nov)</div>
+      <div class="card-desc">Comparación MAPD lado a lado del año en curso. Todavía puedes vender planes 2026 hasta el 30 de noviembre de 2026.</div>
+      <span class="card-link">Abrir Cuadrícula 2026 →</span>
     </a>
 
     <a class='info-card' href='/hra-guide'>
-      <div class="card-title">HRA Quick Reference</div>
-      <div class="card-desc">Health Risk Assessment amounts, eligible plan types, completion timeframes, portals, and OTC networks for every carrier.</div>
-      <span class="card-link">Open HRA Guide →</span>
+      <div class="card-title">Referencia Rápida de HRA</div>
+      <div class="card-desc">Montos de la Evaluación de Riesgos de Salud (HRA), tipos de planes elegibles, tiempos de completación, portales y redes OTC para cada aseguradora.</div>
+      <span class="card-link">Abrir Guía de HRA →</span>
     </a>
 
     <a class='info-card' href='/ssbci-eligibility'>
-      <div class="card-title">SSBCI Eligibility</div>
-      <div class="card-desc">Check which carriers qualify a member's chronic condition for SSBCI extra benefits (food card, OTC &amp; more). Not a Chronic Condition SNP (C-SNP) list.</div>
-      <span class="card-link">Open Tool →</span>
+      <div class="card-title">Elegibilidad SSBCI</div>
+      <div class="card-desc">Revisa qué aseguradoras califican la condición crónica de un miembro para beneficios adicionales SSBCI (tarjeta de alimentos, OTC y más). No es una lista de planes C-SNP.</div>
+      <span class="card-link">Abrir Herramienta →</span>
     </a>
 
     <a class='info-card featured' href='/contracting-blackout'>
-      <div class="card-title">2027 Contracting Blackout Dates</div>
-      <div class="card-desc">New contracting and transfer/release blackout windows for all carriers. Humana, Elevance, Devoted, and UHC are active now.</div>
-      <span class="card-link">View Blackout Schedule &rarr;</span>
+      <div class="card-title">Fechas de Bloqueo de Contratación 2027</div>
+      <div class="card-desc">Ventanas de bloqueo de nuevos contratos y transferencias/liberaciones para todas las aseguradoras. Humana, Elevance, Devoted y UHC ya están activas.</div>
+      <span class="card-link">Ver Calendario de Bloqueo &rarr;</span>
     </a>
 
   </div>
@@ -208,10 +219,10 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   <!-- Events link card -->
   <div class="events-card">
     <div>
-      <div class="ev-title">Carrier Events &amp; Trainings</div>
-      <div class="ev-desc">Upcoming webinars, AEP prep sessions, and broker trainings from all carriers.</div>
+      <div class="ev-title">Eventos y Capacitaciones de Aseguradoras</div>
+      <div class="ev-desc">Próximos webinars, sesiones de preparación para AEP y capacitaciones de todas las aseguradoras.</div>
     </div>
-    <a href="/events">View Events &rarr;</a>
+    <a href="/events">Ver Eventos &rarr;</a>
   </div>
 
 </div>
@@ -219,6 +230,15 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 <script>
 function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
 </script>
-
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
 </body>
 </html>

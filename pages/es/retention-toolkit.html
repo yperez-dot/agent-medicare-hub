@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <script>
 (function(){
@@ -18,10 +18,7 @@
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Retention Toolkit | Medicare Agent Hub</title>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Kit de Retención | Medicare Agent Hub</title>
 <style>
 :root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;--success:#1E8A5C;--success-tint:#E3F5EC;--warning:#B8720A;--warning-tint:#FDF0D8;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -29,14 +26,14 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .nav-link{font:600 13px/1 Arial,sans-serif;color:#6E687C;text-decoration:none;white-space:nowrap;}
 .nav-link:hover{color:#452068;}
 .nav-link.active{color:#452068;border-bottom:2px solid #FF1090;}
-.wrap{max-width:1200px;margin:0 auto;padding:18px 22px 36px;}
+.wrap{max-width:1200px;margin:0 auto;padding:32px;}
 .hero{background:linear-gradient(135deg,#FFE8F3 0%,#F9F0FD 100%);border-radius:16px;padding:16px 20px;margin-bottom:16px;}
 .hero-badge{display:inline-block;font:700 10.5px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:0.5px;background:var(--pink);color:#fff;padding:5px 12px;border-radius:999px;margin-bottom:12px;}
 .hero h1{font-size:24px;font-weight:700;color:var(--purple-dark);margin-bottom:8px;}
-.hero .tagline{font-size:13px;color:var(--text-soft);margin-bottom:20px;max-width:65ch;}
+.hero .tagline{font-size:16px;color:var(--text-soft);margin-bottom:20px;max-width:65ch;}
 .stat-row{display:flex;gap:28px;flex-wrap:wrap;}
 .hero-stat{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:3px;}
-.hero-stat .val{font-size:18px;font-weight:700;color:var(--purple);}
+.hero-stat .val{font-size:22px;font-weight:700;color:var(--purple);}
 .hero-stat .lbl{font-size:12px;color:var(--text-soft);}
 .timeline-wrap{margin-bottom:24px;}
 .timeline-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
@@ -143,18 +140,18 @@ details[open] summary::after{content:"▴";}
 <body>
 
 <div class="top-bar">
-  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Hub de Herramientas</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Tour del Hub'>?</a>
   </nav>
 </div>
 
@@ -162,169 +159,168 @@ details[open] summary::after{content:"▴";}
 
   <!-- Hero -->
   <div class="hero">
-    <h1>Retention Toolkit</h1>
-    <p class="tagline">Keep every client you've earned. The complete system for Year-2 renewals and beyond.</p>
-
+    <h1>Kit de Retención</h1>
+    <p class="tagline">Cuida a cada cliente que te has ganado. El sistema completo para renovaciones del Año 2 y más allá.</p>
   </div>
 
-  <!-- Annual Retention Rhythm -->
+  <!-- Ritmo Anual de Retención -->
   <div class="timeline-wrap">
     <div class="timeline-head">
-      <h2>Annual Retention Rhythm</h2>
-      <a href="https://thei-agent-hub.netlify.app/files/THEI_Retention_Email_Templates.docx" target="_blank" rel="noopener">Download the full calendar →</a>
+      <h2>Ritmo Anual de Retención</h2>
+      <a href="https://thei-agent-hub.netlify.app/files/THEI_Retention_Email_Templates.docx" target="_blank" rel="noopener">Descargar el calendario completo →</a>
     </div>
     <div class="timeline">
       <div class="timeline-stop">
         <div class="ts-dot"></div>
-        <div class="ts-month">Month 1</div>
-        <div class="ts-label">Welcome</div>
-        <div class="ts-note">Set the tone</div>
+        <div class="ts-month">Mes 1</div>
+        <div class="ts-label">Bienvenida</div>
+        <div class="ts-note">Marca el tono</div>
       </div>
       <div class="timeline-stop">
         <div class="ts-dot"></div>
-        <div class="ts-month">Month 3+</div>
-        <div class="ts-label">Birthday</div>
-        <div class="ts-note">Personal touch</div>
+        <div class="ts-month">Mes 3+</div>
+        <div class="ts-label">Cumpleaños</div>
+        <div class="ts-note">Toque personal</div>
       </div>
       <div class="timeline-stop">
         <div class="ts-dot"></div>
-        <div class="ts-month">June</div>
-        <div class="ts-label">Mid-Year</div>
-        <div class="ts-note">Summer check-in</div>
+        <div class="ts-month">Junio</div>
+        <div class="ts-label">Mitad del Año</div>
+        <div class="ts-note">Check-in de verano</div>
       </div>
       <div class="timeline-stop">
         <div class="ts-dot"></div>
-        <div class="ts-month">August</div>
-        <div class="ts-label">August Update</div>
-        <div class="ts-note">Pre-AEP warm-up</div>
+        <div class="ts-month">Agosto</div>
+        <div class="ts-label">Actualización de Agosto</div>
+        <div class="ts-note">Precalentamiento pre-AEP</div>
       </div>
       <div class="timeline-stop highlight">
         <div class="ts-dot"></div>
-        <div class="ts-month">September</div>
+        <div class="ts-month">Septiembre</div>
         <div class="ts-label">Pre-AEP</div>
-        <div class="ts-note">Highest Stakes</div>
+        <div class="ts-note">Mayor Importancia</div>
       </div>
       <div class="timeline-stop">
         <div class="ts-dot"></div>
-        <div class="ts-month">December</div>
+        <div class="ts-month">Diciembre</div>
         <div class="ts-label">Post-AEP</div>
-        <div class="ts-note">Lock in renewal</div>
+        <div class="ts-note">Asegura la renovación</div>
       </div>
       <div class="timeline-stop">
         <div class="ts-dot"></div>
-        <div class="ts-month">Year-end</div>
-        <div class="ts-label">Annual Review</div>
-        <div class="ts-note">Renewal confirm</div>
+        <div class="ts-month">Fin de Año</div>
+        <div class="ts-label">Revisión Anual</div>
+        <div class="ts-note">Confirmación de renovación</div>
       </div>
     </div>
   </div>
 
-  <!-- Template Grid -->
+  <!-- Plantillas de Email -->
   <details class="acc" id="templates" open>
     <summary>
-      <span class="acc-title">Email Templates</span>
-      <span class="acc-desc">Seven bilingual (EN + ES) client emails for the year, Welcome through Annual Review, plus the full bundle.</span>
-      <span class="acc-count">8 items</span>
+      <span class="acc-title">Plantillas de Email</span>
+      <span class="acc-desc">Siete emails bilingües (EN + ES) para el año, desde Bienvenida hasta Revisión Anual, más el paquete completo.</span>
+      <span class="acc-count">8 ítems</span>
       <span class="acc-chevron" aria-hidden="true"></span>
     </summary>
     <div class="acc-body">
       <div class="acc-cards four">
     
         <div class="tmpl-card">
-          <h3>Welcome (Month 1)</h3>
-          <p>Set the tone. First impression after enrollment.</p>
-          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/welcome-onboarding.docx" target="_blank" rel="noopener" download>Download ↓</a>
+          <h3>Bienvenida (Mes 1)</h3>
+          <p>Marca el tono. Primera impresión después de la inscripción.</p>
+          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/welcome-onboarding.docx" target="_blank" rel="noopener" download>Descargar ↓</a>
         </div>
     
         <div class="tmpl-card">
-          <h3>Birthday</h3>
-          <p>Personal touchpoint that drives loyalty.</p>
-          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/birthday-email.docx" target="_blank" rel="noopener" download>Download ↓</a>
+          <h3>Cumpleaños</h3>
+          <p>Contacto personal que genera lealtad.</p>
+          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/birthday-email.docx" target="_blank" rel="noopener" download>Descargar ↓</a>
         </div>
     
         <div class="tmpl-card">
-          <h3>Mid-Year (June)</h3>
-          <p>Check-in before the summer lull.</p>
-          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/mid-year-check-in.docx" target="_blank" rel="noopener" download>Download ↓</a>
+          <h3>Mitad del Año (Junio)</h3>
+          <p>Check-in antes del período tranquilo del verano.</p>
+          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/mid-year-check-in.docx" target="_blank" rel="noopener" download>Descargar ↓</a>
         </div>
     
         <div class="tmpl-card">
-          <h3>August Update</h3>
-          <p>Pre-AEP warm-up. Gets clients thinking about their plan.</p>
-          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/august-info-update.docx" target="_blank" rel="noopener" download>Download ↓</a>
+          <h3>Actualización de Agosto</h3>
+          <p>Precalentamiento pre-AEP. Hace que los clientes piensen en su plan.</p>
+          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/august-info-update.docx" target="_blank" rel="noopener" download>Descargar ↓</a>
         </div>
     
         <div class="tmpl-card">
-          <h3>Pre-AEP (September)</h3>
-          <p>Highest stakes email of the year. Do not skip this one.</p>
-          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/pre-aep-review-request.docx" target="_blank" rel="noopener" download>Download ↓</a>
+          <h3>Pre-AEP (Septiembre)</h3>
+          <p>El email más importante del año. No te lo saltes.</p>
+          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/pre-aep-review-request.docx" target="_blank" rel="noopener" download>Descargar ↓</a>
         </div>
     
         <div class="tmpl-card">
-          <h3>Post-AEP (December)</h3>
-          <p>Lock in the renewal. Thank them and confirm coverage.</p>
-          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/post-aep-thank-you.docx" target="_blank" rel="noopener" download>Download ↓</a>
+          <h3>Post-AEP (Diciembre)</h3>
+          <p>Asegura la renovación. Agradéceles y confirma la cobertura.</p>
+          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/post-aep-thank-you.docx" target="_blank" rel="noopener" download>Descargar ↓</a>
         </div>
     
         <div class="tmpl-card">
-          <h3>Annual Review</h3>
-          <p>Full-year wrap-up and renewal confirmation.</p>
-          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/annual-review-reminder.docx" target="_blank" rel="noopener" download>Download ↓</a>
+          <h3>Revisión Anual</h3>
+          <p>Resumen del año completo y confirmación de renovación.</p>
+          <a class="btn btn-purple" href="https://thei-agent-hub.netlify.app/files/annual-review-reminder.docx" target="_blank" rel="noopener" download>Descargar ↓</a>
         </div>
     
         <div class="tmpl-card bundle">
-          <h3>Download Full Bundle</h3>
-          <p>All 7 templates as one ZIP — EN + ES versions included.</p>
-          <a class="btn btn-white" href="https://thei-agent-hub.netlify.app/files/THEI_Retention_Email_Templates.docx" target="_blank" rel="noopener" download>Download Bundle ↓</a>
+          <h3>Descargar Paquete Completo</h3>
+          <p>Las 7 plantillas en un ZIP — versiones EN + ES incluidas.</p>
+          <a class="btn btn-white" href="https://thei-agent-hub.netlify.app/files/THEI_Retention_Email_Templates.docx" target="_blank" rel="noopener" download>Descargar Paquete ↓</a>
         </div>
     
       </div>
     </div>
   </details>
 
-  <!-- The Retention Math -->
+  <!-- Los Números de la Retención -->
   <div class="math-block">
-    <h2>The Retention Math</h2>
-    <p>Keeping a client costs <strong>5x less</strong> than acquiring a new one. Each retained client represents <strong>$200–$600</strong> in annual renewal commissions. A consistent touchpoint system — <strong>7 emails per year</strong> — is the single highest-ROI activity in your book. Agents who send all 7 touchpoints see 78% Year-1 renewal rates vs. 54% for those who don't.</p>
+    <h2>Los Números de la Retención</h2>
+    <p>Mantener un cliente cuesta <strong>5 veces menos</strong> que conseguir uno nuevo. Cada cliente retenido representa entre <strong>$200 y $600</strong> en comisiones anuales de renovación. Un sistema consistente de contactos — <strong>7 emails al año</strong> — es la actividad con mayor ROI en tu cartera. Los agentes que envían los 7 contactos ven tasas de renovación del 78% en el Año 1 vs. el 54% de los que no lo hacen.</p>
   </div>
 
-  <!-- How to Personalize Accordion -->
+  <!-- Cómo Personalizar Cada Plantilla -->
   <details class="acc" id="personalize">
     <summary>
-      <span class="acc-title">How to Personalize Each Template</span>
-      <span class="acc-desc">What to mention in each of the seven emails: names, plan details, timing, and tone.</span>
-      <span class="acc-count">7 items</span>
+      <span class="acc-title">Cómo Personalizar Cada Plantilla</span>
+      <span class="acc-desc">Qué mencionar en cada uno de los siete emails: nombres, detalles del plan, momento y tono.</span>
+      <span class="acc-count">7 ítems</span>
       <span class="acc-chevron" aria-hidden="true"></span>
     </summary>
     <div class="acc-body">
       <div class="accord-wrap">
       <details class="accord-item">
-        <summary>Welcome (Month 1)</summary>
-        <div class="accord-body">Personalize with the client's first name, their plan name, and their effective date. Add a sentence about what you love about their plan choice to make it feel personal, not automated.</div>
+        <summary>Bienvenida (Mes 1)</summary>
+        <div class="accord-body">Personaliza con el nombre del cliente, el nombre de su plan y su fecha de vigencia. Agrega una oración sobre lo que te gusta de su elección de plan para que se sienta personal, no automatizado.</div>
       </details>
       <details class="accord-item">
-        <summary>Birthday</summary>
-        <div class="accord-body">Just use their name and birthday month. Keep it short — a genuine "Happy Birthday" from their agent stands out. Don't pitch anything. Just check in.</div>
+        <summary>Cumpleaños</summary>
+        <div class="accord-body">Solo usa su nombre y el mes de su cumpleaños. Que sea corto — un genuino "Feliz Cumpleaños" de su agente marca la diferencia. No vendas nada. Solo saluda.</div>
       </details>
       <details class="accord-item">
-        <summary>Mid-Year (June)</summary>
-        <div class="accord-body">Reference any plan changes or new benefits you've noticed. Remind them of their OTC allowance if applicable. Ask how the plan has been working — invite a reply.</div>
+        <summary>Mitad del Año (Junio)</summary>
+        <div class="accord-body">Menciona cualquier cambio en el plan o nuevos beneficios que hayas notado. Recuérdales su asignación OTC si aplica. Pregunta cómo ha ido el plan — invita una respuesta.</div>
       </details>
       <details class="accord-item">
-        <summary>August Update</summary>
-        <div class="accord-body">Let them know AEP is coming in October. Reassure them you'll be in touch. Mention any carrier news relevant to their area. Keep the tone calm — no urgency yet.</div>
+        <summary>Actualización de Agosto</summary>
+        <div class="accord-body">Diles que AEP llega en octubre. Asegúrales que estarás en contacto. Menciona noticias del carrier relevantes para su área. Mantén el tono tranquilo — todavía no hay urgencia.</div>
       </details>
       <details class="accord-item">
-        <summary>Pre-AEP (September)</summary>
-        <div class="accord-body">This is the most important email. Tell them you've done a plan review and will call them before October 15. If their plan has major benefit changes, mention it here. Schedule the call in this email.</div>
+        <summary>Pre-AEP (Septiembre)</summary>
+        <div class="accord-body">Este es el email más importante. Diles que hiciste una revisión del plan y que los llamarás antes del 15 de octubre. Si el plan tiene cambios importantes en beneficios, mencíonalo aquí. Agenda la llamada en este email.</div>
       </details>
       <details class="accord-item">
-        <summary>Post-AEP (December)</summary>
-        <div class="accord-body">Confirm their coverage for the new year. If they didn't change, tell them why staying was the right call. If they switched, remind them of the key benefits they'll gain on January 1.</div>
+        <summary>Post-AEP (Diciembre)</summary>
+        <div class="accord-body">Confirma su cobertura para el nuevo año. Si no cambiaron de plan, diles por qué quedarse fue la decisión correcta. Si cambiaron, recuérdales los beneficios clave que tendrán el 1 de enero.</div>
       </details>
       <details class="accord-item">
-        <summary>Annual Review</summary>
-        <div class="accord-body">Look back at the year: any claims, hospitalizations, medications that changed? Confirm their doctors are still in-network. Position yourself as their year-round advocate.</div>
+        <summary>Revisión Anual</summary>
+        <div class="accord-body">Repasa el año: ¿hubo reclamaciones, hospitalizaciones, medicamentos que cambiaron? Confirma que sus médicos siguen en la red. Posiciónate como su defensor durante todo el año.</div>
       </details>
     </div>
     </div>
@@ -334,8 +330,16 @@ details[open] summary::after{content:"▴";}
 
 <script>
 function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
-try { localStorage.removeItem('thei_aep_reviews_2027'); } catch(e){}
 </script>
-
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
 </body>
 </html>
