@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Biblioteca de Generación de Leads | Medicare Agent Hub</title>
+<style>
+:root{--primary:#452068;--primary-dark:#2f1550;--accent:#452068;--text:#241a30;--muted:#5f566b;--faint:#8f879b;--border:#ECE8F1;--bg:#F6F5F8;--card:#fff;}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 22px 40px;}
+.hero-inner{position:relative}
+.hero-badge{display:inline-block;font:600 12px/1 Arial,sans-serif;color:rgba(255,255,255,.75);margin-bottom:8px;}
+.searchbar{display:flex;gap:8px;align-items:center;margin:0 0 12px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px 8px 8px 16px;}
+.searchbar .icon{display:none;}
+.searchbar input{flex:1;border:0;outline:0;font:400 15px/1.4 'Inter',Arial,sans-serif;color:var(--text);background:transparent;min-width:0;}
+.searchbar input::placeholder{color:#8f879b;}
+.searchbar .clear{border:1px solid var(--border);background:#fff;color:var(--primary);padding:7px 11px;border-radius:9px;font:700 12px/1 Arial,sans-serif;cursor:pointer;}
+.results-note{font-size:14px;color:var(--muted);margin:0 2px 10px;}
+.results-note:empty{display:none;}
+.hidden{display:none !important;}
+.lib-intro{font-size:14px;color:var(--muted);margin:0 0 10px;}
+.acc-sub-desc{font-size:13.5px;color:var(--muted);margin:-6px 0 10px;}
+.acc-group + .acc-group{margin-top:16px;}
+.card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--text);}
+a.card:hover,.card:hover{border-color:rgba(69,32,104,.28);}
+.card h3{margin:0;font:700 15.5px/1.3 'Inter',Arial,sans-serif;color:var(--text);}
+.meta,.card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5;}
+.card ul,.card ol{margin:2px 0 0 18px;padding:0;color:var(--muted);font-size:13.5px;line-height:1.5;}
+.pills{display:flex;gap:6px;flex-wrap:wrap;order:-1;}
+.pill,.pill.hot{font:600 11px/1 Arial,sans-serif;padding:4px 8px;border-radius:999px;background:#f7f2fb;color:var(--primary);border:0;}
+.actions{margin-top:auto;padding-top:4px;display:flex;gap:8px;flex-wrap:wrap;}
+.btn{text-decoration:none;padding:7px 12px;border-radius:999px;font:600 12.5px/1 Arial,sans-serif;display:inline-block;border:1px solid transparent;}
+.btn.primary,.btn.accent{background:var(--primary);color:#fff;}
+.btn.outline{background:#fff;color:var(--primary);border-color:rgba(69,32,104,.45);}
+.small{font-size:13px;color:var(--muted);}
+.acc-cards .card[href]:not(:has(.actions)) h3:after{content:" →";color:var(--primary);}
+
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+</style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="/hub-nav.css" rel="stylesheet"/>
+<link href="/hub-density.css" rel="stylesheet"/><link href="/hub-clean.css" rel="stylesheet"/>
+<script defer="" src="/hub-nav.js"></script>
+</head>
+<body>
+<div class="top-bar">
+<div class="logo-wrap"><img alt="THEI" src="/files/thei-logo.png"/></div>
+<nav class="pill-nav">
+<a href="/home">Panel del Agente</a>
+<a href="/learn">Universidad del Agente</a>
+<a href="/carrier-info">Info de Aseguradoras</a>
+<a href="/events">Eventos</a>
+<a href="/compliance">Cumplimiento</a>
+<a href="/tools-perks">Herramientas y Beneficios</a>
+<a href="/retention-toolkit">Kit de Retención</a>
+<a href="/sep-tracker">Rastreador de SEP</a>
+<a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+<button onclick="window.location.href='/home.html'" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;" title="Tour del Hub">?</button>
+</nav>
+</div>
+<div class="wrap">
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-badge">Universidad del Agente</div>
+<h1>Biblioteca de Generación de Leads</h1>
+<p>Cómo encontrar nuevos clientes. Tres canales probados — presencia comunitaria, alianzas con proveedores y redes sociales — desglosados en guías paso a paso.</p>
+</div>
+</section>
+<!-- BÚSQUEDA -->
+<div aria-label="Buscar en la Biblioteca de Generación de Leads" class="searchbar" role="search">
+<div aria-hidden="true" class="icon"></div>
+<input id="searchInput" placeholder="Buscar guías, scripts, captions (ej. outreach, AEP, in-service, redes sociales)..." type="search"/>
+<button class="clear" id="clearBtn" type="button">Borrar</button>
+</div>
+<div class="results-note" id="resultsNote"></div>
+<!-- 1) GUÍA DE EVENTOS COMUNITARIOS -->
+<details class="acc" data-accordion="" data-section="" id="gu-a-de-eventos-comunitarios"><summary><span class="acc-title">Guía de Eventos Comunitarios</span><span class="acc-desc">Cómo construir una presencia comunitaria sostenible — desde el primer contacto hasta alianzas a largo plazo con los lugares. 4 fases, bilingüe.</span><span class="acc-count">5 ítems</span><span aria-hidden="true" class="acc-chevron"></span></summary><div class="acc-body">
+
+
+<a class="card" data-search="carrier event request forms formularios solicitud eventos aseguradoras dhcp solis tabletop mesas informativas comunidad aep carolina" href="/carrier-event-forms" style="min-height:auto;margin-bottom:12px;">
+<div>
+<div class="pills"><span class="pill hot">AEP · Todo el año</span></div>
+<h3 style="margin-top:8px;">Formularios para Solicitar Eventos con Aseguradoras</h3>
+<p class="meta">Formularios de DHCP y Solis para mesas informativas (tabletops), eventos educativos y eventos para miembros. Compártelos con Carolina.</p>
+</div>
+<div class="actions"><span class="btn primary">Abrir Formularios</span></div>
+</a>
+<div class="acc-cards">
+<div class="card" data-search="community events phase 1 getting in venue research outreach email follow up phone walk in bilingual">
+<h3>Fase 1: Cómo Entrar</h3>
+<div class="pills">
+<span class="pill hot">Empieza Aquí</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">Cómo encontrar lugares, enviar el primer email de contacto, dar seguimiento y conseguir la reunión. Incluye 4 scripts + rastreador de contactos.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1dyBtL2W3RZOnkGaTsU8h5gngohK4Yn0W/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 1
+ </a>
+</div>
+</div>
+<div class="card" data-search="community events phase 2 showing up right pre event prep checklist 10 minute talk one on one bilingual">
+<h3>Fase 2: Presentarte Bien</h3>
+<div class="pills">
+<span class="pill">El Día Del Evento</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">Lista de preparación previa al evento, qué llevar, script para la primera visita, la charla educativa de 10 minutos y scripts uno a uno.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1v-8gTDkRhRhDpMhPyLIRL3MthY2EKDa7/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 2
+ </a>
+</div>
+</div>
+<div class="card" data-search="community events phase 3 converting lead capture same day follow up 7 day sequence objections monthly rhythm bilingual">
+<h3>Fase 3: Convertir</h3>
+<div class="pills">
+<span class="pill">Después del Evento</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">Plantilla para capturar leads, seguimiento el mismo día, la secuencia de 7 días, manejo de objeciones y cómo convertir una visita en una alianza mensual.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1nUigracs0daW_SwkzdyIKPoZKwcFUq1C/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 3
+ </a>
+</div>
+</div>
+<div class="card" data-search="community events phase 4 building partnership quarterly check in sponsorship event proposal annual review bilingual">
+<h3>Fase 4: Construir la Alianza</h3>
+<div class="pills">
+<span class="pill">A Largo Plazo</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">Revisiones trimestrales, marcos para ofertas de patrocinio, propuestas de eventos cuando quieras ser anfitrión y las 10 reglas para relaciones a largo plazo.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1poxDqEcA9dkG756Z9PAI3JL2DRByYRtB/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 4
+ </a>
+</div>
+</div>
+</div>
+</div></details>
+<!-- 2) GUÍA PARA CONSULTORIOS MÉDICOS -->
+<details class="acc" data-accordion="" data-section="" id="gu-a-para-consultorios-m-dicos"><summary><span class="acc-title">Guía para Consultorios Médicos</span><span class="acc-desc">Cómo convertir los consultorios médicos en fuentes constantes de referidos — visitas quincenales, in-services patrocinados por aseguradoras, sesiones de preparación para AEP. 4 fases, bilingüe.</span><span class="acc-count">4 ítems</span><span aria-hidden="true" class="acc-chevron"></span></summary><div class="acc-body">
+
+
+<div class="acc-cards">
+<div class="card" data-search="provider office phase 1 mapping office org chart first visit leave behind packet follow up bilingual">
+<h3>Fase 1: Conocer el Consultorio</h3>
+<div class="pills">
+<span class="pill hot">Empieza Aquí</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">Cómo identificar qué consultorios valen tu tiempo, el organigrama del personal, tu script de 5 minutos para la primera visita y el paquete informativo para dejar.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1GJiN2PuAALpxA5n0pOJZVWO1adWtwPWc/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 1
+ </a>
+</div>
+</div>
+<div class="card" data-search="provider office phase 2 bi weekly drop by cadence treats rotation role scripts compliance bilingual">
+<h3>Fase 2: Las Visitas Quincenales</h3>
+<div class="pills">
+<span class="pill">Ritmo</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">El ritmo de visitas cada 2-3 semanas, una rotación de detalles para 6 visitas, scripts de conversación por rol, logística para múltiples consultorios y lo básico de compliance.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1P6ty8XsM0BGgSb3oc-di7DPR8oe-AfI6/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 2
+ </a>
+</div>
+</div>
+<div class="card" data-search="provider office phase 3 carrier sponsored in service lunch presentation 30 minute proposing follow up bilingual humana uhc aetna wellcare">
+<h3>Fase 3: In-Service Patrocinado por la Aseguradora</h3>
+<div class="pills">
+<span class="pill hot">Alto Impacto</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">Cómo conseguir que una aseguradora (Humana, UHC, Aetna, Wellcare) patrocine el almuerzo, proponer el in-service, dar la presentación y hacer seguimiento.</p>
+<div class="actions">
+<a class="btn accent" href="https://docs.google.com/document/d/1ouCYzdvdzDsnV3yjDkAcT-hyAZZ3kHyd/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 3
+ </a>
+</div>
+</div>
+<div class="card" data-search="provider office phase 4 becoming office agent aep prep 2027 referral systems quarterly check in defending competitors multi location bilingual">
+<h3>Fase 4: Convertirte en EL Agente del Consultorio</h3>
+<div class="pills">
+<span class="pill">A Largo Plazo</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">El in-service de preparación para AEP 2027, sistemas de referidos sin fricción, cómo defenderte de agentes de la competencia y la estrategia de múltiples ubicaciones.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1_bEL2If1vJBek8P9eT9_jXyY4jDd26fd/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Fase 4
+ </a>
+</div>
+</div>
+</div>
+</div></details>
+<!-- 3) BIBLIOTECA DE REDES SOCIALES -->
+<details class="acc" data-accordion="" data-section="" id="biblioteca-de-redes-sociales"><summary><span class="acc-title">Biblioteca de Redes Sociales</span><span class="acc-desc">30 captions listos para publicar en Facebook e Instagram. Bilingüe. Sin hashtags. Elige un caption, consigue el visual y publica en 10 minutos.</span><span class="acc-count">3 ítems</span><span aria-hidden="true" class="acc-chevron"></span></summary><div class="acc-body">
+
+
+<div class="acc-cards">
+<div class="card" data-search="social media volume 1 captions educational mythbuster seasonal personal bilingual facebook instagram">
+<h3>Biblioteca de Captions — Volumen 1</h3>
+<div class="pills">
+<span class="pill hot">15 Captions</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">15 captions listos para publicar en 4 categorías: Educativo, Rompemitos, Estacional/Actual y Personal/Marca. Incluye el ritmo semanal y sugerencias de visuales.</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Volumen 1
+ </a>
+</div>
+</div>
+<div class="card" data-search="social media volume 2 captions aep reviews series part d dual eligible medigap telehealth bilingual">
+<h3>Biblioteca de Captions — Volumen 2</h3>
+<div class="pills">
+<span class="pill hot">15 Captions Más</span>
+<span class="pill">Bilingüe</span>
+</div>
+<p class="meta">15 captions más que incluyen una serie de 4 captions de Reseñas de AEP programados según el calendario de AEP (agosto a diciembre).</p>
+<div class="actions">
+<a class="btn primary" href="https://docs.google.com/document/d/1CIPIu7ZcYn6ZALItNiVF92o_E30ua3d7/edit?usp=sharing" rel="noopener" target="_blank">
+ Abrir Volumen 2
+ </a>
+</div>
+</div>
+<div class="card" data-search="social media weekly rhythm posting schedule monday wednesday friday consistency">
+<h3>El Ritmo Semanal</h3>
+<div class="pills">
+<span class="pill">Horario</span>
+</div>
+<p class="meta">Lunes = Educativo. Miércoles = Rompemitos o Estacional. Viernes = Personal/Marca. 3 posts por semana. Detallado en ambos volúmenes.</p>
+<div class="actions">
+<a class="btn outline" href="https://docs.google.com/document/d/1x7xJBSoXbueWQMU6C50rXQcI_Rt9IRIj/edit?usp=sharing" rel="noopener" target="_blank">
+ Ver Guía de Ritmo
+ </a>
+</div>
+</div>
+</div>
+</div></details>
+<!-- 4) CÓMO USAR ESTA BIBLIOTECA -->
+<details class="acc" data-accordion="" data-section="" id="c-mo-usar-esta-biblioteca"><summary><span class="acc-title">Cómo Usar Esta Biblioteca</span><span class="acc-desc">Tres canales, una estrategia. Elige el canal que va con tus fortalezas — y comprométete.</span><span class="acc-count">9 ítems</span><span aria-hidden="true" class="acc-chevron"></span></summary><div class="acc-body">
+
+
+
+<div class="acc-group"><h3 class="acc-sub">Elige Tu(s) Canal(es) de Generación de Leads</h3><p class="acc-sub-desc">No tienes que hacer los tres a la vez</p><div class="acc-cards">
+<div class="card" data-search="community events outgoing extrovert in person network">
+<h3>Eventos Comunitarios</h3>
+<div class="pills"><span class="pill">Ideal Para</span></div>
+<p class="meta">Agentes extrovertidos, cómodos en grupos y que se energizan con la presencia en persona. Centros de seniors, iglesias, HOAs de 55+.</p>
+</div>
+<div class="card" data-search="provider offices relationship builder patient quiet professional doctors medical staff">
+<h3>Consultorios Médicos</h3>
+<div class="pills"><span class="pill">Ideal Para</span></div>
+<p class="meta">Agentes pacientes, profesionales y buenos construyendo relaciones uno a uno. PCPs, cardiólogos, podiatras.</p>
+</div>
+<div class="card" data-search="social media writer creative quiet bilingual scalable facebook instagram">
+<h3>Redes Sociales</h3>
+<div class="pills"><span class="pill">Ideal Para</span></div>
+<p class="meta">Agentes que escriben bien, prefieren trabajar solos o quieren construir presencia sin salir de su escritorio. Escala infinitamente.</p>
+</div>
+</div></div>
+<div class="acc-group"><h3 class="acc-sub">El Plan de Construcción de 90 Días</h3><p class="acc-sub-desc">No intentes todo a la vez</p><div class="acc-cards">
+<div class="card" data-search="month 1 first 30 days outreach research first visits start social posts">
+<h3>Mes 1: Fundación</h3>
+<div class="pills"><span class="pill">Días 1-30</span></div>
+<p class="meta">Elige 3 lugares comunitarios + 3 consultorios médicos como objetivo. Envía el primer contacto. Empieza a publicar 3 veces/semana en redes sociales. Lee todas las guías de Fase 1.</p>
+</div>
+<div class="card" data-search="month 2 second 30 days first visits drop bys consistent posting follow up">
+<h3>Mes 2: Consistencia</h3>
+<div class="pills"><span class="pill">Días 31-60</span></div>
+<p class="meta">Completa las primeras visitas comunitarias. Visita los consultorios cada 2 semanas. Da seguimiento a los leads. Publica consistentemente. Lee las guías de Fase 2.</p>
+</div>
+<div class="card" data-search="month 3 third 30 days propose in service convert leads partnerships building">
+<h3>Mes 3: Momentum</h3>
+<div class="pills"><span class="pill">Días 61-90</span></div>
+<p class="meta">Propón tu primer in-service patrocinado por una aseguradora. Convierte los leads de eventos comunitarios en inscripciones. Establece el ritmo mensual en los lugares. Lee las guías de Fase 3.</p>
+</div>
+</div></div>
+<div class="acc-group"><h3 class="acc-sub">Las Matemáticas de la Generación de Leads</h3><p class="acc-sub-desc">Qué es realista de cada canal</p><div class="acc-cards">
+<div class="card" data-search="community events math 3 venues monthly visits 36 touchpoints lead generation">
+<h3>Eventos Comunitarios</h3>
+<div class="pills"><span class="pill hot">Año 1 Realista</span></div>
+<p class="meta">3 lugares × visitas mensuales × año completo = 36 puntos de contacto. Espera 15-25 inscripciones de este canal después del primer año.</p>
+</div>
+<div class="card" data-search="provider offices math bi weekly visits 4 offices in service 50 enrollments referrals">
+<h3>Consultorios Médicos</h3>
+<div class="pills"><span class="pill hot">Mayor ROI</span></div>
+<p class="meta">4 consultorios × visitas quincenales + 1 in-service por consultorio al año = 50-100 inscripciones anuales una vez maduro (6+ meses).</p>
+</div>
+<div class="card" data-search="social media math 3 posts weekly 156 posts year inbound leads brand">
+<h3>Redes Sociales</h3>
+<div class="pills"><span class="pill">Crecimiento Más Lento</span></div>
+<p class="meta">3 posts/semana × 52 semanas = 156 posts/año. Los leads inbound empiezan a llegar alrededor del mes 6, se aceleran al mes 12+. Juego a largo plazo.</p>
+</div>
+</div></div>
+
+</div></details>
+</div>
+<script>
+(function(){
+ const input = document.getElementById('searchInput');
+ const clearBtn = document.getElementById('clearBtn');
+ const note = document.getElementById('resultsNote');
+
+ const sections = Array.from(document.querySelectorAll('[data-section]'));
+ const cards = Array.from(document.querySelectorAll('.card'));
+
+ function normalize(s){
+ return (s || "")
+ .toLowerCase()
+ .replace(/\s+/g,' ')
+ .trim();
+ }
+
+ function update(){
+ const q = normalize(input.value);
+ let visibleCards = 0;
+
+ if(!q){
+ cards.forEach(c => c.classList.remove('hidden'));
+ sections.forEach(s => s.classList.remove('hidden'));
+ note.textContent = "";
+ return;
+ }
+
+ cards.forEach(card => {
+ const hay = normalize(card.getAttribute('data-search')) + " " + normalize(card.innerText);
+ const match = hay.includes(q);
+ card.classList.toggle('hidden', !match);
+ if(match) visibleCards++;
+ });
+
+ sections.forEach(section => {
+ const hasVisible = section.querySelector('.card:not(.hidden)');
+ section.classList.toggle('hidden', !hasVisible);
+ });
+
+ document.querySelectorAll('details[data-accordion]').forEach(det => {
+ const hasVisible = det.querySelector('.card:not(.hidden)');
+ if(hasVisible) det.open = true;
+ });
+
+ note.textContent = visibleCards
+ ? `Mostrando ${visibleCards} resultado${visibleCards === 1 ? "" : "s"} para "${input.value.trim()}".`
+ : `Sin resultados para "${input.value.trim()}". Prueba "consultorio", "eventos comunitarios", "redes sociales" o "in-service".`;
+ }
+
+ input.addEventListener('input', update);
+ clearBtn.addEventListener('click', () => {
+ input.value = "";
+ input.focus();
+ update();
+ });
+
+ update();
+})();
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>

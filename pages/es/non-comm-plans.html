@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <script>
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Non-Commissionable Plans 2026–2027 | The Health Experts Insurance</title>
+<title>Planes Sin Comisión 2026–2027 | The Health Experts Insurance</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -104,36 +104,36 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 <div class="top-bar">
   <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <button onclick="startTour ? startTour() : null" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <button onclick="startTour ? startTour() : null" title="Tour del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
   </nav>
 </div>
 
 
 <div class="wrap">
   <div class="hero">
-    <span class="hero-tag">Important — Verify Before Enrolling</span>
-    <h1>Non-Commissionable Plans — 2026 &amp; 2027</h1>
-    <p>Full searchable list of non-commissionable plans by carrier and state. Each carrier is tagged by plan year. Aetna is Plan Year 2027 (bulletin 8/20/2026); other carriers remain 2026 pending their 2027 bulletins. New sales only — renewals still receive FMV commission.</p>
-    <span class="hero-meta">680 plans · All States · CMS National Landscape Extract + Aetna 2027 bulletin</span>
+    <span class="hero-tag">Importante — Verifica Antes de Inscribir</span>
+    <h1>Planes Sin Comisión — 2026 y 2027</h1>
+    <p>Lista completa y buscable de planes sin comisión por aseguradora y estado. Cada aseguradora está marcada con su año del plan. Aetna es Año del Plan 2027 (boletín del 8/20/2026); las demás aseguradoras siguen en 2026 mientras salen sus boletines de 2027. Solo ventas nuevas — las renovaciones siguen recibiendo comisión FMV.</p>
+    <span class="hero-meta">680 planes · Todos los Estados · Extracto Nacional del Panorama de CMS + boletín de Aetna 2027</span>
   </div>
 
-  <input type="text" class="search-bar" id="ncSearch" placeholder="Search by carrier, plan ID, plan name, or state…" autocomplete="off">
+  <input type="text" class="search-bar" id="ncSearch" placeholder="Buscar por aseguradora, ID de plan, nombre del plan o estado…" autocomplete="off">
 
   <div class="filter-row">
-    <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">All Carriers</button>
+    <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">Todas las Aseguradoras</button>
     <button class="filter-pill" data-filter="2027" onclick="setFilter('2027')">2027</button>
     <button class="filter-pill" data-filter="2026" onclick="setFilter('2026')">2026</button>
     <select class="state-select" id="ncStateSelect" onchange="renderList()">
-      <option value="">All States</option>
+      <option value="">Todos los Estados</option>
     </select>
     <span class="result-count" id="ncResultCount"></span>
   </div>
@@ -142,11 +142,11 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
   <div class="no-results" id="ncNoResults" style="display:none;">
     <div class="nr-icon">🔍</div>
-    <p>No plans match your search. Try a different carrier, plan ID, or state.</p>
+    <p>Ningún plan coincide con tu búsqueda. Prueba con otra aseguradora, ID de plan o estado.</p>
   </div>
 
   <div class="page-note">
-    <strong>How to read this list:</strong> Plans shown here are non-commissionable for <strong>new sales only</strong> — existing member renewals continue to receive Fair Market Value (FMV) commission. Each carrier is tagged by plan year. Aetna contract/PBP rows are Plan Year 2027 (bulletin updated 8/20/2026); all new Aetna PDP sales are non-commissionable. Other carriers remain 2026 pending their 2027 bulletins.
+    <strong>Cómo leer esta lista:</strong> los planes que aparecen aquí no pagan comisión <strong>solo en ventas nuevas</strong> — las renovaciones de miembros actuales siguen recibiendo comisión de Valor Justo de Mercado (FMV). Cada aseguradora está marcada con su año del plan. Las filas de contrato/PBP de Aetna son del Año del Plan 2027 (boletín actualizado el 8/20/2026); todas las ventas nuevas de PDP de Aetna son sin comisión. Las demás aseguradoras siguen en 2026 mientras salen sus boletines de 2027.
   </div>
 
 </div>
@@ -1000,7 +1000,7 @@ function renderList() {
           <div class="acc-icon">🚫</div>
           <div>
             <div class="acc-title">${c.carrier} <span class="acc-year y${year}">${year}</span></div>
-            <div class="acc-sub">${matchedPlans.length} plan${matchedPlans.length !== 1 ? 's' : ''} · Plan Year ${year} · ${stateKeys.join(', ')}</div>
+            <div class="acc-sub">${matchedPlans.length} plan${matchedPlans.length !== 1 ? 'es' : ''} · Año del Plan ${year} · ${stateKeys.join(', ')}</div>
           </div>
         </div>
         <div class="acc-right">
@@ -1014,7 +1014,7 @@ function renderList() {
             <div class="acc-state-label">${st}</div>
             ${byState[st].map(p => `<span class="plan-chip">${year} · ${p.name ? p.id + ' — ' + p.name : p.id}</span>`).join('')}
           </div>`).join('')}
-        <div class="acc-note">${c.carrier === 'Humana' ? '<strong>Modified commission $165.00</strong> (prorated by eff. date) for Like Plan Type Changes from Humana plans. Source: Humana PPP GCHMRX7EN 01/2026. Always verify before enrolling.' : c.carrier === 'Aetna' ? 'Plan Year <strong>2027</strong>. New sales only — renewals receive FMV. All new Aetna PDP sales are non-commissionable regardless of state, county, or hierarchy. Source: Aetna Non-Commissionable Individual Medicare Products (updated 8/20/2026). Always verify with Aetna before enrolling.' : 'New sales only — renewals receive FMV. Always verify with ' + c.carrier + ' before enrolling.'}</div>
+        <div class="acc-note">${c.carrier === 'Humana' ? '<strong>Comisión modificada de $165.00</strong> (prorrateada según la fecha de vigencia) para cambios a un plan del mismo tipo (Like Plan Type Changes) desde planes de Humana. Fuente: Humana PPP GCHMRX7EN 01/2026. Siempre verifica antes de inscribir.' : c.carrier === 'Aetna' ? 'Año del Plan <strong>2027</strong>. Solo ventas nuevas — las renovaciones reciben FMV. Todas las ventas nuevas de PDP de Aetna son sin comisión, sin importar el estado, condado o jerarquía. Fuente: Aetna Non-Commissionable Individual Medicare Products (actualizado el 8/20/2026). Siempre verifica con Aetna antes de inscribir.' : 'Solo ventas nuevas — las renovaciones reciben FMV. Siempre verifica con ' + c.carrier + ' antes de inscribir.'}</div>
       </div>
     </div>`;
   }).join('');
@@ -1022,7 +1022,7 @@ function renderList() {
   listEl.innerHTML = html;
   noResults.style.display = visibleCarriers ? 'none' : 'block';
   document.getElementById('ncResultCount').textContent =
-    visibleCarriers ? `${visiblePlans} plan${visiblePlans !== 1 ? 's' : ''} across ${visibleCarriers} carrier${visibleCarriers !== 1 ? 's' : ''}` : '';
+    visibleCarriers ? `${visiblePlans} plan${visiblePlans !== 1 ? 'es' : ''} en ${visibleCarriers} aseguradora${visibleCarriers !== 1 ? 's' : ''}` : '';
 }
 
 function toggleAcc(idx) {

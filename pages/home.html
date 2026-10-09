@@ -179,6 +179,16 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 <link rel="stylesheet" href="/hub-density.css">
 <link rel="stylesheet" href="/hub-clean.css">
 <style id="r2">
+/* Round 3: Most-Needed Resources first, full width */
+.res-card.most-needed{margin:14px 0 4px;padding:14px 18px 8px;}
+.most-needed h3{font:700 18px/1.3 'Inter',Arial,sans-serif;margin-bottom:6px;}
+.most-needed .res-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:28px;}
+.most-needed .res-item{border-bottom:1px solid #F1EDF5;}
+.most-needed .res-item:last-child{border-bottom:1px solid #F1EDF5;}
+.two-col{grid-template-columns:1fr 1fr;}
+#ncCarrierList{justify-content:flex-start;}
+@media(max-width:900px){.most-needed .res-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.most-needed .res-grid{grid-template-columns:1fr;}}
 .wrap{max-width:1200px;padding:18px 22px 40px;}
 .wrap>.hero{overflow:visible;padding:20px 26px;margin-bottom:18px;}
 .hero-inner{max-width:none;gap:24px;align-items:center;}
@@ -319,6 +329,37 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
     </div>
   </section>
 
+  <!-- Most-Needed Resources (moved to top, Oct 2026) -->
+  <section class="res-card most-needed" aria-labelledby="most-needed-title">
+    <h3 id="most-needed-title">Most-Needed Resources</h3>
+    <div class="res-grid">
+        <a class="res-item" href="/medicaid-levels">
+          <span class="res-name">Medicaid Levels</span>
+        </a>
+        <a class="res-item" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">
+          <span class="res-name">2027 Plan Comparison Grid</span>
+        </a>
+        <a class="res-item" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
+          <span class="res-name">2026 MAPD Plan Comparison (sell through Nov 30)</span>
+          <span class="res-tag tag-green">Through Nov 30</span>
+        </a>
+        <a class="res-item" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener">
+          <span class="res-name">2026 Income Limits (SSI Chart)</span>
+          <span class="res-tag tag-green">PDF · Apr 2026</span>
+        </a>
+        <a class="res-item" href="https://www.sunfirematrix.com/app/agent/yourmedicare" target="_blank" rel="noopener">
+          <span class="res-name">Sunfire Quoting Tool</span>
+        </a>
+        <a class="res-item" href="https://login.agentsync.io/" target="_blank" rel="noopener">
+          <span class="res-name">AgentSync (Contracting)</span>
+        </a>
+        <a class="res-item" href="https://www.ahipmedicaretraining.com/page/login" target="_blank" rel="noopener">
+          <span class="res-name">AHIP Medicare Training</span>
+          <span class="res-tag tag-pink">Discounted</span>
+        </a>
+    </div>
+  </section>
+
 <!-- Category cards -->
   <p class="section-label">Resources &amp; Tools</p>
   <div class="cat-grid">
@@ -376,33 +417,6 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
   <!-- Resources + Quick Links -->
   <div class="two-col">
-    <div class="res-card">
-      <h3>Most-Needed Resources</h3>
-      <a class="res-item" href="/medicaid-levels">
-        <span class="res-name">Medicaid Levels</span>
-      </a>
-      <a class="res-item" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">
-        <span class="res-name">2027 Plan Comparison Grid</span>
-      </a>
-      <a class="res-item" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
-        <span class="res-name">2026 MAPD Plan Comparison (sell through Nov 30)</span>
-        <span class="res-tag tag-green">Through Nov 30</span>
-      </a>
-      <a class="res-item" href="/files/2026-income-limits-ssi-chart.pdf" target="_blank" rel="noopener">
-        <span class="res-name">2026 Income Limits (SSI Chart)</span>
-        <span class="res-tag tag-green">PDF · Apr 2026</span>
-      </a>
-      <a class="res-item" href="https://www.sunfirematrix.com/app/agent/yourmedicare" target="_blank" rel="noopener">
-        <span class="res-name">Sunfire Quoting Tool</span>
-      </a>
-      <a class="res-item" href="https://login.agentsync.io/" target="_blank" rel="noopener">
-        <span class="res-name">AgentSync (Contracting)</span>
-      </a>
-      <a class="res-item" href="https://www.ahipmedicaretraining.com/page/login" target="_blank" rel="noopener">
-        <span class="res-name">AHIP Medicare Training</span>
-        <span class="res-tag tag-pink">Discounted</span>
-      </a>
-    </div>
 
     <div class="res-card">
       <h3>Quick Links</h3>

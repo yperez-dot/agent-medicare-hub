@@ -1,12 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Pulse Library | THEI Agent Hub</title>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Biblioteca del Pulso | THEI Agent Hub</title>
 <script>
 (function(){
   if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
@@ -41,9 +38,7 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .pulse-entry .pulse-headline{font:600 15px/1.4 Arial,sans-serif;color:#241C2E;margin-bottom:12px;}
 .pulse-entry .pulse-topics{display:flex;flex-wrap:wrap;gap:6px;font:400 12px/1 Arial,sans-serif;color:#9A94A8;}
 .pulse-entry .pulse-topic-tag{background:#F1ECF6;color:#452068;padding:4px 10px;border-radius:999px;}
-.empty-state{text-align:center;padding:48px 24px;color:#9A94A8;font-size:14px;grid-column:1/-1;}
-.back-link{display:inline-block;margin-bottom:20px;font:600 12px/1 Arial,sans-serif;color:#452068;text-decoration:none;}
-.back-link:hover{text-decoration:underline;}
+.empty-state{text-align:center;padding:48px 24px;color:#9A94A8;font-size:14px;}
 @media(max-width:600px){.pill-nav a{font-size:11px;padding:7px 12px;}.wrap{padding:20px 16px 48px;}.library-grid{grid-template-columns:1fr;}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,65 +57,72 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 <body>
 
 <div class="top-bar">
-  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+    <a href='/home'>Inicio</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Recorrido del hub'>?</a>
   </nav>
 </div>
 
 
 <div class="wrap">
   <div class="hero">
-    <h1>Pulse Library</h1>
-    <p>Weekly Agent Pulse digests — every edition, in one place.</p>
+    <h1>Biblioteca de Agent Pulse</h1>
+    <p>Todos los resúmenes semanales de Agent Pulse en un solo lugar.</p>
   </div>
-  <a class="back-link" href="/agent-pulse">← Live updates</a>
+  <a class="back-link" href="/agent-pulse">← Actualizaciones en vivo</a>
   <div class="library-grid" id="library-container">
-    <div class="empty-state">Loading archived pulses...</div>
+    <div class="empty-state">Cargando ediciones anteriores...</div>
   </div>
 </div>
 
-<script>
-function text(value) {
-  return (value == null || value === '') ? '' : value;
-}
 
+<script>
 async function loadLibrary() {
-  const container = document.getElementById('library-container');
   try {
     const res = await fetch('/files/pulse-feed.json?v=' + Date.now());
-    if (!res.ok) throw new Error('Failed to load feed');
-    const feed = await res.json();
-
-    if (feed.weekly_pulses && feed.weekly_pulses.length) {
-      container.innerHTML = feed.weekly_pulses.map(p => `
-        <a class="pulse-entry" href="${p.link || '#'}">
-          <div class="pulse-week">${text(p.week)}</div>
-          <div class="pulse-date">${text(p.date)}</div>
-          <div class="pulse-headline">${text(p.headline)}</div>
-          <div class="pulse-topics">
-            ${p.tag ? `<span class="pulse-topic-tag">${p.tag}</span>` : ''}
-          </div>
-        </a>
-      `).join('');
-    } else {
-      container.innerHTML = '<div class="empty-state">No archived pulses yet. Check back soon!</div>';
-    }
+    const data = res.json();
+    
+    data.then(feed => {
+      const container = document.getElementById('library-container');
+      if (feed.weekly_pulses && feed.weekly_pulses.length) {
+        container.innerHTML = feed.weekly_pulses.map(p => `
+          <a class="pulse-entry" href="${p.link || '#'}">
+            <div class="pulse-week">${p.week}</div>
+            <div class="pulse-date">${p.date}</div>
+            <div class="pulse-headline">${p.headline}</div>
+            <div class="pulse-topics">
+              ${p.tag ? `<span class="pulse-topic-tag">${p.tag}</span>` : ''}
+            </div>
+          </a>
+        `).join('');
+      } else {
+        container.innerHTML = '<div class="empty-state">Todavía no hay pulsos archivados. ¡Vuelve pronto!</div>';
+      }
+    });
   } catch(e) {
-    container.innerHTML = '<div class="empty-state">Could not load library.</div>';
+    document.getElementById('library-container').innerHTML = '<div class="empty-state">No se pudo cargar la biblioteca.</div>';
   }
 }
 loadLibrary();
 </script>
-
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
 </body>
 </html>

@@ -151,6 +151,23 @@ body{
 <link rel="stylesheet" href="/hub-nav.css">
 <link rel="stylesheet" href="/hub-hero.css">
 <link rel="stylesheet" href="/hub-density.css">
+<link rel="stylesheet" href="/hub-clean.css">
+<style id="r3">
+.cta-row .btn,.btn{padding:9px 16px;border-radius:999px;font:700 13px/1 Arial,sans-serif;}
+.btn.accent{background:#452068;color:#fff;}
+.section{border:1px solid #ECE8F1;border-radius:14px;padding:16px 18px;margin-top:12px;}
+.section h2{font:700 18px/1.3 'Inter',Arial,sans-serif;margin:0 0 8px;}
+.section p,.list{font-size:14.5px;}
+.kicker{margin-bottom:6px;}
+.grid-3{gap:10px;grid-template-columns:repeat(4,minmax(0,1fr));}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.grid-3{grid-template-columns:1fr;}}
+.card{border:1px solid #ECE8F1;border-radius:12px;padding:12px 14px;}
+.card h3{font:700 15.5px/1.3 'Inter',Arial,sans-serif;}
+.badge{font:600 11.5px/1 Arial,sans-serif;padding:5px 9px;}
+.note{border:1px solid #ECE8F1;background:#f7f2fb;border-radius:12px;padding:12px 14px;}
+.faq-item summary{font-weight:700;font-size:15px;}
+</style>
 <script src="/hub-nav.js" defer></script>
 </head>
 
@@ -181,7 +198,7 @@ body{
  </div>
 
  <div class="cta-row">
- <a class="btn accent" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
+ <a class="btn primary" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
  Access YourFMO Compliance Portal
  </a>
  <a class="btn outline" href="/aep-2027-training">Take AEP 2027 Training</a>
@@ -195,7 +212,7 @@ body{
  <a href="#faq">FAQs</a>
  </div>
 
- <section class="section" id="soa-2027" style="border:2px solid #DC2626;">
+ <section class="section" id="soa-2027" style="border:1px solid #ECE8F1;border-left:3px solid #DC2626;">
  <div class="kicker">
  <h2 style="color:#DC2626;">NEW — SOA Rule Change · Effective October 1, 2026</h2>
  <span class="badge" style="background:rgba(220,38,38,.1);color:#DC2626;border-color:rgba(220,38,38,.3);">CY2027 Final Rule</span>
@@ -206,7 +223,7 @@ body{
  <p>Beginning <strong>October 1, 2026</strong> for Plan Year 2027 enrollments, appointments may occur the same day an SOA is completed. All other SOA requirements remain in effect.</p>
 
  <div class="grid-3" style="margin-top:16px;">
- <div class="card" style="border-color:#FCA5A5;background:#FEF2F2;">
+ <div class="card" style="background:#FEF2F2;border-color:#FBE3E3;">
  <h3 style="color:#DC2626;">What Changed</h3>
  <p>48-hour waiting period eliminated. Same-day appointments permitted starting Oct 1, 2026 for PY27 enrollments.</p>
  </div>
@@ -224,7 +241,7 @@ body{
  </div>
  </div>
 
- <div style="margin-top:16px;background:#fff8f8;border:1px solid #FCA5A5;border-radius:14px;padding:14px;">
+ <div style="margin-top:16px;background:#fff;border:1px solid #ECE8F1;border-radius:12px;padding:14px;">
  <strong style="font-size:13px;display:block;margin-bottom:8px;">Agent Action Items</strong>
  <ul class="list">
  <li>Obtain and document an SOA before every personal marketing appointment</li>
@@ -247,7 +264,6 @@ body{
  <section class="section" id="official-portal">
  <div class="kicker">
  <h2>Official Compliance Portal</h2>
- <span class="badge">Always Current</span>
  </div>
 
  <p>
@@ -288,7 +304,7 @@ body{
  <p>Use approved marketing materials and avoid misleading or unapproved plan representations.</p>
  </div>
 
- <div class="card" style="border-color:#FCA5A5;">
+ <div class="card">
  <h3>Scope of Appointment (SOA)</h3>
  <p>Obtain and document SOA before every appointment. <strong style="color:#DC2626;">NEW Oct 1, 2026:</strong> 48-hour wait eliminated — same-day appointments now permitted for PY2027.</p>
  </div>
@@ -314,7 +330,6 @@ body{
  <section class="section" id="aep">
  <div class="kicker">
  <h2>AEP / OEP Reminder</h2>
- <span class="badge">High Priority</span>
  </div>
 
  <p>

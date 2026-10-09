@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <script>
 (function(){
@@ -15,10 +15,7 @@
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Events | Medicare Agent Hub</title>
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Eventos | Medicare Agent Hub</title>
 <style>
 :root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -29,6 +26,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
 .pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
 .wrap{max-width:1100px;margin:0 auto;padding:18px 22px 36px;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--purple-dark),var(--purple));border-radius:16px;padding:16px 20px;margin-bottom:32px;color:#fff;}
+.hero h1{font:700 24px/1.2 Arial,sans-serif;margin-bottom:6px;}
+.hero p{font:400 14px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:60ch;}
 
 /* Filter pills */
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
@@ -61,15 +63,6 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .event-desc{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);margin-bottom:7px;}
 .event-meta{font:600 11px/1 Arial,sans-serif;color:var(--text-faint);}
 
-/* Event request forms — primary discovery for Carolina / AEP outreach */
-.event-forms-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--border);border-top:3px solid var(--pink);border-radius:16px;padding:18px 20px;text-decoration:none;color:inherit;margin-bottom:22px;box-shadow:0 1px 3px rgba(36,28,46,.06);}
-.event-forms-banner:hover{box-shadow:0 4px 16px rgba(69,32,104,.1);}
-.event-forms-kicker{font:700 10.5px/1 Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;color:var(--pink-dark);margin-bottom:6px;}
-.event-forms-banner h2{font:700 17px/1.25 Arial,sans-serif;color:var(--text);margin-bottom:4px;}
-.event-forms-banner p{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);margin:0;}
-.event-forms-cta{flex-shrink:0;padding:10px 18px;background:var(--purple);color:#fff;border-radius:999px;font:700 13px/1 Arial,sans-serif;}
-@media(max-width:700px){.event-forms-banner{flex-direction:column;align-items:flex-start;}}
-
 /* Add event CTA */
 .add-event{background:#fff;border:2px dashed var(--border);border-radius:14px;padding:22px 20px;display:flex;align-items:center;gap:14px;color:var(--text-soft);cursor:pointer;transition:all .15s;}
 .add-event:hover{border-color:var(--purple);color:var(--purple);}
@@ -81,13 +74,12 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .column-header h2{font:700 17px/1 Arial,sans-serif;color:var(--text);}
 
 @media(max-width:780px){.columns{grid-template-columns:1fr;}}
-@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}.pill-nav{gap:6px;}}
+@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}.pill-nav{gap:6px;}.hero{padding:20px 18px;}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
-<link rel="stylesheet" href="/hub-hero.css">
 <link rel="stylesheet" href="/hub-density.css">
 <link rel="stylesheet" href="/hub-clean.css">
 <style id="r3">
@@ -124,44 +116,44 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 <body>
 
 <div class="top-bar">
-  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <button onclick="window.location.href='/home.html'" title="Tour del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
   </nav>
 </div>
 
 <div class="wrap">
 
   <div class="hero">
-    <h1>Events</h1>
-    <p>Carrier-led webinars, AEP prep sessions, and THEI team trainings — all in one place. Stay current, stay ready for AEP.</p>
+    <h1>Eventos</h1>
+    <p>Webinars de aseguradoras, sesiones de preparación para AEP y capacitaciones del equipo THEI — todo en un solo lugar. Mantente al día y listo para el AEP.</p>
   </div>
 
   <a class="event-forms-banner" href="/carrier-event-forms">
     <div>
-      <div class="event-forms-kicker">AEP · Year-round outreach</div>
-      <h2>Carrier Event Request Forms</h2>
-      <p>DHCP and Solis forms for tabletops, educational, and member-facing events. Share with Carolina for AEP and year-round outreach.</p>
+      <div class="event-forms-kicker">AEP · Contacto todo el año</div>
+      <h2>Formularios para Solicitar Eventos con Aseguradoras</h2>
+      <p>Formularios de DHCP y Solis para mesas informativas (tabletops), eventos educativos y eventos para miembros. Compártelos con Carolina para el AEP y el contacto durante todo el año.</p>
     </div>
-    <span class="event-forms-cta">Open Forms →</span>
+    <span class="event-forms-cta">Abrir Formularios →</span>
   </a>
 
   <!-- Filters -->
   <div class="filter-bar">
-    <button class="filter-pill active" onclick="filterEvents('all', this)">All</button>
-    <button class="filter-pill active-green" onclick="filterEvents('upcoming', this)" style="">Upcoming</button>
-    <button class="filter-pill" onclick="filterEvents('carrier', this)">Carrier-Led</button>
-    <button class="filter-pill" onclick="filterEvents('thei', this)">THEI-Led</button>
-    <button class="filter-pill" onclick="filterEvents('past', this)">Past</button>
+    <button class="filter-pill active" onclick="filterEvents('all', this)">Todos</button>
+    <button class="filter-pill active-green" onclick="filterEvents('upcoming', this)" style="">Próximos</button>
+    <button class="filter-pill" onclick="filterEvents('carrier', this)">De Aseguradoras</button>
+    <button class="filter-pill" onclick="filterEvents('thei', this)">De THEI</button>
+    <button class="filter-pill" onclick="filterEvents('past', this)">Pasados</button>
   </div>
 
   <div class="columns">
@@ -169,7 +161,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   <!-- CARRIER-LED -->
   <div>
     <div class="column-header">
-      <h2>Carrier-Led</h2>
+      <h2>De Aseguradoras</h2>
     </div>
     <div class="events-list" id="events-list">
 
@@ -177,11 +169,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">UHC — High Deductible G Training (AARP Med Supp)</span>
+          <span class="event-title">UHC — Capacitación High Deductible G (AARP Med Supp)</span>
           <span class="event-badge badge-date">Sep 1</span>
         </div>
-        <div class="event-desc">Virtual training with Claire Cuddihy covering High Deductible Plan G for AARP® Medicare Supplement Insurance Plans. Florida agents.</div>
-        <div class="event-meta">Mon Sep 1 &middot; 2:00–3:00 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/fd36fc23-4129-4f95-9ca8-7033fbe756ac@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Click to Register →</a></div>
+        <div class="event-desc">Capacitación virtual con Claire Cuddihy sobre el Plan G de Deducible Alto de los planes AARP® Medicare Supplement Insurance. Para agentes de Florida.</div>
+        <div class="event-meta">Lun 1 sep &middot; 2:00–3:00 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/fd36fc23-4129-4f95-9ca8-7033fbe756ac@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Haz clic para registrarte →</a></div>
       </div>
     </div>
 
@@ -189,11 +181,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">UHC — Agent Tools &amp; Resources (AARP Med Supp)</span>
+          <span class="event-title">UHC — Herramientas y Recursos para Agentes (AARP Med Supp)</span>
           <span class="event-badge badge-date">Sep 10</span>
         </div>
-        <div class="event-desc">Virtual session with Claire Cuddihy covering agent tools and resources for AARP® Medicare Supplement plans. Florida agents.</div>
-        <div class="event-meta">Wed Sep 10 &middot; 2:00–2:30 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/e2457977-368b-46fe-9b49-3f83260636dd@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Click to Register →</a></div>
+        <div class="event-desc">Sesión virtual con Claire Cuddihy sobre herramientas y recursos para agentes de los planes AARP® Medicare Supplement. Para agentes de Florida.</div>
+        <div class="event-meta">Mié 10 sep &middot; 2:00–2:30 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/e2457977-368b-46fe-9b49-3f83260636dd@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Haz clic para registrarte →</a></div>
       </div>
     </div>
 
@@ -201,11 +193,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">UHC — Claire's Tuesday Tea (AARP Med Supp · FL &amp; GA)</span>
+          <span class="event-title">UHC — Claire's Tuesday Tea (AARP Med Supp · FL y GA)</span>
           <span class="event-badge badge-date">Sep 15</span>
         </div>
-        <div class="event-desc">Claire Cuddihy's Tuesday Tea — casual Q&amp;A and updates for AARP® Medicare Supplement plans in Florida and Georgia.</div>
-        <div class="event-meta">Tue Sep 15 &middot; 2:00–2:30 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/960a1771-f56e-4df9-9ec9-26a652c947cc@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Click to Register →</a></div>
+        <div class="event-desc">Claire's Tuesday Tea de Claire Cuddihy — preguntas y respuestas informales y novedades de los planes AARP® Medicare Supplement en Florida y Georgia.</div>
+        <div class="event-meta">Mar 15 sep &middot; 2:00–2:30 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/960a1771-f56e-4df9-9ec9-26a652c947cc@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Haz clic para registrarte →</a></div>
       </div>
     </div>
 
@@ -213,11 +205,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">UHC — Deep Dive: AARP Med Supp in Florida</span>
+          <span class="event-title">UHC — A Fondo: AARP Med Supp en Florida</span>
           <span class="event-badge badge-date">Sep 23</span>
         </div>
-        <div class="event-desc">Two-hour deep dive with Claire Cuddihy on AARP® Medicare Supplement Insurance Plans for Florida. This is the one to block your calendar for.</div>
-        <div class="event-meta">Tue Sep 23 &middot; 2:00–4:00 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/28627fe9-68d7-4f3e-b90f-da4539fabb23@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Click to Register →</a></div>
+        <div class="event-desc">Sesión a fondo de dos horas con Claire Cuddihy sobre los planes AARP® Medicare Supplement Insurance para Florida. Esta es la que debes apartar en tu calendario.</div>
+        <div class="event-meta">Mar 23 sep &middot; 2:00–4:00 PM EST &nbsp;&middot;&nbsp; <a href="https://events.teams.microsoft.com/event/28627fe9-68d7-4f3e-b90f-da4539fabb23@db05faca-c82a-4b9d-b9c5-0f64b6755421?source=copyLinkLegacyShareLinkDialog" target="_blank" style="color:var(--purple);font-weight:700;">Haz clic para registrarte →</a></div>
       </div>
     </div>
 
@@ -225,11 +217,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">Aetna Academy — National Medicare Training Webinar</span>
+          <span class="event-title">Aetna Academy — Webinar Nacional de Capacitación Medicare</span>
           <span class="event-badge badge-date">Jul 30</span>
         </div>
-        <div class="event-desc">National Medicare training webinar with actionable strategies for the upcoming AEP. Register your agents now — 8 days away.</div>
-        <div class="event-meta">Source: Aetna Academy &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Check your email from Aetna to register</span></div>
+        <div class="event-desc">Webinar nacional de capacitación Medicare con estrategias prácticas para el próximo AEP. Registra a tus agentes ahora — faltan 8 días.</div>
+        <div class="event-meta">Fuente: Aetna Academy &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Revisa tu correo de Aetna para registrarte</span></div>
       </div>
     </div>
 
@@ -237,11 +229,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">Solis Health Plans — AEP 2027 Kickoff South Florida</span>
+          <span class="event-title">Solis Health Plans — Lanzamiento AEP 2027 South Florida</span>
           <span class="event-badge badge-date">Aug 28</span>
         </div>
-        <div class="event-desc">Be the first to discover Solis 2027 benefits. Jungle Island, 1111 Parrot Jungle Trail, Miami FL 33132. 11:00 AM. RSVP to secure your seat.</div>
-        <div class="event-meta">Source: Solis Health Plans &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">RSVP via evite (check your email)</span></div>
+        <div class="event-desc">Sé el primero en descubrir los beneficios Solis 2027. Jungle Island, 1111 Parrot Jungle Trail, Miami FL 33132. 11:00 AM. Haz tu RSVP para asegurar tu lugar.</div>
+        <div class="event-meta">Fuente: Solis Health Plans &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">RSVP por evite (revisa tu correo)</span></div>
       </div>
     </div>
 
@@ -249,11 +241,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">Devoted — AEP Summer Training (Medicaid/LIS + Portal Nav)</span>
-          <span class="event-badge badge-upcoming">Upcoming</span>
+          <span class="event-title">Devoted — Capacitación de Verano AEP (Medicaid/LIS + Navegación del Portal)</span>
+          <span class="event-badge badge-upcoming">Próximo</span>
         </div>
-        <div class="event-desc">Live walkthroughs covering Medicaid/LIS Deep Dive and Portal Navigation for AEP prep. Reply to Jean-Luc Batista to schedule your session.</div>
-        <div class="event-meta">Source: jean-luc.batista@devoted.com &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Reply to that email to schedule your session</span></div>
+        <div class="event-desc">Sesiones en vivo con cobertura de Medicaid/LIS a fondo y Navegación del Portal para preparación del AEP. Respóndele a Jean-Luc Batista para agendar tu sesión.</div>
+        <div class="event-meta">Fuente: jean-luc.batista@devoted.com &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Responde ese correo para agendar tu sesión</span></div>
       </div>
     </div>
 
@@ -261,11 +253,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">Devoted Health — PY27 Playbook & Live Training Events</span>
-          <span class="event-badge badge-upcoming">Upcoming</span>
+          <span class="event-title">Devoted Health — Playbook PY27 y Eventos de Capacitación en Vivo</span>
+          <span class="event-badge badge-upcoming">Próximo</span>
         </div>
-        <div class="event-desc">Jean-Luc Batista shared PY2027 plan previews and upcoming live training events. Check your email for registration links.</div>
-        <div class="event-meta">Source: jean-luc.batista@devoted.com &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Check your email from Jean-Luc for registration links</span></div>
+        <div class="event-desc">Jean-Luc Batista compartió vistas previas de los planes PY2027 y próximos eventos de capacitación en vivo. Revisa tu correo para los enlaces de registro.</div>
+        <div class="event-meta">Fuente: jean-luc.batista@devoted.com &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Revisa tu correo de Jean-Luc para los enlaces de registro</span></div>
       </div>
     </div>
 
@@ -273,11 +265,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card" data-type="carrier" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">HealthSpring — August Broker Training Schedule Released</span>
-          <span class="event-badge badge-upcoming">Upcoming</span>
+          <span class="event-title">HealthSpring — Calendario de Capacitación para Brokers de Agosto Publicado</span>
+          <span class="event-badge badge-upcoming">Próximo</span>
         </div>
-        <div class="event-desc">HealthSpring has released their full August broker training schedule. Check theiagentpulse@gmail.com for dates and registration links.</div>
-        <div class="event-meta">Source: HealthSpring &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Check theiagentpulse@gmail.com for dates &amp; registration</span></div>
+        <div class="event-desc">HealthSpring publicó su calendario completo de capacitación para brokers en agosto. Revisa theiagentpulse@gmail.com para fechas y enlaces de registro.</div>
+        <div class="event-meta">Fuente: HealthSpring &nbsp;&middot;&nbsp; <span style="color:var(--purple);font-weight:700;">Revisa theiagentpulse@gmail.com para fechas &amp; registro</span></div>
       </div>
     </div>
 
@@ -285,11 +277,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card past" data-type="carrier" data-status="past">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">UHC — "Need to Know 2027" Virtual Event</span>
-          <span class="event-badge badge-past">Past — Jun 25</span>
+          <span class="event-title">UHC — Evento Virtual "Lo Que Necesitas Saber 2027"</span>
+          <span class="event-badge badge-past">Pasado — Jun 25</span>
         </div>
-        <div class="event-desc">Key CMS changes for 2027 and what they mean for upcoming sales and compliance. Lazaro sends these regularly — watch for the next one.</div>
-        <div class="event-meta">Source: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Watch for the next one from Lazaro</div>
+        <div class="event-desc">Cambios clave de CMS para 2027 y lo que significan para las ventas y el cumplimiento. Lazaro los envía regularmente — estate pendiente del próximo.</div>
+        <div class="event-meta">Fuente: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Estate pendiente del próximo de Lazaro</div>
       </div>
     </div>
 
@@ -297,11 +289,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card past" data-type="carrier" data-status="past">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">UHC — Certification Readiness Training</span>
-          <span class="event-badge badge-past">Past — Jul 13</span>
+          <span class="event-title">UHC — Capacitación de Preparación para Certificación</span>
+          <span class="event-badge badge-past">Pasado — Jul 13</span>
         </div>
-        <div class="event-desc">UHC certification readiness session hosted by Lazaro Aragon. Covers 2027 certification requirements.</div>
-        <div class="event-meta">Source: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Watch for the next one from Lazaro</div>
+        <div class="event-desc">Sesión de preparación para la certificación UHC organizada por Lazaro Aragon. Cubre los requisitos de certificación 2027.</div>
+        <div class="event-meta">Fuente: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Estate pendiente del próximo de Lazaro</div>
       </div>
     </div>
 
@@ -309,11 +301,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <div class="event-card past" data-type="carrier" data-status="past">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">UHC — Medicare Product Portal Training</span>
-          <span class="event-badge badge-past">Past — Jul 6</span>
+          <span class="event-title">UHC — Capacitación del Portal de Productos Medicare</span>
+          <span class="event-badge badge-past">Pasado — Jul 6</span>
         </div>
-        <div class="event-desc">Training on the UHC Medicare Product Portal. Lazaro sends these regularly — watch your email for the next one.</div>
-        <div class="event-meta">Source: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Watch for the next one from Lazaro</div>
+        <div class="event-desc">Capacitación sobre el Portal de Productos Medicare de UHC. Lazaro los envía regularmente — estate pendiente del próximo en tu correo.</div>
+        <div class="event-meta">Fuente: lazaro_aragon@uhc.com &nbsp;&middot;&nbsp; Estate pendiente del próximo de Lazaro</div>
       </div>
     </div>
 
@@ -323,18 +315,18 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   <!-- THEI-LED -->
   <div>
     <div class="column-header">
-      <h2>THEI-Led</h2>
+      <h2>De THEI</h2>
     </div>
     <div class="events-list" id="thei-list">
 
     <div class="event-card" data-type="thei" data-status="upcoming">
       <div class="event-body">
         <div class="event-title-row">
-          <span class="event-title">MSO Project Meeting</span>
+          <span class="event-title">Reunión Proyecto MSO</span>
           <span class="event-badge badge-date">Jul 24</span>
         </div>
-        <div class="event-desc">Friday, July 24 &middot; 10:30 &ndash; 11:30 AM &middot; Level Up Insurance, 1695 NW 110th Ave Ste 224, Doral, FL 33172<br>Join via Google Meet: <a href="https://meet.google.com/iho-fsow-ybg" target="_blank" style="color:var(--purple);">meet.google.com/iho-fsow-ybg</a> &nbsp;&middot;&nbsp; Phone: +1 720-580-1353 PIN: 439 856 873#</div>
-        <div class="event-meta">The Health Experts Insurance &middot; 19 guests</div>
+        <div class="event-desc">Viernes, 24 de julio &middot; 10:30 &ndash; 11:30 AM &middot; Level Up Insurance, 1695 NW 110th Ave Ste 224, Doral, FL 33172<br>Únete por Google Meet: <a href="https://meet.google.com/iho-fsow-ybg" target="_blank" style="color:var(--purple);">meet.google.com/iho-fsow-ybg</a> &nbsp;&middot;&nbsp; Teléfono: +1 720-580-1353 PIN: 439 856 873#</div>
+        <div class="event-meta">The Health Experts Insurance &middot; 19 invitados</div>
       </div>
     </div>
 
@@ -344,8 +336,8 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   </div><!-- end columns -->
 
   <!-- Add Event CTA -->
-  <div class="add-event" style="margin-top:24px;" onclick="alert('To add a training, message Igor with the details and he will add it here.')">
-    <span>+ Add a THEI-Led Training or Event</span>
+  <div class="add-event" style="margin-top:24px;" onclick="alert('Para agregar una capacitación, mándale un mensaje a Igor con los detalles y él lo añadirá aquí.')">
+    <span>+ Agregar una Capacitación o Evento de THEI</span>
   </div>
 
 </div>

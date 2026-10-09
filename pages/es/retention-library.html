@@ -1,13 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Retention Library | Medicare Agent Hub</title>
+<title>Biblioteca de Retención | Medicare Agent Hub</title>
 
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 :root{
  --primary:#452068;
@@ -57,42 +54,31 @@ body{background:#F6F5F8;}
 </head>
 <body>
 <div class="top-bar">
-  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <button onclick="window.location.href='/home.html'" title="Hub tour" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Hub de Herramientas</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <button onclick="window.location.href='/home.html'" title="Tour del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
   </nav>
 </div>
-<div class="wrap">
-  <div class="hero">
-    <h1>Retention Library</h1>
-    <p>Client email templates for every touchpoint, the full bundle, and the Year 2 Income Calculator.</p>
-  </div>
-  <section class="lib-list" aria-labelledby="lib-title">
-    <h2 id="lib-title">Templates &amp; tools</h2>
-    <div class="lib-rows">
-      <a class="lib-row" href="https://docs.google.com/document/d/1HC0oOssbyFyshEjByMa4dozJZ9dq20kG/edit?usp=sharing" target="_blank" rel="noopener">Welcome/Onboarding <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/document/d/1KimTkNdWcmwGIhcMgjHFLT-xnNvbAmrS/edit?usp=sharing" target="_blank" rel="noopener">Birthday Email <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/document/d/1dsPMbJTjh7TcbGdgso_Wjn6hRQrgsyQF/edit?usp=sharing" target="_blank" rel="noopener">Mid-Year Check-In <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/document/d/1Nq44O94ylj9KhqR6ReJzSMHRfy5dTF5h/edit?usp=sharing" target="_blank" rel="noopener">August Info Update <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/document/d/1nSJL8-qiTJVwdTRQ4Ilqd0p32sMKWMu4/edit?usp=sharing" target="_blank" rel="noopener">Pre-AEP Review Request <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/document/d/1yskS2YqKSExYAfKHbXwxBYJ78VvkeWfY/edit?usp=sharing" target="_blank" rel="noopener">Post-AEP Thank You <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/document/d/1ZqFunuYrSDyNuusNtA2fwx1S_C4LHHCx/edit?usp=sharing" target="_blank" rel="noopener">Annual Review Reminder <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/document/d/1SrMeZTkdK2OX1NvxkV_kuG-nLMGjSt8R/edit?usp=sharing" target="_blank" rel="noopener">All 7 Templates Bundle <span>Open ↗</span></a>
-      <a class="lib-row" href="https://docs.google.com/spreadsheets/d/1NBrI39Z9q6OnHhQXah6xRY4ZyhlRVmbJ/edit?usp=sharing" target="_blank" rel="noopener">Year 2 Income Calculator <span>Open ↗</span></a>
-    </div>
-  </section>
-</div>
-
-
+<!-- PÁGINA COMPLETA — enlaces extraídos a continuación -->
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
 </body>
 </html>
 <!-- LINKS:

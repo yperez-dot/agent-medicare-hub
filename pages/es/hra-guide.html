@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <script>
 (function(){
@@ -15,7 +15,7 @@
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>HRA Guide | Medicare Agent Hub</title>
+<title>Guía de HRA | Medicare Agent Hub</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -103,43 +103,43 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 <div class="top-bar">
   <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Agent Dashboard</a>
-    <a href='/learn'>Broker University</a>
-    <a href='/carrier-info'>Carrier Info</a>
-    <a href='/events'>Events</a>
-    <a href='/compliance'>Compliance</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
-    <a href='/retention-toolkit'>Retention Toolkit</a>
-    <a href='/sep-tracker'>SEP Tracker</a>
-    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Sign Out</a>
-    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Hub tour'>?</a>
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Tour del Hub'>?</a>
   </nav>
 </div>
 
 <div class="wrap">
 
   <div class="hero">
-    <h1>HRA Quick Reference</h1>
-    <p>Health Risk Assessment (HRA) amounts, eligible plan types, completion timeframes, and OTC info — all in one place. Confirm amounts with the carrier before quoting.</p>
+    <h1>Referencia Rápida de HRA</h1>
+    <p>Montos de la Evaluación de Riesgos de Salud (HRA), tipos de plan elegibles, plazos para completarla e información de OTC — todo en un solo lugar. Confirma los montos con la aseguradora antes de cotizar.</p>
     <span class="badge">2027 · Florida Medicare Advantage</span>
   </div>
 
   <div class="search-row">
-    <input type="search" id="hraSearch" placeholder="Search carrier, plan type, amount…" autocomplete="off">
+    <input type="search" id="hraSearch" placeholder="Buscar aseguradora, tipo de plan, monto…" autocomplete="off">
   </div>
 
   <div class="carrier-pills" id="filterPills">
-    <button class="c-pill active" data-filter="all">All Carriers</button>
-    <button class="c-pill" data-filter="has-hra">Has HRA</button>
+    <button class="c-pill active" data-filter="all">Todas las Aseguradoras</button>
+    <button class="c-pill" data-filter="has-hra">Con HRA</button>
     <button class="c-pill" data-filter="dsnp">D-SNP</button>
     <button class="c-pill" data-filter="csnp">C-SNP</button>
-    <button class="c-pill" data-filter="confirm">Needs Confirm</button>
+    <button class="c-pill" data-filter="confirm">Necesita Confirmación</button>
   </div>
 
   <div class="cards-grid" id="cardsGrid"></div>
 
   <div class="footnote">
-    <strong>Agent use only.</strong> HRA amounts and timeframes change by plan year and county. Always verify with the carrier portal or your broker manager before quoting to a client. Cards marked <strong>Needs Confirm</strong> are based on prior year data or unavailable — please verify directly.
+    <strong>Solo para uso del agente.</strong> Los montos y plazos de HRA cambian según el año del plan y el condado. Siempre verifica con el portal de la aseguradora o con tu gerente de brokers antes de cotizarle a un cliente. Las tarjetas marcadas <strong>Necesita Confirmación</strong> se basan en datos del año anterior o no están disponibles — verifica directamente.
   </div>
 
 </div>
@@ -148,11 +148,11 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 const CARRIERS = [
   {
     id: 'humana', name: 'Humana', sub: 'DSNP & CSNP · Vantage / Sunfire',
-    hasHra: true, amount: 35, amountLabel: 'DSNP & CSNP — new members only',
+    hasHra: true, amount: 35, amountLabel: 'DSNP y CSNP — solo miembros nuevos',
     tags: ['dsnp','csnp','new'],
-    timeframe: '10 business days after enrollment',
+    timeframe: '10 días hábiles después de la inscripción',
     portal: 'Sunfire (Vantage)',
-    howTo: 'Complete HRA through Sunfire or Humana Vantage portal at time of enrollment.',
+    howTo: 'Completa la HRA en Sunfire o en el portal Humana Vantage al momento de la inscripción.',
     otc: 'Humana Pharmacy, CVS, Sam\'s Club, Walgreens, Publix, Costco',
     otcNetwork: 'Humana OTC Network',
     needsConfirm: false
@@ -161,80 +161,80 @@ const CARRIERS = [
     id: 'aetna', name: 'Aetna', sub: 'DSNP & CSNP · ThinkAgent',
     hasHra: true, amount: 55, amountLabel: 'DSNP & CSNP',
     tags: ['dsnp','csnp'],
-    timeframe: '2 business days after enrollment',
+    timeframe: '2 días hábiles después de la inscripción',
     portal: 'ThinkAgent',
-    howTo: 'Complete HRA on ThinkAgent at time of enrollment. Do NOT complete on Sunfire — must be done directly in ThinkAgent.',
+    howTo: 'Completa la HRA en ThinkAgent al momento de la inscripción. NO la completes en Sunfire — debe hacerse directamente en ThinkAgent.',
     otc: 'CVS, Walmart, Navarro, Publix, Costco',
     otcNetwork: 'OTC Health Solutions · 1-833-331-1573 · cvs.com/otchs/myorder',
     needsConfirm: false
   },
   {
-    id: 'devoted', name: 'Devoted Health', sub: 'SNP plans · effective Mar 1, 2026',
-    hasHra: true, amount: 50, amountLabel: 'C-SNP & D-SNP only',
+    id: 'devoted', name: 'Devoted Health', sub: 'Planes SNP · vigente desde el 1 de mar. de 2026',
+    hasHra: true, amount: 50, amountLabel: 'Solo C-SNP y D-SNP',
     tags: ['dsnp','csnp'],
-    timeframe: 'Within 5 calendar days of enrollment submission',
+    timeframe: 'Dentro de 5 días calendario después de enviar la inscripción',
     portal: 'Sunfire / Devoted portal',
-    howTo: 'For applications written Mar 1, 2026 or later, the $50 incentive applies only to C-SNP and D-SNP HRAs completed within 5 calendar days. Continue completing HRAs for non-SNP members; those HRAs are unpaid.',
+    howTo: 'Para solicitudes escritas a partir del 1 de mar. de 2026, el incentivo de $50 aplica solo a las HRA de C-SNP y D-SNP completadas dentro de 5 días calendario. Sigue completando las HRA de los miembros que no son SNP; esas HRA no se pagan.',
     otc: 'CVS, Walgreens',
     otcNetwork: 'CVS OTCHS · devoted.otchs.com · 1-888-628-2770',
     needsConfirm: false
   },
   {
-    id: 'doctors', name: 'Doctors Healthcare', sub: 'All plans · Doctors portal',
-    hasHra: true, amount: 50, amountLabel: 'All plans',
+    id: 'doctors', name: 'Doctors Healthcare', sub: 'Todos los planes · portal de Doctors',
+    hasHra: true, amount: 50, amountLabel: 'Todos los planes',
     tags: ['all'],
-    timeframe: '4 business days after enrollment',
+    timeframe: '4 días hábiles después de la inscripción',
     portal: 'Doctors Broker Portal',
-    howTo: 'Complete HRA through the Doctors Healthcare broker portal at enrollment.',
-    otc: 'CVS stores',
+    howTo: 'Completa la HRA en el portal de brokers de Doctors Healthcare al momento de la inscripción.',
+    otc: 'Tiendas CVS',
     otcNetwork: 'OTCHS · cvs.com/otchs/doctorshcp',
     needsConfirm: false
   },
   {
-    id: 'simply', name: 'Simply Healthcare (Elevance)', sub: 'D-SNP · online enrollment tool',
-    hasHra: true, amount: 50, amountLabel: 'D-SNP — new members only',
+    id: 'simply', name: 'Simply Healthcare (Elevance)', sub: 'D-SNP · herramienta de inscripción en línea',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP — solo miembros nuevos',
     tags: ['dsnp','new'],
-    timeframe: 'During enrollment or within 7 days of submitting the application',
-    portal: 'Online enrollment tool',
-    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only. If the writing agent is eligible for Benefit Activation and that process has started, no administrative fee is paid for a standalone HRA.',
+    timeframe: 'Durante la inscripción o dentro de 7 días después de enviar la solicitud',
+    portal: 'Herramienta de inscripción en línea',
+    howTo: 'Envía la HRA a través de la herramienta de inscripción en línea durante la inscripción o dentro de 7 días después de enviar la solicitud. Solo nuevos inscritos. Si el agente que escribe la póliza es elegible para Benefit Activation y ese proceso ya comenzó, no se paga cargo administrativo por una HRA independiente.',
     otc: 'Costco, CVS, Publix, Walmart, Winn-Dixie',
     otcNetwork: 'Carelon Rx OTC',
     needsConfirm: false
   },
   {
-    id: 'cigna', name: 'Cigna / Healthspring', sub: 'All plans · Cigna portal',
+    id: 'cigna', name: 'Cigna / Healthspring', sub: 'Todos los planes · portal de Cigna',
     hasHra: true, amount: null, amountLabel: '$50 Non-SNP · $100 SNP',
     amountDisplay: '$50–$100',
     tags: ['all','dsnp','csnp'],
-    timeframe: '10 business days after enrollment',
+    timeframe: '10 días hábiles después de la inscripción',
     portal: 'Sunfire / Cigna Broker Portal',
-    howTo: 'Non-SNP plans receive $50 HRA. SNP plans (DSNP/CSNP) receive $100 HRA.',
+    howTo: 'Los planes que no son SNP reciben $50 por HRA. Los planes SNP (DSNP/CSNP) reciben $100 por HRA.',
     otc: 'Walgreens, CVS, Navarro, Publix',
     otcNetwork: 'healthspringflex.com',
     needsConfirm: false
   },
   {
-    id: 'goldkidney', name: 'Gold Kidney', sub: 'CSNP only',
-    hasHra: true, amount: 25, amountLabel: 'CSNP only',
+    id: 'goldkidney', name: 'Gold Kidney', sub: 'Solo CSNP',
+    hasHra: true, amount: 25, amountLabel: 'Solo CSNP',
     tags: ['csnp'],
-    timeframe: 'Confirm with carrier',
+    timeframe: 'Confirmar con la aseguradora',
     portal: 'Gold Kidney Broker Portal',
-    howTo: 'HRA available for CSNP plans only. Confirm process with Gold Kidney broker support.',
+    howTo: 'HRA disponible solo para planes CSNP. Confirma el proceso con el apoyo a brokers de Gold Kidney.',
     otc: 'Silver & Fit',
     otcNetwork: 'Silver & Fit',
     needsConfirm: false
   },
   {
-    id: 'solis', name: 'Solis Health Plans', sub: 'Confirm with carrier',
+    id: 'solis', name: 'Solis Health Plans', sub: 'Confirmar con la aseguradora',
     hasHra: false, amount: null, amountLabel: null,
     tags: [],
     timeframe: null, portal: null, howTo: null,
-    otc: 'Sun-Scripts (phone order) · 833-898-7046',
+    otc: 'Sun-Scripts (pedido por teléfono) · 833-898-7046',
     otcNetwork: 'Sun-Scripts',
     needsConfirm: true
   },
   {
-    id: 'careplus', name: 'CarePlus (Humana)', sub: 'Confirm with carrier',
+    id: 'careplus', name: 'CarePlus (Humana)', sub: 'Confirmar con la aseguradora',
     hasHra: false, amount: null, amountLabel: null,
     tags: [],
     timeframe: null, portal: null, howTo: null,
@@ -243,7 +243,7 @@ const CARRIERS = [
     needsConfirm: true
   },
   {
-    id: 'uhc', name: 'UnitedHealthcare (PCN/PCP)', sub: 'Confirm with carrier',
+    id: 'uhc', name: 'UnitedHealthcare (PCN/PCP)', sub: 'Confirmar con la aseguradora',
     hasHra: false, amount: null, amountLabel: null,
     tags: [],
     timeframe: null, portal: null, howTo: null,
@@ -252,40 +252,40 @@ const CARRIERS = [
     needsConfirm: true
   },
   {
-    id: 'healthsun', name: 'HealthSun (Elevance)', sub: 'D-SNP · online enrollment tool',
-    hasHra: true, amount: 50, amountLabel: 'D-SNP — new members only',
+    id: 'healthsun', name: 'HealthSun (Elevance)', sub: 'D-SNP · herramienta de inscripción en línea',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP — solo miembros nuevos',
     tags: ['dsnp','new'],
-    timeframe: 'During enrollment or within 7 days of submitting the application',
-    portal: 'Online enrollment tool',
-    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only.',
+    timeframe: 'Durante la inscripción o dentro de 7 días después de enviar la solicitud',
+    portal: 'Herramienta de inscripción en línea',
+    howTo: 'Envía la HRA a través de la herramienta de inscripción en línea durante la inscripción o dentro de 7 días después de enviar la solicitud. Solo nuevos inscritos.',
     otc: 'EasyScripts · 1-855-963-0400',
     otcNetwork: 'EasyScripts',
     needsConfirm: false
   },
   {
-    id: 'freedom', name: 'Freedom (Elevance)', sub: 'D-SNP & C-SNP · online enrollment tool',
-    hasHra: true, amount: 50, amountLabel: 'D-SNP & C-SNP — new members only',
+    id: 'freedom', name: 'Freedom (Elevance)', sub: 'D-SNP y C-SNP · herramienta de inscripción en línea',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP y C-SNP — solo miembros nuevos',
     tags: ['dsnp','csnp','new'],
-    timeframe: 'During enrollment or within 7 days of submitting the application',
-    portal: 'Online enrollment tool',
-    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only.',
+    timeframe: 'Durante la inscripción o dentro de 7 días después de enviar la solicitud',
+    portal: 'Herramienta de inscripción en línea',
+    howTo: 'Envía la HRA a través de la herramienta de inscripción en línea durante la inscripción o dentro de 7 días después de enviar la solicitud. Solo nuevos inscritos.',
     otc: '',
     otcNetwork: '',
     needsConfirm: false
   },
   {
-    id: 'optimum', name: 'Optimum (Elevance)', sub: 'D-SNP & C-SNP · online enrollment tool',
-    hasHra: true, amount: 50, amountLabel: 'D-SNP & C-SNP — new members only',
+    id: 'optimum', name: 'Optimum (Elevance)', sub: 'D-SNP y C-SNP · herramienta de inscripción en línea',
+    hasHra: true, amount: 50, amountLabel: 'D-SNP y C-SNP — solo miembros nuevos',
     tags: ['dsnp','csnp','new'],
-    timeframe: 'During enrollment or within 7 days of submitting the application',
-    portal: 'Online enrollment tool',
-    howTo: 'Submit the HRA through the online enrollment tool during enrollment or within 7 days of submitting the application. New enrollees only.',
+    timeframe: 'Durante la inscripción o dentro de 7 días después de enviar la solicitud',
+    portal: 'Herramienta de inscripción en línea',
+    howTo: 'Envía la HRA a través de la herramienta de inscripción en línea durante la inscripción o dentro de 7 días después de enviar la solicitud. Solo nuevos inscritos.',
     otc: '',
     otcNetwork: '',
     needsConfirm: false
   },
   {
-    id: 'wellcare', name: 'WellCare', sub: 'Confirm with carrier',
+    id: 'wellcare', name: 'WellCare', sub: 'Confirmar con la aseguradora',
     hasHra: false, amount: null, amountLabel: null,
     tags: [],
     timeframe: null, portal: null, howTo: null,
@@ -297,11 +297,11 @@ const CARRIERS = [
 
 function tagHTML(tags, needsConfirm){
   let out = '';
-  if(tags.includes('all')) out += '<span class="tag all">All Plans</span>';
+  if(tags.includes('all')) out += '<span class="tag all">Todos los Planes</span>';
   if(tags.includes('dsnp')) out += '<span class="tag dsnp">D-SNP</span>';
   if(tags.includes('csnp')) out += '<span class="tag csnp">C-SNP</span>';
-  if(tags.includes('new')) out += '<span class="tag new">New Members Only</span>';
-  if(needsConfirm) out += '<span class="tag confirm">Verify</span>';
+  if(tags.includes('new')) out += '<span class="tag new">Solo Miembros Nuevos</span>';
+  if(needsConfirm) out += '<span class="tag confirm">Verificar</span>';
   return out;
 }
 
@@ -319,15 +319,15 @@ function cardHTML(c){
         <div class="hra-label">${c.amountLabel}</div>
         <div>${tagHTML(c.tags, false)}</div>
         <div class="divider"></div>
-        <div class="detail-row"><span class="ico">⏱</span><span class="val"><strong>Timeframe:</strong> ${c.timeframe}</span></div>
+        <div class="detail-row"><span class="ico">⏱</span><span class="val"><strong>Plazo:</strong> ${c.timeframe}</span></div>
         <div class="detail-row"><span class="ico">🖥</span><span class="val"><strong>Portal:</strong> ${c.portal}</span></div>
         <div class="detail-row"><span class="ico">📋</span><span class="val">${c.howTo}</span></div>
       ` : `
-        <div class="no-hra-msg">HRA data not confirmed for this carrier.</div>
-        ${c.needsConfirm ? '<div class="confirm-flag">Verify amount & eligibility with carrier before quoting</div>' : ''}
+        <div class="no-hra-msg">Datos de HRA no confirmados para esta aseguradora.</div>
+        ${c.needsConfirm ? '<div class="confirm-flag">Verifica el monto y la elegibilidad con la aseguradora antes de cotizar</div>' : ''}
       `}
       ${c.otcNetwork ? `<div class="divider"></div>
-      <div class="otc-row"><strong>OTC Network:</strong> ${c.otcNetwork}</div>` : ''}
+      <div class="otc-row"><strong>Red de OTC:</strong> ${c.otcNetwork}</div>` : ''}
     </div>
   </div>`;
 }
@@ -347,7 +347,7 @@ function render(filter, search){
   });
   const grid = document.getElementById('cardsGrid');
   if(!filtered.length){
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-faint);">No carriers match your search.</div>';
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-faint);">Ninguna aseguradora coincide con tu búsqueda.</div>';
   } else {
     grid.innerHTML = filtered.map(cardHTML).join('');
   }

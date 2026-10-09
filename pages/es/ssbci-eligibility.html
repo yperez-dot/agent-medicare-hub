@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Elegibilidad SSBCI | THEI Agent Hub</title>
+<meta name="description" content="Elegibilidad SSBCI: busca por condición para ver qué aseguradoras califican a un miembro para los Beneficios Suplementarios Especiales para Enfermos Crónicos (SSBCI) en planes Medicare Advantage. No es una lista de planes C-SNP.">
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) { localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.hero{background:linear-gradient(135deg,#452068,#341751);padding:16px 20px;text-align:center;}
+.hero .badge{display:inline-block;padding:5px 14px;border-radius:999px;background:#FF1090;color:#fff;font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;}
+.hero h1{font-size:24px;font-weight:700;color:#fff;margin-bottom:6px;}
+.hero p{font-size:14px;color:rgba(255,255,255,.8);}
+.hero p.hero-clarifier{max-width:640px;margin:10px auto 0;font-size:13px;color:rgba(255,255,255,.92);}
+.wrap{max-width:860px;margin:0 auto;padding:18px 22px 36px;}
+.search-box{background:#fff;border:2px solid #E7E4ED;border-radius:12px;padding:14px 18px;width:100%;font:400 15px/1 Arial,sans-serif;color:#241C2E;outline:none;margin-bottom:24px;transition:border-color .15s;}
+.search-box:focus{border-color:#452068;}
+.search-box::placeholder{color:#9A94A8;}
+.carrier-block{background:#fff;border:1px solid #E7E4ED;border-radius:14px;margin-bottom:12px;overflow:hidden;}
+.carrier-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;user-select:none;}
+.carrier-header:hover{background:#FAFAFA;}
+.carrier-name{font:700 16px/1 Arial,sans-serif;color:#241C2E;}
+.carrier-count{font:600 12px/1 Arial,sans-serif;color:#452068;background:#F1ECF6;padding:3px 10px;border-radius:999px;}
+.carrier-chevron{color:#9A94A8;font-size:18px;transition:transform .2s;}
+.carrier-chevron.open{transform:rotate(180deg);}
+.carrier-body{display:none;padding:0 22px 20px;}
+.carrier-body.open{display:block;}
+
+/* Agent Process Banner */
+.process-banner{background:#F1ECF6;border-left:3px solid #FF1090;border-radius:8px;padding:14px 16px;margin-bottom:16px;}
+.process-banner .proc-label{font:700 10px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.8px;color:#9A94A8;margin-bottom:6px;}
+.process-banner .proc-text{font:400 13.5px/1.5 Arial,sans-serif;color:#241C2E;}
+.process-banner.warning .proc-text{font-weight:600;color:#6B2D6B;}
+
+.conditions-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0;}
+.condition-item{padding:8px 0;border-bottom:1px solid #F1ECF6;font:400 13.5px/1.4 Arial,sans-serif;color:#241C2E;display:flex;align-items:flex-start;gap:8px;}
+.condition-item:last-child{border-bottom:none;}
+.condition-item .dot{flex:none;width:6px;height:6px;border-radius:50%;background:#FF1090;margin-top:5px;}
+.match{background:#FFF3A3;}
+.no-results{text-align:center;padding:48px 24px;color:#9A94A8;font-size:14px;}
+@media(max-width:600px){.pill-nav a{font-size:11px;padding:7px 12px;}.wrap{padding:20px 16px 48px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-density.css">
+<link rel="stylesheet" href="/hub-clean.css">
+<style id="r3">
+.wrap>.hero,.wrap .hero{text-align:left;border-radius:16px;padding:22px 28px;margin:0 0 14px;background:linear-gradient(135deg,#452068,#341751);color:#fff;box-shadow:none;}
+.wrap .hero h1{font-size:27px;line-height:1.2;margin:0 0 6px;color:#fff;}
+.wrap .hero p{font-size:15px;max-width:none;margin:0;}
+.hero .hero-clarifier{margin-top:8px!important;font-size:14px!important;}
+.process-banner{background:#fff;border:1px solid #ECE8F1;border-left:3px solid #452068;}
+.condition-item .dot{background:#452068;}
+</style>
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Inicio</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Centro de Herramientas</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Recorrido del Hub'>?</a>
+  </nav>
+</div>
+
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Elegibilidad SSBCI</h1>
+    <p>Busca por condición para ver qué aseguradoras califican a un miembro para los Beneficios Suplementarios Especiales (tarjeta de alimentos, OTC, etc.).</p>
+    <p class="hero-clarifier"><strong>Beneficios Suplementarios Especiales para Enfermos Crónicos (SSBCI):</strong> quién califica para los beneficios adicionales de los planes Medicare Advantage. No es un plan para personas con condiciones crónicas (C-SNP).</p>
+  </div>
+  <input class="search-box" type="text" id="search" placeholder="Busca una condición — p. ej. diabetes, insuficiencia cardíaca, COPD, demencia…" oninput="doSearch(this.value)"/>
+  <div id="carriers-container"></div>
+</div>
+
+<script>
+const DATA = [
+  {
+    carrier: "CarePlus",
+    process: { text: "Completa el proceso de calificación aprobado por CarePlus. El EOC exige una o más condiciones de la lista, alto riesgo de hospitalización u otro resultado adverso significativo y coordinación intensiva de la atención.", warning: true },
+    conditions: ["Trastornos autoinmunes","Cáncer","Trastornos cardiovasculares","Uso crónico de alcohol y otros trastornos por uso de sustancias","Condiciones de salud mental crónicas e incapacitantes","Enfermedad gastrointestinal crónica","Insuficiencia cardíaca crónica","Hiperlipidemia crónica","Hipertensión crónica","Enfermedad renal crónica","Trastornos pulmonares crónicos","Condiciones asociadas con deterioro cognitivo","Condiciones con desafíos funcionales","Demencia","Diabetes mellitus","VIH/SIDA","Trastornos neurológicos","Postrasplante de órgano","Trastornos hematológicos graves","Accidente cerebrovascular (ACV)"]
+  },
+  {
+    carrier: "Devoted",
+    process: { text: "Solo SSBCI: Las condiciones a continuación son las condiciones calificadoras incluidas en las secciones SSBCI de la tarjeta Food & Home de Devoted para 2027. La lista elegible varía según el plan. Devoted también debe confirmar que el miembro cumple los requisitos de complejidad médica, riesgo de hospitalización y coordinación intensiva de la atención.", warning: true },
+    conditions: ["SSBCI (C-SNP PLUS / C-SNP ENHANCED) — Diabetes","SSBCI (C-SNP PLUS / C-SNP ENHANCED) — Insuficiencia cardíaca congestiva o crónica","SSBCI (C-SNP PLUS / C-SNP ENHANCED) — Arritmias cardíacas (incluida la fibrilación auricular)","SSBCI (C-SNP PLUS / C-SNP ENHANCED) — Enfermedad de las arterias coronarias","SSBCI (C-SNP PLUS / C-SNP ENHANCED) — Enfermedad vascular periférica","SSBCI (C-SNP PLUS / C-SNP ENHANCED) — Trastorno tromboembólico venoso crónico","SSBCI (C-SNP PLUS / C-SNP ENHANCED) — Enfermedad valvular cardíaca","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Diabetes","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Insuficiencia cardíaca congestiva o crónica","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Enfermedad de las arterias coronarias","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Enfermedad renal crónica (CKD)","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Enfermedad pulmonar obstructiva crónica (COPD)","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Asma","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Obesidad","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Hipertensión","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Colesterol alto","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Depresión","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Demencia / enfermedad de Alzheimer","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Fibrilación auricular / arritmias cardíacas","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Artritis","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Osteoporosis","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Síndrome del intestino irritable / enfermedad de Crohn / colitis","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Trastorno por uso de sustancias","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Dependencia del alcohol","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Cáncer","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Enfermedad valvular cardíaca","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Enfermedad vascular periférica","SSBCI (DUAL / DUAL FULL / DUAL QMB) — Trastorno tromboembólico venoso crónico"]
+  },
+  {
+    carrier: "Doctors Healthcare",
+    process: { text: "Para DrSelect-SFL, el médico o los médicos deben confirmar los tres requisitos: diagnóstico activo documentado de una o más condiciones de la lista, alto riesgo de hospitalización u otro resultado adverso y necesidad de manejo intensivo de la atención.", warning: true },
+    conditions: ["Trastornos autoinmunes — Poliarteritis nudosa","Trastornos autoinmunes — Polimialgia reumática","Trastornos autoinmunes — Polimiositis","Trastornos autoinmunes — Artritis reumatoide","Trastornos autoinmunes — Lupus eritematoso sistémico","Cáncer (excluye condiciones precancerosas o cáncer in situ en etapa 0)","Trastornos cardiovasculares — Arritmias cardíacas","Trastornos cardiovasculares — Enfermedad de las arterias coronarias","Trastornos cardiovasculares — Enfermedad vascular periférica","Trastornos cardiovasculares — Trastorno tromboembólico venoso crónico","Trastorno crónico por consumo de alcohol u otras sustancias","Insuficiencia cardíaca crónica","Insuficiencia cardíaca congestiva","Trastornos pulmonares crónicos — Asma","Trastornos pulmonares crónicos — Bronquitis crónica","Trastornos pulmonares crónicos — Enfisema","Trastornos pulmonares crónicos — Fibrosis pulmonar","Trastornos pulmonares crónicos — Hipertensión pulmonar","Condiciones de salud mental crónicas e incapacitantes — Trastornos bipolares","Condiciones de salud mental crónicas e incapacitantes — Trastornos depresivos mayores","Condiciones de salud mental crónicas e incapacitantes — Trastorno paranoide","Condiciones de salud mental crónicas e incapacitantes — Esquizofrenia","Condiciones de salud mental crónicas e incapacitantes — Trastorno esquizoafectivo","Demencia","Diabetes mellitus (Tipo I o Tipo II)","VIH/SIDA","Enfermedad hepática en etapa terminal","Trastornos neurológicos — Esclerosis lateral amiotrófica (ALS)","Trastornos neurológicos — Epilepsia","Trastornos neurológicos — Parálisis extensa","Trastornos neurológicos — Enfermedad de Huntington","Trastornos neurológicos — Esclerosis múltiple (MS)","Trastornos neurológicos — Enfermedad de Parkinson","Trastornos neurológicos — Polineuropatía","Trastornos neurológicos — Estenosis espinal","Trastornos neurológicos — Déficit neurológico relacionado con un ACV","Trastornos hematológicos graves — Anemia aplásica","Trastornos hematológicos graves — Hemofilia","Trastornos hematológicos graves — Púrpura trombocitopénica inmunitaria","Trastornos hematológicos graves — Síndrome mielodisplásico","Trastornos hematológicos graves — Enfermedad de células falciformes (excluye el rasgo falciforme)","Trastornos hematológicos graves — Trastorno trombocitopénico venoso crónico","Accidente cerebrovascular (ACV)","Hipertensión crónica","Osteoporosis","Dolor de espalda crónico","Sobrepeso, obesidad y síndrome metabólico","Enfermedad gastrointestinal crónica","Trastornos de inmunodeficiencia e inmunosupresión","Condiciones asociadas con deterioro cognitivo","Condiciones con desafíos funcionales","Condiciones crónicas que afectan la visión, audición, gusto, tacto u olfato","Condiciones que requieren terapia continua para mantener o conservar el funcionamiento"]
+  },
+  {
+    carrier: "Humana",
+    process: { text: "Completa el proceso de calificación o HRA aprobado por Humana. El EOC exige una o más condiciones de la lista, alto riesgo de hospitalización u otro resultado adverso significativo y coordinación intensiva de la atención; no exige dos condiciones.", warning: true },
+    conditions: ["Trastornos autoinmunes","Cáncer","Trastornos cardiovasculares","Uso crónico de alcohol y otros trastornos por uso de sustancias","Condiciones de salud mental crónicas e incapacitantes","Enfermedad gastrointestinal crónica","Insuficiencia cardíaca crónica","Hiperlipidemia crónica","Hipertensión crónica","Enfermedad renal crónica","Trastornos pulmonares crónicos","Deterioro cognitivo","Condiciones con desafíos funcionales","Demencia","Diabetes mellitus","VIH/SIDA","Trastornos neurológicos","Postrasplante de órgano","Trastornos hematológicos graves","Accidente cerebrovascular (ACV)"]
+  },
+  {
+    carrier: "Solis",
+    process: { text: "Ingresa la condición calificadora durante la inscripción. Solis debe verificar un diagnóstico activo documentado, alto riesgo de hospitalización u otro resultado adverso y necesidad de manejo intensivo de la atención.", warning: true },
+    conditions: ["Trastorno crónico por consumo de alcohol y otros trastornos por uso de sustancias (SUD)","Trastornos autoinmunes — Poliarteritis nudosa","Trastornos autoinmunes — Polimialgia reumática","Trastornos autoinmunes — Polimiositis","Trastornos autoinmunes — Dermatomiositis","Trastornos autoinmunes — Artritis reumatoide","Trastornos autoinmunes — Lupus eritematoso sistémico","Trastornos autoinmunes — Artritis psoriásica","Trastornos autoinmunes — Esclerodermia","Cáncer","Trastornos cardiovasculares — Arritmias cardíacas","Trastornos cardiovasculares — Enfermedad de las arterias coronarias","Trastornos cardiovasculares — Enfermedad vascular periférica","Trastornos cardiovasculares — Enfermedad valvular cardíaca","Insuficiencia cardíaca crónica","Demencia","Diabetes mellitus","Sobrepeso, obesidad y síndrome metabólico","Enfermedad gastrointestinal crónica — Enfermedad hepática crónica","Enfermedad gastrointestinal crónica — Enfermedad del hígado graso no alcohólico (NAFLD)","Enfermedad gastrointestinal crónica — Hepatitis B","Enfermedad gastrointestinal crónica — Hepatitis C","Enfermedad gastrointestinal crónica — Pancreatitis","Enfermedad gastrointestinal crónica — Síndrome del intestino irritable","Enfermedad gastrointestinal crónica — Enfermedad inflamatoria intestinal","Enfermedad renal crónica (CKD) que requiere diálisis / Enfermedad renal en etapa terminal (ESRD)","Enfermedad renal crónica (CKD) que no requiere diálisis","Trastornos hematológicos graves — Anemia aplásica","Trastornos hematológicos graves — Hemofilia","Trastornos hematológicos graves — Púrpura trombocitopénica inmunitaria","Trastornos hematológicos graves — Síndrome mielodisplásico","Trastornos hematológicos graves — Enfermedad de células falciformes (excluye el rasgo falciforme)","Trastornos hematológicos graves — Trastorno tromboembólico venoso crónico","VIH/SIDA","Hipertensión crónica","Trastornos pulmonares crónicos — Asma","Trastornos pulmonares crónicos — Bronquitis crónica","Trastornos pulmonares crónicos — Enfisema","Trastornos pulmonares crónicos — Fibrosis pulmonar","Trastornos pulmonares crónicos — Hipertensión pulmonar","Trastornos pulmonares crónicos — Enfermedad pulmonar obstructiva crónica (COPD)","Condiciones de salud mental crónicas e incapacitantes — Trastornos bipolares","Condiciones de salud mental crónicas e incapacitantes — Trastornos depresivos mayores","Condiciones de salud mental crónicas e incapacitantes — Trastorno paranoide","Condiciones de salud mental crónicas e incapacitantes — Esquizofrenia","Condiciones de salud mental crónicas e incapacitantes — Trastorno esquizoafectivo","Condiciones de salud mental crónicas e incapacitantes — Trastorno de estrés postraumático (PTSD)","Condiciones de salud mental crónicas e incapacitantes — Trastornos alimentarios","Condiciones de salud mental crónicas e incapacitantes — Trastornos de ansiedad","Trastornos neurológicos — Esclerosis lateral amiotrófica (ALS)","Trastornos neurológicos — Epilepsia","Trastornos neurológicos — Parálisis extensa (hemiplejia, cuadriplejia, paraplejia o monoplejia)","Trastornos neurológicos — Enfermedad de Huntington","Trastornos neurológicos — Esclerosis múltiple","Trastornos neurológicos — Enfermedad de Parkinson","Trastornos neurológicos — Polineuropatía","Trastornos neurológicos — Fibromialgia","Trastornos neurológicos — Síndrome de fatiga crónica","Trastornos neurológicos — Lesiones de la médula espinal","Trastornos neurológicos — Estenosis espinal","Trastornos neurológicos — Déficit neurológico relacionado con un ACV","Accidente cerebrovascular (ACV)","Atención posterior al trasplante de órgano","Trastornos de inmunodeficiencia e inmunosupresión","Condiciones asociadas con deterioro cognitivo — Enfermedad de Alzheimer","Condiciones asociadas con deterioro cognitivo — Discapacidades intelectuales y del desarrollo","Condiciones asociadas con deterioro cognitivo — Lesiones cerebrales traumáticas","Condiciones asociadas con deterioro cognitivo — Enfermedad mental incapacitante asociada con deterioro cognitivo","Condiciones asociadas con deterioro cognitivo — Deterioro cognitivo leve","Condiciones con desafíos funcionales — Lesiones de la médula espinal","Condiciones con desafíos funcionales — Parálisis","Condiciones con desafíos funcionales — Pérdida de extremidades","Condiciones con desafíos funcionales — Accidente cerebrovascular (ACV)","Condiciones con desafíos funcionales — Artritis","Condiciones crónicas que afectan la visión, audición (sordera), gusto, tacto y olfato","Condiciones que requieren terapia continua para mantener o conservar el funcionamiento"]
+  },
+  {
+    carrier: "UnitedHealthCare",
+    process: { text: "Los EOC de 2027 todavía aparecen como pendientes en la tabla comparativa. Esta lista aún no se ha verificado con un EOC de 2027; confirma la elegibilidad de SSBCI con UnitedHealthcare antes de la inscripción.", warning: true },
+    conditions: ["Cáncer","Enfermedad cardiovascular","Uso crónico de alcohol y otros trastornos por uso de sustancias","Condiciones de salud mental crónicas e incapacitantes","Trastornos gastrointestinales crónicos","Insuficiencia cardíaca crónica","Hiperlipidemia crónica","Hipertensión crónica","Enfermedad renal crónica","Trastornos pulmonares crónicos","Deterioro cognitivo","Demencia","Diabetes","VIH/SIDA","Trastornos neurológicos","Postrasplante de órgano","Trastornos hematológicos graves","Accidente cerebrovascular (ACV)"]
+  },
+
+];
+
+let openStates = {};
+
+function highlight(text, q) {
+  if (!q) return text;
+  const re = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi');
+  return text.replace(re, '<span class="match">$1</span>');
+}
+
+function doSearch(q) {
+  q = q.trim().toLowerCase();
+  const container = document.getElementById('carriers-container');
+  container.innerHTML = '';
+  let anyResults = false;
+
+  DATA.forEach(carrier => {
+    const matchedConditions = carrier.conditions.filter(c => !q || c.toLowerCase().includes(q));
+    if (q && matchedConditions.length === 0) return;
+    anyResults = true;
+
+    const isOpen = q ? true : (openStates[carrier.carrier] || false);
+    const block = document.createElement('div');
+    block.className = 'carrier-block';
+
+    const conditionsHTML = (q ? matchedConditions : carrier.conditions).map(c =>
+      `<div class="condition-item"><span class="dot"></span><span>${highlight(c, q)}</span></div>`
+    ).join('');
+
+    const processHTML = carrier.process ? `
+      <div class="process-banner${carrier.process.warning ? ' warning' : ''}">
+        <div class="proc-label">Proceso del Agente</div>
+        <div class="proc-text">${highlight(carrier.process.text, q)}</div>
+      </div>` : '';
+
+    block.innerHTML = `
+      <div class="carrier-header" onclick="toggleCarrier('${carrier.carrier}', this)">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="carrier-name">${carrier.carrier}</span>
+          <span class="carrier-count">${q ? matchedConditions.length + ' coincidencia' + (matchedConditions.length !== 1 ? 's' : '') : carrier.conditions.length + ' condiciones'}</span>
+        </div>
+        <span class="carrier-chevron ${isOpen ? 'open' : ''}">▾</span>
+      </div>
+      <div class="carrier-body ${isOpen ? 'open' : ''}">
+        ${processHTML}
+        <div class="conditions-list">${conditionsHTML}</div>
+      </div>
+    `;
+    container.appendChild(block);
+  });
+
+  if (!anyResults) {
+    container.innerHTML = '<div class="no-results">No se encontraron condiciones. Prueba con otro término de búsqueda.</div>';
+  }
+}
+
+function toggleCarrier(name, headerEl) {
+  const body = headerEl.nextElementSibling;
+  const chevron = headerEl.querySelector('.carrier-chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+  openStates[name] = !isOpen;
+}
+
+doSearch('');
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>
