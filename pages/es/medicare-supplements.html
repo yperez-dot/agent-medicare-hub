@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Medicare Suplementario (Medigap) | Medicare Agent Hub</title>
 
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 :root{
  --primary:#452068;
@@ -22,7 +25,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:22px;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:18px 22px 36px;}
 
 .top-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
 .logo-wrap img{height:44px;width:auto;}
@@ -42,6 +45,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 .hero-stat-num{font-size:22px;font-weight:900;color:#f0c0ff;}
 .hero-stat-lbl{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px;}
 
+/* Doc grid */
 .doc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:14px;}
 @media(max-width:900px){.doc-grid{grid-template-columns:1fr;}}
 
@@ -65,7 +69,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 
 .btn{
  display:flex;justify-content:space-between;align-items:center;gap:10px;
- text-decoration:none;font-weight:900;font-size:14px;border-radius:14px;padding:11px 14px;
+ text-decoration:none;font-weight:900;font-size:13px;border-radius:14px;padding:11px 14px;
  border:1px solid rgba(69,32,104,.30);color:var(--primary);background:#fff;margin-top:auto;
  transition:background .15s,border-color .15s;
 }
@@ -73,6 +77,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 .btn.primary{background:var(--primary);border-color:transparent;color:#fff;}
 .btn.primary:hover{filter:brightness(1.05);}
 
+/* Quick ref */
 .section{margin-top:14px;background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow-soft);padding:20px;}
 .section h3{margin:0 0 14px;font-size:18px;font-weight:800;}
 .kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
@@ -83,39 +88,13 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 .kvCard p{margin:0;color:var(--muted);font-size:13px;line-height:1.5;}
 .kvCard strong{color:var(--text);}
 
+/* Gov links */
 .gov-link{display:flex;align-items:center;gap:14px;background:#f7f5fb;border:1px solid var(--border);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .15s;margin-bottom:10px;}
 .gov-link:hover{border-color:var(--primary);}
 .gov-link-icon{font-size:22px;flex-shrink:0;}
 .gov-link-title{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px;}
 .gov-link-desc{font-size:12.5px;color:var(--muted);line-height:1.45;}
 .gov-link-arrow{margin-left:auto;font-size:18px;color:var(--primary);flex-shrink:0;}
-
-/* GI Rights Table */
-.gi-table-wrap{overflow-x:auto;margin-bottom:14px;border-radius:14px;border:1px solid var(--border);}
-.gi-table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.55;}
-.gi-table thead tr{background:var(--primary);color:#fff;}
-.gi-table th{padding:13px 16px;text-align:left;font-size:12.5px;font-weight:800;letter-spacing:.02em;}
-.gi-table th:first-child{border-radius:13px 0 0 0;}
-.gi-table th:last-child{border-radius:0 13px 0 0;}
-.gi-table td{padding:14px 16px;border:1px solid var(--border);vertical-align:top;color:var(--text);}
-.gi-table tbody tr:nth-child(even){background:#f9f7fd;}
-.gi-table tbody tr:hover{background:#f0ecfa;}
-.gi-table ul{margin:6px 0;padding-left:18px;}
-.gi-table li{margin-bottom:4px;}
-.gi-table em{color:var(--muted);font-size:12px;display:block;margin:4px 0;}
-.gi-note{background:#fff7ed;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:7px 10px;font-size:12px;color:#92400e;margin-top:8px;line-height:1.45;}
-.gi-tag-trial{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:rgba(69,32,104,.10);border:1px solid rgba(69,32,104,.25);color:var(--primary);margin-top:6px;}
-.gi-footnote{font-size:12px;color:var(--muted);line-height:1.6;margin-top:14px;padding:12px 16px;background:#f7f5fb;border-radius:10px;border:1px solid var(--border);}
-
-/* Collapsible */
-.collapsible-hd{display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;border-radius:10px;padding:4px 6px;margin:-4px -6px;transition:background .15s;}
-.collapsible-hd:hover{background:rgba(69,32,104,.06);}
-.collapsible-hd h3{margin:0;}
-.collapse-icon{font-size:20px;color:var(--primary);transition:transform .3s ease;flex-shrink:0;line-height:1;margin-left:10px;}
-.collapse-icon.rotated{transform:rotate(180deg);}
-.collapsible-bd{display:grid;grid-template-rows:1fr;transition:grid-template-rows .35s ease;overflow:hidden;}
-.collapsible-bd.closed{grid-template-rows:0fr;}
-.collapsible-inner{overflow:hidden;min-height:0;padding-top:14px;}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,9 +121,9 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <a href='/carrier-info'>Info de Aseguradoras</a>
     <a href='/events'>Eventos</a>
     <a href='/compliance'>Cumplimiento</a>
-    <a href='/tools-perks'>Hub de Herramientas</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
     <a href='/retention-toolkit'>Kit de Retención</a>
-    <a href='/sep-tracker'>Rastreador SEP</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
     <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
     <button onclick="window.location.href='/home.html'" title="Tour del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;margin-left:4px;">?</button>
   </nav>
@@ -156,21 +135,22 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
   <section class="hero">
     <span class="badge">Medigap</span>
     <h1>Medicare Suplementario (Medigap)</h1>
-    <p>Las inscripciones están aumentando y los agentes necesitan conocer este producto a fondo. Todo aquí — documentos UHC/AARP, preguntas de suscripción, redes hospitalarias, tarifas y herramientas oficiales — para que nunca tengas que buscar en emails.</p>
+    <p>Las inscripciones están aumentando y los agentes necesitan conocer este producto a fondo. Todo está aquí — documentos de UHC/AARP, preguntas de suscripción, redes de hospitales, tarifas y herramientas oficiales — para que nunca tengas que buscar en tu email.</p>
     <div class="hero-stats">
       <div><div class="hero-stat-num">5</div><div class="hero-stat-lbl">Documentos UHC/AARP</div></div>
       <div><div class="hero-stat-num">Jun–May</div><div class="hero-stat-lbl">Tarifas 2026–2027</div></div>
-      <div><div class="hero-stat-num">Pág 3 §6</div><div class="hero-stat-lbl">Preguntas de suscripción</div></div>
-      <div><div class="hero-stat-num">2 áreas</div><div class="hero-stat-lbl">Zonas de precio en FL</div></div>
+      <div><div class="hero-stat-num">Pág. 3 §6</div><div class="hero-stat-lbl">Preguntas de suscripción</div></div>
+      <div><div class="hero-stat-num">2 áreas</div><div class="hero-stat-lbl">Zonas de precios en FL</div></div>
     </div>
   </section>
+
 
   <!-- Carrier note callout -->
   <div style="background:#fff;border:1.5px solid #ece8f3;border-left:4px solid #452068;border-radius:14px;padding:16px 20px;margin-bottom:14px;display:flex;gap:14px;align-items:flex-start;">
     
     <div>
       <div style="font-weight:800;font-size:14px;color:#452068;margin-bottom:4px;">Sobre estos documentos</div>
-      <div style="font-size:13.5px;color:#3a3347;line-height:1.6;">La mayoría de los documentos de aseguradoras en esta página son <strong>específicos de UHC/AARP</strong> (tarifas, solicitud, red hospitalaria). Sin embargo, <strong>las reglas de letras de plan (G, N, HD-G, etc.), los derechos de Emisión Garantizada y el deducible de la Parte B están estandarizados por CMS</strong> — aplican igual en todas las aseguradoras. Usa los documentos de UHC para inscripciones de UHC; las reglas de referencia rápida aplican sin importar la aseguradora.</div>
+      <div style="font-size:13.5px;color:#3a3347;line-height:1.6;">La mayoría de los documentos de aseguradoras en esta página son <strong>específicos de UHC/AARP</strong> (tarifas, solicitud, red de hospitales). Sin embargo, <strong>las reglas de las letras de los planes (G, N, HD-G, etc.), los derechos de Emisión Garantizada y el deducible de la Parte B están estandarizados por CMS</strong> — aplican igual en todas las aseguradoras. Usa los documentos de UHC para inscripciones de UHC; las reglas de referencia rápida aplican sin importar la aseguradora.</div>
     </div>
   </div>
 
@@ -180,8 +160,8 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <!-- 1: Quick Reference -->
     <a class="doc-card" href="/files/uhc-aarp-agent-quick-reference-2026.pdf" target="_blank" rel="noopener">
       <span class="tag green">Empieza Aquí</span>
-      <h2>Guía de Referencia Rápida del Agente 2026</h2>
-      <p>Resumen de planes, conceptos básicos de Medigap, preguntas frecuentes de inscripción, recursos de Jarvis, direcciones de envío y números de contacto. 13 páginas.</p>
+      <h2>Guía de Referencia Rápida para Agentes 2026</h2>
+      <p>Resumen de los planes, conceptos básicos de Medigap, preguntas frecuentes sobre inscripción, recursos de Jarvis, direcciones para enviar solicitudes y números de contacto. 13 páginas.</p>
       <div class="doc-meta">Marzo 2026 · Solo para Agentes</div>
       <div class="btn primary">Abrir PDF <span>↗</span></div>
     </a>
@@ -190,7 +170,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <a class="doc-card" href="/files/uhc-aarp-enrollment-kit-fl-2026.pdf" target="_blank" rel="noopener">
       <span class="tag">Kit Completo</span>
       <h2>Kit de Inscripción — Florida 2026</h2>
-      <p>Tabla de beneficios del plan, tarifas (Área 1 y 2) por edad/género/tabaco, descuentos, resumen de cobertura y procedimiento de quejas.</p>
+      <p>Tabla de beneficios de los planes, tablas de tarifas (Área 1 y 2) por edad/sexo/uso de tabaco, descuentos, resumen de cobertura y procedimiento de quejas.</p>
       <div class="doc-meta">Edición 6/15/26 · BC10064ST</div>
       <div class="btn primary">Abrir PDF <span>↗</span></div>
     </a>
@@ -198,9 +178,9 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <!-- 3: Application -->
     <a class="doc-card" href="/files/uhc-aarp-medsup-application-fl-2026.pdf#page=3" target="_blank" rel="noopener">
       <span class="tag pink">Suscripción</span>
-      <h2>Solicitud AARP 2026</h2>
-      <p>Solicitud en papel completa. Se abre directamente en la Página 3 — revisa la Sección 6 (factores de descalificación) con el cliente antes de enviar.</p>
-      <div class="doc-tip pink"><strong>Ve a la Página 3, Sección 6</strong> para las preguntas de suscripción médica. Las preguntas 6A–6K son rechazos automáticos si la respuesta es SÍ.</div>
+      <h2>Solicitud de AARP 2026</h2>
+      <p>Solicitud completa en papel. Se abre directamente en la Página 3 — revisa la Sección 6 (preguntas de descalificación) con los clientes antes de enviarla.</p>
+      <div class="doc-tip pink"><strong>Ve a la Página 3, Sección 6</strong> para las preguntas de suscripción médica. Las preguntas 6A–6K son rechazo automático si la respuesta es SÍ.</div>
       <div class="doc-meta">S42O49MNAGFL01 · 10 páginas</div>
       <div class="btn primary">Abrir PDF → Pág. 3 <span>↗</span></div>
     </a>
@@ -208,259 +188,103 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <!-- 4: Hospital Network -->
     <a class="doc-card" href="/files/uhc-plan-g-select-hospital-list-fl-2026.pdf" target="_blank" rel="noopener">
       <span class="tag">Red</span>
-      <h2>Plan G Select — Red Hospitalaria FL</h2>
-      <p>Directorio de hospitales participantes por condado para AARP Medicare Select (Plan G Select) — FL, AL y GA. Vigente desde enero 2026.</p>
-      <div class="doc-tip">El Plan G Select solo paga beneficios completos en estos hospitales para atención no urgente. Siempre verifica antes de inscribir.</div>
+      <h2>Plan G Select — Red de Hospitales de FL</h2>
+      <p>Directorio de hospitales participantes por condado para AARP Medicare Select (Plan G Select) — FL, AL y GA. Vigente desde enero de 2026.</p>
+      <div class="doc-tip">El Plan G Select solo paga beneficios completos en estos hospitales para atención que no es de emergencia. Siempre verifica antes de inscribir.</div>
       <div class="doc-meta">HD1001FLI · 6 páginas</div>
       <div class="btn primary">Abrir PDF <span>↗</span></div>
     </a>
 
     <!-- 5: GI Guide -->
     <a class="doc-card" href="/files/uhc-aarp-guaranteed-issue-guide-fl-2026.pdf" target="_blank" rel="noopener">
-      <span class="tag">Derechos GI</span>
+      <span class="tag">Derechos de GI</span>
       <h2>Guía de Emisión Garantizada y Elegibilidad</h2>
-      <p>Derechos de GI, tiempo del OEP, regla de 63 días, exenciones de condiciones preexistentes, restricciones del plan Select y exclusiones. Específico de Florida.</p>
-      <div class="doc-tip">La solicitud debe recibirse dentro de <strong>63 días</strong> del fin de la cobertura anterior. Incluye prueba de pérdida con la solicitud.</div>
+      <p>Derechos de GI, fechas del período de inscripción abierta (OEP), regla de 63 días, exenciones por condiciones preexistentes, restricciones de los planes Select y exclusiones. Específico para Florida.</p>
+      <div class="doc-tip">La solicitud debe recibirse dentro de los <strong>63 días</strong> posteriores al fin de la cobertura anterior. Incluye prueba de la pérdida de cobertura con la solicitud.</div>
       <div class="doc-meta">GU25156FL</div>
       <div class="btn primary">Abrir PDF <span>↗</span></div>
     </a>
 
   </div>
 
+  <!-- QUICK REFERENCE -->
   <!-- GENERIC QUICK REF -->
   <section class="section">
-    <h3>Referencia Rápida — Medigap General</h3>
+    <h3>Referencia Rápida — Medigap en General</h3>
     <div class="kv">
 
       <div class="kvCard">
         <h4>Período de Inscripción Abierta</h4>
-        <p><strong>6 meses desde la fecha efectiva de la Parte B.</strong> Emisión garantizada — sin preguntas de salud. El mejor momento para vender.</p>
+        <p><strong>6 meses desde la fecha de vigencia de la Parte B.</strong> Emisión garantizada — sin preguntas de salud. El mejor momento para vender.</p>
       </div>
 
       <div class="kvCard">
-        <h4>Eventos GI — Regla de 63 Días</h4>
-        <p>Pérdida de cobertura creíble, derecho de prueba de MA. Solicitud recibida dentro de <strong>63 días</strong> del término. Incluir documentación.</p>
+        <h4>Eventos de GI — Regla de 63 Días</h4>
+        <p>Pérdida de cobertura acreditable, derecho de prueba de MA. Solicitud recibida dentro de los <strong>63 días</strong> posteriores a la terminación. Incluye documentos.</p>
       </div>
 
       <div class="kvCard">
-        <h4>Deducible Parte B 2026</h4>
-        <p><strong>$283/año.</strong> El Plan G NO lo cubre. El Plan F sí — pero solo para elegibilidad de Medicare antes de 2020.</p>
+        <h4>Deducible de la Parte B 2026</h4>
+        <p><strong>$257/año.</strong> El Plan G NO lo cubre. El Plan F sí — pero solo para quienes eran elegibles para Medicare antes de 2020.</p>
       </div>
 
       <div class="kvCard">
         <h4>Planes C y F — Restringidos</h4>
-        <p>Solo para clientes elegibles para Medicare <strong>antes del 1 de enero de 2020.</strong> Todos los demás → llevar al Plan G.</p>
+        <p>Solo para clientes elegibles para Medicare <strong>antes del 1 de enero de 2020.</strong> Para todos los demás → recomienda el Plan G.</p>
       </div>
 
     </div>
-  </section>
-
-  <!-- GI RIGHTS TABLE (ES) -->
-  <section class="section" style="margin-top:14px;">
-    <div class="collapsible-hd" onclick="toggleGI(this)" role="button" aria-expanded="true">
-      <h3>🛡️ Derechos de Emisión Garantizada (GI) — Tabla de Situaciones</h3>
-      <span class="collapse-icon">&#9660;</span>
-    </div>
-    <div class="collapsible-bd" id="gi-body"><div class="collapsible-inner">
-    <p style="font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.6;">La ley federal cubre las situaciones a continuación donde puedes comprar una póliza de Medigap fuera de tu Período de Inscripción Abierta. Los clientes pueden tener derechos adicionales bajo la ley estatal.</p>
-
-    <div style="background:#f0ecfa;border:1px solid rgba(69,32,104,.2);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--text);line-height:1.6;">
-      <strong style="color:var(--primary);">Cuando aplica GI, la aseguradora DEBE:</strong>
-      <ul style="margin:6px 0 0;padding-left:20px;color:var(--muted);">
-        <li>Venderte una póliza de Medigap</li>
-        <li>Cubrir todas tus condiciones preexistentes</li>
-        <li>No cobrarte más por problemas de salud pasados o presentes</li>
-      </ul>
-    </div>
-
-    <div class="gi-table-wrap">
-      <table class="gi-table">
-        <thead>
-          <tr>
-            <th style="width:38%;">Tienes derecho a GI si…</th>
-            <th style="width:28%;">Tienes derecho a comprar…</th>
-            <th style="width:34%;">Puedes/debes solicitar una póliza de Medigap…</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-            <td>
-              <strong>Tienes un Plan de Medicare Advantage</strong>, y cualquiera de las siguientes es verdadera:
-              <ul>
-                <li>Tu plan está abandonando Medicare</li>
-                <li>Tu plan deja de dar atención en tu área</li>
-                <li>Te mudas fuera del área de servicio del plan</li>
-                <li>La red de tu plan cambió significativamente</li>
-              </ul>
-              <em>Solo tienes este derecho si cambias a Medicare Original (en lugar de unirte a otro Plan de MA).</em>
-            </td>
-            <td>Plan A, B, C*, D*, F* o G* de Medigap, vendido por una aseguradora en tu estado.</td>
-            <td>
-              <ul>
-                <li><strong>60 días antes</strong> de que finalice tu cobertura del Plan de MA (si estás eligiendo abandonar el plan)</li>
-              </ul>
-              <em>O</em>
-              <ul>
-                <li>Para la fecha indicada en el aviso de terminación de tu plan</li>
-                <li>No más de <strong>63 días después</strong> de que finalice tu cobertura del Plan de MA</li>
-              </ul>
-              <div class="gi-note">Las pólizas de Medigap no pueden comenzar hasta que finalice tu cobertura del Plan de MA.</div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Tienes Medicare Original y un plan de salud grupal de empleador</strong> (incluyendo cobertura de jubilado o COBRA) o cobertura sindical que paga después de Medicare, y ese plan está terminando.
-              <br><br>
-              <em>Si tienes cobertura COBRA, puedes comprar una póliza de Medigap de inmediato o esperar hasta que finalice tu cobertura COBRA.</em>
-            </td>
-            <td>Plan A, B, C*, D*, F* o G* de Medigap, vendido por una aseguradora en tu estado.</td>
-            <td>
-              No más de <strong>63 días después</strong> de la más reciente de estas 3 fechas:
-              <ul>
-                <li>Fecha en que finaliza tu cobertura actual</li>
-                <li>Fecha del aviso que te informa que tu cobertura está terminando (si recibes uno)</li>
-                <li>Fecha de una negación de reclamación, si esa es la única forma en que sabes que tu cobertura terminó</li>
-              </ul>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Tienes Medicare Original y una póliza de Medicare SELECT.</strong> Te mudas fuera del área de servicio de esa póliza.
-              <br><br>
-              <em>(Llama a la compañía de Medicare SELECT para más información sobre tus opciones.)</em>
-            </td>
-            <td>Plan A, B, C*, D*, F* o G* de Medigap vendido por una aseguradora en tu estado, o el estado al que te mudas.</td>
-            <td>
-              <ul>
-                <li><strong>60 días antes</strong> de que finalice tu póliza de Medicare SELECT</li>
-              </ul>
-              <em>O</em>
-              <ul>
-                <li>No más de <strong>63 días después</strong> de que finalice tu póliza de Medicare SELECT</li>
-              </ul>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Te uniste a un Plan de Medicare Advantage o PACE</strong> cuando fuiste elegible por primera vez para Medicare, y dentro del primer año decides cambiar a Medicare Original.
-              <br>
-              <span class="gi-tag-trial">⚖️ Derecho de Prueba</span>
-            </td>
-            <td>Cualquier póliza de Medigap vendida por una aseguradora en tu estado.*</td>
-            <td>
-              <ul>
-                <li><strong>60 días antes</strong> de que finalice tu cobertura</li>
-              </ul>
-              <em>O</em>
-              <ul>
-                <li>No más de <strong>63 días después</strong> de que finalice tu cobertura</li>
-              </ul>
-              <div class="gi-note">Tus derechos pueden durar hasta 12 meses adicionales en ciertas circunstancias. Comunícate con tu Departamento de Seguros Estatal para más información.</div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Abandonaste una póliza de Medigap para unirte a un Plan de Medicare Advantage</strong> (o a una póliza de Medicare SELECT) por primera vez, llevas menos de un año en el plan y quieres volver a comprar esa póliza.
-              <br>
-              <span class="gi-tag-trial">⚖️ Derecho de Prueba</span>
-            </td>
-            <td>
-              La póliza de Medigap que tenías antes de unirte al Plan de MA o Medicare SELECT, si la misma aseguradora todavía la vende.
-              <br><br>
-              Si esa póliza <strong>no está</strong> disponible, puedes comprar el Plan A, B, C*, D*, F* o G* de Medigap vendido por una aseguradora en tu estado.
-            </td>
-            <td>
-              <ul>
-                <li><strong>60 días antes</strong> de que finalice tu cobertura</li>
-              </ul>
-              <em>O</em>
-              <ul>
-                <li>No más de <strong>63 días después</strong> de que finalice tu cobertura</li>
-              </ul>
-              <div class="gi-note">Tus derechos pueden durar hasta 12 meses adicionales en ciertas circunstancias. Comunícate con tu Departamento de Seguros Estatal para más información.</div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Tu aseguradora de Medigap quiebra</strong> y pierdes tu cobertura, o tu póliza de Medigap termina sin ser tu culpa.
-            </td>
-            <td>Plan A, B, C*, D*, F* o G* de Medigap vendido por una aseguradora en tu estado.</td>
-            <td>No más de <strong>63 días después</strong> de que finalice tu póliza de Medigap actual.</td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Abandonas un Plan de Medicare Advantage o cancelas una póliza de Medigap</strong> porque la compañía no siguió las reglas o te engañó.
-            </td>
-            <td>Plan A, B, C*, D*, F* o G* de Medigap, vendido por una aseguradora en tu estado.</td>
-            <td>No más de <strong>63 días después</strong> de que finalice tu cobertura.</td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-    <div class="gi-footnote">
-      *<strong>Nota:</strong> Los Planes C y F ya no están disponibles para personas nuevas en Medicare a partir del 1 de enero de 2020. Sin embargo, si eras elegible para Medicare antes del 1 de enero de 2020, pero aún no te has inscrito, es posible que puedas comprar el Plan C o F. Las personas nuevas en Medicare a partir del 1 de enero de 2020 tienen derecho a comprar el Plan D o G en lugar del Plan C o F.
-    </div>
-    </div></div><!-- /collapsible -->
   </section>
 
   <!-- UHC-SPECIFIC QUICK REF -->
   <section class="section" style="margin-top:14px;">
-    <h3>Referencia Rápida UHC / AARP</h3>
+    <h3>Referencia Rápida de UHC / AARP</h3>
     <div class="kv">
 
       <div class="kvCard">
         <h4>Plan G Select vs Plan G</h4>
-        <p><strong>Mismos beneficios, prima más baja.</strong> Requiere uso de hospitales en red para atención no urgente. Buena opción para clientes cerca de hospitales participantes.</p>
+        <p><strong>Mismos beneficios, prima más baja.</strong> Requiere usar hospitales de la red para atención que no es de emergencia. Buena opción para clientes que viven cerca de hospitales participantes.</p>
       </div>
 
       <div class="kvCard">
-        <h4>Factores de Descalificación (§6)</h4>
-        <p><strong>SÍ = inelegible.</strong> Cáncer, cardíaco, EPOC, ELA, Alzheimer, trasplantes. Revisar con el cliente antes de enviar la solicitud.</p>
+        <h4>Preguntas de Descalificación (§6)</h4>
+        <p><strong>SÍ = no elegible.</strong> Cáncer, problemas cardíacos, COPD, ALS, Alzheimer, trasplantes. Revísalas con el cliente antes de enviar.</p>
       </div>
 
       <div class="kvCard">
-        <h4>Membresía AARP — Solo UHC</h4>
-        <p><strong>Requerida solo para planes UHC.</strong> Otras aseguradoras (Aetna, Cigna, Mutual of Omaha, etc.) no la requieren. Para UHC: $20/año en aarp.org/savetoday o 1-866-331-1964. Los agentes no pueden pagar las cuotas por los clientes. <strong>El cliente puede cancelar la membresía después de que se emita la póliza</strong> — la cobertura continúa mientras se paguen las primas.</p>
+        <h4>Membresía de AARP — Solo UHC</h4>
+        <p><strong>Requerida solo para planes de UHC.</strong> Otras aseguradoras (Aetna, Cigna, Mutual of Omaha, etc.) no la requieren. Para UHC: $20/año en aarp.org/savetoday o al 1-866-331-1964. Los agentes no pueden pagar la cuota por los clientes. <strong>El cliente puede cancelar la membresía después de emitida la póliza</strong> — la cobertura continúa mientras se paguen las primas.</p>
       </div>
 
       <div class="kvCard">
         <h4>Descuentos</h4>
-        <p><strong>3%</strong> multi-asegurado (dos en la misma cuenta) + <strong>$2/mes</strong> débito automático (EFT) O <strong>$24/año</strong> pago anual. EFT y pago anual no se pueden combinar.</p>
+        <p><strong>3%</strong> por varios asegurados (dos en la misma cuenta) + <strong>$2/mes</strong> por pago automático (EFT) O <strong>$24/año</strong> por pago anual. El EFT y el pago anual no se pueden combinar.</p>
       </div>
 
       <div class="kvCard">
-        <h4>Áreas de Tarifa — Florida</h4>
-        <p><strong>Área 1</strong> = Sur de FL (Miami-Dade, Broward, Palm Beach). <strong>Área 2</strong> = resto de FL. Diferencia de ~$55–60/mes en Plan G.</p>
+        <h4>Áreas de Tarifas — Florida</h4>
+        <p><strong>Área 1</strong> = Sur de FL (Miami-Dade, Broward, Palm Beach). <strong>Área 2</strong> = resto de FL. ~$55–60/mes de diferencia en el Plan G.</p>
       </div>
 
       <div class="kvCard">
         <h4>Envío de Solicitudes</h4>
-        <p><strong>JarvisEnroll preferido</strong> en uhcjarvis.com. Correo postal: PO Box 105331, Atlanta GA 30348. Fax: 1-888-836-3985. No se aceptan envíos por email.</p>
+        <p><strong>Se prefiere JarvisEnroll</strong> en uhcjarvis.com. Por correo en papel a PO Box 105331, Atlanta GA 30348. Fax: 1-888-836-3985. No se aceptan solicitudes por email.</p>
       </div>
 
       <div class="kvCard">
-        <h4>Mesa de Ayuda al Productor</h4>
+        <h4>Mesa de Ayuda para Productores</h4>
         <p><strong>1-888-381-8581</strong> (Opción 2 = Español). También disponible por Chat en Jarvis.</p>
       </div>
 
       <div class="kvCard">
         <h4>Servicios al Miembro (clientes)</h4>
-        <p><strong>1-800-523-5800.</strong> Verificar estado de la red hospitalaria antes de cualquier inscripción al Plan G Select — las redes pueden cambiar.</p>
+        <p><strong>1-800-523-5800.</strong> Verifica el estado de la red de hospitales antes de cualquier inscripción en el Plan G Select — las redes pueden cambiar.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- GOV TOOLS -->
+    <!-- GOV TOOLS -->
   <section class="section" style="margin-top:14px;">
     <h3>Herramientas Oficiales de Medicare.gov</h3>
 
@@ -468,7 +292,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
       <div class="gov-link-icon">🏛️</div>
       <div>
         <div class="gov-link-title">Conceptos Básicos de Medigap</div>
-        <div class="gov-link-desc">Qué cubre Medigap, cómo funciona, cuándo comprar y cómo comparar planes. Bueno para compartir con clientes.</div>
+        <div class="gov-link-desc">Qué cubre Medigap, cómo funciona, cuándo comprarlo y cómo comparar planes. Bueno para compartir con los clientes.</div>
       </div>
       <span class="gov-link-arrow">↗</span>
     </a>
@@ -476,8 +300,8 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <a class="gov-link" href="https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when" target="_blank" rel="noopener">
       <div class="gov-link-icon">💬</div>
       <div>
-        <div class="gov-link-title">Quiz: "¿Cuándo Puedo Comprar Medigap?"</div>
-        <div class="gov-link-desc">Quiz interactivo — guía al cliente por su ventana de inscripción y derechos de GI. Úsalo con ellos en el momento.</div>
+        <div class="gov-link-title">Cuestionario "¿Cuándo Puedo Comprar Medigap?"</div>
+        <div class="gov-link-desc">Cuestionario interactivo — guía a los clientes por su período de inscripción y sus derechos de GI. Hazlo con ellos en el momento.</div>
       </div>
       <span class="gov-link-arrow">↗</span>
     </a>
@@ -485,8 +309,8 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <a class="gov-link" href="https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/change-policies" target="_blank" rel="noopener">
       <div class="gov-link-icon">🔄</div>
       <div>
-        <div class="gov-link-title">Cambiar Pólizas de Medigap</div>
-        <div class="gov-link-desc">Guía de CMS sobre cambio de planes — cuándo puedes cambiar, reglas de suscripción y derechos al cambiar pólizas.</div>
+        <div class="gov-link-title">Cambiar de Póliza de Medigap</div>
+        <div class="gov-link-desc">Guía de CMS sobre cambiar de plan — cuándo puedes cambiar, reglas de suscripción y derechos al cambiar de póliza.</div>
       </div>
       <span class="gov-link-arrow">↗</span>
     </a>
@@ -494,8 +318,8 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
     <a class="gov-link" href="https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/change-policies/switch-drop" target="_blank" rel="noopener">
       <div class="gov-link-icon">🔁</div>
       <div>
-        <div class="gov-link-title">Quiz: "¿Debo Cambiar o Cancelar Mi Medigap?"</div>
-        <div class="gov-link-desc">Quiz interactivo — ayuda al cliente a decidir si cambiar o cancelar tiene sentido. Úsalo antes de una conversación de cambio de plan.</div>
+        <div class="gov-link-title">Cuestionario "¿Debo Cambiar o Cancelar mi Medigap?"</div>
+        <div class="gov-link-desc">Cuestionario interactivo — ayuda a los clientes a decidir si conviene cambiar o cancelar. Hazlo antes de una conversación sobre cambio de plan.</div>
       </div>
       <span class="gov-link-arrow">↗</span>
     </a>
@@ -503,12 +327,12 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 
   <!-- CARRIER TRAINING -->
   <section class="section" style="margin-top:14px;">
-    <h3>Capacitación de Aseguradoras y Eventos</h3>
+    <h3>Capacitación y Eventos de Aseguradoras</h3>
     <a class="gov-link" href="https://university.healthspringforbrokers.com/EventCalendar" target="_blank" rel="noopener">
       <div class="gov-link-icon">🎓</div>
       <div>
-        <div class="gov-link-title">HealthSpring para Brokers — Calendario de Eventos</div>
-        <div class="gov-link-desc">Próximos webinars de capacitación, eventos de certificación y educación para brokers. Revísalo regularmente para fechas límite de AEP y certificación.</div>
+        <div class="gov-link-title">HealthSpring for Brokers — Calendario de Eventos</div>
+        <div class="gov-link-desc">Próximos webinars de capacitación, eventos de certificación y educación para brokers. Revísalo con frecuencia para ver las fechas límite de AEP y certificación.</div>
       </div>
       <span class="gov-link-arrow">↗</span>
     </a>
@@ -517,30 +341,8 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 </div>
 
 <script>
-(function(){
-  const s = localStorage.getItem('hub_session');
-  if (!s) { window.location.replace('/login.html'); return; }
-  try { const d = JSON.parse(s); if (!d.token) throw 0; } catch(e) { localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
-})();
 function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
-function toggleGI(hd){
-  var bd=document.getElementById('gi-body');
-  var ic=hd.querySelector('.collapse-icon');
-  var closing=!bd.classList.contains('closed');
-  bd.classList.toggle('closed');
-  ic.classList.toggle('rotated');
-  hd.setAttribute('aria-expanded',String(!closing));
-}
 </script>
-<script>
-(function(){
-  var p = window.location.pathname.replace(/\/+$/,'') || '/';
-  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
-    a.classList.remove('active');
-    var h = a.getAttribute('href').replace(/\/+$/,'');
-    if (h && p === h) a.classList.add('active');
-  });
-})();
-</script>
+
 </body>
 </html>

@@ -5,7 +5,10 @@
 </script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Planes Sin Comisión 2026 | The Health Experts Insurance</title>
+<title>Planes Sin Comisión 2026–2027 | The Health Experts Insurance</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
@@ -50,7 +53,9 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 .acc-icon{width:38px;height:38px;border-radius:10px;background:#FEF2F2;color:#DC2626;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
 .acc-title{font:700 15px/1.3 Arial,sans-serif;color:#241C2E;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .acc-sub{font:400 12px/1.4 Arial,sans-serif;color:#9A94A8;margin-top:2px;}
-.acc-pending{font:600 9px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:999px;padding:3px 8px;text-transform:uppercase;letter-spacing:.3px;}
+.acc-year{font:800 9px/1 Arial,sans-serif;border-radius:999px;padding:3px 8px;letter-spacing:.3px;}
+.acc-year.y2026{color:#6B21A8;background:#F3E8FF;}
+.acc-year.y2027{color:#065F46;background:#D1FAE5;}
 .acc-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
 .acc-count{font:700 11px/1 Arial,sans-serif;background:#FEE2E2;color:#991B1B;padding:4px 10px;border-radius:999px;}
 .acc-chevron{color:#9A94A8;font-size:13px;transition:transform .18s;}
@@ -97,18 +102,18 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 
 <!-- Top Nav -->
 <div class="top-bar">
-  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
-    <a href='/home'>Inicio</a>
+    <a href='/home'>Panel del Agente</a>
     <a href='/learn'>Universidad del Broker</a>
     <a href='/carrier-info'>Info de Aseguradoras</a>
     <a href='/events'>Eventos</a>
     <a href='/compliance'>Cumplimiento</a>
-    <a href='/tools-perks'>Centro de Herramientas</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
     <a href='/retention-toolkit'>Kit de Retención</a>
     <a href='/sep-tracker'>Rastreador de SEP</a>
     <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
-    <button onclick="startTour ? startTour() : null" title="Recorrido del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+    <button onclick="startTour ? startTour() : null" title="Tour del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
   </nav>
 </div>
 
@@ -116,16 +121,17 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 <div class="wrap">
   <div class="hero">
     <span class="hero-tag">Importante — Verifica Antes de Inscribir</span>
-    <h1>Planes Sin Comisión — 2026</h1>
-    <p>Lista completa y buscable de planes sin comisión para 2026 por aseguradora y estado. Solo ventas nuevas — las renovaciones siguen recibiendo comisión FMV. Fuente: Extracto Nacional del Panorama de CMS + documentos de aseguradoras.</p>
-    <span class="hero-meta">2026 · Todos los Estados · Extracto Nacional del Panorama de CMS</span>
+    <h1>Planes Sin Comisión — 2026 y 2027</h1>
+    <p>Lista completa y buscable de planes sin comisión por aseguradora y estado. Cada aseguradora está marcada con su año del plan. Aetna es Año del Plan 2027 (boletín del 8/20/2026); las demás aseguradoras siguen en 2026 mientras salen sus boletines de 2027. Solo ventas nuevas — las renovaciones siguen recibiendo comisión FMV.</p>
+    <span class="hero-meta">680 planes · Todos los Estados · Extracto Nacional del Panorama de CMS + boletín de Aetna 2027</span>
   </div>
 
-  <input type="text" class="search-bar" id="ncSearch" placeholder="Buscar por aseguradora, ID de plan o estado…" autocomplete="off">
+  <input type="text" class="search-bar" id="ncSearch" placeholder="Buscar por aseguradora, ID de plan, nombre del plan o estado…" autocomplete="off">
 
   <div class="filter-row">
     <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">Todas las Aseguradoras</button>
-    <button class="filter-pill" data-filter="pending" onclick="setFilter('pending')">⏳ Necesita Verificación</button>
+    <button class="filter-pill" data-filter="2027" onclick="setFilter('2027')">2027</button>
+    <button class="filter-pill" data-filter="2026" onclick="setFilter('2026')">2026</button>
     <select class="state-select" id="ncStateSelect" onchange="renderList()">
       <option value="">Todos los Estados</option>
     </select>
@@ -140,7 +146,7 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   </div>
 
   <div class="page-note">
-    <strong>Cómo leer esta lista:</strong> Los planes que aparecen aquí no pagan comisión para <strong>ventas nuevas únicamente</strong> — las renovaciones de miembros existentes siguen recibiendo comisión de Valor Justo de Mercado (FMV). Las aseguradoras marcadas "Necesita Verificación" tienen confirmación pendiente del área de cumplimiento de THEI — siempre confirma el estado actual directamente con la aseguradora antes de inscribir a un cliente. Esta lista proviene del Extracto Nacional del Panorama de CMS y boletines de aseguradoras, y se actualiza a medida que llega nueva información.
+    <strong>Cómo leer esta lista:</strong> los planes que aparecen aquí no pagan comisión <strong>solo en ventas nuevas</strong> — las renovaciones de miembros actuales siguen recibiendo comisión de Valor Justo de Mercado (FMV). Cada aseguradora está marcada con su año del plan. Las filas de contrato/PBP de Aetna son del Año del Plan 2027 (boletín actualizado el 8/20/2026); todas las ventas nuevas de PDP de Aetna son sin comisión. Las demás aseguradoras siguen en 2026 mientras salen sus boletines de 2027.
   </div>
 
 </div>
@@ -152,16 +158,31 @@ function logout() {
 }
 
 // ── Non-Commissionable Plans data ───────────────────────────────────────────
-// ⚠️ Mirrors NC_DATA in hub-dashboard.html. Keep both in sync until this is
+// ⚠️ Mirrors NC_DATA in home.html. Keep both in sync until this is
 // centralized into a shared JSON file Igor can update from one place.
-// States default to FL (THEI market) — update per-plan when the full CMS
-// multi-state breakdown is available.
+// Aetna rows are Plan Year 2027 (bulletin 8/20/2026, contract/PBP + name).
+// Anthem, WellPoint, and Freedom Health/Optimum HealthCare (FL) 2027 rows
+// are from Elevance's "Exceptions List, Plan Year 2027" (bulletin 09/02/2026).
+// Other carriers remain 2026 pending their 2027 bulletins.
 const NC_DATA = [
  { carrier: 'Humana', pending: false, plans: [
+ { id: 'H0028-014', states: ['IL','MO'] },
+ { id: 'H0028-019', states: ['NM'] },
+ { id: 'H0028-062', states: ['AZ'] },
+ { id: 'H0028-065', states: ['IL','MO'] },
+ { id: 'H0028-066', states: ['KS'] },
+ { id: 'H0028-074', states: ['AZ'] },
+ { id: 'H1036-167', states: ['NC'] },
  { id: 'H1036-321', states: ['WA'] },
  { id: 'H1036-322', states: ['WA'] },
  { id: 'H1036-333', states: ['VA'] },
  { id: 'H1036-334', states: ['VA'] },
+ { id: 'H1036-335', states: ['NC'] },
+ { id: 'H2463-001', states: ['AZ'] },
+ { id: 'H3533-027', states: ['NY'] },
+ { id: 'H3533-033', states: ['NY'] },
+ { id: 'H3533-035', states: ['NY'] },
+ { id: 'H4141-017', states: ['GA'] },
  { id: 'H4461-045', states: ['MO'] },
  { id: 'H4461-046', states: ['MO'] },
  { id: 'H4461-047', states: ['KS','MO'] },
@@ -185,12 +206,205 @@ const NC_DATA = [
  { id: 'H4461-067', states: ['TX'] },
  { id: 'H4461-069', states: ['TX'] },
  { id: 'H4461-071', states: ['TX'] },
+ { id: 'H4623-001', states: ['MO'] },
+ { id: 'H5216-017', states: ['NC'] },
+ { id: 'H5216-023', states: ['OH','PA'] },
+ { id: 'H5216-039', states: ['NV'] },
+ { id: 'H5216-048', states: ['ID','MT','OR'] },
+ { id: 'H5216-053', states: ['IN'] },
+ { id: 'H5216-062', states: ['FL'] },
+ { id: 'H5216-063', states: ['MN'] },
+ { id: 'H5216-064', states: ['LA'] },
+ { id: 'H5216-068', states: ['FL'] },
+ { id: 'H5216-070', states: ['FL'] },
+ { id: 'H5216-072', states: ['FL'] },
+ { id: 'H5216-073', states: ['GA'] },
+ { id: 'H5216-074', states: ['FL'] },
+ { id: 'H5216-078', states: ['CO','NM'] },
+ { id: 'H5216-081', states: ['OK'] },
+ { id: 'H5216-089', states: ['MT'] },
+ { id: 'H5216-092', states: ['MN'] },
+ { id: 'H5216-097', states: ['AR','IN','MS'] },
+ { id: 'H5216-106', states: ['OH'] },
+ { id: 'H5216-114', states: ['IN'] },
+ { id: 'H5216-120', states: ['PA'] },
+ { id: 'H5216-132', states: ['ID','OR'] },
+ { id: 'H5216-136', states: ['MS'] },
+ { id: 'H5216-138', states: ['MA','ME','NH'] },
+ { id: 'H5216-154', states: ['GA'] },
+ { id: 'H5216-160', states: ['MS'] },
+ { id: 'H5216-161', states: ['LA'] },
+ { id: 'H5216-175', states: ['ME'] },
+ { id: 'H5216-179', states: ['AL'] },
+ { id: 'H5216-188', states: ['IN','KY'] },
+ { id: 'H5216-190', states: ['MI'] },
+ { id: 'H5216-194', states: ['NV'] },
+ { id: 'H5216-195', states: ['CO'] },
+ { id: 'H5216-196', states: ['NM'] },
+ { id: 'H5216-203', states: ['GA'] },
+ { id: 'H5216-205', states: ['GA'] },
+ { id: 'H5216-206', states: ['GA'] },
+ { id: 'H5216-207', states: ['GA'] },
+ { id: 'H5216-211', states: ['NC'] },
+ { id: 'H5216-223', states: ['CO','NM'] },
+ { id: 'H5216-224', states: ['AZ'] },
+ { id: 'H5216-226', states: ['IN','KY'] },
+ { id: 'H5216-229', states: ['IN','KY'] },
+ { id: 'H5216-231', states: ['AR'] },
+ { id: 'H5216-234', states: ['HI'] },
+ { id: 'H5216-242', states: ['GA'] },
+ { id: 'H5216-246', states: ['GA'] },
+ { id: 'H5216-251', states: ['IL'] },
+ { id: 'H5216-257', states: ['FL'] },
+ { id: 'H5216-261', states: ['CO'] },
+ { id: 'H5216-263', states: ['AZ'] },
+ { id: 'H5216-264', states: ['AR','OK'] },
+ { id: 'H5216-265', states: ['AZ'] },
+ { id: 'H5216-267', states: ['CO'] },
+ { id: 'H5216-269', states: ['AL'] },
+ { id: 'H5216-275', states: ['MN'] },
+ { id: 'H5216-278', states: ['AR','IL','KS','MN'] },
+ { id: 'H5216-280', states: ['GA'] },
+ { id: 'H5216-281', states: ['NV'] },
+ { id: 'H5216-283', states: ['IL'] },
+ { id: 'H5216-284', states: ['GA'] },
+ { id: 'H5216-285', states: ['KY'] },
+ { id: 'H5216-286', states: ['GA'] },
+ { id: 'H5216-287', states: ['MI'] },
+ { id: 'H5216-288', states: ['CT'] },
+ { id: 'H5216-289', states: ['CT'] },
+ { id: 'H5216-291', states: ['ME'] },
+ { id: 'H5216-292', states: ['MS'] },
+ { id: 'H5216-298', states: ['MS'] },
+ { id: 'H5216-300', states: ['MS'] },
+ { id: 'H5216-304', states: ['FL'] },
+ { id: 'H5216-305', states: ['MI'] },
+ { id: 'H5216-306', states: ['MI'] },
+ { id: 'H5216-307', states: ['IN'] },
+ { id: 'H5216-308', states: ['DE'] },
+ { id: 'H5216-309', states: ['IN','KY','OH'] },
+ { id: 'H5216-311', states: ['FL'] },
+ { id: 'H5216-313', states: ['HI'] },
+ { id: 'H5216-314', states: ['HI'] },
+ { id: 'H5216-316', states: ['OK'] },
+ { id: 'H5216-317', states: ['IN','KY'] },
+ { id: 'H5216-318', states: ['IL','KS'] },
+ { id: 'H5216-319', states: ['NJ'] },
+ { id: 'H5216-322', states: ['IN','KY'] },
+ { id: 'H5216-325', states: ['LA'] },
+ { id: 'H5216-326', states: ['LA'] },
+ { id: 'H5216-337', states: ['AR','OK'] },
+ { id: 'H5216-339', states: ['NM'] },
+ { id: 'H5216-340', states: ['IA','NE'] },
+ { id: 'H5216-345', states: ['GA'] },
+ { id: 'H5216-347', states: ['GA'] },
+ { id: 'H5216-355', states: ['IL'] },
+ { id: 'H5216-359', states: ['MN'] },
+ { id: 'H5216-361', states: ['AR'] },
+ { id: 'H5216-366', states: ['AR'] },
+ { id: 'H5216-367', states: ['MS'] },
+ { id: 'H5216-368', states: ['AL'] },
+ { id: 'H5216-370', states: ['AL'] },
+ { id: 'H5216-371', states: ['AZ'] },
+ { id: 'H5216-375', states: ['MI'] },
+ { id: 'H5216-376', states: ['MD'] },
+ { id: 'H5216-377', states: ['MD'] },
+ { id: 'H5216-379', states: ['MD'] },
+ { id: 'H5216-384', states: ['MI'] },
+ { id: 'H5216-386', states: ['DC','MD'] },
+ { id: 'H5216-387', states: ['MD'] },
+ { id: 'H5216-389', states: ['DC'] },
+ { id: 'H5216-390', states: ['DE'] },
+ { id: 'H5216-393', states: ['FL'] },
+ { id: 'H5216-394', states: ['FL'] },
+ { id: 'H5216-399', states: ['IL'] },
+ { id: 'H5216-400', states: ['IN'] },
+ { id: 'H5216-403', states: ['IL'] },
+ { id: 'H5216-404', states: ['MO'] },
+ { id: 'H5216-405', states: ['KS','MO'] },
+ { id: 'H5216-407', states: ['IL','MO'] },
+ { id: 'H5216-409', states: ['KS'] },
+ { id: 'H5216-411', states: ['IA','NE'] },
+ { id: 'H5216-412', states: ['IL'] },
+ { id: 'H5216-413', states: ['IA'] },
+ { id: 'H5216-417', states: ['LA'] },
+ { id: 'H5216-421', states: ['GA'] },
+ { id: 'H5216-424', states: ['MA'] },
+ { id: 'H5216-428', states: ['OR'] },
+ { id: 'H5216-435', states: ['AZ','CO'] },
+ { id: 'H5216-441', states: ['IN'] },
+ { id: 'H5216-446', states: ['KY'] },
+ { id: 'H5216-452', states: ['FL'] },
+ { id: 'H5216-453', states: ['IA','KY'] },
+ { id: 'H5216-457', states: ['MT'] },
+ { id: 'H5216-459', states: ['MD'] },
+ { id: 'H5216-461', states: ['NJ'] },
+ { id: 'H5216-463', states: ['IN'] },
+ { id: 'H5216-464', states: ['HI'] },
+ { id: 'H5216-465', states: ['HI'] },
+ { id: 'H5216-466', states: ['AL','GA'] },
+ { id: 'H5216-467', states: ['FL'] },
+ { id: 'H5216-468', states: ['CO'] },
+ { id: 'H5216-469', states: ['OK'] },
+ { id: 'H5216-470', states: ['AR'] },
+ { id: 'H5525-008', states: ['IN','KY'] },
+ { id: 'H5525-030', states: ['KY','OH'] },
+ { id: 'H5525-034', states: ['NC'] },
+ { id: 'H5525-035', states: ['NC'] },
+ { id: 'H5525-041', states: ['OH'] },
+ { id: 'H5525-042', states: ['OH'] },
+ { id: 'H5525-049', states: ['GA','NC'] },
+ { id: 'H5525-050', states: ['NC'] },
+ { id: 'H5525-054', states: ['ID','MT','OR'] },
+ { id: 'H5525-056', states: ['CA'] },
+ { id: 'H5525-057', states: ['CA'] },
+ { id: 'H5525-070', states: ['NC'] },
+ { id: 'H5525-072', states: ['NC'] },
+ { id: 'H5525-074', states: ['CA'] },
+ { id: 'H5525-075', states: ['CA'] },
+ { id: 'H5525-077', states: ['CA'] },
+ { id: 'H5525-080', states: ['CA'] },
+ { id: 'H5525-083', states: ['NC'] },
+ { id: 'H5525-084', states: ['CA'] },
+ { id: 'H5525-085', states: ['PA'] },
+ { id: 'H5525-087', states: ['CA'] },
+ { id: 'H5619-051', states: ['IN'] },
+ { id: 'H5619-071', states: ['KY'] },
+ { id: 'H5619-089', states: ['AL'] },
+ { id: 'H5619-093', states: ['AL'] },
+ { id: 'H5619-123', states: ['AR'] },
+ { id: 'H5619-137', states: ['NH'] },
+ { id: 'H5619-147', states: ['CA'] },
+ { id: 'H5619-148', states: ['CA'] },
+ { id: 'H5619-173', states: ['KY'] },
+ { id: 'H5619-180', states: ['NH'] },
+ { id: 'H6622-007', states: ['MT'] },
+ { id: 'H6622-008', states: ['MT'] },
+ { id: 'H6622-013', states: ['OH'] },
+ { id: 'H6622-014', states: ['OH'] },
+ { id: 'H6622-021', states: ['OH'] },
+ { id: 'H6622-022', states: ['OH'] },
+ { id: 'H6622-027', states: ['NC'] },
+ { id: 'H6622-037', states: ['PA'] },
+ { id: 'H6622-047', states: ['MS'] },
+ { id: 'H6622-048', states: ['MS'] },
+ { id: 'H6622-055', states: ['OH'] },
+ { id: 'H6622-060', states: ['NC'] },
+ { id: 'H6622-061', states: ['NC'] },
+ { id: 'H6622-099', states: ['NJ'] },
+ { id: 'H6622-100', states: ['NJ'] },
+ { id: 'H7284-001', states: ['FL'] },
+ { id: 'H7284-008', states: ['FL'] },
+ { id: 'H7284-009', states: ['FL'] },
  { id: 'H7617-003', states: ['IN','KY','OH'] },
  { id: 'H7617-004', states: ['KY','OH'] },
  { id: 'H7617-005', states: ['KY'] },
+ { id: 'H7617-007', states: ['AR','MO','OK'] },
  { id: 'H7617-008', states: ['IL','MO'] },
+ { id: 'H7617-009', states: ['IL'] },
  { id: 'H7617-010', states: ['KS','MO'] },
  { id: 'H7617-012', states: ['AR','IL','KS','MO','OK'] },
+ { id: 'H7617-013', states: ['IL'] },
  { id: 'H7617-014', states: ['MO'] },
  { id: 'H7617-015', states: ['KS'] },
  { id: 'H7617-017', states: ['KS','MO'] },
@@ -200,6 +414,7 @@ const NC_DATA = [
  { id: 'H7617-021', states: ['UT','WA'] },
  { id: 'H7617-022', states: ['IL','WI'] },
  { id: 'H7617-023', states: ['IL','MO'] },
+ { id: 'H7617-026', states: ['MT'] },
  { id: 'H7617-029', states: ['TX'] },
  { id: 'H7617-030', states: ['MT'] },
  { id: 'H7617-031', states: ['ID','OR'] },
@@ -240,6 +455,7 @@ const NC_DATA = [
  { id: 'H7617-076', states: ['OK'] },
  { id: 'H7617-077', states: ['AR'] },
  { id: 'H7617-078', states: ['OK'] },
+ { id: 'H7617-079', states: ['LA'] },
  { id: 'H7617-080', states: ['LA'] },
  { id: 'H7617-081', states: ['LA'] },
  { id: 'H7617-082', states: ['MS'] },
@@ -250,7 +466,9 @@ const NC_DATA = [
  { id: 'H7617-087', states: ['MS'] },
  { id: 'H7617-088', states: ['TN'] },
  { id: 'H7617-089', states: ['AL'] },
+ { id: 'H7617-090', states: ['AL'] },
  { id: 'H7617-091', states: ['AL'] },
+ { id: 'H7617-092', states: ['GA'] },
  { id: 'H7617-093', states: ['GA'] },
  { id: 'H7617-094', states: ['GA','SC'] },
  { id: 'H7617-095', states: ['GA','SC'] },
@@ -263,33 +481,444 @@ const NC_DATA = [
  { id: 'H7617-109', states: ['FL'] },
  { id: 'H7617-110', states: ['FL'] },
  { id: 'H7617-111', states: ['FL'] },
+ { id: 'H7617-112', states: ['FL'] },
+ { id: 'H8145-004', states: ['NC'] },
+ { id: 'H8145-006', states: ['MN','MO','MT','OK'] },
+ { id: 'H8145-032', states: ['OH'] },
+ { id: 'H8145-052', states: ['PA'] },
+ { id: 'H8145-069', states: ['GA'] },
+ { id: 'H8145-163', states: ['PA'] },
+ { id: 'R0110-003', states: ['LA','MS'] },
+ { id: 'R0110-005', states: ['NC'] },
+ { id: 'R0110-016', states: ['OH'] },
+ { id: 'R0110-018', states: ['AL'] },
+ { id: 'R0110-020', states: ['GA'] },
+ { id: 'R1532-002', states: ['AR','MO'] },
+ { id: 'R5826-005', states: ['FL'] },
+ { id: 'R5826-074', states: ['FL'] },
+ { id: 'H5970-028', states: ['NY'] },
+ { id: 'H5970-029', states: ['NY'] },
+ { id: 'H5970-030', states: ['NY'] },
+ { id: 'Humana Direct Choice Giveback', states: ['FL','NY'] },
+ { id: 'Humana USAA Honor Giveback', states: ['AR','CA','MN','MO','MS','NY','OH','OK','OR','PA'] },
+ { id: 'Humana USAA Honor Giveback with Rx', states: ['OH','PA'] },
+ { id: 'HumanaChoice - Diabetes and Heart', states: ['AR','MS','OK'] },
  ]},
- { carrier: 'FL Blue', pending: false, plans: [
- { id: 'H1035-017', states: ['FL'] },
- { id: 'H1035-019', states: ['FL'] },
- { id: 'H1035-025', states: ['FL'] },
- { id: 'H5434-002', states: ['FL'] },
- { id: 'H5434-026', states: ['FL'] },
+ { carrier: 'Aetna', pending: false, year: 2027, plans: [
+ { id: 'H4982-022', name: 'Aetna Medicare Prime Value Plus (HMO)', states: ['CA'] },
+ { id: 'H4982-001', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H4982-002', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H4982-025', name: 'Aetna Medicare Prime Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-007', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H0523-065', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H0523-086', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
+ { id: 'H0523-083', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H0523-089', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-030', name: 'Aetna Medicare Signature Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-026', name: 'Aetna Medicare Prime Extra (HMO)', states: ['CA'] },
+ { id: 'H4982-003', name: 'Aetna Medicare Signature (HMO)', states: ['CA'] },
+ { id: 'H5521-650', name: 'Aetna Medicare Elite (PPO)', states: ['VA'] },
+ { id: 'H5521-272', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
+ { id: 'H5521-270', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
+ { id: 'H5521-269', name: 'Aetna Medicare Signature Legacy (PPO)', states: ['FL'] },
+ { id: 'H5521-569', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
+ { id: 'H5521-033', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
+ { id: 'H5521-435', name: 'Aetna Medicare Signature (PPO)', states: ['FL'] },
+ { id: 'H1609-028', name: 'Aetna Medicare Select Extra (HMO-POS)', states: ['FL'] },
+ { id: 'H5521-470', name: 'Aetna Medicare Value Plus (PPO)', states: ['MS'] },
+ { id: 'H5521-326', name: 'Aetna Medicare Value Care (PPO)', states: ['LA'] },
+ { id: 'H5521-646', name: 'Aetna Medicare Value Plus (PPO)', states: ['LA'] },
+ { id: 'H2293-001', name: 'Aetna Medicare Value Extra Care (PPO)', states: ['GA'] },
+ { id: 'H5521-364', name: 'Aetna Medicare Value Care (PPO)', states: ['GA'] },
+ { id: 'H2293-023', name: 'Aetna Medicare Value Care (PPO)', states: ['GA'] },
+ { id: 'H2293-033', name: 'Aetna Medicare Value Plus (PPO)', states: ['GA'] },
+ { id: 'H1608-021', name: 'Aetna Medicare Signature Classic Plus (PPO)', states: ['AR'] },
+ { id: 'H1608-054', name: 'Aetna Medicare Elite Classic (PPO)', states: ['AR'] },
+ { id: 'H1608-079', name: 'Aetna Medicare Signature Classic Giveback (PPO)', states: ['AR'] },
+ { id: 'H1608-074', name: 'Aetna Medicare Eagle Classic Giveback (PPO)', states: ['AR'] },
+ { id: 'H5521-467', name: 'Aetna Medicare Value Plus (PPO)', states: ['AL'] },
+ { id: 'H1608-016', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS','MO'] },
+ { id: 'H1608-018', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS','MO'] },
+ { id: 'H1608-017', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['KS'] },
+ { id: 'H1608-024', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['KS'] },
+ { id: 'H1608-072', name: 'Aetna Medicare Signature Classic (PPO)', states: ['KS'] },
+ { id: 'H2663-111', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['KS'] },
+ { id: 'H5325-003', name: 'Aetna Medicare Dual Care (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5325-004', name: 'Aetna Medicare Dual (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5325-013', name: 'Aetna Medicare Full Dual (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5325-012', name: 'Aetna Medicare Full Dual Care (HMO D-SNP)', states: ['MO'] },
+ { id: 'H5521-388', name: 'Aetna Medicare Enhanced (PPO)', states: ['WI'] },
+ { id: 'H7301-033', name: 'Aetna Medicare Signature (PPO)', states: ['IL'] },
+ { id: 'H3192-001', name: 'Aetna Medicare Prime (HMO-POS)', states: ['IL'] },
+ { id: 'H3192-013', name: 'Aetna Medicare Signature (HMO-POS)', states: ['IL'] },
+ { id: 'H3959-066', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['PA'] },
+ { id: 'H1608-085', name: 'Aetna Medicare Premier Classic (PPO)', states: ['WV'] },
+ { id: 'H1608-027', name: 'Aetna Medicare Advantra Enhanced Classic (PPO)', states: ['WV'] },
+ { id: 'H1608-031', name: 'Aetna Medicare Advantra Classic Giveback (PPO)', states: ['WV'] },
+ { id: 'H1608-040', name: 'Aetna Medicare Advantra Signature Classic (PPO)', states: ['WV'] },
+ { id: 'H3931-196', name: 'Aetna Medicare Full Dual Care (HMO D-SNP)', states: ['CO'] },
+ { id: 'H3931-175', name: 'Aetna Medicare Dual Extra Care (HMO D-SNP)', states: ['CO'] },
+ { id: 'H1608-001', name: 'Aetna Medicare Signature Classic (PPO)', states: ['IA'] },
+ { id: 'H1608-117', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['IA'] },
+ { id: 'H1608-012', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['NE'] },
+ { id: 'H1608-118', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['NE'] },
+ { id: 'H1608-038', name: 'Aetna Medicare Signature Classic (PPO)', states: ['NE'] },
+ { id: 'H1608-081', name: 'Aetna Medicare Signature Classic Extra (PPO)', states: ['ND'] },
+ { id: 'H1608-120', name: 'Aetna Medicare Signature Classic (PPO)', states: ['SD'] },
+ { id: 'H1608-119', name: 'Aetna Medicare Enhanced Classic Extra (PPO)', states: ['SD'] },
+ { id: 'H1608-062', name: 'Aetna Medicare Dual Classic (PPO D-SNP)', states: ['SD'] },
+ { id: 'H1608-121', name: 'Aetna Medicare Full Dual Classic (PPO D-SNP)', states: ['SD'] },
+ { id: 'H1608-061', name: 'Aetna Medicare Eagle Classic (PPO)', states: ['SD'] },
+ { id: 'H3146-011', name: 'Aetna Medicare Value Plus (HMO)', states: ['SC'] },
+ { id: 'H3146-006', name: 'Aetna Medicare Value Plus (HMO)', states: ['NC'] },
+ { id: 'H3146-044', name: 'Aetna Medicare Chronic Care Value (HMO C-SNP)', states: ['NC'] },
+ { id: 'H3219-004', name: 'Allina Health Aetna Medicare Premier Extra (PPO)', states: ['MN'] },
+ { id: 'H3219-016', name: 'Allina Health Aetna Medicare Value (PPO C-SNP)', states: ['MN'] },
+ { id: 'H3931-151', name: 'Aetna Medicare Prime (HMO)', states: ['NV'] },
+ { id: 'H3931-094', name: 'Aetna Medicare Signature (HMO)', states: ['NV'] },
+ { id: 'H3931-157', name: 'Aetna Medicare Value Care (HMO)', states: ['NV'] },
+ { id: 'H5521-654', name: 'Aetna Medicare Signature (PPO)', states: ['UT'] },
+ { id: 'H8649-013', name: 'Aetna Medicare Signature (HMO)', states: ['UT'] },
+ { id: 'H5521-246', name: 'Aetna Medicare Elite (PPO)', states: ['UT'] },
+ { id: 'H5521-159', name: 'Aetna Medicare Signature Extra (PPO)', states: ['MA'] },
+ { id: 'H5521-451', name: 'Aetna Medicare Elite (PPO)', states: ['MA'] },
+ { id: 'H5793-018', name: 'Aetna Medicare Signature (HMO-POS)', states: ['MA'] },
+ { id: 'H5793-020', name: 'Aetna Medicare QMB Only (HMO-POS D-SNP)', states: ['CT'] },
+ { id: 'H5793-001', name: 'Aetna Medicare Signature (HMO-POS)', states: ['CT'] },
+ { id: 'H5521-446', name: 'Aetna Medicare Signature (PPO)', states: ['CT'] },
+ { id: 'H5521-157', name: 'Aetna Medicare Elite (PPO)', states: ['CT'] },
+ { id: 'H3597-012', name: 'Aetna Medicare Partial Dual (HMO-POS D-SNP)', states: ['ME'] },
+ { id: 'H3597-018', name: 'Aetna Medicare Signature (HMO-POS)', states: ['ME'] },
+ { id: 'H5521-037', name: 'Aetna Medicare Enhanced Extra (PPO)', states: ['NJ'] },
+ { id: 'H5521-392', name: 'Aetna Medicare Prime (PPO)', states: ['NJ'] },
+ { id: 'H3152-098', name: 'Aetna Medicare Elite (HMO)', states: ['NJ'] },
+ { id: 'H5521-510', name: 'Aetna Medicare Enhanced Advantage (PPO)', states: ['NJ'] },
+ { id: 'R6694-006', name: 'Aetna Medicare Enhanced (Regional PPO)', states: ['NJ'] },
+ { id: 'H5521-124', name: 'Aetna Medicare Enhanced Extra (PPO)', states: ['NJ'] },
+ { id: 'H5521-536', name: 'Aetna Medicare Elite (PPO)', states: ['NY'] },
+ { id: 'H3312-074', name: 'Aetna Medicare Signature Care (HMO)', states: ['NY'] },
+ { id: 'H3312-002', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
+ { id: 'H3312-048', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
+ { id: 'H3312-091', name: 'Aetna Medicare Chronic Care (HMO C-SNP)', states: ['NY'] },
+ { id: 'H5521-661', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
+ { id: 'H5521-121', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
+ { id: 'H5521-674', name: 'Aetna Medicare Elite Extra (PPO)', states: ['NY'] },
+ { id: 'H5521-699', name: 'Aetna Medicare Elite Extra (PPO)', states: ['NY'] },
+ { id: 'H5521-736', name: 'Aetna Medicare Elite (PPO)', states: ['NY'] },
+ { id: 'H3312-018', name: 'Aetna Medicare Enhanced (HMO-POS)', states: ['NY'] },
+ { id: 'H5521-669', name: 'Aetna Medicare Enhanced (PPO)', states: ['NY'] },
+ { id: 'H3312-081', name: 'Aetna Medicare Enhanced (HMO)', states: ['NY'] },
+ { id: 'H3312-097', name: 'Aetna Medicare Signature (HMO)', states: ['NY'] },
+ { id: 'H5521-461', name: 'Aetna Medicare Longevity (PPO I-SNP)', states: ['NY'] },
+ { id: 'H5521-687', name: 'Aetna Medicare Enhanced (PPO)', states: ['WA'] },
+ { id: 'H3748-003', name: 'Aetna Medicare Signature (HMO)', states: ['WA'] },
+ { id: 'H3931-197', name: 'Aetna Medicare Signature (HMO)', states: ['WA'] },
+ { id: 'H5521-686', name: 'Aetna Medicare Enhanced (PPO)', states: ['WA'] },
+ { id: 'H2056-005', name: 'Aetna Medicare Elite (HMO)', states: ['OR'] },
+ { id: 'H2056-003', name: 'Aetna Medicare Elite (HMO)', states: ['OR'] },
+ { id: 'H5521-089', name: 'Aetna Medicare Signature (PPO)', states: ['OH'] },
+ { id: 'H1608-029', name: 'Aetna Medicare Advantra Signature Classic (PPO)', states: ['OH'] },
+ { id: 'H0628-018', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['OH'] },
+ { id: 'H3288-004', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
+ { id: 'H3288-001', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
+ { id: 'H3288-018', name: 'Aetna Medicare Value Plus (PPO)', states: ['TX'] },
+ { id: 'H1608-067', name: 'Aetna Medicare Elite Classic Extra (PPO)', states: ['MO'] },
+ { id: 'H1608-050', name: 'Aetna Medicare Elite Classic (PPO)', states: ['MO'] },
+ { id: 'H1608-051', name: 'Aetna Medicare Signature Classic (PPO)', states: ['MO'] },
+ { id: 'H1608-013', name: 'Aetna Medicare Enhanced Classic (PPO)', states: ['MO'] },
+ { id: 'H2663-113', name: 'Aetna Medicare Longevity (HMO I-SNP)', states: ['MO'] },
+ { id: 'S5601-006', name: 'SilverScript Choice (PDP)', states: ['NY'] },
+ { id: 'S5601-008', name: 'SilverScript Choice (PDP)', states: ['NJ'] },
+ { id: 'S5601-010', name: 'SilverScript Choice (PDP)', states: ['DC','DE','MD'] },
+ { id: 'S5601-014', name: 'SilverScript Choice (PDP)', states: ['VA'] },
+ { id: 'S5601-016', name: 'SilverScript Choice (PDP)', states: ['NC'] },
+ { id: 'S5601-020', name: 'SilverScript Choice (PDP)', states: ['GA'] },
+ { id: 'S5601-022', name: 'SilverScript Choice (PDP)', states: ['FL'] },
+ { id: 'S5601-024', name: 'SilverScript Choice (PDP)', states: ['AL','TN'] },
+ { id: 'S5601-026', name: 'SilverScript Choice (PDP)', states: ['MI'] },
+ { id: 'S5601-028', name: 'SilverScript Choice (PDP)', states: ['OH'] },
+ { id: 'S5601-034', name: 'SilverScript Choice (PDP)', states: ['IL'] },
+ { id: 'S5601-036', name: 'SilverScript Choice (PDP)', states: ['MO'] },
+ { id: 'S5601-038', name: 'SilverScript Choice (PDP)', states: ['AR'] },
+ { id: 'S5601-040', name: 'SilverScript Choice (PDP)', states: ['MS'] },
+ { id: 'S5601-044', name: 'SilverScript Choice (PDP)', states: ['TX'] },
+ { id: 'S5601-048', name: 'SilverScript Choice (PDP)', states: ['KS'] },
+ { id: 'S5601-052', name: 'SilverScript Choice (PDP)', states: ['NM'] },
+ { id: 'S5601-056', name: 'SilverScript Choice (PDP)', states: ['AZ'] },
+ { id: 'S5601-058', name: 'SilverScript Choice (PDP)', states: ['NV'] },
+ { id: 'S5601-068', name: 'SilverScript Choice (PDP)', states: ['AK'] },
+ ]},
+ { carrier: 'WellCare', pending: false, plans: [
+ { id: 'Wellcare Dual Access Harmony', states: ['AR'] },
+ { id: 'Wellcare Dual Liberty Nurture', states: ['AR'] },
+ { id: 'Wellcare Dual Reserve', states: ['AR','MI'] },
+ { id: 'Wellcare Giveback', states: ['AR','AZ','CA','CT','GA','IL','MI'] },
+ { id: 'Wellcare Patriot Giveback Preferred', states: ['AR'] },
+ { id: 'Wellcare Patriot Giveback', states: ['KS','LA','MI'] },
+ { id: 'Wellcare Patriot Giveback Open', states: ['CT','GA','IN','KS','KY','MI','MN'] },
+ { id: 'Wellcare Simple', states: ['AR','AZ','CA','CT','IL','KS','MI','MN'] },
+ { id: 'Wellcare Simple Open', states: ['AR','CT','KS','WI'] },
+ { id: 'Wellcare Simple Essential', states: ['IL'] },
+ { id: 'Wellcare Simple Essential Value', states: ['IL'] },
+ { id: 'Wellcare Simple Value', states: ['AZ'] },
+ { id: 'Wellcare Specialty Simple', states: ['AZ'] },
+ { id: 'Wellcare Low Premium', states: ['CA'] },
+ { id: 'Wellcare Giveback Open', states: ['CT'] },
+ { id: 'Wellcare Dual Access', states: ['IA'] },
+ { id: 'Wellcare Dual Access Sync', states: ['FL','IA','KS'] },
+ { id: 'Wellcare Dual Access Sync Open', states: ['KS'] },
+ { id: 'Wellcare Dual Liberty Sync', states: ['IA','KS'] },
+ { id: 'Wellcare Dual Reserve', states: ['IA','KY'] },
+ { id: 'Wellcare Assist', states: ['IN','MI'] },
+ { id: 'Wellcare Assist Open', states: ['IN'] },
+ { id: 'Wellcare Giveback Open', states: ['KY','MI'] },
+ { id: 'Wellcare Low Premium Open', states: ['ME'] },
+ { id: "Wellcare 'Ohana Dual Align", states: ['HI'] },
+ { id: 'Wellcare Sunshine Health Dual Align', states: ['FL'] },
+ ]},
+ { carrier: 'Devoted Health', pending: false, plans: [
+ { id: 'DEVOTED CHOICE 001', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 002', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 003', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 005', states: ['AZ'] },
+ { id: 'DEVOTED CHOICE 006', states: ['AZ'] },
+ ]},
+ { carrier: 'SCAN', pending: false, plans: [
+ { id: 'SCAN Embrace', states: ['AZ','CA'] },
+ { id: 'SCAN Embrace Together', states: ['AZ','CA'] },
+ { id: 'SCAN MyChoice', states: ['AZ','CA'] },
+ { id: 'SCAN Connections at Home', states: ['CA'] },
+ ]},
+ { carrier: 'Alignment Health', pending: false, plans: [
+ { id: 'Alignment Health My Choice', states: ['CA'] },
+ ]},
+ { carrier: 'Anthem', pending: false, plans: [
+ { id: 'Anthem Dual Advantage', states: ['CA','CT','IN'] },
+ { id: 'Anthem Dual Advantage 2', states: ['CA'] },
+ { id: 'Anthem Extra Help', states: ['CT','GA','IN'] },
+ { id: 'Anthem Full Dual Advantage', states: ['CT'] },
+ { id: 'Anthem Kidney Care', states: ['CT','GA'] },
+ { id: 'Anthem Medicare Advantage', states: ['CT','GA','IN','KY'] },
+ { id: 'Anthem Medicare Advantage 2', states: ['GA','IN'] },
+ { id: 'Anthem Medicare Advantage 3', states: ['IN','KY'] },
+ { id: 'Anthem Medicare Advantage 4', states: ['IN'] },
+ { id: 'Anthem Medicare Advantage Regional PPO', states: ['IN','KY'] },
+ { id: 'Anthem Veteran', states: ['CT','GA','IN','KY','ME'] },
+ { id: 'Anthem I MaineHealth Advantage Choice', states: ['ME'] },
+ { id: 'Anthem I MaineHealth Advantage Plus', states: ['ME'] },
+ { id: 'Anthem I MaineHealth Advantage Veteran', states: ['ME'] },
+ ]},
+ { carrier: 'HealthSpring / Cigna', pending: false, plans: [
+ { id: 'HealthSpring True Choice', states: ['AL','AR','AZ','CO','CT','DC','DE','FL','IL','IN','KY','MD','MI','MN','NC','NJ','OH','OK','OR','PA','SC','TN','TX','UT','VA','WI'] },
+ { id: 'HealthSpring Preferred', states: ['DC','GA','KS'] },
+ { id: 'HealthSpring Preferred Savings', states: ['KS'] },
+ { id: 'HealthSpring TotalCare', states: ['FL'] },
+ { id: 'HealthSpring TotalCare Plus', states: ['CT','FL'] },
+ { id: 'HealthSpring Courage', states: ['DC'] },
+ { id: 'HealthSpring True Choice Plus', states: ['DC'] },
  ]},
  { carrier: 'UHC / AARP', pending: false, plans: [
- { id: 'R0759-001', states: ['FL'] },
  { id: 'AL-0001', states: ['AL'] },
  { id: 'AL-0004', states: ['AL'] },
+ { id: 'AZ-15', states: ['AZ'] },
+ { id: 'AZ-17', states: ['AZ'] },
+ { id: 'AZ-5', states: ['AZ'] },
  { id: 'AZ-0008', states: ['AZ'] },
  { id: 'AZ-0010', states: ['AZ'] },
  { id: 'AZ-0011', states: ['AZ'] },
  { id: 'AZ-0013', states: ['AZ'] },
  { id: 'AZ-0014', states: ['AZ'] },
+ { id: 'AZ-MA01', states: ['AZ'] },
  { id: 'CA-0010', states: ['CA'] },
+ { id: 'CA-37', states: ['CA'] },
+ { id: 'CO-4', states: ['CO'] },
+ { id: 'CO-0011', states: ['CO'] },
+ { id: 'CO-0013', states: ['CO'] },
+ { id: 'CO-0017', states: ['CO'] },
+ { id: 'CO-F001', states: ['CO'] },
+ { id: 'CT-0001', states: ['CT'] },
+ { id: 'CT-0002', states: ['CT'] },
+ { id: 'CT-0003', states: ['CT'] },
+ { id: 'EX-F001', states: ['AL','AZ','CT'] },
+ { id: 'EX-F002', states: ['DE'] },
+ { id: 'EX-F003', states: ['CT','ME'] },
+ { id: 'EX-F004', states: ['DC','MD'] },
  { id: 'FL-0031', states: ['FL'] },
+ { id: 'FL-MA01', states: ['FL'] },
+ { id: 'FL-D005', states: ['FL'] },
+ { id: 'FL-F001', states: ['FL'] },
+ { id: 'FL-F002', states: ['FL'] },
+ { id: 'GA-5', states: ['GA'] },
+ { id: 'GA-F001', states: ['GA'] },
+ { id: 'HI-0004', states: ['HI'] },
+ { id: 'HI-S001', states: ['HI'] },
+ { id: 'ID-0001', states: ['ID'] },
+ { id: 'ID-0003', states: ['ID'] },
+ { id: 'ID-0005', states: ['ID'] },
+ { id: 'ID-0006', states: ['ID'] },
+ { id: 'ID-0007', states: ['ID'] },
+ { id: 'ID-0008', states: ['ID'] },
+ { id: 'ID-0009', states: ['ID'] },
+ { id: 'ID-0010', states: ['ID'] },
+ { id: 'ID-0011', states: ['ID'] },
+ { id: 'ID-MA01', states: ['ID'] },
+ { id: 'ID-12', states: ['ID'] },
+ { id: 'ID-13', states: ['ID'] },
+ { id: 'ID-1A', states: ['ID'] },
+ { id: 'IA-0002', states: ['IA','IL'] },
+ { id: 'IA-0003', states: ['IA','IL'] },
+ { id: 'IA-5', states: ['IA','IL'] },
+ { id: 'IL-0004', states: ['IL'] },
+ { id: 'IL-F001', states: ['IL'] },
+ { id: 'IN-10', states: ['IN'] },
+ { id: 'IN-17', states: ['IN'] },
+ { id: 'IN-0001', states: ['IN'] },
+ { id: 'IN-0002', states: ['IN'] },
+ { id: 'IN-0004', states: ['IN'] },
+ { id: 'IN-0007', states: ['IN'] },
+ { id: 'IN-F001', states: ['IN'] },
+ { id: 'KY-4', states: ['KY'] },
+ { id: 'KY-5', states: ['KY'] },
+ { id: 'KY-0003', states: ['KY'] },
+ { id: 'ME-0001', states: ['ME'] },
+ { id: 'ME-0002', states: ['ME'] },
+ { id: 'ME-0003', states: ['ME'] },
+ { id: 'ME-0005', states: ['ME'] },
+ { id: 'ME-6', states: ['ME'] },
+ { id: 'MA-9', states: ['MA'] },
+ { id: 'MA-0006', states: ['MA'] },
+ { id: 'MA-MA01', states: ['MA'] },
+ { id: 'MN-0001', states: ['MN'] },
+ { id: 'MN-0002', states: ['MN'] },
+ { id: 'MN-0005', states: ['MN'] },
+ { id: 'NE-3', states: ['NE'] },
+ { id: 'NE-5', states: ['NE'] },
+ { id: 'NE-0002', states: ['NE'] },
+ { id: 'NE-MA01', states: ['NE'] },
+ { id: 'ST-0001', states: ['IL'] },
+ { id: 'ST-2', states: ['IL'] },
+ { id: 'AARP Medicare Advantage Essentials', states: ['CO','IN','NE'] },
+ { id: 'AARP Medicare Advantage Extras', states: ['AZ','IN'] },
+ { id: 'AARP Medicare Advantage CareFlex', states: ['AZ'] },
+ { id: 'AARP Medicare Advantage Access', states: ['AZ'] },
+ { id: 'AARP Medicare Advantage Patriot No Rx', states: ['AZ','ID','IA','MA','NE'] },
+ { id: 'UHC Complete Care', states: ['ID','IL','IA','ME'] },
+ { id: 'UHC Complete Care Support', states: ['ID'] },
+ { id: 'UHC MedicareDirect Patriot No Rx', states: ['KS'] },
+ { id: 'UHC MedicareDirect', states: ['KS'] },
+ { id: 'R0759-001', states: ['FL'] },
  ]},
- { carrier: 'Simply', pending: false, plans: [
- { id: 'H5471-077', states: ['FL'] },
- { id: 'H5471-080', states: ['FL'] },
+ { carrier: 'Simply Healthcare', pending: false, plans: [
+ { id: 'Simply Level', states: ['FL'] },
+ { id: 'Simply More', states: ['FL'] },
+ { id: 'Simply Preferred', states: ['FL'] },
  ]},
- { carrier: 'HealthSpring', pending: false, plans: [
- { id: 'H5410-056', states: ['FL'] },
- { id: 'HealthSpring True Choice (PPO)', states: ['AL','AR','AZ','CO','CT','DC','FL','IL','IN','KY','MD','MI','MN','NC','NJ','OH','OK','OR','PA','SC','TN','TX','UT','VA','WI'] },
+ { carrier: 'Central Health', pending: false, plans: [
+ { id: 'Central Health Classic Care Plan I', states: ['CA'] },
+ { id: 'Central Health Classic Care Plan II', states: ['CA'] },
+ { id: 'Central Health Classic Care Plan III', states: ['CA'] },
+ { id: 'Central Health Classic Care Plan IV', states: ['CA'] },
+ { id: 'Central Health Embrace Care Plan', states: ['CA'] },
+ { id: 'Central Health Embrace Choice Plan', states: ['CA'] },
+ { id: 'Central Health Jade Plan', states: ['CA'] },
+ { id: 'Central Health Medicare Plan', states: ['CA'] },
+ { id: 'Central Health Part B Savings Plan', states: ['CA'] },
+ { id: 'Central Health Valor Care Plan', states: ['CA'] },
+ ]},
+ { carrier: 'Other Regional Carriers', pending: false, plans: [
+ { id: 'Blue Cross (IL) Medicare Advantage Basic', states: ['IL'] },
+ { id: 'Blue Cross (IL) Choice Plus', states: ['IL'] },
+ { id: 'Blue Cross (IL) Choice Premier', states: ['IL'] },
+ { id: 'Blue Cross (IL) Classic', states: ['IL'] },
+ { id: 'Blue Cross (IL) Dental Premier', states: ['IL'] },
+ { id: 'Blue Cross (IL) Essential', states: ['IL'] },
+ { id: 'Blue Cross (IL) Health Choice', states: ['IL'] },
+ { id: 'Blue Cross (IL) Protect', states: ['IL'] },
+ { id: 'Blue Cross (IL) Secure', states: ['IL'] },
+ { id: 'Blue Cross (IL) Value', states: ['IL'] },
+ { id: 'Align ChoiceElite', states: ['IA'] },
+ { id: 'Align ChoicePlus', states: ['IA'] },
+ { id: 'Blue (IA) Blue Medicare Advantage PPO', states: ['IA'] },
+ { id: 'Blue (IA) Blue Medicare Advantage Valor PPO', states: ['IA'] },
+ { id: 'Clover Health LiveHealthy', states: ['GA'] },
+ { id: 'Clover Health LiveHealthy Giveback', states: ['GA'] },
+ { id: 'Clover Health LiveHealthy Value', states: ['GA'] },
+ { id: 'Clover Health Valor', states: ['GA'] },
+ { id: 'Saint Alphonsus Health Plan Choice', states: ['ID'] },
+ { id: 'BCN/Blue (MI) BCN Advantage Prime Value', states: ['MI'] },
+ { id: 'BCN/Blue (MI) Medicare Plus Blue Essential', states: ['MI'] },
+ { id: 'HAP Medicare Connect', states: ['MI'] },
+ { id: 'HAP Medicare Explore', states: ['MI'] },
+ { id: 'Priority PriorityMedicare Vital', states: ['MI'] },
+ { id: 'Mass General Brigham Advantage', states: ['MA'] },
+ { id: 'Mass General Brigham Advantage Premier', states: ['MA'] },
+ { id: 'Mass General Brigham Advantage Secure', states: ['MA'] },
+ { id: 'Mass General Brigham Advantage Signature', states: ['MA'] },
+ { id: 'Tufts Medicare Preferred HMO Smart Saver Rx', states: ['MA'] },
+ { id: 'Tufts Medicare Preferred PPO RX', states: ['MA'] },
+ { id: 'CarePartners Access', states: ['CT'] },
+ { id: 'CarePartners of CT CareAdvantage Preferred', states: ['CT'] },
+ { id: 'ConnectiCare Choice Plan 1', states: ['CT'] },
+ { id: 'ConnectiCare Choice Plan 2', states: ['CT'] },
+ { id: 'ConnectiCare Choice Plan 3', states: ['CT'] },
+ { id: 'ConnectiCare Flex Plan 2', states: ['CT'] },
+ { id: 'ConnectiCare Flex Plan 3', states: ['CT'] },
+ { id: 'ConnectiCare Passage Plan 1', states: ['CT'] },
+ { id: 'VillageHealth', states: ['CA'] },
+ ]},
+ { carrier: 'WellPoint', pending: false, plans: [
+ { id: 'Wellpoint Lung Care 2', states: ['AZ'] },
+ { id: 'Wellpoint Medicare Advantage 2', states: ['AZ'] },
+ { id: 'Wellpoint Premium Savings', states: ['AZ'] },
+ ]},
+ { carrier: 'Anthem', pending: false, year: 2027, plans: [
+  { id: 'H4471-005-000', name: 'Anthem Dual Advantage (HMO D-SNP)', states: ['CA'] },
+  { id: 'H4909-029-000', name: 'Anthem Chronic Care (PPO C-SNP)', states: ['CA'] },
+  { id: 'H4346-037-000', name: 'Anthem Chronic Care (HMO-POS C-SNP)', states: ['CO'] },
+  { id: 'H2836-006-000', name: 'Anthem Full Dual Advantage (PPO D-SNP)', states: ['CT'] },
+  { id: 'H5854-019-001', name: 'Anthem Medicare Advantage (HMO)', states: ['CT'] },
+  { id: 'H5854-019-002', name: 'Anthem Medicare Advantage (HMO)', states: ['CT'] },
+  { id: 'H1607-012-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['IN'] },
+  { id: 'H1607-015-000', name: 'Anthem Medicare Advantage 2 (PPO)', states: ['IN'] },
+  { id: 'H7093-002-000', name: 'Anthem Medicare Advantage (PPO)', states: ['IN'] },
+  { id: 'H7220-004-000', name: 'Anthem Medicare Advantage 2 (HMO-POS)', states: ['IN'] },
+  { id: 'H7220-009-001', name: 'Anthem Medicare Advantage 3 (HMO-POS)', states: ['IN'] },
+  { id: 'H7220-009-002', name: 'Anthem Medicare Advantage 3 (HMO-POS)', states: ['IN'] },
+  { id: 'H7220-010-000', name: 'Anthem Medicare Advantage 4 (HMO-POS)', states: ['IN'] },
+  { id: 'R5941-016-000', name: 'Anthem Medicare Advantage (Regional PPO)', states: ['IN','KY'] },
+  { id: 'H4036-034-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['KY'] },
+  { id: 'H4036-036-000', name: 'Anthem Medicare Advantage (PPO)', states: ['KY'] },
+  { id: 'H9065-008-000', name: 'Anthem | MaineHealth Advantage Plus (HMO)', states: ['ME'] },
+  { id: 'H4036-017-000', name: 'Anthem Medicare Advantage 4 (PPO)', states: ['OH'] },
+  { id: 'H4036-025-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['OH'] },
+  { id: 'H4036-026-000', name: 'Anthem Medicare Advantage (PPO)', states: ['OH'] },
+  { id: 'R5941-014-000', name: 'Anthem Medicare Advantage (Regional PPO)', states: ['OH'] },
+  { id: 'H3447-033-000', name: 'Anthem Kidney Care (HMO-POS C-SNP)', states: ['VA'] },
+  { id: 'H4909-014-000', name: 'Anthem Medicare Advantage (PPO)', states: ['VA'] },
+  { id: 'H4909-020-000', name: 'Anthem Veteran (PPO)', states: ['VA'] },
+  { id: 'H4909-026-000', name: 'Anthem Medicare Advantage 2 (PPO)', states: ['VA'] },
+  { id: 'H4036-008-000', name: 'Anthem Medicare Advantage 3 (PPO)', states: ['WI'] },
+ ]},
+ { carrier: 'WellPoint', pending: false, year: 2027, plans: [
+  { id: 'H2593-001-000', name: 'Wellpoint Medicare Advantage 2 (HMO-POS)', states: ['AZ'] },
+  { id: 'H2593-003-000', name: 'Wellpoint | CareMore Home Care 2 (HMO I-SNP)', states: ['AZ'] },
+  { id: 'H2593-005-000', name: 'Wellpoint Lung Care 2 (HMO-POS C-SNP)', states: ['AZ'] },
+  { id: 'H5828-008-000', name: 'Wellpoint Extra Help (HMO-POS)', states: ['TN'] },
+  { id: 'H2593-029-000', name: 'Wellpoint Medicare Advantage 2 (HMO-POS)', states: ['TX'] },
+  { id: 'H8849-022-000', name: 'Wellpoint Full Dual Advantage Select (HMO D-SNP)', states: ['TX'] },
+  { id: 'H8849-023-000', name: 'Wellpoint Full Dual Advantage Select (HMO D-SNP)', states: ['TX'] },
+  { id: 'H8849-027-000', name: 'Wellpoint Full Dual Advantage (HMO D-SNP)', states: ['TX'] },
+  { id: 'H8849-016-000', name: 'Wellpoint Dual Advantage (HMO D-SNP)', states: ['WA'] },
+  { id: 'H8849-017-000', name: 'Wellpoint Dual Advantage Plus (HMO D-SNP)', states: ['WA'] },
+ ]},
+ { carrier: 'Freedom Health / Optimum HealthCare (FL)', pending: false, year: 2027, plans: [
+  { id: 'H5427-059-000', name: 'Freedom Medicare Plan Rx (HMO)', states: ['FL'] },
+  { id: 'H5427-060-000', name: 'Freedom Medicare Plan Rx (HMO)', states: ['FL'] },
+  { id: 'H5594-019-000', name: 'Optimum Gold Plan (HMO)', states: ['FL'] },
+  { id: 'H5594-022-000', name: 'Optimum Gold Rewards Plan (HMO)', states: ['FL'] },
+  { id: 'H5594-026-000', name: 'Optimum Gold Rewards Plan (HMO)', states: ['FL'] },
+  { id: 'H5594-030-000', name: 'Optimum Diamond Savings (HMO C-SNP)', states: ['FL'] },
+  { id: 'H5594-031-000', name: 'Optimum Diamond Savings COPD (HMO C-SNP)', states: ['FL'] },
  ]},
 ];
 
@@ -324,17 +953,31 @@ function renderList() {
   let visibleCarriers = 0;
   let visiblePlans = 0;
 
-  const html = NC_DATA.map((c, idx) => {
-    if (_activeFilter === 'pending' && !c.pending) return '';
+  const sortedData = [...NC_DATA].sort((a, b) => {
+    const byName = a.carrier.localeCompare(b.carrier, undefined, { sensitivity: 'base' });
+    if (byName) return byName;
+    return (a.year || 2026) - (b.year || 2026);
+  });
+
+  const html = sortedData.map((c, idx) => {
+    const year = c.year || 2026;
+    if (_activeFilter === '2027' && year !== 2027) return '';
+    if (_activeFilter === '2026' && year !== 2026) return '';
 
     // Filter plans within this carrier by search + state
     const matchedPlans = c.plans.filter(p => {
       const matchesQ = !q ||
         c.carrier.toLowerCase().includes(q) ||
+        String(year).includes(q) ||
         p.id.toLowerCase().includes(q) ||
+        (p.name && p.name.toLowerCase().includes(q)) ||
         p.states.some(s => s.toLowerCase().includes(q));
       const matchesState = !stateFilter || p.states.includes(stateFilter);
       return matchesQ && matchesState;
+    }).sort((a, b) => {
+      const an = (a.name || a.id).toLowerCase();
+      const bn = (b.name || b.id).toLowerCase();
+      return an.localeCompare(bn);
     });
 
     if (!matchedPlans.length) return '';
@@ -345,7 +988,7 @@ function renderList() {
     const byState = {};
     matchedPlans.forEach(p => p.states.forEach(st => {
       if (stateFilter && st !== stateFilter) return;
-      (byState[st] = byState[st] || []).push(p.id);
+      (byState[st] = byState[st] || []).push(p);
     }));
     const stateKeys = Object.keys(byState).sort();
 
@@ -356,8 +999,8 @@ function renderList() {
         <div class="acc-left">
           <div class="acc-icon">🚫</div>
           <div>
-            <div class="acc-title">${c.carrier}${c.pending ? ' <span class="acc-pending">⏳ Necesita Verificación</span>' : ''}</div>
-            <div class="acc-sub">${matchedPlans.length} plan${matchedPlans.length !== 1 ? 'es' : ''} · ${stateKeys.join(', ')}</div>
+            <div class="acc-title">${c.carrier} <span class="acc-year y${year}">${year}</span></div>
+            <div class="acc-sub">${matchedPlans.length} plan${matchedPlans.length !== 1 ? 'es' : ''} · Año del Plan ${year} · ${stateKeys.join(', ')}</div>
           </div>
         </div>
         <div class="acc-right">
@@ -369,9 +1012,9 @@ function renderList() {
         ${stateKeys.map(st => `
           <div class="acc-state-block">
             <div class="acc-state-label">${st}</div>
-            ${byState[st].map(id => `<span class="plan-chip">${id}</span>`).join('')}
+            ${byState[st].map(p => `<span class="plan-chip">${year} · ${p.name ? p.id + ' — ' + p.name : p.id}</span>`).join('')}
           </div>`).join('')}
-        <div class="acc-note">${c.carrier === 'Humana' ? '<strong>Comisión modificada de $165.00</strong> (prorrateada por fecha efectiva) para Cambios de Plan del Mismo Tipo desde planes Humana. Fuente: Humana PPP GCHMRX7EN 01/2026. Siempre verifica antes de inscribir.' : 'Solo ventas nuevas — las renovaciones reciben FMV. Siempre verifica con ' + c.carrier + ' antes de inscribir.'}</div>
+        <div class="acc-note">${c.carrier === 'Humana' ? '<strong>Comisión modificada de $165.00</strong> (prorrateada según la fecha de vigencia) para cambios a un plan del mismo tipo (Like Plan Type Changes) desde planes de Humana. Fuente: Humana PPP GCHMRX7EN 01/2026. Siempre verifica antes de inscribir.' : c.carrier === 'Aetna' ? 'Año del Plan <strong>2027</strong>. Solo ventas nuevas — las renovaciones reciben FMV. Todas las ventas nuevas de PDP de Aetna son sin comisión, sin importar el estado, condado o jerarquía. Fuente: Aetna Non-Commissionable Individual Medicare Products (actualizado el 8/20/2026). Siempre verifica con Aetna antes de inscribir.' : 'Solo ventas nuevas — las renovaciones reciben FMV. Siempre verifica con ' + c.carrier + ' antes de inscribir.'}</div>
       </div>
     </div>`;
   }).join('');
@@ -379,7 +1022,7 @@ function renderList() {
   listEl.innerHTML = html;
   noResults.style.display = visibleCarriers ? 'none' : 'block';
   document.getElementById('ncResultCount').textContent =
-    visibleCarriers ? `${visiblePlans} plan${visiblePlans !== 1 ? 'es' : ''} de ${visibleCarriers} aseguradora${visibleCarriers !== 1 ? 's' : ''}` : '';
+    visibleCarriers ? `${visiblePlans} plan${visiblePlans !== 1 ? 'es' : ''} en ${visibleCarriers} aseguradora${visibleCarriers !== 1 ? 's' : ''}` : '';
 }
 
 function toggleAcc(idx) {
@@ -390,15 +1033,6 @@ function toggleAcc(idx) {
 document.getElementById('ncSearch').addEventListener('input', renderList);
 renderList();
 </script>
-<script>
-(function(){
-  var p = window.location.pathname.replace(/\/+$/,'') || '/';
-  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
-    a.classList.remove('active');
-    var h = a.getAttribute('href').replace(/\/+$/,'');
-    if (h && p === h) a.classList.add('active');
-  });
-})();
-</script>
+
 </body>
 </html>

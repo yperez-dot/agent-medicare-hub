@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<script>
+(function(){
+  // Preview bypass — ?preview=THEI allows viewing without login
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) {
+    window.location.replace('/login.html');
+  }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Rastreador de SEP | Medicare Agent Hub</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+iframe{flex:1;border:none;width:100%;display:block;}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-density.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Inicio</a>
+    <a href='/learn'>Broker University</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Centro de Herramientas</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <a href='/home#tour' style='width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;font:700 13px/1 Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-left:4px;flex-shrink:0;' title='Recorrido del Hub'>?</a>
+  </nav>
+</div>
+
+<iframe
+  src="https://agentmedicarehub.com/sep-tracker-app.html?v=20260824"
+  title="Rastreador de Desastres PEE"
+  allow="fullscreen"
+></iframe>
+
+
+<script>
+function logout(){localStorage.removeItem('hub_session');window.location.replace('/login.html');}
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>
