@@ -66,6 +66,35 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 <link rel="stylesheet" href="/hub-nav.css">
 <link rel="stylesheet" href="/hub-hero.css">
 <link rel="stylesheet" href="/hub-density.css">
+<link rel="stylesheet" href="/hub-clean.css">
+<style id="r2">
+.cards-grid{gap:12px;}
+.info-card{border:1px solid #ECE8F1;border-radius:14px;padding:14px 16px;gap:6px;box-shadow:none;}
+.info-card:hover{box-shadow:none;transform:none;border-color:rgba(69,32,104,.28);}
+.info-card.featured{border-top:1px solid #ECE8F1;}
+.info-card:hover.featured{border-top-color:rgba(69,32,104,.28);}
+.card-title{font:700 16px/1.3 'Inter',Arial,sans-serif;}
+.card-desc{font:400 14px/1.5 'Inter',Arial,sans-serif;}
+.card-link{font:700 13.5px/1 'Inter',Arial,sans-serif;margin-top:6px;}
+.card-badge{position:static;order:-1;align-self:flex-start;font:600 11px/1 Arial,sans-serif;text-transform:none;letter-spacing:0;padding:4px 8px;}
+.badge-green{background:#E3F5EC;color:#1E6B49;}
+/* Agent alerts — calm light strip, no pink */
+.agent-alerts{background:#fff;color:#241a30;border:1px solid #ECE8F1;border-left:3px solid #452068;border-radius:14px;padding:14px 16px;margin-bottom:18px;box-shadow:none;}
+.agent-alerts-heading{margin-bottom:10px;}
+.agent-alerts h2{font:700 16px/1.3 'Inter',Arial,sans-serif;color:#241a30;}
+.agent-alerts-grid{gap:10px;}
+.agent-alert{min-height:0;padding:10px 14px;background:#f7f2fb;border:1px solid #ECE8F1;border-radius:10px;color:#241a30;}
+.agent-alert:hover{background:#f1eaf7;transform:none;}
+.agent-alert-kicker{color:#452068;font:700 11px/1 Arial,sans-serif;letter-spacing:.4px;margin-bottom:4px;}
+.agent-alert-title{font:700 15px/1.3 'Inter',Arial,sans-serif;color:#241a30;}
+.agent-alert-desc{color:#5f566b;font:400 13.5px/1.45 'Inter',Arial,sans-serif;}
+.agent-alert-arrow{color:#452068;font-size:18px;}
+.events-card{background:#fff;border:1px solid #ECE8F1;border-radius:14px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px;}
+.events-card .ev-title{font:700 16px/1.3 'Inter',Arial,sans-serif;color:#241a30;margin-bottom:4px;}
+.events-card .ev-desc{font:400 14px/1.5 'Inter',Arial,sans-serif;color:#5f566b;}
+.events-card a{display:inline-block;padding:9px 18px;background:#452068;color:#fff;border-radius:999px;font:700 13px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+@media(max-width:560px){.events-card{flex-direction:column;align-items:flex-start;}}
+</style>
 <script src="/hub-nav.js" defer></script>
 </head>
 <body>
@@ -89,15 +118,13 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 <div class="wrap">
 
   <div class="hero">
-    <h1>🏥 Carrier Info</h1>
+    <h1>Carrier Info</h1>
     <p>Everything you need for every carrier — contacts, certifications, non-commissionable plans, HRA details, plan comparison, and SSBCI eligibility. All in one place.</p>
   </div>
 
   <section class="agent-alerts" id="agent-alerts" aria-labelledby="agent-alerts-title">
     <div class="agent-alerts-heading">
-      <span class="agent-alerts-stars" aria-hidden="true">★★★</span>
       <h2 id="agent-alerts-title">Agent alerts — AEP / crosswalk</h2>
-      <span class="agent-alerts-stars" aria-hidden="true">★★★</span>
     </div>
     <div class="agent-alerts-grid">
       <a class="agent-alert" href="/carrier-info/uhc-fl-dsnp-crosswalk">
@@ -122,40 +149,30 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   <div class="cards-grid">
 
     <a class='info-card featured' href='/carrier-contact-guide'>
-      <span class="card-badge badge-purple">Full Guide</span>
-      <div class="card-icon" style="background:#F1ECF6;">📞</div>
       <div class="card-title">Carrier Contact Guide</div>
       <div class="card-desc">Direct lines, auth numbers, member services, OTC, HRA, pharmacy — all 14 carriers. Humana, UHC, Aetna, Solis, Devoted, and more.</div>
       <span class="card-link">Open Guide →</span>
     </a>
 
     <a class='info-card featured' href='/certs'>
-      <span class="card-badge badge-purple">2026 Certs</span>
-      <div class="card-icon" style="background:#FEF3C7;">📋</div>
       <div class="card-title">Carrier Certifications</div>
       <div class="card-desc">AHIP, carrier-specific certification portals, deadlines, and training requirements for all carriers you're contracted with.</div>
       <span class="card-link">Open Certs Page →</span>
     </a>
 
     <a class='info-card featured' href='/non-comm-plans'>
-      <span class="card-badge badge-red">Important</span>
-      <div class="card-icon" style="background:#FEE2E2;">🚫</div>
       <div class="card-title">Non-Commissionable Plans</div>
       <div class="card-desc">Full searchable list of non-commissionable plans by carrier and state, including Aetna Plan Year 2027 contract/PBP IDs. Always verify before enrolling.</div>
       <span class="card-link">View Plans →</span>
     </a>
 
     <a class="info-card featured" href="/carrier-event-forms">
-      <span class="card-badge badge-purple">AEP · Outreach</span>
-      <div class="card-icon" style="background:#FFE8F3;">📝</div>
       <div class="card-title">Carrier Event Request Forms</div>
       <div class="card-desc">Request tabletops, educational, and member-facing events — AEP and year-round. DHCP and Solis forms.</div>
       <span class="card-link">Open Event Forms →</span>
     </a>
 
     <a class="info-card featured" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">
-      <span class="card-badge badge-purple">AEP · Top Used</span>
-      <div class="card-icon" style="background:#F1ECF6;">📊</div>
       <div class="card-title">2027 Plan Comparison Grid</div>
       <div class="card-desc">Side-by-side comparison of all 2027 Medicare Advantage plans. Benefits, copays, OTC, dental, vision, transportation, and more.</div>
       <span class="card-link">Open 2027 Grid →</span>
@@ -163,29 +180,24 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 
     <a class="info-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
       <span class="card-badge badge-green">Through Nov 30</span>
-      <div class="card-icon" style="background:#E3F5EC;">📊</div>
       <div class="card-title">2026 MAPD Plan Grid (sell through Nov 30)</div>
       <div class="card-desc">Current-year side-by-side MAPD comparison. Agents can still sell 2026 plans through Nov 30, 2026.</div>
       <span class="card-link">Open 2026 Grid →</span>
     </a>
 
     <a class='info-card' href='/hra-guide'>
-      <div class="card-icon" style="background:#FFE8F3;">💳</div>
       <div class="card-title">HRA Quick Reference</div>
       <div class="card-desc">Health Risk Assessment amounts, eligible plan types, completion timeframes, portals, and OTC networks for every carrier.</div>
       <span class="card-link">Open HRA Guide →</span>
     </a>
 
     <a class='info-card' href='/ssbci-eligibility'>
-      <div class="card-icon" style="background:#F1ECF6;">🩺</div>
       <div class="card-title">SSBCI Eligibility</div>
       <div class="card-desc">Check which carriers qualify a member's chronic condition for SSBCI extra benefits (food card, OTC &amp; more). Not a Chronic Condition SNP (C-SNP) list.</div>
       <span class="card-link">Open Tool →</span>
     </a>
 
     <a class='info-card featured' href='/contracting-blackout'>
-      <span class="card-badge badge-red">AEP Prep</span>
-      <div class="card-icon" style="background:#FEE2E2;">📅</div>
       <div class="card-title">2027 Contracting Blackout Dates</div>
       <div class="card-desc">New contracting and transfer/release blackout windows for all carriers. Humana, Elevance, Devoted, and UHC are active now.</div>
       <span class="card-link">View Blackout Schedule &rarr;</span>
@@ -194,12 +206,12 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
   </div>
 
   <!-- Events link card -->
-  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;margin-top:32px;">
+  <div class="events-card">
     <div>
-      <div style="font:700 15px/1 Arial,sans-serif;color:var(--text);margin-bottom:6px;">Carrier Events &amp; Trainings</div>
-      <div style="font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);">Upcoming webinars, AEP prep sessions, and broker trainings from all carriers.</div>
+      <div class="ev-title">Carrier Events &amp; Trainings</div>
+      <div class="ev-desc">Upcoming webinars, AEP prep sessions, and broker trainings from all carriers.</div>
     </div>
-    <a href="/events" style="display:inline-block;padding:10px 22px;background:var(--purple);color:#fff;border-radius:999px;font:700 13px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0;margin-left:20px;">View Events &rarr;</a>
+    <a href="/events">View Events &rarr;</a>
   </div>
 
 </div>

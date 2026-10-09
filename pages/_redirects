@@ -38,3 +38,8 @@
 # Spanish Broker University (mirrors /learn) + Negotiated Drugs page split out of /learn
 /es/learn /es/learn.html 200
 /es/negotiated-drugs /es/negotiated-drugs.html 200
+# Round-2 ES mockups (mirrors of the live ES-site pages)
+/es/home /es/home.html 200
+/es/carrier-info /es/carrier-info.html 200
+/es/retention-toolkit /es/retention-toolkit.html 200
+/es/tools-perks /es/tools-perks.html 200
