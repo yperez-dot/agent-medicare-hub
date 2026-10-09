@@ -43,6 +43,19 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .hero h1{font:700 24px/1.2 Arial,sans-serif;margin-bottom:6px;}
 .hero p{font:400 14px/1.5 Arial,sans-serif;color:rgba(255,255,255,.82);max-width:60ch;}
 
+/* High-priority carrier alerts */
+.agent-alerts{background:linear-gradient(120deg,var(--purple-dark) 0%,var(--purple) 58%,#7A236F 100%);border:2px solid rgba(255,16,144,.5);border-radius:18px;color:#fff;margin-bottom:18px;padding:22px 24px;box-shadow:0 10px 26px rgba(69,32,104,.2);scroll-margin-top:18px;}
+.agent-alerts-heading{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.agent-alerts-stars{color:#FF8CCB;font-size:18px;letter-spacing:1px;}
+.agent-alerts h2{font:800 20px/1.2 Arial,sans-serif;}
+.agent-alerts-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.agent-alert{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:104px;padding:16px 18px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.24);border-radius:13px;color:#fff;text-decoration:none;transition:background .15s,transform .15s;}
+.agent-alert:hover{background:rgba(255,255,255,.18);transform:translateY(-1px);}
+.agent-alert-kicker{display:block;margin-bottom:5px;color:#FFB9DE;font:800 10px/1 Arial,sans-serif;letter-spacing:.8px;text-transform:uppercase;}
+.agent-alert-title{display:block;margin-bottom:4px;font:700 15px/1.25 Arial,sans-serif;}
+.agent-alert-desc{display:block;color:rgba(255,255,255,.78);font:400 12.5px/1.45 Arial,sans-serif;}
+.agent-alert-arrow{font-size:22px;font-weight:800;color:#FF8CCB;flex-shrink:0;}
+
 /* Cards grid */
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .info-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--text);transition:box-shadow .15s,transform .15s;position:relative;overflow:hidden;}
@@ -58,7 +71,7 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 .badge-green{background:#E3F5EC;color:#1E8A5C;}
 
 @media(max-width:900px){.cards-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:560px){.cards-grid{grid-template-columns:1fr;}}
+@media(max-width:560px){.cards-grid,.agent-alerts-grid{grid-template-columns:1fr;}.agent-alerts{padding:20px 16px;}.agent-alerts h2{font-size:18px;}.agent-alerts-heading .agent-alerts-stars:last-child{display:none;}.agent-alert{min-height:0;}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,6 +133,30 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
     <p>Todo lo que necesitas para cada aseguradora — contactos, certificaciones, planes sin comisión, detalles del HRA, comparación de planes y elegibilidad SSBCI. Todo en un solo lugar.</p>
   </div>
 
+  <section class="agent-alerts" id="agent-alerts" aria-labelledby="agent-alerts-title">
+    <div class="agent-alerts-heading">
+      <h2 id="agent-alerts-title">Alertas para agentes — AEP / crosswalk</h2>
+    </div>
+    <div class="agent-alerts-grid">
+      <a class="agent-alert" href="https://agentmedicarehub.com/carrier-info/uhc-fl-dsnp-crosswalk">
+        <span>
+          <span class="agent-alert-kicker">UHC Florida · Crosswalk</span>
+          <span class="agent-alert-title">Cuadrícula de crosswalk D-SNP</span>
+          <span class="agent-alert-desc">Revisa la elegibilidad de Medicaid, LTSS y las excepciones por condado según el ID del plan.</span>
+        </span>
+        <span class="agent-alert-arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="agent-alert" href="https://agentmedicarehub.com/carrier-info/humana-plex">
+        <span>
+          <span class="agent-alert-kicker">Humana · AEP 2027</span>
+          <span class="agent-alert-title">Salida de planes PLEX</span>
+          <span class="agent-alert-desc">Consulta la guía para miembros afectados, cuándo contactarlos, el apoyo disponible y qué esperar en la inscripción.</span>
+        </span>
+        <span class="agent-alert-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
   <div class="cards-grid">
 
     <a class='info-card featured' href='/carrier-contact-guide'>
@@ -136,15 +173,27 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
 
     <a class='info-card featured' href='/non-comm-plans'>
       <div class="card-title">Planes Sin Comisión</div>
-      <div class="card-desc">Lista completa y buscable de planes 2026 sin comisión por aseguradora y estado. Fuente: Archivo SAR Landscape de CMS + documentos de aseguradoras. Verifica siempre antes de inscribir.</div>
+      <div class="card-desc">Lista completa y buscable de planes sin comisión por aseguradora y estado, incluidos los IDs de contrato/PBP de Aetna para el año de plan 2027. Fuente: Archivo SAR Landscape de CMS + documentos de aseguradoras. Verifica siempre antes de inscribir.</div>
       <span class="card-link">Ver Planes →</span>
     </a>
 
+    <a class="info-card featured" href="https://agentmedicarehub.com/carrier-event-forms">
+      <div class="card-title">Formularios para Solicitar Eventos con Aseguradoras</div>
+      <div class="card-desc">Solicita mesas informativas (tabletops), eventos educativos y eventos para miembros — en AEP y durante todo el año. Formularios de DHCP y Solis.</div>
+      <span class="card-link">Abrir Formularios de Eventos →</span>
+    </a>
+
+    <a class="info-card featured" href="https://docs.google.com/spreadsheets/d/1BYhBfOzdeJOMEVXIKJkHrZzEohrOBR-N/edit" target="_blank" rel="noopener">
+      <div class="card-title">Cuadrícula de Comparación de Planes 2027</div>
+      <div class="card-desc">Comparación lado a lado de todos los planes Medicare Advantage 2027. Beneficios, copagos, OTC, dental, visión, transporte y más.</div>
+      <span class="card-link">Abrir Cuadrícula 2027 →</span>
+    </a>
+
     <a class="info-card" href="https://docs.google.com/spreadsheets/d/13qp5zQ5FqnoxxOrcfabW21i_O-TZr4hP2UPbEKxoUXA/edit" target="_blank" rel="noopener">
-      <span class="card-badge badge-green">2026</span>
-      <div class="card-title">Cuadrícula de Planes MAPD 2026</div>
-      <div class="card-desc">Comparación lado a lado de todos los planes Medicare Advantage 2026. Beneficios, copagos, OTC, dental, visión, transporte y más.</div>
-      <span class="card-link">Abrir Cuadrícula →</span>
+      <span class="card-badge badge-green">Hasta el 30 de nov</span>
+      <div class="card-title">Cuadrícula de Planes MAPD 2026 (venta hasta el 30 de nov)</div>
+      <div class="card-desc">Comparación MAPD lado a lado del año en curso. Todavía puedes vender planes 2026 hasta el 30 de noviembre de 2026.</div>
+      <span class="card-link">Abrir Cuadrícula 2026 →</span>
     </a>
 
     <a class='info-card' href='/hra-guide'>
@@ -159,12 +208,9 @@ body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text)
       <span class="card-link">Abrir Herramienta →</span>
     </a>
 
-  </div>
-
-
     <a class='info-card featured' href='/contracting-blackout'>
       <div class="card-title">Fechas de Bloqueo de Contratación 2027</div>
-      <div class="card-desc">Ventanas de bloqueo de nuevos contratos y transferencias/liberaciones para todas las aseguradoras. Humana y Elevance ya están activas. UHC empieza el 1 de sep.</div>
+      <div class="card-desc">Ventanas de bloqueo de nuevos contratos y transferencias/liberaciones para todas las aseguradoras. Humana, Elevance, Devoted y UHC ya están activas.</div>
       <span class="card-link">Ver Calendario de Bloqueo &rarr;</span>
     </a>
 
