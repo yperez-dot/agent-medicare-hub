@@ -101,6 +101,14 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
 <link rel="stylesheet" href="/hub-density.css">
+<link rel="stylesheet" href="/hub-clean.css">
+<style id="r3">
+.wrap>.hero,.wrap .hero{text-align:left;border-radius:16px;padding:22px 28px;margin:0 0 14px;background:linear-gradient(135deg,#452068,#341751);color:#fff;box-shadow:none;}
+.wrap .hero h1{font-size:27px;line-height:1.2;margin:0 0 6px;color:#fff;}
+.wrap .hero p{font-size:15px;max-width:none;margin:0;}
+.doc-tip.pink{background:#F8F5FB;border-color:#ECE8F1;color:#3F2566;}
+.hero .badge{display:none;}
+</style>
 <script src="/hub-nav.js" defer></script>
 </head>
 <body>
@@ -139,7 +147,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 
   <!-- Carrier note callout -->
   <div style="background:#fff;border:1.5px solid #ece8f3;border-left:4px solid #452068;border-radius:14px;padding:16px 20px;margin-bottom:14px;display:flex;gap:14px;align-items:flex-start;">
-    <div style="font-size:22px;flex-shrink:0;">📌</div>
+    
     <div>
       <div style="font-weight:800;font-size:14px;color:#452068;margin-bottom:4px;">About these documents</div>
       <div style="font-size:13.5px;color:#3a3347;line-height:1.6;">Most carrier documents on this page are <strong>UHC/AARP-specific</strong> (rates, application, hospital network). However, <strong>plan letter rules (G, N, HD-G, etc.), Guaranteed Issue rights, and the Part B deductible are standardized by CMS</strong> — they apply the same way across all carriers. Use the UHC docs for UHC enrollments; the quick reference rules apply regardless of carrier.</div>
@@ -151,7 +159,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 
     <!-- 1: Quick Reference -->
     <a class="doc-card" href="/files/uhc-aarp-agent-quick-reference-2026.pdf" target="_blank" rel="noopener">
-      <span class="tag green">⚡ Start Here</span>
+      <span class="tag green">Start Here</span>
       <h2>2026 Agent Quick Reference Guide</h2>
       <p>Plan overview, Medigap basics, enrollment FAQs, Jarvis resources, submission addresses, and contact numbers. 13 pages.</p>
       <div class="doc-meta">March 2026 · Agent Use Only</div>
@@ -160,7 +168,7 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 
     <!-- 2: Enrollment Kit -->
     <a class="doc-card" href="/files/uhc-aarp-enrollment-kit-fl-2026.pdf" target="_blank" rel="noopener">
-      <span class="tag">📦 Full Kit</span>
+      <span class="tag">Full Kit</span>
       <h2>Enrollment Kit — Florida 2026</h2>
       <p>Plan benefit chart, rate tables (Area 1 &amp; 2) by age/gender/tobacco, discounts, outline of coverage, and grievance procedure.</p>
       <div class="doc-meta">Edition 6/15/26 · BC10064ST</div>
@@ -169,30 +177,30 @@ body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);colo
 
     <!-- 3: Application -->
     <a class="doc-card" href="/files/uhc-aarp-medsup-application-fl-2026.pdf#page=3" target="_blank" rel="noopener">
-      <span class="tag pink">📋 Underwriting</span>
+      <span class="tag pink">Underwriting</span>
       <h2>2026 AARP Application</h2>
       <p>Full paper application. Opens directly to Page 3 — review Section 6 (knockouts) with clients before submitting.</p>
-      <div class="doc-tip pink">⚠️ <strong>Go to Page 3, Section 6</strong> for the medical underwriting questions. 6A–6K are automatic declines if YES.</div>
+      <div class="doc-tip pink"><strong>Go to Page 3, Section 6</strong> for the medical underwriting questions. 6A–6K are automatic declines if YES.</div>
       <div class="doc-meta">S42O49MNAGFL01 · 10 pages</div>
       <div class="btn primary">Open PDF → Page 3 <span>↗</span></div>
     </a>
 
     <!-- 4: Hospital Network -->
     <a class="doc-card" href="/files/uhc-plan-g-select-hospital-list-fl-2026.pdf" target="_blank" rel="noopener">
-      <span class="tag">🏥 Network</span>
+      <span class="tag">Network</span>
       <h2>Plan G Select — FL Hospital Network</h2>
       <p>Participating hospital directory by county for AARP Medicare Select (Plan G Select) — FL, AL &amp; GA. Effective January 2026.</p>
-      <div class="doc-tip">⚠️ Plan G Select only pays full benefits at these hospitals for non-emergency care. Always verify before enrolling.</div>
+      <div class="doc-tip">Plan G Select only pays full benefits at these hospitals for non-emergency care. Always verify before enrolling.</div>
       <div class="doc-meta">HD1001FLI · 6 pages</div>
       <div class="btn primary">Open PDF <span>↗</span></div>
     </a>
 
     <!-- 5: GI Guide -->
     <a class="doc-card" href="/files/uhc-aarp-guaranteed-issue-guide-fl-2026.pdf" target="_blank" rel="noopener">
-      <span class="tag">✅ GI Rights</span>
+      <span class="tag">GI Rights</span>
       <h2>Guaranteed Issue &amp; Eligibility Guide</h2>
       <p>GI rights, OEP timing, 63-day rule, pre-existing condition waivers, Select plan restrictions, and exclusions. Florida-specific.</p>
-      <div class="doc-tip">📌 App must be received within <strong>63 days</strong> of prior coverage termination. Include proof of loss with the application.</div>
+      <div class="doc-tip">App must be received within <strong>63 days</strong> of prior coverage termination. Include proof of loss with the application.</div>
       <div class="doc-meta">GU25156FL</div>
       <div class="btn primary">Open PDF <span>↗</span></div>
     </a>

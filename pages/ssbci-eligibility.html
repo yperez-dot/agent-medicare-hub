@@ -64,6 +64,15 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hub-nav.css">
 <link rel="stylesheet" href="/hub-density.css">
+<link rel="stylesheet" href="/hub-clean.css">
+<style id="r3">
+.wrap>.hero,.wrap .hero{text-align:left;border-radius:16px;padding:22px 28px;margin:0 0 14px;background:linear-gradient(135deg,#452068,#341751);color:#fff;box-shadow:none;}
+.wrap .hero h1{font-size:27px;line-height:1.2;margin:0 0 6px;color:#fff;}
+.wrap .hero p{font-size:15px;max-width:none;margin:0;}
+.hero .hero-clarifier{margin-top:8px!important;font-size:14px!important;}
+.process-banner{background:#fff;border:1px solid #ECE8F1;border-left:3px solid #452068;}
+.condition-item .dot{background:#452068;}
+</style>
 <script src="/hub-nav.js" defer></script>
 </head>
 <body>
@@ -84,14 +93,13 @@ body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-
   </nav>
 </div>
 
-<div class="hero">
-  <div class="badge">SSBCI Reference</div>
-  <h1>SSBCI Eligibility</h1>
-  <p>Search by condition to find which carriers qualify a member for Special Supplemental Benefits (food card, OTC, etc.)</p>
-  <p class="hero-clarifier"><strong>Special Supplemental Benefits for the Chronically Ill (SSBCI):</strong> who qualifies for Medicare Advantage plan extra benefits. Not a Chronic Condition SNP (C-SNP).</p>
-</div>
 
 <div class="wrap">
+  <div class="hero">
+    <h1>SSBCI Eligibility</h1>
+    <p>Search by condition to find which carriers qualify a member for Special Supplemental Benefits (food card, OTC, etc.)</p>
+    <p class="hero-clarifier"><strong>Special Supplemental Benefits for the Chronically Ill (SSBCI):</strong> who qualifies for Medicare Advantage plan extra benefits. Not a Chronic Condition SNP (C-SNP).</p>
+  </div>
   <input class="search-box" type="text" id="search" placeholder="Search a condition — e.g. diabetes, COPD, dementia, cancer…" oninput="doSearch(this.value)"/>
   <div id="carriers-container"></div>
 </div>

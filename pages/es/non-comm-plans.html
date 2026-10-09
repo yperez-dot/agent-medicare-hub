@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="es">
+<head>
+<script>
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Planes Sin Comisión 2026 | The Health Experts Insurance</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:#F6F5F8;color:#241C2E;font-size:15px;line-height:1.55;}
+
+/* Top nav — matches hub-dashboard.html */
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 13px/1 Arial,sans-serif;color:#452068;text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:#452068;border-color:#452068;color:#fff;}
+.tour-link{width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;text-decoration:none;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#452068 0%,#341751 100%);padding:16px 20px;text-align:center;}
+.hero-tag{display:inline-block;background:#DC2626;color:#fff;font:800 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.6px;padding:6px 14px;border-radius:999px;margin-bottom:14px;}
+.hero h1{font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2;}
+.hero p{font-size:14.5px;color:rgba(255,255,255,0.85);max-width:640px;margin:0 auto 18px;}
+.hero-meta{display:inline-block;background:rgba(255,255,255,.14);color:#fff;font:600 12px/1 Arial,sans-serif;padding:7px 16px;border-radius:999px;}
+
+.wrap{max-width:900px;margin:0 auto;padding:32px 24px 64px;}
+
+/* Search */
+.search-bar{width:100%;padding:14px 20px;border-radius:999px;border:1.5px solid #E7E4ED;font:400 14px/1 Arial,sans-serif;color:#241C2E;outline:none;background:#fff;box-shadow:0 1px 3px rgba(36,28,46,.06);margin-bottom:16px;}
+.search-bar:focus{border-color:#452068;}
+
+/* Filters */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:24px;}
+.filter-pill{background:#fff;border:1.5px solid #E7E4ED;border-radius:999px;padding:8px 16px;font:600 12.5px/1 Arial,sans-serif;color:#452068;cursor:pointer;transition:all .12s;}
+.filter-pill:hover{border-color:#452068;}
+.filter-pill.active{background:#452068;border-color:#452068;color:#fff;}
+.state-select{padding:8px 14px;border:1.5px solid #E7E4ED;border-radius:999px;font:600 12.5px/1 Arial,sans-serif;color:#452068;background:#fff;outline:none;cursor:pointer;}
+.state-select:focus{border-color:#452068;}
+.result-count{font:600 12px/1 Arial,sans-serif;color:#9A94A8;margin-left:auto;}
+
+/* Accordion */
+.carrier-acc{background:#fff;border:1.5px solid #E7E4ED;border-radius:14px;overflow:hidden;margin-bottom:12px;}
+.carrier-acc.match-none{display:none;}
+.acc-header{width:100%;background:none;border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;text-align:left;}
+.acc-header:hover{background:#FAFAFC;}
+.acc-left{display:flex;align-items:center;gap:12px;}
+.acc-icon{width:38px;height:38px;border-radius:10px;background:#FEF2F2;color:#DC2626;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.acc-title{font:700 15px/1.3 Arial,sans-serif;color:#241C2E;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.acc-sub{font:400 12px/1.4 Arial,sans-serif;color:#9A94A8;margin-top:2px;}
+.acc-pending{font:600 9px/1 Arial,sans-serif;color:#B45309;background:#FEF3C7;border-radius:999px;padding:3px 8px;text-transform:uppercase;letter-spacing:.3px;}
+.acc-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.acc-count{font:700 11px/1 Arial,sans-serif;background:#FEE2E2;color:#991B1B;padding:4px 10px;border-radius:999px;}
+.acc-chevron{color:#9A94A8;font-size:13px;transition:transform .18s;}
+.carrier-acc.open .acc-chevron{transform:rotate(180deg);}
+.acc-body{display:none;padding:0 20px 20px;border-top:1px solid #F1ECF6;}
+.carrier-acc.open .acc-body{display:block;}
+.acc-state-block{margin-top:16px;}
+.acc-state-label{font:700 11px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.5px;color:#452068;margin-bottom:8px;}
+.plan-chip{display:inline-block;margin:3px 5px 3px 0;padding:5px 12px;background:#FEF2F2;border:1px solid #FECACA;border-radius:7px;font:600 12px/1.4 Arial,sans-serif;color:#991B1B;}
+.plan-chip.dim{opacity:.35;}
+.acc-note{margin-top:16px;padding-top:14px;border-top:1px solid #F1ECF6;font:400 11.5px/1.5 Arial,sans-serif;color:#9A94A8;}
+
+.no-results{text-align:center;padding:48px 20px;color:#9A94A8;}
+.no-results .nr-icon{font-size:34px;margin-bottom:10px;}
+.no-results p{font:400 13.5px/1.5 Arial,sans-serif;}
+
+.page-note{background:#fff;border:1px solid #E7E4ED;border-radius:14px;padding:18px 22px;margin-top:28px;font:400 12.5px/1.6 Arial,sans-serif;color:#6E687C;}
+.page-note strong{color:#241C2E;}
+
+@media(max-width:600px){
+  .hero h1{font-size:23px;}
+  .hero{padding:16px 20px;}
+  .acc-header{padding:14px 16px;}
+  .acc-body{padding:0 16px 16px;}
+  .result-count{margin-left:0;width:100%;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-density.css">
+<link rel="stylesheet" href="/hub-clean.css">
+<style id="r3">
+.wrap>.hero,.wrap .hero{text-align:left;border-radius:16px;padding:22px 28px;margin:0 0 14px;background:linear-gradient(135deg,#452068,#341751);color:#fff;box-shadow:none;}
+.wrap .hero h1{font-size:27px;line-height:1.2;margin:0 0 6px;color:#fff;}
+.wrap .hero p{font-size:15px;max-width:none;margin:0;}
+.hero-tag{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font:700 11px/1 Arial,sans-serif;letter-spacing:.4px;margin-bottom:10px;}
+.hero-meta{font-size:12.5px;}
+</style>
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+
+<!-- Top Nav -->
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/files/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Inicio</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Centro de Herramientas</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <button onclick="startTour ? startTour() : null" title="Recorrido del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+
+<div class="wrap">
+  <div class="hero">
+    <span class="hero-tag">Importante — Verifica Antes de Inscribir</span>
+    <h1>Planes Sin Comisión — 2026</h1>
+    <p>Lista completa y buscable de planes sin comisión para 2026 por aseguradora y estado. Solo ventas nuevas — las renovaciones siguen recibiendo comisión FMV. Fuente: Extracto Nacional del Panorama de CMS + documentos de aseguradoras.</p>
+    <span class="hero-meta">2026 · Todos los Estados · Extracto Nacional del Panorama de CMS</span>
+  </div>
+
+  <input type="text" class="search-bar" id="ncSearch" placeholder="Buscar por aseguradora, ID de plan o estado…" autocomplete="off">
+
+  <div class="filter-row">
+    <button class="filter-pill active" data-filter="all" onclick="setFilter('all')">Todas las Aseguradoras</button>
+    <button class="filter-pill" data-filter="pending" onclick="setFilter('pending')">⏳ Necesita Verificación</button>
+    <select class="state-select" id="ncStateSelect" onchange="renderList()">
+      <option value="">Todos los Estados</option>
+    </select>
+    <span class="result-count" id="ncResultCount"></span>
+  </div>
+
+  <div id="ncAccordionList"></div>
+
+  <div class="no-results" id="ncNoResults" style="display:none;">
+    <div class="nr-icon">🔍</div>
+    <p>Ningún plan coincide con tu búsqueda. Prueba con otra aseguradora, ID de plan o estado.</p>
+  </div>
+
+  <div class="page-note">
+    <strong>Cómo leer esta lista:</strong> Los planes que aparecen aquí no pagan comisión para <strong>ventas nuevas únicamente</strong> — las renovaciones de miembros existentes siguen recibiendo comisión de Valor Justo de Mercado (FMV). Las aseguradoras marcadas "Necesita Verificación" tienen confirmación pendiente del área de cumplimiento de THEI — siempre confirma el estado actual directamente con la aseguradora antes de inscribir a un cliente. Esta lista proviene del Extracto Nacional del Panorama de CMS y boletines de aseguradoras, y se actualiza a medida que llega nueva información.
+  </div>
+
+</div>
+
+<script>
+function logout() {
+  localStorage.removeItem('hub_session');
+  window.location.replace('/login.html');
+}
+
+// ── Non-Commissionable Plans data ───────────────────────────────────────────
+// ⚠️ Mirrors NC_DATA in hub-dashboard.html. Keep both in sync until this is
+// centralized into a shared JSON file Igor can update from one place.
+// States default to FL (THEI market) — update per-plan when the full CMS
+// multi-state breakdown is available.
+const NC_DATA = [
+ { carrier: 'Humana', pending: false, plans: [
+ { id: 'H1036-321', states: ['WA'] },
+ { id: 'H1036-322', states: ['WA'] },
+ { id: 'H1036-333', states: ['VA'] },
+ { id: 'H1036-334', states: ['VA'] },
+ { id: 'H4461-045', states: ['MO'] },
+ { id: 'H4461-046', states: ['MO'] },
+ { id: 'H4461-047', states: ['KS','MO'] },
+ { id: 'H4461-048', states: ['MO'] },
+ { id: 'H4461-049', states: ['TX'] },
+ { id: 'H4461-050', states: ['TX'] },
+ { id: 'H4461-051', states: ['TX'] },
+ { id: 'H4461-052', states: ['TX'] },
+ { id: 'H4461-053', states: ['TX'] },
+ { id: 'H4461-054', states: ['TX'] },
+ { id: 'H4461-055', states: ['TX'] },
+ { id: 'H4461-056', states: ['AZ'] },
+ { id: 'H4461-057', states: ['TX'] },
+ { id: 'H4461-058', states: ['TX'] },
+ { id: 'H4461-059', states: ['AZ'] },
+ { id: 'H4461-060', states: ['TX'] },
+ { id: 'H4461-061', states: ['TX'] },
+ { id: 'H4461-062', states: ['TX'] },
+ { id: 'H4461-064', states: ['NM'] },
+ { id: 'H4461-066', states: ['TX'] },
+ { id: 'H4461-067', states: ['TX'] },
+ { id: 'H4461-069', states: ['TX'] },
+ { id: 'H4461-071', states: ['TX'] },
+ { id: 'H7617-003', states: ['IN','KY','OH'] },
+ { id: 'H7617-004', states: ['KY','OH'] },
+ { id: 'H7617-005', states: ['KY'] },
+ { id: 'H7617-008', states: ['IL','MO'] },
+ { id: 'H7617-010', states: ['KS','MO'] },
+ { id: 'H7617-012', states: ['AR','IL','KS','MO','OK'] },
+ { id: 'H7617-014', states: ['MO'] },
+ { id: 'H7617-015', states: ['KS'] },
+ { id: 'H7617-017', states: ['KS','MO'] },
+ { id: 'H7617-018', states: ['IL'] },
+ { id: 'H7617-019', states: ['WA'] },
+ { id: 'H7617-020', states: ['WI'] },
+ { id: 'H7617-021', states: ['UT','WA'] },
+ { id: 'H7617-022', states: ['IL','WI'] },
+ { id: 'H7617-023', states: ['IL','MO'] },
+ { id: 'H7617-029', states: ['TX'] },
+ { id: 'H7617-030', states: ['MT'] },
+ { id: 'H7617-031', states: ['ID','OR'] },
+ { id: 'H7617-032', states: ['UT'] },
+ { id: 'H7617-035', states: ['TX'] },
+ { id: 'H7617-040', states: ['TX'] },
+ { id: 'H7617-041', states: ['TX'] },
+ { id: 'H7617-042', states: ['TX'] },
+ { id: 'H7617-043', states: ['TX'] },
+ { id: 'H7617-044', states: ['MD'] },
+ { id: 'H7617-045', states: ['NJ'] },
+ { id: 'H7617-046', states: ['MA','ME','NH','VT'] },
+ { id: 'H7617-049', states: ['IN','KY'] },
+ { id: 'H7617-050', states: ['IN','KY'] },
+ { id: 'H7617-051', states: ['AZ'] },
+ { id: 'H7617-052', states: ['MI'] },
+ { id: 'H7617-053', states: ['OK'] },
+ { id: 'H7617-054', states: ['MI'] },
+ { id: 'H7617-055', states: ['MI'] },
+ { id: 'H7617-056', states: ['AR','OK'] },
+ { id: 'H7617-057', states: ['TX'] },
+ { id: 'H7617-058', states: ['MI'] },
+ { id: 'H7617-059', states: ['TX'] },
+ { id: 'H7617-060', states: ['IN','OH'] },
+ { id: 'H7617-061', states: ['CO'] },
+ { id: 'H7617-062', states: ['TX'] },
+ { id: 'H7617-063', states: ['TX'] },
+ { id: 'H7617-064', states: ['CO'] },
+ { id: 'H7617-065', states: ['WV'] },
+ { id: 'H7617-066', states: ['AR'] },
+ { id: 'H7617-067', states: ['CO'] },
+ { id: 'H7617-070', states: ['NV'] },
+ { id: 'H7617-071', states: ['MI'] },
+ { id: 'H7617-072', states: ['WV'] },
+ { id: 'H7617-073', states: ['IN','OH'] },
+ { id: 'H7617-074', states: ['AR'] },
+ { id: 'H7617-075', states: ['AR'] },
+ { id: 'H7617-076', states: ['OK'] },
+ { id: 'H7617-077', states: ['AR'] },
+ { id: 'H7617-078', states: ['OK'] },
+ { id: 'H7617-080', states: ['LA'] },
+ { id: 'H7617-081', states: ['LA'] },
+ { id: 'H7617-082', states: ['MS'] },
+ { id: 'H7617-083', states: ['MS'] },
+ { id: 'H7617-084', states: ['MS'] },
+ { id: 'H7617-085', states: ['MS'] },
+ { id: 'H7617-086', states: ['MS'] },
+ { id: 'H7617-087', states: ['MS'] },
+ { id: 'H7617-088', states: ['TN'] },
+ { id: 'H7617-089', states: ['AL'] },
+ { id: 'H7617-091', states: ['AL'] },
+ { id: 'H7617-093', states: ['GA'] },
+ { id: 'H7617-094', states: ['GA','SC'] },
+ { id: 'H7617-095', states: ['GA','SC'] },
+ { id: 'H7617-096', states: ['GA','SC'] },
+ { id: 'H7617-098', states: ['VA'] },
+ { id: 'H7617-100', states: ['DE','VA'] },
+ { id: 'H7617-101', states: ['VA'] },
+ { id: 'H7617-107', states: ['FL'] },
+ { id: 'H7617-108', states: ['FL'] },
+ { id: 'H7617-109', states: ['FL'] },
+ { id: 'H7617-110', states: ['FL'] },
+ { id: 'H7617-111', states: ['FL'] },
+ ]},
+ { carrier: 'FL Blue', pending: false, plans: [
+ { id: 'H1035-017', states: ['FL'] },
+ { id: 'H1035-019', states: ['FL'] },
+ { id: 'H1035-025', states: ['FL'] },
+ { id: 'H5434-002', states: ['FL'] },
+ { id: 'H5434-026', states: ['FL'] },
+ ]},
+ { carrier: 'UHC / AARP', pending: false, plans: [
+ { id: 'R0759-001', states: ['FL'] },
+ { id: 'AL-0001', states: ['AL'] },
+ { id: 'AL-0004', states: ['AL'] },
+ { id: 'AZ-0008', states: ['AZ'] },
+ { id: 'AZ-0010', states: ['AZ'] },
+ { id: 'AZ-0011', states: ['AZ'] },
+ { id: 'AZ-0013', states: ['AZ'] },
+ { id: 'AZ-0014', states: ['AZ'] },
+ { id: 'CA-0010', states: ['CA'] },
+ { id: 'FL-0031', states: ['FL'] },
+ ]},
+ { carrier: 'Simply', pending: false, plans: [
+ { id: 'H5471-077', states: ['FL'] },
+ { id: 'H5471-080', states: ['FL'] },
+ ]},
+ { carrier: 'HealthSpring', pending: false, plans: [
+ { id: 'H5410-056', states: ['FL'] },
+ { id: 'HealthSpring True Choice (PPO)', states: ['AL','AR','AZ','CO','CT','DC','FL','IL','IN','KY','MD','MI','MN','NC','NJ','OH','OK','OR','PA','SC','TN','TX','UT','VA','WI'] },
+ ]},
+];
+
+let _activeFilter = 'all';
+const _openState = {}; // carrier idx -> bool, remembers expand state across re-renders
+
+// Populate state dropdown from all data
+(function populateStates(){
+  const states = [...new Set(NC_DATA.flatMap(c => c.plans.flatMap(p => p.states)))].sort();
+  const sel = document.getElementById('ncStateSelect');
+  states.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = s; opt.textContent = s;
+    sel.appendChild(opt);
+  });
+})();
+
+function setFilter(f) {
+  _activeFilter = f;
+  document.querySelectorAll('.filter-pill').forEach(el =>
+    el.classList.toggle('active', el.dataset.filter === f)
+  );
+  renderList();
+}
+
+function renderList() {
+  const q = document.getElementById('ncSearch').value.trim().toLowerCase();
+  const stateFilter = document.getElementById('ncStateSelect').value;
+  const listEl = document.getElementById('ncAccordionList');
+  const noResults = document.getElementById('ncNoResults');
+
+  let visibleCarriers = 0;
+  let visiblePlans = 0;
+
+  const html = NC_DATA.map((c, idx) => {
+    if (_activeFilter === 'pending' && !c.pending) return '';
+
+    // Filter plans within this carrier by search + state
+    const matchedPlans = c.plans.filter(p => {
+      const matchesQ = !q ||
+        c.carrier.toLowerCase().includes(q) ||
+        p.id.toLowerCase().includes(q) ||
+        p.states.some(s => s.toLowerCase().includes(q));
+      const matchesState = !stateFilter || p.states.includes(stateFilter);
+      return matchesQ && matchesState;
+    });
+
+    if (!matchedPlans.length) return '';
+    visibleCarriers++;
+    visiblePlans += matchedPlans.length;
+
+    // Group matched plans by state
+    const byState = {};
+    matchedPlans.forEach(p => p.states.forEach(st => {
+      if (stateFilter && st !== stateFilter) return;
+      (byState[st] = byState[st] || []).push(p.id);
+    }));
+    const stateKeys = Object.keys(byState).sort();
+
+    const isOpen = !!_openState[idx] || !!q || !!stateFilter;
+
+    return `<div class="carrier-acc${isOpen ? ' open' : ''}" data-idx="${idx}">
+      <button class="acc-header" onclick="toggleAcc(${idx})">
+        <div class="acc-left">
+          <div class="acc-icon">🚫</div>
+          <div>
+            <div class="acc-title">${c.carrier}${c.pending ? ' <span class="acc-pending">⏳ Necesita Verificación</span>' : ''}</div>
+            <div class="acc-sub">${matchedPlans.length} plan${matchedPlans.length !== 1 ? 'es' : ''} · ${stateKeys.join(', ')}</div>
+          </div>
+        </div>
+        <div class="acc-right">
+          <span class="acc-count">${matchedPlans.length}</span>
+          <span class="acc-chevron">▼</span>
+        </div>
+      </button>
+      <div class="acc-body">
+        ${stateKeys.map(st => `
+          <div class="acc-state-block">
+            <div class="acc-state-label">${st}</div>
+            ${byState[st].map(id => `<span class="plan-chip">${id}</span>`).join('')}
+          </div>`).join('')}
+        <div class="acc-note">${c.carrier === 'Humana' ? '<strong>Comisión modificada de $165.00</strong> (prorrateada por fecha efectiva) para Cambios de Plan del Mismo Tipo desde planes Humana. Fuente: Humana PPP GCHMRX7EN 01/2026. Siempre verifica antes de inscribir.' : 'Solo ventas nuevas — las renovaciones reciben FMV. Siempre verifica con ' + c.carrier + ' antes de inscribir.'}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  listEl.innerHTML = html;
+  noResults.style.display = visibleCarriers ? 'none' : 'block';
+  document.getElementById('ncResultCount').textContent =
+    visibleCarriers ? `${visiblePlans} plan${visiblePlans !== 1 ? 'es' : ''} de ${visibleCarriers} aseguradora${visibleCarriers !== 1 ? 's' : ''}` : '';
+}
+
+function toggleAcc(idx) {
+  _openState[idx] = !_openState[idx];
+  renderList();
+}
+
+document.getElementById('ncSearch').addEventListener('input', renderList);
+renderList();
+</script>
+<script>
+(function(){
+  var p = window.location.pathname.replace(/\/+$/,'') || '/';
+  document.querySelectorAll('.pill-nav a[href]').forEach(function(a){
+    a.classList.remove('active');
+    var h = a.getAttribute('href').replace(/\/+$/,'');
+    if (h && p === h) a.classList.add('active');
+  });
+})();
+</script>
+</body>
+</html>

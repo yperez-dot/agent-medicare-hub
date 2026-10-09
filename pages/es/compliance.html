@@ -151,6 +151,23 @@ body{
 <link rel="stylesheet" href="/hub-nav.css">
 <link rel="stylesheet" href="/hub-hero.css">
 <link rel="stylesheet" href="/hub-density.css">
+<link rel="stylesheet" href="/hub-clean.css">
+<style id="r3">
+.cta-row .btn,.btn{padding:9px 16px;border-radius:999px;font:700 13px/1 Arial,sans-serif;}
+.btn.accent{background:#452068;color:#fff;}
+.section{border:1px solid #ECE8F1;border-radius:14px;padding:16px 18px;margin-top:12px;}
+.section h2{font:700 18px/1.3 'Inter',Arial,sans-serif;margin:0 0 8px;}
+.section p,.list{font-size:14.5px;}
+.kicker{margin-bottom:6px;}
+.grid-3{gap:10px;grid-template-columns:repeat(4,minmax(0,1fr));}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.grid-3{grid-template-columns:1fr;}}
+.card{border:1px solid #ECE8F1;border-radius:12px;padding:12px 14px;}
+.card h3{font:700 15.5px/1.3 'Inter',Arial,sans-serif;}
+.badge{font:600 11.5px/1 Arial,sans-serif;padding:5px 9px;}
+.note{border:1px solid #ECE8F1;background:#f7f2fb;border-radius:12px;padding:12px 14px;}
+.faq-item summary{font-weight:700;font-size:15px;}
+</style>
 <script src="/hub-nav.js" defer></script>
 </head>
 
@@ -159,11 +176,11 @@ body{
   <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
   <nav class="pill-nav">
     <a href='/home'>Panel del Agente</a>
-    <a href='/learn'>Broker University</a>
+    <a href='/learn'>Universidad del Broker</a>
     <a href='/carrier-info'>Info de Aseguradoras</a>
     <a href='/events'>Eventos</a>
     <a class='active' href='/es/compliance'>Cumplimiento</a>
-    <a href='/tools-perks'>Agent Tools Hub</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
     <a href='/retention-toolkit'>Kit de Retención</a>
     <a href='/sep-tracker'>Rastreador de SEP</a>
     <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
@@ -181,7 +198,7 @@ body{
  </div>
 
  <div class="cta-row">
- <a class="btn accent" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
+ <a class="btn primary" href="https://yourfmo.com/compliance/" target="_blank" rel="noopener">
  Acceder al Portal de Cumplimiento YourFMO
  </a>
  <a class="btn outline" href="/aep-2027-training">Tomar Capacitación AEP 2027</a>
@@ -195,7 +212,7 @@ body{
  <a href="#faq">Preguntas Frecuentes</a>
  </div>
 
- <section class="section" id="soa-2027" style="border:2px solid #DC2626;">
+ <section class="section" id="soa-2027" style="border:1px solid #ECE8F1;border-left:3px solid #DC2626;">
  <div class="kicker">
  <h2 style="color:#DC2626;">NUEVO — Cambio de regla del SOA · Vigente el 1 de octubre de 2026</h2>
  <span class="badge" style="background:rgba(220,38,38,.1);color:#DC2626;border-color:rgba(220,38,38,.3);">Regla Final CY2027</span>
@@ -206,7 +223,7 @@ body{
  <p>A partir del <strong>1 de octubre de 2026</strong> para inscripciones del Año del Plan 2027, las citas pueden realizarse el mismo día en que se completa un SOA. Todos los demás requisitos del SOA siguen vigentes.</p>
 
  <div class="grid-3" style="margin-top:16px;">
- <div class="card" style="border-color:#FCA5A5;background:#FEF2F2;">
+ <div class="card" style="background:#FEF2F2;border-color:#FBE3E3;">
  <h3 style="color:#DC2626;">Qué cambió</h3>
  <p>Se elimina la espera de 48 horas. Se permiten citas el mismo día a partir del 1 de oct de 2026 para inscripciones PY27.</p>
  </div>
@@ -224,7 +241,7 @@ body{
  </div>
  </div>
 
- <div style="margin-top:16px;background:#fff8f8;border:1px solid #FCA5A5;border-radius:14px;padding:14px;">
+ <div style="margin-top:16px;background:#fff;border:1px solid #ECE8F1;border-radius:12px;padding:14px;">
  <strong style="font-size:13px;display:block;margin-bottom:8px;">Acciones para el agente</strong>
  <ul class="list">
  <li>Obtén y documenta un SOA antes de cada cita de mercadeo personal</li>
@@ -247,7 +264,6 @@ body{
  <section class="section" id="official-portal">
  <div class="kicker">
  <h2>Portal Oficial de Cumplimiento</h2>
- <span class="badge">Siempre Actualizado</span>
  </div>
 
  <p>
@@ -288,7 +304,7 @@ body{
  <p>Usa materiales de marketing aprobados y evita representaciones engañosas o no aprobadas de los planes.</p>
  </div>
 
- <div class="card" style="border-color:#FCA5A5;">
+ <div class="card">
  <h3>Alcance de la Cita (SOA)</h3>
  <p>Obtén y documenta un SOA antes de cada cita. <strong style="color:#DC2626;">NUEVO 1 oct 2026:</strong> se elimina la espera de 48 horas — ahora se permiten citas el mismo día para PY2027.</p>
  </div>
@@ -314,7 +330,6 @@ body{
  <section class="section" id="aep">
  <div class="kicker">
  <h2>Recordatorio AEP / OEP</h2>
- <span class="badge">Alta Prioridad</span>
  </div>
 
  <p>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+<script>
+(function(){
+  if (new URLSearchParams(window.location.search).get('preview') === 'THEI') return;
+  try {
+    var s = JSON.parse(localStorage.getItem('hub_session') || 'null');
+    if (!s || !s.token || s.expires < Date.now()) {
+      localStorage.removeItem('hub_session');
+      window.location.replace('/login.html');
+    }
+  } catch(e) { window.location.replace('/login.html'); }
+})();
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Niveles de Medicaid | Medicare Agent Hub</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+:root{--purple:#452068;--purple-dark:#341751;--purple-tint:#F1ECF6;--pink:#FF1090;--pink-tint:#FFE8F3;--pink-dark:#D10E78;--bg:#F6F5F8;--surface:#fff;--border:#E7E4ED;--text:#241C2E;--text-soft:#6E687C;--text-faint:#9A94A8;--green:#1E8A5C;--green-tint:#E3F5EC;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55;}
+.top-bar{background:#fff;border-bottom:1px solid #E7E4ED;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:12px 32px;gap:16px;}
+.logo-wrap img{height:52px;width:auto;display:block;}
+.pill-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.pill-nav a{display:inline-block;padding:9px 20px;border:1.5px solid var(--border);border-radius:999px;font:600 13px/1 Arial,sans-serif;color:var(--purple);text-decoration:none;transition:all .15s;}
+.pill-nav a:hover,.pill-nav a.active{background:var(--purple);border-color:var(--purple);color:#fff;}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 22px 36px;}
+.section{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:0 1px 3px rgba(36,28,46,.06);}
+.section h2{font:700 18px/1.2 Arial,sans-serif;margin-bottom:8px;}
+.section .lead{font:400 13.5px/1.55 Arial,sans-serif;color:var(--text-soft);margin-bottom:14px;}
+.note{font:400 13px/1.5 Arial,sans-serif;color:var(--text-soft);background:var(--purple-tint);border-radius:10px;padding:10px 12px;margin:10px 0 14px;}
+.note strong{color:var(--purple);}
+.bullets{margin:0 0 14px 18px;color:var(--text-soft);font-size:13.5px;}
+.bullets li{margin:4px 0;}
+.table-wrap{overflow-x:auto;}
+table.ref{width:100%;border-collapse:collapse;font-size:13.5px;}
+.ref th{background:var(--purple-dark);color:#fff;text-align:left;padding:11px 12px;font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em;}
+.ref th:first-child{position:sticky;left:0;z-index:1;background:var(--purple-dark);}
+.ref td{padding:11px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text);}
+.ref td:first-child{position:sticky;left:0;background:#fff;font-weight:800;color:var(--purple);white-space:nowrap;}
+.ref tr:nth-child(even) td{background:#FBF8FF;}
+.ref tr:nth-child(even) td:first-child{background:#FBF8FF;}
+.ref tr:last-child td{border-bottom:none;}
+.yes{color:var(--green);font-weight:800;}
+.no{color:#9A94A8;font-weight:700;}
+.limited{color:#B45309;font-weight:700;}
+.level-cards{display:none;}
+.level-card{border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;}
+.level-card h3{font:800 15px/1.2 Arial,sans-serif;color:var(--purple);margin-bottom:8px;}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:13px;}
+.kv dt{color:var(--text-faint);}
+.kv dd{font-weight:700;text-align:right;}
+.footnote{font:400 12.5px/1.5 Arial,sans-serif;color:var(--text-soft);padding:4px 2px;}
+@media(max-width:800px){
+  .desktop-table{display:none;}
+  .level-cards{display:block;}
+  .ref th:first-child,.ref td:first-child{position:static;}
+}
+@media(max-width:600px){.top-bar{flex-direction:column;align-items:flex-start;gap:10px;}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hub-nav.css">
+<link rel="stylesheet" href="/hub-hero.css">
+<link rel="stylesheet" href="/hub-density.css">
+<script src="/hub-nav.js" defer></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo-wrap"><img src="/thei-logo.png" alt="THEI"></div>
+  <nav class="pill-nav">
+    <a href='/home'>Panel del Agente</a>
+    <a href='/learn'>Universidad del Broker</a>
+    <a href='/carrier-info'>Info de Aseguradoras</a>
+    <a href='/events'>Eventos</a>
+    <a href='/compliance'>Cumplimiento</a>
+    <a href='/tools-perks'>Herramientas y Beneficios</a>
+    <a href='/retention-toolkit'>Kit de Retención</a>
+    <a href='/sep-tracker'>Rastreador de SEP</a>
+    <a href="#" onclick="logout()" style="color:#D6336C;border-color:#F5C0C0;">Cerrar Sesión</a>
+    <button onclick="window.location.href='/home.html'" title="Tour del Hub" style="width:30px;height:30px;border-radius:50%;background:#452068;color:#fff;border:none;font:700 13px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-left:4px;">?</button>
+  </nav>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Niveles de Medicaid y Ayuda Adicional (Extra Help)</h1>
+    <p>Referencia rápida dentro del hub para los copagos de LIS y los niveles del Programa de Ahorros de Medicare (MSP) — clasifica a los miembros sin abrir un Google Doc.</p>
+  </div>
+
+  <section class="section">
+    <h2>Ayuda Adicional LIS (Extra Help)</h2>
+    <p class="lead">Cubre parte o la totalidad de las primas mensuales, deducibles y copagos de los planes de medicamentos de Medicare. Los miembros pagan copagos según su nivel de LIS — esos copagos son lo que el agente necesita saber en una llamada de ventas.</p>
+    <ul class="bullets">
+      <li><strong>Inscripción automática:</strong> Medicaid, SSI o cualquier Programa de Ahorros de Medicare (QMB / SLMB / QI) inscribe automáticamente al miembro en Extra Help.</li>
+      <li><strong>Solicitud:</strong> en línea con el Seguro Social (SSA) o llamando al <a href="tel:18007721213" style="color:#452068;font-weight:700;">1-800-772-1213</a>.</li>
+      <li><strong>Desde 2024:</strong> solo existen beneficios completos de Extra Help — el antiguo nivel parcial de LIS ya no existe.</li>
+    </ul>
+    <div class="note"><strong>Ingresos / bienes para Extra Help 2026</strong> (Florida, alineado con las cifras de MSP vigentes de THEI / HealthExps): Individual ≤ $1,903/mes · Pareja ≤ $2,575/mes · Bienes $17,220. Por lo general no se cuentan la casa ni un carro. El ingreso contable suele ser menor que el ingreso bruto (no cuentan los primeros $20 de la mayoría de los ingresos ni los primeros $65 de ingresos por trabajo).</div>
+
+    <div class="table-wrap">
+      <table class="ref">
+        <thead>
+          <tr>
+            <th>Nivel de LIS</th>
+            <th>Copago genérico</th>
+            <th>Copago de marca</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Nivel 1</td><td>$5.10</td><td>$12.65</td></tr>
+          <tr><td>Nivel 2</td><td>$1.60</td><td>$12.65</td></tr>
+          <tr><td>Nivel 3</td><td>$0</td><td>$0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Niveles de Medicaid / Programa de Ahorros de Medicare</h2>
+    <p class="lead">Usa esto para clasificar al miembro durante una llamada. Las diferencias de beneficios vienen de la hoja de referencia de Medicaid y LIS de THEI (actualizada el 04/07/2026).</p>
+
+    <div class="table-wrap desktop-table">
+      <table class="ref">
+        <thead>
+          <tr>
+            <th>Nivel</th>
+            <th>¿Medicaid completo?</th>
+            <th>Paga la prima de la Parte A</th>
+            <th>Paga la prima de la Parte B</th>
+            <th>Paga deducibles / copagos de servicios de Medicare</th>
+            <th>Notas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>QMB+</td>
+            <td class="yes">Sí</td>
+            <td class="yes">Sí</td>
+            <td class="yes">Sí</td>
+            <td class="yes">Sí</td>
+            <td>Medicaid cubre los costos compartidos de Medicare <em>y</em> tiene Medicaid completo. El miembro no paga nada excepto los copagos de la Parte D.</td>
+          </tr>
+          <tr>
+            <td>QMB</td>
+            <td class="no">No</td>
+            <td class="yes">Sí</td>
+            <td class="yes">Sí</td>
+            <td class="yes">Sí</td>
+            <td>Solo costos compartidos — no tiene Medicaid completo. Paga las primas de las Partes A y B, deducibles, coseguros y copagos de los servicios cubiertos por Medicare. El miembro no paga nada excepto los copagos de la Parte D.</td>
+          </tr>
+          <tr>
+            <td>QI</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="yes">Sí</td>
+            <td class="no">No</td>
+            <td>Solo la prima de la Parte B. El estado no paga los costos compartidos. No tiene Medicaid completo. Cupos limitados; debe volver a solicitar cada año.</td>
+          </tr>
+          <tr>
+            <td>SLMB+</td>
+            <td class="yes">Sí</td>
+            <td class="no">No</td>
+            <td class="yes">Sí</td>
+            <td class="limited">Limitado</td>
+            <td>Prima de la Parte B + Medicaid completo. Por lo general 0% de costos compartidos cuando el servicio está cubierto por Medicare y Medicaid. El miembro puede pagar cuando Medicaid no cubre el servicio.</td>
+          </tr>
+          <tr>
+            <td>SLMB</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="yes">Sí</td>
+            <td class="no">No</td>
+            <td>Solo la prima de la Parte B. El estado no paga los costos compartidos. No tiene Medicaid completo.</td>
+          </tr>
+          <tr>
+            <td>FBDE</td>
+            <td class="yes">Sí</td>
+            <td class="no">No</td>
+            <td class="no">No</td>
+            <td class="limited">Limitado</td>
+            <td>Medicaid completo. Medicaid puede dar ayuda limitada con los costos compartidos de Medicare. Por lo general 0% cuando Medicare y Medicaid cubren el servicio; el miembro puede pagar cuando Medicaid no lo cubre.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="level-cards">
+      <article class="level-card">
+        <h3>QMB+</h3>
+        <dl class="kv">
+          <dt>¿Medicaid completo?</dt><dd class="yes">Sí</dd>
+          <dt>Prima de la Parte A</dt><dd class="yes">Sí</dd>
+          <dt>Prima de la Parte B</dt><dd class="yes">Sí</dd>
+          <dt>Deducibles / copagos de Medicare</dt><dd class="yes">Sí</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Costos compartidos + Medicaid completo. El miembro no paga nada excepto los copagos de la Parte D.</p>
+      </article>
+      <article class="level-card">
+        <h3>QMB</h3>
+        <dl class="kv">
+          <dt>¿Medicaid completo?</dt><dd class="no">No</dd>
+          <dt>Prima de la Parte A</dt><dd class="yes">Sí</dd>
+          <dt>Prima de la Parte B</dt><dd class="yes">Sí</dd>
+          <dt>Deducibles / copagos de Medicare</dt><dd class="yes">Sí</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Solo costos compartidos. El miembro no paga nada excepto los copagos de la Parte D.</p>
+      </article>
+      <article class="level-card">
+        <h3>QI</h3>
+        <dl class="kv">
+          <dt>¿Medicaid completo?</dt><dd class="no">No</dd>
+          <dt>Prima de la Parte A</dt><dd class="no">No</dd>
+          <dt>Prima de la Parte B</dt><dd class="yes">Sí</dd>
+          <dt>Deducibles / copagos de Medicare</dt><dd class="no">No</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Solo la prima de la Parte B. Debe volver a solicitar cada año.</p>
+      </article>
+      <article class="level-card">
+        <h3>SLMB+</h3>
+        <dl class="kv">
+          <dt>¿Medicaid completo?</dt><dd class="yes">Sí</dd>
+          <dt>Prima de la Parte A</dt><dd class="no">No</dd>
+          <dt>Prima de la Parte B</dt><dd class="yes">Sí</dd>
+          <dt>Deducibles / copagos de Medicare</dt><dd class="limited">Limitado</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Parte B + Medicaid completo. Por lo general 0% cuando ambos programas cubren el servicio.</p>
+      </article>
+      <article class="level-card">
+        <h3>SLMB</h3>
+        <dl class="kv">
+          <dt>¿Medicaid completo?</dt><dd class="no">No</dd>
+          <dt>Prima de la Parte A</dt><dd class="no">No</dd>
+          <dt>Prima de la Parte B</dt><dd class="yes">Sí</dd>
+          <dt>Deducibles / copagos de Medicare</dt><dd class="no">No</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Solo la prima de la Parte B. No tiene Medicaid completo.</p>
+      </article>
+      <article class="level-card">
+        <h3>FBDE</h3>
+        <dl class="kv">
+          <dt>¿Medicaid completo?</dt><dd class="yes">Sí</dd>
+          <dt>Prima de la Parte A</dt><dd class="no">No</dd>
+          <dt>Prima de la Parte B</dt><dd class="no">No</dd>
+          <dt>Deducibles / copagos de Medicare</dt><dd class="limited">Limitado</dd>
+        </dl>
+        <p class="lead" style="margin:10px 0 0;">Medicaid completo. Ayuda limitada con los costos compartidos de Medicare; por lo general 0% cuando ambos cubren el servicio.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Límites de MSP y Extra Help en Florida 2026</h2>
+    <p class="lead">Cifras resumidas de ingresos/bienes de la referencia de MSP vigente de THEI / HealthExps. Medicaid completo (QMB+, SLMB+, FBDE) usa los límites de Medicaid del DCF del estado — verifica con el DCF.</p>
+    <div class="table-wrap">
+      <table class="ref">
+        <thead>
+          <tr>
+            <th>Programa</th>
+            <th>Individual</th>
+            <th>Pareja</th>
+            <th>Límite de bienes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>QMB</td><td>≤ $1,330/mes</td><td>≤ $1,803/mes</td><td>$9,950</td></tr>
+          <tr><td>SLMB</td><td>≤ $1,596/mes</td><td>≤ $2,164/mes</td><td>$9,950</td></tr>
+          <tr><td>QI</td><td>≤ $1,796/mes</td><td>≤ $2,435/mes</td><td>$9,950</td></tr>
+          <tr><td>Extra Help / LIS</td><td>≤ $1,903/mes</td><td>≤ $2,575/mes</td><td>$17,220</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <p class="footnote">Actualizado el 7 de abr. de 2026 · Referencia para agentes · verifica con el estado/DCF según sea necesario. Las cifras de ingresos están alineadas con los números de MSP 2026 de HealthExps / el hub (el texto de ingresos de LIS 2025 del antiguo Google Doc está desactualizado).</p>
+</div>
+
+<script>
+function logout(){ localStorage.removeItem('hub_session'); window.location.replace('/login.html'); }
+</script>
+</body>
+</html>
