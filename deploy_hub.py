@@ -1,3 +1,6 @@
+# PRODUCTION deploy for agentmedicarehub.com. Do not use this for the
+# weekly SEP tracker job unless Yahoska has explicitly approved a production
+# publish. For review, use: python3 sep-tracker/preview_deploy.py
 #!/usr/bin/env python3
 """
 Agent Hub — Netlify Deploy Script
