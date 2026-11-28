@@ -18,6 +18,16 @@ BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
 PAGES_DIR  = os.path.join(BASE_DIR, "pages")
 FILES_DIR  = os.path.join(BASE_DIR, "files")
 
+
+def validate_sep_tracker():
+    import subprocess
+    script = os.path.join(BASE_DIR, "sep-tracker", "validate_embedded_data.py")
+    if not os.path.exists(script):
+        raise SystemExit("Missing sep-tracker/validate_embedded_data.py")
+    result = subprocess.run([sys.executable, script], cwd=BASE_DIR)
+    if result.returncode != 0:
+        raise SystemExit("SEP tracker validation failed; refusing to deploy")
+
 def load_token():
     with open(TOKEN_FILE) as f:
         for line in f:
@@ -98,6 +108,7 @@ if __name__ == "__main__":
         tmp_path = tmp.name
 
     try:
+        validate_sep_tracker()
         build_zip(tmp_path)
         deploy_id = deploy(token, tmp_path)
         verify()

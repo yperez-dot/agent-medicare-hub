@@ -9,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Validate SEP tracker embedded data
+        run: python3 sep-tracker/validate_embedded_data.py
+
       - name: Build publish directory
         run: |
           mkdir -p _publish
