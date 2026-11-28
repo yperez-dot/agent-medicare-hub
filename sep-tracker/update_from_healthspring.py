@@ -4,15 +4,14 @@ from __future__ import annotations
 
 import json
 import re
-import shutil
 from datetime import date, datetime
 from pathlib import Path
 
 TODAY = date(2026, 8, 21)
 ROOT = Path(__file__).resolve().parent
 JSON_PATH = ROOT / "data" / "seps.json"
-HTML_PATH = ROOT / "index.html"
-PAGES_APP = ROOT.parent / "pages" / "sep-tracker-app.html"
+# The public hub file is the only tracker HTML to edit or write.
+APP_PATH = ROOT.parent / "pages" / "sep-tracker-app.html"
 
 EXPIRING_DAYS = 30
 
@@ -303,39 +302,19 @@ def main() -> None:
 
     JSON_PATH.write_text(json.dumps(data, indent=2) + "\n")
 
-    html = HTML_PATH.read_text()
-    html = re.sub(
-        r'<script type="application/json" id="sep-data">.*?</script>',
-        lambda _m: '<script type="application/json" id="sep-data">'
-        + json.dumps(data, separators=(",", ":"))
-        + "</script>",
-        html,
-        count=1,
-        flags=re.S,
-    )
-    html = html.replace(
-        '<span id="hdr-last-imported">2026-05-29</span> · <span id="hdr-total">3 SEPs</span>',
-        f'<span id="hdr-last-imported">{iso(TODAY)}</span> · <span id="hdr-total">{data["counts"]["total"]} SEPs</span>',
-    )
-    HTML_PATH.write_text(html)
-    shutil.copyfile(HTML_PATH, PAGES_APP)
-
-    # Re-serialize var DATA with json.dumps so raw newlines cannot break JS,
-    # then fail if the public app file is not valid.
-    for path in (HTML_PATH, PAGES_APP):
-        if not path.exists():
-            continue
-        text = path.read_text()
-        m = re.search(r"var DATA=(\[.*?\]);", text, re.S)
-        if not m:
-            continue
-        try:
-            obj = json.loads(m.group(1), strict=True)
-        except json.JSONDecodeError:
-            obj = json.loads(m.group(1), strict=False)
-        path.write_text(rewrite_var_data_with_json_dumps(text, obj))
-    if PAGES_APP.exists() and "var DATA=" in PAGES_APP.read_text():
-        validate_pages_app()
+    # Write only to the public tracker. Never maintain a second HTML copy.
+    if not APP_PATH.exists():
+        raise SystemExit(f"Missing public tracker: {APP_PATH}")
+    text = APP_PATH.read_text()
+    m = re.search(r"var DATA=(\[.*?\]);", text, re.S)
+    if not m:
+        raise SystemExit("Could not find var DATA=[...] in pages/sep-tracker-app.html")
+    try:
+        obj = json.loads(m.group(1), strict=True)
+    except json.JSONDecodeError:
+        obj = json.loads(m.group(1), strict=False)
+    APP_PATH.write_text(rewrite_var_data_with_json_dumps(text, obj))
+    validate_pages_app()
 
     fl_now = [x for x in items if x.get("state") == "FL"]
     print("added", added)
