@@ -123,6 +123,34 @@ a.chip:hover { background:rgba(255,16,144,.28); color:#fff; }
 .filters select:focus { outline:none; border-color:var(--brand); }
 .count { font-size:.95rem; color:var(--muted); font-weight:600; white-space:nowrap; }
 .count strong { color:var(--ink); }
+
+.open-summary { width:100%; font-size:1.08rem; font-weight:700; color:var(--ink); line-height:1.4; white-space:normal; }
+.open-summary .soon-n { color:var(--soon); }
+.badge-soon {
+  display:inline-flex; align-items:center;
+  margin-left:8px; padding:3px 8px; border-radius:999px;
+  font-size:.7rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase;
+  background:var(--soon-bg); color:var(--soon); white-space:nowrap; vertical-align:middle;
+}
+.col-reason .badge-soon { margin:6px 0 0; }
+.ended-fold-row { cursor:default !important; }
+.ended-fold-row:hover { background:transparent !important; }
+.ended-fold-row td { padding:0 !important; background:#f3f0f6; }
+.ended-fold {
+  width:100%; min-height:52px; display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:16px 18px; border:none; border-top:1px solid var(--line);
+  background:#f3f0f6; color:var(--ink); font:inherit; font-size:1rem; font-weight:700;
+  cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent;
+}
+.ended-fold:focus-visible { outline:2px solid var(--brand); outline-offset:-2px; }
+.ended-fold .chev { color:var(--muted); font-size:.9rem; }
+@media (max-width:640px) {
+  .open-summary { font-size:1.02rem; }
+  .ended-fold { min-height:56px; padding:16px 14px; font-size:1.05rem; border-radius:14px; border:1px solid var(--line); margin:4px 0 10px; }
+  .ended-fold-row td { background:transparent; }
+  .badge-soon { font-size:.68rem; padding:4px 8px; }
+}
+
 .clear-btn {
   border:none; background:none; color:var(--accent); font:inherit; font-size:.85rem;
   font-weight:700; cursor:pointer; padding:6px 4px;
@@ -625,7 +653,7 @@ var STATUS_META={
   ended:{label:"Ended",cls:"ended"},
   yearround:{label:"Year-round",cls:"yearround"}
 };
-var st={state:"",status:"open",search:"",expanded:{}};
+var st={state:"",status:"open",search:"",expanded:{},showEnded:false};
 
 function isoToday(){
   var n=new Date(),m=n.getMonth()+1,d=n.getDate();
@@ -671,12 +699,14 @@ function getFiltered(){
     var hay=(d.state+' '+stateName(d.state)+' '+d.name+' '+d.type+' '+scopeText(d)+' '+(d.declarations||[]).join(' ')).toLowerCase();
     return hay.indexOf(q)>=0;
   }).sort(function(a,b){
-    var rank={expiring:0,active:1,yearround:2,ended:3};
-    var ra=rank[a.status]; if(ra==null) ra=9;
-    var rb=rank[b.status]; if(rb==null) rb=9;
-    if(ra!==rb) return ra-rb;
+    var endedA=a.status==='ended', endedB=b.status==='ended';
+    if(endedA!==endedB) return endedA?1:-1;
     if(a.state!==b.state) return a.state<b.state?-1:1;
-    return (a.sepEnd||'').localeCompare(b.sepEnd||'');
+    var yrA=a.status==='yearround', yrB=b.status==='yearround';
+    if(yrA!==yrB) return yrA?1:-1;
+    var ea=a.sepEnd||'9999-12-31', eb=b.sepEnd||'9999-12-31';
+    if(ea!==eb) return ea<eb?-1:1;
+    return (a.name||'').localeCompare(b.name||'');
   });
 }
 function statusLabel(s){return (STATUS_META[s]||{label:s}).label;}
@@ -740,34 +770,55 @@ function populateStates(){
     sel.appendChild(opt);
   });
 }
+function rowHTML(d){
+  var win=splitWindow(d.sepWindow);
+  var scope=scopeText(d);
+  var long=scope.length>110;
+  var open=!!st.expanded[d.id];
+  var meta=STATUS_META[d.status]||STATUS_META.active;
+  var soonBadge=d.status==='expiring'?'<span class="badge-soon">Ends soon</span>':'';
+  return '<tr data-id="'+esc(d.id)+'">'+
+    '<td data-label="State" class="col-state state-cell"><span class="state-abbr">'+esc(d.state)+'</span><span class="state-name">'+esc(stateName(d.state))+'</span></td>'+
+    '<td data-label="SEP Reason" class="col-reason"><div class="reason">'+esc(d.name)+soonBadge+'</div><span class="reason-type">'+esc(d.type)+'</span></td>'+
+    '<td data-label="Counties / Scope" class="col-scope"><div class="scope'+(long && !open?' collapsed':'')+'">'+esc(scope)+'</div>'+
+      (long?'<span class="scope-toggle" data-toggle="'+esc(d.id)+'">'+(open?'Show fewer ▴':'Show all counties ▾')+'</span>':'')+
+    '</td>'+
+    '<td data-label="Start Date" class="col-start date">'+esc(win.start)+'</td>'+
+    '<td data-label="End Date" class="col-end date">'+esc(win.end)+'</td>'+
+    '<td data-label="Status" class="col-status"><span class="pill '+meta.cls+'"><span class="dot"></span>'+esc(meta.label)+'</span></td>'+
+  '</tr>';
+}
 function render(){
   renderStats();
   var f=getFiltered();
   var showClear=!!(st.state||st.search||(st.status && st.status!=='open'));
   document.getElementById('clearBtn').hidden=!showClear;
-  document.getElementById('countLine').innerHTML='<strong>'+f.length+'</strong> of <strong>'+DATA.length+'</strong> SEPs shown';
+  var openRows=f.filter(function(d){return d.status!=='ended';});
+  var endedRows=f.filter(function(d){return d.status==='ended';});
+  var soonN=openRows.filter(function(d){return d.status==='expiring';}).length;
+  var countEl=document.getElementById('countLine');
+  if(st.status==='open'){
+    countEl.className='count open-summary';
+    countEl.innerHTML='<strong>'+openRows.length+'</strong> open now · <strong class="soon-n">'+soonN+'</strong> end soon';
+  } else {
+    countEl.className='count';
+    countEl.innerHTML='<strong>'+f.length+'</strong> of <strong>'+DATA.length+'</strong> SEPs shown';
+  }
   var tb=document.getElementById('tbody');
   if(!f.length){
     tb.innerHTML='<tr><td colspan="6"><div class="empty"><strong>No SEPs match your filters.</strong>Try another state, status, or search term.</div></td></tr>';
     return;
   }
-  tb.innerHTML=f.map(function(d){
-    var win=splitWindow(d.sepWindow);
-    var scope=scopeText(d);
-    var long=scope.length>110;
-    var open=!!st.expanded[d.id];
-    var meta=STATUS_META[d.status]||STATUS_META.active;
-    return '<tr data-id="'+esc(d.id)+'">'+
-      '<td data-label="State" class="col-state state-cell"><span class="state-abbr">'+esc(d.state)+'</span><span class="state-name">'+esc(stateName(d.state))+'</span></td>'+
-      '<td data-label="SEP Reason" class="col-reason"><div class="reason">'+esc(d.name)+'</div><span class="reason-type">'+esc(d.type)+'</span></td>'+
-      '<td data-label="Counties / Scope" class="col-scope"><div class="scope'+(long && !open?' collapsed':'')+'">'+esc(scope)+'</div>'+
-        (long?'<span class="scope-toggle" data-toggle="'+esc(d.id)+'">'+(open?'Show fewer ▴':'Show all counties ▾')+'</span>':'')+
-      '</td>'+
-      '<td data-label="Start Date" class="col-start date">'+esc(win.start)+'</td>'+
-      '<td data-label="End Date" class="col-end date">'+esc(win.end)+'</td>'+
-      '<td data-label="Status" class="col-status"><span class="pill '+meta.cls+'"><span class="dot"></span>'+esc(meta.label)+'</span></td>'+
-    '</tr>';
-  }).join('');
+  var html=openRows.map(rowHTML).join('');
+  if(endedRows.length && (st.status==='open' || st.status==='all')){
+    var expanded=!!st.showEnded || st.status==='all';
+    html+='<tr class="ended-fold-row"><td colspan="6"><button type="button" class="ended-fold" data-ended-fold="1" aria-expanded="'+(expanded?'true':'false')+'">'+
+      (expanded?'Hide ended SEPs':'Show ended SEPs')+' ('+endedRows.length+')<span class="chev">'+(expanded?'▴':'▾')+'</span></button></td></tr>';
+    if(expanded) html+=endedRows.map(rowHTML).join('');
+  } else if(!openRows.length){
+    html=endedRows.map(rowHTML).join('');
+  }
+  tb.innerHTML=html;
 }
 function openModal(id){
   var d=DATA.find(function(x){return x.id===id;});
@@ -796,13 +847,21 @@ document.getElementById('stats').addEventListener('click', function(ev){
   if(btn) applyStatFilter(btn.getAttribute('data-stat'));
 });
 document.getElementById('clearBtn').addEventListener('click', function(){
-  st={state:"",status:"open",search:"",expanded:{}};
+  st={state:"",status:"open",search:"",expanded:{},showEnded:false};
   document.getElementById('search').value='';
   document.getElementById('stateFilter').value='';
   document.getElementById('statusFilter').value='open';
   render();
 });
 document.getElementById('tbody').addEventListener('click', function(ev){
+  var fold=ev.target.closest && ev.target.closest('[data-ended-fold]');
+  if(fold){
+    ev.preventDefault();
+    ev.stopPropagation();
+    st.showEnded=!st.showEnded;
+    render();
+    return;
+  }
   var t=ev.target;
   if(t && t.dataset && t.dataset.toggle){
     ev.stopPropagation();
