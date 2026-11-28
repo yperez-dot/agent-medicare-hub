@@ -691,9 +691,8 @@ function getFiltered(){
   var q=st.search.toLowerCase().trim();
   return DATA.filter(function(d){
     if(st.state && d.state!==st.state) return false;
-    if(st.status && st.status!=='all'){
-      if(st.status==='open'){ if(d.status==='ended') return false; }
-      else if(d.status!==st.status) return false;
+    if(st.status && st.status!=='all' && st.status!=='open'){
+      if(d.status!==st.status) return false;
     }
     if(!q) return true;
     var hay=(d.state+' '+stateName(d.state)+' '+d.name+' '+d.type+' '+scopeText(d)+' '+(d.declarations||[]).join(' ')).toLowerCase();
