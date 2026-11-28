@@ -7,7 +7,6 @@ previews match the live site:
 
   * pages/          -> site root            (e.g. /home.html, /login.html)
   * files/          -> /files/*             (PDFs, images, docx, etc.)
-  * sep-tracker/    -> /sep-tracker/*       (standalone sub-app, optional)
   * "pretty" URLs   -> /home  serves pages/home.html   (Netlify clean URLs)
   * _redirects      -> honored for simple `from to 200` rewrite rules
 
@@ -28,7 +27,6 @@ from urllib.parse import urlparse, unquote
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGES_DIR = os.path.join(REPO_ROOT, "pages")
 FILES_DIR = os.path.join(REPO_ROOT, "files")
-SEP_DIR = os.path.join(REPO_ROOT, "sep-tracker")
 PORT = int(os.environ.get("PORT", "8000"))
 
 
@@ -70,11 +68,10 @@ class HubHandler(SimpleHTTPRequestHandler):
         # Route by top-level prefix to the right source directory.
         if clean == "files" or clean.startswith("files/"):
             return os.path.join(FILES_DIR, clean[len("files/"):].lstrip("/") or ".")
-        if clean == "sep-tracker" or clean.startswith("sep-tracker/"):
-            rest = clean[len("sep-tracker"):].lstrip("/")
-            return os.path.join(SEP_DIR, rest) if rest else os.path.join(SEP_DIR, "index.html")
 
         # Everything else is served from pages/ (the site root).
+        # /sep-tracker is pages/sep-tracker.html via _redirects, then the
+        # iframe at /sep-tracker-app.html — same as production Netlify.
         candidate = os.path.join(PAGES_DIR, clean) if clean else PAGES_DIR
 
         if os.path.isdir(candidate):
