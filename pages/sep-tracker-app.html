@@ -123,6 +123,44 @@ a.chip:hover { background:rgba(255,16,144,.28); color:#fff; }
 .filters select:focus { outline:none; border-color:var(--brand); }
 .count { font-size:.95rem; color:var(--muted); font-weight:600; white-space:nowrap; }
 .count strong { color:var(--ink); }
+
+.sep-tabs {
+  display:flex; flex-wrap:wrap; gap:8px;
+  background:var(--panel); border-left:1px solid var(--line); border-right:1px solid var(--line);
+  padding:0 18px 12px;
+}
+.sep-tab {
+  flex:1 1 0; min-width:0; min-height:48px;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:10px 12px; border:1.5px solid var(--line); border-radius:999px;
+  background:#fff; color:var(--ink); font:inherit; font-size:.95rem; font-weight:700;
+  cursor:pointer; -webkit-tap-highlight-color:transparent;
+  transition:background .12s, border-color .12s, color .12s, box-shadow .12s;
+}
+.sep-tab .tab-n {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:1.6em; padding:1px 7px; border-radius:999px;
+  background:var(--bg); font-size:.85rem; font-variant-numeric:tabular-nums;
+}
+.sep-tab[aria-selected="true"] {
+  background:var(--brand); border-color:var(--brand); color:#fff;
+  box-shadow:0 2px 8px rgba(69,32,104,.2);
+}
+.sep-tab[aria-selected="true"] .tab-n { background:rgba(255,255,255,.18); color:#fff; }
+.sep-tab:focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+@media (max-width:640px) {
+  .sep-tabs {
+    display:grid; grid-template-columns:1fr 1fr; gap:8px;
+    padding:0 12px 12px;
+  }
+  .sep-tab { min-height:52px; border-radius:14px; font-size:.95rem; padding:12px 10px; }
+  .filters { grid-template-columns:1fr; }
+  .status-filter-legacy { display:none !important; }
+}
+@media (min-width:641px) {
+  .status-filter-legacy { display:none !important; }
+}
+
 .clear-btn {
   border:none; background:none; color:var(--accent); font:inherit; font-size:.85rem;
   font-weight:700; cursor:pointer; padding:6px 4px;
@@ -531,17 +569,20 @@ a.chip:hover{background:rgba(255,255,255,.22);color:#fff;}
       <select id="stateFilter" aria-label="Filter by state">
         <option value="">All states</option>
       </select>
-      <select id="statusFilter" aria-label="Filter by status">
-        <option value="open" selected>Active + ending soon</option>
-        <option value="active">Active only</option>
+      <select id="statusFilter" class="status-filter-legacy" aria-label="Filter by status">
+        <option value="active" selected>Active only</option>
         <option value="expiring">Ending soon</option>
+        <option value="yearround">Year-round</option>
         <option value="ended">Ended</option>
+        <option value="open">Active + ending soon</option>
         <option value="all">All statuses</option>
       </select>
     </div>
     <button type="button" class="clear-btn" id="clearBtn" hidden>Clear filters</button>
     <div class="count" id="countLine">—</div>
   </div>
+
+  <div class="sep-tabs" id="sepTabs" role="tablist" aria-label="SEP status"></div>
 
   <div class="stats" id="stats" aria-label="SEP summary counts"></div>
 
@@ -625,7 +666,7 @@ var STATUS_META={
   ended:{label:"Ended",cls:"ended"},
   yearround:{label:"Year-round",cls:"yearround"}
 };
-var st={state:"",status:"open",search:"",expanded:{}};
+var st={state:"",status:"active",search:"",expanded:{}};
 
 function isoToday(){
   var n=new Date(),m=n.getMonth()+1,d=n.getDate();
@@ -681,6 +722,30 @@ function getFiltered(){
 }
 function statusLabel(s){return (STATUS_META[s]||{label:s}).label;}
 
+function renderTabs(){
+  var q=st.search.toLowerCase().trim();
+  function matchesSearch(d){
+    if(st.state && d.state!==st.state) return false;
+    if(!q) return true;
+    var hay=(d.state+' '+stateName(d.state)+' '+d.name+' '+d.type+' '+scopeText(d)+' '+(d.declarations||[]).join(' ')).toLowerCase();
+    return hay.indexOf(q)>=0;
+  }
+  var pool=DATA.filter(matchesSearch);
+  var tabs=[
+    {key:'active', label:'Active'},
+    {key:'expiring', label:'Ending soon'},
+    {key:'ended', label:'Ended'}
+  ];
+  if(pool.some(function(d){return d.status==='yearround';}) || DATA.some(function(d){return d.status==='yearround';})){
+    tabs.splice(2, 0, {key:'yearround', label:'Year-round'});
+  }
+  document.getElementById('sepTabs').innerHTML=tabs.map(function(t){
+    var n=pool.filter(function(d){return d.status===t.key;}).length;
+    var on=st.status===t.key;
+    return '<button type="button" class="sep-tab" role="tab" id="tab-'+t.key+'" data-tab="'+t.key+'" aria-selected="'+(on?'true':'false')+'">'+
+      esc(t.label)+'<span class="tab-n">'+n+'</span></button>';
+  }).join('');
+}
 function renderStats(){
   var activeN=DATA.filter(function(d){return d.status==='active';}).length;
   var expN=DATA.filter(function(d){return d.status==='expiring';}).length;
@@ -688,7 +753,7 @@ function renderStats(){
   function selected(key){
     if(key==='active') return st.status==='active' && !st.state;
     if(key==='expiring') return st.status==='expiring' && !st.state;
-    if(key==='fl') return st.state==='FL' && (st.status==='open' || st.status==='active' || st.status==='expiring');
+    if(key==='fl') return st.state==='FL' && (st.status==='active' || st.status==='expiring' || st.status==='open');
     if(key==='total') return st.status==='all' && !st.state;
     return false;
   }
@@ -712,19 +777,19 @@ function applyStatFilter(key){
     (key==='total' && st.status==='all' && !st.state);
   if(already){
     st.state='';
-    st.status='open';
+    st.status='active';
   } else if(key==='active'){
     st.state=''; st.status='active';
   } else if(key==='expiring'){
     st.state=''; st.status='expiring';
   } else if(key==='fl'){
-    st.state='FL'; st.status='open';
+    st.state='FL'; st.status='active';
   } else if(key==='total'){
     st.state=''; st.status='all';
   }
   document.getElementById('search').value=st.search||'';
   document.getElementById('stateFilter').value=st.state||'';
-  document.getElementById('statusFilter').value=st.status||'open';
+  document.getElementById('statusFilter').value=st.status||'active';
   render();
   var table=document.querySelector('.table-wrap');
   if(table) table.scrollIntoView({behavior:'smooth', block:'nearest'});
@@ -741,11 +806,16 @@ function populateStates(){
   });
 }
 function render(){
+  renderTabs();
   renderStats();
   var f=getFiltered();
-  var showClear=!!(st.state||st.search||(st.status && st.status!=='open'));
+  var showClear=!!(st.state||st.search||(st.status && st.status!=='active'));
   document.getElementById('clearBtn').hidden=!showClear;
-  document.getElementById('countLine').innerHTML='<strong>'+f.length+'</strong> of <strong>'+DATA.length+'</strong> SEPs shown';
+  var tabLabel=(STATUS_META[st.status]||{label:'Matching'}).label;
+  if(st.status==='expiring') tabLabel='Ending soon';
+  if(st.status==='all') tabLabel='matching';
+  if(st.status==='open') tabLabel='open';
+  document.getElementById('countLine').innerHTML='<strong>'+f.length+'</strong> '+esc(tabLabel.toLowerCase())+' SEPs';
   var tb=document.getElementById('tbody');
   if(!f.length){
     tb.innerHTML='<tr><td colspan="6"><div class="empty"><strong>No SEPs match your filters.</strong>Try another state, status, or search term.</div></td></tr>';
@@ -796,10 +866,17 @@ document.getElementById('stats').addEventListener('click', function(ev){
   if(btn) applyStatFilter(btn.getAttribute('data-stat'));
 });
 document.getElementById('clearBtn').addEventListener('click', function(){
-  st={state:"",status:"open",search:"",expanded:{}};
+  st={state:"",status:"active",search:"",expanded:{}};
   document.getElementById('search').value='';
   document.getElementById('stateFilter').value='';
-  document.getElementById('statusFilter').value='open';
+  document.getElementById('statusFilter').value='active';
+  render();
+});
+document.getElementById('sepTabs').addEventListener('click', function(ev){
+  var btn=ev.target.closest('[data-tab]');
+  if(!btn) return;
+  st.status=btn.getAttribute('data-tab');
+  document.getElementById('statusFilter').value=st.status;
   render();
 });
 document.getElementById('tbody').addEventListener('click', function(ev){
