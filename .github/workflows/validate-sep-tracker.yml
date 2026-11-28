@@ -1,0 +1,17 @@
+name: Validate SEP tracker
+
+on:
+  pull_request:
+  push:
+    paths:
+      - 'pages/sep-tracker-app.html'
+      - 'sep-tracker/validate_embedded_data.py'
+      - '.github/workflows/validate-sep-tracker.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check embedded DATA and inline script
+        run: python3 sep-tracker/validate_embedded_data.py

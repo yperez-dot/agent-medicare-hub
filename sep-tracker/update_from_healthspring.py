@@ -195,6 +195,25 @@ def counts(items: list[dict]) -> dict:
     }
 
 
+
+
+def rewrite_var_data_with_json_dumps(html: str, data_obj) -> str:
+    """Replace var DATA=[...]; using json.dumps so newlines are escaped."""
+    payload = "var DATA=" + json.dumps(data_obj, separators=(",", ":"), ensure_ascii=False) + ";"
+    new_html, n = re.subn(r"var DATA=\[.*?\];", lambda _m: payload, html, count=1, flags=re.S)
+    if n != 1:
+        raise SystemExit("Could not rewrite var DATA=[...] via json.dumps")
+    return new_html
+
+
+def validate_pages_app() -> None:
+    import subprocess, sys
+    script = ROOT / "validate_embedded_data.py"
+    result = subprocess.run([sys.executable, str(script)], cwd=ROOT.parent)
+    if result.returncode != 0:
+        raise SystemExit("SEP tracker validation failed after update")
+
+
 def main() -> None:
     data = json.loads(JSON_PATH.read_text())
     items = data["items"]
@@ -300,6 +319,23 @@ def main() -> None:
     )
     HTML_PATH.write_text(html)
     shutil.copyfile(HTML_PATH, PAGES_APP)
+
+    # Re-serialize var DATA with json.dumps so raw newlines cannot break JS,
+    # then fail if the public app file is not valid.
+    for path in (HTML_PATH, PAGES_APP):
+        if not path.exists():
+            continue
+        text = path.read_text()
+        m = re.search(r"var DATA=(\[.*?\]);", text, re.S)
+        if not m:
+            continue
+        try:
+            obj = json.loads(m.group(1), strict=True)
+        except json.JSONDecodeError:
+            obj = json.loads(m.group(1), strict=False)
+        path.write_text(rewrite_var_data_with_json_dumps(text, obj))
+    if PAGES_APP.exists() and "var DATA=" in PAGES_APP.read_text():
+        validate_pages_app()
 
     fl_now = [x for x in items if x.get("state") == "FL"]
     print("added", added)
