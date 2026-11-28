@@ -168,9 +168,9 @@ table.sep-table { width:100%; border-collapse:collapse; font-size:var(--fs-body)
 .sep-table tbody tr:nth-child(even) { background:var(--row-alt); }
 .sep-table tbody tr:hover { background:#f3e9fb; }
 .sep-table td { padding:15px 14px; vertical-align:top; }
-.sep-table td:first-child { padding-left:20px; }
-.state-cell { font-weight:700; color:var(--brand); white-space:nowrap; }
-.state-name { font-weight:700; }
+.sep-table td:first-child { padding-left:20px; max-width:140px; overflow:hidden; }
+.state-cell { font-weight:700; color:var(--brand); }
+.state-name { font-weight:700; display:block; margin-top:2px; line-height:1.3; word-break:break-word; }
 .state-abbr {
   display:inline-flex; align-items:center; justify-content:center;
   min-width:36px; padding:4px 9px; border-radius:7px;
